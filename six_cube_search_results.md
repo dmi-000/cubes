@@ -813,3 +813,57 @@ triples on the shared (1,1,1) axis, ℚ); prior overall 681 (golden five +
 (1,1,1) sixth, ℚ(√5)); prior rational 655 (double-pair wall); rational
 random+climb 635; d1 record 238 (golden family B), d2 high 216 (699); deep
 ceilings d3 ≤ 164 / d4 ≤ 102 / d5 ≤ 36 still never exceeded anywhere.
+
+## Postscript 10: symmetry-stratified sweep of the walls — no new record, framework validated, coverage caveat
+
+(symmetry_search.py, symmetry_search.jsonl, symmetry_search_report.md,
+SYMMETRY_SEARCH_SPEC.md.) Systematic search of the symmetry walls: for
+each finite subgroup G ⊂ SO(3), enumerate 6-cube orbit-partitions and
+exact-count each family in its proper field. A cube is a coset in
+SO(3)/O, so orbits are computed and deduped modulo the octahedral group
+(order 24, proper frames).
+
+**Framework validated.** Gates GA–GE pass: orbit machinery correct
+(generic C₃ seed → orbit 3, aligned seed → orbit 1); reproduces the
+octahedral 3-compound = 67, the (C₃, 3+3) 699 config, and the (I,
+5+free) 681 config exactly.
+
+**Result: nothing beat 699.** Best symmetry-family totals (Phase 1
+rational G via cube_regions; Phase 2 ℚ(√5) for I/C₅):
+
+| family | best | vs 699 |
+|---|---|---|
+| I:5+free, C₅:5+free (golden) | 681 | −18 |
+| T:4+free2 | 661 | −38 |
+| D₃:3+3 | 657 | −42 |
+| C₂:2+2+2 | 653 | −46 |
+| D₂:4+free2 | 651 | −48 |
+| C₆:6 | 649 | −50 |
+| C₃:3+free3 | 643 | −56 |
+
+**CAVEAT — this is a LOWER-BOUND map, not tight ceilings.** The
+per-family seed grids are restrictive: the C₃:3+3 family, which
+PROVABLY contains 699 (gate GC reproduces it, and its quats
+independently count 699), was searched only to **399** — its grid tried
+thin axis-angle seeds, not the general-quaternion seeds the record
+needs (its second triple's seed is a full quaternion [41,28,22,14], not
+a coordinate-axis rotation). So the sweep does NOT independently
+re-derive 699, and every "best" above is a floor, not a proven family
+maximum. The true ceiling of the 699-holding family remains the slide3
+result (Postscript 9: 699, radius-2 local max, finer Farey sweep still
+open).
+
+**What the sweep DOES establish**: (1) the framework and dispatch are
+correct (gates); (2) the golden I/C₅ families cap at 681 as known; (3)
+no symmetry class OUTSIDE the shared-axis 3+3 / golden families reached
+within ~40 of 699 even at coarse coverage — the maximum concentrates in
+those two families. Phase 3 (ℚ(√2)/ℚ(√3)/towers) was deferred with
+justification: no rational family came near enough to 699 to warrant a
+quadratic refinement, and the one concrete tower point (the ℚ(√3,√5)
+681 wall) was already shown non-special (Postscript 8).
+
+**Next move if pursued**: re-run the top families (C₃:3+3 first, to
+independently confirm ≤699; then the core+free families T/D₃/C₂) with
+full-quaternion seed grids + deeper hill-climb, since the current grids
+demonstrably under-cover. Until then, 699 stands and the symmetry map
+is a floor.
