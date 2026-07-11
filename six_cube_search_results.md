@@ -918,3 +918,24 @@ for every block — and that is exactly where the gains landed.
 ceilings d3≤164/d4≤102/d5≤36 still never exceeded. Open: climb 717's D₂
 family deeper (radius 5+) and re-examine whether an even shallower-tail
 route (d3 < 158) buys more d1.
+
+## Postscript 11 addendum: 717 is capped — the shallow-tail tradeoff is a 1:1 conservation
+
+(d2_deepclimb.py, d2_deepclimb.jsonl, d2_deepclimb_report.md.) Deep-climb
+of the D₂:4+free2 record with a larger neighborhood (single ±1..±6,
+two-component ±1/±2, cross-block escape; 15 restarts) plus a 60-restart
+broad D₂ resweep and siblings (D₂:2+4 → 547, D₂:2+2+2 degenerate):
+**nothing beats 717.** Both known 717 configs are certified radius-4+
+local maxima.
+
+The deep-vs-shallow exchange table (best total at each d3 over 22,202
+by_depth'd evals) rises to a FLAT ridge at 717 spanning d3 = 152, 158,
+AND 164 (the ceiling), then falls off on both sides (d3=150 → 685,
+d3=156 → 699). All three 717 configs share d1 = 210, d4/d5/d6 = 102/36/1,
+and **d2 + d3 = 368 exactly conserved** (216+152 = 210+158 = 204+164):
+lowering d3 returns precisely its worth in d2, so the "shallow-tail
+tradeoff" is a 1:1 conservation that cannot exceed 717. A 717 config
+exists WITH the deep tail at the ceiling (d3=164, quats
+8,3,3,3;-3,-3,3,8;-3,8,-3,3;-3,3,8,-3;3,2,2,2;1,0,0,0), so the
+below-ceiling tail is incidental, not the source of the record. 717
+stands as the capped maximum of this family.

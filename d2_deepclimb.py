@@ -222,7 +222,12 @@ def climb(seeds0, nblk, blocks, tag, max_steps, budget, flagged,
     radius)."""
     cur = [gcdq(s) for s in seeds0]
     cfg0 = build_blocks(blocks, cur)
-    assert cfg0 is not None, f'climb: bad start seeds {cur}'
+    if cfg0 is None:
+        # Degenerate start (a perturbed seed collapsed the compound to
+        # fewer than 6 distinct cubes, or built an invalid frame). Not a
+        # find and not a bug -- skip this restart instead of aborting.
+        return {'seeds': cur, 'total': -1, 'bd': {}, 'steps': 0,
+                'escapes': 0, 'is_local_max': False, 'skipped': True}
     cur_total, cur_bd = eval_batch([cfg0])[0]
     budget.spend(1)
     log({'phase': 1, 'tag': tag, 'stage': 'climb-start',
@@ -274,10 +279,10 @@ def perturb(seeds, nblk, rng, nmoves):
         comp = rng.randrange(4)
         d = rng.choice(TWO_DELTAS)
         cur[i][comp] += d
-        cur[i] = gcdq(cur[i])
+        cur[i] = list(gcdq(cur[i]))   # gcdq returns a tuple; keep cur[i] mutable
         if not cap_ok(cur[i]):
             cur[i][comp] -= d   # undo an out-of-cap move
-            cur[i] = gcdq(cur[i])
+            cur[i] = list(gcdq(cur[i]))
     return [tuple(s) for s in cur]
 
 
