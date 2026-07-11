@@ -1,0 +1,611 @@
+=== GATE V1: golden-five sub-compound totals ===
+N=1: arrangement cells: 27
+N=1: bounded regions = 1   by depth: {0: 1, 1: 1}
+      per label: {0: 1, 1: 1}
+  N=1: cube_compound_exact.run=1  exact_count_config=1  expected=1  OK
+N=2: arrangement cells: 165
+N=2: bounded regions = 13   by depth: {0: 1, 1: 12, 2: 1}
+      per label: {0: 1, 1: 6, 2: 6, 3: 1}
+  N=2: cube_compound_exact.run=13  exact_count_config=13  expected=13  OK
+N=3: arrangement cells: 585
+N=3: bounded regions = 67   by depth: {0: 1, 1: 48, 2: 18, 3: 1}
+      per label: {0: 1, 1: 16, 2: 16, 3: 6, 4: 16, 5: 6, 6: 6, 7: 1}
+  N=3: cube_compound_exact.run=67  exact_count_config=67  expected=67  OK
+N=4: arrangement cells: 1369
+N=4: bounded regions = 177   by depth: {0: 1, 1: 104, 2: 48, 3: 24, 4: 1}
+      per label: {0: 1, 1: 26, 2: 26, 3: 8, 4: 26, 5: 8, 6: 8, 7: 6, 8: 26, 9: 8, 10: 8, 11: 6, 12: 8, 13: 6, 14: 6, 15: 1}
+  N=4: cube_compound_exact.run=177  exact_count_config=177  expected=177  OK
+exact vertex check: all 40 corners on the dodecahedron  OK
+N=5: arrangement cells: 2557
+N=5: bounded regions = 351   by depth: {0: 1, 1: 180, 2: 80, 3: 60, 4: 30, 5: 1}
+      per label: {0: 1, 1: 36, 2: 36, 3: 8, 4: 36, 5: 8, 6: 8, 7: 6, 8: 36, 9: 8, 10: 8, 11: 6, 12: 8, 13: 6, 14: 6, 15: 6, 16: 36, 17: 8, 18: 8, 19: 6, 20: 8, 21: 6, 22: 6, 23: 6, 24: 8, 25: 6, 26: 6, 27: 6, 28: 6, 29: 6, 30: 6, 31: 1}
+  N=5: cube_compound_exact.run=351  exact_count_config=351  expected=351  OK
+V1: PASS
+
+=== GATE V2: reproduce exact_search_results.jsonl seed 40 ===
+  seed 40: total=575 (expected 575)  by_depth={3: 162, 5: 36, 1: 90, 2: 184, 4: 102, 6: 1, 0: 1}
+  expected by_depth={0: 1, 1: 90, 2: 184, 3: 162, 4: 102, 5: 36, 6: 1}  (33.8s)
+V2: PASS
+
+=== GATE V3: golden-five + exact duplicate of golden cube 1 ===
+  total=351 (expected 351)  by_depth={0: 1, 1: 144, 2: 84, 3: 56, 4: 42, 5: 24, 6: 1}  (11.5s)
+V3: PASS
+  (side note) Family A identity ALSO gives total=351 -- golden cube 1 is the axis-aligned cube, so this coincides with cube 1 too, same as the V3 case.
+
+All gates PASS.
+
+=== timing probe ===
+  probe quat=(1, 2, 3, 4) total=643 (22.0s)
+  probe quat=(37, -19, 8, 251) total=653 (21.7s)
+  probe quat=(129, -171, -137, -28) total=669 (21.7s)
+measured avg 21.8s/eval single-threaded; with an 8-way pool, effective throughput ~0.37 eval/s
+
+=== symmetric candidates (both families) ===
+  [A] quat=(1, 0, 0, 0)  identity                 total= 351  ( 17.7s)  <-- NEW BEST
+  [A] quat=(1, 1, 0, 0)  90deg_x                  total= 351  ( 17.5s)
+  [A] quat=(0, 1, 0, 0)  180deg_x                 total= 351  ( 17.4s)
+  [B] quat=(1, 0, 0, 0)  identity                 total= 351  ( 17.7s)
+  [B] quat=(1, 1, 0, 0)  90deg_x                  total= 351  ( 17.6s)
+  [A] quat=(1, -1, 0, 0)  -90deg_x                 total= 351  ( 17.6s)
+  [B] quat=(0, 1, 0, 0)  180deg_x                 total= 351  ( 17.6s)
+  [B] quat=(1, -1, 0, 0)  -90deg_x                 total= 351  ( 17.9s)
+  [A] quat=(1, 0, 1, 0)  90deg_y                  total= 351  ( 18.1s)
+  [B] quat=(1, 0, -1, 0)  -90deg_y                 total= 351  ( 17.8s)
+  [A] quat=(1, 0, -1, 0)  -90deg_y                 total= 351  ( 18.1s)
+  [B] quat=(1, 0, 1, 0)  90deg_y                  total= 351  ( 18.3s)
+  [B] quat=(1, 0, 0, 1)  90deg_z                  total= 351  ( 17.8s)
+  [A] quat=(1, 0, 0, 1)  90deg_z                  total= 351  ( 18.1s)
+  [B] quat=(0, 0, 1, 0)  180deg_y                 total= 351  ( 18.2s)
+  [A] quat=(0, 0, 1, 0)  180deg_y                 total= 351  ( 18.3s)
+  [B] quat=(1, 0, 0, -1)  -90deg_z                 total= 351  ( 18.1s)
+  [A] quat=(1, 0, 0, -1)  -90deg_z                 total= 351  ( 18.4s)
+  [A] quat=(0, 0, 0, 1)  180deg_z                 total= 351  ( 18.2s)
+  [A] quat=(1, 1, 1, 1)  120deg_(1,1,1)           total= 351  ( 18.0s)
+  [B] quat=(0, 0, 0, 1)  180deg_z                 total= 351  ( 18.1s)
+  [B] quat=(1, 1, 1, 1)  120deg_(1,1,1)           total= 351  ( 18.2s)
+  [B] quat=(1, -1, -1, -1)  240deg_(1,1,1)           total= 351  ( 18.1s)
+  [A] quat=(1, -1, -1, -1)  240deg_(1,1,1)           total= 351  ( 18.3s)
+  [B] quat=(1, -1, -1, 1)  240deg_(1,1,-1)          total= 351  ( 19.9s)
+  [B] quat=(1, 1, 1, -1)  120deg_(1,1,-1)          total= 351  ( 20.2s)
+  [A] quat=(1, 1, 1, -1)  120deg_(1,1,-1)          total= 351  ( 20.5s)
+  [A] quat=(1, 1, -1, 1)  120deg_(1,-1,1)          total= 351  ( 20.3s)
+  [A] quat=(1, -1, -1, 1)  240deg_(1,1,-1)          total= 351  ( 20.7s)
+  [B] quat=(1, -1, 1, -1)  240deg_(1,-1,1)          total= 351  ( 20.8s)
+  [B] quat=(1, 1, -1, 1)  120deg_(1,-1,1)          total= 351  ( 21.4s)
+  [A] quat=(1, -1, 1, -1)  240deg_(1,-1,1)          total= 351  ( 21.5s)
+  [B] quat=(1, 1, -1, -1)  120deg_(1,-1,-1)         total= 351  ( 23.3s)
+  [A] quat=(1, -1, 1, 1)  240deg_(1,-1,-1)         total= 351  ( 23.3s)
+  [A] quat=(1, 1, -1, -1)  120deg_(1,-1,-1)         total= 351  ( 23.8s)
+  [B] quat=(1, -1, 1, 1)  240deg_(1,-1,-1)         total= 351  ( 23.5s)
+  [A] quat=(2, 1, 1, 1)  approx60_(1,1,1)_a2b1    total= 681  ( 39.1s)  <-- NEW BEST
+  [B] quat=(2, 1, 1, 1)  approx60_(1,1,1)_a2b1    total= 681  ( 39.3s)
+  [A] quat=(7, 4, 4, 4)  approx60_(1,1,1)_a7b4    total= 681  ( 39.1s)
+  [B] quat=(7, 4, 4, 4)  approx60_(1,1,1)_a7b4    total= 681  ( 39.4s)
+  [B] quat=(26, 15, 15, 15)  approx60_(1,1,1)_a26b15  total= 681  ( 34.4s)
+  [A] quat=(26, 15, 15, 15)  approx60_(1,1,1)_a26b15  total= 681  ( 34.6s)
+  [B] quat=(12, 7, 7, 7)  approx60_(1,1,1)_a12b7   total= 681  ( 35.2s)
+  [A] quat=(12, 7, 7, 7)  approx60_(1,1,1)_a12b7   total= 681  ( 35.3s)
+  [A] quat=(13, 21, 13, 0)  nearico_F6_a13           total= 663  ( 33.9s)
+  [B] quat=(13, 21, 13, 0)  nearico_F6_a13           total= 663  ( 34.1s)
+  [A] quat=(13, 21, 0, 13)  nearico_F6b_a13          total= 663  ( 33.8s)
+  [B] quat=(13, 21, 0, 13)  nearico_F6b_a13          total= 663  ( 34.1s)
+  [B] quat=(21, 21, 13, 0)  nearico_F6_a21           total= 651  ( 36.0s)
+  [A] quat=(21, 21, 0, 13)  nearico_F6b_a21          total= 651  ( 35.8s)
+  [B] quat=(21, 21, 0, 13)  nearico_F6b_a21          total= 651  ( 35.9s)
+  [A] quat=(21, 21, 13, 0)  nearico_F6_a21           total= 651  ( 37.4s)
+  [A] quat=(1, 21, 13, 0)  nearico_F6_a1            total= 647  ( 40.9s)
+  [B] quat=(1, 21, 13, 0)  nearico_F6_a1            total= 647  ( 40.6s)
+  [A] quat=(1, 21, 0, 13)  nearico_F6b_a1           total= 647  ( 41.3s)
+  [B] quat=(1, 21, 0, 13)  nearico_F6b_a1           total= 647  ( 41.5s)
+  [A] quat=(34, 55, 34, 0)  nearico_F8_a34           total= 663  ( 38.6s)
+  [B] quat=(34, 55, 34, 0)  nearico_F8_a34           total= 663  ( 39.3s)
+  [B] quat=(34, 55, 0, 34)  nearico_F8b_a34          total= 663  ( 38.6s)
+  [A] quat=(34, 55, 0, 34)  nearico_F8b_a34          total= 663  ( 39.8s)
+  [A] quat=(55, 55, 34, 0)  nearico_F8_a55           total= 651  ( 36.4s)
+  [A] quat=(55, 55, 0, 34)  nearico_F8b_a55          total= 651  ( 35.9s)
+  [B] quat=(55, 55, 34, 0)  nearico_F8_a55           total= 651  ( 36.9s)
+  [B] quat=(55, 55, 0, 34)  nearico_F8b_a55          total= 651  ( 37.0s)
+  [A] quat=(1, 55, 34, 0)  nearico_F8_a1            total= 647  ( 39.5s)
+  [B] quat=(1, 55, 34, 0)  nearico_F8_a1            total= 647  ( 38.8s)
+  [A] quat=(1, 55, 0, 34)  nearico_F8b_a1           total= 647  ( 39.0s)
+  [B] quat=(1, 55, 0, 34)  nearico_F8b_a1           total= 647  ( 38.9s)
+  [A] quat=(89, 144, 89, 0)  nearico_F10_a89          total= 663  ( 38.7s)
+  [B] quat=(89, 144, 89, 0)  nearico_F10_a89          total= 663  ( 38.3s)
+  [A] quat=(89, 144, 0, 89)  nearico_F10b_a89         total= 663  ( 38.5s)
+  [B] quat=(89, 144, 0, 89)  nearico_F10b_a89         total= 663  ( 37.5s)
+  [B] quat=(144, 144, 89, 0)  nearico_F10_a144         total= 651  ( 33.4s)
+  [A] quat=(144, 144, 89, 0)  nearico_F10_a144         total= 651  ( 34.1s)
+  [B] quat=(144, 144, 0, 89)  nearico_F10b_a144        total= 651  ( 33.6s)
+  [A] quat=(144, 144, 0, 89)  nearico_F10b_a144        total= 651  ( 33.9s)
+  [A] quat=(1, 144, 89, 0)  nearico_F10_a1           total= 647  ( 34.2s)
+  [A] quat=(1, 144, 0, 89)  nearico_F10b_a1          total= 647  ( 34.6s)
+  [B] quat=(1, 144, 89, 0)  nearico_F10_a1           total= 647  ( 35.3s)
+  [B] quat=(1, 144, 0, 89)  nearico_F10b_a1          total= 647  ( 35.2s)
+  [A] quat=(233, 377, 233, 0)  nearico_F12_a233         total= 663  ( 37.7s)
+  [A] quat=(233, 377, 0, 233)  nearico_F12b_a233        total= 663  ( 37.9s)
+  [B] quat=(233, 377, 233, 0)  nearico_F12_a233         total= 663  ( 38.2s)
+  [B] quat=(233, 377, 0, 233)  nearico_F12b_a233        total= 663  ( 38.0s)
+  [A] quat=(377, 377, 233, 0)  nearico_F12_a377         total= 651  ( 38.2s)
+  [B] quat=(377, 377, 233, 0)  nearico_F12_a377         total= 651  ( 37.3s)
+  [A] quat=(377, 377, 0, 233)  nearico_F12b_a377        total= 651  ( 37.2s)
+  [B] quat=(377, 377, 0, 233)  nearico_F12b_a377        total= 651  ( 36.5s)
+  [A] quat=(1, 377, 0, 233)  nearico_F12b_a1          total= 647  ( 30.9s)
+  [A] quat=(1, 377, 233, 0)  nearico_F12_a1           total= 647  ( 32.1s)
+  [B] quat=(1, 377, 233, 0)  nearico_F12_a1           total= 647  ( 31.7s)
+  [B] quat=(1, 377, 0, 233)  nearico_F12b_a1          total= 647  ( 31.3s)
+
+=== random search (seed=1729, MAXC=512) ===
+  [A] quat=(-420, 329, 425, -165)                           total= 637  ( 34.2s)
+  [B] quat=(-393, -139, 86, 231)                           total= 657  ( 34.2s)
+  [A] quat=(-393, -139, 86, 231)                           total= 657  ( 35.0s)
+  [A] quat=(74, -87, -193, 511)                           total= 641  ( 35.1s)
+  [B] quat=(-501, 423, 246, 299)                           total= 649  ( 35.0s)
+  [A] quat=(-501, 423, 246, 299)                           total= 649  ( 35.3s)
+  [B] quat=(74, -87, -193, 511)                           total= 641  ( 35.5s)
+  [B] quat=(-420, 329, 425, -165)                           total= 637  ( 35.7s)
+  [B] quat=(311, -397, -405, -313)                           total= 641  ( 33.2s)
+  [A] quat=(214, 328, 209, -56)                           total= 653  ( 34.4s)
+  [A] quat=(311, -397, -405, -313)                           total= 641  ( 33.6s)
+  [B] quat=(214, 328, 209, -56)                           total= 653  ( 34.7s)
+  [B] quat=(260, 98, 207, -502)                           total= 645  ( 33.9s)
+  [A] quat=(260, 98, 207, -502)                           total= 645  ( 34.5s)
+  [A] quat=(40, 213, 235, 167)                           total= 649  ( 34.2s)
+  [B] quat=(40, 213, 235, 167)                           total= 649  ( 34.9s)
+  [B] quat=(409, 377, -37, -500)                           total= 645  ( 33.5s)
+  [A] quat=(409, 377, -37, -500)                           total= 645  ( 33.9s)
+  [A] quat=(53, 293, -284, -79)                           total= 645  ( 33.7s)
+  [B] quat=(53, 293, -284, -79)                           total= 645  ( 33.8s)
+  [A] quat=(-158, 424, 81, 440)                           total= 649  ( 33.9s)
+  [B] quat=(-158, 424, 81, 440)                           total= 649  ( 33.9s)
+  [A] quat=(-296, 385, -219, 240)                           total= 645  ( 34.0s)
+  [B] quat=(-296, 385, -219, 240)                           total= 645  ( 34.6s)
+  [B] quat=(24, 194, 203, -33)                           total= 651  ( 35.1s)
+  [A] quat=(24, 194, 203, -33)                           total= 651  ( 35.2s)
+  [A] quat=(159, -263, -393, 494)                           total= 641  ( 36.0s)
+  [A] quat=(-414, 69, 245, 350)                           total= 649  ( 35.3s)
+  [B] quat=(159, -263, -393, 494)                           total= 641  ( 36.1s)
+  [B] quat=(-414, 69, 245, 350)                           total= 649  ( 35.5s)
+  [A] quat=(-156, -186, 440, 413)                           total= 637  ( 35.8s)
+  [B] quat=(-156, -186, 440, 413)                           total= 637  ( 34.9s)
+  [B] quat=(-154, 399, 17, 444)                           total= 645  ( 35.5s)
+  [A] quat=(-154, 399, 17, 444)                           total= 645  ( 36.0s)
+  [A] quat=(-270, 26, 362, -309)                           total= 649  ( 36.2s)
+  [A] quat=(37, 80, -448, -140)                           total= 637  ( 35.1s)
+  [A] quat=(-376, 460, 62, -473)                           total= 641  ( 36.3s)
+  [B] quat=(-270, 26, 362, -309)                           total= 649  ( 37.2s)
+  [B] quat=(-376, 460, 62, -473)                           total= 641  ( 37.4s)
+  [B] quat=(37, 80, -448, -140)                           total= 637  ( 37.9s)
+  [A] quat=(450, 49, -45, -123)                           total= 641  ( 41.3s)
+  [A] quat=(-330, 118, 455, 73)                           total= 649  ( 40.9s)
+  [B] quat=(450, 49, -45, -123)                           total= 641  ( 42.2s)
+  [B] quat=(4, 375, 95, 505)                           total= 645  ( 40.7s)
+  [A] quat=(4, 375, 95, 505)                           total= 645  ( 41.1s)
+  [B] quat=(-330, 118, 455, 73)                           total= 649  ( 42.1s)
+  [B] quat=(280, -511, -45, -270)                           total= 649  ( 39.5s)
+  [A] quat=(280, -511, -45, -270)                           total= 649  ( 41.4s)
+  [A] quat=(125, -145, -129, 70)                           total= 645  ( 33.2s)
+  [A] quat=(12, -140, -329, -24)                           total= 637  ( 32.7s)
+  [B] quat=(125, -145, -129, 70)                           total= 645  ( 32.9s)
+  [A] quat=(414, -337, 198, 284)                           total= 637  ( 32.7s)
+  [B] quat=(12, -140, -329, -24)                           total= 637  ( 32.8s)
+  [B] quat=(414, -337, 198, 284)                           total= 637  ( 32.9s)
+  [B] quat=(101, 475, -430, 182)                           total= 645  ( 33.3s)
+  [A] quat=(101, 475, -430, 182)                           total= 645  ( 33.5s)
+  [A] quat=(-145, 325, -399, -320)                           total= 645  ( 35.3s)
+  [A] quat=(-296, 241, -222, -31)                           total= 665  ( 36.5s)
+  [B] quat=(-145, 325, -399, -320)                           total= 645  ( 36.8s)
+  [B] quat=(-192, -446, 509, -357)                           total= 641  ( 35.7s)
+  [A] quat=(-192, -446, 509, -357)                           total= 641  ( 36.4s)
+  [B] quat=(-296, 241, -222, -31)                           total= 665  ( 36.5s)
+  [B] quat=(-421, 448, 25, 298)                           total= 649  ( 35.8s)
+  [A] quat=(-421, 448, 25, 298)                           total= 649  ( 36.2s)
+  [A] quat=(-141, -152, -106, 53)                           total= 653  ( 34.2s)
+  [A] quat=(-157, -332, 266, -224)                           total= 641  ( 33.1s)
+  [B] quat=(-157, -332, 266, -224)                           total= 641  ( 33.4s)
+  [B] quat=(-141, -152, -106, 53)                           total= 653  ( 34.0s)
+  [A] quat=(-358, 203, 15, 310)                           total= 649  ( 33.9s)
+  [B] quat=(-358, 203, 15, 310)                           total= 649  ( 34.4s)
+  [A] quat=(346, 164, 431, -16)                           total= 649  ( 33.6s)
+  [B] quat=(346, 164, 431, -16)                           total= 649  ( 33.8s)
+  [A] quat=(342, 231, 425, 191)                           total= 645  ( 32.9s)
+  [B] quat=(342, 231, 425, 191)                           total= 645  ( 32.8s)
+  [B] quat=(293, -448, -125, -500)                           total= 641  ( 32.8s)
+  [B] quat=(29, -29, 320, -405)                           total= 651  ( 33.1s)
+  [A] quat=(29, -29, 320, -405)                           total= 651  ( 34.5s)
+  [A] quat=(293, -448, -125, -500)                           total= 641  ( 35.7s)
+  [A] quat=(315, 286, 130, -61)                           total= 649  ( 35.0s)
+  [B] quat=(315, 286, 130, -61)                           total= 649  ( 34.4s)
+  [A] quat=(33, 416, 264, -377)                           total= 657  ( 53.4s)
+  [B] quat=(33, 416, 264, -377)                           total= 657  ( 52.4s)
+  [A] quat=(-260, -375, 510, 326)                           total= 645  ( 53.4s)
+  [B] quat=(-260, -375, 510, 326)                           total= 645  ( 52.5s)
+  [A] quat=(-476, 269, 276, 356)                           total= 649  ( 51.9s)
+  [B] quat=(-476, 269, 276, 356)                           total= 649  ( 51.6s)
+  [A] quat=(285, -433, -503, 219)                           total= 641  ( 51.9s)
+  [B] quat=(285, -433, -503, 219)                           total= 641  ( 52.0s)
+  [A] quat=(-350, 242, 47, 180)                           total= 649  ( 45.3s)
+  [B] quat=(-350, 242, 47, 180)                           total= 649  ( 46.2s)
+  [A] quat=(-144, -326, -229, -205)                           total= 649  ( 45.4s)
+  [B] quat=(-196, -112, -141, 229)                           total= 637  ( 44.9s)
+  [A] quat=(-196, -112, -141, 229)                           total= 637  ( 45.3s)
+  [B] quat=(-144, -326, -229, -205)                           total= 649  ( 45.7s)
+  [B] quat=(26, 175, 391, -158)                           total= 661  ( 46.4s)
+  [A] quat=(26, 175, 391, -158)                           total= 661  ( 47.0s)
+  [A] quat=(234, -85, -235, 94)                           total= 641  ( 38.5s)
+  [A] quat=(-205, 152, 101, -202)                           total= 649  ( 39.1s)
+  [B] quat=(234, -85, -235, 94)                           total= 641  ( 40.2s)
+  [B] quat=(-205, 152, 101, -202)                           total= 649  ( 39.7s)
+  [B] quat=(471, 279, 95, 293)                           total= 649  ( 40.6s)
+  [A] quat=(471, 279, 95, 293)                           total= 649  ( 40.9s)
+  [B] quat=(-196, -86, -13, 63)                           total= 641  ( 38.8s)
+  [A] quat=(-196, -86, -13, 63)                           total= 641  ( 39.7s)
+  [A] quat=(507, -317, -485, 229)                           total= 645  ( 38.6s)
+  [A] quat=(312, 372, -467, 444)                           total= 645  ( 36.6s)
+  [B] quat=(507, -317, -485, 229)                           total= 645  ( 37.5s)
+  [B] quat=(312, 372, -467, 444)                           total= 645  ( 37.1s)
+  [A] quat=(427, 186, -380, 355)                           total= 653  ( 37.5s)
+  [B] quat=(427, 186, -380, 355)                           total= 653  ( 37.9s)
+  [A] quat=(-335, -202, 33, 320)                           total= 645  ( 37.4s)
+  [B] quat=(-335, -202, 33, 320)                           total= 645  ( 37.8s)
+  [A] quat=(490, -75, 221, -264)                           total= 645  ( 40.6s)
+  [B] quat=(490, -75, 221, -264)                           total= 645  ( 40.3s)
+  [A] quat=(123, -381, 101, 216)                           total= 649  ( 40.7s)
+  [B] quat=(123, -381, 101, 216)                           total= 649  ( 40.6s)
+  [A] quat=(-91, 480, -89, -116)                           total= 657  ( 40.0s)
+  [B] quat=(-91, 480, -89, -116)                           total= 657  ( 39.6s)
+  [B] quat=(346, 465, 17, -100)                           total= 661  ( 38.9s)
+  [A] quat=(346, 465, 17, -100)                           total= 661  ( 40.7s)
+  [A] quat=(386, 508, 129, 210)                           total= 641  ( 35.0s)
+  [B] quat=(386, 508, 129, 210)                           total= 641  ( 35.4s)
+  [A] quat=(-309, 473, 83, -65)                           total= 645  ( 35.0s)
+  [B] quat=(-309, 473, 83, -65)                           total= 645  ( 35.1s)
+  [A] quat=(-117, 509, -248, 419)                           total= 641  ( 35.3s)
+  [B] quat=(-117, 509, -248, 419)                           total= 641  ( 36.2s)
+  [A] quat=(-241, 223, 302, -17)                           total= 645  ( 35.6s)
+  [B] quat=(-241, 223, 302, -17)                           total= 645  ( 34.7s)
+  [A] quat=(476, 455, 105, 102)                           total= 645  ( 33.4s)
+  [B] quat=(476, 455, 105, 102)                           total= 645  ( 33.6s)
+  [A] quat=(248, -243, 137, -186)                           total= 645  ( 33.7s)
+  [B] quat=(248, -243, 137, -186)                           total= 645  ( 33.2s)
+  [A] quat=(-108, -292, -382, -7)                           total= 645  ( 34.4s)
+  [A] quat=(-227, 105, -175, -127)                           total= 649  ( 33.8s)
+  [B] quat=(-108, -292, -382, -7)                           total= 645  ( 34.0s)
+  [B] quat=(-227, 105, -175, -127)                           total= 649  ( 35.1s)
+Process SpawnPoolWorker-4:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 320, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-7:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 320, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-5:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 320, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-8:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 320, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-2:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 320, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-1:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 320, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-3:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 320, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+Process SpawnPoolWorker-6:
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 131, in worker
+    put((job, i, result))
+    ~~~^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 320, in _bootstrap
+    self.run()
+    ~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 136, in worker
+    put((job, i, (False, wrapped)))
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/queues.py", line 397, in put
+    self._writer.send_bytes(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 206, in send_bytes
+    self._send_bytes(m[offset:offset + size])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 444, in _send_bytes
+    self._send(header + buf)
+    ~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 400, in _send
+    n = write(self._handle, buf)
+BrokenPipeError: [Errno 32] Broken pipe
+/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown: {'/mp-x3lvywzp', '/mp-p0e4hdem', '/mp-shhadpky', '/mp-12c6e5r6', '/mp-t5vp5q_4', '/mp-vkkyp_j0'}
+  warnings.warn(

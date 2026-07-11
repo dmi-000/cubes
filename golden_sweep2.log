@@ -1,0 +1,7 @@
+425 cached; best A (2, 1, 1, 1) 681
+neighbor scan: 0 fresh evals
+neighbor scan done in 0s
+fine B x-sweep: 0 fresh evals
+  hillclimb[B] start quat=(8, 3, 0, 0) total=679
+  hillclimb[B] step 0: LOCAL MAX at (8, 3, 0, 0) total=679
+FINAL best: A (2, 1, 1, 1) 681 {1: 234, 3: 128, 2: 192, 4: 90, 5: 36, 6: 1, 0: 1}
