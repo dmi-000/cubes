@@ -17,7 +17,9 @@ and documents around it.
 | n | best bounded regions | configuration | field |
 |---|---|---|---|
 | 3 | 67 | octahedral 3-compound = golden 3-subset | ℚ(√2) / ℚ(√5) |
-| 6 | **699** | two 3-fold-symmetric triples on a shared (1,1,1) axis | ℚ (rational) |
+| 6 | **717** | D₂-orbit-of-4 + free + axis-aligned cube | ℚ (rational) |
+| 6 | 705 | two 3-fold triples on shared (1,1,1) axis | ℚ (rational) |
+| 6 | 699 | two 3-fold triples (earlier record) | ℚ (rational) |
 | 6 | 681 | golden five + sixth on the (1,1,1) wall | ℚ(√5) |
 | 6 | 655 | two 60°-body-diagonal pair walls, constructed | ℚ (rational) |
 | 6 | 635 | best from 360k random rational seeds + climbing | ℚ (rational) |
@@ -25,9 +27,10 @@ and documents around it.
 
 Deep-depth ceilings **d3 ≤ 164, d4 ≤ 102, d5 ≤ 36, d6 = 1** have never
 been exceeded in any config or on any wall tested (conjectures C4/C5/C6,
-with a proof program in `C45_notes.md`). The 699 record has depth
-histogram {1:180, 2:216, 3:164, 4:102, 5:36, 6:1}. See Postscript 9 for
-its quaternions.
+with a proof program in `C45_notes.md`). The 717 record has depth
+histogram {1:210, 2:210, 3:158, 4:102, 5:36, 6:1} — its gain over 699 is
+entirely in depth-1, with a deep tail *below* the ceilings. See
+Postscript 11 for its quaternions.
 
 ## Quick start
 
@@ -132,7 +135,7 @@ to it.
 
 | file | kind | what it is |
 |---|---|---|
-| `six_cube_search_results.md` | **ledger** | The authoritative project record. Postscripts 1–9: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→681→699 record chain, the ℚ(√5)/tower field program, and the sliding-3-cube result. Start here. |
+| `six_cube_search_results.md` | **ledger** | The authoritative project record. Postscripts 1–11: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→681→699→717 record chain, the ℚ(√5)/tower field program, the sliding-3-cube result, and the symmetry-stratified sweep. Start here. |
 | `C45_notes.md` | notes | Proof program for the deep ceilings (d3≤164, d4≤102, d5≤36) via the radial-escape lemma and bottom-diagram census (T1 Euler count + T2 semicontinuity). |
 | `CPP_SPEC.md` | spec | Design of the C++ engine: integer-homogeneous coordinates, int128 predicate budget, seed chain, validation gates. Working-principles doc for `cube_regions.cpp`. |
 | `NPLUS_SPEC.md` | spec | Generalization of the engine and campaigns to n>6 (`--n K`). Working-principles doc for the `*_n.py` and `scratch_*_n.py` drivers. |

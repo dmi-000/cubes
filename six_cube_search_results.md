@@ -867,3 +867,54 @@ independently confirm ≤699; then the core+free families T/D₃/C₂) with
 full-quaternion seed grids + deeper hill-climb, since the current grids
 demonstrably under-cover. Until then, 699 stands and the symmetry map
 is a floor.
+
+## Postscript 11: full-quaternion symmetry re-run — NEW RECORD 717 (and 705); Postscript 10's negative was a coverage artifact
+
+(symmetry_search2.py, symmetry_search2.jsonl, symmetry_search_report2.md,
+SYMMETRY_SEARCH_V2.md.) Postscript 10's sweep validated the framework
+but under-searched: its per-family seed grids used thin axis-angle
+seeds, so C₃:3+3 (which provably contains 699) capped at 399. Re-run
+with FULL integer-quaternion seeds — same validated orbit construction,
+only the seed sampler + climber changed.
+
+**Two configs beat 699; new project record 717** (both independently
+re-verified by ./cube_regions, both respect every deep ceiling
+d3≤164/d4≤102/d5≤36/d6=1, zero deep-count violations across 9,528
+evals):
+
+    717  D₂:4+free2   quats 5,2,2,2; -2,-2,2,5; -2,5,-2,2; -2,2,5,-2;
+                            2,1,1,1; 1,0,0,0
+         by_depth {1:210, 2:210, 3:158, 4:102, 5:36, 6:1}   (+18 over 699)
+    705  C₃:3+3       quats 3,1,0,0; 1,2,2,1; 2,-1,-2,-1;
+                            21,14,11,7; -11,31,39,25; 53,-3,-17,-11
+         by_depth {1:180, 2:222, 3:164, 4:102, 5:36, 6:1}   (+6 over 699)
+
+Both are radius-4 local maxima. Notable structure:
+- **717's gain is entirely depth-1**: d1 = 210 (vs 699's 180, and above
+  the old d1 record 180), while d3 = 158 sits BELOW the 164 ceiling —
+  a record achieved with a SHALLOWER deep tail than 699. The record is a
+  D₂-orbit-of-4 core + one free cube + one axis-aligned cube.
+- 705 pushes d2 to 222 (new depth-2 high) with d3 = 164 at ceiling; its
+  winning C₃ seed (21,14,11,7) is literally the one-unit neighbor of the
+  699 seed the old thin grid could not represent.
+- **Parity**: 717 and 705 are both ≡ 1 (mod 4), the WALL-exception class
+  (like 681), whereas 699 was ≡ 3 (generic parity). The higher-symmetry
+  records sit in the exception class.
+
+**Postscript 10 corrected.** Its "nothing beat 699" and its per-family
+"bests" were floors from thin coverage, now superseded: C₃:3+3 399→705,
+D₂:4+free2 651→717, C₂:2+2+2 653→677. Families whose small orbits live
+on a 1-parameter alignment locus a uniform quaternion draw never hits
+(T:4+free2, D₃:3+3 — generic orbit sizes 12 and 6) were gridded over
+their true DOF and reproduced 661/657, confirming those ARE the maxima
+on that locus. Golden I/C₅:5+free confirmed a local cap at 681 (radius-3/4
+ℚ(√5) climb). Coverage rule established: generic full quaternions give
+orbit sizes 3/2/6/4 under C₃/C₂/C₆/D₂, so those accept full-quat seeds
+for every block — and that is exactly where the gains landed.
+
+**Record table (updated): overall 717** (D₂:4+free2, rational); 705
+(C₃:3+3); prior 699 (two 3-fold triples), 681 (golden ℚ(√5)), 655
+(double-pair wall). New depth highs d1 = 210 (717), d2 = 222 (705); deep
+ceilings d3≤164/d4≤102/d5≤36 still never exceeded. Open: climb 717's D₂
+family deeper (radius 5+) and re-examine whether an even shallower-tail
+route (d3 < 158) buys more d1.

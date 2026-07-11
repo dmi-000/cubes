@@ -1,0 +1,4 @@
+worker 0: seeds [3000,8000)
+worker 1: seeds [8000,13000)
+worker 2: seeds [13000,18000)
+worker 3: seeds [18000,23000)
