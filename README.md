@@ -9,8 +9,10 @@ theorem about that configuration, not a numerical estimate.
 
 The scientific record lives in **`six_cube_search_results.md`** (read its
 postscripts in order — several early conclusions were overturned by exact
-counting and the corrections matter). This README is the map of the code
-and documents around it.
+counting and the corrections matter). For the narrative synthesis — the
+problem, the methods, the record chain, and the structural laws — read
+**`PROJECT.md`**. This README is the map of the code and documents around
+it.
 
 ## Current records (all exact)
 
@@ -59,6 +61,15 @@ python3 exact_search.py --help
 Python programs print their module docstring on `--help`. Nothing here
 needs pip installs beyond numpy/scipy/mpmath (used only by the Python
 oracle and the seed-chain validation).
+
+**Interactive viewer.** `depth_explorer.html` is a single self-contained
+file (no dependencies, no build, no network) — open it in any browser to
+explore a compound: a depth-coloured draggable cross-section, a rotatable
+depth point-cloud, depth/cube filters, octahedral (√2) and golden (√5)
+presets, and rings marking where 4+ face-planes meet (gold = corner
+coincidence, blue = edge crossing). Accepts 2–8 cubes as integer
+quaternions or as decimal rotation matrices (so √n configs load directly).
+Also hosted: https://claude.ai/code/artifact/044d34a6-3f36-43b2-9ec8-17fb5691c87c
 
 ## Continuing the searches
 
@@ -146,11 +157,8 @@ to it.
 | `golden_wall_report.md` | report | Results of the ℚ(√5) golden-wall pilot (found 681). |
 | `multiwall_report.md` | report | Results of the multi-constraint / tower search (found rational 655; explained the (1,1,1) wall). |
 | `slide3_report.md` | report | Sliding-3-cube results: section 0 = V1 (family disproven), `## V2` = corrected family and the 699 record. |
-
-**Out of scope (separate Sean Carroll AMA project, not part of this
-work):** `IMPROVEMENT_PLAN.md`, `patreon_scrape.md`, and `norton.py`.
-They live in this directory for historical reasons; ignore them for the
-cube work.
+| `ALGEBRAIC_SEARCH.md` | spec+report | The algebraic (not numeric) search: solves incidence equations symbolically (Wolfram) — 1-parameter exact wall-mapping and multi-constraint GroebnerBasis solving — then counts each config exactly. Records live at high-multiplicity *point* concurrences (coincident corners = shared axes), with a 9-fold sweet spot. Working-principles doc for `algebraic_search.wl`, `algebraic_demo.wl`, `algebraic_groebner.wl`, `algebraic_groebner2.wl`, `algebraic_bridge.py`. |
+| `PROJECT.md` | write-up | Narrative synthesis of the whole project — problem, methods, the record chain, the structural laws, and open problems. Read this for the story; read the ledger for the primary record. |
 
 ## Source code
 

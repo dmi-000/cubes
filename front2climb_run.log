@@ -1,0 +1,12 @@
+  seed 0: start edge4=0 total=579
+  seed 0: end edge4=36 total=569  (best total seen along path: 587)
+  seed 1: start edge4=0 total=543
+  seed 1: end edge4=72 total=621  (best total seen along path: 635)
+  seed 2: start edge4=0 total=551
+  seed 2: end edge4=36 total=609  (best total seen along path: 617)
+  seed 3: start edge4=12 total=525
+  seed 3: end edge4=70 total=571  (best total seen along path: 607)
+  seed 4: start edge4=0 total=579
+  seed 4: end edge4=36 total=569  (best total seen along path: 617)
+  seed 5: start edge4=12 total=569
+  seed 5: end edge4=48 total=575  (best total seen along path: 609)

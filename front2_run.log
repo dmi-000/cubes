@@ -1,0 +1,77 @@
+=== front1b: rational Pythagorean-angle octahedral-pair overlay ===
+front1b: 10 convergent levels available, using levels (3, 4, 5, 6, 7), 273 R candidates -> up to 6825 configs
+front1b: 2610 configs evaluated in 458.1s
+
+front1b top by total:
+  total= 663  lvl=(3,4)  tag=diag(1,1,1)_p1q7         R=[7, 1, 1, 1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,1)_p-1q7        R=[7, -1, -1, -1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,1)_p1q6         R=[6, 1, 1, 1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,1)_p-1q6        R=[6, -1, -1, -1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,1)_p4q7         R=[7, 4, 4, 4]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,1)_p-4q7        R=[7, -4, -4, -4]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,1)_p3q5         R=[5, 3, 3, 3]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,1)_p-3q5        R=[5, -3, -3, -3]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,-1)_p1q7        R=[7, 1, 1, -1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,-1)_p-1q7       R=[7, -1, -1, 1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,-1)_p1q6        R=[6, 1, 1, -1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,-1)_p-1q6       R=[6, -1, -1, 1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,-1)_p4q7        R=[7, 4, 4, -4]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,-1)_p-4q7       R=[7, -4, -4, 4]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,-1)_p3q5        R=[5, 3, 3, -3]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,1,-1)_p-3q5       R=[5, -3, -3, 3]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,-1,1)_p1q7        R=[7, 1, -1, 1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,-1,1)_p-1q7       R=[7, -1, 1, -1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,-1,1)_p1q6        R=[6, 1, -1, 1]  edge4= 72  corner6=0 corner9+=0
+  total= 663  lvl=(3,4)  tag=diag(1,-1,1)_p-1q6       R=[6, -1, 1, -1]  edge4= 72  corner6=0 corner9+=0
+
+front1b top by edge-richness (edge4_count):
+  edge4=144  total= 355  lvl=(3,3) tag=180deg_edge(1, -1, 0)    R=[0, 1, -1, 0]
+  edge4=144  total= 355  lvl=(3,3) tag=180deg_edge(1, 0, -1)    R=[0, 1, 0, -1]
+  edge4=144  total= 355  lvl=(3,3) tag=180deg_edge(0, 1, -1)    R=[0, 0, 1, -1]
+  edge4=144  total= 355  lvl=(4,4) tag=180deg_edge(1, -1, 0)    R=[0, 1, -1, 0]
+  edge4=144  total= 355  lvl=(4,4) tag=180deg_edge(1, 0, -1)    R=[0, 1, 0, -1]
+  edge4=144  total= 355  lvl=(4,4) tag=180deg_edge(0, 1, -1)    R=[0, 0, 1, -1]
+  edge4=144  total= 355  lvl=(5,5) tag=180deg_edge(1, -1, 0)    R=[0, 1, -1, 0]
+  edge4=144  total= 355  lvl=(5,5) tag=180deg_edge(1, 0, -1)    R=[0, 1, 0, -1]
+  edge4=144  total= 355  lvl=(5,5) tag=180deg_edge(0, 1, -1)    R=[0, 0, 1, -1]
+  edge4=144  total= 355  lvl=(6,6) tag=180deg_edge(1, -1, 0)    R=[0, 1, -1, 0]
+  edge4=144  total= 355  lvl=(6,6) tag=180deg_edge(1, 0, -1)    R=[0, 1, 0, -1]
+  edge4=144  total= 355  lvl=(6,6) tag=180deg_edge(0, 1, -1)    R=[0, 0, 1, -1]
+  edge4=132  total= 569  lvl=(3,3) tag=diag(1,1,-1)_p1q3        R=[3, 1, 1, -1]
+  edge4=132  total= 569  lvl=(3,3) tag=diag(1,1,-1)_p-1q3       R=[3, -1, -1, 1]
+  edge4=132  total= 569  lvl=(3,3) tag=diag(1,-1,1)_p1q3        R=[3, 1, -1, 1]
+  edge4=132  total= 569  lvl=(3,3) tag=diag(1,-1,1)_p-1q3       R=[3, -1, 1, -1]
+  edge4=132  total= 569  lvl=(3,3) tag=diag(-1,1,1)_p1q3        R=[3, -1, 1, 1]
+  edge4=132  total= 569  lvl=(3,3) tag=diag(-1,1,1)_p-1q3       R=[3, 1, -1, -1]
+  edge4=132  total= 569  lvl=(4,4) tag=diag(1,1,-1)_p1q3        R=[3, 1, 1, -1]
+  edge4=132  total= 569  lvl=(4,4) tag=diag(1,1,-1)_p-1q3       R=[3, -1, -1, 1]
+
+=== front2 random: rational random baseline, edge-richness vs total ===
+front2random: 3000 configs in 625.4s
+  Pearson r(total, edge4_count) = 0.0716 (p=8.65e-05)
+  best total: 621 (edge4=12)
+  best edge4: 36 (total=553)
+
+=== front2 hill-climb: maximize edge-richness, track total ===
+  seed 0: start edge4=0 total=579
+  seed 0: end edge4=36 total=569  (best total seen along path: 587)
+  seed 1: start edge4=0 total=567
+  seed 1: end edge4=84 total=591  (best total seen along path: 623)
+  seed 2: start edge4=12 total=541
+  seed 2: end edge4=44 total=483  (best total seen along path: 623)
+  seed 3: start edge4=0 total=567
+  seed 3: end edge4=48 total=567  (best total seen along path: 609)
+  seed 4: start edge4=0 total=539
+  seed 4: end edge4=48 total=567  (best total seen along path: 621)
+  seed 5: start edge4=0 total=579
+  seed 5: end edge4=104 total=551  (best total seen along path: 627)
+  seed 6: start edge4=0 total=583
+  seed 6: end edge4=36 total=589  (best total seen along path: 615)
+  seed 7: start edge4=12 total=557
+  seed 7: end edge4=36 total=609  (best total seen along path: 615)
+  seed 8: start edge4=0 total=531
+  seed 8: end edge4=36 total=553  (best total seen along path: 605)
+  seed 9: start edge4=0 total=563
+  seed 9: end edge4=110 total=593  (best total seen along path: 627)
+
+ALL DONE

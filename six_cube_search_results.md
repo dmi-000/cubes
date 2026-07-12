@@ -977,3 +977,141 @@ shared-axis union is what pays.
 C₃core3+free3 was only partly climbed — deeper climb of the 723 plateau,
 and the same core+free template with a C₃ core on other axes / larger
 cores.
+
+## Postscript 13: incidence geometry — edge vs corner concurrences, the 9-fold sweet spot, and the algebraic search
+
+(algebraic_search.wl/algebraic_demo.wl/algebraic_groebner*.wl/algebraic_bridge.py,
+edge_search.py/edge_search_report.md, ALGEBRAIC_SEARCH.md, PROJECT.md.)
+Prompted by the user's observation that the octahedral 3-cube maximum
+uses edge concurrences and the dodecahedral one uses corner concurrences,
+and the conjecture that a 6-cube maximum might substitute edge for corner
+concurrences.
+
+**Incidence characterization (exact).** Records sit at high-multiplicity
+POINT concurrences (extra planes through a point), never line/edge
+concurrences (no line lies on ≥3 planes — max line-multiplicity 2, same
+as random; 3 coplanar normals never occur). Two point modes:
+- EDGE concurrence: 4 planes = 2+2 (an edge of one cube crossing an edge
+  of another), |x|²≈2. The octahedral 3-compound is edge-pure.
+- CORNER concurrence: 6 or 9 planes = 3+3 / 3+3+3 (cube corners
+  coinciding), |x|²=3. The golden 3-compound and both 717/723 are
+  corner-dominated (two 9-fold 3+3+3 points). "k cubes share a corner"
+  ⟺ "they differ by rotations about that corner's axis" — corner-sharing
+  IS the shared-axis family, explaining why shared-axis searches win.
+  723 also carries ~180 lesser edge (2+2) concurrences: the modes coexist.
+
+**Multiplicity has a SWEET SPOT.** Forcing a 12-fold concurrence (four
+cubes at one corner, via the Gröbner solver) gives only 393 — far below
+the record. 9-fold is near-optimal; over-concentration merges away
+regions.
+
+**Edge-for-corner conjecture: NOT supported (evidence, not proof).**
+~4,600 exact configs across four strategies (incl. exact ℚ(√2)): best
+edge-dominated total = 691 (edge-pure, two octahedral 3-compounds joined
+by R=(31,13,33,30), by_depth {1:174,2:214,3:164,4:102,5:36,6:1}) — 32
+below 723, the whole gap in depth-1 (174 vs 210). Edge-richness
+ANTI-correlates with total (Spearman ≈ −0.58 in structured families;
+edge-maximizing climbs drive the total DOWN). Corner concurrences are the
+stronger ingredient; edge crossings build d2 but not the d1 shell the
+shared-axis construction produces. Caveat: an unsampled region or an
+irrational edge wall beyond ℚ(√2) is not excluded.
+
+**Algebraic search built (ALGEBRAIC_SEARCH.md).** Rotations about an
+integer axis take a rational Cayley parameter (matrix stays over ℚ), so
+incidences are polynomial equations solvable exactly (Wolfram). Two
+solvers: (1) 1-parameter wall-mapping — solving n_face(s)·v=1 over a
+family's vertices returns its exact rational walls (126 along the 723
+shared-axis slide; counting confirms 723 an exact local max there); (2)
+multi-constraint GroebnerBasis solve — weld an unknown cube to fixed
+cubes by corner-coincidence, eliminate + solve; validated (recovers the
+C₃ corner-stabilizer), found 26 exact configs at 689 with d1=224 (a
+depth-1 high above the record's 210). Neither beat 723, but both reach
+exact points a numeric grid misses and map the incidence↔count tradeoff.
+The deep-layer caps (d3≤164/d4≤102/d5≤36), not depth-1, are the binding
+constraint on beating 723.
+
+## Postscript 14: the depth trade-off structure — deep layers quantize, shallow layers grow, records sacrifice deep for shallow
+
+(Analysis over 456,922 exactly-counted configs pooled from every log with
+a depth profile. Prompted by the user's reframing: the goal is not to
+maximize any single heuristic but to map which depth trade-offs are
+possible.)
+
+**Sequential saturation, deepest first, then pinning.** Binning configs
+by total and taking the mean profile [d1,d2,d3,d4,d5,d6], the deep layers
+fill to their caps IN ORDER and then freeze:
+  - d5 → 36 by total ≈ 475
+  - d4 → ≈102 by total ≈ 525
+  - d3 → ≈164 by total ≈ 600
+  - d6 = 1 always.
+From total ≈600 to the record, d3/d4/d5 are pinned at 164/102/36 and ALL
+growth is in the shallow layers (d1: 119→206, d2: 194→214).
+
+**Two distinct trade-offs:**
+  1. At FIXED total — a conserved exchange between adjacent layers (the
+     717 plateau has d2+d3 = 368 constant; regions shuffle between d2 and
+     d3 without changing the total).
+  2. To INCREASE the total — the deep layers cannot grow (capped), so the
+     shallow ones do; and near the ceiling the profitable move is to give
+     BACK a little deep count to unlock a lot of shallow count. 723 trades
+     6 units of d4 (102→96) for roughly +45 in d1 vs the best d4=102
+     config — a strongly non-1:1 trade. 717 likewise sacrifices d3
+     (164→158). This deep-sacrifice lever is under-explored.
+
+**Why (radial framework).** Deep-layer counts = cells of the innermost
+great-circle "bottom-diagrams," which have a fixed GENERIC value — a
+config either realizes the generic diagram (the cap 164/102/36) or a
+degenerate merged one (below). They are QUANTIZED. Shallow-layer counts =
+outermost diagrams, uncapped, growing with arrangement complexity. So the
+maximum-total problem is: saturate the quantized deep layers, maximize the
+unbounded shallow ones, and spend deep sacrifices only where they buy
+disproportionate shallow gain.
+
+**Reframed objective.** "Beat 723" = find the optimal point on the
+deep-sacrifice surface: sweep the feasible (d3,d4,d5) profile and maximize
+d1+d2 at each. 723 proves sacrificing d4 pays; whether sacrificing d3 AND
+d4 together (or another combination) nets higher is open. Gröbner
+corner-welding already reached d1 = 224 (with depressed deep layers), so
+the shallow ceiling is high — the exchange rate is the question.
+
+**Also open: non-concentric cubes.** No solid argument exists that
+off-centering can't increase the count; allowing translations only adds
+DOF, so the off-center max is ≥ the concentric max. The "concentric
+maximizes overlap" intuition is undercut by our own sweet-spot finding
+(over-concentration reduces the count). Off-centering should cost deep
+layers (the common-intersection core weakens) but may buy shallow ones —
+the same exchange. Untested only because every engine here assumes
+concentric.
+
+### Postscript 14 — results & a correction (2026-07-12)
+
+Three experiments ran on the trade-off/extra-DOF questions:
+
+- **Deep-sacrifice sweep** (deepsweep.py, 20,032 exact configs): best total
+  = 723, nothing beat it. The trade-off surface: total 723 is reached
+  along a RIDGE of deep profiles — (164,102,36) with d1+d2=420 AND
+  (164,96,36) with d1+d2=426 both give 723. **CORRECTION:** the earlier
+  claim that 723 trades 6 units of d4 for "+45 in d1" was WRONG — it
+  compared 723 against the AVERAGE d4=102 config, not the best. Properly
+  optimized, the deep↔shallow trade is ≈1:1 at the frontier (give back 6
+  deep, recover 6 shallow, same total), and sacrificing MORE deep loses
+  (e.g. (158,94,36) reaches only 719). So 723 sits at/near the peak of the
+  trade-off surface; the deep-sacrifice lever is exhausted at ~723, not
+  under-explored. Evidence 723 is a genuine local optimum, not proof.
+- **Off-center** (offcenter_count.py, t=0 gate PASSED reproducing 723 and
+  3 seeds; 167 perturbations): off-centering 723 does NOT help — best
+  non-trivial total 706 (single small shift), monotonically worse from
+  there; ALL depth layers decrease on average. Translating all six cubes
+  together (a rigid shift) keeps 723 (invariance check). So around the
+  record concentric is locally optimal — contradicting the guess that
+  off-centering might trade deep for shallow; it just destroys regions.
+- **Unequal sizes** (offcenter_count.py extended: cube k gets half-width
+  s_k; offset ±s_k, containment/extent scale by s_k; size=1 gate
+  reproduces 723): INCONCLUSIVE for 723. Every size perturbation of 723
+  hit an exact face-coincidence (723 is so symmetric that resizing any
+  cube by a rational factor creates a degeneracy) that this non-robust
+  Python counter cannot evaluate — all 48 trials skipped. Settling the
+  size question needs a degeneracy-robust counter (symbolic perturbation)
+  or the C++ engine extended to per-cube sizes. Size PRESERVES central
+  symmetry (unlike translation), so it is the gentler extra DOF and the
+  more likely of the two to help, but it remains untested at n=6.
