@@ -939,3 +939,41 @@ exists WITH the deep tail at the ceiling (d3=164, quats
 8,3,3,3;-3,-3,3,8;-3,8,-3,3;-3,3,8,-3;3,2,2,2;1,0,0,0), so the
 below-ceiling tail is incidental, not the source of the record. 717
 stands as the capped maximum of this family.
+
+## Postscript 12: shared-axis "intersection" families — NEW RECORD 723
+
+(symmetry_search3.py, symmetry_search3.jsonl, symmetry_search3_report.md,
+SYMMETRY_SEARCH_V3.md.) Prompted by the user's "find intersections
+between families" idea: build the 6 cubes as a union of two orbits under
+different groups sharing a common axis (the structure behind 699 and
+717). Gates reproduced 717 and 699 through the shared-axis builder.
+
+**NEW RECORD 723** (verified by ./cube_regions), family
+**C₃core3+free3 on (1,1,1)** — a C₃ orbit of 3 cubes about the body
+diagonal + 3 free cubes:
+
+    quats 4,1,1,-1; 3,3,7,3; 5,-1,-5,-5; 2,1,1,1; 1,1,1,1; 5,2,2,2
+    by_depth {1:210, 2:216, 3:164, 4:96, 5:36, 6:1}   (+6 over 717)
+
+- **Deep tail flexes again, in a NEW slot**: 723 has d4 = 96 BELOW its
+  102 ceiling (d3 = 164 at ceiling), whereas 717 kept d4 = 102 and
+  dropped d3. So the "trade a deep layer for shallow" mechanism is not
+  tied to one depth — d1 = 210 is the constant, and the record buys
+  total by lowering whichever deep layer costs least. d5/d6 = 36/1
+  still pinned.
+- **Parity**: 723 ≡ 3 (mod 4), generic parity (like 699, unlike 717's
+  wall-exception ≡ 1). ~16 distinct 723 configs found (a plateau).
+
+**Other V3 findings** (nothing else beat 717): T:4+free2 re-run with
+full-quat free cubes TIES 717 (was 661 in V2 — the record is reachable
+in the tetrahedral family too); C₂core2+free4 on (0,0,1) = 703; C₃⊕C₃
+= 705; C₄/D₄:4+free2 = 683; D₃:3+free3 = 681. The T-generating
+different-axis intersection (C₂(001)+C₃(111), ⟨C₂,C₃⟩=T) was a net loser
+at 613 — forcing the full polyhedral symmetry HURTS; the loose
+shared-axis union is what pays.
+
+**Record chain: 635→655→681→699→705→717→723.** All deep ceilings
+(d3≤164, d4≤102, d5≤36, d6=1) still never exceeded. Open: full-quat
+C₃core3+free3 was only partly climbed — deeper climb of the 723 plateau,
+and the same core+free template with a C₃ core on other axes / larger
+cores.
