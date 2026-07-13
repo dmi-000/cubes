@@ -347,7 +347,7 @@ The counting method works for any *n*. Best arrangements found so far
 
 | cubes *n* | 2 | 3 | 4 | 5 | 6 | 7 |
 |---|---|---|---|---|---|---|
-| best bounded pieces | 13 | 67 | 135+ | 351 | 723 | 1085+ |
+| best bounded pieces | 13 | 67 | 177+ | 351 | 723 | 1085+ |
 
 (The "+" cases are still being searched.) The parity rule and the
 shallow-gain / deep-cap structure persist as *n* grows; charting how the

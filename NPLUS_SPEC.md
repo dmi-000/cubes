@@ -40,7 +40,8 @@ six_cube_search_results.md first; this spec extends them.
 ## 4. Science targets per n (what the searches are FOR)
 
 - Record table max(n): known certified points: n=2: 4 generic (13 on
-  the shared-diagonal wall), n=3: 38+, n=4: 135+, n=5: 317+ (golden 351
+  the shared-diagonal wall), n=3: 67 (golden; 38+ random), n=4: 177
+  (golden four-cube compound; 135+ random), n=5: 317+ (golden 351
   is a wall config), n=6: 635, n=7: 993+ (3 seeds only). Fit growth;
   hill-climb each n like n=6.
 - Depth-structure freeze: for each n, which deep sums are conserved-at-

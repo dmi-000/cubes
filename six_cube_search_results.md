@@ -582,7 +582,7 @@ same rare invariant-shell exceptions seen at n=6, here 0.12%). Law
 holds.
 
 **Record growth so far** (certified lower bounds; max regions by n):
-n=2: 13, n=3: 67, n=4: 135+, n=5: 351, n=6: 699, n=7: 1085+. (The n≤5
+n=2: 13, n=3: 67, n=4: 177+, n=5: 351, n=6: 723, n=7: 1085+. (The n≤5
 and n=6 values are the current records from the rational/wall programs;
 n=7 is campaign-only, no hill-climb yet.)
 
