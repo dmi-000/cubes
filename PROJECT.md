@@ -422,7 +422,11 @@ known to lose; geometrically inconsistent labelings never existed), and
 optimize the surviving blueprints over their continuous knobs. The prize
 is a qualitatively stronger conclusion than any search so far: "no
 blueprint beats 723," exhaustive at the skeleton level, rather than "we
-didn't find one." This search runs now. What would upgrade it from
+didn't find one." This search has now run to completion: 391 raw blueprints collapse
+to 67 canonical skeletons (plus two pruned with documented reasons —
+the golden wall, whose extensions provably lose, and the
+polyhedral-forcing family, tested and dominated); all 67 were
+knob-optimized (over 83,000 exact counts) and none beats 723. What would upgrade it from
 branch-and-*prune* to true branch-and-*bound* is one missing theorem — a
 **deficit-propagation lemma**: a guarantee that if a partial assembly's
 sub-compounds fall short of their deep caps by some amount, the completed

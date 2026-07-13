@@ -1479,3 +1479,33 @@ evals per template, while angle-locking costs 15-45 and unstructured
 controls trail by 20-30. The flexible 9-DOF is confirmed as the right
 search variable; the blueprint level is now handed to the
 branch-and-prune program (Postscript 20 bounds E1/E2 as its pruning).
+
+## Postscript 21: blueprint branch-and-prune complete — 67 skeletons exhausted, nothing beats 723
+
+(blueprint_enum.py, blueprint_search.py/.jsonl, blueprint_search_report.md.
+The branch-and-prune program of Postscript 20, executed.)
+
+**Catalog**: 391 raw blueprints (cluster partitions × axes × kinds) →
+67 canonical survivors after symmetry/specialization collapse, plus 2
+pruned with documented justification: P2 the golden/octahedral all-13
+wall (irrational, and its best extension 681 < 723 — Postscript 12), P3
+the multi-axis polyhedral-forcing family (tested at 613, dominated).
+
+**Gates**: the 723 blueprint (onaxis3+spoke3 on (1,1,1)) survives
+pruning and its knob optimization reproduces 723 exactly.
+
+**Result**: all 67 skeletons knob-searched (spoke-angle coordinate
+descent + free-cube climbs + wide-perturbation hops; ~600-1,400 exact
+evals each, 83,700+ total): **nothing beat 723**. Best non-gate
+blueprints: spoke6_ax001 = 689, onaxis4+free2 = 681, onaxis3+free3 =
+679. A 4×-budget refinement of the top-12 runners-up runs detached
+(first result: spoke6_ax001 confirmed stuck at 689).
+
+**Standing of the record after this**: 723 is now (i) exhaustive at the
+blueprint/skeleton level within the rational shared-axis/free family at
+stated coverage, (ii) cornered at the subset level by envelope E1 (any
+beater must contain a 5-config ≥ 388; only the 723 family is known to
+reach that), and (iii) at the peak of the deep-sacrifice trade-off
+surface (Postscript 14). Three independent closures. Beating 723 now
+requires either a fundamentally new 5-cube near-record, an irrational
+wall outside every family tested, or a violation of envelope E1.

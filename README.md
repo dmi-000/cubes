@@ -18,7 +18,10 @@ it.
 
 | n | best bounded regions | configuration | field |
 |---|---|---|---|
-| 3 | 67 | octahedral 3-compound = golden 3-subset | ℚ(√2) / ℚ(√5) |
+| 2 | 13 | 60° about a shared body diagonal (confirmed max) | ℚ (rational) |
+| 3 | 67 | octahedral 3-compound = golden 3-subset (confirmed max) | ℚ(√2) / ℚ(√5) |
+| 4 | **183** | wide-perturbation climb; golden 177 beaten | ℚ (rational) |
+| 5 | **393** | 5-subset of the 723 record; golden 351 beaten | ℚ (rational) |
 | 6 | **723** | C₃-orbit-of-3 + 3 free cubes, shared (1,1,1) axis | ℚ (rational) |
 | 6 | 717 | D₂-orbit-of-4 + free + axis-aligned cube | ℚ (rational) |
 | 6 | 705 | two 3-fold triples on shared (1,1,1) axis | ℚ (rational) |
@@ -26,7 +29,7 @@ it.
 | 6 | 681 | golden five + sixth on the (1,1,1) wall | ℚ(√5) |
 | 6 | 655 | two 60°-body-diagonal pair walls, constructed | ℚ (rational) |
 | 6 | 635 | best from 360k random rational seeds + climbing | ℚ (rational) |
-| 7 | 1085 | best n=7 campaign seed (search ongoing) | ℚ (rational) |
+| 7 | **1207+** | greedy extension of 723 (+ climb in progress) | ℚ (rational) |
 
 Deep-depth ceilings **d3 ≤ 164, d4 ≤ 102, d5 ≤ 36, d6 = 1** have never
 been exceeded in any config or on any wall tested (conjectures C4/C5/C6,
@@ -146,7 +149,7 @@ to it.
 
 | file | kind | what it is |
 |---|---|---|
-| `six_cube_search_results.md` | **ledger** | The authoritative project record. Postscripts 1–12: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→…→717→723 record chain, the ℚ(√5)/tower field program, the sliding-3-cube result, and the symmetry-stratified sweep. Start here. |
+| `six_cube_search_results.md` | **ledger** | The authoritative project record. Postscripts 1–21: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→…→717→723 record chain, the ℚ(√5)/tower field program, the sliding-3-cube result, and the symmetry-stratified sweep. Start here. |
 | `C45_notes.md` | notes | Proof program for the deep ceilings (d3≤164, d4≤102, d5≤36) via the radial-escape lemma and bottom-diagram census (T1 Euler count + T2 semicontinuity). |
 | `CPP_SPEC.md` | spec | Design of the C++ engine: integer-homogeneous coordinates, int128 predicate budget, seed chain, validation gates. Working-principles doc for `cube_regions.cpp`. |
 | `NPLUS_SPEC.md` | spec | Generalization of the engine and campaigns to n>6 (`--n K`). Working-principles doc for the `*_n.py` and `scratch_*_n.py` drivers. |
@@ -159,6 +162,7 @@ to it.
 | `slide3_report.md` | report | Sliding-3-cube results: section 0 = V1 (family disproven), `## V2` = corrected family and the 699 record. |
 | `ALGEBRAIC_SEARCH.md` | spec+report | The algebraic (not numeric) search: solves incidence equations symbolically (Wolfram) — 1-parameter exact wall-mapping and multi-constraint GroebnerBasis solving — then counts each config exactly. Records live at high-multiplicity *point* concurrences (coincident corners = shared axes), with a 9-fold sweet spot. Working-principles doc for `algebraic_search.wl`, `algebraic_demo.wl`, `algebraic_groebner.wl`, `algebraic_groebner2.wl`, `algebraic_bridge.py`. |
 | `PROJECT.md` | write-up | Narrative synthesis of the whole project — problem, methods, the record chain, the structural laws, and open problems. Read this for the story; read the ledger for the primary record. |
+| `JOURNEY.md` | informal account | The story of the project — discoveries, surprises, corrections, the frustration principle and ceiling law, and an honest description of the human/frontier-model/agent/tool collaboration. Self-contained, with a reproduce-it-yourself section. Start here for the most readable entry point. |
 
 ## Source code
 

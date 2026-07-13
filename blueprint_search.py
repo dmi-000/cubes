@@ -59,6 +59,14 @@ BUDGET_DEFAULT = dict(n_random_free=2, steps_free=6, restarts_wide_free=1,
                        n_random_locked=1, steps_locked=4, restarts_wide_locked=0)
 BUDGET_GATE = dict(n_random_free=6, steps_free=18, restarts_wide_free=4,
                     n_random_locked=2, steps_locked=12, restarts_wide_locked=2)
+# refinement pass (python3 blueprint_search.py refine [K]): the top-K
+# non-gate blueprints of the completed coarse sweep re-run at ~4x the
+# coarse budget, so the negative verdict cannot be an artifact of the
+# runner-ups being budget-starved. Note evals-per-step already scale with
+# a blueprint's knob count in BOTH passes (climb() evaluates every knob's
+# neighbor set each step), so budgets are knob-proportional at fixed steps.
+BUDGET_REFINE = dict(n_random_free=4, steps_free=14, restarts_wide_free=3,
+                      n_random_locked=1, steps_locked=6, restarts_wide_locked=1)
 
 # ------------------------------------------------------------ log override
 # shared_axis_search.climb()/multi_restart() call the module-level name
@@ -267,6 +275,92 @@ def write_report(catalog, gate_info, t_start, done_so_far, beats, in_progress=Tr
         f.write('\n'.join(L) + '\n')
 
 
+# ============================================================ REFINE PASS
+def jsonl_bests():
+    """Best total per blueprint tag from blueprint_search.jsonl (all passes
+    so far). Skips FLAG records."""
+    best = {}
+    with open(LOG_PATH) as f:
+        for line in f:
+            r = json.loads(line)
+            if 'FLAG' in r or r.get('total') is None:
+                continue
+            tag = r.get('tag')
+            if tag and (tag not in best or r['total'] > best[tag]):
+                best[tag] = r['total']
+    return best
+
+
+def refine(top_k=12):
+    """Deeper re-run (BUDGET_REFINE) of the top_k best non-gate blueprints
+    from the coarse sweep already logged in blueprint_search.jsonl.
+    Self-contained like main(): appends every eval to the same jsonl and
+    APPENDS a refinement section to blueprint_search_report.md when done
+    (the coarse report body, written by main(), is left intact)."""
+    t_start = time.time()
+    catalog = be.build_catalog()
+    by_tag = {r['tag']: r for r in catalog if r['status'] == 'SURVIVOR'}
+    best = jsonl_bests()
+    cand = [(t, v) for t, v in best.items()
+            if t in by_tag and not by_tag[t].get('is_gate')]
+    cand.sort(key=lambda tv: -tv[1])
+    todo = cand[:top_k]
+    print(f'=== REFINEMENT PASS: top {len(todo)} non-gate blueprints, '
+          f'budget={BUDGET_REFINE} ===', flush=True)
+    rng = random.Random(20260714)
+    beats, rows = [], []
+    for i, (tag, coarse_best) in enumerate(todo, 1):
+        row = by_tag[tag]
+        _CURRENT_BP['id'], _CURRENT_BP['tag'] = row['id'], row['tag']
+        print(f'[refine {i}/{len(todo)}] {tag} (coarse best {coarse_best}) ...', flush=True)
+        rec = run_blueprint(tag, row['axis'] or '(1,1,1)', row['spec'],
+                             RECORD, BUDGET_REFINE, rng=rng)
+        beat = ''
+        if rec['free_best'] and rec['free_best'] > RECORD:
+            flag = handle_possible_beat(row, rec)
+            if flag:
+                beats.append(flag)
+                beat = f' <<< {"VERIFIED BEAT" if flag["verified"] else "UNVERIFIED (oracle disagrees!)"}'
+        rows.append((tag, coarse_best, rec))
+        print(f'    refined: locked={rec["locked_best"]} free={rec["free_best"]} '
+              f'(coarse {coarse_best}, record 723){beat}  evals={rec["evals"]} '
+              f'dt={rec["dt"]:.0f}s', flush=True)
+
+    dt = time.time() - t_start
+    L = ['', '## 6. Refinement pass (deeper budget on the coarse runner-ups)', '']
+    L.append(f'Top {len(todo)} non-gate blueprints by coarse best, re-run at '
+             f'budget {BUDGET_REFINE} (~4x coarse evals; fresh random restarts, '
+             f'seed 20260714). Purpose: the negative verdict must not rest on '
+             f'the runner-ups having been budget-starved in the coarse pass.\n')
+    L.append('| tag | coarse best | refined best | vs 723 | evals | dt(s) |')
+    L.append('|---|---|---|---|---|---|')
+    overall = None
+    for tag, coarse_best, rec in rows:
+        fb = rec['free_best']
+        if fb is not None:
+            overall = fb if overall is None else max(overall, fb)
+        cmp = ('BEATS' if fb and fb > RECORD else
+               ('TIES' if fb == RECORD else
+                (f'{fb - RECORD:+d}' if fb is not None else '?')))
+        L.append(f'| {tag} | {coarse_best} | {fb} | {cmp} | {rec["evals"]} | {rec["dt"]:.0f} |')
+    L.append('')
+    if beats:
+        for flag in beats:
+            L.append(f'- **{flag["tag"]}**: cpp_total={flag["cpp_total"]} '
+                     f'oracle_total={flag["oracle_total"]} '
+                     f'verified={flag["verified"]} quats={flag["quats"]}')
+    else:
+        L.append(f'No refined blueprint beat 723 either (best refined = '
+                 f'{overall}). The Section 5 verdict stands at the strengthened '
+                 f'coverage: coarse pass over all 67 survivors + ~4x-budget '
+                 f'refinement of the top {len(todo)}.')
+    L.append(f'\nRefinement wall time: {dt:.0f}s.')
+    with open(REPORT_PATH, 'a') as f:
+        f.write('\n'.join(L) + '\n')
+    print(f'\nREFINE DONE. {len(todo)} blueprints, {dt:.0f}s. '
+          f'Report section appended -> {REPORT_PATH}', flush=True)
+
+
 # ================================================================= MAIN
 def main():
     t_start = time.time()
@@ -314,5 +408,7 @@ def main():
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'gate':
         gate()
+    elif len(sys.argv) > 1 and sys.argv[1] == 'refine':
+        refine(int(sys.argv[2]) if len(sys.argv) > 2 else 12)
     else:
         main()
