@@ -113,7 +113,27 @@ the 20 vertices of a dodecahedron. Its sub-compounds count exactly:
 | bounded pieces  | 1 | 13 | 67 | 177 | 351 |
 
 These arrangements involve the golden ratio and are represented exactly
-using numbers of the form a + b√5.
+using numbers of the form a + b√5. They are the best known for two and three cubes — but *not* for
+four or five: the golden four-cube compound (177)
+is beaten by a purely rational four-cube arrangement reaching **183**,
+and the golden five-cube compound (351) is beaten by a rational five-cube
+arrangement reaching **393** — which is, strikingly, a *sub-compound of
+the best six-cube arrangement* (drop one of its six cubes). This is the
+same surprise as at six cubes, where the best rational arrangement (723)
+beats the golden-based one (681): the golden compound is the best
+*symmetric* configuration, not the overall maximum. So the records for
+four and five cubes are at least 183 and 393, and none of these is proven
+maximal.
+
+**The records nest.** The best six-cube arrangement (723) contains the
+best four-cube one (183) as a sub-compound, contains a five-cube
+sub-compound (393) that beats the old five-cube record, and its pairs
+reach the two-cube record (13). Outstanding arrangements are built from
+outstanding smaller ones — which suggests constructing a record for *n*
+cubes by taking the best (*n*−1)-cube arrangement and adding one more cube
+well. (Curiously the nesting is cleanest at even sizes: the three-cube
+sub-compounds of 723 reach only 63, short of the golden 67, because that
+maximum needs a symmetry 723's rational structure doesn't share.)
 
 One observation here seeds a major theme. There are two *different*
 three-cube arrangements that both reach the maximum of 67, and they
@@ -190,11 +210,22 @@ blind spot of the previous:
 
 Several exact regularities appear everywhere we look:
 
-- **Deep layers are capped.** The depth-3, depth-4, depth-5 counts never
-  exceed 164, 102, 36 respectively, in any arrangement tried, on any
-  wall. (Depth-6 is always 1, which is provable — the innermost region is
-  one convex blob.) These three caps are conjectures, with a proof
-  program sketched in Section 6.
+- **Deep layers are capped — and the second-deepest cap is exactly 6n.**
+  The depth-3, depth-4, depth-5 counts of a six-cube arrangement never
+  exceed 164, 102, 36, on any arrangement tried. (Depth-6 is always 1,
+  provably — the innermost region is one convex blob.) The last of these,
+  depth-5 ≤ 36, turns out to be one case of a clean law across all sizes:
+  the **second-deepest layer, depth-(n−1), never exceeds 6n**, and equals
+  6n generically — verified for every size from two to six cubes (12, 18,
+  24, 30, 36). This unifies five separately-observed ceilings into one
+  statement with a short proof sketch: the "which cube is innermost"
+  pattern on the direction-sphere (Section 6) is anchored at each cube's
+  six face-centre directions, giving at most six regions per cube, hence
+  ≤ 6n. Making that rigorous reduces to a single lemma about how the
+  face-normals' directions can overlap; the lemma holds in every case
+  sampled but is not yet proven in general (Section 9). The 6n cap is
+  also **hereditary**: removing any cube from a record drops depth-(n−1)
+  from 6n exactly to 6(n−1) in the smaller arrangement.
 - **Deep layers are "quantized," shallow layers grow — and records
   trade between them.** This is the central structural fact, visible
   across ~457,000 counted arrangements. As the total climbs, the deep
@@ -340,25 +371,59 @@ algebraic (even irrational) configurations that trial-and-error cannot.
 
 ---
 
-## 8. More than six cubes
+## 8. More than six cubes, and the record tower
 
 The counting method works for any *n*. Best arrangements found so far
 (lower bounds on the true maxima):
 
 | cubes *n* | 2 | 3 | 4 | 5 | 6 | 7 |
 |---|---|---|---|---|---|---|
-| best bounded pieces | 13 | 67 | 177+ | 351 | 723 | 1085+ |
+| best bounded pieces | 13 | 67 | 183+ | 393+ | 723 | 1207+ |
 
-(The "+" cases are still being searched.) The parity rule and the
-shallow-gain / deep-cap structure persist as *n* grows; charting how the
-maximum grows with *n* is an ongoing thread.
+Several of these numbers are *corrections*: the golden compound gives 177
+at four cubes and 351 at five, and both were long taken as the answers —
+but a rational four-cube arrangement reaches 183 and a rational five-cube
+one reaches 393. Golden is the best *symmetric* configuration, not the
+maximum. This raised the question of whether even the small cases are
+safe; thorough search in their low-dimensional spaces **confirms 13 and
+67** (nothing beats them), and confidence rightly runs opposite to size:
+near-certain at n=2, strong at n=3, down to "best found so far" at n=6,7.
+
+**The records form a tower, and it is generative.** The best six-cube
+arrangement *contains* the best four-cube one and a five-cube sub-compound
+(393) that beats the old five-cube record; adjacent sizes differ by adding
+or removing one cube. This is not just descriptive — it *builds* records:
+taking the 723 six-cube record and adding a single seventh cube, over a
+few hundred orientations and with no fine-tuning, already reaches **1207**
+at seven cubes, beating a 50,000-arrangement random campaign (which topped
+out at 1085). So the recipe "take the best (*n*−1)-cube arrangement and
+add one cube well" outperforms searching from scratch.
+
+**The tower is organized by a shared 3-fold symmetry.** Each
+golden-beating record keeps exactly a single 3-fold rotation axis (a
+symmetry group of order 3) — dropping all the way down from golden's
+order-60 icosahedral symmetry, but never becoming fully asymmetric. That
+surviving axis is the corner-sharing structure of Section 6, and it
+organizes the tower: the cubes split into one 3-fold orbit plus a few
+axis-fixed cubes, the orbit cubes are interchangeable (removing any gives
+the same result), and it is the *axis-fixed* cubes that are added and
+removed to climb between sizes. The parity rule, the 6n second-deepest
+cap, and the shallow-gain / deep-cap structure all persist as *n* grows.
 
 ---
 
 ## 9. Open problems
 
-1. **Prove the deep-layer caps** (depth-3 ≤ 164, depth-4 ≤ 102, depth-5 ≤
-   36) via the sphere reformulation of Section 6.
+1. **Prove the second-deepest cap, depth-(n−1) ≤ 6n.** This is the most
+   tractable ceiling — it unifies depth-5 ≤ 36 (n=6) with the small cases,
+   and reduces (Section 5) to one lemma: the direction-sphere function
+   "distance to the nearest face" has local minima *only* at the 6n
+   face-centre directions — no extra "shoulder" minima. The two-normal
+   case of that lemma is provable; the open crux is whether three cube
+   face-normals can ever conspire to make an extra minimum. Zero such
+   cases in any sampled arrangement, but the general proof is a genuine
+   research problem. (The deeper caps depth-3 ≤ 164 and depth-4 ≤ 102 at
+   n=6 are separate, harder counting statements.)
 2. **Beat 723 for six cubes, or prove it is the maximum.** In the
    trade-off language of Section 5, this means finding the best point on
    the deep-sacrifice surface: since the deep layers are capped and the

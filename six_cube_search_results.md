@@ -582,7 +582,7 @@ same rare invariant-shell exceptions seen at n=6, here 0.12%). Law
 holds.
 
 **Record growth so far** (certified lower bounds; max regions by n):
-n=2: 13, n=3: 67, n=4: 177+, n=5: 351, n=6: 723, n=7: 1085+. (The n≤5
+n=2: 13, n=3: 67, n=4: 183+, n=5: 393+, n=6: 723, n=7: 1207+. (The n≤5
 and n=6 values are the current records from the rational/wall programs;
 n=7 is campaign-only, no hill-climb yet.)
 
@@ -1115,3 +1115,119 @@ Three experiments ran on the trade-off/extra-DOF questions:
   or the C++ engine extended to per-cube sizes. Size PRESERVES central
   symmetry (unlike translation), so it is the gentler extra DOF and the
   more likely of the two to help, but it remains untested at n=6.
+
+## Postscript 15: n=4 — golden 177 is NOT the maximum; new rational record 183
+
+(n4_search.py, n4_search.jsonl, n4_search_report.md, prompted by Chris
+Cole flagging the n=4 entry. The growth table's old "135+" was a rational
+undershoot; corrected first to 177, now to 183.)
+
+The golden four-cube sub-compound (4 of the 5 dodecahedral cubes) counts
+**177** exactly (by_depth {1:104,2:48,3:24,4:1}, ℚ(√5)), confirmed by two
+independent engines. But it is NOT the 4-cube maximum:
+
+**New n=4 record: 183** (fully rational, verified by both cube_regions_n
+and the Python oracle; ≡ 3 mod 4, generic parity):
+
+    quats = [[1,0,0,0],[0,5,3,2],[1,-4,-1,1],[1,1,-1,-4]]
+    by_depth = {1:92, 2:66, 3:24, 4:1}   total 183   (+6 over golden 177)
+
+Certified a radius-4 local maximum (recurred 9/40 wide-restart climbs,
+never exceeded). This mirrors n=6 exactly: the best RATIONAL config beats
+the golden/√5 wall (n=6: 723 > 681; n=4: 183 > 177). The golden compound
+leads among *symmetric* configs but is not the global max.
+
+**How found**: 200k random campaign (best 137) → hill-climb (142) → four
+symmetric families generalizing the n=6 record shapes (golden-3+free,
+octahedral-type, C4-orbit, C3-orbit+free; max 159, none beat 177) → DEEP
+multi-restart climbing from the octahedral-family champion: wide
+(multi-component) perturbation + re-climb escapes each local max into a
+richer basin, 159→171→173→175→179→183. The wide-perturbation escape is
+the operative technique; plain ±1/±2 greedy climbing stalls below 177.
+
+**Structural echo of the n=6 trade-off surface**: golden (177) and the
+record (183) both have d3=24, d4=1 (identical deep tail); the record
+trades 12 units of d1 for 18 of d2 (net +6) — same "grow the shallow
+layers, deep layers pinned" pattern. **d3 ≤ 24 held across ~300,000
+exact n=4 configs** (rational and golden) — a candidate n=4 analog of the
+n=6 deep-layer ceilings.
+
+**Not proven maximal**: the deep-climb was run systematically from only
+one structured seed; applying it to the other families' champions is the
+obvious next step. A naive additive bound from best-ever d1 (104, golden)
++ best d2 (66) + d3 cap 24 + 1 = 195 suggests real headroom remains.
+
+## Postscript 16: records NEST — 723's subsets contain the smaller records, and its 5-subset beats golden 351
+
+(Analysis of the record configs' sub-compounds, prompted by questions on
+whether outstanding configs are built from outstanding sub-configs, and
+Chris Cole's "does this call into question 351?".)
+
+**351 is called into question — decisively.** A 5-cube sub-compound of
+the 723 record (drop its 6th cube) counts **393**, verified by both
+cube_regions_n and the Python oracle: quats [[4,1,1,-1],[3,3,7,3],
+[5,-1,-5,-5],[2,1,1,1],[1,1,1,1]], by_depth {1:156,2:128,3:78,4:30,5:1},
++42 over golden 351. ALL five 5-subsets of 723 beat 351 (375/381/381/
+381/387/393). The golden five-compound is NOT the n=5 maximum — same
+story as n=4 (rational 183 > golden 177). Growth table n=5: 351 → 393+.
+(d4 = 30 = 6·5 in the 393 config — the depth-(n−1) ≤ 6n ceiling holds.)
+
+**Records NEST.** The subset spectrum of the 723 record:
+
+| subset size | best subset count | the k-cube record | note |
+|---|---|---|---|
+| 2 | 13 (×5) | 13 | hits the record |
+| 3 | 63 (×5) | 67 | 94% — falls short of the golden 67 |
+| 4 | 183 | 183 | hits the n=4 record exactly |
+| 5 | 393 | (was 351) | EXCEEDS the old golden value |
+
+So 723 CONTAINS the n=4 record (183) and a 5-cube config (393) above the
+old n=5 record, and its pairs hit the n=2 record (13). Its 3-subsets
+reach only 63 (< 67): the golden/octahedral SYMMETRIC 67 is not
+rationally compatible with 723's structure, whereas the rational records
+(13, 183, 393) nest cleanly.
+
+**Construction principle suggested.** Outstanding configs are
+hierarchically nested — an n-cube record contains an (n−1)-cube config at
+or above the (n−1) record. This motivates GREEDY EXTENSION: take the best
+k-cube config, add a cube optimally, climb → candidate (k+1) record. The
+183/393/723 chain is exactly such a tower (183 ⊂ … , 393 ⊂ 723). The
+even-k subsets hitting their records while the odd-k (3) falls short is an
+unexplained parity in the nesting worth investigating.
+
+### Postscript 16 addendum: greedy extension VALIDATED — new n=7 record 1207
+
+The nesting principle predicts an n-cube record can be built by extending
+the (n−1) record with one cube. Tested directly: the 723 six-cube record
++ one seventh cube, over just 256 seventh-cube orientations (NO
+hill-climbing), reaches **1207** — verified by both cube_regions_n and the
+Python oracle — beating the prior n=7 best-known 1085 (from a 50k-seed
+campaign) by 122.
+
+    quats = 723's six cubes + [5,4,-4,-4]
+    by_depth = {1:272, 2:324, 3:260, 4:192, 5:116, 6:42, 7:1}   total 1207
+    (d6 = 42 = 6·7 — the depth-(n−1) ≤ 6n ceiling holds at n=7 too)
+
+So greedy extension of the record BEATS a full random campaign at the
+next n, cheaply — the construction principle is not just descriptive but
+generative. Growth table n=7: 1085+ → 1207+. Un-climbed; hill-climbing
+from 1207, and iterating the extension to n=8, are the obvious next steps.
+The record tower is now 183(n4) → 393(n5) → 723(n6) → 1207(n7), adjacent
+levels related by adding/dropping one cube.
+
+### Postscript 16 addendum 2: n=2 and n=3 stress-tested — 13 and 67 hold
+
+With the golden values 177 (n=4) and 351 (n=5) both broken, n=2 and n=3
+were stress-tested. Thorough search in their low-dimensional spaces
+(config space is 3(n−1)-D: n=2 is 3-D, n=3 is 6-D): n=2 = 13 CONFIRMED
+(1,783 random seeds + hill-climbs, nothing above 13); n=3 = 67 CONFIRMED
+(4,414 seeds + climbs, nothing above 67). Confidence scales inversely with
+dimension, so these small cases are far better established than the large
+records. Two structural reasons they are safer than 177/351: the 13-pair
+is already RATIONAL (60° about a shared body diagonal), not a golden value
+that a rational config could undercut; and at n=3 the SYMMETRIC value (67)
+beats the best rational three-cube subsets of the records (63) — symmetric
+leads at n=3, whereas rational overtook symmetric at n=4,5. Caveat:
+thorough search, not proof. Confidence ladder: n=2 (near-certain) > n=3
+(strong) > n=4 183 / n=5 393 (golden beaten, rational best-so-far) > n=6
+723 > n=7 1207 (extension-seeded, least settled).
