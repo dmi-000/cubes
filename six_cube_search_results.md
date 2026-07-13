@@ -1231,3 +1231,89 @@ leads at n=3, whereas rational overtook symmetric at n=4,5. Caveat:
 thorough search, not proof. Confidence ladder: n=2 (near-certain) > n=3
 (strong) > n=4 183 / n=5 393 (golden beaten, rational best-so-far) > n=6
 723 > n=7 1207 (extension-seeded, least settled).
+
+### Postscript 16 addendum 3: n=5 = 393 is robust; native search can't reach it
+
+Full n=5 search (n5_search.py, ~171,600 exact configs): 393 confirmed the
+best, nothing beat it. Wide-perturbation deep-climb (155 restarts from 393
+and neighbors) found ZERO improvement, and — unlike n=4's 183, which had
+to escape five successive plateaus — 393 shows NO plateau structure, so it
+is a substantially more robust local optimum. d4 ≤ 30 = 6·5 held across
+all ~171,600 configs (and is the generic value, >90% of random). Notable:
+n=5-NATIVE structured families (golden-rationalized, octahedral-type,
+C4-orbit, C3-orbit+free) deep-climbed only to 377/369/323/309 — all short
+of 393. So 393 is reachable only as a sub-compound of the 723 six-cube
+record, not by any independent five-cube search. This sharpens the nesting
+principle: the n=5 optimum is INHERITED from the n=6 record, with no
+constructive five-cube route to comparable richness — the tower is
+top-down as much as bottom-up.
+
+## Postscript 17: local perfection is globally frustrated past n=3 — the "middle-layer" mechanism
+
+(Prompted by the observation that golden N4 is built from optimal
+sub-configs on every subset yet is not maxN4. Verified exactly.)
+
+**All-subsets-optimal ⟺ golden, and it equals the max only for n ≤ 3.**
+- golden four-compound (177): ALL four 3-subsets = 67 (=max₃) and all six
+  2-subsets = 13 (=max₂) — every part optimal — yet 177 < max₄ = 183.
+- max₄ (183): 3-subsets = 63/63/63/55 (< 67), pairs = 13/13/13/9/9/9 —
+  NOT all optimal. The global maximum must DETUNE its subsets to win.
+
+"Every k-subset optimal" is a rigid constraint satisfiable only by the
+fully symmetric (icosahedral) compound. So local perfection forces golden,
+and golden is beaten for n ≥ 4 — a FRUSTRATION: honor all local
+constraints (golden) OR maximize the whole (183), not both.
+
+**Why n=4? The middle layer.** Compare depth profiles (d1..d_n):
+  - n=3: golden=max=67 = {48, 18, 1}. Layers: d1 (top) and d2 =
+    depth-(n−1) = 18 = 6·3 (the ceiling). NO middle layer. Golden maxes
+    BOTH → golden = max.
+  - n=4: golden {104, 48, 24, 1} vs max {92, 66, 24, 1}. Both hit
+    d3 = 24 = 6·4 (ceiling). But d2 is a MIDDLE layer (neither the top d1
+    nor the ceiling-ed deep layer). Golden leaves d2 = 48; the max pushes
+    it to 66 by sacrificing d1 (104→92), netting +6.
+  - n=5: golden {180,80,60,30,1} vs max {156,128,78,30,1}. Middle layers
+    d2,d3: golden 80/60, max 128/78 — golden far behind in the middle.
+
+Mechanism: **golden concentrates the count in the top layer (d1) and the
+6n-capped deep layer, but n=4 is the FIRST size with a middle depth layer
+that is neither — and golden leaves middle layers sub-maximal. The global
+maximum trades down d1 to fill the middle, and wins.** (Golden is markedly d1-HEAVY: golden d1 = 104 (n4), 180 (n5) both exceed
+the max-total configs' d1 = 92, 156 — so golden concentrates the outer
+layer and the total-max redistributes to the middle. Whether golden
+GLOBALLY maximizes d1 is a stronger claim, still untested.) This unifies the golden-falling, the C₃-only (not icosahedral)
+symmetry of records, the incidence sweet spot, and why greedy extension
+(which inherits detuned subsets) beats assembling from optimal parts.
+
+## Postscript 17 addendum: the DOF hierarchy — local optima are RIGID, flexibility lives in suboptimal-but-structured configs
+
+(Corrects earlier loose claims about pair flexibility, incl. a mistaken
+"13 is 47% flat".) Sampling 1,500 random pairs: the count distribution is
+4 (94%), 5 (4%), 9 (2%), 13 (0.1%). So:
+
+| pair count | how common | degrees of freedom |
+|---|---|---|
+| 4 (generic) | 94% | full 3-D open sea |
+| 9 (shared face-axis) | 2% | CONTINUOUS — exactly 9 at every angle about the shared axis (verified 8 angles) |
+| 13 (the MAXIMUM) | 0.1% | rigid, near-isolated high-codimension wall |
+
+The MAX pair (13) is the RAREST and most rigid; the suboptimal 9 sits on a
+fatter, continuously-parameterized locus. Same for triples: 67 is ISOLATED
+(Postscript 9 — octahedral ℚ√2 and golden ℚ√5 endpoints connected by a
+family whose INTERIOR drops to ~37; near-45° rational octahedral gives only
+55, exact 45° needed; a climbed 63-triple has 0% DOF openness). So **local
+optima (13, 67) are rigid points; they are NOT count-preserving-continuous.**
+
+Key distinction: a config always has CONFIGURATION DOF (you can perturb the
+cubes), but the optima have no COUNT-PRESERVING DOF. The flexibility that a
+larger arrangement can exploit lives in the suboptimal-but-structured
+configs (the 9-pair's tunable shared-axis angle).
+
+**This SHARPENS the frustration principle (Postscript 17):** local optima
+are rigid, so the globally optimal arrangement is FORCED to build from
+locally-suboptimal-but-flexible pieces. Golden fails precisely because it
+insists on the rigid optimal pieces (all pairs = 13); the true max uses
+tunable 9-pieces. Structure of max₄ (183): an axis-aligned HUB cube paired
+13 (max) to each of three SPOKE cubes, with the spokes mutually 9-paired
+(the C₃ orbit — a shared-axis cluster whose angles are the tunable freedom).
+The C₃core+free family that built 723 is the six-cube version of this.

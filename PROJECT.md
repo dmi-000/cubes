@@ -135,6 +135,26 @@ well. (Curiously the nesting is cleanest at even sizes: the three-cube
 sub-compounds of 723 reach only 63, short of the golden 67, because that
 maximum needs a symmetry 723's rational structure doesn't share.)
 
+**Local perfection is globally frustrated past three cubes.** The golden
+compound has a remarkable property: *every* one of its sub-compounds is
+optimal — every pair is a best pair (13), every triple a best triple
+(67). That is exactly what forces its high symmetry, and up to three cubes
+it also makes it the overall maximum. But from four cubes on, the property
+*backfires*: the golden four-compound has every subset optimal yet totals
+only 177, while the true maximum (183) has to *detune* — its triples drop
+to 63, half its pairs to 9 — to win. You cannot both make every part
+optimal and maximize the whole; it's a frustration, like a magnet whose
+neighbours all want to align but can't all be satisfied at once. The
+reason it switches on at four cubes is the appearance of a *middle* depth
+layer: golden loads the outermost layer (depth-1) heavily — more than the true maxima do — and maxes the
+deep layers that are capped at 6n, but four cubes is the first size with a
+depth layer that is neither — and there the maximum beats golden by
+shifting count out of the outer layer into the middle. This one idea ties
+together why golden loses, why the records keep only a modest 3-fold
+symmetry instead of the full icosahedral one, and why building from a
+record (which already carries this detuning) beats assembling from
+perfect parts.
+
 One observation here seeds a major theme. There are two *different*
 three-cube arrangements that both reach the maximum of 67, and they
 achieve it by different geometry:
