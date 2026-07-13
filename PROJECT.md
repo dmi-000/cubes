@@ -153,7 +153,14 @@ shifting count out of the outer layer into the middle. This one idea ties
 together why golden loses, why the records keep only a modest 3-fold
 symmetry instead of the full icosahedral one, and why building from a
 record (which already carries this detuning) beats assembling from
-perfect parts.
+perfect parts. At the level of the parts themselves the accounting is
+exact: the record's three-cube pieces count 63 = {44, 18, 1} against the
+perfect triple's 67 = {48, 18, 1} — *identical* in the deep layers
+(which are what a larger arrangement inherits) and behind only in
+depth-1, the layer the larger arrangement recuts anyway. The perfect
+triple pays for those four disposable regions with its last tunable
+degree of freedom. A good building block is deep-saturated,
+shallow-detuned, and keeps its knob.
 
 One observation here seeds a major theme. There are two *different*
 three-cube arrangements that both reach the maximum of 67, and they
@@ -229,6 +236,21 @@ blind spot of the previous:
 ## 5. Patterns that hold across every arrangement
 
 Several exact regularities appear everywhere we look:
+
+- **All the depth-layer caps obey one formula.** The ceiling for the
+  layer l steps up from the deepest is C(l, n) = (12l−6)·n − 2(l²−1):
+  the second-deepest layer is capped at 6n, the next at 18n−6, then
+  30n−16, then 42n−30 — and the outermost layer at 10n²−14n. Across
+  roughly a million exactly-counted arrangements (two to seven cubes),
+  every testable cap is *attained exactly and never exceeded*. The golden
+  compounds attain precisely the outermost-layer cap (48, 104, 180 at
+  n = 3, 4, 5); the records attain the deep caps; no arrangement attains
+  all caps at once (that is the frustration, and summing the caps gives
+  an upper bound on the total — 801 at six cubes, against the record
+  723). The same formula is confirmed by a completely independent
+  measurement: the vertex counts of the sphere diagrams of Section 6
+  match its prediction exactly. Proving it is now the project's central
+  theory goal.
 
 - **Deep layers are capped — and the second-deepest cap is exactly 6n.**
   The depth-3, depth-4, depth-5 counts of a six-cube arrangement never
@@ -388,6 +410,34 @@ found with computer algebra (Gröbner bases and equation solving):
 Neither has beaten 723, but together they map the relationship between
 coincidence structure and piece-count exactly, and can reach exact
 algebraic (even irrational) configurations that trial-and-error cannot.
+
+**From search to branch-and-prune.** The structural findings collapse the
+search space into something almost combinatorial. Since a configuration's
+worth is carried by its *blueprint* — how the cubes partition into
+shared-axis clusters, which pairs are rigid best-pairs versus tunable
+9-pairs, which cubes are free — the search becomes: enumerate the finite
+catalog of blueprints, *prune* the ones that provably can't win (a
+triangle of rigid best-pairs forces the golden wall, whose extensions are
+known to lose; geometrically inconsistent labelings never existed), and
+optimize the surviving blueprints over their continuous knobs. The prize
+is a qualitatively stronger conclusion than any search so far: "no
+blueprint beats 723," exhaustive at the skeleton level, rather than "we
+didn't find one." This search runs now. What would upgrade it from
+branch-and-*prune* to true branch-and-*bound* is one missing theorem — a
+**deficit-propagation lemma**: a guarantee that if a partial assembly's
+sub-compounds fall short of their deep caps by some amount, the completed
+arrangement's total is capped below the global bound by a corresponding
+amount. The empirical envelope for that lemma has now been measured
+(every five-cube sub-compound of 532 arrangements spanning the whole
+spectrum, counted exactly), and it is sharp on both fronts: adding a
+sixth cube never gained more than 336 over the best five-cube part — so
+any arrangement beating 723 must *contain* a five-cube arrangement of
+at least 388, a class that only the record's own family is known to
+occupy — and any arrangement whose parts miss their deep caps is capped
+more than 150 below the record. Both statements are measured envelopes
+awaiting proof, but together they nearly corner 723: the search for a
+better six-cube arrangement reduces to the search for a new
+near-record five-cube one.
 
 ---
 

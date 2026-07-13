@@ -114,3 +114,21 @@ identify the vertex-type census (how many rank-triple points vs
 own-edge crossings) -- the census IS the content of T1; check for
 bottom-shoulder cells (cells of B_1 containing no face-center
 direction; B_2 cells containing no minimum of the 2nd-lowest envelope).
+
+## 7. THE GENERAL LAW (2026-07-13) — supersedes the per-case ceilings
+
+All bottom-diagram cell counts obey one formula (Postscript 19 evidence):
+
+    cells(B_l) = C(l,n) = (12l−6)n − 2(l²−1)      [conjecture, attained
+    exactly for l ≤ 4 at n = 2..7 across ~1M configs; zero violations]
+
+equivalently, via trivalence (E = 3V/2, all measured censuses):
+
+    V_l(n) = (24l−12)n − 4l²      [matches measured 68/200/324 at n=6]
+
+So T1 is now: prove Σ_l has exactly V_l(n) trivalent vertices generically.
+T2 unchanged (degeneracy only merges). The old targets are the cases
+l=1,2,3 at n=6 (36, 102, 164). The l=1 case reduces to the no-shoulder
+lemma: m(û) = 1/max|n·û| has ONLY the 6n face-center minima (two-form
+case = ridge, provable; crux = no triple-form sub-unit peak).
+Top layer: d1 ≤ C(n−1,n) = 10n² − 14n, attained by golden for n ≤ 5.

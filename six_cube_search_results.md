@@ -1317,3 +1317,165 @@ tunable 9-pieces. Structure of max₄ (183): an axis-aligned HUB cube paired
 13 (max) to each of three SPOKE cubes, with the spokes mutually 9-paired
 (the C₃ orbit — a shared-axis cluster whose angles are the tunable freedom).
 The C₃core+free family that built 723 is the six-cube version of this.
+
+## Postscript 18: shared-axis-cluster construction — free spoke angles recover every record; locked/control variants fall short
+
+(shared_axis_search.py/.jsonl, campaign partially complete — n=6 templates
+still running; interim results already decisive on the hypothesis.)
+
+Tests the Postscript-17-addendum principle constructively: parameterize
+hub-and-spoke families (on-axis cubes + a cluster of spokes sharing an
+axis, each spoke at an independent rational angle — the continuous 9-DOF)
+and search the spoke angles DIRECTLY.
+
+- **Gates: the family CONTAINS the records** — 183 and 723 both expressed
+  exactly as instances (n=4 onaxis2+spoke2; n=6 spoke3+onaxis3).
+- **n=4: free angles reach 183 (the record); C₃-locked angles only 165;
+  unstructured 4-free control 163.** Freeing the flexible DOF is worth
+  +18 over locking to the symmetric angles.
+- **n=5: three cluster templates reach 393 (the record); control 369.**
+- **n=6 (in progress): the 723 template reaches 723 free vs 679 locked.**
+
+Verdict so far: "build from flexible 9-DOF clusters and tune the angles"
+is a VALIDATED construction principle — it recovers every record from the
+right variables where generic search and angle-locking fail; no template
+has (yet) beaten a record. Full report when the n=6 templates finish.
+
+## Postscript 19: THE GENERAL CEILING LAW — depth-(n−l) ≤ (12l−6)n − 2(l²−1)
+
+(Discovered by fitting the bottom-l maxima across n and cross-checked two
+independent ways. The single most consolidating result of the project.)
+
+**The law.** For n concentric unit cubes and 1 ≤ l ≤ n−1:
+
+    C(l, n)  =  (12l − 6)·n  −  2(l² − 1)
+    depth-(n−l)  ≤  C(l, n),   attained (generically or by records/golden)
+
+Slopes 6, 18, 30, 42, … (arithmetic, step 12); intercepts −2(l²−1).
+Special cases: l=1 gives the 6n law (Postscript 14 era); l=n−1 gives the
+TOP layer d1 ≤ 10n² − 14n.
+
+**Evidence 1 — attainment table** (max observed per layer over ~1M exact
+configs from every campaign/search log, n=2..7):
+
+    n\l    l=1      l=2      l=3      l=4      l=5      l=6
+     2    12=12      --       --       --       --       --
+     3    18=18    48=48      --       --       --       --
+     4    24=24    66=66   104=104     --       --       --
+     5    30=30    84=84   134=134  180=180     --       --
+     6    36=36   102=102  164=164  222=222  234<276     --
+     7    42=42   120=120  194=194  264=264  306<330  158<392
+
+Every testable cell l ≤ 4: ATTAINED EXACTLY, ZERO violations. The only
+unattained cells are the shallowest layers at n=6,7 — exactly the
+frustration (all layers cannot be capped simultaneously).
+
+**Evidence 2 — golden attains the top-layer ceiling.** Golden depth-1 =
+48, 104, 180 at n=3,4,5 = C(n−1,n) exactly. ("Golden maximizes d1" is now
+a formula, and golden = the top-layer-ceiling config; the records are the
+deep-layer-ceiling configs; the middle is the contested ground.)
+
+**Evidence 3 — the spherical census matches.** All measured swap-curve
+censuses are TRIVALENT (E = 3V/2), so Euler gives cells = 2 + V/2, i.e.
+V_l(n) = 2·C(l,n) − 4 = (24l − 12)n − 4l². Measured at n=6 (Postscript 5):
+V₁,V₂,V₃ = 68, 200, 324; formula: 68, 200, 324. Exact agreement from a
+completely independent measurement.
+
+**Corollary (max-total bound).** Total ≤ 1 + Σ_{l=1}^{n−1} C(l,n)
+= 1 + (n−1)(16n² − 17n + 6)/3. At n=6: ≤ 801 (record 723; the gap is the
+frustration cost). At n=4: ≤ 195 (record 183 — matches the "naive additive
+bound" of Postscript 15, now derived). At n=5: ≤ 445 (record 393).
+
+**Proof target, now crisp (T1/T2 sharpened).** T1: show the swap-curve
+Σ_l of a generic n-cube compound has exactly (24l−12)n − 4l² vertices,
+all trivalent; Euler then gives cells = C(l,n). T2: degeneracy only
+merges cells (never exceeds the generic count). l=1 already reduces to
+the no-shoulder lemma (envelope has only the 6n face-center minima).
+
+**Predictions.** (i) d1 at n=6 can reach 276 (observed max 234 — 42 of
+headroom; hunting a d1=276 config is a sharp target). (ii) n=8: deep
+ceilings 48, 138, 224, 306. (iii) Any config exceeding ANY C(l,n) kills
+the law — a standing falsification target.
+
+### Postscript 19 addendum: why 63 beats 67 as a building block — deep structure persists, shallow count is recut
+
+(Closes the building-block thread of Postscripts 16-18 using the ceiling
+law. Verified on all six 63-triples of the 723 record.)
+
+    golden 67:      {1:48, 2:18, 3:1}   pairs [13,13,13]  isolated √5/√2 wall
+    723's 63-triples: {1:44, 2:18, 3:1}   pairs [9,13,13]   rational, tunable
+    (all six 63-triples have the IDENTICAL profile and pair structure)
+
+The two triples are IDENTICAL in the deep layers — both saturate
+C(1,3) = 18 and have the single core. 67's entire +4 advantage lives in
+depth-1, which is precisely the layer that does NOT survive embedding: a
+larger compound's new faces recut and reassign the triple's depth-1
+regions, while the deep skeleton (pairwise/triple intersections) persists
+and feeds the big config's deep layers.
+
+And 67 buys those +4 disposable regions by replacing the one FLEXIBLE
+9-pair with a third rigid 13 — costing exactly what a building block
+needs: (a) the continuous shared-axis angle (the tuning knob the assembly
+spends), and (b) rational compatibility (all-13 at 67 forces the
+golden/octahedral wall, whose extensions lose: 681 < 723).
+
+**Principle: a building block's worth = deep structure (persists under
+embedding) + flexibility (spent by the assembly). Shallow count is
+recyclable and worthless to the tower. 63 is 67 with 4 depth-1 regions
+converted back into a tuning knob — which is why the record is built
+from deep-saturated, shallow-detuned, one-knob pieces.**
+
+## Postscript 20: the deficit-propagation envelope — an empirical branch-and-bound bound, and 723 nearly cornered
+
+(envelope_mine.py/.jsonl: 532 configs stratified across the total
+spectrum + the records, all six 5-subsets of each counted exactly —
+~3,200 config↔subset pairs. The missing-bound program of the
+branch-and-prune reframing, first measurement.)
+
+**Bound 1 — the extension envelope.** Over the whole corpus,
+T − max_subset_total ≤ 336 (attained by 699 over its uniform 363
+subsets; the records 723 and 717 sit at 330). Conjecture E1: every
+6-config satisfies T ≤ S_max + 336, i.e. adding a sixth cube to a
+5-config with total S yields at most S + 336.
+
+**Corollary (723 nearly cornered).** If E1 holds, any 6-config beating
+723 must CONTAIN a 5-subset with total ≥ 388. The known n=5 landscape:
+the record 393 (= 723's own subset family), 717's best subset 387, and
+every native n=5 search capped at 377 (Postscript 16 addendum 3, ~171k
+configs). So beating 723 would require a 5-config in a class that only
+the 723 family is known to occupy — the search for >723 reduces to the
+search for new 5-configs ≥ 388, a far smaller frontier. (Empirical
+bound; sample thin at the top — stated as conjecture E1, not theorem.)
+
+**Bound 2 — deep-deficit propagation is STEEP.** Configs whose worst
+5-subset misses its bottom-1 cap (d4 < 30 = C(1,5)) are capped far
+below the record: min-subset-deficit 0 → max T = 723; deficit 2 → max
+T = 567; deficit ≥3 → ≤ 519. All top configs (631+) have EVERY 5-subset
+saturating both subset deep caps (d4 = 30, d3 = 84 = C(2,5) attained).
+Conjecture E2: a positive deep deficit in any 5-subset costs the total
+>150 — subset deep-saturation is a NECESSARY condition for records,
+usable as a hard prune in blueprint search.
+
+Together E1+E2 are the missing bounds for branch-and-bound: E2 prunes
+blueprints whose parts can't deep-saturate; E1 bounds completions by
+the best contained 5-config. Both are measured envelopes awaiting proof
+— the natural lemma behind E1 is a zone-style bound on the regions a
+sixth cube's six faces can create in a 30-plane arrangement.
+
+### Postscript 18 addendum: shared-axis campaign complete (~150k evals)
+
+Final per-template bests (free spoke angles vs C₃-locked, all n):
+- n=4: best template free=183 (RECORD; locked 165; control 163).
+- n=5: three templates reach 393 (RECORD; note the 723-subset template
+  reaches it LOCKED too — consistent, since 393 retains the C₃ symmetry);
+  control 369.
+- n=6: the 723 template reproduces 723 free (locked 679); two-cluster
+  spoke3+spoke3 reaches 717 free (693 locked); all other templates and
+  the unstructured control ≤ 709. NOTHING beat any record.
+
+Closing verdict: the hub-and-spoke/shared-axis family with FREE spoke
+angles contains and recovers every record (183/393/723) from ~10-15k
+evals per template, while angle-locking costs 15-45 and unstructured
+controls trail by 20-30. The flexible 9-DOF is confirmed as the right
+search variable; the blueprint level is now handed to the
+branch-and-prune program (Postscript 20 bounds E1/E2 as its pruning).
