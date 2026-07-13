@@ -171,3 +171,26 @@ None so far.
 **No blueprint beats 723** at the coverage stated above (budget {'n_random_free': 2, 'steps_free': 6, 'restarts_wide_free': 1, 'n_random_locked': 1, 'steps_locked': 4, 'restarts_wide_locked': 0}, 67/67 canonical survivors run; best observed = 723). The blueprint level is exhausted up to this stated per-blueprint coverage -- not a proof for arbitrarily fine coverage, but every combinatorial skeleton in the rational shared-axis/free family has now been tried, not just the 6 hand-picked templates of Postscript 18.
 
 Total wall time so far: 3298s.
+
+## 6. Refinement pass (deeper budget on the coarse runner-ups)
+
+Top 12 non-gate blueprints by coarse best, re-run at budget {'n_random_free': 4, 'steps_free': 14, 'restarts_wide_free': 3, 'n_random_locked': 1, 'steps_locked': 6, 'restarts_wide_locked': 1} (~4x coarse evals; fresh random restarts, seed 20260714). Purpose: the negative verdict must not rest on the runner-ups having been budget-starved in the coarse pass.
+
+| tag | coarse best | refined best | vs 723 | evals | dt(s) |
+|---|---|---|---|---|---|
+| n6_spoke6_ax001 | 689 | 689 | -34 | 3076 | 152 |
+| n6_onaxis4+free2_ax111 | 681 | 683 | -40 | 3697 | 169 |
+| n6_onaxis3+free3_ax111 | 679 | 713 | -10 | 3749 | 183 |
+| n6_onaxis3+free3_ax110 | 679 | 683 | -40 | 3731 | 194 |
+| n6_onaxis2+free4_ax111 | 677 | 685 | -38 | 3954 | 240 |
+| n6_onaxis4+free2_ax110 | 677 | 683 | -40 | 3822 | 228 |
+| n6_spoke5+free1_ax001 | 675 | 689 | -34 | 4699 | 227 |
+| n6_onaxis2+free4_ax110 | 673 | 683 | -40 | 3461 | 164 |
+| n6_onaxis4+spoke2_ax110 | 669 | 679 | -44 | 3872 | 244 |
+| n6_spoke4+free2_ax001 | 667 | 659 | -64 | 4742 | 321 |
+| n6_onaxis2+spoke4_ax110 | 667 | 679 | -44 | 4009 | 275 |
+| n6_onaxis2+spoke2+free2_ax110 | 667 | 685 | -38 | 4885 | 341 |
+
+No refined blueprint beat 723 either (best refined = 713). The Section 5 verdict stands at the strengthened coverage: coarse pass over all 67 survivors + ~4x-budget refinement of the top 12.
+
+Refinement wall time: 2739s.

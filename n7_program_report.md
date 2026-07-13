@@ -11,10 +11,45 @@ Working principles: this file's own docstring + task brief; reuses shared_axis_s
 ## 2. Task 1 -- deep climb of 1207
 
 - base +-1/+-2 climb from 1207: 1207
-- 2 wide-perturbation restarts (5-12 simultaneous component moves) attempted
-- best restart total: 1189
-- 7th-cube-only swap/reoptimize: 1197
+- 26 wide-perturbation restarts (5-12 simultaneous component moves) attempted
+- best restart total: 1197
+- 7th-cube-only swap/reoptimize: 1199
 - **task1 overall best: 1207**
 
+## 3. Task 2 -- blueprint search at n=7
 
-Total evals this run: 2717 (cache hits: 177). Total wall time: 321s.
+- catalog size: 100 blueprints (N=7 generalization of blueprint_enum.py's N=6 catalog)
+- gate (onaxis3+spoke3+free1 on (1,1,1), reproducing 1207): PASS
+- 30/100 blueprints run (5615s)
+- best blueprint: ('n7_onaxis3+spoke3+free1_ax111', 1207)
+
+| tag | axis | locked best | free best |
+|---|---|---|---|
+| n7_onaxis3+spoke3+free1_ax111 | (1,1,1) | 1187 | 1207 |
+| n7_onaxis4+spoke3_ax111 | (1,1,1) | 1139 | 1161 |
+| n7_onaxis2+spoke2+free3_ax111 | (1,1,1) | 1077 | 1151 |
+| n7_onaxis3+free4_ax111 | (1,1,1) | 1115 | 1143 |
+| n7_onaxis3+spoke4_ax111 | (1,1,1) | 1097 | 1139 |
+| n7_onaxis4+spoke2+free1_ax111 | (1,1,1) | 1127 | 1139 |
+| n7_onaxis4+free3_ax111 | (1,1,1) | 1105 | 1135 |
+| n7_onaxis3+spoke2+free2_ax111 | (1,1,1) | 1067 | 1133 |
+| n7_onaxis2+spoke3+free2_ax111 | (1,1,1) | 1095 | 1131 |
+| n7_onaxis2+free5_ax111 | (1,1,1) | 1075 | 1129 |
+| n7_onaxis5+free2_ax111 | (1,1,1) | 1101 | 1125 |
+| n7_onaxis2+spoke3+spoke2_ax111 | (1,1,1) | 1095 | 1115 |
+| n7_spoke4+spoke2+free1_ax111 | (1,1,1) | 1047 | 1113 |
+| n7_spoke5+free2_ax111 | (1,1,1) | 1055 | 1113 |
+| n7_spoke3+spoke2+spoke2_ax111 | (1,1,1) | 1071 | 1111 |
+| n7_spoke3+spoke2+free2_ax111 | (1,1,1) | 1063 | 1111 |
+| n7_onaxis2+spoke4+free1_ax111 | (1,1,1) | 1079 | 1109 |
+| n7_spoke2+spoke2+spoke2+free1_ax111 | (1,1,1) | 1073 | 1107 |
+| n7_spoke2+spoke2+free3_ax111 | (1,1,1) | 1069 | 1105 |
+| n7_onaxis5+spoke2_ax111 | (1,1,1) | 1091 | 1103 |
+| n7_onaxis3+spoke2+spoke2_ax111 | (1,1,1) | 1107 | 1101 |
+| n7_spoke3+spoke3+free1_ax111 | (1,1,1) | 1057 | 1101 |
+| n7_onaxis2+spoke5_ax111 | (1,1,1) | 1053 | 1089 |
+| n7_spoke4+spoke3_ax111 | (1,1,1) | 1063 | 1089 |
+| n7_onaxis2+spoke2+spoke2+free1_ax111 | (1,1,1) | 1089 | 1083 |
+
+
+Total evals this run: 31964 (cache hits: 889). Total wall time: 9472s.
