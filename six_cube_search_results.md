@@ -1384,7 +1384,8 @@ completely independent measurement.
 **Corollary (max-total bound).** Total ≤ 1 + Σ_{l=1}^{n−1} C(l,n)
 = 1 + (n−1)(16n² − 17n + 6)/3. At n=6: ≤ 801 (record 723; the gap is the
 frustration cost). At n=4: ≤ 195 (record 183 — matches the "naive additive
-bound" of Postscript 15, now derived). At n=5: ≤ 445 (record 393).
+bound" of Postscript 15, now derived). At n=5: ≤ 429 (record 393).
+[445 was an arithmetic slip, corrected 2026-07-13.]
 
 **Proof target, now crisp (T1/T2 sharpened).** T1: show the swap-curve
 Σ_l of a generic n-cube compound has exactly (24l−12)n − 4l² vertices,
@@ -1546,3 +1547,50 @@ The general-n picture is now: one formula governing every deep layer at
 every size tested (n=2..8, ~1.2M exact configs, zero violations), a
 record tower built by single-cube extension whose every level is the
 best known, and the shallow caps as the standing open frontier.
+
+## Postscript 23: the cap-sum bound is TIGHT at n=2 and n=3 — a proof of 13 and 67 reduces to two lemmas
+
+(Prompted by Chris Cole: "I wonder if there is a proof of 67 somewhere in
+there. Zaslavsky would be thrilled. A proof could borrow ideas from the
+proof that there are five Platonic solids." He is right — the reduction
+was already implicit in the ceiling law.)
+
+The law's per-layer caps sum to an upper bound on the total,
+1 + Σ_{l=1}^{n−1} C(l,n). Checking small n:
+
+    n=2: 1 + 12           = 13   = the record  — TIGHT
+    n=3: 1 + 18 + 48      = 67   = the record  — TIGHT
+    n=4: 1 + 24 + 66 +104 = 195  vs 183 — gap 12 (frustration begins)
+    n=5: 1 + ... = 429           vs 393 — gap 36
+
+So for n ≤ 3 the maximum EQUALS the cap-sum (no frustration: with no
+middle layer, both caps are simultaneously attainable, and golden/
+octahedral attain them). Hence:
+
+**A complete proof that max(2) = 13 requires only:**
+  L1(2): for two unit cubes, depth-1 ≤ 12 — equivalently the
+  direction-sphere envelope max over the 6 face-normals |n·û| has no
+  local maxima besides the ±normals (two orthonormal triads only).
+
+**A complete proof that max(3) = 67 requires only:**
+  L1(3): depth-2 ≤ 18 (same no-extra-peaks lemma, 9 normals), and
+  L2(3): depth-1 ≤ 48 — via the top-1 ("which cube reaches farthest")
+  diagram: prove its swap curve generically has V = 92 vertices, all
+  trivalent (Euler then gives cells = 2 + V/2 = 48), plus the
+  semicontinuity half (degenerations only merge cells). Anchors: each
+  cube's 8 corner directions are local maxima of its reach, giving 24
+  anchored cells; the census bounds the remaining 24.
+
+Both attainers are already exactly verified (golden triple by two
+independent ℚ(√5) engines; octahedral compound in the gated ℚ(√2)
+engine; identical profiles {48,18,1}), and non-exceedance is tested by
+4,414 seeded climbs at n=3 plus every 3-subset in the ~1.2M-config
+corpus. The lemmas are the only missing pieces.
+
+The Zaslavsky framing is exactly right: C(l,n) is a face-count formula
+for a structured family of great-circle-arc arrangements on S², and the
+proof shape is the Platonic one — a finite local classification (which
+vertex types the swap curves can have, constrained by each cube's
+orthonormal normal triad) followed by Euler's formula. At n=3 there are
+only 9 normals, so the local classification is finite and plausibly
+hand-checkable. L1(2) is the single easiest full theorem on the board.
