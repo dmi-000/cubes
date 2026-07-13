@@ -582,7 +582,7 @@ same rare invariant-shell exceptions seen at n=6, here 0.12%). Law
 holds.
 
 **Record growth so far** (certified lower bounds; max regions by n):
-n=2: 13, n=3: 67, n=4: 183+, n=5: 393+, n=6: 723, n=7: 1207+. (The n≤5
+n=2: 13, n=3: 67, n=4: 183+, n=5: 393+, n=6: 723, n=7: 1207+, n=8: 1879+. (The n≤5
 and n=6 values are the current records from the rational/wall programs;
 n=7 is campaign-only, no hill-climb yet.)
 
@@ -1509,3 +1509,40 @@ reach that), and (iii) at the peak of the deep-sacrifice trade-off
 surface (Postscript 14). Three independent closures. Beating 723 now
 requires either a fundamentally new 5-cube near-record, an irrational
 wall outside every family tested, or a violation of envelope E1.
+
+## Postscript 22: the n=7 program — 1207 certified, the ceiling law passes its out-of-sample test, first n=8 record 1879
+
+(n7_program.py/.jsonl/n7_program_report.md — the full n≤6 apparatus
+applied at n=7 in one pass; the law's first test on a size it wasn't
+fitted to... l≥5 aside, since l≤4 at n=7 were in the fitting data;
+the fresh tests here are the near-attainment of l=5 and all of n=8.)
+
+**1207 stands, now certified**: ±1/±2 climb flat; 26 wide-perturbation
+restarts (best 1197); 7th-cube swap/reoptimize (1199); and the n=7
+blueprint catalog (100 skeletons, 30 searched in budget, gate PASS) has
+its best = the 1207 blueprint itself (onaxis3+spoke3+free1 on (1,1,1),
+free 1207 vs locked 1187). Free spoke angles beat locked in every row.
+
+**Ceiling law at n=7: zero violations in 112,864 exact records.**
+Caps l=1..4 (42/120/194/264) all ATTAINED exactly. l=5 (depth-2):
+observed 328 vs cap 330 — within 2 after a dedicated hunt. l=6
+(depth-1): observed 276 vs cap 392, far short — mirroring n=6, where
+the shallow caps are the unattained ones (the frustration).
+
+**First n=8 record: 1879** (= 1207 + 8th cube, 300-candidate sweep +
+climb), by_depth {1:340, 2:450, 3:380, 4:302, 5:222, 6:136, 7:48, 8:1}.
+Against the law's predictions C(l,8) = 48/138/228/306/384/458/528:
+d7 = 48 ATTAINED, d6 = 136 (−2), d5 = 222 (−6), d4 = 302 (−4) — no
+violations, deep layers hugging their caps from below exactly as the
+law prescribes for a single un-refined config. Tower now
+183 → 393 → 723 → 1207 → 1879.
+
+**Envelope at the 6→7 step**: max(T − S_max) over the top-50 n=7
+configs = 484 (the 1207−723 point). And ALL 350 six-cube subsets of
+those configs saturate the n=6 deep cap d5 = 36 (350/350) — subset
+deep-saturation as a necessary condition replicates one level up.
+
+The general-n picture is now: one formula governing every deep layer at
+every size tested (n=2..8, ~1.2M exact configs, zero violations), a
+record tower built by single-cube extension whose every level is the
+best known, and the shallow caps as the standing open frontier.

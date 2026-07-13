@@ -29,7 +29,8 @@ it.
 | 6 | 681 | golden five + sixth on the (1,1,1) wall | ℚ(√5) |
 | 6 | 655 | two 60°-body-diagonal pair walls, constructed | ℚ (rational) |
 | 6 | 635 | best from 360k random rational seeds + climbing | ℚ (rational) |
-| 7 | **1207+** | greedy extension of 723 (+ climb in progress) | ℚ (rational) |
+| 7 | **1207+** | greedy extension of 723; certified vs climb+blueprints | ℚ (rational) |
+| 8 | **1879+** | greedy extension of 1207 (first n=8 config) | ℚ (rational) |
 
 Deep-depth ceilings **d3 ≤ 164, d4 ≤ 102, d5 ≤ 36, d6 = 1** have never
 been exceeded in any config or on any wall tested (conjectures C4/C5/C6,

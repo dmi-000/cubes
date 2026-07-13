@@ -277,11 +277,17 @@ it is precisely the hunt for one new near-record five-cube arrangement.
 such — and proving E1, likely via a zone-style bound on how many regions
 six new faces can create, would make the cornering rigorous.)
 
-As of this writing, the same full apparatus — climb the record,
-enumerate blueprints, test the caps, extend the tower, measure the
-envelope — is running at n=7 (record 1207, cap-sum bound 1343, the first
-n=8 configuration queued behind it). n=7 is the theory's first
-out-of-sample test: it was attacked *with the law in hand*.
+The same full apparatus — climb the record, enumerate blueprints, test
+the caps, extend the tower, measure the envelope — was then run at n=7,
+the theory's first outing on a size it hadn't been fitted to. Verdict:
+1207 stood (certified against climbing, cube-swaps, and a 100-skeleton
+blueprint catalog whose best was 1207's own blueprint); the law took
+zero violations across 112,864 fresh counts, with the deep caps attained
+exactly and depth-2 landing within 2 of its predicted 330; and one more
+greedy extension produced the first eight-cube record, **1879**, whose
+deep layers hug the law's n=8 predictions from below (48 attained,
+then −2, −6, −4). The tower reads 183 → 393 → 723 → 1207 → 1879, every
+level the best known at its size, each built from the one below it.
 
 ## The collaboration, honestly described
 

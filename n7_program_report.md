@@ -51,5 +51,37 @@ Working principles: this file's own docstring + task brief; reuses shared_axis_s
 | n7_spoke4+spoke3_ax111 | (1,1,1) | 1063 | 1089 |
 | n7_onaxis2+spoke2+spoke2+free1_ax111 | (1,1,1) | 1089 | 1083 |
 
+## 4. Task 3 -- ceiling verification at n=7
 
-Total evals this run: 31964 (cache hits: 889). Total wall time: 9472s.
+- law: C(l,7) = {1: 42, 2: 120, 3: 194, 4: 264, 5: 330, 6: 392}
+- violations found: 0
+
+| l | depth | cap C(l,7) | max observed | status |
+|---|---|---|---|---|
+| 1 | 6 | 42 | 42 | ATTAINED |
+| 2 | 5 | 120 | 120 | ATTAINED |
+| 3 | 4 | 194 | 194 | ATTAINED |
+| 4 | 3 | 264 | 264 | ATTAINED |
+| 5 | 2 | 330 | 328 | short by 2 |
+| 6 | 1 | 392 | 276 | short by 116 |
+
+- files scanned: {'campaign_n7.jsonl': 50000, 'n7_program.jsonl': 62864, 'exact_search_results.jsonl': 0}
+- targeted hunt results (maximize depth-1 for l=6, depth-2 for l=5): {6: 276, 5: 328}
+
+## 5. Task 4 -- extension to n=8
+
+- first n=8 record: total=1879
+- quats = [[4, 1, 1, -1], [3, 3, 7, 3], [5, -1, -5, -5], [2, 1, 1, 1], [1, 1, 1, 1], [5, 2, 2, 2], [5, 4, -4, -4], [55, 7, -148, 79]]
+- by_depth = {1: 340, 2: 450, 3: 380, 4: 302, 5: 222, 6: 136, 7: 48, 8: 1}
+- ceiling predictions C(l,8) = {1: 48, 2: 138, 3: 224, 4: 306, 5: 384, 6: 458, 7: 528}
+- violations: none
+
+## 6. Task 5 -- n=7 envelope (cheap version)
+
+- top 50 n=7 configs, all seven 6-subsets counted exactly
+- max(T - S_max) = **484** (known point: 1207 - 723 = 484)
+  attained by config total=1207, S_max=723
+- n=6 deep-cap saturation across 350 6-subsets: depth3=164: 135/350, depth4=102: 178/350, depth5=36: 350/350
+
+
+Total evals this run: 55770 (cache hits: 1437). Total wall time: 12300s.

@@ -450,9 +450,9 @@ near-record five-cube one.
 The counting method works for any *n*. Best arrangements found so far
 (lower bounds on the true maxima):
 
-| cubes *n* | 2 | 3 | 4 | 5 | 6 | 7 |
-|---|---|---|---|---|---|---|
-| best bounded pieces | 13 | 67 | 183+ | 393+ | 723 | 1207+ |
+| cubes *n* | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|
+| best bounded pieces | 13 | 67 | 183+ | 393+ | 723 | 1207+ | 1879+ |
 
 Several of these numbers are *corrections*: the golden compound gives 177
 at four cubes and 351 at five, and both were long taken as the answers —

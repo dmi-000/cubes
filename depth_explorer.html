@@ -155,7 +155,7 @@
       Drag the offset slider to sweep the cutting plane through the compound.</div>
     </section>
     <section class="card">
-      <h2>Depth cloud <span id="cloudn">—</span></h2>
+      <h2>Region walls <span id="cloudn">—</span></h2>
       <canvas id="cloud" width="520" height="520"></canvas>
       <div class="row" style="gap:10px;flex-wrap:wrap">
         <button class="ghost" id="wire" aria-pressed="true">wireframe</button>
@@ -352,14 +352,26 @@ const cloud=$('cloud'), cctx=cloud.getContext('2d');
 let pts=[], showWire=true, spin=!reduceMotion, rotX=-.5, rotY=.7, dragging=false;
 let showConc=true, concurrences=[];
 function samplePoints(){
+  // Boundary-hugging sampling: every region wall lies on some cube's face
+  // square, so sample points ON the face squares and nudge them just
+  // inside/outside along the face normal. The cloud then renders the
+  // arrangement's actual walls (each wall two-toned by the depths on its
+  // two sides) instead of volumetric fog.
   pts=[];
-  const N=17000;
+  const N=26000, del=0.02, nc=cubes.length;
   for(let i=0;i<N;i++){
-    const p=[(Math.random()*2-1)*1.9,(Math.random()*2-1)*1.9,(Math.random()*2-1)*1.9];
+    const k=(Math.random()*nc)|0, j=(Math.random()*3)|0,
+          s=Math.random()<0.5?-1:1;
+    const a=(j+1)%3, b=(j+2)%3, c=cubes[k];
+    const u=Math.random()*2-1, v=Math.random()*2-1;
+    const tj=s*(1+(Math.random()<0.5?-del:del));  // just inside / just outside
+    const p=[c[j][0]*tj+c[a][0]*u+c[b][0]*v,
+             c[j][1]*tj+c[a][1]*u+c[b][1]*v,
+             c[j][2]*tj+c[a][2]*u+c[b][2]*v];
     const m=labelAt(p), dep=popcount(m);
     if(dep>0) pts.push([p[0],p[1],p[2],dep,m]);
   }
-  $('cloudn').textContent=`${pts.length.toLocaleString()} samples`;
+  $('cloudn').textContent=`${pts.length.toLocaleString()} boundary samples`;
 }
 
 // Concurrences: points where 4+ face-planes meet. Classified as EDGE
@@ -373,7 +385,7 @@ function computeConcurrences(){
   const P=[];
   for(let k=0;k<cubes.length;k++)for(let j=0;j<3;j++){
     const n=cubes[k][j];
-    P.push({n,c:1,k}); P.push({n:[-n[0],-n[1],-n[2]],c:1,k});
+    P.push({n,c:1,k,j}); P.push({n:[-n[0],-n[1],-n[2]],c:1,k,j});
   }
   const nP=P.length, bound=2.4, seen=new Set(), cand=[];
   for(let i=0;i<nP;i++)for(let j=i+1;j<nP;j++)for(let l=j+1;l<nP;l++){
@@ -388,10 +400,24 @@ function computeConcurrences(){
     if(seen.has(key)) continue; seen.add(key); cand.push(x);
   }
   const eps=1e-4;
+  // a plane counts toward a concurrence only if the point lies on its
+  // ACTUAL bounded face square, not merely on the infinite plane: the
+  // point's coordinates along the cube's other two axes must be within
+  // [-1,1] (tolerance includes corners, which sit exactly on the edge).
+  function onFace(pl,x){
+    const c=cubes[pl.k];
+    for(let a=0;a<3;a++){
+      if(a===pl.j) continue;
+      if(Math.abs(c[a][0]*x[0]+c[a][1]*x[1]+c[a][2]*x[2])>1+eps) return false;
+    }
+    return true;
+  }
   for(const x of cand){
     let mult=0; const per={};
     for(const pl of P){
-      if(Math.abs(pl.n[0]*x[0]+pl.n[1]*x[1]+pl.n[2]*x[2]-pl.c)<eps){mult++;per[pl.k]=(per[pl.k]||0)+1;}
+      if(Math.abs(pl.n[0]*x[0]+pl.n[1]*x[1]+pl.n[2]*x[2]-pl.c)<eps && onFace(pl,x)){
+        mult++;per[pl.k]=(per[pl.k]||0)+1;
+      }
     }
     if(mult>=4){
       const kind = Math.max(...Object.values(per))>=3 ? 'corner' : 'edge';
