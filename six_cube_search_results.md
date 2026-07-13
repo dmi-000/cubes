@@ -1594,3 +1594,47 @@ vertex types the swap curves can have, constrained by each cube's
 orthonormal normal triad) followed by Euler's formula. At n=3 there are
 only 9 normals, so the local classification is finite and plausibly
 hand-checkable. L1(2) is the single easiest full theorem on the board.
+
+### Postscript 23 addendum: do the proofs extend to n > 3? (Chris Cole)
+
+- The PER-LAYER lemmas extend uniformly in n: the census V_l(n) =
+  (24l−12)n − 4l² is linear in n with an l-only correction, so the local
+  vertex classification does not grow with n — proving L1 in general
+  form proves depth-(n−1) ≤ 6n for ALL n at once; the l=2 census gives
+  depth-(n−2) ≤ 18n−6 for all n. The hard direction is l, not n.
+- The EXACT-MAXIMUM proofs provably do NOT extend: cap-sum tightness
+  fails from n=4 (195 vs 183, 429 vs 393, 801 vs 723) — the frustration
+  phenomenon. n=2,3 are the last sizes where per-layer analysis decides
+  the maximum.
+- An n ≥ 4 maximum proof needs JOINT-layer inequalities (trade-off
+  constraints), of which we have measured shadows (d2+d3 = 368 ridge,
+  envelopes E1/E2) but no conjectured exact form. Candidate first step:
+  a rigidity lemma "d1 = 10n²−14n forces golden" (true in all data),
+  enabling case analysis on d1 — necessary but not yet sufficient
+  (at n=4 it leaves max ≤ 193 vs true 183). Open.
+
+## Postscript 24: FIRST THEOREM — the anchor lemma is proven (all n), and the n=2 CAD verdict
+
+Direct outcome of the fine-graining exchange with Chris Cole.
+
+**Theorem A (proven).** The radial envelope of any n-cube configuration
+has local minima only at the 6n face-center directions (value 1 = the
+inradius). Proof is a two-line sandwich: at a local max of
+M = max_i |n_i·û|, every ACTIVE |n_i·û| is itself locally maximized
+(it is squeezed between its value and M), and a single |cos| has maxima
+only at ±n_i with value 1. Full statement + proof in C45_notes §10.
+This kills the long-standing "three-form peak" crux — a phantom: peaks
+of a max require each active piece to peak. Numerically corroborated
+(exactly 6n maxima, value 1, every config sampled; consistent with all
+earlier zero-shoulder censuses).
+
+**What remains for C(1,n) = 6n**: only excluding "parasite" cells
+(components whose envelope-inf sits on the boundary tie curve, not the
+interior). Sharper than before; two candidate routes recorded.
+
+**CAD probe (n=2 unrestricted chamber exam)**: 4 of 12 distinct
+vertex-wall quartics → 4.6M-leaf decomposition in ~4 min; the full wall
+set is infeasible on this machine. Chris's caveat ("fine-graining works
+if we fix a family") is thereby quantified at the smallest case: the
+viable certification mode is per-family (few knobs), or Theorem A +
+Euler census.

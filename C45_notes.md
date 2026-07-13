@@ -132,3 +132,90 @@ l=1,2,3 at n=6 (36, 102, 164). The l=1 case reduces to the no-shoulder
 lemma: m(û) = 1/max|n·û| has ONLY the 6n face-center minima (two-form
 case = ridge, provable; crux = no triple-form sub-unit peak).
 Top layer: d1 ≤ C(n−1,n) = 10n² − 14n, attained by golden for n ≤ 5.
+
+## 8. Proof shape (Platonic-elimination framing, per Chris Cole 2026-07-13)
+
+The cap proof is a Platonic-style elimination + Euler:
+  (i)  enumerate a-priori local vertex types of the swap curve Σ_l
+       (rank-triple points, swap×own-edge crossings, tangencies, higher
+       coincidences);
+  (ii) ELIMINATE all but trivalent rank-triple points using the two
+       rigid constraints: each cube's normal triad is ORTHONORMAL and
+       all offsets = 1 (the analog of "angle sum < 360°"). Measured
+       censuses show own-edge and tangency vertices contribute ZERO
+       generically — the proof must forbid them, not just observe;
+  (iii) count surviving triple points: per-cube Morse data (6 face
+       centers, 12 edges, 8 corners; χ=2) is the rigid local unit ⇒
+       census linear in n: V_l(n) = (24l−12)n − 4l²;
+  (iv) Euler on S² with trivalence: cells = 2 + V/2 = C(l,n).
+Generic stratum only; walls need the T2 merging/semicontinuity half.
+Smallest complete instance: l=1, n=2 (six normals, two triads) — by
+itself proves max(2) = 13. Fine-graining note: all candidate boundaries
+lie in the fine arrangement of great circles (n_f − n_g)·û = 0; B_l is
+a coarsening of it, so eliminate in the fine grid, count survivors.
+
+## 9. Fine-grain-then-examine (Chris Cole): scope and the certification route
+
+- GLOBAL finiteness holds with NO family restriction: the count is
+  determined by signs of finitely many polynomials in the rotation
+  entries, so config space splits into finitely many chambers (count
+  constant on each). The maximum is attained on a chamber. In principle
+  the exam is finite.
+- Practically the chamber count is astronomical (~10^60+ at n=6 by
+  sign-pattern bounds), so effective enumeration NEEDS a fixed family
+  (Chris's caveat). Executed instances: the 1-param algebraic slide
+  (126 walls solved exactly, every chamber examined — the family max
+  CERTIFIED); the sphere census (fine-grain S² by great circles).
+- Upgrade path: certify the low-knob blueprint families by Gröbner/CAD
+  chamber enumeration (turns "no blueprint beat 723 at coverage" into
+  proven per-family maxima).
+- Reduce-then-certify route to global proofs: prove E1 ⇒ n=6 max
+  reduces to n=5 classes ≥388 ⇒ recursion downward; base case n=2 is a
+  3-DIMENSIONAL space — full chamber enumeration (CAD) is feasible NOW
+  and would give an unconditional computer-assisted proof of
+  max(2) = 13 with no lemma needed. n=3 (6-dim) borderline with
+  symmetry reduction.
+
+## 10. THEOREM A (proven, 2026-07-13): the anchor lemma — no shoulder critical points, any n
+
+STATEMENT. For any n rotations, let M(û) = max over the 3n face normals
+n_i of |n_i·û| on S². Every local maximum of M has value 1 and occurs at
+û = ±n_i. Equivalently: the radial envelope m = 1/M (distance to the
+nearest cube boundary) has local minima ONLY at the 6n face-center
+directions, all at value 1.
+
+PROOF (sandwich). Let û0 be a local max of M, and let n_i be any ACTIVE
+normal (|n_i·û0| = M(û0)). Near û0: |n_i·û| ≤ M(û) ≤ M(û0) = |n_i·û0|,
+so û0 is a local maximum of the single function f_i(û) = |n_i·û|. But
+f_i = |cos∠(û, n_i)| is strictly decreasing in the angle on (0, π/2)
+and has local maxima only at û = ±n_i, with value 1. So M(û0) = 1 and
+û0 = ±n_i. ∎
+
+REMARKS. (1) The same sandwich applied inside one cube shows t_k's local
+minima are exactly its 6 face centers. (2) This kills the "three-form
+peak" crux of §3/§8 — it was a phantom: a peak of a max forces EACH
+active piece to peak, which single forms cannot do below value 1. No
+case analysis, no orthonormality even needed (any unit normals!).
+(3) Numerically corroborated: exactly 6n envelope maxima, all at value
+1, in every sampled configuration (and the earlier zero-shoulder
+censuses).
+
+RESIDUAL GAP for the cap C(1,n) = 6n (cells of the bottom-1 diagram):
+Theorem A anchors every cell whose envelope-inf is attained in its
+INTERIOR. Still to exclude: "parasite" cells — components of
+{t_k < others} whose inf of t_k is attained only on the boundary tie
+curve. Local analysis does not forbid them (boundary-min geometry is
+consistent); empirically none exist. Two routes: (a) the Euler/census
+count (§8), (b) Morse route: #components of {t_j − t_k > 0} ≤ #local
+maxima of t_j − t_k — bound the difference's maxima.
+
+## 11. CAD feasibility verdict (Chris's unrestricted fine-graining, n=2)
+
+Probe: the 24 vertex-on-plane walls reduce to 12 distinct quartics in
+the quaternion chart; Wolfram's CylindricalDecomposition on just FOUR
+of them completes in ~4 min with a 4.6-million-leaf cell tree. Full
+V-F + edge-edge wall set: infeasible on this hardware (doubly-
+exponential growth). Conclusion: even at n=2 the UNRESTRICTED chamber
+exam is impractical; certification must go family-by-family (few-knob
+blueprints), or through Theorem A + census. Chris's "only works if we
+fix a family" — quantified.
