@@ -1,244 +1,4 @@
-<title>Cube-compound depth explorer</title>
-<style>
-  :root{
-    --bg:#0d1015; --panel:#151a21; --panel2:#1b222b; --line:#273240;
-    --ink:#cdd6df; --muted:#7f8b99; --accent:#35d0d6; --accent-dim:#1f6f73;
-    --d1:#420a68; --d2:#932667; --d3:#dd513a; --d4:#fca50a; --d5:#f2d24b; --d6:#fcffa4;
-    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
-    font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
-  .wrap{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
-  @media(max-width:820px){.wrap{grid-template-columns:1fr}}
 
-  /* ---- control rail ---- */
-  .rail{background:var(--panel);border-right:1px solid var(--line);
-    padding:22px 20px;display:flex;flex-direction:column;gap:22px}
-  .brand h1{font-size:17px;margin:0;letter-spacing:-.01em;text-wrap:balance}
-  .brand p{margin:4px 0 0;color:var(--muted);font-size:12px}
-  .grp{display:flex;flex-direction:column;gap:9px}
-  .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.09em;
-    color:var(--muted);font-weight:600}
-  textarea{width:100%;height:118px;resize:vertical;background:var(--bg);
-    color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:9px;
-    font-family:var(--mono);font-size:12px;line-height:1.55}
-  textarea:focus,button:focus-visible,select:focus-visible,input:focus-visible{
-    outline:2px solid var(--accent);outline-offset:1px}
-  .row{display:flex;gap:8px;align-items:center}
-  button{background:var(--accent);color:#04191a;border:0;border-radius:7px;
-    padding:8px 14px;font-family:var(--sans);font-weight:650;font-size:13px;
-    cursor:pointer}
-  button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);
-    font-weight:550}
-  button.ghost[aria-pressed=true]{border-color:var(--accent);color:var(--accent)}
-  .seg{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
-  .seg button{background:transparent;color:var(--muted);border-radius:0;
-    padding:7px 0;flex:1;font-weight:550;font-size:12px}
-  .seg button[aria-pressed=true]{background:var(--panel2);color:var(--accent)}
-  select{background:var(--bg);color:var(--ink);border:1px solid var(--line);
-    border-radius:7px;padding:7px;font-family:var(--sans);font-size:13px;flex:1}
-  input[type=range]{width:100%;accent-color:var(--accent)}
-  .trackWrap{position:relative;padding-top:14px}
-  .trackMarks{position:absolute;left:0;right:0;top:0;height:14px;pointer-events:none}
-  .tmark{position:absolute;top:2px;width:2px;height:10px;transform:translateX(-50%);
-    border-radius:1px;background:var(--muted);opacity:.55}
-  .tmark.region{top:5px;height:6px;width:1px;background:var(--muted);opacity:.4}
-  .tmark.named{background:var(--accent);opacity:.9}
-  .tmark.field{background:#ffd76b;opacity:1;width:3px}
-  .val{font-family:var(--mono);font-size:12px;color:var(--accent);
-    font-variant-numeric:tabular-nums}
-  .err{color:#ff8f6b;font-size:12px;min-height:16px;font-family:var(--mono)}
-
-  /* ---- legend ---- */
-  .legend{display:flex;flex-direction:column;gap:5px}
-  .lrow{display:grid;grid-template-columns:16px 1fr auto;gap:9px;align-items:center;
-    font-size:12.5px}
-  .sw{width:16px;height:16px;border-radius:4px;border:1px solid rgba(255,255,255,.13)}
-  .lrow .n{font-family:var(--mono);color:var(--muted);
-    font-variant-numeric:tabular-nums}
-
-  /* ---- stage ---- */
-  .stage{padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:18px;
-    align-content:start}
-  @media(max-width:1180px){.stage{grid-template-columns:1fr}}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-    padding:14px;display:flex;flex-direction:column;gap:10px;min-width:0}
-  .card h2{margin:0;font-size:13px;font-weight:600;display:flex;
-    justify-content:space-between;align-items:baseline;gap:10px}
-  .card h2 span{color:var(--muted);font-weight:500;font-size:11.5px;
-    font-family:var(--mono)}
-  canvas{width:100%;height:auto;background:#07090c;border-radius:8px;display:block;
-    touch-action:none}
-  .hint{color:var(--muted);font-size:11.5px}
-  .chips{display:flex;flex-wrap:wrap;gap:6px}
-  .chip{font-family:var(--mono);font-size:11.5px;padding:3px 8px;border-radius:20px;
-    border:1px solid var(--line);color:var(--ink);font-variant-numeric:tabular-nums}
-  .chipset{display:flex;gap:5px}
-  .mini{flex:1;background:transparent;color:var(--muted);border:1px solid var(--line);
-    border-radius:6px;padding:5px 0;font-family:var(--mono);font-size:12px;
-    font-weight:600;cursor:pointer;min-width:0}
-  .mini[aria-pressed=true]{border-color:var(--accent);color:var(--accent);
-    background:var(--panel2)}
-  .lbl{display:flex;justify-content:space-between;align-items:center}
-  .allbtn{flex:0 0 auto;padding:2px 8px;font-size:10px;font-weight:600;
-    text-transform:none;letter-spacing:0}
-</style>
-
-<div class="wrap">
-  <aside class="rail">
-    <div class="brand">
-      <h1>Cube-compound depth explorer</h1>
-      <p>Six concentric rotated cubes. Every point of space sits inside some
-      number of them — its <em>depth</em>. Colour runs cool→hot with depth;
-      the white-hot core is inside all six.</p>
-    </div>
-
-    <div class="grp">
-      <div class="lbl">Configuration
-        <span class="seg" role="group" aria-label="Input format" style="flex:0 0 auto">
-          <button id="fQuat" aria-pressed="true">quaternions</button>
-          <button id="fMat" aria-pressed="false">matrices</button>
-        </span>
-      </div>
-      <textarea id="quats" spellcheck="false" aria-label="Configuration, one cube per line"></textarea>
-      <div class="hint" id="fmtHint">One integer quaternion w,x,y,z per line (2–8 cubes).</div>
-      <div class="row"><button id="load">Load</button></div>
-      <div class="chipset">
-        <button class="mini" id="pRec">723 record</button>
-        <button class="mini" id="pOcta">octahedral √2</button>
-        <button class="mini" id="pGold">golden √5</button>
-      </div>
-      <div class="chipset">
-        <button class="mini" id="pFamily">dihedral family</button>
-      </div>
-      <div class="err" id="err"></div>
-    </div>
-
-    <div class="grp" id="familyGrp" style="display:none">
-      <div class="lbl">Dihedral family — exact crossings everywhere</div>
-      <div class="row" style="justify-content:space-between">
-        <span class="hint">0°</span>
-        <span class="val" id="famPsi">ψ = 0.000°</span>
-        <span class="hint">90°</span>
-      </div>
-      <div class="trackWrap">
-        <div class="trackMarks" id="famMarks" aria-hidden="true"></div>
-        <input type="range" id="famPos" min="0" max="9000" value="0" step="1"
-               aria-label="Dihedral family angle psi (hundredths of a degree)">
-      </div>
-      <div class="hint" style="display:flex;gap:12px;flex-wrap:wrap">
-        <span><span class="tmark field" style="position:static;display:inline-block;transform:none;width:8px;height:8px;border-radius:50%"></span> octahedral √2 / golden √5</span>
-        <span><span class="tmark named" style="position:static;display:inline-block;transform:none;width:8px;height:8px;border-radius:50%"></span> other named points</span>
-        <span><span class="tmark region" style="position:static;display:inline-block;transform:none;width:8px;height:8px;border-radius:50%;opacity:.7"></span> region count changes</span>
-      </div>
-      <div class="chipset" id="famTicks"></div>
-      <div class="row" style="justify-content:space-between">
-        <span class="val" id="famGhosts">0 ghosts</span>
-        <button class="mini" id="famLock" aria-pressed="false"
-          title="Constrain dragging to the current zero-ghost range, so the ring set stays fixed (maintained) the whole slide">
-          🔒 maintain concurrences</button>
-      </div>
-      <div class="hint">One cube rotates ±120° about an axis lying in its own
-      face plane; ψ tilts that axis from a face axis (ψ=0°) through the
-      <b>octahedral 67 (√2)</b>, the face-diagonal compound (exact count 49),
-      the mirror octahedral, and the <b>golden 67 (√5)</b> (tan ψ = φ²) —
-      gold marks above the slider — plus every ψ where the exact region/
-      crossing count changes (grey marks; a superset of the gold/blue
-      points, since the count also changes at ≈21°/≈68.6°, which aren't
-      named points). At every ψ
-      the crossings present are EXACT (certified to 1e-9) — unlike the old
-      67↔67 slide, whose entire interior sat off this surface. But the
-      crossing SET itself changes at 8 transition angles (the 4 interior
-      named points plus ≈21°/≈68.6°); near each, a few crossings relax
-      continuously into near-miss "ghost" rings before vanishing — that is
-      what the dashed rings you may see mid-drag are showing you, not a
-      bug. The <b>🔒 maintain concurrences</b> button clamps the slider to
-      the zero-ghost range around the current ψ (six such ranges, ~73% of
-      [0°,90°] combined) so the ring set stays fixed while you drag.
-      Certified region counts <b>67 / 49 / 67</b> at the three marked
-      points; other ψ not yet exactly counted.</div>
-    </div>
-
-    <div class="grp">
-      <div class="lbl">Colour cells by</div>
-      <div class="seg" role="group" aria-label="Colour mode">
-        <button id="mDepth" aria-pressed="true">depth</button>
-        <button id="mLabel" aria-pressed="false">containment</button>
-      </div>
-    </div>
-
-    <div class="grp">
-      <div class="lbl">Show depths <button class="mini allbtn" id="dAll">all</button></div>
-      <div class="chipset" id="depthFilter"></div>
-    </div>
-
-    <div class="grp">
-      <div class="lbl">Show cubes <button class="mini allbtn" id="cAll">all</button></div>
-      <div class="chipset" id="cubeFilter"></div>
-    </div>
-
-    <div class="grp">
-      <div class="lbl">Cross-section plane</div>
-      <div class="row">
-        <select id="axis" aria-label="Slice normal axis">
-          <option value="2">normal ∥ z</option>
-          <option value="1">normal ∥ y</option>
-          <option value="0">normal ∥ x</option>
-          <option value="d">normal ∥ (1,1,1)</option>
-        </select>
-      </div>
-      <div class="row" style="justify-content:space-between">
-        <span class="lbl" style="text-transform:none;letter-spacing:0">offset</span>
-        <span class="val" id="posv">0.000</span>
-      </div>
-      <input type="range" id="pos" min="-180" max="180" value="0" aria-label="Slice offset">
-    </div>
-
-    <div class="grp">
-      <div class="lbl">Depth legend — cells in this slice</div>
-      <div class="legend" id="legend"></div>
-    </div>
-  </aside>
-
-  <main class="stage">
-    <section class="card">
-      <h2>Cross-section <span id="slcount">—</span></h2>
-      <canvas id="slice" width="520" height="520"></canvas>
-      <div class="hint">Each pixel is coloured by how many cubes contain it.
-      Drag the offset slider to sweep the cutting plane through the compound.</div>
-    </section>
-    <section class="card">
-      <h2>Region walls <span id="cloudn">—</span></h2>
-      <canvas id="cloud" width="520" height="520"></canvas>
-      <div class="row" style="gap:10px;flex-wrap:wrap">
-        <button class="ghost" id="wire" aria-pressed="true">wireframe</button>
-        <button class="ghost" id="spin" aria-pressed="true">spin</button>
-        <button class="ghost" id="spinAxis" aria-pressed="false" title="Toggle the spin axis between the world y-axis (turntable) and the compound's shared 3-fold axis (1,1,1)">axis: y</button>
-        <button class="ghost" id="conc" aria-pressed="true">concurrences</button>
-        <button class="ghost" id="opaque" aria-pressed="false" title="Render the boundary surface of the selected depth range as opaque shaded polygons">opaque</button>
-        <button class="ghost" id="clipOpaque" aria-pressed="false" title="In opaque mode, show only the surface on one side of the cross-section plane (see Cross-section plane below)">clip</button>
-        <button class="ghost" id="clipFlipBtn" aria-pressed="false" title="Flip which side of the cross-section plane is kept while clipped">flip</button>
-        <span class="hint">drag to rotate · scroll to zoom</span>
-      </div>
-      <div class="row" style="gap:10px;align-items:center">
-        <span class="val" id="zoomv">zoom: 100%</span>
-        <button class="mini" id="zoomReset" style="flex:0 0 auto;padding:2px 8px">reset</button>
-      </div>
-      <div class="hint">Rings mark where 4+ face-planes meet, sized by count:
-        <span style="color:#ffd76b">gold = corner</span> (cube corners coincide),
-        <span style="color:#7fc9ff">blue = edge</span> (cube edges cross). In
-        opaque mode, surfaces outlined <span style="color:#ff3b6e">hot
-        pink</span> are mid-transition — a nearby "ghost" near-miss
-        crossing means this exact wall is where a region is currently
-        splitting or merging as ψ moves (dihedral family slider).</div>
-      <div class="chips" id="exact"></div>
-    </section>
-  </main>
-</div>
-
-<script>
 const DEPTH_COLORS=['#07090c','#420a68','#932667','#dd513a','#fca50a','#f2d24b','#fcffa4'];
 const $=id=>document.getElementById(id);
 const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -264,82 +24,31 @@ const GOLDEN=[
  [[-0.809017,0.5,0.309017],[-0.309017,-0.809017,0.5],[0.5,0.309017,0.809017]]];
 const matText=mats=>mats.map(M=>M.flat().map(x=>(+x.toFixed(6)).toString()).join(',')).join('\n');
 
-// ---- the dihedral family (Postscript 25 / DIHEDRAL_SLIDER_SPEC.md):
-// replaces the old 67<->67 slide (Postscript 9), which connected the two
-// 67s but briefly left this exact-coincidence surface, opening the dashed
-// "ghost" near-crossings seen at its interior. This family has EXACT edge
-// coincidences at every psi. C3 = 120 deg rotation about (1,1,1).
-// s_hat=(1,1,1)/sqrt3, u=(1,-1,0)/sqrt2, w = s_hat x u = (1,1,-2)/sqrt6.
-// M(psi) columns = [cos(psi) w + sin(psi) s_hat, -sin(psi) w + cos(psi) s_hat, u].
-// Cubes = { M(psi), C3*M(psi), C3^2*M(psi) }. psi in [0,90deg]; both ends
-// are the shared-axis compound (48 crossings); named interior points are
-// the octahedral 67 (35.264deg), the face-diagonal Q(sqrt6) compound
-// (45deg, exact count 49), the mirror octahedral (54.736deg), and the
-// golden 67 (69.095deg, tan psi = phi^2).
+// ---- the 67<->67 sliding family (Postscript 9 / SLIDE3_SPEC_V2):
+// T(t) = { S(t), C·S(t), C²·S(t) },  C = 120° about (1,1,1),
+// S(t) = R(AXIS, t·DELTA)·S_OCT.  t=0: octahedral compound (√2, count 67);
+// t=1: golden 3-cycle triple (√5, count 67); interior: generic ≈37.
+// Constants validated against the exact engines (delta = 40.306°).
+const S_OCT=[[1,0,0],[0,0.7071068,-0.7071068],[0,0.7071068,0.7071068]];
 const C3=[[0,0,1],[1,0,0],[0,1,0]];
-const PHI=(1+Math.sqrt(5))/2;
-const S_HAT=[1/Math.sqrt(3),1/Math.sqrt(3),1/Math.sqrt(3)];
-const U_HAT=[1/Math.sqrt(2),-1/Math.sqrt(2),0];
-const W_HAT=[1/Math.sqrt(6),1/Math.sqrt(6),-2/Math.sqrt(6)];
+const SLIDE_AXIS=[-0.442177,-0.828653,0.343239];
+const SLIDE_DELTA=40.3060*Math.PI/180;
 function matMul(A,B){
   const R=[[0,0,0],[0,0,0],[0,0,0]];
   for(let i=0;i<3;i++)for(let j=0;j<3;j++)
     R[i][j]=A[i][0]*B[0][j]+A[i][1]*B[1][j]+A[i][2]*B[2][j];
   return R;
 }
-function familyMats(psi){
-  const c=Math.cos(psi), s=Math.sin(psi);
-  const col0=[c*W_HAT[0]+s*S_HAT[0], c*W_HAT[1]+s*S_HAT[1], c*W_HAT[2]+s*S_HAT[2]];
-  const col1=[-s*W_HAT[0]+c*S_HAT[0], -s*W_HAT[1]+c*S_HAT[1], -s*W_HAT[2]+c*S_HAT[2]];
-  const M=[[col0[0],col1[0],U_HAT[0]],[col0[1],col1[1],U_HAT[1]],[col0[2],col1[2],U_HAT[2]]];
-  return [M, matMul(C3,M), matMul(C3,matMul(C3,M))];
+function rodrigues(a,th){
+  const K=[[0,-a[2],a[1]],[a[2],0,-a[0]],[-a[1],a[0],0]];
+  const K2=matMul(K,K), s=Math.sin(th), c1=1-Math.cos(th);
+  const R=[[1,0,0],[0,1,0],[0,0,1]];
+  for(let i=0;i<3;i++)for(let j=0;j<3;j++)R[i][j]+=s*K[i][j]+c1*K2[i][j];
+  return R;
 }
-// named snap points, degrees. Only three (marked exact:non-null) carry a
-// CERTIFIED total region count (67/49/67, Postscript 25); the shared-axis
-// endpoints and the mirror octahedral point have certified exact CROSSING
-// counts only -- the region-count sweep across the rest of the family is
-// open work (DIHEDRAL_FAMILY_NEXT.md Task 1).
-// `field` tags the two points whose matrix entries live in a named quadratic
-// field and that also have a same-named static preset above (octahedral
-// √2 / golden √5, Postscript 9's naming: entries of S(psi) involve sqrt2 at
-// the octahedral point and phi=(1+sqrt5)/2 -- hence sqrt5 -- at the golden
-// point); these get their own mark colour on the slider track.
-const FAMILY_NAMED=[
-  {deg:0, name:'shared axis', crossings:'48', exact:null},
-  {deg:Math.asin(1/Math.sqrt(3))*180/Math.PI, name:'octahedral 67 (√2)', crossings:'30',
-    exact:{total:67,d:{1:48,2:18,3:1}}, field:true},
-  {deg:45, name:'face-diagonal ℚ(√6)', crossings:'24',
-    exact:{total:49,d:{1:30,2:18,3:1}}},
-  {deg:Math.atan(Math.sqrt(2))*180/Math.PI, name:'mirror octahedral', crossings:'30', exact:null},
-  {deg:Math.atan(PHI*PHI)*180/Math.PI, name:'golden 67 (√5)', crossings:'18 (+54 corner)',
-    exact:{total:67,d:{1:48,2:18,3:1}}, field:true},
-  {deg:90, name:'shared axis', crossings:'48', exact:null},
-];
-// The exact crossing SET changes at each named point and at two more
-// generic angles (~21deg, ~45.5deg-ish, per DIHEDRAL_FAMILY_NEXT.md Task 1
-// -- not yet solved in closed form). Immediately around every one of these
-// eight transitions, crossings that are exact only exactly AT the
-// transition relax continuously into small (but nonzero) gaps as psi
-// moves away -- the ghost-ring machinery correctly flags these. Between
-// transitions the crossing SET is exactly constant with zero ghosts. These
-// six ranges (degrees, numerically bisected against the real ghost
-// detector to ~1e-6deg, not yet closed form) are exactly the psi where
-// dragging continuously shows a fixed set of solid rings the whole time --
-// "sliding while maintaining edge concurrences". None of octahedral/
-// mirror-octahedral/golden sit inside one of these ranges (each is
-// embedded in its own transition band, ghosted on both sides); 0/45/90 are
-// isolated single exact points with zero-width margin.
-const GHOST_FREE_ZONES=[
-  [0.941028, 18.674334],
-  [24.157178, 32.168487],
-  [37.339045, 44.594854],
-  [45.405146, 52.660955],
-  [57.831513, 65.842822],
-  [71.325666, 89.058972],
-];
-function findGhostFreeZone(deg){
-  for(const z of GHOST_FREE_ZONES) if(deg>=z[0] && deg<=z[1]) return z;
-  return null;
+function slideMats(t){
+  const S=matMul(rodrigues(SLIDE_AXIS,t*SLIDE_DELTA),S_OCT);
+  return [S, matMul(C3,S), matMul(C3,matMul(C3,S))];
 }
 
 function quatToCols(q){
@@ -621,26 +330,18 @@ function computeConcurrences(){
       concurrences.push({p:x,mult,kind});
     }
   }
-  // ---- ghost (near) edge-crossings: generic near-miss detector, kept for
-  // any future non-exact family (e.g. the old 67<->67 slide, removed --
-  // its interior briefly left the exact-coincidence surface, opening
-  // hairline gaps). On the dihedral family this should find ~0 ghosts at
-  // every psi -- that is a validation of the family's exactness, not a
-  // sign the detector is unused. Find every pair of cube edges (distinct
-  // cubes) whose closest approach is a near-miss rather than exact-zero or
-  // unrelated, and record the midpoint of closest approach as a faint
-  // "ghost" concurrence.
+  // ---- ghost (near) edge-crossings: on the 67<->67 slide, exact edge
+  // crossings at the walls (t=0,1) open into hairline gaps in the interior.
+  // Find every pair of cube edges (distinct cubes) whose closest approach
+  // is a near-miss rather than exact-zero or unrelated, and record the
+  // midpoint of closest approach as a faint "ghost" concurrence.
   ghosts=[];
   const edgeSets=cubes.map((_,k)=>cubeEdgeSegs(k));
   const ghostCand=[];
   for(let ka=0;ka<cubes.length;ka++)for(let kb=ka+1;kb<cubes.length;kb++){
     for(const ea of edgeSets[ka])for(const eb of edgeSets[kb]){
       const {dist,mid}=segSegDist(ea[0],ea[1],eb[0],eb[1]);
-      // ka,kb (the two cube indices whose edges are near-crossing) are
-      // carried along so highlighting (see computeHighlightFaces) can
-      // restrict to faces that actually belong to one of those two cubes,
-      // instead of any face merely coplanar with the near-miss point.
-      if(dist>1e-6 && dist<0.02) ghostCand.push({p:mid,gap:dist,kind:'edge',ghost:true,ka,kb});
+      if(dist>1e-6 && dist<0.02) ghostCand.push({p:mid,gap:dist,kind:'edge',ghost:true});
     }
   }
   ghostCand.sort((a,b)=>a.gap-b.gap);
@@ -735,21 +436,17 @@ function splitPoly(poly,n,c){
   }
   return [front,back];
 }
-// containment over SELECTED cubes only -- unselected cubes contribute
-// nothing. Returns the bitmask keyed by GLOBAL cube index k (the same
-// keying labelAt uses, so containment colours agree between the slice
-// view and the opaque surface); depth = popcount of the mask.
-function maskAt(p,mats,selected){
-  let m=0;
+// depth over SELECTED cubes only -- unselected cubes contribute nothing.
+function depthAt(p,mats,selected){
+  let dep=0;
   for(const k of selected){
     const c=mats[k];
     if(Math.abs(c[0][0]*p[0]+c[0][1]*p[1]+c[0][2]*p[2])<1 &&
        Math.abs(c[1][0]*p[0]+c[1][1]*p[1]+c[1][2]*p[2])<1 &&
-       Math.abs(c[2][0]*p[0]+c[2][1]*p[1]+c[2][2]*p[2])<1) m|=1<<k;
+       Math.abs(c[2][0]*p[0]+c[2][1]*p[1]+c[2][2]*p[2])<1) dep++;
   }
-  return m;
+  return dep;
 }
-function depthAt(p,mats,selected){ return popcount(maskAt(p,mats,selected)); }
 // face square (u,v in [-1,1]) for cube `mat`, axis j, sign s -- same corner
 // construction as samplePoints()'s boundary-hugging sampler.
 function faceQuad(mat,j,s){
@@ -795,17 +492,9 @@ function buildOpaqueSurface(mats,selected,depthSet){
         const ctr=polyCentroid(poly);
         const p1=[ctr[0]+faceN[0]*OPAQUE_EPS,ctr[1]+faceN[1]*OPAQUE_EPS,ctr[2]+faceN[2]*OPAQUE_EPS];
         const p2=[ctr[0]-faceN[0]*OPAQUE_EPS,ctr[1]-faceN[1]*OPAQUE_EPS,ctr[2]-faceN[2]*OPAQUE_EPS];
-        const m1=maskAt(p1,mats,selected), m2=maskAt(p2,mats,selected);
-        const d1=popcount(m1), d2=popcount(m2);
+        const d1=depthAt(p1,mats,selected), d2=depthAt(p2,mats,selected);
         const in1=depthSet.has(d1), in2=depthSet.has(d2);
-        // mask = containment set of the INSIDE region, mirroring depth:
-        // it drives the containment colour mode exactly as depth drives
-        // the depth colour mode.
-        // srcCube: which cube's face square this piece was carved from --
-        // purely additive (nothing upstream depended on the object's exact
-        // key set), used by computeHighlightFaces to restrict matching to
-        // structurally-relevant faces instead of any coplanar piece.
-        if(in1!==in2) out.push({poly, depth:(in1?d1:d2), mask:(in1?m1:m2), normal:faceN, srcCube:k});
+        if(in1!==in2) out.push({poly, depth:(in1?d1:d2), normal:faceN});
       }
     }
   }
@@ -817,101 +506,36 @@ function buildOpaqueSurface(mats,selected,depthSet){
 // default. Unit vector, arbitrary upper-right bias.
 const LIGHT_DIR=(v=>{const n=Math.hypot(v[0],v[1],v[2]);return [v[0]/n,v[1]/n,v[2]/n];})([0.4,0.65,0.65]);
 let showOpaque=false, opaqueSurface=[], opaqueDirty=true, cloudBaseText='';
-// ---- split/merge surface highlighting -----------------------------------
-// A "ghost" (see computeConcurrences) is a near-miss edge-pair: a crossing
-// whose gap is small but nonzero, i.e. one that is actively appearing or
-// disappearing as the family parameter moves -- exactly "a surface that
-// separates a region currently splitting or merging". faceContainsPoint
-// finds which opaque-surface face piece(s) a ghost's point lies on (plane
-// tolerance + rough in-polygon check via centroid/radius -- good enough
-// for a visual highlight, not meant to be pixel-exact), so those pieces
-// can be outlined distinctly in opaque mode.
-const HIGHLIGHT_TOL=0.03;           // matches the ghost gap window's scale
-// A near-crossing point lives on the BOUNDARY trace between two opaque
-// pieces (that's what a crossing -- exact or near-miss -- physically is:
-// where a cutting edge lands), not just loosely "inside" one piece's
-// extent. An earlier centroid+radius version over-matched badly near
-// cluttered corner regions (many small slivers all "contain" a nearby
-// point under a loose radius test); this checks proximity to the
-// polygon's actual edges instead, which is both more precise and the
-// semantically correct notion of "this piece's boundary is the surface".
-function faceContainsPoint(f,p,tol){
-  const n=f.normal, c=f.poly[0];
-  const d=n[0]*(p[0]-c[0])+n[1]*(p[1]-c[1])+n[2]*(p[2]-c[2]);
-  if(Math.abs(d)>tol) return false;
-  const poly=f.poly, L=poly.length;
-  for(let i=0;i<L;i++){
-    const a=poly[i], b=poly[(i+1)%L];
-    const ab=[b[0]-a[0],b[1]-a[1],b[2]-a[2]];
-    const ap=[p[0]-a[0],p[1]-a[1],p[2]-a[2]];
-    const ablen2=ab[0]*ab[0]+ab[1]*ab[1]+ab[2]*ab[2];
-    let t=ablen2>1e-12 ? (ap[0]*ab[0]+ap[1]*ab[1]+ap[2]*ab[2])/ablen2 : 0;
-    t=Math.max(0,Math.min(1,t));
-    const cl=[a[0]+t*ab[0],a[1]+t*ab[1],a[2]+t*ab[2]];
-    if(Math.hypot(p[0]-cl[0],p[1]-cl[1],p[2]-cl[2])<=tol) return true;
-  }
-  return false;
-}
-let highlightFaces=new Set();
-function computeHighlightFaces(){
-  highlightFaces=new Set();
-  for(const g of ghosts) for(const f of opaqueSurface){
-    // restrict to faces actually carved from one of the two cubes whose
-    // edges produced this ghost -- without this, any face merely
-    // coplanar with the near-miss point (common near a corner, where many
-    // small cut pieces from unrelated cubes cluster) would also light up.
-    if(g.ka!==undefined && f.srcCube!==g.ka && f.srcCube!==g.kb) continue;
-    if(faceContainsPoint(f,g.p,HIGHLIGHT_TOL)) highlightFaces.add(f);
-  }
-}
 function refreshCloudCount(){
-  $('cloudn').textContent=cloudBaseText+(showOpaque?` · ${opaqueSurface.length} faces`:'')
-    +(highlightFaces.size?` · ${highlightFaces.size} splitting/merging`:'');
+  $('cloudn').textContent=cloudBaseText+(showOpaque?` · ${opaqueSurface.length} faces`:'');
 }
 // geometry is view-independent, so it's cached and only rebuilt when mats,
-// the depth/cube filters, or the family-psi change (opaqueDirty, set at
-// each of those); painter-sort (in drawOpaqueSurface) reruns every frame.
+// the depth/cube filters, or the slide-t change (opaqueDirty, set at each
+// of those); painter-sort (in drawOpaqueSurface) reruns every frame.
 function ensureOpaqueSurface(){
   if(!opaqueDirty) return;
   const selected=[];
   for(let i=0;i<cubes.length;i++) if(cubeSel>>i&1) selected.push(i);
   opaqueSurface=buildOpaqueSurface(cubes,selected,depthSel);
-  computeHighlightFaces();
   opaqueDirty=false;
   refreshCloudCount();
-}
-// one-sided clipping relative to the current cross-section plane (see
-// axisBasis/sliceOff, the slice view's own plane, drawn as the translucent
-// quad in drawPlane): centroid-side test, not exact polygon re-clipping --
-// a deliberate scope choice, see report.
-let clipToSlice=false, clipFlip=false;
-function clipKeeps(poly){
-  if(!clipToSlice) return true;
-  const {n}=axisBasis(sliceAxis), ctr=polyCentroid(poly);
-  const side=n[0]*ctr[0]+n[1]*ctr[1]+n[2]*ctr[2]-sliceOff;
-  return clipFlip ? side>=0 : side<=0;
 }
 function drawOpaqueSurface(S,cx,cy){
   const proj=[];
   for(const f of opaqueSurface){
-    if(!clipKeeps(f.poly)) continue;
     const rp=f.poly.map(rot);
     let zsum=0; const px=rp.map(r=>{zsum+=r[2];return [r[0]*S+cx,-r[1]*S+cy];});
     const rn=rot(f.normal);
     const nl=Math.abs(rn[0]*LIGHT_DIR[0]+rn[1]*LIGHT_DIR[1]+rn[2]*LIGHT_DIR[2]);
-    proj.push({px, z:zsum/rp.length, nl, depth:f.depth, mask:f.mask, hl:highlightFaces.has(f)});
+    proj.push({px, z:zsum/rp.length, nl, depth:f.depth});
   }
   proj.sort((a,b)=>a.z-b.z);          // painter's algorithm, back to front
-  // colour follows the same "Colour cells by" toggle as the slice view:
-  // depth palette, or labelRgb keyed by the inside region's containment
-  // mask (global cube indices, so hues match the slice's cells exactly).
-  const byLabel = colorMode==='label';
   for(const f of proj){
     const cf=cue(f.z), shade=(0.55+0.45*f.nl)*cf;
-    const c=byLabel?labelRgb(f.mask):DEPTH_RGB[f.depth];
+    const c=DEPTH_RGB[f.depth];
     cctx.fillStyle=`rgb(${(c[0]*shade)|0},${(c[1]*shade)|0},${(c[2]*shade)|0})`;
-    cctx.strokeStyle=f.hl?'#ff3b6e':`rgba(0,0,0,${(0.4*cf).toFixed(3)})`;
-    cctx.lineWidth=f.hl?2.4*cf:1;
+    cctx.strokeStyle=`rgba(0,0,0,${(0.4*cf).toFixed(3)})`;
+    cctx.lineWidth=1;
     cctx.beginPath();
     cctx.moveTo(f.px[0][0],f.px[0][1]);
     for(let i=1;i<f.px.length;i++) cctx.lineTo(f.px[i][0],f.px[i][1]);
@@ -919,14 +543,8 @@ function drawOpaqueSurface(S,cx,cy){
   }
 }
 
-let camZoom=1;                      // wheel-adjustable, [ZOOM_MIN,ZOOM_MAX]
-const ZOOM_MIN=0.25, ZOOM_MAX=6, ZOOM_STEP=1.1;
-function setZoom(z){
-  camZoom=Math.min(ZOOM_MAX,Math.max(ZOOM_MIN,z));
-  $('zoomv').textContent=`zoom: ${Math.round(camZoom*100)}%`;
-}
 function drawCloud(){
-  const W=cloud.width,H=cloud.height,S=W/5.0*camZoom,cx=W/2,cy=H/2;
+  const W=cloud.width,H=cloud.height,S=W/5.0,cx=W/2,cy=H/2;
   cctx.fillStyle='#07090c';cctx.fillRect(0,0,W,H);
   if(showOpaque){
     // Opaque mode replaces the point cloud with the actual boundary
@@ -1077,110 +695,25 @@ function renderExactChips(){
     $('exact').innerHTML=`<span class="chip">${cubes.length} cubes — exact region count needs the exact counter</span>`;
   }
 }
-function loadPreset(mode,text,exact){ exitFamily();setMode(mode);$('quats').value=text;exactInfo=exact;apply(); }
-function exitFamily(){ $('familyGrp').style.display='none'; famLocked=false; famLockZone=null; }
-function unlockFamily(){
-  famLocked=false; famLockZone=null;
-  if($('famLock')){ $('famLock').ariaPressed='false'; $('famLock').textContent='🔒 maintain concurrences'; }
-}
-function buildFamilyTicks(){
-  const box=$('famTicks'); box.innerHTML='';
-  FAMILY_NAMED.forEach((n,i)=>{
-    const b=document.createElement('button');
-    b.className='mini'; b.textContent=`${n.deg.toFixed(2)}°`;
-    b.title=`${n.name} — ${n.crossings} crossings`;
-    b.setAttribute('aria-pressed','false');
-    // an explicit jump to a named point overrides any active lock -- these
-    // points are certified-exact in their own right, even where (as at
-    // octahedral/mirror-octahedral/golden) they sit inside a transition
-    // band rather than a ghost-free zone.
-    b.onclick=()=>{ unlockFamily(); $('famPos').value=Math.round(n.deg*100); setFamily(n.deg); };
-    box.appendChild(b);
-  });
-}
-// region-count-change markers: every boundary of a GHOST_FREE_ZONES entry
-// is exactly a psi where the exact edge-crossing SET changes (a wall
-// appears/disappears), which is exactly where the exact region count of
-// the arrangement changes too (regions <-> crossings via the arrangement's
-// own combinatorics). Includes 0/45/90 (isolated exact points, boundary of
-// their own zero-width "zone") since the crossing set changes on both
-// sides of those too.
-const REGION_CHANGE_DEG = Array.from(new Set(
-  [0, 45, 90, ...GHOST_FREE_ZONES.flat()]
-)).sort((a,b)=>a-b);
-function renderFamilyMarks(){
-  const box=$('famMarks'); box.innerHTML='';
-  const put=(deg,cls,title)=>{
-    const m=document.createElement('div');
-    m.className='tmark '+cls; m.style.left=(deg/90*100)+'%';
-    if(title) m.title=title;
-    box.appendChild(m);
-  };
-  for(const d of REGION_CHANGE_DEG)
-    put(d,'region',`region/crossing count changes here (ψ≈${d.toFixed(3)}°)`);
-  for(const n of FAMILY_NAMED)
-    put(n.deg, n.field?'field':'named', `${n.name} — ${n.crossings} crossings`);
-}
-const FAMILY_SNAP_DEG=0.3;      // spec: snapping within ~0.3deg is fine
-function nearestFamilyNamed(deg){
-  let best=FAMILY_NAMED[0], bestDiff=Math.abs(deg-FAMILY_NAMED[0].deg);
-  for(const n of FAMILY_NAMED){
-    const d=Math.abs(deg-n.deg);
-    if(d<bestDiff){ bestDiff=d; best=n; }
-  }
-  return {best,bestDiff};
-}
-// "maintain concurrences" lock: while active, dragging is clamped to the
-// zero-ghost zone (GHOST_FREE_ZONES) the slider was in when the lock was
-// engaged, so the ring set provably stays fixed for the whole drag -- a
-// direct answer to "there should be a way to slide while maintaining edge
-// concurrences" (the family-wide claim is exactness AT each psi, not that
-// the crossing SET never changes; this lock gives a literal
-// zero-set-change sub-range on demand).
-let famLocked=false, famLockZone=null, famCurDeg=0;
-function setFamily(psiDeg){
-  if(famLocked && famLockZone) psiDeg=Math.min(famLockZone[1],Math.max(famLockZone[0],psiDeg));
-  const {best,bestDiff}=nearestFamilyNamed(psiDeg);
-  const snapped=!famLocked && bestDiff<FAMILY_SNAP_DEG;
-  const useDeg=snapped?best.deg:psiDeg;
-  famCurDeg=useDeg;
-  const mats=familyMats(useDeg*Math.PI/180);
+function loadPreset(mode,text,exact){ exitSlide();setMode(mode);$('quats').value=text;exactInfo=exact;apply(); }
+function exitSlide(){ $('slideGrp').style.display='none'; }
+function setSlide(t){
+  const mats=slideMats(t);
   setMode('mat'); $('quats').value=matText(mats);
-  exactInfo = snapped ? best.exact : null;
+  exactInfo = (t===0||t===1)
+    ? {total:67, d:{1:48,2:18,3:1}}
+    : null;
   cubes=mats.map(matToCols);
   cubeSel=7; depthSel=new Set([1,2,3]);
   buildFilters(); opaqueDirty=true; $('err').textContent='';
   samplePoints(); computeConcurrences(); renderSlice();
   if(exactInfo) renderExactChips();
-  else $('exact').innerHTML=`<span class="chip">exact crossings at this ψ; region count not yet certified away from the 67/49/67 points</span>`;
-  $('famPsi').textContent=`ψ = ${useDeg.toFixed(3)}°`;
-  $('famPos').value=Math.round(useDeg*100);
-  $('famGhosts').textContent = ghosts.length
-    ? `${ghosts.length} ghosts — crossing set transitioning here`
-    : '0 ghosts — exact, fixed set';
-  $('famGhosts').style.color = ghosts.length ? '#ff8f6b' : 'var(--accent)';
-  if($('famTicks').children.length){
-    [...$('famTicks').children].forEach((b,i)=>
-      b.setAttribute('aria-pressed', String(snapped && FAMILY_NAMED[i]===best)));
-  }
+  else $('exact').innerHTML=`<span class="chip">interior of the family — generic ≈37; endpoints are the isolated 67 walls</span>`;
+  $('slideT').textContent=`t = ${t.toFixed(3)}`;
 }
-$('pFamily').onclick=()=>{
-  $('familyGrp').style.display='flex'; buildFamilyTicks(); renderFamilyMarks(); unlockFamily();
-  $('famPos').value=0; setFamily(0);
-};
-$('famPos').oninput=e=>setFamily(e.target.value/100);
-$('famLock').onclick=()=>{
-  if(famLocked){ unlockFamily(); return; }
-  const zone=findGhostFreeZone(famCurDeg);
-  if(!zone){
-    $('famGhosts').textContent='no ghost-free range exactly here — nudge the slider first';
-    $('famGhosts').style.color='#ff8f6b';
-    return;
-  }
-  famLocked=true; famLockZone=zone; $('famLock').ariaPressed='true';
-  $('famLock').textContent=`🔒 locked [${zone[0].toFixed(1)}°, ${zone[1].toFixed(1)}°]`;
-};
-$('load').onclick=()=>{exitFamily();exactInfo=null;apply();};
+$('pSlide').onclick=()=>{ $('slideGrp').style.display='flex'; $('slidePos').value=0; setSlide(0); };
+$('slidePos').oninput=e=>setSlide(e.target.value/1000);
+$('load').onclick=()=>{exitSlide();exactInfo=null;apply();};
 $('fQuat').onclick=()=>setMode('quat');
 $('fMat').onclick=()=>setMode('mat');
 $('pRec').onclick=()=>loadPreset('quat',REC723_TXT,{total:723,d:{1:210,2:216,3:164,4:96,5:36,6:1}});
@@ -1203,23 +736,14 @@ $('opaque').onclick=()=>{
   if(showOpaque) ensureOpaqueSurface();
   refreshCloudCount();
 };
-$('clipOpaque').onclick=()=>{ clipToSlice=!clipToSlice; $('clipOpaque').ariaPressed=String(clipToSlice); };
-$('clipFlipBtn').onclick=()=>{ clipFlip=!clipFlip; $('clipFlipBtn').ariaPressed=String(clipFlip); };
-$('zoomReset').onclick=()=>setZoom(1);
-// drag to rotate; wheel to zoom
+// drag to rotate
 cloud.addEventListener('pointerdown',e=>{dragging=true;cloud.setPointerCapture(e.pointerId);});
 cloud.addEventListener('pointerup',()=>dragging=false);
 cloud.addEventListener('pointermove',e=>{
   if(!dragging)return;
   rotY+=e.movementX*0.008; rotX+=e.movementY*0.008;
 });
-cloud.addEventListener('wheel',e=>{
-  e.preventDefault();
-  setZoom(camZoom*(e.deltaY<0?ZOOM_STEP:1/ZOOM_STEP));
-},{passive:false});
 
 setMode('quat');
-setZoom(1);
 loadPreset('quat',REC723_TXT,{total:723,d:{1:210,2:216,3:164,4:96,5:36,6:1}});
 frame();
-</script>

@@ -218,21 +218,11 @@
         <button class="ghost" id="spinAxis" aria-pressed="false" title="Toggle the spin axis between the world y-axis (turntable) and the compound's shared 3-fold axis (1,1,1)">axis: y</button>
         <button class="ghost" id="conc" aria-pressed="true">concurrences</button>
         <button class="ghost" id="opaque" aria-pressed="false" title="Render the boundary surface of the selected depth range as opaque shaded polygons">opaque</button>
-        <button class="ghost" id="clipOpaque" aria-pressed="false" title="In opaque mode, show only the surface on one side of the cross-section plane (see Cross-section plane below)">clip</button>
-        <button class="ghost" id="clipFlipBtn" aria-pressed="false" title="Flip which side of the cross-section plane is kept while clipped">flip</button>
-        <span class="hint">drag to rotate · scroll to zoom</span>
-      </div>
-      <div class="row" style="gap:10px;align-items:center">
-        <span class="val" id="zoomv">zoom: 100%</span>
-        <button class="mini" id="zoomReset" style="flex:0 0 auto;padding:2px 8px">reset</button>
+        <span class="hint">drag to rotate</span>
       </div>
       <div class="hint">Rings mark where 4+ face-planes meet, sized by count:
         <span style="color:#ffd76b">gold = corner</span> (cube corners coincide),
-        <span style="color:#7fc9ff">blue = edge</span> (cube edges cross). In
-        opaque mode, surfaces outlined <span style="color:#ff3b6e">hot
-        pink</span> are mid-transition — a nearby "ghost" near-miss
-        crossing means this exact wall is where a region is currently
-        splitting or merging as ψ moves (dihedral family slider).</div>
+        <span style="color:#7fc9ff">blue = edge</span> (cube edges cross).</div>
       <div class="chips" id="exact"></div>
     </section>
   </main>
@@ -636,11 +626,7 @@ function computeConcurrences(){
   for(let ka=0;ka<cubes.length;ka++)for(let kb=ka+1;kb<cubes.length;kb++){
     for(const ea of edgeSets[ka])for(const eb of edgeSets[kb]){
       const {dist,mid}=segSegDist(ea[0],ea[1],eb[0],eb[1]);
-      // ka,kb (the two cube indices whose edges are near-crossing) are
-      // carried along so highlighting (see computeHighlightFaces) can
-      // restrict to faces that actually belong to one of those two cubes,
-      // instead of any face merely coplanar with the near-miss point.
-      if(dist>1e-6 && dist<0.02) ghostCand.push({p:mid,gap:dist,kind:'edge',ghost:true,ka,kb});
+      if(dist>1e-6 && dist<0.02) ghostCand.push({p:mid,gap:dist,kind:'edge',ghost:true});
     }
   }
   ghostCand.sort((a,b)=>a.gap-b.gap);
@@ -801,11 +787,7 @@ function buildOpaqueSurface(mats,selected,depthSet){
         // mask = containment set of the INSIDE region, mirroring depth:
         // it drives the containment colour mode exactly as depth drives
         // the depth colour mode.
-        // srcCube: which cube's face square this piece was carved from --
-        // purely additive (nothing upstream depended on the object's exact
-        // key set), used by computeHighlightFaces to restrict matching to
-        // structurally-relevant faces instead of any coplanar piece.
-        if(in1!==in2) out.push({poly, depth:(in1?d1:d2), mask:(in1?m1:m2), normal:faceN, srcCube:k});
+        if(in1!==in2) out.push({poly, depth:(in1?d1:d2), mask:(in1?m1:m2), normal:faceN});
       }
     }
   }
@@ -817,56 +799,8 @@ function buildOpaqueSurface(mats,selected,depthSet){
 // default. Unit vector, arbitrary upper-right bias.
 const LIGHT_DIR=(v=>{const n=Math.hypot(v[0],v[1],v[2]);return [v[0]/n,v[1]/n,v[2]/n];})([0.4,0.65,0.65]);
 let showOpaque=false, opaqueSurface=[], opaqueDirty=true, cloudBaseText='';
-// ---- split/merge surface highlighting -----------------------------------
-// A "ghost" (see computeConcurrences) is a near-miss edge-pair: a crossing
-// whose gap is small but nonzero, i.e. one that is actively appearing or
-// disappearing as the family parameter moves -- exactly "a surface that
-// separates a region currently splitting or merging". faceContainsPoint
-// finds which opaque-surface face piece(s) a ghost's point lies on (plane
-// tolerance + rough in-polygon check via centroid/radius -- good enough
-// for a visual highlight, not meant to be pixel-exact), so those pieces
-// can be outlined distinctly in opaque mode.
-const HIGHLIGHT_TOL=0.03;           // matches the ghost gap window's scale
-// A near-crossing point lives on the BOUNDARY trace between two opaque
-// pieces (that's what a crossing -- exact or near-miss -- physically is:
-// where a cutting edge lands), not just loosely "inside" one piece's
-// extent. An earlier centroid+radius version over-matched badly near
-// cluttered corner regions (many small slivers all "contain" a nearby
-// point under a loose radius test); this checks proximity to the
-// polygon's actual edges instead, which is both more precise and the
-// semantically correct notion of "this piece's boundary is the surface".
-function faceContainsPoint(f,p,tol){
-  const n=f.normal, c=f.poly[0];
-  const d=n[0]*(p[0]-c[0])+n[1]*(p[1]-c[1])+n[2]*(p[2]-c[2]);
-  if(Math.abs(d)>tol) return false;
-  const poly=f.poly, L=poly.length;
-  for(let i=0;i<L;i++){
-    const a=poly[i], b=poly[(i+1)%L];
-    const ab=[b[0]-a[0],b[1]-a[1],b[2]-a[2]];
-    const ap=[p[0]-a[0],p[1]-a[1],p[2]-a[2]];
-    const ablen2=ab[0]*ab[0]+ab[1]*ab[1]+ab[2]*ab[2];
-    let t=ablen2>1e-12 ? (ap[0]*ab[0]+ap[1]*ab[1]+ap[2]*ab[2])/ablen2 : 0;
-    t=Math.max(0,Math.min(1,t));
-    const cl=[a[0]+t*ab[0],a[1]+t*ab[1],a[2]+t*ab[2]];
-    if(Math.hypot(p[0]-cl[0],p[1]-cl[1],p[2]-cl[2])<=tol) return true;
-  }
-  return false;
-}
-let highlightFaces=new Set();
-function computeHighlightFaces(){
-  highlightFaces=new Set();
-  for(const g of ghosts) for(const f of opaqueSurface){
-    // restrict to faces actually carved from one of the two cubes whose
-    // edges produced this ghost -- without this, any face merely
-    // coplanar with the near-miss point (common near a corner, where many
-    // small cut pieces from unrelated cubes cluster) would also light up.
-    if(g.ka!==undefined && f.srcCube!==g.ka && f.srcCube!==g.kb) continue;
-    if(faceContainsPoint(f,g.p,HIGHLIGHT_TOL)) highlightFaces.add(f);
-  }
-}
 function refreshCloudCount(){
-  $('cloudn').textContent=cloudBaseText+(showOpaque?` · ${opaqueSurface.length} faces`:'')
-    +(highlightFaces.size?` · ${highlightFaces.size} splitting/merging`:'');
+  $('cloudn').textContent=cloudBaseText+(showOpaque?` · ${opaqueSurface.length} faces`:'');
 }
 // geometry is view-independent, so it's cached and only rebuilt when mats,
 // the depth/cube filters, or the family-psi change (opaqueDirty, set at
@@ -876,30 +810,17 @@ function ensureOpaqueSurface(){
   const selected=[];
   for(let i=0;i<cubes.length;i++) if(cubeSel>>i&1) selected.push(i);
   opaqueSurface=buildOpaqueSurface(cubes,selected,depthSel);
-  computeHighlightFaces();
   opaqueDirty=false;
   refreshCloudCount();
-}
-// one-sided clipping relative to the current cross-section plane (see
-// axisBasis/sliceOff, the slice view's own plane, drawn as the translucent
-// quad in drawPlane): centroid-side test, not exact polygon re-clipping --
-// a deliberate scope choice, see report.
-let clipToSlice=false, clipFlip=false;
-function clipKeeps(poly){
-  if(!clipToSlice) return true;
-  const {n}=axisBasis(sliceAxis), ctr=polyCentroid(poly);
-  const side=n[0]*ctr[0]+n[1]*ctr[1]+n[2]*ctr[2]-sliceOff;
-  return clipFlip ? side>=0 : side<=0;
 }
 function drawOpaqueSurface(S,cx,cy){
   const proj=[];
   for(const f of opaqueSurface){
-    if(!clipKeeps(f.poly)) continue;
     const rp=f.poly.map(rot);
     let zsum=0; const px=rp.map(r=>{zsum+=r[2];return [r[0]*S+cx,-r[1]*S+cy];});
     const rn=rot(f.normal);
     const nl=Math.abs(rn[0]*LIGHT_DIR[0]+rn[1]*LIGHT_DIR[1]+rn[2]*LIGHT_DIR[2]);
-    proj.push({px, z:zsum/rp.length, nl, depth:f.depth, mask:f.mask, hl:highlightFaces.has(f)});
+    proj.push({px, z:zsum/rp.length, nl, depth:f.depth, mask:f.mask});
   }
   proj.sort((a,b)=>a.z-b.z);          // painter's algorithm, back to front
   // colour follows the same "Colour cells by" toggle as the slice view:
@@ -910,8 +831,8 @@ function drawOpaqueSurface(S,cx,cy){
     const cf=cue(f.z), shade=(0.55+0.45*f.nl)*cf;
     const c=byLabel?labelRgb(f.mask):DEPTH_RGB[f.depth];
     cctx.fillStyle=`rgb(${(c[0]*shade)|0},${(c[1]*shade)|0},${(c[2]*shade)|0})`;
-    cctx.strokeStyle=f.hl?'#ff3b6e':`rgba(0,0,0,${(0.4*cf).toFixed(3)})`;
-    cctx.lineWidth=f.hl?2.4*cf:1;
+    cctx.strokeStyle=`rgba(0,0,0,${(0.4*cf).toFixed(3)})`;
+    cctx.lineWidth=1;
     cctx.beginPath();
     cctx.moveTo(f.px[0][0],f.px[0][1]);
     for(let i=1;i<f.px.length;i++) cctx.lineTo(f.px[i][0],f.px[i][1]);
@@ -919,14 +840,8 @@ function drawOpaqueSurface(S,cx,cy){
   }
 }
 
-let camZoom=1;                      // wheel-adjustable, [ZOOM_MIN,ZOOM_MAX]
-const ZOOM_MIN=0.25, ZOOM_MAX=6, ZOOM_STEP=1.1;
-function setZoom(z){
-  camZoom=Math.min(ZOOM_MAX,Math.max(ZOOM_MIN,z));
-  $('zoomv').textContent=`zoom: ${Math.round(camZoom*100)}%`;
-}
 function drawCloud(){
-  const W=cloud.width,H=cloud.height,S=W/5.0*camZoom,cx=W/2,cy=H/2;
+  const W=cloud.width,H=cloud.height,S=W/5.0,cx=W/2,cy=H/2;
   cctx.fillStyle='#07090c';cctx.fillRect(0,0,W,H);
   if(showOpaque){
     // Opaque mode replaces the point cloud with the actual boundary
@@ -1203,23 +1118,15 @@ $('opaque').onclick=()=>{
   if(showOpaque) ensureOpaqueSurface();
   refreshCloudCount();
 };
-$('clipOpaque').onclick=()=>{ clipToSlice=!clipToSlice; $('clipOpaque').ariaPressed=String(clipToSlice); };
-$('clipFlipBtn').onclick=()=>{ clipFlip=!clipFlip; $('clipFlipBtn').ariaPressed=String(clipFlip); };
-$('zoomReset').onclick=()=>setZoom(1);
-// drag to rotate; wheel to zoom
+// drag to rotate
 cloud.addEventListener('pointerdown',e=>{dragging=true;cloud.setPointerCapture(e.pointerId);});
 cloud.addEventListener('pointerup',()=>dragging=false);
 cloud.addEventListener('pointermove',e=>{
   if(!dragging)return;
   rotY+=e.movementX*0.008; rotX+=e.movementY*0.008;
 });
-cloud.addEventListener('wheel',e=>{
-  e.preventDefault();
-  setZoom(camZoom*(e.deltaY<0?ZOOM_STEP:1/ZOOM_STEP));
-},{passive:false});
 
 setMode('quat');
-setZoom(1);
 loadPreset('quat',REC723_TXT,{total:723,d:{1:210,2:216,3:164,4:96,5:36,6:1}});
 frame();
 </script>

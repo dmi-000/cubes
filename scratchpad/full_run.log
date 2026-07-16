@@ -1,0 +1,54 @@
+=== GATES (GA-GE) ===
+  GA: generic seed orbit=3 (want 3), aligned seed orbit=1 (want 1), identity orbit=1 (want 1)  PASS
+  GB: O-orbit(45deg-about-z) size=3 (want 3), total=67 (want 67)  PASS
+  GC: two C3-orbits, sizes 3+3, union distinct=6, cube_regions total=699 (want 699)  PASS
+  GD: I-orbit(identity, proper-frame-corrected) size=5 == golden five: True; golden_six total=681 (want 681)  PASS
+  GE: python=583 cpp=583  PASS
+
+GATES: ALL PASS
+
+=== PHASE 1: rational G sweep (cube_regions C++ engine) ===
+-- G=C2 |G|=2  achievable orbit sizes <=6: [2] (forms: {2: 'body-diag'})
+   pure(aligned) C2:2+2+2             best= 653 ab=((5, 2), (7, 4), (4, 1))  (36.4s)
+   pure(generic) C2:generic-x3        best= 605  (16.2s)
+-- G=C3 |G|=3  achievable orbit sizes <=6: [3] (forms: {3: 'z-axial'})
+   pure(aligned) C3:3+3               best= 399 ab=((2, 1), (5, 2))  (12.3s)
+   pure(generic) C3:generic-x2        best= 627  (14.5s)
+   core+free C3:3+free3           best= 643 ab=(1, 3)  (32.2s)
+-- G=C4 |G|=4  achievable orbit sizes <=6: [4] (forms: {4: 'body-diag'})
+   core+free C4:4+free2           best= 625 ab=(1, 5)  (24.7s)
+-- G=C6 |G|=6  achievable orbit sizes <=6: [2, 6] (forms: {2: 'z-axial', 6: 'z-axial'})
+   pure(aligned) C6:2+2+2             best=  -1 ab=None  (25.4s)
+   pure(aligned) C6:6                 best= 649 ab=((7, 4),)  (2.4s)
+   pure(generic) C6:generic-x1        best= 601  (7.1s)
+-- G=D2 |G|=4  achievable orbit sizes <=6: [2, 4] (forms: {2: 'z-axial', 4: 'body-diag'})
+   pure(aligned) D2:2+2+2             best= 121 ab=((2, 1), (3, 2), (2, 5))  (6.5s)
+   pure(aligned) D2:2+4               best= 539 ab=((3, 2), (4, 1))  (19.3s)
+   core+free D2:4+free2           best= 651 ab=(1, 5)  (27.8s)
+-- G=D3 |G|=6  achievable orbit sizes <=6: [2, 3, 6] (forms: {2: 'body-diag', 3: 'face-diag', 6: 'z-axial'})
+   pure(aligned) D3:2+2+2             best= 523 ab=((2, 1), (1, 2), (1, 4))  (27.7s)
+   pure(aligned) D3:3+3               best= 657 ab=((3, 1), (2, 5))  (22.6s)
+   pure(aligned) D3:6                 best= 355 ab=((2, 1),)  (1.3s)
+   pure(generic) D3:generic-x1        best= 595  (6.7s)
+   core+free D3:3+free3           best= 615 ab=(1, 1)  (27.6s)
+-- G=D4 |G|=8  achievable orbit sizes <=6: [2, 4] (forms: {2: 'z-axial', 4: 'body-diag'})
+   pure(aligned) D4:2+2+2             best= 121 ab=((2, 1), (3, 2), (2, 5))  (9.7s)
+   pure(aligned) D4:2+4               best= 439 ab=((3, 2), (3, 1))  (17.8s)
+   core+free D4:4+free2           best= 589 ab=(3, 1)  (15.8s)
+-- G=D6 |G|=12  achievable orbit sizes <=6: [2, 4, 6] (forms: {2: 'z-axial', 4: 'body-diag', 6: 'face-diag'})
+   pure(aligned) D6:2+2+2             best=  -1 ab=None  (68.5s)
+   pure(aligned) D6:2+4               best= 493 ab=((1, 1), (2, 1))  (26.1s)
+   pure(aligned) D6:6                 best= 553 ab=((3, 2),)  (3.1s)
+   core+free D6:4+free2           best= 637 ab=(5, 2)  (23.8s)
+-- G=T |G|=12  achievable orbit sizes <=6: [4, 6] (forms: {4: 'body-diag', 6: 'z-axial'})
+   pure(aligned) T:6                  best= 355 ab=((2, 1),)  (2.5s)
+   core+free T:4+free2            best= 661 ab=(1, 5)  (42.5s)
+-- G=O |G|=24  achievable orbit sizes <=6: [4, 6] (forms: {4: 'body-diag', 6: 'z-axial'})
+   pure(aligned) O:6                  best= 355 ab=((2, 1),)  (6.9s)
+   core+free O:4+free2            best= 583 ab=(3, 1)  (15.2s)
+
+=== PHASE 2: Q(sqrt5) sweep (I and C5 families) ===
+-- I: 5(I-orbit, proper-frame-verified)+free  best=681 family=A quat=(2, 1, 1, 1)
+-- C5: 5(C5-orbit)+free  best=681 quat=(1, 0, 0, 0) (NOTE: small probe grid -- see report Sec "honest limits")
+
+Report written to /Users/dmi/carroll/symmetry_search_report.md

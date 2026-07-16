@@ -1,0 +1,11 @@
+[     0.0s] n7_program starting. tasks=['task1']
+[     0.0s] === TASK 1: deep climb of 1207 ===
+[    11.7s]   base climb: 1207 (start 1207)
+[    24.7s]   radius-4 cert: confirmed local max
+[   136.4s]   restart 0 (nmoves=9): 1131
+[   271.2s]   (d) 7th-cube swap/reoptimize pass
+[   307.2s]   7th-cube sweep (300 candidates): best=1197
+[   309.2s]   7th-cube climb (free_idx=6 only): 1197
+[   320.9s] TASK 1 best: 1207  (record before task1: 1207)
+[   320.9s] Report written -> /Users/dmi/carroll/n7_program_report.md
+[   320.9s] ALL DONE.

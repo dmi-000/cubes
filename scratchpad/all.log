@@ -1,0 +1,33 @@
+
+=== (1) C3:3+3  (two full-quaternion C3 orbits about (1,1,1)) ===
+  GATE build from 699 seeds S1=(3, 1, 0, 0) S2=(41, 28, 22, 14): total=699 (want 699)  OK
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 1, 0, 0], [21, 14, 11, 7]]
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 1, 0, 0], [22, 14, 11, 7]]
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 1, 0, 0], [21, 7, 14, 11]]
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 1, 0, 0], [22, 7, 14, 11]]
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 0, 1, 0], [21, 14, 11, 7]]
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 0, 1, 0], [22, 14, 11, 7]]
+  C3:3+3           best= 705 evals=451 restarts=30+3expl climb_r=2x12 (full-quat, gated at 699)
+
+=== (2a) C2:2+2+2  (three full-quat C2 orbits) ===
+  C2:2+2+2         best= 605 evals=696 restarts=25+0expl climb_r=2x10 (full-quat, 12 free DOF)
+
+=== (2b) D2:4+free2  (full-quat D2 orbit-4 core + 2 free) ===
+  D2:4+free2       best= 617 evals=549 restarts=25+0expl climb_r=2x10 (full-quat core AND free, 12 DOF)
+
+=== (2c) C6:6  (single full-quat C6 orbit) ===
+  C6:6             best= 625 evals=268 restarts=60+0expl climb_r=2x14 (full-quat, 4 DOF)
+
+=== (2d) T:4+free2  (aligned orbit-4 core + 2 FULL-QUAT free) ===
+  T:4+free2       best= 661 ab=(7, 3) (34.3s)
+
+=== (2e) D3:3+3  (two aligned orbit-3 triples) ===
+  D3:3+3          best= 657 spec=(('ax3', 1, 3), ('ax3', 5, 3)) evals=1200
+
+=== (3) Golden I:5+free confirm (deeper radius-3/4 climb) ===
+  base A(2, 1, 1, 1): total=681 (want 681)
+  evaluating 350 golden neighbors (Pool 4)...
+  golden best=681 quat=(2, 1, 1, 1) (717s, 350 evals)
+
+Total wall time: 1060s
+Report -> /Users/dmi/carroll/symmetry_search_report2.md

@@ -1638,3 +1638,199 @@ set is infeasible on this machine. Chris's caveat ("fine-graining works
 if we fix a family") is thereby quantified at the smallest case: the
 viable certification mode is per-family (few knobs), or Theorem A +
 Euler census.
+
+### Postscript 9 addendum (2026-07-13): the slide axis identified exactly
+
+The 67↔67 family's seed rotates by δ about â where, unnormalized,
+â ∝ ( −(√2+√10), −(4+√2+√10), −2+3√2+2√5−√10 ) / 8
+  = ( −√2·φ/4, −(√2·φ/4 + 1/2), … )        [√2+√10 = 2√2·φ]
+and cos δ = (−6 + 3√2 + 2√5 + 3√10)/16  (δ = 40.306°).
+The axis lives in the COMPOSITUM ℚ(√2,√5) — the bridge between the
+octahedral (√2) and golden (√5) walls — and is a symmetry axis of
+neither endpoint (57.6° from (1,1,1)). Cube k of the family spins about
+Cᵏ·â: three skew axes forming a 120°-orbit around the invariant global
+3-fold axis (1,1,1). Interactive: the depth explorer's "67 ↔ 67 slide".
+
+### Postscript 9 addendum 2 (2026-07-13): edge crossings along the slide — near-persistence quantified
+
+User: "some of the edge concurrences should persist on the slide."
+Measured: at t=0 the octahedral compound has 30 EXACT edge crossings
+(crossing parameter 1 − 1/√2 ≈ 0.293 along the edge). In the interior
+NO crossing is exact (confirming the P9 caveat) but 6–18 NEAR-crossings
+persist with gaps of only 0.0015–0.006 (cube half-width 1) — the
+crossings open into hairline gaps whose closest-approach points slide
+along the edges — and at t=1 the gaps snap shut again with the crossing
+at s = 1/φ = 0.618, the golden section (the user's original
+middle→corner marker). So the edge-concurrence structure persists as a
+sub-percent-gap GHOST through the whole family, exact only at the two
+walls. Viewer updated to render near-concurrences as fading ghost rings.
+
+## Postscript 25: the DIHEDRAL FAMILY — a closed-form 1-parameter family with exact edge coincidences, containing both 67s; the ghosts explained; a new exactly-certified compound in Q(sqrt6)
+
+Prompted by the user viewing the slide midpoint (t=0.5) and asking whether a
+nearby configuration — "perhaps with irrational rotations" — could close the
+near-miss edge crossings exactly, noting the coincident edges looked
+perpendicular to (1,1,1). That observation was the key.
+
+**The family.** Take the cube [-1,1]^3 and rotate it by +-120 degrees about an
+axis n(psi) = (sin psi, cos psi, 0) lying IN one of its own face planes
+(through the center). The three cubes {I, S, S^2},
+S = S(psi) = -1/2 I + (3/2) n n^T + (sqrt3/2) [n]_x, form a C3 orbit about
+the axis s = n rotated... equivalently, in the world frame used by the
+viewer: seed matrix with columns
+[cos(psi) w + sin(psi) s | -sin(psi) w + cos(psi) s | u],
+u any unit vector perpendicular to s=(1,1,1)/sqrt3, w = s x u, orbited by
+C = 120 degrees about (1,1,1). The u-freedom (theta) is exactly a global
+rotation about (1,1,1), so modulo congruence this is ONE parameter, psi.
+Every member is D3-symmetric: the C2 axes are the cubes' horizontal face
+axes u, Cu, C^2u.
+
+**The coincidence theorem (hand algebra + 1e-16 numerics, not yet formal).**
+For EVERY psi, the edge-edge coplanarity conditions of all three edge classes
+(x-, y-, z-edges) vanish identically. For the u-edges it is elementary: all
+three cubes' u-edges lie in two common planes perpendicular to (1,1,1) at
+heights +-(sin psi + cos psi) (and +-(cos psi - sin psi)), and non-parallel
+lines in a common plane always meet. For the other two classes the identity
+falls out in the frame {w, s, u} using u x Cu = (sqrt3/2)s (verified at
+random (theta,psi) to machine zero; dihedral_scratch/family_check.py).
+Interior-of-segment crossing counts form plateaus in psi:
+  12 (0<psi<21deg), 18 (21..45.5), 24 AT psi=45 exactly, 18, 12, and
+  spikes: 30 at psi = arcsin(1/sqrt3) = 35.264deg, 30 at arctan(sqrt2),
+  48 at psi = 0 and 90 (shared-axis compound, pair invariant 1+sqrt3).
+
+**Both 67s are members.**
+- Octahedral 67: psi = arcsin(1/sqrt3), axis n = (1, sqrt2, 0)/sqrt3.
+  30 interior crossings, pair invariant 1/2+sqrt2 (matches).
+- Golden 67: tan(psi) = phi^2, i.e. sin(psi) = phi/sqrt3,
+  cos(psi) = 1/(phi sqrt3) — consistency is the identity
+  phi^2 + phi^-2 = 3. Axis n proportional to (phi^2, 1, 0). Pair invariant
+  = 3phi/2 = 2.4270509831... to 1e-16. At exactly this psi the 18 interior
+  crossings hand over to 54 AT-CORNER contacts — the blue-ring -> gold-ring
+  morph of Postscript 9, now in closed form.
+- The relative rotation is the classical golden matrix
+  (1/2)[[phi,1,1/phi],[1,-1/phi,-phi],[-1/phi,phi,-1]] at the golden point.
+
+**Why the slide has ghosts.** The 67<->67 slide (Postscript 9) connects the
+two 67s but leaves this family (its interior seed has face-axis dot (1,1,1)
+approx 0.05, not 0). The dihedral family connects the same two endpoints
+THROUGH exact-coincidence configurations the whole way. The ghost gaps of the
+slide are precisely the cost of stepping out of the dihedral surface.
+(First found numerically: from t=0.5, a 1.66-degree seed rotation about
+approx (0.799,-0.545,-0.254) lands back in the family at psi=52.20 deg,
+closing all 12 ghosts into 18 exact crossings; continuation + congruence
+invariants then revealed the family. dihedral_scratch/edge_close*.py.)
+
+**A new exactly-certified compound.** psi = 45 deg: axis = the FACE DIAGONAL
+(1,1,0)/sqrt2. S = (1/4)[[1,3,r6],[3,1,-r6],[-r6,r6,-2]], entries in
+Q(sqrt6). 24 interior crossings (plateau maximum away from the 67s).
+Exact count via q6_count.py (new engine: field-constant clone of the
+validated slide3_q2.py, D: 2->6; identity-pair self-test passes; S certified
+orthonormal with S^3=I in exact arithmetic):
+  TOTAL = 49, depth profile {d1: 30, d2: 18, d3: 1}.
+Same deep layers as both 67s (18, 1) — another instance of "deep structure
+conserved, d1 is what varies" (Postscript 17). SINGLE-ENGINE exact count
+(not a record claim); a second engine pass is listed in the follow-ups.
+
+**Arithmetic density (open route).** With sin psi = p/r, cos psi = q/r
+rational (Pythagorean triples), S(psi) has entries in Q(sqrt3) — an infinite
+family of exactly-countable members. A Q(sqrt3) clone of slide3_q2.py (one
+constant) plus a Pythagorean sweep would chart the region count along the
+whole family exactly. See DIHEDRAL_FAMILY_NEXT.md.
+
+Files: q6_count.py (Q(sqrt6) verifier + the 49 count), dihedral_scratch/
+(exploration + verification scripts), DIHEDRAL_FAMILY_NEXT.md (handoff).
+
+### Postscript 25, addendum: the persistent 18-core — octahedral-to-golden slides WITHOUT breaking a single concurrence; corner docking; corrected transition locations
+
+Prompted by the user asking for "another way to slide from octahedral sqrt2
+to golden sqrt5 while maintaining edge concurrences." Fine-grained pair-
+identity tracking (0.1-deg grid, persistence.py/docking.py in
+dihedral_scratch/) shows the dihedral family already does this, more
+literally than Postscript 25 realized:
+
+1. **The 18-core.** The interior crossing SET is one and the same set of
+   18 edge pairs (6 per cube pair) on the ENTIRE open interval
+   (20.905deg, 69.095deg) — i.e. between the two golden copies. The count
+   changes en route (30 at the octahedral points, 24 at the face-diagonal
+   point) are +12/+6/+12 EXTRA coincidences that exist only exactly AT
+   those isolated psi (measure zero); the core 18 never opens a gap. The
+   ghost bands around the special points are entirely the extra pairs
+   approaching/leaving — never the core.
+2. **Corner docking.** At arrival at golden (either copy), nothing
+   breaks: 6 of the core 18 remain interior at segment parameter
+   t = +-0.23607 = 1/phi^3 (the golden section yet again; cf. the s=1/phi
+   crossing of Postscript 9), and the other 12 land EXACTLY on cube
+   corners (t = +-1, gap ~3e-16) — they BECOME the golden corner-
+   coincidence structure. Verified identically at mirror-golden
+   (20.905 deg): 6 interior + 12 docked, 0 broken.
+3. **So**: sliding 35.264 -> 69.095 (or the shorter mirror route
+   35.264 -> 20.905, arriving at a congruent golden compound) maintains
+   all 18 core edge concurrences unbroken start to finish. Keeping all 30
+   of octahedral's crossings is impossible at golden with interior
+   crossings alone (golden has 18-core worth: 6 interior + 12 docked);
+   whether some off-family path in the full 3-DOF C3 space preserves more
+   than 18 is open (the 12 octahedral extras appear to be isolated —
+   they exist only at the octahedral points of the family).
+4. **Correction to the transition table**: the crossing SET changes ONLY
+   at 20.905 (= 90 - arctan(phi^2), mirror-golden), 45, and 69.095
+   (golden) in [20,70] — the "unnamed transitions at ~21.4 / ~68.6 deg"
+   previously baked into the viewer's REGION_CHANGE_DEG are ghost-band
+   BOUNDARIES (the fuzzy 0.02-gap window), not set changes, and the
+   earlier bisection "conflation" mystery near 69 deg dissolves: there is
+   only one event there, golden itself. Viewer follow-up: relabel those
+   marks, and the "maintain concurrences" lock can be redefined
+   core-aware (the core-18 is maintained on the whole span between the
+   golden copies, so locking should permit the full octahedral->golden
+   drag).
+
+### Postscript 25, addendum 2: paths preserving MORE than 18 — the pair-curve identity, a 26-concurrence chain triple, and why 18 is still the end-to-end record
+
+User asked for paths preserving more than the 18-core. Findings
+(dihedral_scratch/: bigfamily.py, pairmap.py, loopholes.py, trace10.py,
+window26.py):
+
+1. **The big family.** The dihedral construction generalizes: n cubes,
+   each with a face-axis u_k perpendicular to a COMMON axis s, arbitrary
+   phases theta_k about s, and a COMMON tilt psi. Exact edge coincidences
+   persist (control: different psi per cube kills all of them). Pair
+   crossing structure depends only on (Delta theta, psi).
+2. **Within the C3 dihedral family, >18 is impossible**: the 12 octahedral
+   extras are valid only at isolated psi (measure zero on the slice).
+3. **The pair-curve identity (new).** In the (Delta, psi) pair-plane, ALL
+   FOUR extra coincidences of the octahedral pair share ONE zero curve
+   Delta_c(psi) through (120 deg, 35.264 deg) — their line-coplanarity
+   residuals stay ~1e-16 along the entire traced curve (psi from ~2 to
+   ~85 deg), i.e. all 10 of the octahedral pair's edge-line coincidences
+   hold identically on a one-parameter curve, not just at the octahedral
+   point. (Full-3-DOF check: the 10 conditions' Jacobian at the
+   octahedral pair config has rank 2 — kernel dim 1 — the curve is the
+   whole local solution set.) Segment validity (|t|<=1) holds for psi in
+   roughly (27.5, 46.5) deg; outside, the extra crossings exit through
+   cube corners.
+4. **A 26-concurrence path (new).** Chain triple theta = (0, Delta_c(psi),
+   2*Delta_c(psi)): pairs (1,2) and (2,3) ride the curve carrying 10
+   coincidences each; pair (1,3) at 2*Delta_c keeps its core 6. Verified:
+   26 exact concurrences maintained continuously for psi in
+   [35.264, ~44.5] deg (Delta_c drops 120 -> ~110). At psi ~44.5 the
+   extras dock/exit at corners and the count falls to 18; at 45 the
+   third pair briefly holds 8 (total 20).
+5. **End-to-end oct -> golden still caps at 18** (best known): the four
+   extra labels are not in golden's 24-label contact set at all, and the
+   pair curve's segment window closes at ~46.5 deg. Open loophole:
+   corner HANDOFFS — at |t|=1 a concurrence point can switch to an
+   adjacent edge's label and continue; golden has 60 contacts total, so
+   a handoff chain carrying >18 physical concurrence POINTS into golden
+   is not excluded. Tracing the handoff network is a well-posed numeric
+   task (delegable).
+6. **n>3 relevance.** The big family is an (n-1)+1-parameter
+   exact-coincidence scaffold for ANY n: every cube pair in segment
+   range carries >=6 exact edge concurrences; chains
+   theta=(0, Dc, 2Dc, ...) let consecutive pairs carry 10. Entries are
+   algebraic (Pythagorean psi -> Q(sqrt3)), so members are exactly
+   countable with the planned q3 engine. Records already exploit
+   common-axis structure (723 contains a C3 orbit about (1,1,1); the
+   continuous 9-family pairs are the psi->0 degenerations), so an
+   in-family exact sweep at n=4/5/6 over (theta_2..theta_n, psi) — an
+   n-dimensional sheet instead of (3n-3) — is a cheap structured probe
+   of the trade-off surface. Proposed as follow-up alongside
+   DIHEDRAL_FAMILY_NEXT.md Task 1.

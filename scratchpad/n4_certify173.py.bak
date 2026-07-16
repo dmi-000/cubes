@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+"""Certify the 173 record as a (radius-4) local max, and push harder with
+bigger perturbed restarts from it to see if the basin goes higher."""
+import json, math, random, subprocess, sys
+from concurrent.futures import ThreadPoolExecutor
+
+BIN = '/Users/dmi/carroll/cube_regions_n'
+LOG = '/Users/dmi/carroll/n4_search.jsonl'
+WORKERS = 4
+MAXC = 512
+
+def gcd_reduce(ints):
+    g = math.gcd(*[abs(c) for c in ints])
+    q = [c // g for c in ints] if g > 1 else list(ints)
+    if not any(q):
+        q = [1, 0, 0, 0]
+    return q
+
+def canon(quats):
+    out = []
+    for q in quats:
+        q = gcd_reduce(list(q))
+        for c in q:
+            if c != 0:
+                if c < 0:
+                    q = [-x for x in q]
+                break
+        out.append(tuple(q))
+    return tuple(out)
+
+def cpp_eval(quats):
+    qstr = ';'.join(','.join(str(c) for c in q) for q in quats)
+    try:
+        out = subprocess.run([BIN, '--n', '4', '--quats', qstr],
+                              capture_output=True, text=True, timeout=30).stdout
+        r = json.loads(out)
+        return None if 'error' in r else r
+    except Exception:
+        return None
+
+memo = {}
+logf = open(LOG, 'a')
+
+def log_rec(**kw):
+    logf.write(json.dumps(kw) + '\n')
+    logf.flush()
+
+def eval_many(pool, quats_list, tag):
+    keys = [canon(q) for q in quats_list]
+    todo, seen = [], set()
+    for k in keys:
+        if k not in memo and k not in seen:
+            seen.add(k)
+            todo.append(k)
+    results = list(pool.map(lambda k: cpp_eval(list(map(list, k))), todo))
+    for k, r in zip(todo, results):
+        memo[k] = r
+        if r is not None:
+            log_rec(kind='rational', phase='certify173', tag=tag,
+                     quats=[list(q) for q in k], bounded=r['bounded'],
+                     by_depth=r['by_depth'])
+    return [memo[k] for k in keys]
+
+def neighbors(quats, deltas):
+    out = []
+    for i in range(len(quats)):
+        for j in range(4):
+            for d in deltas:
+                q = [list(x) for x in quats]
+                q[i][j] += d
+                if all(c == 0 for c in q[i]):
+                    continue
+                cq = canon(q)
+                if any(abs(c) > MAXC for qq in cq for c in qq):
+                    continue
+                out.append([list(x) for x in cq])
+    return out
+
+def climb(pool, start, tag, max_iters=200, deltas=(-2, -1, 1, 2)):
+    cur = [list(q) for q in canon(start)]
+    r = eval_many(pool, [cur], tag + ':start')[0]
+    if r is None:
+        return None, None
+    cur_total = r['bounded']
+    it = 0
+    while it < max_iters:
+        it += 1
+        nbrs = neighbors(cur, deltas)
+        results = eval_many(pool, nbrs, f'{tag}:it{it}')
+        best_i, best_score = -1, cur_total
+        for i, rr in enumerate(results):
+            if rr is not None and rr['bounded'] > best_score:
+                best_i, best_score = i, rr['bounded']
+        if best_i < 0:
+            break
+        cur, cur_total = nbrs[best_i], best_score
+    return cur, cur_total
+
+def perturb(quats, nmoves, rng, deltas=(-4, -3, -2, -1, 1, 2, 3, 4)):
+    q = [list(x) for x in quats]
+    for _ in range(nmoves):
+        i, j = rng.randrange(len(q)), rng.randrange(4)
+        q[i][j] += rng.choice(deltas)
+        if all(c == 0 for c in q[i]):
+            q[i][j] += 1
+    cq = canon(q)
+    if any(abs(c) > MAXC for qq in cq for c in qq):
+        return None
+    return [list(x) for x in cq]
+
+def main():
+    seed173 = [[2, 1, -2, 0], [0, 1, 3, -1], [3, 0, 1, 0], [2, 0, -1, 4]]
+    rng = random.Random(9988)
+    best = {'total': 173, 'quats': seed173}
+
+    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+        # radius-4 single-component certification
+        r0 = eval_many(pool, [seed173], 'certify:start')[0]
+        cur_total = r0['bounded']
+        nbrs4 = neighbors(seed173, (-4, -3, -2, -1, 1, 2, 3, 4))
+        results = eval_many(pool, nbrs4, 'certify:radius4')
+        improved_r4 = False
+        for i, rr in enumerate(results):
+            if rr is not None and rr['bounded'] > cur_total:
+                improved_r4 = True
+                print(f'RADIUS-4 IMPROVEMENT: {nbrs4[i]} -> {rr["bounded"]}',
+                      flush=True)
+                if rr['bounded'] > best['total']:
+                    best.update(total=rr['bounded'], quats=nbrs4[i])
+        print(f'radius-4 check from 173: improved={improved_r4}', flush=True)
+
+        # bigger perturbed restarts from 173
+        for rs in range(50):
+            pq = perturb(seed173, rng.randrange(1, 7), rng)
+            if pq is None:
+                continue
+            cur, total = climb(pool, pq, f'restart173_{rs}')
+            print(f'restart173 {rs}: {total}', flush=True)
+            if total and total > best['total']:
+                best.update(total=total, quats=cur)
+                print(f'  <-- NEW BEST {total} {cur}', flush=True)
+
+    print(f'\n=== FINAL: best={best["total"]} quats={best["quats"]} ===',
+          flush=True)
+
+if __name__ == '__main__':
+    main()

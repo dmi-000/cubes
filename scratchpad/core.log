@@ -1,0 +1,9 @@
+
+=== (1) C3:3+3  (two full-quaternion C3 orbits about (1,1,1)) ===
+  GATE build from 699 seeds S1=(3, 1, 0, 0) S2=(41, 28, 22, 14): total=699 (want 699)  OK
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 1, 0, 0], [21, 14, 11, 7]]
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 1, 0, 0], [22, 14, 11, 7]]
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 1, 0, 0], [21, 7, 14, 11]]
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 1, 0, 0], [22, 7, 14, 11]]
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 0, 1, 0], [21, 14, 11, 7]]
+    *** RECORD>699: C3:3+3 total=705  seeds=[[3, 0, 1, 0], [22, 14, 11, 7]]
