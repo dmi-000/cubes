@@ -106,7 +106,7 @@ from scipy.stats import pearsonr
 import numpy as np
 
 def main():
-    filepath = "/Users/dmi/carroll/campaign_results.jsonl"
+    filepath = "campaign_results.jsonl"
 
     configs = []
     skipped_no_per_label = 0

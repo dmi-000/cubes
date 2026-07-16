@@ -74,7 +74,7 @@ congruence invariants at the end rather than trying to quotient a priori.
 
 ## Deliverables
 
-/Users/dmi/carroll/resonance4_report.md, resonance4_solve.py (or .wl),
+resonance4_report.md, resonance4_solve.py (or .wl),
 resonance4_results.jsonl (candidates + counts). Honest coverage: which
 condition systems were solved, which timed out, degree/field of every
 solution.

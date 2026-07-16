@@ -2,7 +2,7 @@
 
 Task for the implementing agent (Sonnet). Self-contained; background in
 six_cube_search_results.md Postscript 25 + addenda 1–2, working scripts in
-/Users/dmi/carroll/dihedral_scratch/ (bigfamily.py, pairmap.py, loopholes.py,
+dihedral_scratch/ (bigfamily.py, pairmap.py, loopholes.py,
 trace10.py, window26.py — read these, they define every construction used
 below). Ground rules: never edit six_cube_search_results.md or validated
 files; write results to new files; ≤4 cores; run detached, don't park on
@@ -106,9 +106,9 @@ each docks-and-dies or hands off to one of the 12-set labels beyond).
 
 ## Deliverables
 
-- /Users/dmi/carroll/handoff_report.md — verdict, gate results, method,
+- handoff_report.md — verdict, gate results, method,
   numbers, obstruction analysis or witness path.
-- /Users/dmi/carroll/dihedral_scratch/handoff_*.py — scripts.
+- dihedral_scratch/handoff_*.py — scripts.
 - handoff_witness.jsonl if >18 achieved.
 
 Honesty requirements: this search gives a LOWER bound on the max plus

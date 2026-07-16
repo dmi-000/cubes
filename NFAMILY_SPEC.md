@@ -3,8 +3,8 @@
 Task for the implementing agent (Sonnet). Self-contained. Background:
 six_cube_search_results.md Postscript 25 + addenda 1–4 (READ-ONLY — never
 edit it or any validated file; write results to new files). Constructions
-and working code: /Users/dmi/carroll/dihedral_scratch/bigfamily.py (the
-family), q3_count.py + q6_count.py in /Users/dmi/carroll (exact engines,
+and working code: dihedral_scratch/bigfamily.py (the
+family), q3_count.py + q6_count.py (exact engines,
 read-only reference), records in README.md / exact_search_results.jsonl
 (read-only ground truth). ≤4 cores; run long jobs detached; don't park on
 monitors.
@@ -80,9 +80,9 @@ G2 (record reproduction): the C++ binary must reproduce 723 from the
 
 ## Deliverables
 
-- /Users/dmi/carroll/nfamily_report.md — answers to Q1–Q4 with numbers,
+- nfamily_report.md — answers to Q1–Q4 with numbers,
   gate results, best configs (quats), and an honest statement of sweep
   coverage.
-- /Users/dmi/carroll/nfamily_sweep.py (+ helpers), nfamily_results.jsonl.
+- nfamily_sweep.py (+ helpers), nfamily_results.jsonl.
 - Do NOT edit six_cube_search_results.md; the main session merges
   findings.

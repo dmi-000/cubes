@@ -20,8 +20,8 @@ spec's definitions), `handoff_linker.py` (trajectory linker with
 validated files were modified.
 
 **Note on the spec's own file paths.** HANDOFF_SPEC.md says the background
-scripts live in `/Users/dmi/carroll/dihedral_scratch/`; they are actually
-in `/Users/dmi/carroll/cubes/scratchpad/` (`dihedral_scratch/` exists but
+scripts live in `dihedral_scratch/`; they are actually
+in `cubes/scratchpad/` (`dihedral_scratch/` exists but
 only contains an unrelated handful of `edge_close*.py` files). Read from
 the real location; wrote new deliverables to `dihedral_scratch/` as
 instructed.

@@ -76,6 +76,6 @@ G3: reconstruct 723 AS a gluing: take its embedded 5-clique (cubes 0–4 =
 
 ## Deliverables
 
-/Users/dmi/carroll/glue_report.md (Q0 answer first, gate results, best
+glue_report.md (Q0 answer first, gate results, best
 per (n,sizes) with quats + depth profiles, coverage statement),
 glue_search.py, glue_results.jsonl.

@@ -516,7 +516,7 @@ the "maintain concurrences" ask; and each subsequent follow-up has only
 added passive/opt-in UI on top of an already-exact core, not touched the
 exactness-critical code paths (`familyMats`, the crossing/corner
 classifiers). Synced scratchpad `depth_explorer.html` →
-`/Users/dmi/carroll/depth_explorer.html` four times now (after G7, G8,
+`depth_explorer.html` four times now (after G7, G8,
 G9, and the G10/addendum round), md5-verified identical each time;
 current mirror includes all four follow-ups plus the checkpoint files
 sitting alongside it in scratchpad (not themselves mirrored — they are a
@@ -574,9 +574,9 @@ Neither checkpoint file has been touched since creation.
 
 ## Files
 
-- `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/depth_explorer.html` — edited master
-- `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/dihedral_slider_test.js` — harness (G1-G10)
-- `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/opaque_test.js` — one-line-class fix (dropped dead `setSlide` reference)
-- `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/depth_explorer.pre-highlight-zoom-clip.html` — checkpoint (pre-G9 rollback point)
-- `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/dihedral_slider_test.js.pre-highlight-zoom-clip.js` — checkpoint (pre-G9 harness)
-- `/Users/dmi/carroll/depth_explorer.html` — mirror, **synced**
+- `depth_explorer.html` — edited master
+- `dihedral_slider_test.js` — harness (G1-G10)
+- `opaque_test.js` — one-line-class fix (dropped dead `setSlide` reference)
+- `depth_explorer.pre-highlight-zoom-clip.html` — checkpoint (pre-G9 rollback point)
+- `dihedral_slider_test.js.pre-highlight-zoom-clip.js` — checkpoint (pre-G9 harness)
+- `depth_explorer.html` — mirror, **synced**
