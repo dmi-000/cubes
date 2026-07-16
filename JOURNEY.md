@@ -1,11 +1,15 @@
-# Six glass cubes: a week of experimental mathematics with a team of AIs
+# Six glass cubes: weeks of experimental mathematics with a team of AIs
 
-*An informal account, 2026-07-13. Self-contained, but every claim here has
-a paper trail: `six_cube_search_results.md` (the dated ledger, Postscripts
-1–21) is the primary record, `PROJECT.md` is the formal write-up, and
-`README.md` maps all the code. Anyone with access to a mid-tier coding
-model (Claude Sonnet or similar) and a laptop can reproduce everything —
-a "how to reproduce" section is at the end.*
+*An informal account, updated 2026-07-16. Self-contained, but every claim
+here has a paper trail: `six_cube_search_results.md` (the dated ledger, now
+Postscripts 1–26) is the primary record, `PROJECT.md` is the formal
+write-up, and `README.md` maps all the code. Anyone with access to a
+mid-tier coding model (Claude Sonnet or similar) and a laptop can
+reproduce everything — a "how to reproduce" section is at the end. And a
+note on authorship, since it matters for how to read this: this document,
+like the project's code, searches, and analysis, was written by an AI
+(Claude) working under human direction — see "The collaboration, honestly
+described" below for what that division of labor actually looked like.*
 
 ---
 
@@ -289,20 +293,151 @@ deep layers hug the law's n=8 predictions from below (48 attained,
 then −2, −6, −4). The tower reads 183 → 393 → 723 → 1207 → 1879, every
 level the best known at its size, each built from the one below it.
 
+## Act VII: the dihedral family, or how a stray remark in a viewer became a closed-form theorem
+
+This act started, like several of the best ones, with a human just
+*looking* at something. The project's viewer had a "67 ↔ 67 slide" —
+a hand-built path dragging the octahedral three-cube maximum over to the
+golden one — and its midpoint showed a scatter of near-miss edge
+crossings, close but not quite touching: "ghosts," in the project's own
+language. Looking at the picture, the observation was that the ghost
+edges all seemed to sit in a plane perpendicular to the direction
+(1,1,1). That one remark is the entire origin of everything below.
+
+Chasing it down turned up a genuine closed-form object: take a cube and
+an axis n(ψ) = (sin ψ, cos ψ, 0) — one that lies *in* one of the cube's
+own face planes — and rotate the cube by ±120° about it. Three cubes,
+one parameter ψ. And for *every* ψ, not just special ones, the
+corresponding edges of any two of the three cubes are exactly coplanar —
+built-in coincidences everywhere, not just at isolated alignments. Both
+of the project's two 67s turn out to be members: the octahedral one at
+ψ = arcsin(1/√3), the golden one where tan ψ = φ² (φ the golden ratio) —
+a condition that collapses to the tidy identity φ² + φ⁻² = 3. A brand
+new point fell out for free at ψ = 45° exactly, the face-diagonal axis:
+a compound with entries in the field ℚ(√6), counted exactly (a new
+engine, `q6_count.py`, cloned from the project's existing √2 counter) at
+**49 regions**, depth profile {30, 18, 1}.
+
+Sweeping the whole family with exact arithmetic (Pythagorean angles give
+rotations in ℚ(√3), so a sibling engine `q3_count.py` can count them
+exactly too) produced a clean symmetric staircase around ψ=45°: 25, 31,
+43, then a long plateau at 55 between the two golden points, with the two
+67s as spikes at its ends — and 49 sitting, unexpectedly, as a *dip*
+below the 55-plateau rather than a peak. That was the first real surprise
+of this act: more coincidences do not automatically mean more regions.
+The extra crossings at the octahedral and golden points *create* new
+divisions; the extra crossings at the face-diagonal point happen to
+*merge* regions that would otherwise be separate. Coincidence-richness,
+again, cuts both ways — the same lesson the edge-versus-corner story
+taught back in Act III, now visible inside a single continuous family.
+
+The old ghost-gapped slide, it turned out, was simply not walking along
+this surface — its path had a small nonzero component along (1,1,1)
+where the family needs exactly zero, and that tiny miss is precisely
+where the ghosts came from. A follow-up question — "is there a way to
+slide while *maintaining* edge concurrences?" — led to the nicest single
+finding of the act: the *same 18* interior edge crossings persist,
+unbroken, across the entire open stretch between the two golden copies.
+The 30s and 24 at the special points are momentary extras that vanish as
+you leave them; the 18-core never opens a gap. Arriving at either golden
+point, none of the 18 breaks — six stay interior (docking at a segment
+position of 1/φ³, one more golden-ratio cameo) and twelve land exactly on
+cube corners, becoming golden's own corner structure.
+
+That success invited an obvious next question — can a path do *better*
+than 18 all the way to golden? — and the answer, after a real search
+(riding a curve of extra coincidences to hold 26 concurrences over part
+of the range, then trying nine different corner "handoffs" at the wall
+where that curve runs out, then working backwards from golden's own extra
+curve), was no: 18 remains the best confirmed lower bound, with a
+specific, locatable obstruction. Both the octahedral side's extra-
+coincidence curve and golden's own extra-coincidence curve pass close to
+ψ=45° — which is also the tetrahedral angle, arccos(−1/3), showing up in
+disguise — but about 70° apart in phase, and neither curve bends around
+to link the other. Not a proof that 18 is a ceiling, but a real, honestly
+described wall, not just "we didn't find anything."
+
+Four pieces of this got upgraded from "checked numerically to sixteen
+decimal places" to actually proved: a mirror symmetry (ψ and 90°−ψ give
+congruent compounds, for any n), an exact 90° periodicity, the
+coincidence identity itself (proved for every ψ and every n by direct
+vector computation, not just verified on samples), and — the one with a
+genuine payoff — a theorem that any all-rational configuration has a
+rational version of the pairwise invariant that both 67s' irrational
+value rules out. Put together with the (unproven, but well-supported)
+belief that the two known 67s are the *only* three-cube maxima, that
+gives a striking conditional fact: three cubes would be the **one and
+only irrational level** of the entire record tower — two cubes rational,
+three cubes forced irrational, four and up rational again.
+
+The family also turned out to explain something about the *records*
+themselves, not just about three cubes. Generalized to n cubes on a
+shared axis with independent phases, at Pythagorean angles every member
+becomes an ordinary integer-quaternion configuration the fast C++ engine
+can already count — so, for the first time, the family could be searched
+exhaustively rather than just admired. As a search space on its own it
+disappoints: the best pure single-axis family members found at n=4,5,6
+are 175, 335, 615, falling further and further behind the true records
+(183, 393, 723) as n grows. But checking every *pair* inside each record
+against the family's own membership test told a completely different
+story: all 6 pairs of the 183 record, all 10 pairs of 393, and 12 of the
+15 pairs of 723 are in family position. The records are not single-axis
+family members — they are **gluings of family cliques sitting on
+different axes** (723, worked out exactly, is a 5-cube family clique —
+which is exactly the embedded 393 record — plus one more cube linked to
+two of the five). That is a genuinely new way to think about where the
+records come from, and it reframes the search for anything beyond 723:
+not a blind search over all rotations, but a search over how many
+cliques, on which axes, glued how.
+
+The viewer got a matching set of upgrades. The old ghost-gapped slide was
+replaced outright by a slider along the real dihedral family — a ψ dial
+from 0° to 90°, named tick marks (including a newly-recognized
+mirror-golden point), a live ghost counter, and a "maintain concurrences"
+lock that clamps dragging to a range where the crossing set is certified
+constant. An opaque-surface mode was added alongside the old point cloud,
+turning the compound's faces into solid, shaded, paintable polygons; on
+top of that came live highlighting of exactly the faces about to split or
+merge at the current ψ, mouse-wheel zoom, and one-sided clipping against
+the cross-section plane so the solid interior can be inspected without
+the near half in the way. All of it lives at the same published link as
+before.
+
+Two threads from this act are still open, deliberately unresolved rather
+than oversold: a systematic search over gluings of family cliques on
+different axes (has anyone actually tried to beat 723 this way yet — no),
+and whether the n=4 record has its own irrational "resonance" point in
+the family, the way n=3 has its two 67s, findable with the same kind of
+algebraic solve that located those in the first place. Neither is
+finished.
+
 ## The collaboration, honestly described
 
 This project was a four-layer collaboration, and the layering was not
-decorative — each layer did something the others couldn't.
+decorative — each layer did something the others couldn't. It is also
+worth being explicit about this document's own place in that layering:
+this write-up — like every line of code, every search, and every piece
+of analysis in the project — was **written by an AI** (Claude), working
+under human direction. The human side of the collaboration supplied
+questions, corrections, and the occasional observation that turned out
+to unlock an entire act of the story; the AI side did essentially all of
+the designing, coding, computing, and writing, including the words you
+are reading now.
 
-**The human** (with a friend, Chris Cole, kibitzing) supplied almost
-every pivot: the sliding-triple family, the edge-vs-corner observation,
-"try intersections between families," "is 177 wrong?", "are subsets of
-records also records?", the building-blocks/frustration reframing, and
-branch-and-bound. None of these were "requests to compute"; they were
-acts of noticing. The pattern is worth stating: the human watched the
-data for *meaning* while the machines watched it for *values*. Several
-of the week's best results are literally the human's sentence turned
-into a measurement.
+**The human** (with friends — Chris Cole and Werner — kibitzing)
+supplied almost every pivot: the sliding-triple family, the edge-vs-
+corner observation, "try intersections between families," "is 177
+wrong?", "are subsets of records also records?", the building-blocks/
+frustration reframing, branch-and-bound, and — the origin of Act VII —
+simply noticing, while looking at the viewer, that a scatter of near-miss
+edges appeared to sit in a plane perpendicular to (1,1,1). None of these
+were "requests to compute"; they were acts of noticing. The pattern is
+worth stating: the human watched the data for *meaning* while the
+machines watched it for *values*. Several of this project's best results
+are literally a human sentence turned into a measurement — the
+perpendicular-edges remark most dramatically of all, since it is the
+entire seed of the closed-form family, the four theorems, and the
+records-are-gluings finding described in Act VII.
 
 **A frontier model** (Anthropic's Fable 5; an Opus 4.8 stint when weekly
 limits hit) ran the main session: designing the exact algorithms and
@@ -399,9 +534,24 @@ ledger; every claimed number is checkable in seconds.
 6. **The tower at scale** — does greedy extension stay within a constant
    of optimal as n grows? What is the asymptotic growth of max(n)? (The
    cap-sum bound gives O(n³); the records track it suspiciously well.)
+7. **The two-clique gluing search** — Act VII showed every record is a
+   gluing of dihedral-family cliques on different axes; nobody has yet
+   searched that reframed, much smaller space systematically to see if it
+   beats 723 or merely reproduces it.
+8. **An n=4 resonance?** — the two n=3 maxima sit at irrational, special
+   points of the dihedral family; whether the n=4 record has an analogous
+   irrational spike beating the family's rational plateau (175) is an
+   open algebraic solve, not yet attempted.
+9. **More than 18 concurrences, octahedral to golden?** — 18 is a
+   confirmed lower bound with a located local obstruction (two
+   extra-coincidence curves that graze the same ψ=45° wall about 70°
+   apart in phase and never link), not a proven ceiling.
 
-*Files for the deeper dive: `six_cube_search_results.md` (ledger),
-`PROJECT.md` (formal write-up), `C45_notes.md` (proof program),
-`ALGEBRAIC_SEARCH.md`, `BLUEPRINT_SPEC.md`, `README.md` (all code +
-commands). The interactive viewer:
+*Files for the deeper dive: `six_cube_search_results.md` (ledger, now
+Postscripts 1–26), `PROJECT.md` (formal write-up), `C45_notes.md` (proof
+program, including the four dihedral-family theorems of section 12),
+`nfamily_report.md`, `handoff_report.md`, `dihedral_slider_report.md`,
+`opaque_report.md`, `DIHEDRAL_FAMILY_NEXT.md`, `ALGEBRAIC_SEARCH.md`,
+`BLUEPRINT_SPEC.md`, `README.md` (all code + commands). The interactive
+viewer (now with an opaque surface mode and a dihedral-family slider):
 https://claude.ai/code/artifact/044d34a6-3f36-43b2-9ec8-17fb5691c87c*

@@ -44,7 +44,9 @@
   .trackMarks{position:absolute;left:0;right:0;top:0;height:14px;pointer-events:none}
   .tmark{position:absolute;top:2px;width:2px;height:10px;transform:translateX(-50%);
     border-radius:1px;background:var(--muted);opacity:.55}
-  .tmark.region{top:5px;height:6px;width:1px;background:var(--muted);opacity:.4}
+  .tmark.region{top:4px;height:8px;width:2px;background:#cdd6df;opacity:.75}
+  .tmark.spike{top:5px;height:6px;width:2px;background:#dd513a;opacity:.85}
+  .tmark.band{top:7px;height:4px;width:1px;background:var(--muted);opacity:.25}
   .tmark.named{background:var(--accent);opacity:.9}
   .tmark.field{background:#ffd76b;opacity:1;width:3px}
   .val{font-family:var(--mono);font-size:12px;color:var(--accent);
@@ -131,34 +133,33 @@
       <div class="hint" style="display:flex;gap:12px;flex-wrap:wrap">
         <span><span class="tmark field" style="position:static;display:inline-block;transform:none;width:8px;height:8px;border-radius:50%"></span> octahedral √2 / golden √5</span>
         <span><span class="tmark named" style="position:static;display:inline-block;transform:none;width:8px;height:8px;border-radius:50%"></span> other named points</span>
-        <span><span class="tmark region" style="position:static;display:inline-block;transform:none;width:8px;height:8px;border-radius:50%;opacity:.7"></span> region count changes</span>
+        <span><span class="tmark region" style="position:static;display:inline-block;transform:none;width:8px;height:8px;border-radius:50%"></span> crossing set changes</span>
+        <span><span class="tmark spike" style="position:static;display:inline-block;transform:none;width:8px;height:8px;border-radius:50%"></span> momentary spikes (+12)</span>
+        <span><span class="tmark band" style="position:static;display:inline-block;transform:none;width:8px;height:8px;border-radius:50%;opacity:.45"></span> ghost-band edges (not set changes)</span>
       </div>
       <div class="chipset" id="famTicks"></div>
       <div class="row" style="justify-content:space-between">
         <span class="val" id="famGhosts">0 ghosts</span>
         <button class="mini" id="famLock" aria-pressed="false"
-          title="Constrain dragging to the current zero-ghost range, so the ring set stays fixed (maintained) the whole slide">
+          title="Clamp dragging to the current core interval: between the two golden copies (20.91°–69.09°) a fixed core of 18 edge concurrences stays exact and unbroken, so the whole octahedral→golden drag maintains all 18; outside, the core has 12">
           🔒 maintain concurrences</button>
       </div>
-      <div class="hint">One cube rotates ±120° about an axis lying in its own
-      face plane; ψ tilts that axis from a face axis (ψ=0°) through the
-      <b>octahedral 67 (√2)</b>, the face-diagonal compound (exact count 49),
-      the mirror octahedral, and the <b>golden 67 (√5)</b> (tan ψ = φ²) —
-      gold marks above the slider — plus every ψ where the exact region/
-      crossing count changes (grey marks; a superset of the gold/blue
-      points, since the count also changes at ≈21°/≈68.6°, which aren't
-      named points). At every ψ
-      the crossings present are EXACT (certified to 1e-9) — unlike the old
-      67↔67 slide, whose entire interior sat off this surface. But the
-      crossing SET itself changes at 8 transition angles (the 4 interior
-      named points plus ≈21°/≈68.6°); near each, a few crossings relax
-      continuously into near-miss "ghost" rings before vanishing — that is
-      what the dashed rings you may see mid-drag are showing you, not a
-      bug. The <b>🔒 maintain concurrences</b> button clamps the slider to
-      the zero-ghost range around the current ψ (six such ranges, ~73% of
-      [0°,90°] combined) so the ring set stays fixed while you drag.
-      Certified region counts <b>67 / 49 / 67</b> at the three marked
-      points; other ψ not yet exactly counted.</div>
+      <div class="hint">One cube rotates ±120° about an axis in its own face
+      plane; ψ tilts that axis. <b>A fixed core of 18 edge concurrences
+      survives, exact and unbroken, across the whole span between the two
+      golden copies (20.91°–69.09°)</b> — so the complete octahedral→golden
+      drag maintains all 18; at either golden endpoint 12 of them dock
+      exactly onto cube corners (t=±1, becoming the gold corner rings) and
+      6 stay interior — nothing breaks. The higher counts en route are
+      momentary spikes existing only exactly AT isolated ψ: +12 at the
+      octahedral points (35.26°, 54.74°), +6 at the face-diagonal (45°).
+      Dashed ghost rings near those spikes are the extra pairs
+      approaching/leaving the near-miss window — never core breaks. The
+      <b>🔒 lock</b> clamps dragging to the core interval around the
+      current ψ (core 18 between the golden copies, core 12 outside).
+      Certified region counts <b>67 / 49 / 67 / 67</b> at octahedral,
+      face-diagonal, golden, and mirror-golden (congruent copy); other ψ
+      not yet exactly counted.</div>
     </div>
 
     <div class="grp">
@@ -294,41 +295,66 @@ function familyMats(psi){
   const M=[[col0[0],col1[0],U_HAT[0]],[col0[1],col1[1],U_HAT[1]],[col0[2],col1[2],U_HAT[2]]];
   return [M, matMul(C3,M), matMul(C3,matMul(C3,M))];
 }
-// named snap points, degrees. Only three (marked exact:non-null) carry a
-// CERTIFIED total region count (67/49/67, Postscript 25); the shared-axis
-// endpoints and the mirror octahedral point have certified exact CROSSING
-// counts only -- the region-count sweep across the rest of the family is
-// open work (DIHEDRAL_FAMILY_NEXT.md Task 1).
+// named snap points, degrees. Four (marked exact:non-null) carry a
+// CERTIFIED total region count (67/49/67 per Postscript 25, plus 67 at
+// mirror-golden by congruence with the golden compound -- Postscript 25
+// addendum: sliding 35.264 -> 20.905 arrives at a congruent golden
+// compound); the shared-axis endpoints and the mirror octahedral point
+// have certified exact CROSSING counts only -- the region-count sweep
+// across the rest of the family is open work (DIHEDRAL_FAMILY_NEXT.md
+// Task 1).
 // `field` tags the two points whose matrix entries live in a named quadratic
 // field and that also have a same-named static preset above (octahedral
 // √2 / golden √5, Postscript 9's naming: entries of S(psi) involve sqrt2 at
 // the octahedral point and phi=(1+sqrt5)/2 -- hence sqrt5 -- at the golden
 // point); these get their own mark colour on the slider track.
+const MIRROR_GOLDEN_DEG=90-Math.atan(PHI*PHI)*180/Math.PI;  // 20.905157...
+const GOLDEN_DEG=Math.atan(PHI*PHI)*180/Math.PI;            // 69.094842...
 const FAMILY_NAMED=[
   {deg:0, name:'shared axis', crossings:'48', exact:null},
+  {deg:MIRROR_GOLDEN_DEG, name:'mirror golden 67', crossings:'18 (+54 corner)',
+    exact:{total:67,d:{1:48,2:18,3:1}}},
   {deg:Math.asin(1/Math.sqrt(3))*180/Math.PI, name:'octahedral 67 (√2)', crossings:'30',
     exact:{total:67,d:{1:48,2:18,3:1}}, field:true},
   {deg:45, name:'face-diagonal ℚ(√6)', crossings:'24',
     exact:{total:49,d:{1:30,2:18,3:1}}},
   {deg:Math.atan(Math.sqrt(2))*180/Math.PI, name:'mirror octahedral', crossings:'30', exact:null},
-  {deg:Math.atan(PHI*PHI)*180/Math.PI, name:'golden 67 (√5)', crossings:'18 (+54 corner)',
+  {deg:GOLDEN_DEG, name:'golden 67 (√5)', crossings:'18 (+54 corner)',
     exact:{total:67,d:{1:48,2:18,3:1}}, field:true},
   {deg:90, name:'shared axis', crossings:'48', exact:null},
 ];
-// The exact crossing SET changes at each named point and at two more
-// generic angles (~21deg, ~45.5deg-ish, per DIHEDRAL_FAMILY_NEXT.md Task 1
-// -- not yet solved in closed form). Immediately around every one of these
-// eight transitions, crossings that are exact only exactly AT the
-// transition relax continuously into small (but nonzero) gaps as psi
-// moves away -- the ghost-ring machinery correctly flags these. Between
-// transitions the crossing SET is exactly constant with zero ghosts. These
-// six ranges (degrees, numerically bisected against the real ghost
-// detector to ~1e-6deg, not yet closed form) are exactly the psi where
-// dragging continuously shows a fixed set of solid rings the whole time --
-// "sliding while maintaining edge concurrences". None of octahedral/
-// mirror-octahedral/golden sit inside one of these ranges (each is
-// embedded in its own transition band, ghosted on both sides); 0/45/90 are
-// isolated single exact points with zero-width margin.
+// Core intervals (Postscript 25 addendum, verified against the exact
+// classifier): the interior crossing SET is one FIXED set of 18 edge pairs
+// on the entire open interval between the two golden copies
+// (mirror-golden 20.905deg = 90 - arctan(phi^2), golden 69.095deg =
+// arctan(phi^2)); outside that interval it is a fixed set of 12. The
+// count changes at octahedral (35.264, +12), face-diagonal (45, +6), and
+// mirror-octahedral (54.736, +12) are momentary spikes -- extra
+// coincidences existing only exactly AT those isolated psi; the core 18
+// never opens a gap. At the golden endpoints 12 of the core dock exactly
+// onto cube corners (t=+-1, becoming the golden corner structure) and 6
+// stay interior (t=+-1/phi^3) -- nothing breaks. The "maintain
+// concurrences" lock clamps to these intervals (so the full
+// octahedral->golden drag is allowed under lock); boundary psi are
+// assigned to the middle interval since the 18-core is intact AT the
+// golden copies too.
+const CORE_INTERVALS=[
+  {lo:0, hi:MIRROR_GOLDEN_DEG, label:'core 12'},
+  {lo:MIRROR_GOLDEN_DEG, hi:GOLDEN_DEG, label:'core 18'},
+  {lo:GOLDEN_DEG, hi:90, label:'core 12'},
+];
+function findCoreInterval(deg){
+  if(deg>=MIRROR_GOLDEN_DEG && deg<=GOLDEN_DEG) return CORE_INTERVALS[1];
+  return deg<MIRROR_GOLDEN_DEG ? CORE_INTERVALS[0] : CORE_INTERVALS[2];
+}
+// Zero-ghost DISPLAY windows (numerically bisected against the real ghost
+// detector to ~1e-6deg): outside these, the near-miss detector shows
+// dashed ghost rings. NOTE (Postscript 25 addendum correction): these
+// band boundaries are where spike extras enter/leave the 0.02-gap
+// near-miss window -- they are NOT crossing-set changes (the set changes
+// only at 20.905 / 45 / 69.095). Kept for display: ghosts near the spikes
+// are the extra pairs approaching, never core breaks. The lock no longer
+// uses these (it uses CORE_INTERVALS above).
 const GHOST_FREE_ZONES=[
   [0.941028, 18.674334],
   [24.157178, 32.168487],
@@ -337,10 +363,6 @@ const GHOST_FREE_ZONES=[
   [57.831513, 65.842822],
   [71.325666, 89.058972],
 ];
-function findGhostFreeZone(deg){
-  for(const z of GHOST_FREE_ZONES) if(deg>=z[0] && deg<=z[1]) return z;
-  return null;
-}
 
 function quatToCols(q){
   let [w,x,y,z]=q, n=w*w+x*x+y*y+z*z;
@@ -1091,23 +1113,22 @@ function buildFamilyTicks(){
     b.title=`${n.name} — ${n.crossings} crossings`;
     b.setAttribute('aria-pressed','false');
     // an explicit jump to a named point overrides any active lock -- these
-    // points are certified-exact in their own right, even where (as at
-    // octahedral/mirror-octahedral/golden) they sit inside a transition
-    // band rather than a ghost-free zone.
+    // points are certified-exact in their own right.
     b.onclick=()=>{ unlockFamily(); $('famPos').value=Math.round(n.deg*100); setFamily(n.deg); };
     box.appendChild(b);
   });
 }
-// region-count-change markers: every boundary of a GHOST_FREE_ZONES entry
-// is exactly a psi where the exact edge-crossing SET changes (a wall
-// appears/disappears), which is exactly where the exact region count of
-// the arrangement changes too (regions <-> crossings via the arrangement's
-// own combinatorics). Includes 0/45/90 (isolated exact points, boundary of
-// their own zero-width "zone") since the crossing set changes on both
-// sides of those too.
-const REGION_CHANGE_DEG = Array.from(new Set(
-  [0, 45, 90, ...GHOST_FREE_ZONES.flat()]
-)).sort((a,b)=>a-b);
+// Track-mark taxonomy (Postscript 25 addendum correction). The crossing
+// SET changes ONLY at the two golden copies and the face-diagonal point
+// (plus trivially at the 0/90 domain ends, already carrying named marks):
+const SET_CHANGE_DEG=[MIRROR_GOLDEN_DEG, 45, GOLDEN_DEG];
+// The octahedral points are momentary spikes: +12 extra coincidences
+// existing only exactly AT those isolated psi (the set reverts on either
+// side; the core is untouched):
+const SPIKE_DEG=[Math.asin(1/Math.sqrt(3))*180/Math.PI, Math.atan(Math.sqrt(2))*180/Math.PI];
+// GHOST_FREE_ZONES boundaries are near-miss WINDOW edges (where spike
+// extras enter/leave the 0.02 gap detector) -- explicitly NOT set changes;
+// shown faint, correctly labelled.
 function renderFamilyMarks(){
   const box=$('famMarks'); box.innerHTML='';
   const put=(deg,cls,title)=>{
@@ -1116,8 +1137,12 @@ function renderFamilyMarks(){
     if(title) m.title=title;
     box.appendChild(m);
   };
-  for(const d of REGION_CHANGE_DEG)
-    put(d,'region',`region/crossing count changes here (ψ≈${d.toFixed(3)}°)`);
+  for(const d of GHOST_FREE_ZONES.flat())
+    put(d,'band',`ghost band edge (near-miss window), not a set change (ψ≈${d.toFixed(3)}°)`);
+  for(const d of SET_CHANGE_DEG)
+    put(d,'region',`crossing set / region count changes here (ψ≈${d.toFixed(3)}°)`);
+  for(const d of SPIKE_DEG)
+    put(d,'spike',`momentary +12 extra crossings exactly here (ψ≈${d.toFixed(3)}°)`);
   for(const n of FAMILY_NAMED)
     put(n.deg, n.field?'field':'named', `${n.name} — ${n.crossings} crossings`);
 }
@@ -1130,19 +1155,25 @@ function nearestFamilyNamed(deg){
   }
   return {best,bestDiff};
 }
-// "maintain concurrences" lock: while active, dragging is clamped to the
-// zero-ghost zone (GHOST_FREE_ZONES) the slider was in when the lock was
-// engaged, so the ring set provably stays fixed for the whole drag -- a
-// direct answer to "there should be a way to slide while maintaining edge
-// concurrences" (the family-wide claim is exactness AT each psi, not that
-// the crossing SET never changes; this lock gives a literal
-// zero-set-change sub-range on demand).
+// "maintain concurrences" lock, CORE-AWARE (Postscript 25 addendum,
+// superseding the earlier GHOST_FREE_ZONES-based lock): while active,
+// dragging is clamped to the CORE_INTERVAL the slider was in when the
+// lock was engaged. Inside (20.905, 69.095) that allows the complete
+// octahedral -> golden drag with the fixed 18-pair core exact and
+// unbroken the whole way (ghosts en route are spike extras
+// approaching/leaving the near-miss window -- expected, not core
+// breaks); outside, the maintained core has 12 members.
 let famLocked=false, famLockZone=null, famCurDeg=0;
 function setFamily(psiDeg){
-  if(famLocked && famLockZone) psiDeg=Math.min(famLockZone[1],Math.max(famLockZone[0],psiDeg));
+  if(famLocked && famLockZone) psiDeg=Math.min(famLockZone.hi,Math.max(famLockZone.lo,psiDeg));
   const {best,bestDiff}=nearestFamilyNamed(psiDeg);
-  const snapped=!famLocked && bestDiff<FAMILY_SNAP_DEG;
-  const useDeg=snapped?best.deg:psiDeg;
+  // snapping works under lock too (unlike the old zone lock, the core
+  // intervals CONTAIN the named points, incl. the golden copies as closed
+  // endpoints), with a re-clamp in case a snap crosses the bound.
+  let snapped=bestDiff<FAMILY_SNAP_DEG;
+  let useDeg=snapped?best.deg:psiDeg;
+  if(famLocked && famLockZone) useDeg=Math.min(famLockZone.hi,Math.max(famLockZone.lo,useDeg));
+  snapped=snapped && useDeg===best.deg;   // a clamp may have moved us off the snap target
   famCurDeg=useDeg;
   const mats=familyMats(useDeg*Math.PI/180);
   setMode('mat'); $('quats').value=matText(mats);
@@ -1152,13 +1183,18 @@ function setFamily(psiDeg){
   buildFilters(); opaqueDirty=true; $('err').textContent='';
   samplePoints(); computeConcurrences(); renderSlice();
   if(exactInfo) renderExactChips();
-  else $('exact').innerHTML=`<span class="chip">exact crossings at this ψ; region count not yet certified away from the 67/49/67 points</span>`;
+  else $('exact').innerHTML=`<span class="chip">exact crossings at this ψ; region count certified only at the 67/49/67/67 marked points</span>`;
   $('famPsi').textContent=`ψ = ${useDeg.toFixed(3)}°`;
   $('famPos').value=Math.round(useDeg*100);
-  $('famGhosts').textContent = ghosts.length
-    ? `${ghosts.length} ghosts — crossing set transitioning here`
-    : '0 ghosts — exact, fixed set';
-  $('famGhosts').style.color = ghosts.length ? '#ff8f6b' : 'var(--accent)';
+  // ghost readout: when locked, lead with the maintained core (ghosts are
+  // spike extras entering/leaving the near-miss window, never core breaks
+  // -- Postscript 25 addendum); when unlocked, describe the ghosts for
+  // what they are (near-miss window around a spike, not a set change).
+  const corePrefix = famLocked&&famLockZone ? `${famLockZone.label} maintained · ` : '';
+  $('famGhosts').textContent = corePrefix + (ghosts.length
+    ? `${ghosts.length} ghosts — spike extras in the near-miss window${famLocked?', not core breaks':''}`
+    : '0 ghosts — exact, fixed set');
+  $('famGhosts').style.color = (famLocked||!ghosts.length) ? 'var(--accent)' : '#ff8f6b';
   if($('famTicks').children.length){
     [...$('famTicks').children].forEach((b,i)=>
       b.setAttribute('aria-pressed', String(snapped && FAMILY_NAMED[i]===best)));
@@ -1171,14 +1207,11 @@ $('pFamily').onclick=()=>{
 $('famPos').oninput=e=>setFamily(e.target.value/100);
 $('famLock').onclick=()=>{
   if(famLocked){ unlockFamily(); return; }
-  const zone=findGhostFreeZone(famCurDeg);
-  if(!zone){
-    $('famGhosts').textContent='no ghost-free range exactly here — nudge the slider first';
-    $('famGhosts').style.color='#ff8f6b';
-    return;
-  }
-  famLocked=true; famLockZone=zone; $('famLock').ariaPressed='true';
-  $('famLock').textContent=`🔒 locked [${zone[0].toFixed(1)}°, ${zone[1].toFixed(1)}°]`;
+  // core-aware: always engages (every psi lies in a core interval).
+  const iv=findCoreInterval(famCurDeg);
+  famLocked=true; famLockZone=iv; $('famLock').ariaPressed='true';
+  $('famLock').textContent=`🔒 ${iv.label} [${iv.lo.toFixed(1)}°, ${iv.hi.toFixed(1)}°]`;
+  setFamily(famCurDeg);   // refresh the readout with the core prefix
 };
 $('load').onclick=()=>{exitFamily();exactInfo=null;apply();};
 $('fQuat').onclick=()=>setMode('quat');

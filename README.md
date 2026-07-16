@@ -38,6 +38,20 @@ with a proof program in `C45_notes.md`). The 723 record has depth
 histogram {1:210, 2:216, 3:164, 4:96, 5:36, 6:1} — it buys total by
 lowering depth-4 below its ceiling. See Postscript 12 for its quaternions.
 
+**The dihedral family (Postscripts 25–26)**: a closed-form one-parameter
+family of 3-cube compounds (cube ± its 120° rotations about an
+in-face-plane axis) has *both* n=3 records as special points — octahedral
+at ψ=arcsin(1/√3), golden at tanψ=φ² — plus a new exactly-certified
+ℚ(√6) point at ψ=45° counting **49** = {30,18,1} (not a record; a
+plateau *minimum*, not a maximum). Generalized to n cubes, the family by
+itself tops out below the records (175/335/615 at n=4/5/6, vs. 183/393/
+723), but every record turns out to be built almost entirely from family
+*pairs* glued across different axes (183: 6/6 pairs; 393: 10/10; 723:
+12/15). Four theorems about the family (mirror symmetry, 90° periodicity,
+the coincidence identity, and a rational/irrational obstruction) are
+proved in `C45_notes.md` §12. Full story in `PROJECT.md` §7 and the
+ledger's Postscripts 25 (+4 addenda) and 26 (+1 addendum).
+
 ## Quick start
 
 ```sh
@@ -73,7 +87,16 @@ depth point-cloud, depth/cube filters, octahedral (√2) and golden (√5)
 presets, and rings marking where 4+ face-planes meet (gold = corner
 coincidence, blue = edge crossing). Accepts 2–8 cubes as integer
 quaternions or as decimal rotation matrices (so √n configs load directly).
-Also hosted: https://claude.ai/code/artifact/044d34a6-3f36-43b2-9ec8-17fb5691c87c
+An **opaque surface mode** renders the compound's faces as solid, shaded,
+depth- or containment-coloured polygons instead of a point cloud, with
+live highlighting of exactly the faces currently splitting or merging,
+mouse-wheel zoom, and one-sided clipping against the cross-section plane.
+The old "67 ↔ 67 slide" has been **replaced** by a **dihedral-family
+slider** (ψ from 0° to 90°, named tick marks including mirror-golden, a
+live ghost/near-miss counter, and a "maintain concurrences" lock) that
+traces the exact-coincidence family of Postscripts 25–26 instead of the
+old slide's near-miss ghost gaps. Also hosted:
+https://claude.ai/code/artifact/044d34a6-3f36-43b2-9ec8-17fb5691c87c
 
 ## Continuing the searches
 
@@ -150,8 +173,15 @@ to it.
 
 | file | kind | what it is |
 |---|---|---|
-| `six_cube_search_results.md` | **ledger** | The authoritative project record. Postscripts 1–21: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→…→717→723 record chain, the ℚ(√5)/tower field program, the sliding-3-cube result, and the symmetry-stratified sweep. Start here. |
-| `C45_notes.md` | notes | Proof program for the deep ceilings (d3≤164, d4≤102, d5≤36) via the radial-escape lemma and bottom-diagram census (T1 Euler count + T2 semicontinuity). |
+| `six_cube_search_results.md` | **ledger** | The authoritative project record. Postscripts 1–21: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→…→717→723 record chain, the ℚ(√5)/tower field program, the sliding-3-cube result, and the symmetry-stratified sweep. Postscripts 22–24: n=7/n=8 records (1207, 1879), the cap-sum-tight proof route for n=2/3, and the first proved theorem (the anchor lemma). Postscripts 25 (+4 addenda) and 26 (+1 addendum): the dihedral family — its closed-form discovery, the persistent 18-core and corner docking, the exact region-count staircase (including the new ℚ(√6) point, 49), the handoff-chase verdict, and the n>3 finding that records are gluings of family cliques. Start here. |
+| `C45_notes.md` | notes | Proof program for the deep ceilings (d3≤164, d4≤102, d5≤36) via the radial-escape lemma and bottom-diagram census (T1 Euler count + T2 semicontinuity). §10: the proven anchor lemma. §12: four proved theorems about the dihedral family (mirror symmetry, 90° periodicity, the coincidence identity, and the rational-invariant obstruction with its n=3-is-the-unique-irrational-level corollary). |
+| `nfamily_report.md` | report | Executes `NFAMILY_SPEC.md`: does the dihedral family help at n>3? Answer: not as a search space on its own (175/335/615 vs. records 183/393/723, growing deficit) — but every record is a gluing of family-position pairs (183: 6/6, 393: 10/10, 723: 12/15), which reframes the record search as a search over clique gluings. |
+| `handoff_report.md` | report | Executes `HANDOFF_SPEC.md`: chases whether more than the dihedral family's persistent 18 edge concurrences can be carried continuously from the octahedral 67 to the golden 67. Verdict: no path found beyond 18; a specific local obstruction (two extra-coincidence curves grazing the same ψ=45° wall ~70° apart in phase) is identified and described, not a proof of a ceiling. Also corrects an earlier "60 total contacts" figure for golden (correct: 18 interior + 54 corner label-pairs, 24 distinct physical points). |
+| `dihedral_slider_report.md` | report | Executes `DIHEDRAL_SLIDER_SPEC.md`: replaces the viewer's old "67↔67 slide" with a slider along the dihedral family, plus four rounds of follow-up from live feedback — a core-aware "maintain concurrences" lock, track tick marks (field points + exact region-count transitions), split/merge surface highlighting, zoom, and one-sided opaque clipping. |
+| `opaque_report.md` | report | Executes `OPAQUE_SPEC.md`: adds the opaque surface rendering mode to the viewer (each cube face split into its true convex pieces by every other selected cube's planes, depth- or containment-coloured, painter's-algorithm sorted), with a full gate suite (membership audits, ray audits, regression checks). |
+| `DIHEDRAL_FAMILY_NEXT.md` | handoff | Task list for continuing the dihedral-family work (region-count sweep, second-engine verification, formalizing the coincidence theorem, extending to n>3, the viewer preset) — the source of the task numbering referenced by the reports above. |
+| `NFAMILY_SPEC.md`, `HANDOFF_SPEC.md`, `DIHEDRAL_SLIDER_SPEC.md`, `OPAQUE_SPEC.md` | specs | Working-principles docs for `nfamily_report.md`, `handoff_report.md`, `dihedral_slider_report.md`, `opaque_report.md` respectively. |
+| `GLUE_SPEC.md`, `RESONANCE4_SPEC.md` | specs | **In progress, no report yet.** `GLUE_SPEC.md`: does gluing dihedral-family cliques on different axes beat 723 (the reframing Postscript 26 motivates)? `RESONANCE4_SPEC.md`: an algebraic solve for whether the n=4 record has an irrational family "resonance" point analogous to the n=3 67s. Neither is claimed to have produced a result yet. |
 | `CPP_SPEC.md` | spec | Design of the C++ engine: integer-homogeneous coordinates, int128 predicate budget, seed chain, validation gates. Working-principles doc for `cube_regions.cpp`. |
 | `NPLUS_SPEC.md` | spec | Generalization of the engine and campaigns to n>6 (`--n K`). Working-principles doc for the `*_n.py` and `scratch_*_n.py` drivers. |
 | `QFIELD_SPEC.md` | spec | Extend the search from rational rotations to ℚ(√d) (and the ℚ(√3,√5) tower). Field/wall taxonomy. |

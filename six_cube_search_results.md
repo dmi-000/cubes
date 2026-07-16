@@ -1834,3 +1834,179 @@ window26.py):
    n-dimensional sheet instead of (3n-3) — is a cheap structured probe
    of the trade-off surface. Proposed as follow-up alongside
    DIHEDRAL_FAMILY_NEXT.md Task 1.
+
+### Postscript 25, addendum 3: EXACT region counts along the dihedral family (Task 1 executed) — a symmetric staircase, spikes at the 67s, and a local MINIMUM at the face-diagonal point
+
+DIHEDRAL_FAMILY_NEXT.md Task 1, C3 slice, executed with a new Q(sqrt3)
+engine (q3_count.py, field-constant clone of the validated slide3_q2.py,
+same pattern as q6_count.py; identity self-test + orthonormality + S^3=I
+asserts). At Pythagorean psi (sin=p/r, cos=q/r rational), S(psi) =
+-I/2 + (3/2)nn^T + (sqrt3/2)[n]_x has entries in Q(sqrt3) -> exactly
+countable. 40 points swept (~0.6 s each). Result, symmetric about 45 deg:
+
+  psi in (0, ~9.6):        25 = {12, 12, 1}
+  psi in (~9.6, ~10.9):    31 = {18, 12, 1}
+  psi in (~10.9, 20.905):  43 = {24, 18, 1}
+  psi in (20.905, 69.095): 55 = {36, 18, 1}     <- the central plateau
+  ... mirrored on the other side; endpoints psi=0/90 (shared axis): 25.
+  Isolated spikes: octahedral 35.264 -> 67 = {48,18,1};
+  face-diagonal 45 -> 49 = {30,18,1} (Q(sqrt6) engine, addendum 25);
+  golden 69.095 -> 67 = {48,18,1}.
+  (Wall between 31 and 43 bracketed in (9.53, 10.39) deg; its mirror in
+  (79.61, 80.47). Exact wall locations not yet identified.)
+
+Observations:
+1. **d3 = 1 always, d2 = 18 across the whole middle band** (dropping to 12
+   only below ~10 deg and mirrored) — ALL action is in d1
+   (12->18->24->36, spiking 48 at both 67s, 30 at 45 deg). The
+   "deep-structure-conserved, d1-varies" principle (Postscript 17) holds
+   pointwise along the entire family.
+2. **The family's maxima are exactly the two 67s** — the proven n=3
+   global maximum is attained precisely at the two most special family
+   points, from a plateau of 55.
+3. **The face-diagonal point is a local MINIMUM (49 < 55)**: its +6 extra
+   edge crossings MERGE regions instead of creating them, while the +12
+   extras at the octahedral points RAISE the count by 12. Coincidence-
+   richness cuts both ways; it is how walls concur, not how many — the
+   sharpest small illustration yet of the trade-off principle.
+4. **Region-count walls != crossing-set walls**: the crossing set changes
+   only at 20.905/45/69.095 (addendum 2), but the count also jumps at
+   ~9.6/~10.9 deg (and mirrors) where d2 changes with NO edge-crossing
+   event — vertex/face combinatorial walls of the deeper arrangement.
+5. Bonus (not yet exploited): in the BIG family, Pythagorean phase
+   DIFFERENCES make the relative rotations fully RATIONAL — integer
+   quaternions — so the (theta_2, theta_3, psi) directions off the C3
+   slice are countable by the fast C++ engine directly. The 2-parameter
+   exact count map is a cheap delegable follow-up.
+
+Files: q3_count.py (engine + sweep driver, 40-point table in __main__).
+
+### Postscript 25, addendum 4: the handoff chase — 18 stands, the obstruction identified, and a CORRECTION to addendum 2's golden contact count
+
+The corner-handoff exploration (HANDOFF_SPEC.md; scripts
+dihedral_scratch/handoff_*.py; full report handoff_report.md) is done.
+Verdict: **no path carrying more than 18 physical concurrences from
+octahedral to golden was found** — 18 is the confirmed lower bound with a
+specific, describable local obstruction; not a proven ceiling.
+
+**CORRECTION (addendum 2, item 5).** "Golden has 60 exact contacts
+(6 interior + 54 corner)" mixed a threshold artifact with a label count.
+Correct figures (handoff_g1.py, confirmed against persistence.py): golden
+triple = **18 interior + 54 corner LABEL-pairs (72)**; deduplicated to
+physical points = **18 interior + 6 corner points = 24** (each corner
+point is a genuine vertex-to-vertex coincidence registering 3x3=9 label
+pairs). The old "6 interior" came from evaluating at psi rounded to
+69.0948 deg (2e-5 deg off the exact arctan(phi^2)), where the 12 docking
+core pairs already sit past the |t|<0.9999 cutoff. Golden's 18 interior =
+6 persisting core + that point's OWN 12 extras — the golden-side analogue
+of the octahedral +12. Also: octahedral has MORE distinct contact points
+(30) than golden (24), so ">18 into golden" needs 19 of golden's 24
+physical points fed — tight but not excluded a priori.
+
+**What the chase established** (all three gates passed; the linker
+independently reproduces the 18-carry, the 26-window, and — untuned —
+the 12-plateau past golden):
+1. Driving THROUGH golden on the C3 path, all 18 core trajectories pass
+   continuously; beyond it 6 stay interior, 6 execute genuine verified
+   corner handoffs (e.g. (0,1,0,1) -> (0,1,4,5) at shared vertex
+   (-1,-1,-1)), 6 die. Handoffs are real and the machinery detects them.
+2. The chain path's wall is at exactly **psi=45 deg, theta2 =
+   arccos(-1/3) = 109.4712 deg (the tetrahedral angle)**, where cube-A's
+   vertex (-1,1,-1) touches cube-B's vertex (1,-1,-1) — a vertex-VERTEX
+   coincidence offering 9 relabeling candidates. NONE of the 9 continues
+   to the golden basin: most re-hit |t|=1 immediately (psi=45 is a
+   resonance where several branches of the algebraic curve cross); the
+   rest run off to the shared-axis region (psi to 89 deg).
+3. Golden's own extras form a THIRD pair-curve identity (x-z class:
+   (1,9),(2,10),(9,0),(10,3) share one curve through golden). Traced
+   backwards it walls at psi=45.00 deg, theta2=180.0 deg — the same
+   psi-45 resonance but ~70 deg away in theta2 from the octahedral-side
+   wall, and neither curve's far branch links them.
+4. **The obstruction**: octahedral extras (y-z class, curve near
+   theta2~110) and golden extras (x-z class, curve near theta2~180) are
+   different label families on different curves; both graze the psi=45
+   resonance but nothing bridges the 70-deg theta2 gap while holding any
+   cross-class equality. Grid corroboration: pair-level count >=7 covers
+   only 0.28% of the (theta2, psi) plane — a 1-D curve network, no open
+   patches (as the DOF count predicts).
+Scope: single-hop rescues at the identified walls + three cross-class
+families + coarse grid; multi-hop chains through second/third walls not
+exhausted.
+
+## Postscript 26: the records are BUILT FROM family pairs — the n>3 verdict on the dihedral family
+
+NFAMILY_SPEC.md executed (nfamily_report.md; two-engine gates G0/G1/G2 all
+passed; spot-verified by the main session). The family generalized to n
+cubes = {Rel(theta_k, psi)} with Rel(D,psi) = Rodrigues rotation by D
+about axis (sin psi, cos psi, 0) — a new closed form making every
+Pythagorean-parameter member an INTEGER-QUATERNION config, countable by
+the C++ engine (~10 ms each).
+
+**As a search space: no.** Best verified family members (9,218-config
+exact sweep: chains, random Pythagorean phases, hill-climbing): n=4: 175
+(record 183, -8); n=5: 335 (393, -58); n=6: 615 (723, -108). The deficit
+GROWS with n. Caveat (fundamental, not budget): Pythagorean sweeps cannot
+land on irrational spikes — at n=3 the same sweep sees only the
+55-plateau, never the 67s — so these are lower bounds on the continuous
+family's supremum.
+
+**As structure: overwhelmingly yes.** Exact pairwise tests (two
+independent methods, 34/34 agreement; crossing counts + an axis test
+"exists a cube-symmetry relabeling with R[0][1]==R[1][0] exactly"):
+- 183 record: ALL 6 pairs in family position (6 exact crossings each).
+- 393 record: ALL 10 pairs in family position.
+- 723 record: 12/15 — cubes {0..4} form a full family 5-clique (= the
+  embedded 393, consistent with record nesting), cube 5 family-linked to
+  two of them, generic vs the rest.
+- 67 (n=3): confirmed a family member in exact Q(sqrt2) arithmetic —
+  first exact (non-numeric) confirmation of its 30 crossings.
+So the records are gluings of family cliques on DIFFERENT axes, not
+single-axis members: the single-common-axis family is a strict subset of
+"configs built from family-position pairs," and the latter is what
+records exploit. Record-hunting reframed: search over multi-clique
+gluings (clique sizes, axes, tilts, phases) instead of raw SO(3)^n.
+
+**Deep layers**: at every n the family pins d_n=1 and d_{n-1} at exactly
+the record's own value (24/30/36 at n=4/5/6) across the whole
+non-degenerate range; the deficits sit in the SHALLOW layers (n=4: the
+entire -8 in d2 alone, 58 vs 66, with d1/d3/d4 matching the record
+exactly). Sharpest form yet of "deep structure conserved, shallow layers
+are what records win."
+
+**Also**: psi <-> 90-psi mirror symmetry persists at every n; chains at
+a=90 deg collapse to total 93 INDEPENDENT of n (cube 90-degree
+self-symmetry makes added cubes redundant — the degeneracy predicted in
+DIHEDRAL_FAMILY_NEXT Task 4, now quantified).
+
+Files: nfamily_report.md, nfamily_common.py, nfamily_gates.py/.out,
+nfamily_q3_records.py/.json, nfamily_sweep.py, nfamily_results.jsonl.
+
+### Postscript 26, addendum: four theorems PROVED (C45_notes.md section 12)
+
+Answering "can we prove anything?" — yes, four statements moved from
+verified-numerics to proved today (full proofs in C45_notes.md sect. 12):
+- **Theorem M (mirror)**: config({theta_k}, psi) is congruent to
+  config({-theta_k}, 90-psi) via the x<->y coordinate swap (improper
+  isometry; conjugation reverses the rotation sense and swaps the axis
+  components). Proves the psi<->90-psi degeneracy seen in every sweep,
+  for all n; all family sweep domains are rigorously halved.
+- **Theorem P (periodicity)**: psi+90 gives the SAME compound
+  (M(psi+90) = M(psi)*rot(e3,90)); true parameter range is psi in [0,45].
+- **Theorem F (coincidence identity)**: all same-class edge-line
+  coincidences hold identically on the whole family — z-class by the
+  equal-heights argument, y-class by a five-line vector computation
+  (the coplanarity form collapses to s c^2 (sin D - sin D) = 0),
+  x-class from y-class via Theorem P's relabeling. The family's exact
+  crossings rest on proof; only segment-interior validity (|t|<=1)
+  remains numeric (Sturm-certifiable, listed as next).
+- **Theorem R (rational obstruction)**: rational configurations have
+  rational O-reduced pair invariants; the 67s' invariants are 1/2+sqrt2
+  and 3phi/2 — so no rational config is congruent to either.
+  **Corollary**: conditional on the two known 67s being the only n=3
+  maximizers, the n=3 maximum REQUIRES irrational coordinates — making
+  n=3 provably the unique irrational level of the record tower, given
+  witness uniqueness.
+Identified as provable-next with real work: certified staircase (Sturm),
+core-18 segment bounds with docking values +-1, +-1/phi^3, the
+pair-curve identity, and (the prize, unchanged) the two lemmas of
+Postscript 23 for max(3)=67.

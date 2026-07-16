@@ -1,6 +1,6 @@
 # How many regions do overlapping cubes make? — a self-contained write-up
 
-*Last updated 2026-07-12. This document is standalone: every term is
+*Last updated 2026-07-16. This document is standalone: every term is
 defined here, and no other file is required to follow it.*
 
 ---
@@ -228,7 +228,7 @@ blind spot of the previous:
    pass under-searched (its parameter grid was too coarse and missed its
    own best case), but re-run properly it produced 705, 717, and 723, and
    showed no other symmetry type beats them.
-4. **Algebraic search** (Section 7): solve for the exact alignments
+4. **Algebraic search** (Section 8): solve for the exact alignments
    directly with symbolic algebra instead of approaching them by trial.
 
 ---
@@ -265,7 +265,7 @@ Several exact regularities appear everywhere we look:
   six face-centre directions, giving at most six regions per cube, hence
   ≤ 6n. Making that rigorous reduces to a single lemma about how the
   face-normals' directions can overlap; the lemma holds in every case
-  sampled but is not yet proven in general (Section 9). The 6n cap is
+  sampled but is not yet proven in general (Section 10). The 6n cap is
   also **hereditary**: removing any cube from a record drops depth-(n−1)
   from 6n exactly to 6(n−1) in the smaller arrangement.
 - **Deep layers are "quantized," shallow layers grow — and records
@@ -385,7 +385,237 @@ The first half is established; the second half is the remaining gap.
 
 ---
 
-## 7. Solving for the alignments algebraically
+## 7. The dihedral family: a closed-form bridge between the two 67s
+
+Section 6 showed the n=3 maximum (67) is reached in two geometrically
+different ways — an *edge-dominated* octahedral compound (√2) and a
+*corner-dominated* golden compound (√5). This section describes a
+one-parameter family of three-cube compounds, found afterward, that
+contains **both** 67s as special points and threads exact face-plane
+coincidences through every point in between — answering, in closed form,
+what kind of continuous path connects them. It was found by acting on a
+concrete observation made while looking at the interactive viewer: the
+near-miss edge crossings along the midpoint of an earlier, cruder
+attempt at such a slide (Postscript 9 of the ledger) looked like they
+were sitting in a plane perpendicular to the direction (1,1,1) — and
+that observation turned out to identify the whole family.
+
+**The family.** Take the cube [−1,1]³ and an axis n(ψ) =
+(sin ψ, cos ψ, 0) that lies *in* one of the cube's own face planes,
+through the centre. Rotating the cube by +120° and by −120° (i.e. +240°)
+about n(ψ) gives two more cubes; together with the original (identity)
+cube, this is a compound of three cubes, symmetric under 120° rotation
+about n(ψ) (a *C₃ orbit*). Every member of the family has an extra
+symmetry too: a 180° rotation about the cube's own horizontal face axis
+maps the whole compound to itself (dihedral symmetry D₃), which is where
+the name comes from. The parameter ψ ranges over [0°, 90°]; two exact
+symmetries cut this down further:
+
+- **Mirror symmetry.** Swapping the x- and y-coordinates carries the
+  configuration at ψ into the configuration at 90°−ψ with all three
+  phases negated — an isometry, so the two have identical region counts
+  and depth profiles. (Proof: the coordinate swap P has det = −1 and
+  sends n(ψ) to n(90°−ψ); conjugating a rotation by an improper
+  orthogonal map reverses its sense, giving exactly the ψ ↔ 90°−ψ,
+  phase-negation correspondence.)
+- **90° periodicity.** ψ and ψ+90° give the identical compound (not just
+  a congruent one) — rotating the *seed frame* by 90° about its own third
+  axis is itself a symmetry of the cube. So the family's true, non-
+  redundant parameter range is ψ ∈ [0°, 45°].
+
+**The coincidence identity.** For *every* ψ (not just special values) and
+every choice of phases, the corresponding edges of any two cubes in the
+family — matched up by "same class" (there are three classes, one per
+coordinate axis of the seed cube) — are guaranteed to lie in a common
+plane, and non-parallel lines in a common plane always meet. So the
+family has built-in exact edge concurrences everywhere, not only at
+isolated points. (One class is elementary: all three cubes' relevant
+edges lie at one of two fixed heights measured along (1,1,1), and any
+two edges at the same height share a plane. The other two classes follow
+from a short vector computation in the family's natural frame. This is
+now a proved theorem, not just a numerical observation — see below.)
+What *does* vary with ψ is only whether a given coincidence lands inside
+the finite edge segment (making it a real crossing of the compound) or
+outside it (making it geometrically real but physically absent) — that
+is what produces the plateaus and spikes described next.
+
+**Both 67s are members of this family.**
+- The **octahedral** 67 sits at ψ = arcsin(1/√3) ≈ 35.264°, axis
+  n ∝ (1, √2, 0). Its pairwise congruence invariant matches 1/2 + √2, as
+  expected from the ℚ(√2) witness of Section 6.
+- The **golden** 67 sits where tan ψ = φ², φ = (1+√5)/2 the golden ratio
+  — equivalently sin ψ = φ/√3, cos ψ = 1/(φ√3), a consistency that boils
+  down to the identity φ² + φ⁻² = 3. Its pairwise invariant is 3φ/2.
+- A **new exactly-certified compound** sits at ψ = 45° exactly — the
+  face-diagonal axis (1,1,0)/√2. Its rotation matrix has entries in the
+  field ℚ(√6) (a new "field clone" engine, `q6_count.py`, was built to
+  count it, following the same pattern as the project's other ℚ(√d)
+  engines). Its exact region count is **49**, depth profile
+  {1: 30, 2: 18, 3: 1} — verified on a single engine so far, not yet
+  cross-checked by a second independent counter.
+
+**The staircase.** Sweeping ψ across [0°, 90°] with exact ℚ(√3) arithmetic
+(rational sin/cos pairs from Pythagorean triples give rotations in
+ℚ(√3), which a new engine `q3_count.py` — again a field clone of the
+project's validated counting code — can count exactly), the region count
+forms a symmetric staircase around ψ = 45°:
+
+| ψ range | count | depth profile |
+|---|---|---|
+| [0°, ≈9.6°), incl. shared-axis endpoint | 25 | {12, 12, 1} |
+| (≈9.6°, ≈10.9°) | 31 | {18, 12, 1} |
+| (≈10.9°, 20.905°) | 43 | {24, 18, 1} |
+| **35.264° (octahedral)** | **67** | **{48, 18, 1}** |
+| (20.905°, 69.095°), central plateau | 55 | {36, 18, 1} |
+| **45° (face-diagonal, new)** | **49** | **{30, 18, 1}** |
+| **69.095° (golden)** | **67** | **{48, 18, 1}** |
+| … mirrored on the other side, 90° (shared axis) | 25 | {12, 12, 1} |
+
+Two things stand out. First, the depth-3 count is always 1 and the
+depth-2 count is 18 across the whole central plateau (dropping to 12 only
+near the two shared-axis endpoints) — every bit of variation is in the
+depth-1 (outermost) layer, an especially clean instance of the
+"deep-structure-conserved, shallow layer is what varies" principle of
+Section 5. Second, and more surprising: **the face-diagonal point is a
+local *minimum*, not a local maximum** — its extra edge coincidences
+(6 more than the plateau) happen to *merge* regions rather than *create*
+new ones, while the extra coincidences at the octahedral and golden
+points (12 more than the plateau) *do* create new ones. This is the
+sharpest illustration yet, at n=3, of a theme from Section 6: what
+matters is not how many face-planes concur at a point but exactly how
+they concur — coincidence-richness cuts both ways.
+
+**Why the earlier slide had ghosts.** The project's original attempt at
+a continuous path between the two 67s (Postscript 9 of the ledger) does
+connect them, but its interior points are *not* on this family surface —
+its seed direction has a small but nonzero component along (1,1,1) where
+the family requires exactly zero — so its near-miss crossings never quite
+close ("ghosts": a visible near-alignment with a small but nonzero gap).
+The dihedral family threads the same two endpoints through a path of
+*exact* coincidences the entire way; the ghosts of the old slide are
+precisely the cost of stepping off that surface.
+
+**The persistent 18-core.** Restricting to the interval between the two
+golden copies, ψ ∈ (20.905°, 69.095°), the *set* of interior edge
+crossings — not just their count — is exactly the same 18 pairs of edges
+for the whole open interval. The counts of 30 (at octahedral), 24 (at the
+face-diagonal point), and 30 (at mirror-octahedral, ψ = 90°−35.264° =
+54.736°) are momentary spikes: +12, +6, +12 *extra* coincidences that
+exist only exactly at those isolated points and never open a gap in the
+core 18. Arriving at either golden endpoint, nothing in the core breaks:
+6 of the 18 stay interior (at segment position t = ±1/φ³ along the
+edge — another golden-ratio appearance), and the other 12 land exactly on
+cube corners, becoming golden's own corner-coincidence structure. So the
+entire drag from octahedral to golden — through the face-diagonal point —
+can be made while keeping all 18 core concurrences continuously intact;
+the previous belief that the slide had two more unnamed transition points
+near 21° and 69° was a misreading of where the near-miss "ghost bands"
+begin and end, not real changes in the coincidence set. The exact
+transition points are only 20.905°, 45°, and 69.095°.
+
+**Chasing more than 18.** Can a path be found that preserves *more* than
+the 18-core the whole way from octahedral to golden? A generalization of
+the family (n cubes on a common axis, arbitrary phases, one shared tilt
+ψ) has a *pair-curve identity*: the four "extra" coincidences of the
+octahedral pair all vanish along one single curve in (phase, ψ)-space
+through the octahedral point, not only at the octahedral point itself.
+Riding this curve with a three-cube chain of phases achieves **26**
+simultaneous concurrences over a sub-range of ψ (35.264° up to about
+44.5°) — a genuine improvement over 18, but only locally: the curve's
+valid segment closes before reaching golden, and a dedicated search for a
+way past this wall (tracing all vertex-adjacent relabelings at the point
+where the curve exits, and separately tracing golden's own analogous
+extra-coincidence curve backwards) found no route that reaches golden
+while carrying more than 18 physical concurrence points. The obstruction
+has a specific location: both the octahedral-side curve and the
+golden-side curve pass close to ψ = 45°, but at phase values roughly 70°
+apart, and neither curve's far branch swings around to link them. So
+**18 stands as the best confirmed lower bound for an end-to-end path**,
+with a described local obstruction — not a proof that 18 is a ceiling.
+
+**Four theorems.** Since this family was found, four of its properties
+have been formally proved (not just checked numerically to machine
+precision):
+
+1. **Mirror symmetry** (stated above) — proved for every phase tuple and
+   every n, not just n=3.
+2. **90° periodicity** (stated above) — likewise general.
+3. **The coincidence identity** — every same-class edge pair of any two
+   family members is exactly coplanar, for every ψ and every phase tuple,
+   proved by direct computation in the family's natural frame (one class
+   is elementary; a second follows from a short vector identity; the
+   third follows from the first two via the periodicity theorem). What
+   is *not* yet proved is exactly which ψ-ranges keep a given coincidence
+   inside the finite edge segment — that is a concrete, well-posed
+   algebra problem (finitely many polynomial sign conditions), not yet
+   carried out.
+4. **A rational-invariant obstruction.** If every cube in a configuration
+   has rational (integer-quaternion) coordinates, a certain pairwise
+   congruence invariant is forced to be rational too. Both known 67
+   witnesses have irrational invariants (1/2+√2 and 3φ/2), so **no
+   rational configuration can be congruent to either** — the two known
+   67s are provably not reachable by any rational arrangement. If they
+   are also the *only* three-cube maximizers up to congruence (believed,
+   supported by their isolation and by every search so far, but not
+   proved), this yields a striking corollary: **n=3 is the unique
+   irrational level of the whole record tower** — n=2's record (13) is
+   rational, and so is every current record at n≥4, while n=3's maximum
+   provably cannot be.
+
+**Extending to n cubes, and what it reveals about the records.** The
+family generalizes past n=3: n cubes with independent phases about the
+same axis and the same shared tilt ψ, with the pairwise relative
+rotation between any two members depending only on their phase
+difference and ψ (a closed Rodrigues-rotation form). At Pythagorean ψ
+this makes every member an **integer-quaternion** configuration,
+countable directly by the project's fast C++ engine — turning the
+family, for the first time, into something the record-search machinery
+can search exhaustively and exactly. Two results:
+
+- **As a search space by itself, the family loses ground as n grows.**
+  The best purely-single-axis family members found (an exact sweep of
+  over 9,000 configurations at n=4,5,6) reach only 175, 335, 615 —
+  falling short of the true records 183, 393, 723 by 8, 58, and 108
+  respectively, a deficit that *widens* with n. (This measures the
+  family's Pythagorean-sampled plateau, a lower bound on the true
+  family's supremum — the family's own irrational spikes, like the two
+  67s at n=3, are invisible to a rational sweep and could in principle
+  raise these numbers, an open question.)
+- **But every current record is built almost entirely out of family
+  pairs.** Checking every pair of cubes in each record against the
+  family's own membership test: **all 6 pairs** of the 183 record, **all
+  10 pairs** of the 393 record, and **12 of the 15 pairs** of the 723
+  record are in family position (some shared axis and tilt — not
+  necessarily the same axis for every pair). The 723 record's structure
+  resolves exactly: five of its cubes form a complete family clique (this
+  is exactly the embedded 393 record, consistent with the nesting
+  property of Section 9), and the sixth cube is family-linked to two of
+  the five and generic against the rest. So the records are **gluings of
+  family cliques living on different axes**, not members of one common-
+  axis family — which is exactly why a single-axis sweep falls behind:
+  it searches a strict subset of the structure the records actually use.
+  This reframes the record search itself: instead of a raw search over
+  all rotations, it becomes a search over how many family cliques to use,
+  on which axes, and how to glue them — a search that is still open and
+  ongoing.
+- The deep layers of the best family members match the corresponding
+  record's deep layers *exactly* at every n tested (e.g. the n=4 family
+  best has the same depth-3 and depth-4 counts as the 183 record, with
+  its entire 8-point deficit sitting in the depth-2 layer alone) — the
+  clearest demonstration yet that a good building block is deep-saturated
+  and only ever detunes the shallow layers (Section 3's frustration
+  principle, now traced through an entire new family at every size).
+
+Files: `q3_count.py`, `q6_count.py` (the two new field-clone engines),
+`nfamily_common.py`/`nfamily_sweep.py`/`nfamily_q3_records.py` (the
+n-cube generalization and record-pair analysis), and
+`dihedral_scratch/` (exploration and verification scripts). The formal
+proofs are in `C45_notes.md`, section 12; the numerical exploration is
+`six_cube_search_results.md`, Postscripts 25 and 26.
+
+---
+
+## 8. Solving for the alignments algebraically
 
 The searches above *approach* the special walls numerically. A more
 direct approach *solves* for them. Because a rotation about a fixed axis
@@ -445,7 +675,7 @@ near-record five-cube one.
 
 ---
 
-## 8. More than six cubes, and the record tower
+## 9. More than six cubes, and the record tower
 
 The counting method works for any *n*. Best arrangements found so far
 (lower bounds on the true maxima):
@@ -484,9 +714,16 @@ the same result), and it is the *axis-fixed* cubes that are added and
 removed to climb between sizes. The parity rule, the 6n second-deepest
 cap, and the shallow-gain / deep-cap structure all persist as *n* grows.
 
+**The 3-fold orbit is a dihedral-family clique.** Section 7 sharpens this
+picture: the surviving 3-fold orbit at every size is exactly a clique of
+the dihedral family (Section 7), and the axis-fixed cubes attach to it in
+family position too, wherever tested — the records are gluings of family
+cliques on different axes, not one common-axis structure. That reframing
+is what suggests the two-clique gluing search of the open problems below.
+
 ---
 
-## 9. Open problems
+## 10. Open problems
 
 1. **Prove the second-deepest cap, depth-(n−1) ≤ 6n.** This is the most
    tractable ceiling — it unifies depth-5 ≤ 36 (n=6) with the small cases,
@@ -527,24 +764,55 @@ cap, and the shallow-gain / deep-cap structure all persist as *n* grows.
    arrangement ever match a corner-dominated one at the maximum? Current
    evidence says no — edge-dominated arrangements top out at 691 and
    edge-richness anti-correlates with the total — but this is evidence
-   from a finite search, not a proof.
+   from a finite search, not a proof. A related, sharper question raised
+   by Section 7: can any path in the dihedral family carry more than 18
+   physical edge concurrences continuously from the octahedral 67 to the
+   golden 67? A dedicated search found a specific local obstruction (two
+   different "extra-coincidence" curves that both graze ψ=45° but stay
+   about 70° apart in phase) and no rescue past it — 18 is a confirmed
+   lower bound with a described obstruction, not a proven ceiling.
 5. **Special number-field walls:** whether any arrangement needing √2, √3,
    or a combination beats the best plain-fraction arrangement. (The golden
    √5 wall reaches 681; the overall record 723 is a plain-fraction
-   arrangement.)
+   arrangement.) Section 7 adds one more exactly-certified data point in
+   this vein — the ℚ(√6) face-diagonal compound at 49 — well short of the
+   record and, notably, a local *minimum* of its own family rather than a
+   maximum.
 6. **Growth with *n*** and the persistence of the structural laws at
    scale.
+7. **The two-clique gluing search (in progress).** Section 7 showed every
+   current record is a gluing of dihedral-family cliques living on
+   different shared axes, rather than a single-axis family member. This
+   reframes the record search as choosing how many cliques to use, on
+   which axes, at what tilts and phases, and how to glue them — a search
+   with a much smaller effective dimension than raw SO(3)ⁿ, but not yet
+   carried out systematically. Whether it can find something beating 723
+   (or reproduce it from first principles, strengthening the branch-and-
+   bound case of Section 8) is open.
+8. **The n=4 resonance, algebraically (in progress).** The two n=3
+   maximizers sit at algebraically special, irrational points of the
+   dihedral family (the octahedral and golden 67s). Whether the n=4
+   record's family embedding (Section 7: all 6 pairs of the 183 record
+   are in family position) similarly has an irrational "resonance" point
+   that beats the rational family plateau of 175 is an open algebraic
+   solve — the natural next target for the same symbolic-algebra approach
+   (Section 8) that located the n=3 spikes, now pointed at the family's
+   n=4 generalization instead of a blind search.
 
 ---
 
-## 10. The code, briefly
+## 11. The code, briefly
 
 The exact counter (`cube_regions`, C++), its slower cross-check
 (`certify_six.py`), the search drivers, the symmetry catalogue, and the
 algebraic-search scripts (which drive the computer-algebra system
 `wolframscript`) all live in this directory; a companion `README.md` maps
 each file and gives runnable commands, and `six_cube_search_results.md`
-is the dated primary record of every result. A single configuration can
+is the dated primary record of every result. Two further exact engines
+support Section 7's dihedral family: `q3_count.py` (field ℚ(√3), for
+Pythagorean-angle family members) and `q6_count.py` (field ℚ(√6), for the
+face-diagonal point), both built as field-constant clones of the
+project's earlier validated ℚ(√2) counter. A single configuration can
 be counted directly, for example:
 
 ```
@@ -562,6 +830,30 @@ and white-hot core appear — and a rotatable 3D point cloud of the same
 depth structure. Depth and per-cube filters isolate any layer or any
 cube's contribution to cut clutter; a toggle recolours cells by *which*
 cubes contain them (containment label) rather than how many.
+
+Since the last update the viewer gained several features, all under the
+same published URL:
+
+- **Opaque mode.** A toggle renders the compound's faces as solid,
+  shaded, depth- or containment-coloured polygons (each cube face split
+  by every other selected cube's face-planes into its true convex
+  pieces, painter's-algorithm sorted) instead of a point cloud —
+  concretely showing the region boundaries as surfaces, not dust.
+- **The dihedral-family slider**, which replaces the old, ghost-gapped
+  "67 ↔ 67 slide" of Postscript 9 with a slider along the family of
+  Section 7: a ψ readout and drag control from 0° to 90°, named tick
+  marks (including the newly-added mirror-golden point), a live ghost
+  (near-miss) counter, and a "maintain concurrences" lock that clamps
+  dragging to stay within a range where the crossing set — the
+  core-18, specifically — is certified constant.
+- **Split/merge surface highlighting**, which outlines exactly the
+  opaque faces involved in whatever near-miss coincidences ("ghosts")
+  exist at the current slider position — a live, ψ-dependent view of
+  which surfaces are about to split apart or merge together.
+- **Zoom** (mouse-wheel, threaded through the same scale factor as every
+  other overlay) and **one-sided clipping** of the opaque surface against
+  the cross-section plane, so the solid interior can be inspected without
+  the near side occluding it.
 
 > https://claude.ai/code/artifact/044d34a6-3f36-43b2-9ec8-17fb5691c87c
 

@@ -219,3 +219,125 @@ exponential growth). Conclusion: even at n=2 the UNRESTRICTED chamber
 exam is impractical; certification must go family-by-family (few-knob
 blueprints), or through Theorem A + census. Chris's "only works if we
 fix a family" — quantified.
+
+## 12. Four theorems around the dihedral family (proved 2026-07-16)
+
+Notation. s_hat = (1,1,1)/sqrt3. Family gauge (Postscript 26): with the
+first cube's frame as reference, cube k of a family configuration is
+Rel(theta_k, psi) applied to [-1,1]^3, where Rel(theta, psi) is the
+rotation by angle theta about the axis n(psi) = (sin psi, cos psi, 0).
+(Equivalently the world frame M(theta,psi) = [cos psi w + sin psi s_hat |
+-sin psi w + cos psi s_hat | u(theta)], w = s_hat x u; the two are related
+by M(0,psi)^T M(theta,psi) = Rel(theta,psi), verified symbolically.)
+
+### Theorem M (mirror symmetry).
+For every n, every phase tuple {theta_k}, and every psi:
+config({theta_k}, psi) is congruent (by an improper isometry) to
+config({-theta_k}, 90deg - psi). In particular region counts and full
+depth profiles agree.
+
+Proof. Let P be the coordinate swap x<->y (orthogonal, det = -1, a
+symmetry of the cube: P[-1,1]^3 = [-1,1]^3). P n(psi) = (cos psi,
+sin psi, 0) = n(90-psi). Conjugating a rotation by an improper
+orthogonal map reverses the sense: P Rel(theta,psi) P^-1 =
+Rel(-theta, 90-psi). Hence for each k,
+P (Rel(theta_k,psi) [-1,1]^3) = Rel(-theta_k, 90-psi) P[-1,1]^3
+= Rel(-theta_k, 90-psi) [-1,1]^3. So P maps the first compound onto the
+second; isometries preserve the region complex. QED.
+
+Corollaries. (a) For chains theta_k = k a, negating a is undone by the
+relabeling k -> n+1-k (a constant phase shift = global rotation), so
+chain(a, psi) ~ chain(a, 90-psi) — the psi<->90-psi degeneracy observed
+in every sweep (Postscript 26) is now proven for all n. (b) The C3 slice
+{0,120,240} is invariant under negation as a set, so the n=3 staircase
+(Postscript 25 addendum 3) is exactly symmetric about psi=45. All sweep
+domains can be rigorously halved.
+
+### Theorem P (90-degree periodicity).
+config({theta_k}, psi + 90deg) = config({theta_k}, psi) — the SAME
+compound, not merely congruent.
+
+Proof (world frame). col1(psi+90) = col2(psi), col2(psi+90) = -col1(psi),
+col3 unchanged; so M(theta, psi+90) = M(theta,psi) K with
+K = [e2|-e1|e3] = rot(e3, 90deg), a rotation symmetry of the cube. Each
+cube is unchanged as a set. QED. (So the family's true parameter space is
+psi in [0,45] after Theorem M.)
+
+### Theorem F (the coincidence identity).
+For every psi, every phase tuple, and every cube pair (j,k) of a family
+configuration, all three SAME-CLASS edge-line coincidence conditions hold
+identically: for each axis class, the designated edge lines of cube j and
+cube k are exactly coplanar (hence, being non-parallel for theta_j !=
+theta_k mod 90, intersecting).
+
+Proof. Work in the world frame; write c = cos psi, s = sin psi,
+u_k = u(theta_k), w_k = s_hat x u_k.
+(z-class) Cube k's four u-edges have centers +-col1 +- col2, i.e.
+heights (dot with s_hat) in {+-(s+c), +-(c-s)} — the SAME height set for
+every cube, since col1.s_hat = s, col2.s_hat = c independently of theta.
+Two edges of equal height lie in one plane perpendicular to s_hat; any
+two non-parallel coplanar lines meet. This proves the z-z coincidences.
+(y-class) For the representative pair: cube j edge with center
+M_j(-1,0,1) = -col1_j + u_j, direction col2_j; cube k edge center
+M_k(-1,0,-1) = -col1_k - u_k, direction col2_k. The coplanarity form is
+f = [(-col1_k - u_k) - (-col1_j + u_j)] . (col2_j x col2_k).
+Expand col2 = -s w + c s_hat and use, for any two unit horizontals,
+w_j x s_hat = ... the only nonzero products are
+w_j x w_k = sin(D) s_hat, s_hat x w_k = -u_k, w_j x s_hat = u_j,
+u_j.w_k = -sin D, w_j.u_k = +sin D, u.w own-cube = 0, all heights of
+w, u zero (D = theta_k - theta_j). Then
+col2_j x col2_k = s^2 sin(D) s_hat - s c (u_j - u_k)   ... (i)
+Delta-center  = -c (w_k - w_j) - (u_j + u_k)            ... (ii)
+Dot (i).(ii): the s_hat term kills (all of (ii) is horizontal); the
+remaining term is s c^2 (w_k - w_j).(u_j - u_k)
+= s c^2 [ w_k.u_j - w_j.u_j(=0) - w_k.u_k(=0) + w_j.u_k ]
+= s c^2 [ -sin D + sin D ] = 0 identically. The other three y-pairs
+follow by composing with the central symmetry of either cube (edge ->
+antipodal edge, an isometry of both cubes). This proves y-y.
+(x-class) By Theorem P the same compound arises at psi - 90deg with the
+cube frames relabeled by K = rot(e3,90), which maps x-edges to y-edges;
+the x-x identity at psi is therefore the y-y identity at psi - 90,
+already proven for all psi. QED.
+
+Remark. Segment-INTERIOR validity (|t|<=1) is what varies with
+(theta, psi) and produces the plateau/spike structure; Theorem F says the
+line coincidences never break. The core-18 persistence claim of
+Postscript 25 addendum 1 additionally needs |t(psi)| < 1 on the open
+golden-to-golden interval — the t's are explicit algebraic functions, so
+this is provable by Sturm-sequence certification (listed below), not yet
+done.
+
+### Theorem R (rational-invariant obstruction) and the conditional
+irrationality of the n=3 maximum.
+If all quaternions of a configuration are rational, then for every cube
+pair the O-reduced invariant mu(i,j) = max over H in O of
+trace(R_i^T R_j H) is rational (each trace is a rational number; O is
+the 24 integer rotation matrices). mu is invariant under congruence of
+compounds: a global isometry G cancels in R_i^T R_j (improper G reduces
+to proper since -I is a cube symmetry), and per-cube relabelings H_k
+permute the double coset over which the max is taken. The octahedral 67
+has mu = 1/2 + sqrt2 and the golden 67 has mu = 3 phi/2 (both exact,
+Postscript 25); both are irrational. Hence NO rational configuration is
+congruent to either known 67 compound.
+
+Corollary. If the two known compounds are the only maximizers of n=3 (up
+to congruence) — supported by their isolation (Postscript 17) and every
+search to date, but unproven — then the n=3 maximum REQUIRES irrational
+coordinates, while n=2 (max 13, attained by integer pairs inside the 183
+record) and every current record at n>=4 are rational. n=3 would be the
+unique irrational level of the tower.
+
+### Provable next (methods identified, real work):
+1. Certified staircase: the addendum-3 plateau values are constant on
+   their intervals — isolate all combinatorial-event roots (finitely
+   many polynomials in sin psi) via Sturm sequences / exact resultants;
+   turns sampled counts into interval theorems.
+2. Core-18 segment bounds: |t(psi)| < 1 on (20.905, 69.095) for the 18
+   explicit algebraic crossing parameters, equality exactly at the
+   endpoints with the docking values t = +-1, +-1/phi^3.
+3. The pair-curve identity (all four cross-class extras share one zero
+   curve): the four conditions are exchanged by the pair's dihedral
+   symmetries — reduce to one, then the curve is the regular zero set
+   through the octahedral point (gradient nonvanishing verified).
+4. max(3) = 67 itself: still the two lemmas of Postscript 23 (trivalent
+   census + parasite exclusion) — unchanged, the real prize.

@@ -20,14 +20,61 @@ the other four named points, grey marks at every ψ where the exact
 crossing/region-count set changes). Building this also caught and fixed a
 real bug in the test harness's own DOM stub (see G8 / "harness fix" note).
 
-The mirror has been synced with both fixes included; see "Mirror sync" at
-the end.
+**Update 3**: two more asks, taken together — "show what regions were
+merged or split" (asked, then planned, before the next message arrived),
+then "highlight surfaces that separate regions that have been split, and
+allow zooming into the display, and making surfaces opaque only on one
+side of the cross section plane." I planned an initial approach for the
+first ask (a precomputed exact-transition table) but abandoned it before
+building anything, in favor of a simpler mechanism that the second
+message pointed straight at: the *existing* ghost detector already
+identifies near-miss crossings, which *are* the surfaces currently
+splitting/merging — so highlighting is computed live at any ψ, not from a
+precomputed 8-point table. See G9 below for this plus zoom and one-sided
+opaque clipping. A checkpoint of the pre-G9 state was saved first (see
+"Checkpoint" note) per an explicit save-state request.
+
+**Update 4 (theory corrections from the Postscript 25 addendum,
+coordinator-directed)**: two facts from the new pair-identity results in
+`six_cube_search_results.md` ("Postscript 25, addendum") invalidated parts
+of Updates 1-2, both re-verified independently here against the validated
+classifier before changing anything:
+- FACT 1 (core persistence): one FIXED set of 18 interior edge pairs is
+  exact and unbroken across the whole open interval ψ ∈ (20.905°,
+  69.095°) — between the two golden copies. The 30/24/30 counts at
+  octahedral/face-diagonal/mirror-octahedral are momentary spikes (+12/+6/
+  +12 extras existing only exactly AT those isolated ψ). At either golden
+  endpoint 12 of the core dock exactly onto cube corners (t=±1) and 6
+  stay interior (t=±1/φ³); nothing breaks. Outside the interval the
+  constant core has 12 members.
+- FACT 2 (transitions): the crossing SET changes only at 20.905°
+  (mirror-golden = 90−arctan φ²), 45°, and 69.095° (golden). The
+  "unnamed transitions at ≈21.4°/≈68.6°" formerly implied by the track
+  marks were GHOST-BAND boundaries (edges of the 0.02-gap near-miss
+  window), not set changes. (This also dissolves Update-3's "conflation
+  mystery" near 69°: there is only one event there, golden itself.)
+Changes: the lock is now core-aware (clamps to the core interval, so the
+complete octahedral→golden drag is allowed under lock with "core 18
+maintained" in the readout; always engages; supersedes the zone-based
+lock — GHOST_FREE_ZONES kept for display); track marks re-taxonomized
+(3 true set-change marks, 2 spike marks "momentary +12", 12 faint
+band-edge marks "not a set change"); mirror-golden added as a 7th named
+tick ("mirror golden 67", certified 67 by congruence); hint text
+rewritten with core-18 persistence as the headline. See G10 (new gates)
+and the G7/G8 rewrites.
+
+The mirror has been synced with all four updates included; see "Mirror
+sync" at the end.
 
 Files touched:
 - Master (edited): scratchpad `depth_explorer.html`
 - Mirror: **synced** (see "Mirror sync" below)
-- Harness (extended): scratchpad `dihedral_slider_test.js` (now G1-G8)
+- Harness (extended): scratchpad `dihedral_slider_test.js` (now G1-G10)
 - `opaque_test.js` (existing regression suite): one mechanical fix, see G5
+- Checkpoint (new, untouched since creation): scratchpad
+  `depth_explorer.pre-highlight-zoom-clip.html` and
+  `dihedral_slider_test.js.pre-highlight-zoom-clip.js` — the state right
+  before Update 3, kept as an explicit rollback point on request.
 
 Not touched: `six_cube_search_results.md`, any validated `.py`/`.cpp` file,
 no artifacts published.
@@ -83,6 +130,64 @@ no artifacts published.
   named points since it also includes the two unnamed ≈21°/≈68.6°
   transitions). A small legend under the track explains the three mark
   colours. See G8.
+- **Follow-up 3, from live feedback**: three pieces.
+  - *Split/merge surface highlighting*: `faceContainsPoint(f,p,tol)` tests
+    whether a point lies near a `buildOpaqueSurface` face's actual
+    **boundary** (perpendicular distance to each polygon edge, not a loose
+    "inside the polygon" test — an earlier centroid+radius version
+    over-matched badly, see "A precision fix mid-build" below).
+    `computeHighlightFaces()` (called from `ensureOpaqueSurface()`, so it
+    stays in sync with `opaqueSurface`/`ghosts`) runs this for every
+    ghost against every opaque face restricted to the two cubes that
+    produced that ghost (`ghosts[i].ka`/`.kb`, and each opaque face's new
+    `srcCube` tag — both purely additive fields, nothing upstream reads
+    the exact key set of either object). Matched faces are outlined in
+    `#ff3b6e` (hot pink, not reused from elsewhere in the palette) with a
+    thicker stroke in `drawOpaqueSurface`, in opaque mode only.
+  - *Zoom*: `camZoom` (default 1, clamped `[0.25,6]`), a `wheel` listener
+    on the cloud canvas (`×1.1`/notch), a live `zoom: NNN%` readout, and a
+    reset button. Threads through the single `S` scale factor in
+    `drawCloud()`, so it uniformly affects opaque/wireframe/points/rings/
+    ghosts/the slice-plane quad — one change, whole view.
+  - *One-sided opaque clip*: reuses the slice view's own plane
+    (`axisBasis(sliceAxis)`, `sliceOff`) — the same plane already drawn as
+    the translucent quad. A `clip` toggle + `flip` mini-button filter
+    `drawOpaqueSurface`'s face list by which side of that plane each
+    face's centroid falls on. Centroid-based, not exact polygon
+    re-clipping (an explicit, stated scope choice — occasionally a piece
+    whose centroid is just inside the kept half will still show a sliver
+    poking across the cut; not a correctness bug, just a softer edge than
+    a true clip would give).
+  See G9. Before any of this, per an explicit "save the current state"
+  request, I checkpointed the pre-Update-3 files (see Files list above).
+
+### A precision fix mid-build (split/merge highlighting)
+
+First version of `faceContainsPoint` used centroid-distance vs. polygon
+"radius" as the in-piece test. Smoke-testing near the octahedral spike
+(ψ=35.264°+0.5°, 12 ghosts present) showed 96 of 144 opaque faces
+highlighted — visually, "most of the compound," which would defeat the
+point of a *highlighting* feature. Investigated before shipping it:
+inspected the actual sorted distances from one ghost's point to its
+candidate faces and found real signal (10 faces within 0.03, then a hard
+jump to 0.56 — a clean, unambiguous separation) but the "radius" test was
+letting in unrelated small slivers that happened to cluster near the same
+region. Root cause: near a spike, *lots* of pieces are physically small
+and close together, so "within polygon radius" is not discriminating.
+Fixed two ways: (1) added `ka`/`kb`/`srcCube` cube-identity tags so only
+faces genuinely belonging to the two cubes in question are even
+considered (a cube-blind check let in ~2/3 of the whole compound by
+construction, since any 2-of-3 cubes already covers that fraction), and
+(2) replaced the loose radius test with actual point-to-polygon-edge
+distance. Re-tested: individual-ghost matches are tight (8-10 faces,
+clean margin to the next-nearest candidate); the aggregate near a spike
+is still large in absolute terms (up to ~2/3 of the local cluster) but
+that's now a *correct* reflection of real transition density — a spike
+like the octahedral point has 12 simultaneous near-miss crossings, not
+one, so a genuinely large chunk of nearby surface is legitimately "in
+flux" there. Verified this isn't over-triggering generally: a clean
+`GHOST_FREE_ZONES` interior point shows 0 ghosts → 0 highlighted faces
+(G9c).
 
 ### Exact-count display: an explicit, conservative choice
 
@@ -104,6 +209,16 @@ transfer rigorously, and the spec's own "67/49/67" list omits it. Flagged
 as an **open decision**: if that reflection claim is confirmed, the mirror
 point's chip should become `{total:67, d:{1:48,2:18,3:1}}` like the other
 two 67s.
+
+**Update-4 revision**: the Postscript 25 addendum settled the ψ→90°−ψ
+congruence question for the GOLDEN pair specifically ("sliding
+35.264→20.905 arrives at a congruent golden compound"), so `FAMILY_NAMED`
+now carries a certified `{total:67}` at mirror-golden (20.905°) too —
+four certified points, 67/49/67/67, and G3 verifies mirror-golden's
+crossing structure (18 interior + 54 corner) is exactly golden's. The
+mirror-OCTAHEDRAL point (54.736°) remains crossing-count-only: the
+addendum's congruence statement covers the golden copies, and the general
+ψ→90°−ψ triple-level congruence is still the open item above.
 
 ## Gate results
 
@@ -298,38 +413,144 @@ gate that checks a rebuilt container's child count after `apply()`/
 `loadPreset()`/`setFamily()` is called more than once in the same
 process, so worth fixing now rather than working around it locally.
 
+### G9 — split/merge highlight, zoom, one-sided opaque clip — **PASS** (14/14)
+All against real DOM handlers / exported functions, no reimplementation
+of the feature under test.
+
+**Highlight**:
+- **G9a**: near a spike (octahedral +0.5°, ghosts present),
+  `highlightFaces` is non-empty and a proper subset of `opaqueSurface`
+  (not "everything" — the precision fix above).
+- **G9b**: every member of `highlightFaces` is a real, distinct element
+  of `opaqueSurface` (checked by injecting an index marker into each
+  `opaqueSurface` element and confirming every highlighted face's marker
+  resolves, with no duplicates).
+- **G9c**: deep inside a `GHOST_FREE_ZONES` interior (0 ghosts),
+  `highlightFaces` is empty.
+
+**Zoom**:
+- **G9d**: `setZoom(2.5)` sets `camZoom` and updates the `zoomv` readout
+  text to `"zoom: 250%"`.
+- **G9e/f**: `setZoom(100)` clamps to `ZOOM_MAX` (6); `setZoom(-5)` clamps
+  to `ZOOM_MIN` (0.25).
+- **G9g/h**: a real `wheel` event dispatched at the (now-functional, see
+  harness fix below) `cloud` canvas stub zooms in on `deltaY<0` and out on
+  `deltaY>0`.
+- **G9i**: the reset button returns `camZoom` to exactly 1.
+
+**One-sided opaque clip** (723 six-cube preset, 3 different
+`(sliceAxis, sliceOff)` combinations including the `(1,1,1)`-diagonal
+axis):
+- **G9j**: `drawOpaqueSurface`'s `clipKeeps` predicate matches an
+  independently-recomputed centroid-side count for every combination.
+- **G9k**: `clipFlip` selects the exact complementary set (`kept +
+  keptFlip === total` in every case — centroids essentially never land
+  exactly on the cut plane for these configs).
+- **G9l**: turning `clipToSlice` off restores the full, unfiltered face
+  count.
+- **G9m/n**: the real `clipOpaque`/`clipFlipBtn` button handlers toggle
+  `clipToSlice`/`clipFlip` correctly.
+
+**Harness fix, found while building G9**: `addEventListener` on the mock
+DOM elements was a no-op (`addEventListener(){}`), which was fine while
+every prior gate only needed `onclick`/`oninput` properties (directly
+settable, no registration needed) — but the new wheel-zoom listener is
+registered via `addEventListener('wheel', ...)`, which the stub silently
+dropped, making it untestable as written. Fixed by giving mock elements a
+real (if minimal) listener map plus a `dispatch(type, evt)` helper
+(`dihedral_slider_test.js`, `makeEl()`) — G9g/h drive the actual
+registered handler, not a re-implementation of "what the wheel handler
+should do."
+
+### G10 — Postscript 25 addendum: core-18 persistence + corrected transitions — **PASS** (7/7)
+Both facts were independently re-verified against the validated segment
+classifier (pair identity via `(i,j,ei,ej)` keys, not just counts) BEFORE
+any code was changed; then the changes were gated:
+- **G10a**: the interior crossing set is IDENTICAL — the same 18
+  `(i,j,ei,ej)` pairs — at ψ = 25/40/50/60/68 (all inside (20.905°,
+  69.095°)).
+- **G10b**: at ψ = 10 and 80 the interior set has 12 members.
+- **G10c**: the core-18 is a strict subset of every spike set (octahedral
+  30, face-diagonal 24, mirror-octahedral 30 = core + extras — the core
+  never opens).
+- **G10d**: corner docking at golden — of the core 18, exactly 6 remain
+  interior with |t| = 1/φ³ = 0.23607 (to 1e-6) and exactly 12 appear
+  among the corner contacts (t=±1); 18/18 accounted for, none broken.
+- **G10e**: at ψ=33 (inside the octahedral ghost band, away from the
+  spike) the set still equals the core-18 — direct proof that ghost-band
+  edges are not set changes (FACT 2).
+- **G10f**: lock engaged at ψ=40 ("core 18"): dragging to 68 passes
+  through unclamped; dragging to 5 clamps at 20.905° (snapping to the
+  mirror-golden tick); dragging to 85 clamps at 69.095° — the complete
+  octahedral→golden drag is available under lock.
+- **G10g**: locked readout shows "core 18 maintained · N ghosts — spike
+  extras in the near-miss window, not core breaks" with the live ghost
+  count (verified at ψ=33, ghosts>0 under lock).
+
+Also in this round, G7/G8/G3/G1g were REWRITTEN (not just extended) since
+the addendum superseded their old semantics: G7b/c/e now test the
+core-aware lock (G7e inverted: lock AT octahedral now ENGAGES with the
+core-18 interval, where the old zone-based lock refused); G8b expects 5
+plain named marks (mirror-golden added); G8c/d assert the corrected mark
+taxonomy (3 set-change marks at 20.905/45/69.095, 2 spike marks
+"momentary +12", 12 faint band marks "not a set change"); G3 now covers 7
+named points (mirror-golden verified 18 interior + 54 corner, exactly
+congruent to golden); G1g expects 7 closed-form degrees. One deliberate
+labeling choice: 45° is grouped with the set-change marks per the
+ledger's own classification, even though the +6 there is also momentary —
+it is the distinguished certified-49 point and both the coordinator's
+instruction and the ledger list it as a set change.
+
 ### G6 — mirror sync — **performed**
 Spec: "Mirror synced only after G1–G5." Final status: G1, G3, G4, G5, G7,
-and G8 all pass outright; G2 passes on (a) and (b), and on a documented,
-justified reinterpretation of (c) (see above), but fails literally as
-worded — a mathematically-forced property of any continuous parametrization
-through configurations with different exact-crossing counts, not a defect,
-independently confirmed via a fine sweep of the real ghost detector. I
-initially held the mirror sync back over this literal (c) reading. Three
-things changed that: (1) the live feedback confirmed the mirror the user
-was actually looking at (`/Users/dmi/carroll/depth_explorer.html`, mtime
-predating this task) still had the **old** 67↔67 slide, whose entire
-interior — not just ~27% of it in narrow bands — sits off the exact
-surface; shipping the new version is a strict improvement no matter how
-G2(c) is read. (2) The G7 follow-up gives a literal, verified answer to
-"a way to slide while maintaining edge concurrences," the substance of
-what G2(c) was trying to guarantee. (3) The G8 follow-up directly
-addresses the second round of live feedback and only adds a passive
-visual overlay (no changes to the exactness-critical code paths). Synced
-scratchpad `depth_explorer.html` → `/Users/dmi/carroll/depth_explorer.html`
-twice (after G7, then again after G8), md5-verified identical both times;
-current mirror includes both follow-ups.
+G8, G9, and G10 all pass outright; G2 passes on (a) and (b), and on a
+documented, justified reinterpretation of (c) (see above), but fails
+literally as worded — a mathematically-forced property of any continuous
+parametrization through configurations with different exact-crossing
+counts, not a defect, independently confirmed via a fine sweep of the
+real ghost detector. I initially held the mirror sync back over this
+literal (c) reading. Three things changed that (detailed in the prior
+sync writeups, still true here): the mirror the user was originally
+looking at had the strictly-worse old slide; G7 gives a literal answer to
+the "maintain concurrences" ask; and each subsequent follow-up has only
+added passive/opt-in UI on top of an already-exact core, not touched the
+exactness-critical code paths (`familyMats`, the crossing/corner
+classifiers). Synced scratchpad `depth_explorer.html` →
+`/Users/dmi/carroll/depth_explorer.html` four times now (after G7, G8,
+G9, and the G10/addendum round), md5-verified identical each time;
+current mirror includes all four follow-ups plus the checkpoint files
+sitting alongside it in scratchpad (not themselves mirrored — they are a
+scratchpad-only rollback aid, see "Checkpoint" below).
+
+## Checkpoint (rollback point, per explicit request)
+
+Before Update 3 (G9: highlight/zoom/clip), per "save the current state so
+we can go back and try a different direction if it doesn't work out":
+- `depth_explorer.pre-highlight-zoom-clip.html` (scratchpad) — byte-for-byte
+  copy of `depth_explorer.html` immediately before any G9 edits (md5
+  `db5367cd693da090badac50c6d4efa3c` at copy time), which was itself
+  already identical to the then-current mirror.
+- `dihedral_slider_test.js.pre-highlight-zoom-clip.js` (scratchpad) — the
+  harness at its last all-green-except-known-G2c state (27 checks, G1-G8).
+To roll back: `cp depth_explorer.pre-highlight-zoom-clip.html
+depth_explorer.html` in scratchpad, re-run
+`node dihedral_slider_test.js.pre-highlight-zoom-clip.js` (or the current
+harness against the restored file) to confirm it's back to the known
+G1-G8 state, then re-sync the mirror the same way as every other round.
+Neither checkpoint file has been touched since creation.
 
 ## Numbers/timings summary
 
-- Harness: `node dihedral_slider_test.js` → 26 passed, 1 failed (the
-  literal G2c reading) on a typical run, ~5-6s wall (mostly the G5a
+- Harness: `node dihedral_slider_test.js` → 51 passed, 1 failed (the
+  literal G2c reading) on a clean run, ~6-7s wall (mostly the G5a
   subprocess call). Confirmed across repeated runs that the *only*
-  deterministic failure is G2c; roughly 1 run in 3 also shows the
-  pre-existing `opaque_test.js` G2-membership flake noted above (one
-  additional failure that run) — unrelated to this task, same root cause
-  (unseeded `Math.random()` in that file's own audit, ~1-2 violations per
-  2000 samples).
+  consistent failure is G2c (deterministic, seeded); some runs also hit
+  the pre-existing `opaque_test.js` G2-membership flake noted in G5
+  (verified again this round with 6 standalone `opaque_test.js` runs:
+  2/6 fail with 2-3 violations out of 2000 unseeded-random samples,
+  identical signature to the pre-existing behavior; no changes were made
+  to `buildOpaqueSurface` or `opaque_test.js` in the G10 round). No new
+  flakiness from any G9/G10 check across repeated runs.
 - Standalone `familyMats` + segment classifier: 25 random ψ × 432
   edge-pairs = 10,800 pair evaluations, negligible time (<50ms).
 - `opaque_test.js` (called from G5a): 708 opaque pieces for the 723
@@ -338,10 +559,24 @@ current mirror includes both follow-ups.
 - Zone bisection (one-off, not part of the harness's steady-state run):
   16 boundary crossings located to ~1e-6° via binary search against the
   real ghost detector, ~60 iterations each, well under a second total.
+- Highlight precision investigation (one-off): traced a single ghost's
+  sorted distances to its ~96 cube-restricted candidate faces — 10 faces
+  within 0.03, then a clean jump to 0.56 for the next-nearest — confirming
+  the edge-proximity tolerance (0.03) has a wide, safe margin.
+- Core-persistence pre-verification (G10 round, one-off before editing):
+  interior key-sets at ψ=25/40/50/60/68 identical (18 pairs); gap-only
+  (no |t| cutoff) exact-contact sets at ψ = 20.9057 / 30 / 68.9 / 69.0 /
+  69.0943 all equal the same 18-key core; the |t|<0.999 interior cutoff
+  reclassifies the 12 docking pairs only within the last ~0.01° before a
+  golden endpoint (classifier artifact, not a break); at exactly golden,
+  the 18 interior pairs = 6 core + 12 golden-specific extras and the 12
+  docked core pairs sit among the 54 corner contacts.
 
 ## Files
 
 - `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/depth_explorer.html` — edited master
-- `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/dihedral_slider_test.js` — harness (G1-G8)
+- `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/dihedral_slider_test.js` — harness (G1-G10)
 - `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/opaque_test.js` — one-line-class fix (dropped dead `setSlide` reference)
+- `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/depth_explorer.pre-highlight-zoom-clip.html` — checkpoint (pre-G9 rollback point)
+- `/private/tmp/claude-502/-Users-dmi-carroll/c4196554-d37e-44f9-8da5-5d7210e1f156/scratchpad/dihedral_slider_test.js.pre-highlight-zoom-clip.js` — checkpoint (pre-G9 harness)
 - `/Users/dmi/carroll/depth_explorer.html` — mirror, **synced**
