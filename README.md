@@ -212,6 +212,8 @@ method. Group by role:
 | `six_cube_search.py` | Shared config helpers (`count_mats`, `random_mats`, rational rotations). | ledger |
 | `qtower.py` | Recursive quadratic-tower field ℚ(√a,√b) with exact recursive sign; verifier for wall points. | `MULTIWALL_SPEC.md` |
 | `slide3_q2.py` | ℚ(√2) field + counter (octahedral 45° endpoint). | `SLIDE3_SPEC_V2.md` |
+| `q3_count.py` | ℚ(√3) field + counter, a field-constant clone of `slide3_q2.py`; counts Pythagorean-angle dihedral-family members exactly. | `DIHEDRAL_FAMILY_NEXT.md` |
+| `q6_count.py` | ℚ(√6) field + counter, same clone pattern; counts the ψ=45° face-diagonal family point (49 = {30,18,1}). | `DIHEDRAL_FAMILY_NEXT.md` |
 | `golden_rotations.py` | `rot_from_quat`: integer quaternion → exact rational rotation matrix (common-scale, no per-component denominators). | ledger |
 
 ### Search & campaign drivers
@@ -230,6 +232,16 @@ method. Group by role:
 | `slide3_search.py` | Quaternion/overlay library for the slide3 drivers. | `SLIDE3_SPEC_V2.md` |
 | `task_a_certify635.py` | Certifies 635 a local max (all ±1..±4 neighbor moves). | ledger (P5) |
 | `task_c_deep_hillclimb.py` | Deep multi-restart climb (confirmed 635 plateau). | ledger (P5) |
+
+### Dihedral family (n>3 generalization)
+| file | purpose | principles |
+|---|---|---|
+| `nfamily_common.py` | Exact core: closed-form `Rel(Δ,ψ)` Rodrigues rotation (relative rotation between any two family members, depends only on their phase difference and ψ), square-root-free integer-quaternion extraction, exact edge-crossing counter, the family-membership axis test used to analyze records. | `nfamily_report.md` |
+| `nfamily_gates.py` | The three validation gates (exact round-trip, two-engine agreement, record reproduction) for the n-cube family machinery. | `nfamily_report.md` |
+| `nfamily_sweep.py` | Sweep driver (chains, random phase tuples, neighbor-hillclimb rounds) that produced the n=4/5/6 family maxima (175/335/615). | `nfamily_report.md` |
+| `nfamily_q3_records.py` | Checks every pair of every record (183/393/723) and the n=3 octahedral witness for family membership (183: 6/6 pairs, 393: 10/10, 723: 12/15). | `nfamily_report.md` |
+| `dihedral_scratch/` | Exploration and verification scripts from the dihedral-family work: the original numerical discovery path, persistence/docking checks, the pair-curve identity, the corner-handoff linker and gates (`handoff_*.py`), and more. Read-only exploration history, not a maintained library. | `DIHEDRAL_FAMILY_NEXT.md`, `HANDOFF_SPEC.md` |
+| `glue_search.py` | **In progress.** Two-clique gluing search (does gluing dihedral-family cliques on different axes beat 723?). No report yet — see `GLUE_SPEC.md`. | `GLUE_SPEC.md` |
 
 ### Analysis & checks
 | file | purpose | principles |
@@ -261,6 +273,8 @@ and `by_depth` histogram (most also carry `per_label`).
 - `hillclimb_log.jsonl` — Phase B climbs.
 - `golden_search.jsonl`, `multiwall_search.jsonl`, `slide3_search.jsonl` — the three field/wall search programs.
 - `campaign_shard_*.jsonl`, `campaign_n7_shard_*.jsonl` — transient per-worker shards (merged into the campaign files).
+- `nfamily_results.jsonl` — the n=4/5/6 dihedral-family sweep (9,218 exact configs: chains, random phase tuples, hill-climb rounds).
+- `nfamily_q3_records.json` — the pairwise family-membership analysis of the 183/393/723 records and the n=3 octahedral witness.
 
 ## Conventions
 

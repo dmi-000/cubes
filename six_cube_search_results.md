@@ -2010,3 +2010,55 @@ Identified as provable-next with real work: certified staircase (Sturm),
 core-18 segment bounds with docking values +-1, +-1/phi^3, the
 pair-curve identity, and (the prize, unchanged) the two lemmas of
 Postscript 23 for max(3)=67.
+
+## Postscript 27: the gluing search — records still unbeaten (deficit exactly 8 at every n), and the RATIONAL-TANGENT discovery (with a correction to the agent's clique inventory)
+
+GLUE_SPEC.md executed (glue_report.md; gates G1/G2/G3 all passed;
+319,141 exact configs; every near-record hit re-verified with the Python
+oracle). Headline numbers, all two-engine verified:
+
+| n | best glued (sizes)         | record | deficit |
+|---|----------------------------|--------|---------|
+| 4 | 175 (no gain over single)  | 183    | -8      |
+| 5 | 385 (3+2)                  | 393    | -8      |
+| 6 | 715 (3+3)                  | 723    | -8      |
+
+Gluing recovers 50 of the single-axis deficit at n=5 and 100 at n=6 —
+converging to a common floor of EXACTLY 8 below the record at every n.
+Nothing beat or tied a record; the record-claim protocol never fired.
+
+**Q0 verdict**: no record is a single-axis family member (full-record
+axis intersections exactly empty). Postscript 26 stands.
+
+**CORRECTION to the agent's sub-clique inventory** (main session,
+exhaustive exact re-derivation over all subsets x all 3^k face-axis
+choices, Fractions only): the agent claimed three overlapping 4-of-5
+cliques in 393; in fact there is EXACTLY ONE single-axis 4-clique in
+393: cubes {1,2,3,4}, integer axis (3,2,0), tan psi = 2/3 (hyp^2 = 13,
+so sin/cos in Q(sqrt13)) — verified: each cube's local axis is a signed
+permutation of (2,3,0), exactly. The other two claimed cliques fail
+exact verification (their cubes lack the zero component / 2:3 ratio).
+183's inventory, corrected and exhaustive: NO 4-clique, and three
+3-cliques all on the SAME cube triple {0,2,3} with three DIFFERENT
+integer axes — (2,-3,0) at tan 2/3 (sqrt13), (3,5,0) at tan 3/5
+(sqrt34), (5,2,0) at tan 2/5 (sqrt29): a triply-resonant family triple.
+393 has no 5-clique; 183 no 4-clique.
+
+**The discovery that survives and sharpens**: the records' family
+structure lives at RATIONAL-TANGENT, IRRATIONAL-SINE tilts
+(tan psi = 2/3, 2/5, 3/5; hyp^2 = 13, 29, 34 non-square). A Pythagorean
+(rational-sine) sweep can NEVER land on these at any resolution — the
+Postscript 26 sweep searched the wrong rational locus. Yet these
+configurations ARE integer-quaternion (the records prove it): a pair at
+rational tan psi = q/p has rational Rel iff cos Delta is rational and
+sin Delta is in sqrt(d)*Q with d = p^2+q^2 — rational points on the
+conic c^2 + d s'^2 = 1, parametrizable by rational slope. So the
+C++-searchable single-axis locus extends far beyond Pythagorean-x-
+Pythagorean, and the natural next sweep is over rational-tangent tilts
+with conic-coupled phase steps — the slice the records actually live in.
+The exactly-8 floor at three consecutive n is either a coincidence or a
+structural constant of the gluing space; the rational-tangent sweep
+should decide which.
+
+(Also: the n=4 resonance solve (RESONANCE4_SPEC.md) hit its session
+limit mid-run; to be resumed.)

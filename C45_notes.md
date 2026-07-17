@@ -341,3 +341,124 @@ unique irrational level of the tower.
    through the octahedral point (gradient nonvanishing verified).
 4. max(3) = 67 itself: still the two lemmas of Postscript 23 (trivalent
    census + parasite exclusion) — unchanged, the real prize.
+
+## 13. PROOF PLAN: max(3) = 67 — the complete lemma tree
+
+Target: for any three unit cubes with common center, the number of bounded
+regions is at most 67 = 1 + 18 + 48, attained (certified twice over) by
+the octahedral and golden compounds. Bounds are per-layer:
+depth-3 <= 1, depth-2 <= 18, depth-1 <= 48.
+
+Standing objects. All cubes contain the center O. For a direction u on
+S^2, r_i(u) = radial reach of cube i (piecewise 1/|n.u| over its 6 face
+sectors). BOTTOM diagram: b = min_i r_i (boundary of the triple
+intersection); Theorem A (PROVED, sect. 10) = local maxima of b occur
+only at face-center directions of the binding cube (<= 6n directions).
+TOP diagram: t = max_i r_i, with swap curves r_i = r_j; every smooth arc
+of a swap curve is a GREAT-CIRCLE arc (r_i = r_j with active faces a, b
+iff |n_a.u| = |n_b.u| iff u is perpendicular to n_a - n_b or n_a + n_b).
+
+### The tree (status in brackets)
+
+L0. depth-3 <= 1. The intersection of convex bodies is convex, hence
+    connected. [FREE — write down]
+
+FIB (shared fibration lemma). For star-shaped-along-rays membership,
+    depth cells biject with components of their direction-sphere sets:
+    (a) depth-2 cells missing cube C <-> components of
+        S_C = {u : r_C < min others};
+    (b) depth-1 cells of cube i <-> components of
+        T_i = {u : r_i > max others}.
+    Proof: each radial fiber is a single open interval (cubes are convex
+    and contain O), varying continuously; a component of the spherical
+    set sweeps a connected 3-D cell, and distinct components give
+    disjoint cells. Handle tie boundaries by openness of the sets.
+    [ROUTINE — needs careful write-up, no research risk]
+
+Cluster 1: depth-2 <= 18.
+L1.a (anchoring). Every component U of S_C on whose interior the
+    envelope b equals r_C attains sup_U r_C either at an interior local
+    max of b — which by THEOREM A is a face direction of C, of which
+    there are 6, each in at most one component — or only on the tie
+    boundary of U. [FOLLOWS from Theorem A — write down]
+L1.b (NO PARASITES — the gap). No component of S_C attains its
+    r_C-supremum only on its tie boundary. Equivalently: a constrained
+    maximum of r_C along a tie curve r_C = r_j that is a max for the
+    whole component forces an interior face-direction max. Routes:
+    (i) extend Theorem A's sandwich argument to the two-function tie:
+        at such a boundary max both active |cos| functions are locally
+        maximized along the tie tangent; push the same rigidity;
+    (ii) n=2 FIRST (single tie family, few cases) — note this lemma is
+        the ONLY thing standing between us and max(2) = 13;
+    (iii) fallback F1: certified interval arithmetic over the compact
+        sphere — verify "no local max of b outside small neighborhoods
+        of the 6n face directions" on the finitely many smooth pieces
+        (each r_i rational-quadratic per sector). This is a
+        semialgebraic verification MUCH smaller than CAD (which sect. 11
+        showed infeasible); it would give a computer-certified L1 per
+        configuration CLASS, and a fully general one if done in the
+        9-normal parameter space. [OPEN — critical path #1]
+Count: 3 choices of missing cube x 6 face directions = 18. QED cluster.
+
+Cluster 2: depth-1 <= 48.
+L2.a (top anchor — the easy dual of Theorem A). Local maxima of
+    t = max_i r_i occur only at corner directions of the winning cube:
+    if t is locally maximized at u0 with winner i, then r_i <= t <=
+    t(u0) = r_i(u0) locally, so r_i is locally maximized, and a single
+    cube's reach has local maxima exactly at its 8 corner directions.
+    <= 24 anchored faces of the top diagram. [FREE — 3 lines, write down]
+L2.b (Euler bookkeeping). The top-1 diagram is a spherical graph G
+    (vertices: triple points r_A=r_B=r_C and swap-curve kinks where an
+    active face changes; edges: great-circle swap arcs). For cellularly
+    embedded G: F = 2 + sum_v (deg_v/2 - 1). Faces of the diagram are
+    the components of the T_i. Obligations: (1) kink vertices are
+    degree-2 and contribute 0 to the sum — discountable; (2) non-disk
+    faces (annuli) and disconnected G: prove impossible at n=3, or use
+    the inequality F <= 2 + sum(deg/2 - 1) + correction and show the
+    correction is favorable. [FORMALITY with one real obligation
+    (annuli) — medium]
+L2.c (CENSUS — the gap). The triple-point budget: at most 46 unordered
+    active-face triples (f_A, f_B, f_C) are feasible, each contributing
+    at most 2 sphere points (two great circles meet in 2 antipodal-ish
+    points; the third condition is then determined or empty), giving
+    V-weight <= 92 and hence F <= 2 + 92/2 = 48. The feasibility
+    classification is the Platonic-elimination step: each cube
+    contributes an orthonormal triad of normals, and the joint
+    conditions |n_a.u| = |n_b.u| = |n_c.u| = t^-1 with each face ACTIVE
+    (u in its sector) and WINNING kill most of the 6x6x6 raw triples.
+    Sub-tasks:
+      (c1) [DELEGABLE DATA] extract the 92 triple points and their
+           active triples from both 67 witnesses in exact arithmetic;
+           tabulate which of the raw triples occur — the target list
+           for the classification;
+      (c2) prove the classification (finite, 9 normals, hand-checkable
+           per P23);
+      (c3) DEGENERACY-ROBUST form: state the budget as
+           sum_v (deg_v - 2) <= 92 - 2*2 ... i.e. weight-preserving
+           under vertex merging (golden's corner coincidences merge
+           trivalent vertices without losing weight), so the bound
+           survives at the degenerate attainers. [OPEN — critical
+           path #2, but mechanical-plus-insight; the shape is exactly
+           the five-Platonic-solids proof]
+Count: F <= 2 + 92/2 = 48. QED cluster.
+
+ASSEMBLY. bounded = d1 + d2 + d3 <= 48 + 18 + 1 = 67; the golden and
+octahedral compounds attain 67 (two-engine certified); hence
+max(3) = 67. Bonus: L1.b at n=2 alone gives max(2) = 1 + 12 = 13.
+Corollary (with Theorem R, sect. 12): if additionally the two attainers
+are the unique maximizers up to congruence, the n=3 maximum requires
+irrational coordinates.
+
+### Attack order (effort estimates)
+1. Write the free lemmas L0, FIB, L1.a, L2.a (+ great-circle fact):
+   ~3 pages, zero research risk. [days]
+2. L1.b at n=2 -> FIRST COMPLETE MAXIMUM THEOREM (13). [the key push]
+3. Port L1.b to n=3 (ties involve two other cubes; finitely more cases).
+4. Census: delegate (c1) data extraction now; then (c2) classification;
+   then (c3) robust form. [parallel with 2-3]
+5. Euler formalities incl. the annulus obligation.
+6. Assemble into PROOF.md; independent exact-arithmetic verification of
+   every finite classification by a second engine/agent.
+Fallback for 2/3 if the sandwich extension resists: F1 certified
+interval verification (rigorous, computer-assisted, and honest about
+being so).
