@@ -11,8 +11,33 @@ records' family structure actually lives, and which every prior
 `certify_six.exact_count_config` for all gate/record checks. Never
 edits `six_cube_search_results.md` or any validated file.
 
-**Record-claim status: no flag.** (This line is updated FIRST if any
-config ever counts ≥ a record; see "Record protocol" below.)
+**Record-claim status: FLAG — record-EQUAL, non-congruent structures
+found (no record BEATEN anywhere in this campaign).** Tier 3 (393's
+five ledger cubes fixed + swept 6th integer quat, ‖q‖² ≤ 600) produced
+**28 distinct 6th-cube completions all counting exactly 723**, every
+one immediately re-verified with the Python oracle
+(`certify_six.exact_count_config` agrees exactly on total and depth in
+all 28 cases). They fall into **4 distinct depth profiles, 7 hits
+each**:
+
+| d1 | d2 | d3 | d4 | d5 | d6 | note |
+|----|----|----|----|----|----|------|
+| 210 | 216 | 164 | 96 | 36 | 1 | = ledger 723 profile (incl. the known (5,2,2,2)) |
+| 210 | 218 | 160 | 98 | 36 | 1 | **non-congruent tie** |
+| 210 | 220 | 156 | 100 | 36 | 1 | **non-congruent tie** |
+| 210 | 222 | 152 | 102 | 36 | 1 | **non-congruent tie** |
+
+A different depth histogram proves non-congruence outright (congruent
+compounds have identical histograms). Example non-ledger-profile 6th
+quats: (11,11,10,11) (norm 463 — not any cube-symmetry multiple of
+(5,2,2,2), norm 37), (3,−4,−3,3), (5,−5,5,4). Conservation across all
+four profiles: d1, d5, d6 fixed at (210, 36, 1) and **d2+d3+d4 = 476
+constant**, with (d2,d4) stepping in lockstep (+2,+2) and d3 paying −4
+— the Postscript-11-addendum shallow-tail tradeoff appearing as an
+exact three-layer exchange inside a record plateau. Raw hits:
+`rattan_results.jsonl`, kind `393five+6th-intquat`, total 723. Main
+session records any ledger postscript; this file never edits the
+ledger.
 
 ## Gates — ALL PASS (run 2026-07-17, `rattan_sweep.py --gates-only`)
 
@@ -160,3 +185,72 @@ Everything below this line is appended by the running sweep.
 - Chain tier interim bests: n=4: 175, n=6: 671 (both tan ψ = 2/3
   chains) — chains alone don't reach the records, as expected.
 
+## Run 1 (tier-1/2 pilot + FULL tier-3 targeted completion) — complete
+
+17,080 exact configs in `rattan_results.jsonl` (chains: 5 tilts x
+Farey-12; random: 50/n pilot; tier 3 at full spec scale: 4,000 int-quat
+completions per record base + full Farey-40 on-axis sweeps). Summary:
+
+| n | best | record | deficit | how |
+|---|------|--------|---------|-----|
+| 4 | **183 = record (re-find)** | 183 | 0 | 183's triple {0,2,3} + 4th int quat |
+| 5 | **387** | 393 | **−6** | 393's 4-clique + 5th on-axis conic phase |
+| 6 | **723 = record (28 ways, 4 profiles)** | 723 | 0 | 393's five + 6th int quat |
+
+- **n=4 re-find**: completing 183's own triple {0,2,3} with a swept 4th
+  integer quat re-found the record: 4th cube (1,−1,−1,4), total 183,
+  ledger depth profile {92,66,24,1}, oracle-confirmed. Main session
+  verified congruence to the ledger 183: (1,−1,−1,4) right-multiplied
+  by cube symmetry (0,1,−1,0) equals the ledger's (0,5,3,2) — a
+  RE-FIND, not a new structure (recorded in ledger Postscript 29).
+- **n=5 387** (deficit −6, breaking the glue campaign's "exactly −8"
+  floor): oracle-verified by main session, recorded in Postscript 29.
+  The 4-clique base is EXACT (G1's t-values); the 5th cube sits on the
+  same axis at any t₅ in an open plateau [≈8/39, ≈3/14].
+- **n=6 explicit re-find check**: 393's five + the known (5,2,2,2) 
+  counts 723 with the exact ledger profile — CONFIRMED in-run.
+- **The 723 tie plateau**: see flag at top. 28/4,000 random 6th-cube
+  int quats tie the record exactly; none beat it. The completion
+  space's summit is a plateau at exactly 723 with at least 4
+  non-congruent realizations, and the three non-ledger profiles obey
+  the exact exchange (d2,d3,d4) = (216+2k, 164−4k, 96+2k), k=0..3.
+- 183-triple on-axis 4th-cube sweeps (all three resonant axes, full
+  Farey-40) topped out below the int-quat completions — the 4th record
+  cube needs to be off-axis, exactly like 393's cube 0 and 723's cube 5.
+
+### P1: exact t5 plateau at 387: ['3/14', '4/19', '5/24', '6/29', '7/33', '7/34', '8/39'] (checked all Farey-40 in [8/39, 3/14])
+
+
+## Phase 2 (targeted completions, seed 777001) -- started 2026-07-17 07:16
+
+### P1: exact t5 plateau at 387: ['3/14', '4/19', '5/24', '6/29', '7/33', '7/34', '8/39'] (checked all Farey-40 in [8/39, 3/14])
+
+### The 723 completion plateau, resolved into cube positions
+
+Exact cube-symmetry classification (M6·S == M6′ over the 24-element
+group) of the 28 tie hits: they represent **25 distinct 6th-cube
+positions** (plus the ledger's own (5,2,2,2) = 26), none of them a
+cube-symmetry copy of (5,2,2,2) — even the 6 random hits with the
+LEDGER depth profile are genuinely different positions with the same
+histogram. Breakdown: ledger profile {216,164,96}: 5 new positions;
+{218,160,98}: 7; {220,156,100}: 7; {222,152,102}: 6. The 393-record's
+completion summit is a broad plateau of at least 26 distinct positions
+all landing on exactly 723, in at least 4 depth-histogram classes —
+strong evidence the 723 value itself is a structural ceiling of this
+completion space rather than an isolated optimum (cf. the exactly-−8
+deficit story: whatever bounds the glued/family configs at record−8
+appears here as a hard flat top at the record for off-axis completion
+of the record's own 5-base).
+
+phase2 progress 50/240 shards, best: n=4:183, n=5:387, n=6:719
+phase2 progress 100/240 shards, best: n=4:183, n=5:387, n=6:719
+phase2 progress 150/240 shards, best: n=4:183, n=5:387, n=6:719
+phase2 progress 200/240 shards, best: n=4:183, n=5:387, n=6:719
+
+### Phase 2 final
+
+| n | best (phase 2) | record |
+|---|-----------------|--------|
+| 4 | 183 | 183 |
+| 5 | 387 | 393 |
+| 6 | 721 | 723 |

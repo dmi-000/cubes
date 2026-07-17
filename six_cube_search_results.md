@@ -2062,3 +2062,147 @@ should decide which.
 
 (Also: the n=4 resonance solve (RESONANCE4_SPEC.md) hit its session
 limit mid-run; to be resumed.)
+
+## Postscript 28: the n=4 resonance solve — cross-class alignment is count-NEGATIVE at n=4; best resonance 151, and it is secretly RATIONAL
+
+RESONANCE4_SPEC.md executed (resonance4_report.md, resumed after a
+session-limit interruption; resonance4_solve.py/.wl,
+resonance4_results.jsonl). Gates R1 and R2 passed; R1 additionally
+re-verified independently by the main session (sympy: both polynomials
+vanish exactly at the known n=3 resonances).
+
+**The cross-class coplanarity polynomials** (Rel gauge, cD=cos Delta,
+sD=sin Delta, cP=cos psi, sP=sin psi; representative sign-variants):
+
+    g_xy = 2 cD sP^2 - cD + cP sD - sD sP - 2 sP^2 + 1
+    g_yz = -cD cP sP + cD sP^2 + cD - cP sD + cP sP - sP^2 + 1
+    g_xz = cD cP - cD sP - cP - sD + sP     (sP=0 factor dropped)
+
+Each type has 8 sign-variant curves (16 label pairs in antipodal
+pairs); swapping the cubes is sD -> -sD, so ORIENTATION matters — the
+n=3 octahedral resonance is itself mixed-orientation (Deltas
+120,120,240). R1: substituting Delta=120 deg gives psi=arcsin(1/sqrt3)
+as an exact root of g_yz and psi=arctan(phi^2) of g_xz.
+
+**Systems solved**: 90 uniform k=4 systems (46 exact, 44 Groebner
+timeouts, concentrated in the heavy xy class) + all 48 targeted
+mixed-orientation triangle+1 systems. 385 unique candidate points. No
+non-degenerate resonance has rational PARAMETERS; 63 candidates in
+single quadratic fields — ALL exactly counted via a generic Q(sqrt d)
+field engine (factory clone of the validated slide3_q2.py); ~160
+degree-4-nested candidates reported open with minimal polynomials, per
+spec's do-not-approximate rule.
+
+**Verdict: every exactly-counted n=4 family resonance is
+count-negative.** Best: 151 = {68,58,24,1} at tan psi = 2, theta =
+(-131.81, 96.38, -35.43) deg, pairs {12,13,23,24} on the yz curve —
+vs 175 (family plateau), 183 (record), 195 (cap-sum). The n=3 "+12
+spike" mechanism does NOT carry to n=4 in any quadratic field: extra
+coincidences merge regions, as at n=3's face-diagonal 49 < 55. Deep
+structure conserved pointwise: every non-degenerate resonance counted
+has d4=1 and d3=24 exactly.
+
+**Main-session observation that unifies the two campaigns**: the 151
+witness's parameters are irrational (Q(sqrt5)) but its CONFIGURATION is
+rational — sin(theta_k) in sqrt5*Q times axis components in Q/sqrt5
+cancels — and it reduces to tiny integer quaternions
+
+    1,0,0,0; -1,2,1,0; 2,2,1,0; 7,-2,-1,0     (axis (2,1,0))
+
+i.e. it sits exactly on Postscript 27's rational-tangent conic
+(c^2 + 5 s'^2 = 1; cube 2's point is c=-2/3, s'=-1/3). Third-engine
+verification: the C++ engine on those quats gives 151 = {68,58,24,1},
+agreeing with both of the agent's engines. So the algebraically-found
+resonances at rational-tangent tilts ARE inside the rattan sweep space
+— the resonance solve and the conic sweep are probing the same locus
+from two directions, and at n=4 that locus tops out below the plateau.
+
+**Most interesting open point**: a pure chain theta_k = k*a
+(a ~ 200.891 deg) at tan psi = (1+sqrt13)/6 — the record's own tilt
+field Q(sqrt13) — with all four pairs {12,23,34,14} on one curve;
+degree-4 nested coordinates, needs a certified nested-radical sign
+oracle to count. The corner-contact (|t|=1) resonance sweep was not
+reached.
+
+## Postscript 29: the rational-tangent sweep (interim) — the "exactly 8" floor is BROKEN at n=5: deficit now 6
+
+RATTAN_SPEC.md in flight (rattan_report.md; rattan_sweep.py;
+rattan_results.jsonl, 17,080 configs at smoke scale; the implementing
+agent hit its session limit before launching the full sweep — interim
+results below are already two-engine verified and recorded now).
+
+**All four gates pass.** G0: exact conic parametrization
+(c,s') = ((1-d t^2)/(1+d t^2), 2t/(1+d t^2)) with round-trip and
+group-law closure t1 (+) t2 = (t1+t2)/(1 - d t1 t2), all Fractions.
+G1 (the sharp gate): 393's own 4-clique {1,2,3,4} is exactly a conic
+chain on axis (3,2,0), tan psi = 2/3, d=13, at t-values
+
+    t = 0 (base = clique cube 2), -5/6, 3/4, -1/5
+
+with the three non-base pairs matching the conic group law with NO
+further search (e.g. pair (1,3): c=29/133, s'=36/133 both ways). The
+sweep space provably contains the record's clique. G2: two-engine
+agreement on fresh rational-tangent configs at n=4 and n=5. G3: 723
+reproduced from the ledger quats.
+
+**Bonus**: 183's triply-resonant triple {0,2,3} independently
+re-derived on all three axes — and in ALL three parametrizations the
+two non-base cubes sit at OPPOSITE conic phases (t and -t): the record
+triple is an antipodal pair about cube 0 three ways simultaneously.
+
+**Headline: the deficit floor is not 8.** Taking 393's exact 4-clique
+as fixed base and adding a 5th cube ON the same axis at conic phase
+t5 = 3/14 (a plateau of t5 in [~8/39, ~3/14] gives the same count):
+
+    n=5: 387 = {148,130,78,30,1}
+    quats 1,0,0,0; -6,-10,15,0; 4,-6,9,0; 5,2,-3,0; 14,-6,9,0
+
+Two-engine verified (C++ engine in the sweep; Python oracle re-run
+independently by the main session: exact agreement). 387 > 385 (the
+glue campaign's best): at n=5 the deficit to the record is now 6, so
+the "exactly 8 at every n" pattern of Postscript 27 was a coincidence
+of the glue search space, not a structural constant. Note the winning
+config is FIVE cubes on ONE axis — a single-axis 5-chain-with-
+non-uniform-phases, something the glue campaign's 3+2 split could not
+represent.
+
+Other interim facts: 393's clique alone counts 179 at n=4 (only -4);
+the reconstructed conic chain reproduces the literal ledger clique's
+count exactly (end-to-end gauge validation). The tier-3 "183 triple +
+4th integer quat" search re-found the 183 RECORD itself — main session
+check: the found 4th cube (1,-1,-1,4) right-multiplied by the cube
+symmetry (0,1,-1,0) is exactly the ledger's (0,5,3,2). 723's 6th cube
+(5,2,2,2) is NOT in family position w.r.t. the 4-clique (off-axis,
+like 393's cube 0). Chains alone top out at 175 (n=4) / 671 (n=6).
+
+Full sweep (dense tilt menu, tier-4 hill-climbs, n=6 completions of
+the new 387) still to run — the agent resumes after its limit resets.
+
+### Postscript 29 addendum: 723 is a PLATEAU with (at least) four non-congruent realizations — an exact three-layer exchange law inside the summit
+
+Tier 3 at full scale (393's five ledger cubes fixed + 4,000 random 6th
+integer quats, ||q||^2 <= 600): 27 completions tie 723 EXACTLY (28
+counting the known (5,2,2,2)), none beat it. They fall into exactly
+FOUR depth profiles (a different histogram proves non-congruence
+outright):
+
+    d2, d3, d4 = 216+2k, 164-4k, 96+2k    for k = 0,1,2,3
+    d1=210, d5=36, d6=1 fixed;  d2+d3+d4 = 476 constant
+
+k=0 is the ledger profile; k=1,2,3 are genuinely new compounds with
+the same total. Example 6th quats: (11,11,10,11) k=2 (norm 463, not a
+symmetry multiple of (5,2,2,2), norm 37), (3,-4,-3,3), (5,-5,5,4).
+Every hit oracle-verified by the agent; main session independently
+re-ran (11,11,10,11) through the C++ engine: 723 = {210,220,156,100,
+36,1} confirmed. So the n=6 record is not an isolated configuration
+but a summit plateau on which (d2,d3,d4) trade at fixed exchange rate
+(+2,-4,+2) — the Postscript-11-addendum shallow-tail conservation
+appearing exactly, at the top. The record VALUE 723 stands unbeaten;
+"the 723 compound" is now four compounds (at least).
+
+Also from run 1 at full tier-3 scale: 183-triple on-axis 4th-cube
+sweeps (all three resonant axes, full Farey-40) top out below the
+integer-quat completions — the 4th record cube must be off-axis,
+exactly like 393's cube 0 and 723's cube 5. Phase 2 (71,510 more
+configs: dense tilt menu + 387-completions + hill-climbs) has finished
+computing; bests unchanged so far (183/387/723); agent summary pending.
