@@ -2175,6 +2175,114 @@ symmetry (0,1,-1,0) is exactly the ledger's (0,5,3,2). 723's 6th cube
 (5,2,2,2) is NOT in family position w.r.t. the 4-clique (off-axis,
 like 393's cube 0). Chains alone top out at 175 (n=4) / 671 (n=6).
 
+## Postscript 30: the event catalogue — the "+-1 per coincidence" law dies, a depth-conservation law survives 12/12, and a correction to Postscript 25 addendum 3
+
+EVENTS_SPEC.md executed (events_report.md, events_extract.py,
+events.jsonl; all gates passed; new field-agnostic coincidence census
+pair_census validated against nfamily_common on 16 pairs and against
+the golden 18+54/6 census from an independently hand-derived matrix).
+Twelve exact events tabulated across n=3 (dihedral family), n=4
+(175/151/143), n=5 (387-plateau edges).
+
+**The conjectured "+-1 region per coincidence" law is NOT general.**
+It is EXACT (+/-1.000) precisely for the pure-interior-crossing n=3
+events: octahedral spike +12 count on +12 crossings, its mirror, and
+the face-diagonal -6 on +6. Everywhere else it bends or breaks:
+
+- golden spike: +12 regions from 6 physical vertex-vertex contacts =
+  +2.000/point — the SAME total 67 reached by a different mechanism at
+  a different exchange rate than the octahedral 67;
+- n=4, 175 -> 151: coincidences INCREASE (+2 interior) while the count
+  DROPS 24 — falsified in sign, not just magnitude;
+- n=5 plateau edges: identical coincidence deltas (+-2 corner points)
+  give -2/point at one edge and -4/point at the other, depending only
+  on WHICH cube pair touches;
+- band-edge walls (~9.5 deg and mirror): count jumps +12 with the
+  exact crossing census FROZEN (certified zero Fraction difference) —
+  a genuine third event class: pure diagram-combinatorial
+  reorganization with no coincidence change at all.
+
+**The law that survives every event (12/12): depth conservation.** The
+entire count delta of every event lands in d1 (occasionally d1+d2);
+every deeper layer is bit-for-bit unchanged — creates, merges,
+interior and corner mechanisms, no-coincidence walls, n=3/4/5 alike.
+Postscript 17's "deep structure conserved" is now a pointwise,
+per-event exact statement.
+
+**CORRECTION to Postscript 25 addendum 3** (verified independently by
+the main session with q3_count at psi ~ 0.23/2.29/7.6 deg): the table
+row "psi in (0, ~9.6): 25 = {12,12,1}" is wrong as an interval. 25
+holds ONLY at the isolated point psi=0 (and 90 by mirror); generic
+psi arbitrarily close to 0 gives 31 = {18,12,1}: the 31-plateau spans
+all of (0, ~9.5), and the 43-plateau (~9.5, 20.905). True structure
+below the golden-mirror:
+{25 at psi=0 only} | 31 on (0,~9.5) | 43 on (~9.5, 20.905) | 67 at
+20.905 | 55 central band. psi=0 is itself a NEGATIVE mega-spike:
+crossings jump 12 -> 48 while the count drops 6 (ratio -0.167) — the
+most coincidence-rich, count-poorest event known; near-total geometric
+redundancy at the fully degenerate shared-axis point.
+
+Consequence for the theory program: a "create-vs-merge criterion"
+cannot be a function of the coincidence census alone — it must see
+the d1-layer combinatorics (top-diagram cell structure), which is
+exactly what the census extraction (CENSUS_SPEC.md, in flight) is
+digging out. The exact algebraic location of the ~9.5 deg wall is
+still unpinned (bracketed (7.628, 9.527) deg; needs a resultant on
+the top-diagram cell-change condition — natural follow-up).
+
+## Postscript 31: the census extraction — the 92 budget is EXACT at both 67 witnesses, its accounting corrected, and the coincidences ARE top-diagram vertices
+
+CENSUS_SPEC.md executed (census_report.md, census_extract.py,
+census_data.json; main session re-verified the Euler arithmetic from
+the raw V/E and the weight decompositions below). Gates: G1 both
+witnesses reproduce 67 = {48,18,1} (slide3_q2 for octahedral Q(sqrt2);
+certify_six oracle for golden Q(sqrt5), matrix hand-derived, S^3=I
+exact); G2 the sharp gate — exact-arithmetic diagram graphs give
+TOP-1 Euler faces F = 48 and BOTTOM F = 18 at BOTH witnesses (W1:
+V=62, E=108; W2: V=56, E=102; bottoms V=32, E=48); G3 antipodal
+symmetry; plus a generic rational cross-validation (37-config: top
+18, bottom 18, oracle-matched).
+
+**The census, correcting sect. 13's projected accounting.** The
+projected budget "46 triples x 2 = 92, F <= 2 + 92/2 = 48" is right
+in TOTAL WEIGHT and wrong in attribution:
+
+- Total top-diagram weight Sum_v(deg_v - 2) = 92 EXACTLY at both
+  witnesses — the d1 = 48 bound is Euler-TIGHT (F = 2 + 92/2).
+- Rank-triple points carry only 32 units: exactly 32 triple points,
+  ALL trivalent, at both witnesses = 16 occurring active-face triples
+  (6 C3-orbits) x 2 antipodal points. No merged triple points.
+- The other 60 units sit on SAME-PAIR double-tie vertices, and these
+  are precisely the coincidence census: W1 = its 30 interior edge-edge
+  crossings, each a degree-4 vertex (weight 2, 30x2 = 60); W2 = its
+  18 interior crossings (deg 4) + 6 physical corner contacts (deg 6,
+  weight 4): 36 + 24 = 60. Two different degenerations, same 92.
+- Sect. 13 L2.b's assumption "kinks are degree-2, discountable" is
+  FALSE at both attainers: the (c2)/(c3) classification must budget
+  same-pair multi-tie vertices alongside rank triples. The corrected
+  target statement: Sum_v(deg_v - 2) <= 92 over triple points AND
+  pair-contact vertices, with equality at both witnesses.
+- BOTTOM diagrams of both witnesses are fully generic: V=32, E=48,
+  F=18, zero degenerate vertices — exactly the V_1(3) = 12n-4 = 32
+  census — despite the heavy top-side degeneracies.
+
+**Synthesis with Postscript 30** (the two campaigns interlock): edge
+and corner coincidences live as VERTICES OF THE TOP DIAGRAM ONLY —
+the bottom diagram of even the maximally-degenerate witnesses is
+untouched. That is WHY every event's count delta lands in d1 with
+deep layers conserved (Postscript 30's 12/12 law): coincidence
+events add/remove top-diagram vertex weight, and d1 = top faces =
+2 + weight/2, while d2/d3 read the bottom diagram, which the
+coincidences never touch. The create-vs-merge question becomes:
+does the acquired vertex weight EXCEED the swap-arc structure it
+consumes — an Euler bookkeeping question on one diagram, no longer
+a mystery spread across mechanisms.
+
+Proof-program status after this: cluster 2's remaining work is the
+(c2) feasibility classification with the corrected two-type budget
+and the (c3) degeneracy-robust form — the witnesses' own numbers now
+give the exact equality cases the classification must reproduce.
+
 Full sweep (dense tilt menu, tier-4 hill-climbs, n=6 completions of
 the new 387) still to run — the agent resumes after its limit resets.
 

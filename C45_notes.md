@@ -462,3 +462,23 @@ irrational coordinates.
 Fallback for 2/3 if the sandwich extension resists: F1 certified
 interval verification (rigorous, computer-assisted, and honest about
 being so).
+
+## 14. STATUS UPDATE (2026-07-17): L1.b likely CLOSED — see PROOF_L1b.md
+
+Draft proof of NO PARASITES for ALL n in PROOF_L1b.md ("Theorem NP").
+Mechanism: at a boundary infimum point, all tied active faces have
+equal |cos| values hence equal gradient norms (|grad| = sqrt(1-f^2));
+Gordan's theorem + the equal-norm triangle inequality then force
+either a strictly improving direction into the component (killing the
+boundary-only infimum via sector absorption — sectors are unique and
+convex because all boundary pieces are great-circle arcs and distinct
+great circles are never tangent) or exactly-parallel faces, which
+self-exclude from bd(S_C). No case analysis; degeneracies handled
+inside. NOTE: §13's L1.a wording ("sup_U r_C ... local max of b") is
+inverted — the anchor is the INF of r_C over the component, attained
+at a local MIN of r_C = face direction (Theorem A, single cube).
+If NP survives hardening: max(2)=13 complete (with L0+FIB write-up),
+cluster 1 of max(3)=67 complete (d2<=18), and d_{n-1}<=6n proven for
+all n (the l=1 ceiling law). Remaining for 67: cluster 2 only.
+Census (c1) extraction and the create-vs-merge event catalogue are
+delegated and running (CENSUS_SPEC.md, EVENTS_SPEC.md).
