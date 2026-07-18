@@ -1,8 +1,8 @@
 # Six glass cubes: weeks of experimental mathematics with a team of AIs
 
-*An informal account, updated 2026-07-16. Self-contained, but every claim
+*An informal account, updated 2026-07-18. Self-contained, but every claim
 here has a paper trail: `six_cube_search_results.md` (the dated ledger, now
-Postscripts 1–26) is the primary record, `PROJECT.md` is the formal
+Postscripts 1–31) is the primary record, `PROJECT.md` is the formal
 write-up, and `README.md` maps all the code. Anyone with access to a
 mid-tier coding model (Claude Sonnet or similar) and a laptop can
 reproduce everything — a "how to reproduce" section is at the end. And a
@@ -411,6 +411,140 @@ the family, the way n=3 has its two 67s, findable with the same kind of
 algebraic solve that located those in the first place. Neither is
 finished.
 
+## Act VIII: the rational slice, and the first maximum actually proved
+
+Act VIII is the act where the two loose threads of Act VII got run to
+ground — one to a satisfying answer, one to a clean negative — and where,
+almost as a side effect of tidying up the proof program, the project
+proved its first honest maximum theorem.
+
+The thread about *where the records live* resolved first, and it turned
+on a distinction nobody had drawn carefully. The dihedral family's tilt ψ
+had always been swept at "Pythagorean" angles — those with rational sine
+and cosine, the ones a right triangle with integer sides gives you —
+because those keep every rotation rational and countable by the fast
+engine. But when the actual record configurations were dissected, their
+internal cliques sat at tilts like tan ψ = 2/3: a rational *tangent* with
+an irrational *sine*. That is a different slice of angles entirely, and
+every prior sweep had been structurally blind to it — not under-resolved,
+but pointed at the wrong locus. The fix is a small piece of arithmetic:
+at a rational-tangent tilt, a phase step keeps the whole configuration
+rational exactly when its parameters are a rational point on a certain
+conic, and those points have a tidy one-parameter formula that closes
+under addition. So even this "irrational-sine" slice is, after all,
+searchable by the integer-only engine — you just have to know to walk the
+conic. The 393 record's four-cube clique turned out to be exactly such a
+conic chain, its phases landing at t-values −5/6, 3/4, −1/5 with the
+remaining pairs falling into place with no further search: a clean
+certificate that the record's own structure lives in this slice.
+
+Searching the slice properly broke something that had looked like a law.
+An earlier campaign had found that gluing family cliques together always
+landed *exactly 8 regions* short of the record, at four cubes, five cubes,
+and six cubes alike — a suspiciously constant deficit that begged to be
+either a theorem or a coincidence. It was a coincidence, an artifact of
+the gluing search's limited vocabulary. Taking the exact 393 clique and
+attaching a fifth cube *on the same axis* at a conic phase gave **387**
+regions at five cubes — beating the glue campaign's 385 and cutting the
+deficit to 6. The "constant 8" was simply the best that a particular
+restricted construction could do; a single-axis five-chain with
+non-uniform phases, which that construction couldn't express, does better.
+A related tidying-up found that the six-cube record is not one
+configuration but a *plateau*: fixing the record's first five cubes and
+sweeping a sixth over thousands of integer orientations turned up 27
+distinct completions all counting exactly 723, in four different depth
+profiles that trade middle-layer count at a fixed exchange rate — the
+same shallow-for-deep conservation seen throughout the project, now
+visible as an exact arithmetic law operating right at the summit. The
+record *value* stands; "the 723 compound" is at least four compounds.
+
+The second thread — the hunt for an n=4 "resonance" — resolved negative,
+and cleanly. Using computer algebra to write down the exact conditions
+under which extra cross-alignments appear at four cubes, then solving
+those conditions and counting every resulting configuration exactly, the
+verdict was uniform: every such resonance in the reachable number fields
+*merges* regions rather than creating them. The best one counts 151 —
+below even the family's own rational plateau of 175, nowhere near the 183
+record. The +12 "spike" that irrationality buys at three cubes simply
+does not recur at four; the extra coincidences there behave like the
+face-diagonal dip, not like the octahedral peak. There is one honest
+caveat kept in the ledger — a handful of higher-degree candidates remain
+uncounted for want of a specialized exact-sign routine, one of them
+sitting in the record's own number field — but the mechanism that made
+irrationality *pay* at three cubes is, at four cubes, proven not to.
+
+Put beside Act VII's conditional result, this hardens the tower's oddest
+feature. Three cubes appears to be the **one irrational rung** of the
+entire ladder — and the reason is now visible rather than mysterious.
+Attaining the maximum at two or three cubes requires maxing every depth
+layer at once, which pins the configuration to an isolated, algebraically
+rigid point (irrational, for three cubes). From four cubes on, *no*
+configuration can max all layers simultaneously — the layers must be
+traded — and trades happen on open sets, which always contain rational
+points. The 387's tolerance for a whole interval of phases, and the 723
+summit's plateau of 27-plus realizations, are that openness made visible.
+Knife-edge maxima can force irrationality; wide maxima cannot, and past
+three cubes the maxima are wide.
+
+Then two delegated censuses, run to answer a completely different
+question, turned out to interlock and explain a great deal at once. The
+question was create-versus-merge: when a compound acquires an exact
+coincidence, does the region count go up or down, and by how much? The
+tempting guess — "plus or minus one region per coincidence" — is exactly
+right for the pure interior-crossing events at three cubes, and wrong
+everywhere else: it reaches +2 per contact at the golden point, and at
+four cubes it fails *in sign*, coincidences increasing while the count
+falls by 24. But a different law held on every one of the twelve events
+examined: the entire count change lives in the shallowest depth layer,
+with every deeper layer conserved to the exact integer. The reason
+emerged from the second census, which mapped both three-cube maxima as
+exact spherical diagrams. Every coincidence — every edge crossing, every
+corner contact — appears as a vertex of the *top* diagram (the one that
+controls the shallow layer) and never touches the *bottom* diagram (which
+controls the deep layers); the bottom diagrams of even these maximally
+special configurations are combinatorially generic. That is *why* the
+depth-conservation law holds, and it turns the create-versus-merge
+question from a mystery spread across mechanisms into a bookkeeping
+question on a single diagram: does the vertex weight a coincidence adds
+exceed the arc structure it consumes? The same census also delivered a
+correction and a gift to the proof program: the shallow-layer bound of 48
+is Euler-*tight* at both maxima — their top diagrams carry a total vertex
+weight of exactly 92, split (contrary to an earlier projection) between
+32 units on genuine triple points and 60 on the coincidence contacts
+themselves.
+
+Which set up the act's real prize. The proof program for "three cubes
+make at most 67 regions" had been written out as a tree of lemmas with
+two genuine gaps; the more fundamental gap — shared with the still-unproven
+two-cube case — was ruling out "parasite" cells, a topological
+possibility that local analysis couldn't exclude and that would have sunk
+the whole second-deepest bound. It turned out to yield to a short
+argument built from three rigidities the project already had in hand: at
+any point where two faces tie for closest, their spherical gradients have
+*equal length* (the length depends only on the shared value); the tie
+curves are all arcs of great circles, and distinct great circles are
+never tangent; and a linear-algebra alternative (Gordan's theorem) forces
+the equal-length gradients either to admit a strictly-improving direction
+— which the great-circle geometry guarantees stays inside the cell — or
+to be exactly equal, which means two genuinely parallel faces, a
+degeneracy that removes itself from the problem. No parasites, at any
+number of cubes. The draft still wants an adversarial read before it is
+called finished, and it is filed honestly as a draft. But if it holds, it
+closes the two-cube case outright — **thirteen is proved maximal, the
+project's first complete maximum theorem** — proves the second-deepest
+ceiling depth-(n−1) ≤ 6n for *all* n (open problem number one, in both
+write-ups, for months), and finishes the entire first half of the
+three-cube proof. What remains for a full "67 is maximal" is now a single
+finite classification of the top diagram — and the census just handed
+over the exact numbers that classification has to reproduce.
+
+So Act VIII closes the two threads Act VII left dangling (the records'
+slice: found and searched; the n=4 resonance: proved not to pay), and
+converts the project's oldest open problem and its first maximum theorem
+from "measured, never proved" to "proved, pending one careful read." The
+irrational-rung story, still resting on the unproved uniqueness of the
+two 67s, is now the best-supported conjecture in the whole enterprise.
+
 ## The collaboration, honestly described
 
 This project was a four-layer collaboration, and the layering was not
@@ -515,43 +649,68 @@ ledger; every claimed number is checkable in seconds.
 
 ## Open questions
 
-1. **Prove the ceiling law** — via the trivalent-vertex census, or just
-   its l=1 case, the no-extra-minima lemma (two-normal case done; three
-   normals open).
-2. **Beat 723 or corner it completely** — equivalent, by envelope E1,
-   to finding any fundamentally new five-cube arrangement ≥ 388, or
-   proving none exists.
-3. **Prove envelope E1** (a zone-style bound: six new faces can create
-   at most ~336 regions in a 30-plane arrangement?) — this makes the
-   branch-and-prune a certified branch-and-bound.
-4. **Why exactly does frustration switch on at four cubes?** The
-   middle-layer mechanism is measured; a proof would likely fall out of
-   the ceiling law.
-5. **Unequal cube sizes** — off-centring provably hurts near the record,
-   but size variation is untested (the record is so symmetric that every
-   rational resize hits a degeneracy the current counters can't
-   evaluate; a degeneracy-robust counter would settle it).
-6. **The tower at scale** — does greedy extension stay within a constant
-   of optimal as n grows? What is the asymptotic growth of max(n)? (The
-   cap-sum bound gives O(n³); the records track it suspiciously well.)
-7. **The two-clique gluing search** — Act VII showed every record is a
-   gluing of dihedral-family cliques on different axes; nobody has yet
-   searched that reframed, much smaller space systematically to see if it
-   beats 723 or merely reproduces it.
-8. **An n=4 resonance?** — the two n=3 maxima sit at irrational, special
-   points of the dihedral family; whether the n=4 record has an analogous
-   irrational spike beating the family's rational plateau (175) is an
-   open algebraic solve, not yet attempted.
-9. **More than 18 concurrences, octahedral to golden?** — 18 is a
-   confirmed lower bound with a located local obstruction (two
-   extra-coincidence curves that graze the same ψ=45° wall about 70°
-   apart in phase and never link), not a proven ceiling.
+Act VIII resolved several of these; the list below marks what moved.
+
+1. **Finish "67 is maximal" for three cubes.** Half of it is now proved
+   (see the No-Parasites draft): the second-deepest and deep bounds give
+   depth-2 ≤ 18 and depth-3 ≤ 1. What remains is the shallow bound
+   depth-1 ≤ 48 — a single finite classification of the top diagram's
+   vertices, for which the two maxima's exact censuses now supply the
+   equality cases that classification must reproduce. This is the
+   nearest theorem still open.
+2. **Harden the No-Parasites proof, then two cubes are done.** The draft
+   argument (equal-length tie gradients + great-circles-never-tangent +
+   Gordan's alternative) closes the last gap for **max = 13 at two
+   cubes** — the first complete maximum theorem — and proves
+   depth-(n−1) ≤ 6n for *all* n, the project's oldest open problem. It
+   is filed as a draft pending one adversarial read.
+3. **Beat 723 or corner it completely** — equivalent, by envelope E1, to
+   finding any fundamentally new five-cube arrangement ≥ 388, or proving
+   none exists. The rational-tangent slice reached 387 at five cubes
+   (breaking the old "constant-8 deficit") but has not passed a record;
+   the six-cube record is now known to be a *plateau* of ≥ 27
+   non-congruent realizations, all exactly 723.
+4. **Prove envelope E1** (a zone-style bound making the branch-and-prune
+   a certified branch-and-bound) — unchanged, still open.
+5. **Why exactly does frustration switch on at four cubes?** Act VIII
+   gives the mechanism: attaining the maximum needs every depth layer
+   maxed at once, which is possible only at n ≤ 3 (and forces
+   irrationality at n = 3); from n = 4 the layers must be traded, and
+   trades live on open — hence rational — sets. This is now an argument,
+   not just a measurement, though not yet a theorem.
+6. **Unequal cube sizes** — off-centring provably hurts near the record;
+   size variation is still untested (resizing hits a degeneracy the
+   current counters can't evaluate; a degeneracy-robust counter would
+   settle it).
+7. **The tower at scale** — does greedy extension stay within a constant
+   of optimal as n grows, and what is the asymptotic growth of max(n)?
+   (Cap-sum bound O(n³); the records track it suspiciously well.)
+8. **Is three the *only* irrational rung?** Two cubes rational, three
+   forced irrational, four proved not to gain from irrationality (best
+   resonance 151, count-negative) — conditional on the two 67s being the
+   unique three-cube maxima, three cubes is the sole irrational level of
+   the tower. The one live escape route: a short list of higher-degree
+   n=4 resonance candidates left uncounted for want of an exact-sign
+   routine (one sits in the record's own number field).
+9. **A create-versus-merge criterion.** Coincidences are exactly the
+   top-diagram vertices; whether a new one creates or merges regions is
+   now a bookkeeping question — does its added vertex weight exceed the
+   arc structure it consumes? — but no closed criterion is written down
+   yet. The "±1 per coincidence" guess is dead; depth-conservation
+   (all change in the shallow layer) held on all 12 events tested.
+10. **More than 18 concurrences, octahedral to golden?** — 18 is a
+    confirmed lower bound with a located obstruction (two extra-
+    coincidence curves grazing ψ=45° about 70° apart, never linking),
+    not a proven ceiling.
 
 *Files for the deeper dive: `six_cube_search_results.md` (ledger, now
-Postscripts 1–26), `PROJECT.md` (formal write-up), `C45_notes.md` (proof
-program, including the four dihedral-family theorems of section 12),
-`nfamily_report.md`, `handoff_report.md`, `dihedral_slider_report.md`,
-`opaque_report.md`, `DIHEDRAL_FAMILY_NEXT.md`, `ALGEBRAIC_SEARCH.md`,
-`BLUEPRINT_SPEC.md`, `README.md` (all code + commands). The interactive
-viewer (now with an opaque surface mode and a dihedral-family slider):
+Postscripts 1–31), `PROJECT.md` (formal write-up), `C45_notes.md` (proof
+program — the four dihedral-family theorems in §12, the max(3)=67 lemma
+tree in §13, the No-Parasites status in §14), `PROOF_L1b.md` (the
+No-Parasites draft), `census_report.md` (the two maxima as exact
+diagrams), `events_report.md` (the create-vs-merge catalogue),
+`rattan_report.md` (the rational-tangent sweep), `resonance4_report.md`
+(the n=4 resonance verdict), `nfamily_report.md`, `handoff_report.md`,
+`dihedral_slider_report.md`, `README.md` (all code + commands). The
+interactive viewer (opaque surface mode + dihedral-family slider):
 https://claude.ai/code/artifact/044d34a6-3f36-43b2-9ec8-17fb5691c87c*

@@ -1,6 +1,6 @@
 # How many regions do overlapping cubes make? — a self-contained write-up
 
-*Last updated 2026-07-16. This document is standalone: every term is
+*Last updated 2026-07-18. This document is standalone: every term is
 defined here, and no other file is required to follow it.*
 
 ---
@@ -641,6 +641,31 @@ Neither has beaten 723, but together they map the relationship between
 coincidence structure and piece-count exactly, and can reach exact
 algebraic (even irrational) configurations that trial-and-error cannot.
 
+- **The rational-tangent slice.** Dissecting the records showed their
+  internal cliques sit at tilts with rational *tangent* but irrational
+  *sine* (tan ψ = 2/3 and the like) — a slice of angles every earlier
+  sweep, which used rational-sine tilts, had missed entirely. At such a
+  tilt a phase step keeps the whole configuration rational exactly when
+  its parameters are a rational point on a conic c² + d·s′² = 1, and
+  those points have a one-parameter formula closed under addition, so
+  the integer-only engine can walk the slice. The 393 record's four-cube
+  clique is exactly such a conic chain. Sweeping the slice broke an
+  apparent "constant-8" deficit (an earlier gluing search fell 8 short
+  of the record at four, five, and six cubes alike): a single-axis
+  five-chain with non-uniform conic phases reaches **387** at five
+  cubes, cutting the deficit to 6. It also revealed the six-cube record
+  to be a *plateau* — 27-plus non-congruent sixth cubes all completing
+  to exactly 723, in four depth profiles that trade middle-layer count
+  at a fixed rate.
+- **The n=4 resonance, resolved negative.** Writing down and exactly
+  solving the conditions for extra cross-alignments at four cubes, then
+  counting every solution, shows every such resonance in the reachable
+  number fields *merges* rather than creates: the best counts 151, below
+  even the family's rational plateau of 175. The +12 that irrationality
+  buys at three cubes does not recur at four. (A few higher-degree
+  candidates remain uncounted for want of an exact-sign routine — one in
+  the record's own number field — the single honest caveat.)
+
 **From search to branch-and-prune.** The structural findings collapse the
 search space into something almost combinatorial. Since a configuration's
 worth is carried by its *blueprint* — how the cubes partition into
@@ -721,21 +746,51 @@ family position too, wherever tested — the records are gluings of family
 cliques on different axes, not one common-axis structure. That reframing
 is what suggests the two-clique gluing search of the open problems below.
 
+**The six-cube record is a plateau, not a point.** Fixing the record's
+first five cubes and sweeping a sixth over thousands of integer
+orientations turns up at least 27 distinct completions all counting
+exactly 723, in four different depth profiles related by an exact
+middle-layer exchange (depth-2 and depth-4 rise by 2 as depth-3 falls by
+4, holding depth-1, depth-5, depth-6 fixed). The record *value* is one
+number; "the 723 arrangement" is at least four non-congruent
+arrangements — the same shallow-for-deep conservation seen throughout,
+now operating exactly at the summit.
+
 ---
 
 ## 10. Open problems
 
-1. **Prove the second-deepest cap, depth-(n−1) ≤ 6n.** This is the most
-   tractable ceiling — it unifies depth-5 ≤ 36 (n=6) with the small cases,
-   and reduces (Section 5) to one lemma: the direction-sphere function
-   "distance to the nearest face" has local minima *only* at the 6n
-   face-centre directions — no extra "shoulder" minima. The two-normal
-   case of that lemma is provable; the open crux is whether three cube
-   face-normals can ever conspire to make an extra minimum. Zero such
-   cases in any sampled arrangement, but the general proof is a genuine
-   research problem. (The deeper caps depth-3 ≤ 164 and depth-4 ≤ 102 at
-   n=6 are separate, harder counting statements.)
-2. **Beat 723 for six cubes, or prove it is the maximum.** In the
+1. **Prove the second-deepest cap, depth-(n−1) ≤ 6n — now with a draft
+   proof.** This reduces (Section 5) to one lemma: the direction-sphere
+   function "distance to the nearest face" has local minima *only* at the
+   6n face-centre directions, with no extra "shoulder" (or "parasite")
+   minima. The two-normal case was long provable; the open crux was
+   whether three or more face-normals could conspire to make an extra
+   minimum. A short argument now appears to close it for *every* n, built
+   from three facts already in hand: at a point where several faces tie
+   for closest, their spherical gradients have *equal length*; the tie
+   curves are arcs of great circles, and distinct great circles are never
+   tangent; and a linear-algebra alternative (Gordan's theorem) forces
+   the equal-length gradients either to admit a strictly-improving
+   direction that the great-circle geometry keeps inside the cell, or to
+   be exactly equal — meaning two genuinely parallel faces, a degeneracy
+   that removes itself. The write-up (`PROOF_L1b.md`) is filed as a draft
+   pending one adversarial read; if it holds it proves this cap for all
+   n and, with the convexity bound depth-2 ≤ 1, settles **max = 13 at two
+   cubes**, the first complete maximum theorem. (The deeper caps
+   depth-3 ≤ 164 and depth-4 ≤ 102 at n=6 are separate, harder counting
+   statements.)
+
+2. **Finish "max = 67 at three cubes."** With problem 1's draft, depth-2 ≤
+   18 and depth-3 ≤ 1 are proved; what remains is the shallow bound
+   depth-1 ≤ 48. This is a single finite classification of the top
+   diagram's vertices, and the two maxima have now been mapped as exact
+   spherical diagrams: each carries top-diagram vertex weight exactly 92
+   (making the bound Euler-*tight*), split between 32 units on triple
+   points and 60 on the coincidence contacts. The classification must
+   reproduce those equality cases; it is finite and mechanical-plus-
+   insight, the shape of the five-Platonic-solids proof.
+3. **Beat 723 for six cubes, or prove it is the maximum.** In the
    trade-off language of Section 5, this means finding the best point on
    the deep-sacrifice surface: since the deep layers are capped and the
    shallow layers are not, the question is exactly *how much* deep count
@@ -744,7 +799,7 @@ is what suggests the two-clique gluing search of the open problems below.
    combination) nets higher is open and is the active line of attack.
    Depth-1 can already reach 224, so there is shallow headroom.
 
-3. **Can non-concentric or unequal-sized cubes do better?** Everything
+4. **Can non-concentric or unequal-sized cubes do better?** Everything
    above keeps the cubes centred at a common point and equal in size.
    Both restrictions can be relaxed, and each only *adds* freedom, so
    neither maximum can be below the concentric-equal one — the question
@@ -760,7 +815,7 @@ is what suggests the two-clique gluing search of the open problems below.
    central symmetry that off-centring destroys, so it is the gentler
    perturbation and the more plausible of the two to help — but there is
    no proof either way.
-4. **Settle the edge-versus-corner question:** can an edge-dominated
+5. **Settle the edge-versus-corner question:** can an edge-dominated
    arrangement ever match a corner-dominated one at the maximum? Current
    evidence says no — edge-dominated arrangements top out at 691 and
    edge-richness anti-correlates with the total — but this is evidence
@@ -771,33 +826,48 @@ is what suggests the two-clique gluing search of the open problems below.
    different "extra-coincidence" curves that both graze ψ=45° but stay
    about 70° apart in phase) and no rescue past it — 18 is a confirmed
    lower bound with a described obstruction, not a proven ceiling.
-5. **Special number-field walls:** whether any arrangement needing √2, √3,
+6. **Special number-field walls:** whether any arrangement needing √2, √3,
    or a combination beats the best plain-fraction arrangement. (The golden
    √5 wall reaches 681; the overall record 723 is a plain-fraction
    arrangement.) Section 7 adds one more exactly-certified data point in
    this vein — the ℚ(√6) face-diagonal compound at 49 — well short of the
    record and, notably, a local *minimum* of its own family rather than a
    maximum.
-6. **Growth with *n*** and the persistence of the structural laws at
+7. **Growth with *n*** and the persistence of the structural laws at
    scale.
-7. **The two-clique gluing search (in progress).** Section 7 showed every
-   current record is a gluing of dihedral-family cliques living on
-   different shared axes, rather than a single-axis family member. This
-   reframes the record search as choosing how many cliques to use, on
-   which axes, at what tilts and phases, and how to glue them — a search
-   with a much smaller effective dimension than raw SO(3)ⁿ, but not yet
-   carried out systematically. Whether it can find something beating 723
-   (or reproduce it from first principles, strengthening the branch-and-
-   bound case of Section 8) is open.
-8. **The n=4 resonance, algebraically (in progress).** The two n=3
-   maximizers sit at algebraically special, irrational points of the
-   dihedral family (the octahedral and golden 67s). Whether the n=4
-   record's family embedding (Section 7: all 6 pairs of the 183 record
-   are in family position) similarly has an irrational "resonance" point
-   that beats the rational family plateau of 175 is an open algebraic
-   solve — the natural next target for the same symbolic-algebra approach
-   (Section 8) that located the n=3 spikes, now pointed at the family's
-   n=4 generalization instead of a blind search.
+8. **The clique-gluing search (carried out; no record beaten).** Section
+   7 showed every current record is a gluing of dihedral-family cliques
+   on different shared axes. Reframing the search this way — choosing
+   cliques, axes, tilts, phases — and running it over the rational-tangent
+   slice (Section 8) reached **387** at five cubes, breaking a spurious
+   "constant-8 deficit" from an earlier, more restricted gluing search,
+   but did not pass a record; it also proved the six-cube record a
+   plateau (Section 9). Whether the reframed space contains anything
+   beating 723 remains open, but it now looks like a landscape whose peaks
+   are the known records rather than a space hiding a larger one.
+9. **The n=4 resonance, resolved negative.** The two n=3 maximizers sit at
+   irrational, algebraically special points of the dihedral family. The
+   analogous question at four cubes — does an irrational resonance beat
+   the family's rational plateau of 175? — has now been solved
+   symbolically: every four-cube resonance in the reachable number fields
+   *merges* regions, the best counting 151. Irrationality, which buys +12
+   at three cubes, does not pay at four. Combined with the (conditional)
+   uniqueness of the two 67s, this makes **three cubes the sole
+   irrational rung** of the tower the best-supported conjecture in the
+   project. One escape hatch stays open: a short list of higher-degree
+   candidates left uncounted for want of an exact-sign routine, one of
+   them in the record's own number field.
+10. **A create-versus-merge criterion.** A new exact coincidence can
+    raise the region count or lower it; "±1 region per coincidence" is
+    exact for the pure interior-crossing events at three cubes and false
+    everywhere else (it fails even in *sign* at four cubes). What holds
+    universally, on every event tested, is that the entire change lands
+    in the shallowest depth layer — because coincidences are exactly the
+    vertices of the top diagram and never touch the deep-layer bottom
+    diagram (Section 5's two-diagram picture, confirmed by the maxima's
+    exact censuses). A closed criterion — does an added coincidence's
+    vertex weight exceed the arc structure it consumes? — is now a
+    one-diagram bookkeeping question, but is not yet written down.
 
 ---
 
