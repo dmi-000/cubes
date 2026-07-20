@@ -482,3 +482,31 @@ cluster 1 of max(3)=67 complete (d2<=18), and d_{n-1}<=6n proven for
 all n (the l=1 ceiling law). Remaining for 67: cluster 2 only.
 Census (c1) extraction and the create-vs-merge event catalogue are
 delegated and running (CENSUS_SPEC.md, EVENTS_SPEC.md).
+
+## 15. CONSOLIDATED (2026-07-20): see PROOF_67.md; honest verdict = NOT proved
+
+Full write-up in PROOF_67.md. Net position:
+- Cluster 1 (d2<=18) has a CLEAN proof off the shared-normal locus,
+  cleaner than the PROOF_L1b.md draft: at a boundary point of a
+  component of S_C with single active/tie faces, the into-U normal is
+  nu = (e1-e2)/|e1-e2| and grad(M_C).nu = |e1-e2|/2 >= 0, strict unless
+  e1=e2 (= shared face-normal). So M_C's max over cl(U) is interior =
+  a face direction of C (single-cube Morse), giving <=6 components per
+  cube, d2<=18. Covers BOTH maximizers (their bottom diagrams are
+  generic per the census). Two degeneracies remain open: multi-face
+  boundary KINKS (needs equal-norm convex-geometry of gradient sets)
+  and SHARED face-normals (the shared plane can host a boundary-max
+  parasite; evidence d2<=18 survives - shared-axis compound d2=12 - but
+  unproved). Both codim>=1.
+- Cluster 2 (d1<=48) is EXACTLY EQUIVALENT (Euler on the top diagram,
+  F = 2 + (E-V) = 2 + (1/2)Sum(deg-2)) to the inequality
+  Sum_v(deg_v - 2) <= 92. Census makes it TIGHT at both maximizers
+  (92 = 32 trivalent triple points + 60 from contact vertices),
+  refuting sect.13's "46 triples x2" accounting. Proving <=92 for all
+  configs = the Platonic-elimination classification of triple points +
+  contact vertices under the activity/top restriction. NOT done; this
+  is the real remaining gap.
+- Cheapest complete theorem still: max(2)=13, which needs only the two
+  Cluster-1 degeneracies closed at n=2 (a strict sub-problem).
+PROOF_L1b.md is superseded by PROOF_67.md sect.3 (same mechanism, the
+gradient-flow phrasing is tighter).
