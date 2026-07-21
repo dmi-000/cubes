@@ -2882,3 +2882,62 @@ integer-quat completions — the 4th record cube must be off-axis,
 exactly like 393's cube 0 and 723's cube 5. Phase 2 (71,510 more
 configs: dense tilt menu + 387-completions + hill-climbs) has finished
 computing; bests unchanged so far (183/387/723); agent summary pending.
+
+## Postscript 42: Step T is NOT routine — the reduction "deg_top ≤ deg_bot at triple points" is FALSE (counterexample realized on genuine cells); max(3)=67 stands on the generic stratum + both maximizers, degenerate triple points remain an open gap
+
+2026-07-21, main session, answering the user's "please write Step T
+rigorously." Attempting to discharge the one step PROOF_FORMAL.md had
+marked "routine/LOW risk," I instead found it is false as stated, and
+have corrected all three proof documents accordingly.
+
+WHAT STEP T NEEDED: W_triple ≤ 32 including degenerate triple points
+(|S|=3 top-diagram vertices of degree > 3). The marked route: every
+triple point is a bottom-diagram vertex, and "deg_top ≤ deg_bot" there,
+so W_triple ≤ Σ_bottom(deg_bot−2) = 2(d2−2) ≤ 32.
+
+WHY IT FAILS: deg_top ≤ deg_bot is false. The top diagram (farthest
+cell) is the argmin of the three cells' support functions m_i = h_{P_i}
+(P_i = convex hull of the active-facet tangential gradients at the triple
+point); the bottom diagram (nearest cell) is the argmax. The argmax is
+the support function of conv(∪P_i) — a simple outer envelope; the argmin
+is an INNER envelope of convex bodies, which genuinely wiggles more.
+Explicit: cell A a corner (a=3, small gradient triangle), cells B,C thin
+blades (b=c=2, gradients ≈ (±g,0) and (0,±g)). The corner is farthest in
+all four diagonal sectors and each blade near its own axis →
+  deg_top = 8,  deg_bot = 4.
+Confirmed three ways (scripts saved to project):
+ • stepT_local.py — abstract support-function switch counts: 8 vs 4.
+ • stepT_realize.py — built as three ≤6-facet cells about O (two blade
+   wedges μz+g|x|≤1, μz+g|y|≤1 capped to 5 facets; one 3-facet corner
+   cone capped to 4), valid triple point (x0 on 3/2/2 facets, O interior).
+ • stepT_degcheck.py — sampled the ACTUAL reach functions on a small
+   circle around û0: farthest-cell degree 8, nearest-cell degree 4.
+So deg_top > deg_bot occurs for honest convex cells, not just the model.
+
+WHY 67 IS NOT IN DANGER (but this is evidence, not proof): the isolated
+degenerate triple gives only 10 total regions (region-poor); it is
+non-generic (measure zero); ABSENT at both maximizers (their bottom
+diagrams are exactly generic — 32 degree-3 triple points); and never
+appeared in any sampled config. A 250-config search (thin boxes,
+near-coincident triples) maxed at d1=18, far under 48 — random boxes just
+don't interleave like the special maximizers, so this is weak. The record
+67 rests on the project's exhaustive engine search, independent of this
+proof. The open content of Step T is exactly: can a degenerate triple
+point (deg_top > deg_bot) coexist with a high-count configuration and push
+d1 past 48? Unresolved.
+
+CORRECT ROUTE (recommended, not yet done): abandon the triple/contact
+split for the degenerate case. The top diagram is precisely the radial
+projection to S² of ∂U, U = K1∪K2∪K3, so d1 = 2 + ½W is the combinatorial
+complexity of the boundary of a UNION of three convex ≤6-facet polytopes.
+A global/amortized bound on that union-boundary complexity (rather than a
+per-vertex deg_top ≤ deg_bot) is what would close d1 ≤ 48 unconditionally.
+
+DOCUMENTS CORRECTED: PROOF_FORMAL.md (Step T rewritten from "LOW risk"
+to OPEN, with the counterexample and the union-boundary route; status
+section updated), PROOF_67.md (top verdict, §5.4 residual, §6, Open #1),
+PROOF_NARRATIVE.md ("Where it stands"). The |S|=2 contact lemma
+(deg_top = a+b = deg_poly, Part D) remains rigorous and unaffected —
+the gap is solely the |S|=3 degenerate stratum. Net honest status:
+max(3) = 67 is a theorem on the generic stratum and at both maximizers;
+universal over all convex 6-faced cells only up to Step T.

@@ -358,9 +358,10 @@ bound.
 
 ### 5.4 Sub-lemma 1b — CANDIDATE PROOF: contact weight ≤ 60 (via the pairwise intersection polytopes)
 
-(2026-07-21; ledger Postscript 41. Verified on 130 configs, tight at
-both maximizers; rigorous for the extremal case, one routine lemma
-pending. Holds for any 3 concentric convex 6-faced cells.)
+(2026-07-21; ledger Postscripts 41–42. Verified on 130 configs, tight at
+both maximizers. The |S|=2 contact bound below is rigorous; the degenerate
+|S|=3 case (Step T) is a genuine open gap — see Postscript 42. Holds for
+any 3 concentric convex 6-faced cells with degree-3 triple points.)
 
 **Setup.** Contact vertices are the degree-≥4 vertices of the top
 diagram (the coincidences). A deg-4 contact is an edge-edge crossing of
@@ -436,12 +437,14 @@ Complete corollaries now in hand:
   Cluster 2, and both generalize to all convex 6-faced cells.
 
 ## Open, in priority order
-1. **Formalize §5.4** — write the local face-count lemma
-   (deg_top = a+b = deg_poly) rigorously and dispatch the two
-   non-extremal residual cases (three-cell coincidences; the "cut-off
-   face" case). Verified on 130 configs, tight at both maximizers; this
-   is a routine lemma, not a research risk. Completing it turns the
-   candidate proof of max(3) = 67 into a theorem.
+1. **Step T (degenerate triple points) — the real gap.** §5.4's |S|=2
+   local face-count lemma (deg_top = a+b = deg_poly) IS now rigorous. What
+   is open is W_triple ≤ 32 for |S|=3 vertices of top-degree > 3. The
+   natural route (deg_top ≤ deg_bot) is FALSE (Postscript 42). Correct
+   route: bound d₁ = complexity of ∂(K₁∪K₂∪K₃) globally. Non-generic,
+   region-poor, absent at both maximizers — the record 67 is safe — but
+   this is genuine work, not a formality. This is what stands between the
+   generic-stratum theorem and the unconditional theorem.
 2. Tighten the two "flavor of Theorem 1" caveats: Theorem 1's "q_t lands
    in component U" (§3.1) and Lemma 1a's tangential-triple-point case
    (§5.3). Standard, non-generic, corroborated; deserve clean write-ups.

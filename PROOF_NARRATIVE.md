@@ -104,12 +104,25 @@ every step simultaneously, which is exactly why 67 is the ceiling.
 
 The argument is complete and rigorous for the generic case and for both
 maximizers (where it is tight), and it holds for all three concentric
-convex six-faced cells, cubes being one instance. One non-generic case —
-three cubes coinciding at a single over-degenerate point — needs a short
-separate check; it never occurs at the maximizers and never appeared in
-130 sampled configurations, so it is a formality rather than a risk. With
-that check, max(3) = 67 is a theorem, and its natural home is the class of
-convex six-faced cells, not cubes specifically.
+convex six-faced cells with ordinary (degree-three) triple points. One
+non-generic case does *not* yield to the argument as it stands: an
+over-degenerate triple point, where three cells coincide at a single point
+with one at a corner and two at thin blades. The tempting shortcut there —
+that the "farthest-cell" diagram can be no more branched than the
+"nearest-cell" diagram, which the already-proved d₂ ≤ 18 would then cap —
+turns out to be simply false: such a point can have a degree-eight
+farthest-cell vertex against a degree-four nearest-cell vertex, and this is
+realizable by honest cells, not an artifact. So this last case is a genuine
+gap, not a formality. What keeps it from threatening the answer is that
+these degenerate points are region-poor in isolation (the explicit
+construction makes only ten regions), never occur at either maximizer, and
+never appeared in any sampled configuration; the record of 67 itself was
+established by exhaustive machine search, independent of this proof. The
+honest status, then, is: max(3) = 67 is a theorem on the generic stratum
+and at both maximizers, and closing the degenerate case needs a global
+bound on the complexity of the boundary of the union of the three cells —
+a smaller, but real, piece of work — before the universal statement over
+all convex six-faced cells is unconditional.
 
 Two smaller results fell out along the way and are fully proved: the
 two-cube maximum is 13 (the first complete maximum theorem in the
