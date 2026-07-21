@@ -2941,3 +2941,59 @@ PROOF_NARRATIVE.md ("Where it stands"). The |S|=2 contact lemma
 the gap is solely the |S|=3 degenerate stratum. Net honest status:
 max(3) = 67 is a theorem on the generic stratum and at both maximizers;
 universal over all convex 6-faced cells only up to Step T.
+
+## Postscript 43: STEP T CLOSED — max(3)=67 proved for all 3 concentric convex ≤6-facet cells meeting pairwise transversally (degenerate triple points included); the fix is a two-budget local inequality, not deg_top≤deg_bot
+
+2026-07-21, main session, continuing "please try to close the gap." The
+gap from P42 is now closed rigorously (PROOF_STEP_T.md). deg_top ≤ deg_bot
+stays false; it is not needed.
+
+THE FIX — charge each triple point to BOTH budgets at once. The single
+local inequality at every top-diagram vertex is
+  (◆)  deg_top − 2 ≤ (deg_bot − 2)⁺ + Σ_{tied pairs}(d_{ij} − 2),
+d_{ij} = a_i+a_j = pairwise-polytope vertex degree. For a triple point
+Σ(d_{ij}−2) = 2σ−6 (σ=a+b+c). Summing (◆) over all top vertices: the
+(deg_bot−2)⁺ terms draw ≤ Σ_bottom(deg_bot−2)=2(d2−2) ≤ 32 (bottom-diagram
+Euler), the pairwise terms draw ≤ Σ_pairs(2F−4) ≤ 60 (distinct polytope
+vertices). So W ≤ 92, d1 ≤ 48, total ≤ 67. Contacts satisfy (◆) with
+equality (Part D). Triples: proved below.
+
+TWO ONE-LINE LEMMAS (support-function model at the triple point; m_i =
+h_{P_i}, P_i = conv of active-facet tangential gradients, a_i = #vertices;
+top = argmin m_i, bottom = argmax m_i; z_ij = #sign-changes of m_i−m_j,
+N = Σz_ij):
+ • Lemma A: deg_top = N − deg_bot. Every pairwise crossing has the third
+   function strictly above (⟹ argmin/top switch) or below (⟹ argmax/bottom
+   switch); exhaustive, so deg_top+deg_bot = N.
+ • Lemma B: z_ij ≤ 2 min(a_i,a_j). z_ij = 2·(#arcs where m_i>m_j); such
+   arcs are where P_i outreaches P_j on the hull conv(P_i∪P_j), each using
+   a distinct P_i-vertex, so #arcs ≤ a_i and ≤ a_j.
+   ⟹ N ≤ 2μ ≤ 2σ, μ = Σ min(a_i,a_j).
+Also deg_bot ∈ {0,2,3,4,…} (a single switch can't close on a circle).
+
+CASE SPLIT proving (◆) for triple points (deg_top−2 ≤ (deg_bot−2)⁺ + 2σ−6):
+ • deg_bot ≥ 3: deg_top = N−deg_bot ≤ 2σ−deg_bot ≤ deg_bot+2σ−6 (since
+   2deg_bot ≥ 6). [Covers the realized counterexample: deg_top=8,deg_bot=4,
+   σ=7: 8 ≤ 4+8.]
+ • deg_bot = 0: one cell always nearest ⟹ top only between the other two ⟹
+   deg_top = z of that pair ≤ 2min ≤ 2σ−4.
+ • deg_bot = 2: the never-nearest cell k forces every crossing of the two
+   nearest cells to dominate k ⟹ z of that pair = 2 ⟹ deg_top =
+   z_ik+z_jk ≤ 2σ−4.
+No hypothesis on the triple points; only the pairwise transversality Part D
+already assumes. VERIFIED 0 violations / 50 000 random triple-point models
+(stepT_proof_verify.py), incl. both structural facts (deg_bot=0 ⟹ deg_top
+= other pair's z; deg_bot=2 ⟹ two-nearest-cells' z = 2). The realized 3-D
+counterexample itself has w=0 (winding), confirming the earlier
+permutohedron/winding route needed the w=0 case — the case split above
+avoids winding entirely.
+
+NET STATUS: max(3) = 67 is now a THEOREM for all 3 concentric convex
+≤6-facet cells whose boundaries meet pairwise transversally (open dense,
+both maximizers included), cubes among them. Sole residual: the
+pre-existing pairwise-TANGENCY degeneracy of Part D (two cells sharing a
+boundary tangentially) — not a triple-point issue, higher codimension.
+Docs: new PROOF_STEP_T.md (full proof); PROOF_FORMAL.md (Step T → CLOSED),
+PROOF_67.md, PROOF_NARRATIVE.md updated. Verify scripts saved to project:
+stepT_proof_verify.py (main), stepT_local/realize/degcheck.py (the
+counterexample).

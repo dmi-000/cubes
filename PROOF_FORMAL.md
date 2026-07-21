@@ -1,7 +1,7 @@
 # max(3) = 67 — the cleanest proof path, formalized
 
-Target for a Sonnet-class assistant to complete the few marked intermediate
-steps. Self-contained. All region counts are of **face-bounded regions**
+Complete: Parts A–E below plus **PROOF_STEP_T.md** (which closes the
+former Step T). Self-contained. All region counts are of **face-bounded regions**
 (connected components of constant cube-containment), which is what the
 project's engines compute — NOT cells of the infinite-plane arrangement
 (that distinction is the one hard-won correction; see PROOF_NARRATIVE.md).
@@ -79,12 +79,36 @@ Euler its vertex weight is 2(d₂−2) ≤ 32; every triple point is a
 degree-≥3 bottom vertex, so #triple points ≤ 32. When each is degree 3
 in the top diagram, W_triple = #triple points ≤ 32. ∎
 
-**[INTERMEDIATE STEP T — OPEN; the natural route is FALSE].** For a
-degenerate triple point (top-degree > 3, several cells simultaneously at
-edges/corners) we still need W_triple ≤ 32. The route this write-up
-previously suggested — "deg_top ≤ deg_bot at each triple point, so
-W_triple ≤ Σ_{bottom vtx}(deg_bot − 2) = 2(d₂−2) ≤ 32" — **does not
-work: deg_top ≤ deg_bot is false.**
+**[STEP T — CLOSED; see PROOF_STEP_T.md].** For a degenerate triple point
+(top-degree > 3, several cells simultaneously at edges/corners) we need to
+bound its contribution to W. The route this write-up originally suggested —
+"deg_top ≤ deg_bot at each triple point, so W_triple ≤ Σ_{bottom vtx}(deg_bot
+− 2) = 2(d₂−2) ≤ 32" — **is false** (deg_top ≤ deg_bot fails). But the
+correct local inequality below IS provable, and closes Step T outright.
+
+  **Resolution (full proof in PROOF_STEP_T.md).** Do NOT bound deg_top by
+  deg_bot. Instead charge each triple point to BOTH budgets at once:
+  the bottom-diagram budget (when it is a bottom vertex) and the
+  pairwise-polytope budget. The local inequality is, at every top vertex,
+    deg_top − 2 ≤ (deg_bot − 2)⁺ + Σ_{tied pairs}(d_{ij} − 2)   … (◆)
+  with d_{ij} = a_i + a_j. For a triple point (◆) is deg_top − 2 ≤
+  (deg_bot−2)⁺ + (2σ−6), σ = a+b+c. Proof: with z_{ij} = #crossings of the
+  support functions m_i,m_j and N = Σz_{ij}, one has deg_top = N − deg_bot
+  (every crossing is a top- or bottom-switch) and z_{ij} ≤ 2·min(a_i,a_j)
+  (convex-hull alternation), so N ≤ 2σ. Then:
+   • deg_bot ≥ 3:  deg_top = N − deg_bot ≤ 2σ − deg_bot ≤ deg_bot + 2σ − 6.
+   • deg_bot = 0:  one cell always nearest, deg_top = z of the other pair ≤ 2σ−4.
+   • deg_bot = 2:  the never-nearest cell forces z of the two nearest cells
+     to be 2, so deg_top = z_{ik}+z_{jk} ≤ 2σ−4.
+   • deg_bot = 1 is impossible on a circle.
+  Summing (◆): the (deg_bot−2)⁺ terms draw ≤ 2(d₂−2) ≤ 32 from the bottom
+  diagram, the pairwise terms draw ≤ Σ_pairs(2F−4) ≤ 60, so W ≤ 92 and
+  d₁ ≤ 48. This needs no hypothesis on the triple points, only the same
+  pairwise transversality Part D already uses. Verified 0/50000.
+
+  ---
+  *(Historical note — the superseded false route.)* deg_top ≤ deg_bot is
+  false:
 
   *Counterexample (confirmed abstractly and on genuine 3D cells).* Put a
   triple point at x₀=(0,0,1). Let cell A be a "corner" (a=3, small
@@ -102,25 +126,33 @@ work: deg_top ≤ deg_bot is false.**
   genuinely NOT dominated by the outer-envelope degree, and W_triple is
   not bounded pointwise by the bottom diagram.
 
-  *What is still true, and why 67 is not in danger.* Such a degenerate
-  triple point is region-poor in isolation (the realized construction has
-  only 10 total regions); it is non-generic (measure zero); it is ABSENT
-  at both maximizers (whose bottom diagrams are exactly generic, 32
-  degree-3 triple points); and it never appeared in any sampled config.
-  So the region RECORD 67 (established independently by the project's
-  exact engines, not by this proof) is not threatened, and the theorem is
-  complete for the generic stratum and for both maximizers, where the
-  bound is tight. The open content of Step T is purely: **can a
-  degenerate triple point (deg_top > deg_bot) coexist with a high-count
-  configuration and push d₁ past 48?**
+  This is why deg_top ≤ deg_bot cannot be used. The fix (◆) above does
+  not need it. Note the excess is genuinely absorbed by the pairwise
+  budget: at this vertex deg_bot ≥ 3, so Case 1 applies and
+  deg_top = 8 ≤ deg_bot + 2σ − 6 = 4 + 8.
 
-  *Correct route (recommended).* Abandon the triple/contact split for the
-  degenerate case and bound d₁ globally. The top diagram is exactly the
-  radial projection to S² of ∂U, U = K₁∪K₂∪K₃, so d₁ is the combinatorial
-  complexity of the boundary of a union of three convex polytopes with ≤6
-  facets each; d₁ = 2 + ½W with W = Σ_{cell-change vertices of ∂U}(deg−2).
-  A global/amortized bound on this union-boundary complexity (rather than
-  a per-vertex deg_top ≤ deg_bot) is what is needed to reach d₁ ≤ 48
+  *(End historical note.)* The remainder of this bracket, describing the
+  gap as open, is retained only for context and is SUPERSEDED by
+  PROOF_STEP_T.md, which closes it:
+
+  Such a degenerate triple point is region-poor in isolation (the realized
+  construction has only 10 total regions); it is non-generic; it is ABSENT
+  at both maximizers; and it never appeared in any sampled config — all
+  consistent with the now-proven bound. The former "open content of Step
+  T" — can a degenerate triple point push d₁ past 48? — is answered NO by
+  (◆): even a degree-8 top vertex obeys deg_top − 2 ≤ (deg_bot−2)⁺ +
+  (2σ−6), so it draws only its fair share of the two budgets.
+
+  *Route that worked.* Not a global union-boundary bound, but the
+  two-budget charge (◆): each triple point is charged to the bottom
+  diagram AND the pairwise polytopes simultaneously, with the elementary
+  case analysis above. (The union-boundary reformulation d₁ = 2 + ½W with
+  W over cell-change vertices of ∂(K₁∪K₂∪K₃) remains a correct and useful
+  picture, but is not needed.) Full proof: PROOF_STEP_T.md.
+
+  *(Legacy text below, now moot.)* A global/amortized bound on this
+  union-boundary complexity (rather than a per-vertex deg_top ≤ deg_bot)
+  was one route to reach d₁ ≤ 48
   unconditionally over all convex ≤6-faceted cells. This is a genuine
   (if plausibly small) piece of work, NOT a formality.
 
@@ -204,24 +236,25 @@ max(3) = 67. ∎
 
 ## Status of the marked steps
 
-- **Step T** (degenerate triple points, W_triple ≤ 32 in full generality):
-  **OPEN, and harder than first thought.** The natural reduction
-  deg_top ≤ deg_bot is FALSE (explicit counterexample above: deg_top = 8,
-  deg_bot = 4, realized on genuine 3D cells). The correct route is a
-  global bound on the complexity of ∂(K₁∪K₂∪K₃). Non-generic; region-poor
-  in isolation; absent at both maximizers; never observed in search — so
-  the record 67 is safe — but NOT a formality.
-- **Step S3**: a bookkeeping confirmation, essentially immediate (unchanged).
-- Everything else (A, B, C1 for degree-3 triples, D1, D2, D3, E) is
-  complete and rigorous.
+- **Step T** (degenerate triple points): **CLOSED** — full proof in
+  PROOF_STEP_T.md. The natural reduction deg_top ≤ deg_bot is indeed FALSE
+  (deg_top = 8, deg_bot = 4, realized on genuine 3D cells), but it is not
+  needed: the local inequality (◆) charges each triple point to the bottom
+  and pairwise budgets at once, proven by an elementary three-case split
+  (deg_bot ≥ 3 / = 0 / = 2; deg_bot = 1 impossible). No hypothesis on the
+  triple points; only the pairwise transversality Part D already assumes.
+  Verified 0/50000.
+- **Step S3**: a bookkeeping confirmation, essentially immediate — and
+  subsumed, since (◆) is proved uniformly for |S| = 2 and |S| = 3.
+- Everything else (A, B, C1, D1, D2, D3, E) is complete and rigorous.
 
-So the theorem is proved outright for the **generic stratum** (all triple
-points degree 3) and for **both maximizers** (where the bound is tight and
-saturated), and it holds for all convex ≤6-faceted cells EXCEPT at
-degenerate triple points, where Step T is a genuine open gap. The cube
-record max(3) = 67 itself rests on the project's exhaustive engine search,
-which this proof explains and tightly bounds on the generic stratum but
-does not yet close unconditionally.
+So the theorem is now proved for **all three concentric convex ≤6-faceted
+cells meeting pairwise transversally** — an open dense set including both
+maximizers, where the bound is tight — with arbitrary degenerate triple
+points fully handled. The only remaining caveat is the pre-existing,
+milder pairwise-tangency degeneracy of Part D (two cells sharing a
+boundary tangentially), which is not a triple-point phenomenon. In
+particular max(3) = 67 for cubes.
 
 ## Reproduction / verification
 `proof67_verify.py` (region counter, triple-point count, F(P_i∩P_j)) and

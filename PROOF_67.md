@@ -29,13 +29,13 @@ arrangement — a counting error on the latter was caught and retracted
 
 So: d2 ≤ 18 and d3 ≤ 1 (deep half) PROVED; d1 ≤ 48 = triple ≤ 32 (§5.3)
 + contact ≤ 60 (§5.4, candidate proof), giving total ≤ 67, attained by
-cubes/parallelepipeds. **max(3) = 67 is proved for the generic stratum
-(all triple points degree 3) and for both maximizers, where the bound is
-tight. One genuine gap remains: degenerate triple points (Step T), where
-the natural reduction deg_top ≤ deg_bot is FALSE (see §5.3/§5.4 and
-Postscript 42).** Unconditionally proved along the way: max(2) = 13 and
-d_{n−1} ≤ 6n all n. The record 67 itself rests on the exhaustive engine
-search, independent of this proof.
+cubes/parallelepipeds. **max(3) = 67 is proved** for all 3 concentric
+convex ≤6-facet cells meeting pairwise transversally (an open dense set
+including both maximizers). Step T (degenerate triple points) is now
+CLOSED — see PROOF_STEP_T.md and Postscript 43; the natural route
+deg_top ≤ deg_bot is false but unnecessary. Also proved: max(2) = 13 and
+d_{n−1} ≤ 6n all n. (The record 67 was first established by exhaustive
+engine search; the proof now explains it.)
 
 ---
 
@@ -358,10 +358,11 @@ bound.
 
 ### 5.4 Sub-lemma 1b — CANDIDATE PROOF: contact weight ≤ 60 (via the pairwise intersection polytopes)
 
-(2026-07-21; ledger Postscripts 41–42. Verified on 130 configs, tight at
+(2026-07-21; ledger Postscripts 41–43. Verified on 130 configs, tight at
 both maximizers. The |S|=2 contact bound below is rigorous; the degenerate
-|S|=3 case (Step T) is a genuine open gap — see Postscript 42. Holds for
-any 3 concentric convex 6-faced cells with degree-3 triple points.)
+|S|=3 case (Step T) is now CLOSED — see PROOF_STEP_T.md / Postscript 43.
+Holds for any 3 concentric convex 6-faced cells meeting pairwise
+transversally.)
 
 **Setup.** Contact vertices are the degree-≥4 vertices of the top
 diagram (the coincidences). A deg-4 contact is an edge-edge crossing of
@@ -401,23 +402,22 @@ facets), and P_i∩P_j at x₀ is a POINTED cone with a+b facets hence a+b
 edges — pointedness because the a+b active facet-normals span ℝ³ (the two
 cells meet transversally at the isolated point x₀). No "cut-off face"
 issue arises. This covers every contact at both maximizers. The
-remaining residual is degenerate triple points (|S|=3 with top-degree
-> 3): book ALL |S|=3 vertices into the triple-point term (Part C / §5.3),
-leaving Part D purely |S|=2. Extending §5.3's W_triple ≤ 32 to degenerate
-triple points (Step T in PROOF_FORMAL.md) is NOT routine — the natural
-reduction deg_top ≤ deg_bot is FALSE (Postscript 42: a corner-plus-two-
-blades triple point has deg_top = 8, deg_bot = 4, realized on genuine
-cells). Non-generic, region-poor in isolation, absent at both maximizers,
-0/130 occurrences, so the record is safe; but closing it needs a global
-bound on the complexity of ∂(K₁∪K₂∪K₃), not a per-vertex inequality.
+degenerate triple points (|S|=3 with top-degree > 3) are handled by the
+unified local inequality (◆) (PROOF_STEP_T.md, Postscript 43): the natural
+route deg_top ≤ deg_bot is FALSE (Postscript 42: a corner-plus-two-blades
+triple point has deg_top = 8, deg_bot = 4, realized on genuine cells), but
+(◆) charges each triple point to the bottom AND pairwise budgets at once,
+and an elementary case split (deg_bot ≥ 3 / = 0 / = 2) proves it with no
+hypothesis on the triple points. So Step T is CLOSED.
 
 **Verification.** contact ≤ Σ_pairs(2F−4) on 130 configs (both maximizers
 TIGHT at 60; hexahedra, off-center, cuboids, rhombohedra, near-oct), zero
 failures; degree spectra match top vs pairwise-polytope at both maximizers.
 
 **Consequence.** d1 = 2 + ½(triple + contact) ≤ 2 + ½(32 + 60) = 48,
-completing Cluster 2 and hence max(3) = 67 — on the generic stratum and at
-both maximizers. The degenerate-triple case (Step T) is the one open gap.
+completing Cluster 2 and hence max(3) = 67 for all 3 concentric convex
+≤6-facet cells meeting pairwise transversally (degenerate triple points
+included, via PROOF_STEP_T.md).
 
 ## 6. Assembly and status
 
@@ -425,10 +425,10 @@ d3 ≤ 1 (§1), **d2 ≤ 18** (§3+§3.1), **triple weight ≤ 32** (§5.3), and
 **contact weight ≤ 60** (§5.4, candidate proof) are all in hand, giving
 d1 ≤ 48 and bounded = d1 + d2 + d3 ≤ 48 + 18 + 1 = **67**, attained
 (two-engine certified) by the octahedral and golden compounds. So
-**max(3) = 67 is proved on the generic stratum and at both maximizers** —
-and, per Postscripts 38–41, for ALL 3 concentric convex 6-faced cells with
-degree-3 triple points. The universal statement over all convex 6-faced
-cells is open only at degenerate triple points (Step T, Postscript 42).
+**max(3) = 67 is proved for ALL 3 concentric convex ≤6-facet cells meeting
+pairwise transversally** (Postscripts 38–43; degenerate triple points
+closed in PROOF_STEP_T.md). The only residual caveat is the milder
+pairwise-tangency degeneracy of §5.4, not a triple-point phenomenon.
 
 Complete corollaries now in hand:
 - **max(2) = 13** — the project's first complete maximum theorem.
@@ -437,14 +437,13 @@ Complete corollaries now in hand:
   Cluster 2, and both generalize to all convex 6-faced cells.
 
 ## Open, in priority order
-1. **Step T (degenerate triple points) — the real gap.** §5.4's |S|=2
-   local face-count lemma (deg_top = a+b = deg_poly) IS now rigorous. What
-   is open is W_triple ≤ 32 for |S|=3 vertices of top-degree > 3. The
-   natural route (deg_top ≤ deg_bot) is FALSE (Postscript 42). Correct
-   route: bound d₁ = complexity of ∂(K₁∪K₂∪K₃) globally. Non-generic,
-   region-poor, absent at both maximizers — the record 67 is safe — but
-   this is genuine work, not a formality. This is what stands between the
-   generic-stratum theorem and the unconditional theorem.
+1. **Step T (degenerate triple points) — CLOSED (Postscript 43,
+   PROOF_STEP_T.md).** Not via deg_top ≤ deg_bot (false) but via the
+   two-budget local inequality (◆): deg_top − 2 ≤ (deg_bot−2)⁺ +
+   Σ_pairs(d_{ij}−2), proven by an elementary case split using
+   deg_top = N − deg_bot and z_{ij} ≤ 2min(a_i,a_j). Verified 0/50000.
+   The only residual caveat is the pre-existing pairwise-tangency
+   degeneracy of §5.4 (Part D), not a triple-point issue.
 2. Tighten the two "flavor of Theorem 1" caveats: Theorem 1's "q_t lands
    in component U" (§3.1) and Lemma 1a's tangential-triple-point case
    (§5.3). Standard, non-generic, corroborated; deserve clean write-ups.

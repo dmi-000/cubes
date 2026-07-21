@@ -102,27 +102,30 @@ every step simultaneously, which is exactly why 67 is the ceiling.
 
 ## Where it stands
 
-The argument is complete and rigorous for the generic case and for both
-maximizers (where it is tight), and it holds for all three concentric
-convex six-faced cells with ordinary (degree-three) triple points. One
-non-generic case does *not* yield to the argument as it stands: an
-over-degenerate triple point, where three cells coincide at a single point
-with one at a corner and two at thin blades. The tempting shortcut there —
-that the "farthest-cell" diagram can be no more branched than the
-"nearest-cell" diagram, which the already-proved d₂ ≤ 18 would then cap —
-turns out to be simply false: such a point can have a degree-eight
-farthest-cell vertex against a degree-four nearest-cell vertex, and this is
-realizable by honest cells, not an artifact. So this last case is a genuine
-gap, not a formality. What keeps it from threatening the answer is that
-these degenerate points are region-poor in isolation (the explicit
-construction makes only ten regions), never occur at either maximizer, and
-never appeared in any sampled configuration; the record of 67 itself was
-established by exhaustive machine search, independent of this proof. The
-honest status, then, is: max(3) = 67 is a theorem on the generic stratum
-and at both maximizers, and closing the degenerate case needs a global
-bound on the complexity of the boundary of the union of the three cells —
-a smaller, but real, piece of work — before the universal statement over
-all convex six-faced cells is unconditional.
+The argument is complete and rigorous for all three concentric convex
+six-faced cells whose boundaries meet pairwise transversally — an open
+dense set of configurations that includes both maximizers. Getting there
+required disarming one non-generic case that at first looked fatal: an
+over-degenerate triple point, where three cells coincide at a point with
+one at a corner and two at thin blades. The tempting shortcut — that the
+"farthest-cell" diagram can be no more branched than the "nearest-cell"
+diagram, which the already-proved d₂ ≤ 18 would then cap — is simply false:
+such a point can have a degree-eight farthest-cell vertex against a
+degree-four nearest-cell vertex, realizable by honest cells. The fix does
+not repair that false inequality but sidesteps it. Each triple point is
+charged to *two* budgets at once — the nearest-cell diagram and the three
+pairwise intersection polytopes — and a short case analysis (on how many
+cells are ever nearest at the point) shows a degree-eight vertex draws no
+more than its fair share of the combined budget. The two pieces that made
+it elementary: the farthest and nearest diagrams' total branching equals
+the number of times the three cells' reach profiles cross, and each pair
+crosses at most twice its smaller active-facet count. With that, the
+degenerate triple points are fully handled — no restriction on them at all
+— and max(3) = 67 is a theorem for all pairwise-transversal triples of
+convex six-faced cells, cubes among them. (The full write-up is
+`PROOF_STEP_T.md`.) A single milder caveat predates this and is unrelated
+to triple points: two cells meeting tangentially rather than transversally,
+a higher-codimension degeneracy the contact bound already set aside.
 
 Two smaller results fell out along the way and are fully proved: the
 two-cube maximum is 13 (the first complete maximum theorem in the
