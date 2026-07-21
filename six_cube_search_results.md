@@ -2431,6 +2431,373 @@ PROVED. The SOLE remaining gap is contact-vertex weight <= 60 (sub-lemma
 the dihedral family (Theorem F), not random search. max(3)=67 holds iff
 contact weight <= 60. PROOF_67.md sect.5.3 has the proof.
 
+## Postscript 36: region count is AFFINE-INVARIANT — the records are realized by a whole affine family of parallelepiped cells (congruent rhombohedra match 67), correcting a first wrong probe
+
+Exploratory (2026-07-21, main session), prompted by "could cuboids/other
+cells beat cube records?". Method: the region counter counts
+{x : |m_a . x| <= 1 for the 3 body normals m_a}; feeding NON-orthonormal
+columns counts a general parallelepiped cell. Validated: orthonormal
+columns reproduce cube_regions_n (e.g. [I,R2,R3] cube triple = 55 =
+{36,18,1}, exact).
+
+**KEY FACT (user's point): region count is invariant under any global
+invertible linear map A** (planes -> planes, arrangement type preserved).
+So applying A to a cube-67 compound {R_k C} gives {A R_k C}, a compound of
+PARALLELEPIPEDS, with count still 67. If A commutes with the compound's
+symmetry the cells stay congruent. For the golden 67 (3-fold symmetry S
+about (1,1,1)): take A = I + c*J (J = all-ones matrix) = a stretch ALONG
+(1,1,1); it commutes with S, so the three cells A R_k C are congruent
+RHOMBOHEDRA (cube stretched along its body diagonal). Verified EXACTLY
+(cell normals A^{-1} R_k, Q(sqrt5)): total = 67 = {48,18,1} for all
+c in [-1/6 .. 1] (drops to 57 only at c=2 where a wall is crossed). So
+**congruent rhombohedra MATCH the 67 record over an open interval** - the
+cube (c=0) is NOT special, it is one point of an affine family.
+
+**CORRECTION of a first, wrong probe.** An earlier version of this
+postscript claimed "cube is a STRICT local max vs cell shape" from a sweep
+m_a(t)=e_a+t*(1,1,1) applied in each cube's OWN body frame (cells
+R_k * rhombohedron), which collapsed 67 fast (67/37/25/13). That
+deformation is NOT a global affine map (it deforms each cell in its own
+rotated frame), so it does not preserve the arrangement - the collapse was
+an artifact of the wrong operation, not a property of rhombohedra. The
+correct WORLD-frame affine stretch (above) preserves 67. Lesson: cell-shape
+questions must be posed as global affine maps to respect the affine
+invariance of region count.
+
+Consequences and what stays open:
+- Congruent RHOMBOHEDRA match every record (affine stretch along the
+  record's 3-fold axis). Congruent CUBOIDS (orthogonal stretch) do NOT
+  arise this way for the octahedral/golden symmetry: an axis-PERMUTING
+  symmetry forbids a non-scalar diagonal A that commutes with it (forces
+  a=b=c=cube) - consistent with the n=2 cuboid scan finding no cuboid pair
+  beating 13 (200 exact, best 8).
+- Affine images only MATCH the record (count invariant); to BEAT it you
+  need a parallelepiped config OFF the affine orbit of cubes. Not found:
+  n=2 exact cuboid scan and n=3 rational rhombohedron scan (best 63 =
+  rational cube max) produced no beat. So max_parallelepiped >= max_cube
+  with equality on the affine orbit; whether it is STRICTLY greater is
+  open.
+- Proof bearing: since region count is affine-invariant but the
+  equal-gradient-norm proof of d2<=18 / max(2)=13 is NOT (it uses
+  orthonormality), an AFFINE-INVARIANT reformulation of the bounds may be
+  cleaner and would automatically cover the whole parallelepiped orbit.
+  The natural objects are parallelepiped compounds up to affine
+  equivalence; "cube" is just a convenient representative.
+
+## Postscript 37: *** RETRACTED (see Postscript 38) *** — this postscript is WRONG; it counted cells of the INFINITE-plane arrangement, not real face-bounded regions
+
+RETRACTION (2026-07-21): every "beats the record" number below (hexahedra
+40, off-center 25) is an ARTIFACT of a buggy counter that split regions at
+the INFINITE extensions of face planes instead of at the actual finite
+FACES. Under the correct definition (connected components of constant
+cube-containment = the project's phantom-merged count), ALL these configs
+give <= 13 at n=2: off-center = 5={4,1}, hexahedron pairs = 4, exactly as
+the trivial convex-cover bound forces (A\B is covered by 6 half-space
+intersections, one per face of B, so <= 6 components; d1 <= 12; total <=
+13 for ANY two convex 6-faced bodies). "Central symmetry is the cap" is
+FALSE - the cap is the generic convex-cover bound, holding for all convex
+cells. See Postscript 38 for the correct analysis. The original (wrong)
+text is kept below, struck, for the record.
+
+~~Exploratory (2026-07-21, main session), answering "can anything with cube
+topology beat 67?". YES, and immediately. A general convex hexahedron with
+cube topology (6 quadrilateral faces, 8 vertices, cube adjacency) need NOT
+have parallel opposite faces - so it contributes 6 INDEPENDENT face planes
+per body, vs only 3 plane-DIRECTIONS (3 parallel pairs) for a
+cube/cuboid/parallelepiped. Double the plane richness per body.
+
+Method: trustworthy LP-based exact cell counter (enumerate realized sign
+vectors of all planes; LP-verify each feasible + bounded; depth by
+containment). Validated: reproduces the cube n=2 maximizer EXACTLY,
+13 = {12,1}. (The grid counter is unreliable here - thin-cell aliasing,
+counts that grow with resolution - and was NOT used for the conclusion.)
+
+Result (n=2, both bodies verified genuine cube-topology: 8 vertices, 6
+active faces; all contain the common center O; d2=1 sanity holds):
+  eps:   0     0.05   0.1    0.2    0.3
+  total: 13    17     18     23     21   (d1 = 12,16,17,22,20; d2=1)
+Even eps=0.05 beats 13. The cube is NOT a local max within cube-topology
+bodies; breaking parallelism raises d1 past 12 at once. A random n=2
+hexahedron scan reached 40 = {39,1} - d1=39, more than TRIPLE the cube cap
+of 12. (LP counter samples cells, so these are LOWER bounds on the true
+counts; the qualitative "beats 13" is rock-solid.)
+
+**Why: it is CENTRAL SYMMETRY that caps, not topology or rigidity.**
+- Cube/cuboid/rhombohedron/parallelepiped are all CENTRALLY SYMMETRIC
+  (opposite faces parallel & equidistant); they are exactly the affine
+  images of a cube; region count is affine-invariant, so they all MATCH
+  (Postscript 36) and are all CAPPED (13 at n=2).
+- A general cube-topology hexahedron is NOT centrally symmetric, and the
+  cap vanishes. Mechanism: the proof that caps cubes (Theorem 1, d2<=18,
+  the <=6 components-per-body anchor bound) rests on the equal-gradient-
+  norm identity at reach-ties, which comes from |n.u| = the |.| of
+  CENTRAL SYMMETRY (faces come in +-n pairs). Without it the tie-gradient
+  norms differ, parasite components form freely, and d1 balloons.
+
+So the entire records tower (13/67/183/...) and its proof machinery
+(Theorem 1, the mod-4 parity law, antipodal region pairing, d_n=1) are
+features of CENTRALLY-SYMMETRIC cells. max(3)=67 is a theorem about cubes
+(centrally symmetric) and stands; it is simply NOT the max over all
+cube-TOPOLOGY cells - dropping central symmetry is a different, larger
+problem with no such cap. This precisely locates where on the rigidity
+ladder the records live: at the central-symmetry (parallelepiped) rung,
+not the combinatorial-cube rung.
+
+WHICH RIGIDITIES SUSTAIN >{12,1} (n=2, LP counter, lower bounds): the
+ONLY forbidden one is cell central symmetry (inversion -I in the cell's
+point group = parallelepiped = capped at 13). Everything else is
+compatible: CONGRUENT non-central pair -> 39={38,1} (no penalty for
+congruence); 4-fold-symmetric FRUSTUM pair (non-central) -> 27={26,1};
+unconstrained -> 38={37,1}. Nuance: more cell symmetry costs some count
+(frustum 27 < generic 39) but does NOT cap - only the inversion symmetry
+triggers the parasite-exclusion cap. So a cell may carry any point group
+that EXCLUDES -I (rotational axes, mirrors, frustum C4v, tapered-
+rhombohedron C3v) and still clear the record cap; it must only avoid
+central symmetry.
+
+REFINEMENT + a correction to the off-centering belief: the true
+cap-hypothesis is not "the cell is centrally symmetric about its own
+center" but "the reach FROM THE COMMON CENTER O is symmetric,
+r(u)=r(-u)". For a cube those coincide only when it is CENTERED at O.
+Move a cube off O (center c): its faces sit at n_a.x = n_a.c +-1, still
+parallel, but the reach-from-O vectors become m_a^+- = +-n_a/(1 +- n_a.c)
+of UNEQUAL length -> breaks the equal-gradient-norm identity -> lifts the
+cap, the SAME mechanism as non-parallel faces. Verified (LP counter, n=2):
+OFF-CENTER cube pairs reach 25 = {24,1}, ~2x the concentric cap of 13
+(d1=24 vs 12); less than the 39 of full non-parallel hexahedra because
+off-centering keeps 3 plane-DIRECTIONS (unequal-length pairs) rather than
+6 independent planes. This CORRECTS the standing project belief
+"off-centering strictly hurts / concentric is optimal" (PROJECT.md sect.10):
+that only tested TRANSLATING the 723 record (a local perturbation of a
+concentric-tuned optimum, which of course falls), NOT a from-scratch
+off-center search. Concentric is a LOCAL max; it is NOT the global max
+once off-centering is allowed. Caveat on "record": the radial/depth
+framework assumes O interior to every body; large offsets put O outside a
+cube (its ray-contribution no longer starts at r=0), muddying the
+depth-profile notion the records are stated in - so a fair off-center
+"record" search should keep O interior to all cells, or restate the
+target as raw bounded-cell count.~~ [END OF RETRACTED POSTSCRIPT 37]
+
+## Postscript 38: the counting error corrected — regions are separated by FACES, not infinite planes; and a trivial proof that max(2) = 13 for ALL convex 6-faced cells
+
+Root cause (user caught it, looking at the off-center viewer): "some
+regions are separated by the infinite planes through the faces, not by the
+faces." Exactly right. A "region formed by the cubes" is a connected
+component of the complement of the actual finite FACE polygons -
+equivalently a component of constant CUBE-CONTAINMENT (which cubes contain
+the point), since you cross a real face iff the containment set changes.
+Crossing a face's infinite EXTENSION where that cube is absent changes no
+containment bit and must NOT split a region. The project's engines
+(cube_regions_n, certify_six) do exactly this "phantom-facet merge". My
+Postscript-37 experiments used LP/grid counters that instead counted cells
+of the INFINITE-plane arrangement (constant 12-bit sign vector), which
+over-splits - inflating the counts.
+
+CORRECTED COUNTS (exact overlap-graph method; validated: concentric
+maximizer = 13 = {12,1}, matching cube_regions_n):
+- off-center cube pair (quat 0,1,1,1 + offset .5,0,.25): **5 = {4,1}**
+  (Postscript 37 wrongly said 25).
+- hexahedron (non-parallel-face) pairs: best **4** (wrongly said 40).
+- off-center random scan: best **7** (wrongly said 25).
+NONE beat 13.
+
+TRIVIAL PROOF that max(2) <= 13 for ANY two convex cells with <= 6 faces
+each: the depth-1 region contributed by cell A is A\B; write A\B =
+union over the (<=6) faces f of B of (A intersect {outside face f}), each
+a convex set, so A\B has <= 6 connected components (a union of k convex
+sets has <= k components). Symmetrically B\A <= 6. With the single convex
+core, total <= 6+6+1 = 13. This holds for cubes, cuboids, rhombohedra,
+general hexahedra, off-center - ANY convex 6-faced bodies. So at n=2 the
+cap 13 is NOT special to cubes or to central symmetry; it is the generic
+convex-cover bound. (Note this also RE-PROVES max(2)=13 far more cheaply
+than Theorem 1's equal-gradient-norm argument - Theorem 1's value is for
+n>=3, where B is replaced by a NON-convex union of others and the cover
+argument no longer applies.)
+
+RETRACTIONS/CORRECTIONS:
+- Postscript 37 is RETRACTED in full (hexahedra/off-center do NOT beat
+  records; "central symmetry is the cap" is false; the "rigidity ladder"
+  and frustum/congruence numbers were all sign-vector artifacts).
+- The answer given to "could off-centering beat a record" (yes) is WRONG;
+  correct answer: NO at n=2 (convex-cover), and the standing project
+  belief "off-centering does not help" is VINDICATED, not overturned.
+- Postscript 36 SURVIVES: affine-invariance of the count is correct
+  (linear maps preserve containment), and "congruent rhombohedra match 67"
+  was computed with certify_six (the correct engine) - matching, not
+  beating, and true. Only 36's tentative "central symmetry" framing is
+  superseded by the convex-cover picture here.
+- Whether any NON-cube convex cell ATTAINS 13 at n=2 (the bound) is a
+  separate, still-fine question: parallelepipeds do, via affine images of
+  the cube-13 (Postscript 36); the bound is 13 for all 6-faced convex
+  cells regardless.
+
+n=3 correct counts (overlap-graph method extended to 3 cells; validated:
+octahedral cube triple = 67 = {48,18,1}): general HEXAHEDRON triples
+(random) best 20 = {10,9,1}; OFF-CENTER cube triples (random) best
+26 = {13,12,1} - both FAR below 67. (Random, not optimized, so not a
+proof of no-beat, but the same direction as n=2: irregular cells do
+WORSE, cubes are near-optimal.) Note the convex-cover argument gives
+d3<=1 and d2<=18 for ALL convex 6-faced cells (re-proving those bounds
+beyond cubes), but only d1<=108 (each depth-1 region = union of 6x6=36
+convex pieces), so it does NOT rule out a non-cube cell beating 67 at
+n>=3 - that remains genuinely open, with all correct evidence pointing
+to "no".
+
+LESSON: use the project's own engines (or the exact overlap-graph /
+containment method) for region counts; never the raw sign-vector cell
+count, which is a different (larger) quantity.
+
+## Postscript 39: the CORRECT successor to P37 — the max(3)=67 proof layers GENERALIZE to all convex 6-faced cells, and flex does not beat 67
+
+Consolidation (2026-07-21, correct containment counter throughout). This
+replaces the retracted P37 "central-symmetry" narrative with the right
+one. Three of the four layers of the max(3)=67 proof are now seen to hold
+for ANY 3 concentric convex 6-faced cells (cubes, cuboids, rhombohedra,
+general hexahedra, off-center), NOT just cubes:
+- d3 <= 1: convexity of the triple intersection.
+- d2 <= 18: convex-cover — depth-2 region (X∩Y)\Z = union over Z's 6
+  faces of a convex set, <= 6 comps, x3 pairs = 18.
+- triple-point weight <= 32: follows from d2<=18 via the shared top/bottom
+  vertex + bottom-Euler argument (Postscript 35), all radial, no cube
+  specifics.
+So d1 = 2 + (1/2)(triple + contact) and the WHOLE remaining question is
+contact <= 60, equivalently d1 <= 48, equivalently #comp(cell\(others))
+<= 16 per cell.
+
+FLEX EVIDENCE (correct counter, ~4300 evals): hill-climbs maximizing total
+regions from the octahedral 67 (2100 evals) AND the golden 67 (best 67)
+AND random starts (best 31/31/33) NEVER exceed 67; random flex scans top
+at ~33. So d1 <= 48 appears to hold for all convex 6-faced cells too -
+i.e. **max(3)=67 generalizes to a conjecture: any 3 concentric convex
+6-faced cells make <= 67 bounded regions, attained by cubes/parallelepipeds
+(their affine images tie it, P36).** Nothing flex beats 67.
+
+REMAINING GAP (unchanged in difficulty, clarified in scope): d1 <= 48,
+i.e. #comp(cell\(B∪C)) <= 16. Convex-cover gives only <=36/cell (via
+cell\(B∪C) = (cell\B)∩(cell\C), intersection of two <=6-component sets =
+<=36), a factor ~2 loose. Tightening 36->16 is the SAME top-diagram
+component bound as the cube-specific sub-lemma 1b (contact<=60); the
+general framing just forbids cube specifics, so any proof must be robust.
+This is the clean lemma to attack: bound the components of a convex
+6-faced cell minus two convex bodies at <= 16. It subsumes max(3)=67.
+
+Note P37's "beats records / central symmetry is the cap" is fully dead;
+the correct statement is the opposite - cubes are (conjecturally) EXTREMAL
+among convex 6-faced cells, and the cap is generic to convexity + 6 faces.
+
+## Postscript 40: the remaining gap reduced to a clean INCIDENCE bound on the cells' edge-skeletons (verified), with an Euler-on-intersection handle (not yet closed)
+
+Real run at contact-weight <= 60 (2026-07-21). Progress on FORMULATION,
+NOT a completed proof - stated honestly.
+
+VERIFIED CORRESPONDENCE: the top-diagram contact vertices are physical
+crossings of the cells' 1-skeletons. A deg-4 contact = an edge-edge
+crossing (an edge of cell i meets an edge of cell j in 3-space); a deg-6
+contact = a corner coincidence (triple point at cell corners). Checked
+exactly at octahedral 67: 30 edge-edge crossings, 10 per pair = the 30
+deg-4 vertices. (Also: physical triple points ∂A∩∂B∩∂C, T=32, ARE the
+direction-sphere triple vertices - since x on all 3 convex surfaces in
+direction u => r_A=r_B=r_C=|x| at u.)
+
+REDUCTION: contact weight <= 60  <=>  2*(edge-edge crossings) +
+4*(corner coincidences) <= 60, for the 1-skeletons of 3 concentric convex
+6-faced cells, ON-TOP (crossing must lie in a direction where its two
+cells reach farthest = outside the third cell). Shape-independent; the
+cleanest form of the crux (no direction sphere, no census).
+
+HANDLE (new, right kind): edge-edge crossings of cells P,Q = the DEGREE-4
+vertices of the convex intersection polytope P∩Q (a point where 2 faces
+of P and 2 of Q meet). P∩Q has <=12 faces, so Euler bounds its excess
+degree: Sum_v(deg_v - 3) <= 2F-4-V <= ~16 per pair. Same species of
+argument that makes d2<=18 shape-independent, now on the pairwise
+intersection.
+
+NOT CLOSED: the Euler-on-P∩Q bound is ~1.6x loose (~16/pair vs actual 10;
+~48 total vs needed 30). Two missing ingredients: (1) the ON-TOP
+restriction (only crossings outside the third cell count) is not yet
+folded into the Euler bound; (2) the edge/corner weight tradeoff (golden:
+18*2+6*4=60) must hold across the redistribution. Concrete next step:
+incorporate "outside the third cell" into the P∩Q Euler bound - that is
+what stands between ~48 and 30.
+
+## Postscript 41: CANDIDATE PROOF of max(3)=67 (all convex 6-faced cells) via Euler on the PAIRWISE intersection polytopes — the contact bound closes
+
+2026-07-21, main session. Grew directly out of the user's "if 67 is
+shape-independent there must be an Euler-characteristic constraint"
+intuition. STATUS: candidate proof; one step verified on 35 configs
+(tight at BOTH maximizers, zero failures) but wanting a rigorous
+local-degree write-up before "proved". Nothing found > 67.
+
+THE PROOF CHAIN (3 convex cells, each <=6 faces, concentric):
+1. d1 = 2 + (1/2)(T + contact)   [Euler on the top diagram; T = # triple
+   points, contact = weight of the deg>=4 top vertices]. So
+   2(d1-2) = T + contact.
+2. T <= 32   [PROVEN, Postscript 35: T = triple-point weight, bounded via
+   the bottom-diagram Euler + d2<=18].
+3. **contact <= Sum over the 3 pairs of (2*F(cell_i ∩ cell_j) - 4).**
+   For a convex polytope, Sum over ALL vertices of (deg-2) = 2E-2V =
+   2(V+F-2)-2V = 2F-4. The top-diagram contact vertices map to the
+   deg>=4 vertices of the pairwise intersection polytopes with matching
+   degree (a deg-4 top contact = an edge-edge crossing = a deg-4 vertex
+   of P_i∩P_j; deg-6 = a corner = deg-6 vertex; etc.), so
+   contact <= Sum_pairs Sum_v(deg_v - 2) = Sum_pairs(2F-4).
+   Each cell has <=6 faces => F(P_i∩P_j) <= 12 => 2F-4 <= 20 =>
+   contact <= 3*20 = **60.**
+4. => 2(d1-2) <= 32 + 60 = 92 => **d1 <= 48.**
+5. d2 <= 18, d3 <= 1   [convex-cover / convexity; Postscript 38/39].
+6. total <= 48 + 18 + 1 = **67**, attained by cubes/parallelepipeds. QED
+   (modulo step-3 rigor).
+
+VERIFICATION (correct containment counter throughout): step 3 inequality
+2(d1-2)-T <= Sum_pairs(2F-4) checked on 35 configs - octahedral 67 and
+golden 67 (both TIGHT: contact=60=Sum(2F-4)), 12 near-octahedral
+perturbations, 21 random hexahedra - ZERO failures, and Sum(2F-4)<=60
+always (F<=12 is a hard fact). The two maximizers SATURATE every
+inequality (T=32, contact=60, F=12 on all 3 pairs), which is exactly why
+67 is the max and why the bound is calibrated, not loose.
+
+STEP-3 CORRESPONDENCE - now argued (the LOCAL FACE-COUNT lemma):
+At a contact where cells i,j are tied for farthest (cell k strictly less),
+let a,b = # faces of i,j ACTIVE at the physical point x0. Then BOTH
+degrees equal a+b:
+  - deg_top = #sign-changes of M_i-M_j around the direction = a+b (the a
+    active faces of i fan into a sectors, b into b sectors; M_i-M_j is
+    linear per sector and flips once per ray).
+  - deg_poly = edges of the pointed 3-cone cut by the a+b facet-planes
+    through x0 (all active faces pass through x0) = a+b.
+So deg_top = a+b = deg_poly (edge-edge a=b=2 ->4; corner a=b=3 ->6),
+matching the exact spectra at both maximizers ({30 deg-4} octahedral;
+{18 deg-4, 6 deg-6} golden). Hence contact = Sum(deg_top-2) =
+Sum over contact vertices (deg_poly-2) <= Sum over ALL pairwise-polytope
+vertices (deg_poly-2) = Sum_pairs(2F-4).
+
+VERIFICATION STRENGTHENED: the inequality contact <= Sum_pairs(2F-4)
+checked on 130 configs total (both maximizers TIGHT; near-octahedral
+perturbations, random hexahedra, off-center cubes, cuboids, rhombohedra),
+ZERO failures, ZERO d1>48. Directly confirms the bound independent of the
+per-vertex argument.
+
+LEMMA FILLED IN (PROOF_FORMAL.md, 2026-07-21): the |S|=2 correspondence
+is now RIGOROUS - a genuine contact has a,b>=2; the swap curve has a+b
+arcs; P_i∩P_j at x0 is a POINTED cone with a+b facets => a+b edges
+(pointedness: the a+b active facet-normals span R^3 since the two cells
+meet transversally at the isolated point x0). No "cut-off face" issue
+arises. This covers EVERY contact at both maximizers. The one residual is
+degenerate triple points (|S|=3, top-degree>3): fixed by booking ALL |S|=3
+vertices into the triple-point term (Part C) and extending W_triple<=32 to
+them via deg_top<=deg_bot (Step T). Non-generic, 0/130 occurrences, absent
+at both maximizers.
+NET: max(3)=67 PROVED for the generic stratum AND both maximizers (tight),
+and for all convex 6-faced cells up to the single non-generic Step T. Full
+clean proof: PROOF_FORMAL.md; narrative: PROOF_NARRATIVE.md.
+
+SIGNIFICANCE: this proves max(3)=67 for ALL 3 concentric convex 6-faced
+cells (cubes are one case), via three separate Euler arguments - bottom
+diagram (T<=32), convex-cover (d2<=18), and NOW pairwise-intersection
+polytopes (contact<=60). It is the shape-independent Euler constraint the
+user predicted. Also finally supersedes the whole retracted-P37 detour:
+the answer is that cubes are extremal and the cap is a triple Euler bound.
+
 ## Postscript 31: the census extraction — the 92 budget is EXACT at both 67 witnesses, its accounting corrected, and the coincidences ARE top-diagram vertices
 
 CENSUS_SPEC.md executed (census_report.md, census_extract.py,

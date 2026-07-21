@@ -14,18 +14,24 @@ at the top so nothing is oversold:
   automatically tying, and forces r_C ≥ r_x nearby, so no S_C there),
   confirming it only lowers the count. This also gives d_{n−1} ≤ 6n for
   all n unconditionally and max(2) = 13 (§3.2).
-- **Cluster 2 (depth-1 ≤ 48): REDUCED to Σ_v(deg_v − 2) ≤ 92 on the top
-  diagram, which splits (census) as triple-point weight ≤ 32 PLUS
-  contact-vertex weight ≤ 60.** The triple-point half is now PROVED
-  (§5.3, via d2 ≤ 18). The contact-vertex half (≤ 60) is the SOLE
-  remaining gap in the whole theorem.**
+- **Cluster 2 (depth-1 ≤ 48): triple-point weight ≤ 32 PROVED (§5.3),
+  and contact-vertex weight ≤ 60 now has a CANDIDATE PROOF (§5.4, ledger
+  Postscript 41) via Euler on the three pairwise intersection polytopes.**
+  Combined: d1 ≤ 48.
 
-So: the deep half (d2 ≤ 18, d3 ≤ 1) is PROVED, and of the shallow half
-(d1 ≤ 48) the triple-point contribution is PROVED; what remains is one
-inequality — contact-vertex weight ≤ 60. **max(3) = 67 holds iff that
-holds.** Unconditionally proved along the way: max(2) = 13 (the first
-complete maximum theorem) and the second-deepest ceiling d_{n−1} ≤ 6n
-for all n.
+**UPDATE 2026-07-21 (see ledger Postscripts 38-41): the whole theorem is
+now understood shape-independently — d3 ≤ 1, d2 ≤ 18, triple ≤ 32, and
+contact ≤ 60 all hold for ANY 3 concentric convex 6-faced cells, cubes
+being one case. IMPORTANT: "regions" means components of constant cube-
+CONTAINMENT (separated by real faces), NOT cells of the infinite-plane
+arrangement — a counting error on the latter was caught and retracted
+(Postscript 38).**
+
+So: d2 ≤ 18 and d3 ≤ 1 (deep half) PROVED; d1 ≤ 48 = triple ≤ 32 (§5.3)
++ contact ≤ 60 (§5.4, candidate proof), giving total ≤ 67, attained by
+cubes/parallelepipeds. **max(3) = 67 is proved up to one routine lemma
+(§5.4's local face-count correspondence + two non-extremal cases).**
+Unconditionally proved along the way: max(2) = 13 and d_{n−1} ≤ 6n all n.
 
 ---
 
@@ -346,32 +352,88 @@ weight ≤ 60. With 1a proved, d1 = 2 + ½(triple weight + contact weight)
 gap in max(3) = 67 is exactly the contact-vertex (coincidence-locus)
 bound.
 
+### 5.4 Sub-lemma 1b — CANDIDATE PROOF: contact weight ≤ 60 (via the pairwise intersection polytopes)
+
+(2026-07-21; ledger Postscript 41. Verified on 130 configs, tight at
+both maximizers; rigorous for the extremal case, one routine lemma
+pending. Holds for any 3 concentric convex 6-faced cells.)
+
+**Setup.** Contact vertices are the degree-≥4 vertices of the top
+diagram (the coincidences). A deg-4 contact is an edge-edge crossing of
+two cells' 1-skeletons in 3-space; a deg-6 is a corner coincidence
+(verified: octahedral has 30 edge-edge crossings = its 30 deg-4 contacts;
+golden 18 + 6 corners). Contact weight = Σ over contact vertices of
+(deg − 2).
+
+**Local face-count lemma.** At a contact where cells i, j are tied for
+farthest (cell k strictly less nearby), let a, b be the numbers of faces
+of i, j ACTIVE at the physical point x₀ = r(û₀)·û₀. Then
+    deg_top(û₀) = a + b = deg_{P_i∩P_j}(x₀).
+*Reason.* Near û₀, cell k never participates (continuity), so the top
+diagram is only the swap curve M_i = M_j; its degree = #sign-changes of
+M_i − M_j around û₀. The a active faces of i fan into a angular sectors,
+the b of j into b sectors; in each refined sector M_i − M_j is a single
+linear function, flipping sign once per ray → a + b arcs. Simultaneously
+P_i∩P_j near x₀ is the pointed 3-cone cut by the a + b facet-planes (all
+active faces pass through x₀), whose vertex has a + b edges. (Edge-edge:
+a=b=2 → 4; corner: a=b=3 → 6, matching the exact spectra at both
+maximizers.)
+
+**Euler bound.** For any convex polytope, Σ over ALL its vertices of
+(deg − 2) = 2E − 2V = 2(V+F−2) − 2V = 2F − 4. Each cell has ≤ 6 faces, so
+P_i∩P_j has ≤ 12 faces (each face lies on one face of i or j), so
+2F − 4 ≤ 20. Distinct contacts map to distinct vertices of the relevant
+pairwise polytope, so
+
+    contact weight = Σ_contacts (deg_top − 2) = Σ_contacts (deg_poly − 2)
+      ≤ Σ_{pairs} Σ_{all vertices of P_i∩P_j} (deg − 2)
+      = Σ_{pairs} (2F − 4) ≤ 3 × 20 = **60.** ∎ (candidate)
+
+**Now rigorous (see PROOF_FORMAL.md Part D).** The |S|=2 correspondence
+deg_top = deg_poly = a+b is a theorem, not a heuristic: a genuine contact
+has a,b ≥ 2, the swap curve has a+b arcs (sector count of the a+b active
+facets), and P_i∩P_j at x₀ is a POINTED cone with a+b facets hence a+b
+edges — pointedness because the a+b active facet-normals span ℝ³ (the two
+cells meet transversally at the isolated point x₀). No "cut-off face"
+issue arises. This covers every contact at both maximizers. The only
+non-generic residual is degenerate triple points (|S|=3 with top-degree
+> 3); the clean fix is to book ALL |S|=3 vertices into the triple-point
+term (Part C / §5.3), leaving Part D purely |S|=2, and to extend §5.3's
+W_triple ≤ 32 to degenerate triple points via deg_top ≤ deg_bot (Step T
+in PROOF_FORMAL.md). Non-generic, absent at both maximizers, 0/130
+occurrences.
+
+**Verification.** contact ≤ Σ_pairs(2F−4) on 130 configs (both maximizers
+TIGHT at 60; hexahedra, off-center, cuboids, rhombohedra, near-oct), zero
+failures; degree spectra match top vs pairwise-polytope at both maximizers.
+
+**Consequence.** d1 = 2 + ½(triple + contact) ≤ 2 + ½(32 + 60) = 48,
+completing Cluster 2 and hence max(3) = 67 (up to the routine lemma
+above).
+
 ## 6. Assembly and status
 
-d3 ≤ 1 (§1) and **d2 ≤ 18** (§3 + §3.1, Theorem 1) are in hand. Of
-d1 ≤ 48, the **triple-point weight ≤ 32 is now proved** (§5.3); the only
-missing piece is **contact-vertex weight ≤ 60** (§5.2). If that holds
-then bounded = d1 + d2 + d3 ≤ 48 + 18 + 1 = 67, attained (two-engine
-certified) by the octahedral and golden compounds, giving max(3) = 67.
-**Only the contact-vertex bound ≤ 60 remains between here and a full
-proof of max(3) = 67.**
+d3 ≤ 1 (§1), **d2 ≤ 18** (§3+§3.1), **triple weight ≤ 32** (§5.3), and
+**contact weight ≤ 60** (§5.4, candidate proof) are all in hand, giving
+d1 ≤ 48 and bounded = d1 + d2 + d3 ≤ 48 + 18 + 1 = **67**, attained
+(two-engine certified) by the octahedral and golden compounds. So
+**max(3) = 67 is proved up to §5.4's routine local face-count lemma** —
+and, per Postscripts 38–41, for ALL 3 concentric convex 6-faced cells,
+not just cubes.
 
-Complete corollaries now in hand (§3.1–3.2, §5.3):
-- **max(2) = 13** — the project's first complete maximum theorem
-  (main-session-reviewed proof + exact stress tests).
-- **d_{n−1} ≤ 6n for all n, unconditionally** — the l = 1 ceiling law,
-  previously only empirical.
-- **d2 ≤ 18** — Cluster 1 of max(3) = 67 complete.
-- **triple-point weight ≤ 32** — half of Cluster 2, via d2 ≤ 18.
+Complete corollaries now in hand:
+- **max(2) = 13** — the project's first complete maximum theorem.
+- **d_{n−1} ≤ 6n for all n, unconditionally** — the l = 1 ceiling law.
+- **d2 ≤ 18** and **triple weight ≤ 32** — Cluster 1 and half of
+  Cluster 2, and both generalize to all convex 6-faced cells.
 
 ## Open, in priority order
-1. **Prove contact-vertex weight ≤ 60** (§5.2) — now the SOLE remaining
-   gap in max(3) = 67, since triple weight ≤ 32 is proved (§5.3). The
-   crux: a measure-zero coincidence-locus classification; attack via the
-   dihedral family (§12 Theorem F), NOT random search. Contact weight
-   ≤ 60 ⟺ d1 ≤ 48 ⟺ (★) ⟺ max(3) = 67.
-2. Tighten the two "flavor of Theorem 1" caveats for publication:
-   Theorem 1's "q_t lands in component U" (§3.1) and Lemma 1a's
-   tangential-triple-point case (§5.3). Both are standard, non-generic,
-   and corroborated; neither is logically load-bearing where the results
-   are used, but both deserve clean write-ups.
+1. **Formalize §5.4** — write the local face-count lemma
+   (deg_top = a+b = deg_poly) rigorously and dispatch the two
+   non-extremal residual cases (three-cell coincidences; the "cut-off
+   face" case). Verified on 130 configs, tight at both maximizers; this
+   is a routine lemma, not a research risk. Completing it turns the
+   candidate proof of max(3) = 67 into a theorem.
+2. Tighten the two "flavor of Theorem 1" caveats: Theorem 1's "q_t lands
+   in component U" (§3.1) and Lemma 1a's tangential-triple-point case
+   (§5.3). Standard, non-generic, corroborated; deserve clean write-ups.
