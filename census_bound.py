@@ -18,7 +18,14 @@ approaches listed there. It:
   - adds the anchor/cone test of PROOF_67.md sect.5.1 (not present in
     census_extract.py): at a triple point, tangential gradients e_i of
     each cube's active-face function, and the cone-membership test
-    e_i in cone{e_x - e_i : x tying cubes != i};
+    e_i in cone{e_x - e_i : x tying cubes != i}. RESULT (both exact and
+    independently confirmed by brute-force real-function search): 0/32
+    triple points anchor at EITHER maximizer, not the 24 claimed in the
+    original PROOF_67.md sect.5.1 -- approach 4 is REFUTED, not just
+    unproven. Main session independently confirmed this and corrected
+    PROOF_67.md sect.5.1 mid-run; approach 4 is DEAD and this script does
+    not pursue it further (the anchor/cone code is kept as the record of
+    that finding, not as an active route);
   - runs gates G1 (exact 92 at both maximizers via census_extract itself),
     G2 (this script's own weight computation also gives exactly 92 at
     both, and the anchor test gives the calibration numbers), G3 (batch
@@ -34,18 +41,14 @@ Usage:
 import argparse
 import json
 import multiprocessing as mp
-import sys
 import time
-from itertools import combinations
 
 import numpy as np
 
 from census_extract import (
     build_circles, gen_candidates, classify_vertices, build_graph,
-    euler_face_count, connected_components, active_faces, sq_val, PAIRS,
-    canon_ray, canon_circle, vsub, vadd, vscale, dot3, cross3, is_zero_vec,
-    abs_field, make_basis, cross2, elementary_triples, build_w1, build_w2,
-    gate_g1,
+    euler_face_count, vsub, vscale, dot3, make_basis, cross2,
+    elementary_triples, build_w1, build_w2, gate_g1,
 )
 
 EPS = 1e-6
@@ -363,8 +366,14 @@ def wall_functions(normals):
 
 
 def config_signature(normals):
-    res = analyze_top(normals)
-    occ = occurring_triples(normals, res['verts'])
+    """Returns the combinatorial-type tuple, or None on the same rare
+    float-precision-limited exact-tie assertion documented in
+    worker_scan's docstring (caller should skip None)."""
+    try:
+        res = analyze_top(normals)
+        occ = occurring_triples(normals, res['verts'])
+    except AssertionError:
+        return None
     return (res['F'], res['V'], res['E'], res['n_triple'], res['n_kink'],
             tuple(sorted(occ)))
 
@@ -382,7 +391,9 @@ def pilot_chamber_estimate(n_base=6, n_probe_per_base=40, box_scale=0.02, seed=1
         base_mats = [random_rotation(rng) for _ in range(3)]
         sigs = set()
         base_normals = mats_to_normals(base_mats)
-        sigs.add(config_signature(base_normals))
+        base_sig = config_signature(base_normals)
+        if base_sig is not None:
+            sigs.add(base_sig)
         for _ in range(n_probe_per_base):
             pert_mats = [base_mats[0]]
             for k in (1, 2):
@@ -395,7 +406,9 @@ def pilot_chamber_estimate(n_base=6, n_probe_per_base=40, box_scale=0.02, seed=1
                 dR = np.eye(3) + np.sin(angle) * K + (1 - np.cos(angle)) * (K @ K)
                 pert_mats.append(dR @ base_mats[k])
             normals = mats_to_normals(pert_mats)
-            sigs.add(config_signature(normals))
+            sig = config_signature(normals)
+            if sig is not None:
+                sigs.add(sig)
         report.append(dict(base=b, n_probes=n_probe_per_base + 1,
                             n_distinct_signatures=len(sigs)))
         print(f'  base {b}: {len(sigs)} distinct combinatorial signatures '

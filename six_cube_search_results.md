@@ -2343,6 +2343,94 @@ shallow half is the sole remaining gap, exactly the inequality
 Sum_v(deg_v-2) <= 92 on the top diagram (PROOF_67 sect.5,
 CENSUS_BOUND_SPEC.md). 67 holds iff that holds.
 
+## Postscript 34: feasibility verdict on the last gap (star) Sum(deg-2)<=92 — it splits 32+60, the easy half reduces to a clean "<=16 simultaneous triples" lemma, the hard half needs targeted (not random) search
+
+CENSUS_BOUND_SPEC.md run in feasibility-first mode (census_bound_report.md,
+census_bound.py). Gates: G1 reproduces 67={48,18,1} both witnesses; G2
+the weight is exactly 92 at both maximizers via an INDEPENDENT code path
+(cross-validates census_extract); G3 10,000 Haar-random configs, ZERO
+violations of (star), max weight observed only 32. No (star) violation
+found anywhere — max(3)=67 not refuted. Main session verified G2 and the
+anchor-refutation independently.
+
+**The central structural finding.** The weight-92 budget splits exactly
+as the census's 32+60:
+- Triple-point weight <= 32 (the "easy half"): generic configs ALREADY
+  have 32 (32 trivalent triple points, F=18, d1=18 generic); random
+  sampling saturates here. Reduces to a clean SIMULTANEITY lemma: "at
+  most 16 elementary active-face triples (f0,f1,f2,s01,s12) are
+  simultaneously realizable at any one config" -> x2 antipodal = 32.
+  The number 16 is robust (max over 10^4 random configs = 16; exact at
+  BOTH maximizers; 16 bare face-triples with unique sign patterns). This
+  is a packing/angle-budget argument in the spirit of Theorem 1's
+  matched/unmatched dichotomy applied to TRIPLES - the tractable next
+  theorem. NOTE: reframes C45 sect.8's "Platonic elimination" - the
+  restriction is NOT "which triples are globally impossible" (all 108 of
+  the naive 3x3x3x2x2 occur SOMEWHERE) but "how many co-occur" (<=16).
+- Contact-vertex weight <= 60 (the "hard half"): the 30 deg-4 / 6 deg-6
+  same-pair coincidence vertices. This is a MEASURE-ZERO coincidence
+  locus - structurally invisible to random sampling (why G3 maxes at 32,
+  never approaching 92: the hard half isn't reachable by chance). Needs a
+  TARGETED search, recommended via the dihedral family (C45 sect.12
+  Theorem F: certain coincidences hold identically along Rel(theta,psi)) or
+  by directly solving the coincidence equations - NOT blind sampling. The
+  crux of (star); this run could not move it.
+
+**Routes ruled out (concrete).** Chamber enumeration (approach 2):
+INFEASIBLE, pilot measures chamber angular diameter <~0.02 rad in the 6-D
+domain -> ~10^11-10^13 chambers. Certified-interval covering (approach 3):
+infeasible for the same reason, worse constant. Anchor-reduction
+(approach 4, my PROOF_67 sect.5.1 lead): DEAD/refuted (0/32 anchoring
+triple points at both maximizers, confirmed exact + brute-force, 0.6-2.4%
+margins) - corrected in PROOF_67 sect.5.1.
+
+Net: the last gap is now cleanly split into a tractable sub-lemma (triple
+weight <=32 via <=16-simultaneity) and the genuine crux (contact weight
+<=60, a coincidence-locus classification needing the dihedral family).
+max(3)=67 holds iff both hold; nothing found threatens it.
+
+## Postscript 35: sub-lemma 1a PROVED — triple-point weight <= 32 (via d2 <= 18); max(3)=67 now hinges on ONE inequality (contact weight <= 60)
+
+Main session, 2026-07-20 (proof + exact numerical verification). The
+"easy half" of (star) closes cleanly, and it REUSES the proven d2 <= 18
+rather than the packing/simultaneity argument the feasibility pass
+envisioned.
+
+Key observation: a triple point (M_0=M_1=M_2, all three cubes reach
+equally far) is a vertex of BOTH the top diagram (the three
+reaches-FARTHEST regions meet) AND the bottom diagram (the three
+reaches-LEAST regions meet) — when all three values coincide, moving off
+the point the argmax cycles through all three (top vertex) and the argmin
+cycles through all three (bottom vertex). So the triple-point SET is
+shared by the two diagrams.
+
+LEMMA 1a: #triple points <= 32 (<=16 up to antipode); hence top-diagram
+triple-point weight (deg-3, weight 1 each) <= 32.
+PROOF: in the bottom diagram (deg-2 vertices suppressed), faces = S_i
+components so F_bot = d2 <= 18 (Theorem 1). All remaining vertices deg>=3
+=> by Euler V_bot <= 2(F_bot - 2) <= 32. Triple points are deg>=3 bottom
+vertices, so #triple <= 32. QED.
+
+Verified exactly: the generic relation is the EQUALITY #triple =
+2(d2 - 2) (both diagrams trivalent on the shared vertex set, both
+F = 2 + V/2, so d1 = d2 generically). Confirmed on 4 random configs
+(#triple = 24,32,24,32 with fine-sampled d2 = 14,18,14,18 -> exact match)
+and both maximizers (32 = 2(18-2), d2=18 attained, 1a TIGHT). This also
+explains the census's "bottom stays generic": coincidences inflate the
+TOP into contact vertices (the <=60 half) but leave the triple-point
+count pinned by the bottom, which d2 <= 18 caps.
+
+Caveat (same flavor as Theorem 1's soft step): needs each triple point to
+be a genuine deg>=3 bottom vertex; a tangential triple point (bottom
+argmin fails to cycle - a non-generic coincidence) folds into 1b's
+degenerate analysis. Does not occur at the maximizers or generically.
+
+STATUS OF max(3)=67: d3<=1 proved, d2<=18 proved, triple weight<=32
+PROVED. The SOLE remaining gap is contact-vertex weight <= 60 (sub-lemma
+1b) - the measure-zero coincidence-locus classification, to attack via
+the dihedral family (Theorem F), not random search. max(3)=67 holds iff
+contact weight <= 60. PROOF_67.md sect.5.3 has the proof.
+
 ## Postscript 31: the census extraction — the 92 budget is EXACT at both 67 witnesses, its accounting corrected, and the coincidences ARE top-diagram vertices
 
 CENSUS_SPEC.md executed (census_report.md, census_extract.py,

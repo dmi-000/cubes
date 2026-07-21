@@ -14,19 +14,18 @@ at the top so nothing is oversold:
   automatically tying, and forces r_C ≥ r_x nearby, so no S_C there),
   confirming it only lowers the count. This also gives d_{n−1} ≤ 6n for
   all n unconditionally and max(2) = 13 (§3.2).
-- **Cluster 2 (depth-1 ≤ 48): REDUCED to a single inequality
-  Σ_v(deg_v − 2) ≤ 92 on the top diagram, which is Euler-equivalent to
-  the bound and is attained with equality at both maximizers.** Proving
-  that inequality for all configurations is a finite classification of
-  triple points and face-contact vertices that is NOT done. This is the
-  real remaining gap.
+- **Cluster 2 (depth-1 ≤ 48): REDUCED to Σ_v(deg_v − 2) ≤ 92 on the top
+  diagram, which splits (census) as triple-point weight ≤ 32 PLUS
+  contact-vertex weight ≤ 60.** The triple-point half is now PROVED
+  (§5.3, via d2 ≤ 18). The contact-vertex half (≤ 60) is the SOLE
+  remaining gap in the whole theorem.**
 
-So: the deep half (d2 ≤ 18, d3 ≤ 1) is now PROVED unconditionally; the
-shallow half (d1 ≤ 48) is reduced to one clean combinatorial inequality
-(★) but not closed. **max(3) = 67 is therefore not YET proved — it holds
-iff (★) holds.** Unconditionally proved along the way: max(2) = 13 (the
-first complete maximum theorem) and the second-deepest ceiling
-d_{n−1} ≤ 6n for all n.
+So: the deep half (d2 ≤ 18, d3 ≤ 1) is PROVED, and of the shallow half
+(d1 ≤ 48) the triple-point contribution is PROVED; what remains is one
+inequality — contact-vertex weight ≤ 60. **max(3) = 67 holds iff that
+holds.** Unconditionally proved along the way: max(2) = 13 (the first
+complete maximum theorem) and the second-deepest ceiling d_{n−1} ≤ 6n
+for all n.
 
 ---
 
@@ -266,26 +265,113 @@ yields no usable reduction of (★)**. The Euler weight bound
 Σ(deg−2) ≤ 92 (approach 1 of CENSUS_BOUND_SPEC.md) remains the tight and
 correct route; this failed lead is recorded so it is not re-attempted.
 
+### 5.2 Feasibility verdict (CENSUS_BOUND, 2026-07-20): split (★) into 32 + 60
+
+A feasibility pass (census_bound_report.md; ledger Postscript 34) settled
+how to attack (★) and ruled out the blind routes. The weight-92 budget
+splits exactly as the census's 32 + 60, and the two halves have very
+different character:
+
+- **Triple-point weight ≤ 32 — the tractable half.** Generic configs
+  already realize it (32 trivalent triple points, d1 = 18). It reduces to
+  a clean SIMULTANEITY lemma: *at most 16 elementary active-face triples
+  are simultaneously realizable at any one configuration* → ×2 antipodal
+  points → ≤ 32. The bound 16 is robust (max over 10⁴ random configs;
+  exact at both maximizers). The proof shape is a packing / angle-budget
+  argument in the spirit of Theorem 1's matched/unmatched dichotomy,
+  applied to triples rather than single anchors. IMPORTANT reframing: the
+  restriction is NOT "which face-triples are globally impossible" (all
+  108 naive triples occur somewhere) — it is "how many co-occur," a
+  per-configuration simultaneity bound, not the §8 Platonic-elimination
+  framing.
+- **Contact-vertex weight ≤ 60 — the crux.** The same-pair coincidence
+  vertices (deg 4 / deg 6) live on a MEASURE-ZERO locus, invisible to
+  random sampling (this is why a random scan tops out at weight 32 and
+  never approaches 92). Bounding them needs a TARGETED attack — the
+  dihedral family (§12 Theorem F forces certain coincidences identically)
+  or direct solution of the coincidence equations — not blind search.
+
+Ruled out concretely: chamber enumeration (~10¹¹–10¹³ chambers) and
+certified-interval covering (worse) are both infeasible in the full 6-D
+config space; only a family/classification reduction is viable.
+
+### 5.3 Sub-lemma 1a PROVED: triple-point weight ≤ 32 (via d2 ≤ 18)
+
+The "easy half" of (★) closes cleanly, and it reuses the already-proven
+d2 ≤ 18 rather than any new packing argument.
+
+**Key observation.** A *triple point* is a direction û with
+M_0(û) = M_1(û) = M_2(û): all three cubes reach equally far. Such a û is
+a vertex of BOTH the top diagram (the three "reaches-farthest" regions
+T_i meet) AND the bottom diagram (the three "reaches-least" regions S_i
+meet) — because when all three values coincide, moving off û the argmax
+cycles through all three (top vertex) and the argmin cycles through all
+three (bottom vertex). So the *set* of triple points is common to the
+two diagrams; generically each is trivalent in both.
+
+**Lemma 1a.** The number of triple points is ≤ 32 (≤ 16 up to antipode);
+hence the top diagram's triple-point weight (each such vertex has
+top-degree 3, weight 1) is ≤ 32.
+
+*Proof.* Work in the bottom diagram, with degree-2 vertices suppressed
+(they mark no cell change). Its faces are the components of S_0,S_1,S_2,
+so F_bot = d2 ≤ 18 (§3.1, Theorem 1). Every remaining vertex has
+degree ≥ 3, so 2E_bot = Σ deg ≥ 3 V_bot, and Euler
+V_bot − E_bot + F_bot = 2 gives V_bot ≤ 2(F_bot − 2) ≤ 2(18 − 2) = 32.
+Every triple point is a degree-≥3 vertex of the bottom diagram, so the
+number of triple points ≤ V_bot ≤ 32. ∎
+
+Verified exactly: the generic relation is the equality
+#triple = 2(d2 − 2) (both diagrams trivalent on the shared vertex set,
+both F = 2 + V/2, so d1 = d2 generically). Confirmed on four random
+configs (24 = 2(14−2), 32 = 2(18−2), …) and both maximizers
+(32 = 2(18−2), where d2 = 18 is attained and 1a is tight). This also
+explains the census's "bottom diagram stays generic": the coincidences
+that inflate the TOP diagram into contact vertices (the ≤ 60 half)
+leave the triple-point count pinned by the bottom diagram, which
+d2 ≤ 18 caps.
+
+**Caveat (same flavor as Theorem 1's).** The clean bound needs each
+triple point to be a genuine degree-≥3 bottom vertex; a *tangential*
+triple point (where the bottom argmin fails to cycle through all three —
+a non-generic coincidence) would not be counted and needs the same
+self-exclusion-style handling as §3.1. This does not occur at the
+maximizers (census: bottom fully generic) or generically, so 1a holds
+where it must and is tight; the tangential case is folded into the
+degenerate analysis of 1b.
+
+**Consequence.** (★) now reduces to sub-lemma 1b ALONE: contact-vertex
+weight ≤ 60. With 1a proved, d1 = 2 + ½(triple weight + contact weight)
+≤ 2 + ½(32 + contact weight), so d1 ≤ 48 ⟺ contact weight ≤ 60. The last
+gap in max(3) = 67 is exactly the contact-vertex (coincidence-locus)
+bound.
+
 ## 6. Assembly and status
 
-d3 ≤ 1 (§1) and **d2 ≤ 18 unconditionally** (§3 + §3.1, Theorem 1) are
-in hand. d1 ≤ 48 is reduced to (★) and no further. If (★) holds then
-bounded = d1 + d2 + d3 ≤ 48 + 18 + 1 = 67, attained (two-engine
+d3 ≤ 1 (§1) and **d2 ≤ 18** (§3 + §3.1, Theorem 1) are in hand. Of
+d1 ≤ 48, the **triple-point weight ≤ 32 is now proved** (§5.3); the only
+missing piece is **contact-vertex weight ≤ 60** (§5.2). If that holds
+then bounded = d1 + d2 + d3 ≤ 48 + 18 + 1 = 67, attained (two-engine
 certified) by the octahedral and golden compounds, giving max(3) = 67.
-**(★) remains open, so max(3) = 67 is not yet proved.** The deep half is
-done; the shallow bound is the sole remaining gap.
+**Only the contact-vertex bound ≤ 60 remains between here and a full
+proof of max(3) = 67.**
 
-Complete corollaries now in hand (§3.1–3.2):
+Complete corollaries now in hand (§3.1–3.2, §5.3):
 - **max(2) = 13** — the project's first complete maximum theorem
   (main-session-reviewed proof + exact stress tests).
 - **d_{n−1} ≤ 6n for all n, unconditionally** — the l = 1 ceiling law,
   previously only empirical.
-- **d2 ≤ 18 unconditionally** — Cluster 1 of max(3) = 67 complete.
+- **d2 ≤ 18** — Cluster 1 of max(3) = 67 complete.
+- **triple-point weight ≤ 32** — half of Cluster 2, via d2 ≤ 18.
 
 ## Open, in priority order
-1. Prove (★) Σ(deg−2) ≤ 92 — the finite triple-point + contact-vertex
-   classification (CENSUS_BOUND_SPEC.md). THE hard gap; the census is
-   its equality certificate. Closing it proves max(3) = 67.
-2. Tighten Theorem 1's "q_t lands in component U" step for publication
-   (standard, corroborated by 10⁴ exact configs; not logically load-
-   bearing for the reviewed argument but deserves a clean write-up).
+1. **Prove contact-vertex weight ≤ 60** (§5.2) — now the SOLE remaining
+   gap in max(3) = 67, since triple weight ≤ 32 is proved (§5.3). The
+   crux: a measure-zero coincidence-locus classification; attack via the
+   dihedral family (§12 Theorem F), NOT random search. Contact weight
+   ≤ 60 ⟺ d1 ≤ 48 ⟺ (★) ⟺ max(3) = 67.
+2. Tighten the two "flavor of Theorem 1" caveats for publication:
+   Theorem 1's "q_t lands in component U" (§3.1) and Lemma 1a's
+   tangential-triple-point case (§5.3). Both are standard, non-generic,
+   and corroborated; neither is logically load-bearing where the results
+   are used, but both deserve clean write-ups.
