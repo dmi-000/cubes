@@ -29,9 +29,13 @@ arrangement — a counting error on the latter was caught and retracted
 
 So: d2 ≤ 18 and d3 ≤ 1 (deep half) PROVED; d1 ≤ 48 = triple ≤ 32 (§5.3)
 + contact ≤ 60 (§5.4, candidate proof), giving total ≤ 67, attained by
-cubes/parallelepipeds. **max(3) = 67 is proved up to one routine lemma
-(§5.4's local face-count correspondence + two non-extremal cases).**
-Unconditionally proved along the way: max(2) = 13 and d_{n−1} ≤ 6n all n.
+cubes/parallelepipeds. **max(3) = 67 is proved for the generic stratum
+(all triple points degree 3) and for both maximizers, where the bound is
+tight. One genuine gap remains: degenerate triple points (Step T), where
+the natural reduction deg_top ≤ deg_bot is FALSE (see §5.3/§5.4 and
+Postscript 42).** Unconditionally proved along the way: max(2) = 13 and
+d_{n−1} ≤ 6n all n. The record 67 itself rests on the exhaustive engine
+search, independent of this proof.
 
 ---
 
@@ -395,21 +399,24 @@ has a,b ≥ 2, the swap curve has a+b arcs (sector count of the a+b active
 facets), and P_i∩P_j at x₀ is a POINTED cone with a+b facets hence a+b
 edges — pointedness because the a+b active facet-normals span ℝ³ (the two
 cells meet transversally at the isolated point x₀). No "cut-off face"
-issue arises. This covers every contact at both maximizers. The only
-non-generic residual is degenerate triple points (|S|=3 with top-degree
-> 3); the clean fix is to book ALL |S|=3 vertices into the triple-point
-term (Part C / §5.3), leaving Part D purely |S|=2, and to extend §5.3's
-W_triple ≤ 32 to degenerate triple points via deg_top ≤ deg_bot (Step T
-in PROOF_FORMAL.md). Non-generic, absent at both maximizers, 0/130
-occurrences.
+issue arises. This covers every contact at both maximizers. The
+remaining residual is degenerate triple points (|S|=3 with top-degree
+> 3): book ALL |S|=3 vertices into the triple-point term (Part C / §5.3),
+leaving Part D purely |S|=2. Extending §5.3's W_triple ≤ 32 to degenerate
+triple points (Step T in PROOF_FORMAL.md) is NOT routine — the natural
+reduction deg_top ≤ deg_bot is FALSE (Postscript 42: a corner-plus-two-
+blades triple point has deg_top = 8, deg_bot = 4, realized on genuine
+cells). Non-generic, region-poor in isolation, absent at both maximizers,
+0/130 occurrences, so the record is safe; but closing it needs a global
+bound on the complexity of ∂(K₁∪K₂∪K₃), not a per-vertex inequality.
 
 **Verification.** contact ≤ Σ_pairs(2F−4) on 130 configs (both maximizers
 TIGHT at 60; hexahedra, off-center, cuboids, rhombohedra, near-oct), zero
 failures; degree spectra match top vs pairwise-polytope at both maximizers.
 
 **Consequence.** d1 = 2 + ½(triple + contact) ≤ 2 + ½(32 + 60) = 48,
-completing Cluster 2 and hence max(3) = 67 (up to the routine lemma
-above).
+completing Cluster 2 and hence max(3) = 67 — on the generic stratum and at
+both maximizers. The degenerate-triple case (Step T) is the one open gap.
 
 ## 6. Assembly and status
 
@@ -417,9 +424,10 @@ d3 ≤ 1 (§1), **d2 ≤ 18** (§3+§3.1), **triple weight ≤ 32** (§5.3), and
 **contact weight ≤ 60** (§5.4, candidate proof) are all in hand, giving
 d1 ≤ 48 and bounded = d1 + d2 + d3 ≤ 48 + 18 + 1 = **67**, attained
 (two-engine certified) by the octahedral and golden compounds. So
-**max(3) = 67 is proved up to §5.4's routine local face-count lemma** —
-and, per Postscripts 38–41, for ALL 3 concentric convex 6-faced cells,
-not just cubes.
+**max(3) = 67 is proved on the generic stratum and at both maximizers** —
+and, per Postscripts 38–41, for ALL 3 concentric convex 6-faced cells with
+degree-3 triple points. The universal statement over all convex 6-faced
+cells is open only at degenerate triple points (Step T, Postscript 42).
 
 Complete corollaries now in hand:
 - **max(2) = 13** — the project's first complete maximum theorem.

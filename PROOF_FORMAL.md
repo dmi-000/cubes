@@ -79,16 +79,50 @@ Euler its vertex weight is 2(d₂−2) ≤ 32; every triple point is a
 degree-≥3 bottom vertex, so #triple points ≤ 32. When each is degree 3
 in the top diagram, W_triple = #triple points ≤ 32. ∎
 
-**[INTERMEDIATE STEP T — for a Sonnet]** Show W_triple ≤ 32 even if some
-triple point has top-degree > 3 (a "degenerate" triple point where
-several cells are simultaneously at edges/corners). Suggested route: such
-a point is a degenerate vertex of the *bottom* diagram too; show
-deg_top ≤ deg_bot there (the argmin structure is at least as branched as
-the argmax when all three reaches coincide), then W_triple ≤ Σ_{bottom
-vertices}(deg_bot − 2) = 2(d₂−2) ≤ 32. This case is non-generic and does
-NOT occur at either maximizer (their bottom diagrams are exactly generic,
-32 degree-3 triple points), so it is not needed for attainment — only for
-the universal statement. Verified: 0 occurrences in 130 sampled configs.
+**[INTERMEDIATE STEP T — OPEN; the natural route is FALSE].** For a
+degenerate triple point (top-degree > 3, several cells simultaneously at
+edges/corners) we still need W_triple ≤ 32. The route this write-up
+previously suggested — "deg_top ≤ deg_bot at each triple point, so
+W_triple ≤ Σ_{bottom vtx}(deg_bot − 2) = 2(d₂−2) ≤ 32" — **does not
+work: deg_top ≤ deg_bot is false.**
+
+  *Counterexample (confirmed abstractly and on genuine 3D cells).* Put a
+  triple point at x₀=(0,0,1). Let cell A be a "corner" (a=3, small
+  tangential-gradient triangle) and cells B, C be thin "blades" (b=c=2,
+  active-facet gradients ≈ (±g,0) and (0,±g), g large). The farthest-cell
+  (top) diagram around û₀ is the argmin of the three support functions
+  m_i = h_{P_i}; the nearest-cell (bottom) diagram is the argmax. The
+  outer envelope (argmax = support of conv(∪P_i)) is simple, but the inner
+  envelope (argmin) wiggles: here the corner is farthest in all four
+  diagonal sectors and each blade is farthest near its axis, giving
+  **deg_top = 8** while **deg_bot = 4**. Realized as three ≤6-facet cells
+  about O and verified by sampling the actual reach functions:
+  deg_top = 8 > deg_bot = 4. (Scripts: `stepT_local.py`, `stepT_realize.py`,
+  `stepT_degcheck.py`.) So the inner-envelope degree at a triple point is
+  genuinely NOT dominated by the outer-envelope degree, and W_triple is
+  not bounded pointwise by the bottom diagram.
+
+  *What is still true, and why 67 is not in danger.* Such a degenerate
+  triple point is region-poor in isolation (the realized construction has
+  only 10 total regions); it is non-generic (measure zero); it is ABSENT
+  at both maximizers (whose bottom diagrams are exactly generic, 32
+  degree-3 triple points); and it never appeared in any sampled config.
+  So the region RECORD 67 (established independently by the project's
+  exact engines, not by this proof) is not threatened, and the theorem is
+  complete for the generic stratum and for both maximizers, where the
+  bound is tight. The open content of Step T is purely: **can a
+  degenerate triple point (deg_top > deg_bot) coexist with a high-count
+  configuration and push d₁ past 48?**
+
+  *Correct route (recommended).* Abandon the triple/contact split for the
+  degenerate case and bound d₁ globally. The top diagram is exactly the
+  radial projection to S² of ∂U, U = K₁∪K₂∪K₃, so d₁ is the combinatorial
+  complexity of the boundary of a union of three convex polytopes with ≤6
+  facets each; d₁ = 2 + ½W with W = Σ_{cell-change vertices of ∂U}(deg−2).
+  A global/amortized bound on this union-boundary complexity (rather than
+  a per-vertex deg_top ≤ deg_bot) is what is needed to reach d₁ ≤ 48
+  unconditionally over all convex ≤6-faceted cells. This is a genuine
+  (if plausibly small) piece of work, NOT a formality.
 
 ---
 
@@ -171,16 +205,23 @@ max(3) = 67. ∎
 ## Status of the marked steps
 
 - **Step T** (degenerate triple points, W_triple ≤ 32 in full generality):
-  non-generic, absent at both maximizers, reduces to deg_top ≤ deg_bot at
-  coincident triple points. The clean partition in Step S3 (all |S|=3
-  vertices → Part C) makes this the only place three-cell degeneracy is
-  handled. LOW risk.
-- **Step S3**: a bookkeeping confirmation, essentially immediate.
-- Everything else (A, B, C1, D1, D2, D3, E) is complete and rigorous.
+  **OPEN, and harder than first thought.** The natural reduction
+  deg_top ≤ deg_bot is FALSE (explicit counterexample above: deg_top = 8,
+  deg_bot = 4, realized on genuine 3D cells). The correct route is a
+  global bound on the complexity of ∂(K₁∪K₂∪K₃). Non-generic; region-poor
+  in isolation; absent at both maximizers; never observed in search — so
+  the record 67 is safe — but NOT a formality.
+- **Step S3**: a bookkeeping confirmation, essentially immediate (unchanged).
+- Everything else (A, B, C1 for degree-3 triples, D1, D2, D3, E) is
+  complete and rigorous.
 
-So the theorem is proved outright for the generic stratum and for both
-maximizers (where the bound is tight), and up to the single non-generic
-Step T for the universal statement over all convex ≤6-faceted cells.
+So the theorem is proved outright for the **generic stratum** (all triple
+points degree 3) and for **both maximizers** (where the bound is tight and
+saturated), and it holds for all convex ≤6-faceted cells EXCEPT at
+degenerate triple points, where Step T is a genuine open gap. The cube
+record max(3) = 67 itself rests on the project's exhaustive engine search,
+which this proof explains and tightly bounds on the generic stratum but
+does not yet close unconditionally.
 
 ## Reproduction / verification
 `proof67_verify.py` (region counter, triple-point count, F(P_i∩P_j)) and
