@@ -7,19 +7,26 @@ region count is computed with rational or algebraic (ℚ(√d), and towers
 ℚ(√a,√b)) arithmetic and certified predicates, so a reported count is a
 theorem about that configuration, not a numerical estimate.
 
-The scientific record lives in **`six_cube_search_results.md`** (read its
-postscripts in order — several early conclusions were overturned by exact
-counting and the corrections matter). For the narrative synthesis — the
-problem, the methods, the record chain, and the structural laws — read
-**`PROJECT.md`**. This README is the map of the code and documents around
-it.
+The scientific record lives in **[`six_cube_search_results.md`](six_cube_search_results.md)**
+(read its postscripts in order — several early conclusions were overturned
+by exact counting and the corrections matter). For the narrative synthesis
+— the problem, the methods, the record chain, and the structural laws —
+read **[`PROJECT.md`](PROJECT.md)**. This README is the map of the code and
+documents around it.
+
+**Proved maxima.** max(2) = 13 and **max(3) = 67** are now theorems (the
+latter for all three concentric convex ≤6-facet cells meeting pairwise
+transversally, cubes included). The clean proof is
+[`PROOF_67.md`](PROOF_67.md) + [`PROOF_STEP_T.md`](PROOF_STEP_T.md) (which
+closes the degenerate triple-point case); a readable account with the
+missteps is [`PROOF_NARRATIVE.md`](PROOF_NARRATIVE.md).
 
 ## Current records (all exact)
 
 | n | best bounded regions | configuration | field |
 |---|---|---|---|
 | 2 | 13 | 60° about a shared body diagonal (confirmed max) | ℚ (rational) |
-| 3 | 67 | octahedral 3-compound = golden 3-subset (confirmed max) | ℚ(√2) / ℚ(√5) |
+| 3 | 67 | octahedral 3-compound = golden 3-subset (**proved max**) | ℚ(√2) / ℚ(√5) |
 | 4 | **183** | wide-perturbation climb; golden 177 beaten | ℚ (rational) |
 | 5 | **393** | 5-subset of the 723 record; golden 351 beaten | ℚ (rational) |
 | 6 | **723** | C₃-orbit-of-3 + 3 free cubes, shared (1,1,1) axis | ℚ (rational) |

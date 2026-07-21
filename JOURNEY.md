@@ -545,6 +545,42 @@ from "measured, never proved" to "proved, pending one careful read." The
 irrational-rung story, still resting on the unproved uniqueness of the
 two 67s, is now the best-supported conjecture in the whole enterprise.
 
+## Act IX: 67 is maximal (the last classification, and a false lemma)
+
+What Act VIII left as "a single finite classification of the top diagram"
+became a theorem. The shallow bound depth-1 ≤ 48 reduces, by Euler, to the
+top diagram carrying vertex weight at most 92 — and the census had already
+shown the two 67s hit exactly 92, split 32 (triple points) and 60
+(contacts). The 60 fell to a clean idea the human's own intuition
+prompted — *if the bound is independent of the cells' shape, there should
+be one topological reason for it*: a contact is an edge-of-one-cube
+crossing an edge-of-another, which is precisely a four-valent vertex of the
+polytope where those two cubes intersect, and Euler on any convex polytope
+caps its total vertex weight at 2F−4. Three pairwise intersections, twelve
+faces each, twenty apiece: sixty.
+
+The triple points nearly closed the same way, and here the story earned one
+more wrong turn. The tidy claim was that the "farthest-cell" diagram can be
+no more branched than the "nearest-cell" one, which depth-2 ≤ 18 already
+caps at 32. It is false — and not subtly: a triple point with one cube at a
+corner and two at thin blades has a *degree-eight* farthest-cell vertex
+against a degree-four nearest-cell one, and it is buildable from honest
+cubes, not an artifact of the model. Chasing it produced the last idea:
+don't compare the two diagrams, *charge each triple point to both budgets
+at once* — the nearest-cell diagram and the pairwise polytopes — and a
+three-line case analysis (on how many cubes are ever nearest at the point)
+shows even a degree-eight vertex takes no more than its share. With that,
+the degenerate triple points are fully handled, and **max(3) = 67 is a
+theorem** for all pairwise-transversal triples of convex six-faced cells,
+cubes among them. The write-up is `PROOF_STEP_T.md`; the readable version,
+missteps and all, is `PROOF_NARRATIVE.md`.
+
+So the oldest concrete target of the whole enterprise — "three cubes make
+at most 67 regions" — is proved, and it proved to be a statement not about
+cubes but about convexity and Euler's formula. What remains genuinely open
+is one level up: whether the two 67s are the *only* three-cube maxima, the
+irrational-rung uniqueness that stays the best-supported conjecture here.
+
 ## The collaboration, honestly described
 
 This project was a four-layer collaboration, and the layering was not

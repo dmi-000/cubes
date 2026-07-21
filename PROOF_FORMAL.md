@@ -1,7 +1,7 @@
 # max(3) = 67 — the cleanest proof path, formalized
 
-Complete: Parts A–E below plus **PROOF_STEP_T.md** (which closes the
-former Step T). Self-contained. All region counts are of **face-bounded regions**
+Complete: Parts A–E below plus **[PROOF_STEP_T.md](PROOF_STEP_T.md)** (which
+closes the former Step T). Self-contained. All region counts are of **face-bounded regions**
 (connected components of constant cube-containment), which is what the
 project's engines compute — NOT cells of the infinite-plane arrangement
 (that distinction is the one hard-won correction; see PROOF_NARRATIVE.md).

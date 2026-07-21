@@ -123,7 +123,7 @@ crosses at most twice its smaller active-facet count. With that, the
 degenerate triple points are fully handled — no restriction on them at all
 — and max(3) = 67 is a theorem for all pairwise-transversal triples of
 convex six-faced cells, cubes among them. (The full write-up is
-`PROOF_STEP_T.md`.) A single milder caveat predates this and is unrelated
+[`PROOF_STEP_T.md`](PROOF_STEP_T.md).) A single milder caveat predates this and is unrelated
 to triple points: two cells meeting tangentially rather than transversally,
 a higher-codimension degeneracy the contact bound already set aside.
 

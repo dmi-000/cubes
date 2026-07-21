@@ -781,15 +781,20 @@ now operating exactly at the summit.
    depth-3 ≤ 164 and depth-4 ≤ 102 at n=6 are separate, harder counting
    statements.)
 
-2. **Finish "max = 67 at three cubes."** With problem 1's draft, depth-2 ≤
-   18 and depth-3 ≤ 1 are proved; what remains is the shallow bound
-   depth-1 ≤ 48. This is a single finite classification of the top
-   diagram's vertices, and the two maxima have now been mapped as exact
-   spherical diagrams: each carries top-diagram vertex weight exactly 92
-   (making the bound Euler-*tight*), split between 32 units on triple
-   points and 60 on the coincidence contacts. The classification must
-   reproduce those equality cases; it is finite and mechanical-plus-
-   insight, the shape of the five-Platonic-solids proof.
+2. **"max = 67 at three cubes" — PROVED (2026-07-21).** depth-2 ≤ 18,
+   depth-3 ≤ 1, and the shallow bound depth-1 ≤ 48 are all now in hand, so
+   **max(3) = 67 for all three concentric convex ≤6-facet cells meeting
+   pairwise transversally**, cubes included. depth-1 ≤ 48 came via the top
+   diagram's vertex weight Sum(deg−2) ≤ 92 = 32 (triple points) + 60
+   (contacts): contacts bounded by Euler on the three pairwise intersection
+   polytopes (Sum(deg−2) = 2F−4, ≤20 each), triples by the bottom-diagram
+   Euler, and the degenerate triple points — where the tempting
+   "farthest-diagram ≤ nearest-diagram" is *false* — by a two-budget local
+   inequality charging each triple point to the bottom diagram and the
+   pairwise polytopes at once. Full proof: `PROOF_STEP_T.md` and
+   `PROOF_67.md`; story in `PROOF_NARRATIVE.md`. Only residual caveat: the
+   pre-existing pairwise-tangency degeneracy (two cells sharing a boundary
+   tangentially), not a triple-point issue.
 3. **Beat 723 for six cubes, or prove it is the maximum.** In the
    trade-off language of Section 5, this means finding the best point on
    the deep-sacrifice surface: since the deep layers are capped and the

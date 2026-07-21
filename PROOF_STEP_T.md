@@ -1,9 +1,10 @@
 # Step T, closed — degenerate triple points, rigorously
 
-This completes the one gap in `PROOF_FORMAL.md`: the bound on the
-triple-point weight in full generality, including degenerate triple points
-where the earlier "deg_top ≤ deg_bot" route fails (that route is false;
-see `PROOF_NARRATIVE.md` / ledger Postscript 42). The argument here is
+This completes the one gap in [`PROOF_FORMAL.md`](PROOF_FORMAL.md): the
+bound on the triple-point weight in full generality, including degenerate
+triple points where the earlier "deg_top ≤ deg_bot" route fails (that route
+is false; see [`PROOF_NARRATIVE.md`](PROOF_NARRATIVE.md) / ledger Postscript
+42). The argument here is
 elementary — two one-line lemmas and a three-case split — and needs **no
 new hypothesis** beyond the pairwise transversality already used by the
 contact analysis (Part D). Verified on 50 000 random configurations, 0

@@ -505,7 +505,7 @@ Full write-up in PROOF_67.md. Net position:
   refuting sect.13's "46 triples x2" accounting. Proving <=92 for all
   configs = the Platonic-elimination classification of triple points +
   contact vertices under the activity/top restriction. NOT done; this
-  is the real remaining gap.
+  is the real remaining gap. [SUPERSEDED — CLOSED 2026-07-21, see §17.]
 - Cheapest complete theorem still: max(2)=13, which needs only the two
   Cluster-1 degeneracies closed at n=2 (a strict sub-problem).
 PROOF_L1b.md is superseded by PROOF_67.md sect.3 (same mechanism, the
@@ -531,3 +531,31 @@ One soft step (ascent point lands in same component U) flagged for
 publication-tightening; corroborated by 10^4-config zero-violation
 stress test. Remaining for max(3)=67: ONLY Cluster 2, i.e. (star)
 Sum(deg-2)<=92 (CENSUS_BOUND_SPEC.md). PROOF_L1b.md fully superseded.
+
+## 17. THEOREM PROVED (2026-07-21): Cluster 2 closed — max(3) = 67
+
+The one remaining gap of §§15–16, Cluster 2 = (star) Sum_v(deg−2) ≤ 92,
+is now proved, so **max(3) = 67 for all 3 concentric convex ≤6-facet cells
+meeting pairwise transversally** (both maximizers included; cubes among
+them). Full write-ups: [PROOF_STEP_T.md](PROOF_STEP_T.md) and
+[PROOF_67.md](PROOF_67.md) §5.3–5.4; ledger Postscripts 41–43.
+
+The 92 splits as 32 (triple points) + 60 (contacts):
+- **contact ≤ 60** — Euler on the three PAIRWISE intersection polytopes:
+  for any convex polytope Sum_v(deg−2) = 2F−4; each K_i∩K_j has ≤12 facets
+  ⇒ ≤20 per pair ⇒ ≤60. A contact = an edge–edge crossing = a deg-≥4
+  vertex of P_i∩P_j with matching degree (rigorous for |S|=2).
+- **triple ≤ 32** — bottom-diagram Euler, 2(d2−2) ≤ 32, for ordinary
+  (degree-3) triple points.
+- **degenerate triple points** (top-degree > 3) — the natural route
+  "deg_top ≤ deg_bot" is FALSE (a corner + two blades gives deg_top=8,
+  deg_bot=4, realized on genuine cells). Closed instead by the two-budget
+  local inequality (◆) deg_top−2 ≤ (deg_bot−2)⁺ + Sum_pairs(a_i+a_j−2),
+  proven by an elementary case split on deg_bot (≥3 / =0 / =2; =1
+  impossible), using deg_top = N − deg_bot and z_ij ≤ 2min(a_i,a_j).
+  No hypothesis on the triples. Verified 0/50000 (`stepT_proof_verify.py`).
+
+Only residual caveat: the pre-existing pairwise-TANGENCY degeneracy of
+Cluster 2 / Part D (two cells sharing a boundary tangentially), not a
+triple-point phenomenon, higher codimension. `CENSUS_BOUND_SPEC.md`'s
+program is thereby discharged. `PROOF_L1b.md` remains superseded.

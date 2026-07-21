@@ -32,8 +32,8 @@ So: d2 ≤ 18 and d3 ≤ 1 (deep half) PROVED; d1 ≤ 48 = triple ≤ 32 (§5.3)
 cubes/parallelepipeds. **max(3) = 67 is proved** for all 3 concentric
 convex ≤6-facet cells meeting pairwise transversally (an open dense set
 including both maximizers). Step T (degenerate triple points) is now
-CLOSED — see PROOF_STEP_T.md and Postscript 43; the natural route
-deg_top ≤ deg_bot is false but unnecessary. Also proved: max(2) = 13 and
+CLOSED — see [PROOF_STEP_T.md](PROOF_STEP_T.md) and Postscript 43; the
+natural route deg_top ≤ deg_bot is false but unnecessary. Also proved: max(2) = 13 and
 d_{n−1} ≤ 6n all n. (The record 67 was first established by exhaustive
 engine search; the proof now explains it.)
 
