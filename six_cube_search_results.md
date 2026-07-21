@@ -2230,6 +2230,119 @@ digging out. The exact algebraic location of the ~9.5 deg wall is
 still unpinned (bracketed (7.628, 9.527) deg; needs a resultant on
 the top-diagram cell-change condition — natural follow-up).
 
+## Postscript 32: the open n=4 resonance candidates counted exactly — still all count-negative; best 169 < 175, the sqrt13 chain = 159
+
+OPENCOUNT_SPEC.md executed (opencount_report.md, opencount.py,
+opencount_results.jsonl, opencount_wl_data.json). resonance4
+(Postscript 28) left ~160 n=4 resonance candidates uncounted because
+their coordinates live in degree-4 (nested-radical) fields where the
+voxel triage is unreliable. This closes the countable ones exactly via
+two independent exact-sign engines: a primitive-element number field
+Q(alpha) (element = 0 iff its power-basis vector is 0 — exact; sign by
+refining alpha's isolating interval) and a relative-quadratic tower
+Q(sqrt a)(sqrt b). All four gates passed and were RE-RUN independently
+by the main session: G1 exact-zero detection + 1000/1000 sign-vs-float
+both representations; G2 reproduces rational 151 and 175 verbatim
+against ./cube_regions_n; G3 reproduces octahedral 67 (Q(sqrt2)) and
+golden-177 (Q(sqrt5)) through the field engine; G4 the sqrt6 candidate
+counts 127 identically in BOTH representations.
+
+**Verdict: no open candidate reaches 175 (the family plateau), let
+alone 183 (the record).** Highlights (all with the deep layers
+conserved, d3=24, d4=1, as everywhere on the resonance set):
+
+- **The prime suspect settled**: the pure CHAIN at tan psi=(1+sqrt13)/6
+  (psi=37.51 deg) — the record's OWN tilt field Q(sqrt13) — counts
+  **159 = {76,58,24,1}**, confirmed by both field representations. The
+  tilt-field coincidence with the 183 record produces no competitive
+  resonance.
+- Best total found anywhere: **169 = {80,64,24,1}** at psi=35.264 deg
+  (the octahedral angle arcsin(1/sqrt3)), theta=(120,-120,153.1) — a
+  degree-4 bulk-sweep point, still 6 short of the plateau.
+- Documented rows: sqrt3-tower branches 159/165; sqrt6 branches
+  127/131/167; the pentagonal (5s^4-5s^2+1) and golden-nested
+  (t^4+t^2-1) rows are constitutionally degenerate — no non-degenerate
+  4-distinct-cube member exists in their scope (best degenerate
+  representatives 67/59, effectively 3-cube compounds). The
+  degree-agnostic engine also handled one incidental degree-6 field
+  with no code change.
+
+**Honest coverage** (per report §6): 108 of the sweep's systems
+re-derived from wolframscript (2421 solutions -> 238 fingerprints);
+12 distinct exact counts spanning degree-4 and degree-6, every one
+count-negative vs 175. NOT covered: the uniform xy/yx systems (30) and
+the full non-triangle mixed-CLASS space (~19k systems) — so this
+extends but does not EXHAUST resonance4. Record protocol not triggered.
+
+Net: with Postscript 28's quadratic-field verdict, this makes "n=4
+family resonances are uniformly count-negative" hold across every field
+degree tested (2, 4, 6), the strongest computational support yet that
+n=3 is the only irrational rung of the tower — with the standing
+caveats that the mixed-class space is unswept and that "3 is unique"
+remains conditional on the two 67s being the sole 3-cube maxima
+(Theorem R corollary).
+
+## Postscript 33: FIRST COMPLETE MAXIMUM THEOREM — max(2) = 13 proved (all R), and d2<=18 / d_{n-1}<=6n proved unconditionally
+
+MAX2_SPEC.md executed (max2_report.md, max2_verify.py,
+max2_verify_log.jsonl). The task was framed as a certified interval
+covering; the agent instead found a clean ANALYTIC proof (Theorem 1)
+that closes both degeneracies PROOF_67.md §3 had left open, for all n at
+once. Main session reviewed the proof line by line (judged correct, one
+standard step flagged), re-ran all gates, and independently verified the
+maximizer facts. Recorded as a proof with that provenance — NOT merely
+an agent claim.
+
+**Theorem 1 (no parasites, all n).** Every connected component U of
+S_C = {u : cube C reaches strictly least} contains a face direction of
+C; hence #pi0(S_C) <= 6 for every cube C, with NO exceptional locus.
+Proof mechanism: at the inf of r_C over cl(U), if it sits on the
+boundary, split on whether some active face a of C is "matched" (shares
+a normal identically with a tying cube). All branch gradients have equal
+norm rho = sqrt(1-f^2), so by Cauchy-Schwarz v = e_a/rho is the UNIQUE
+steepest-ascent direction — an unmatched a gives an into-U ascent point
+with r_C below the inf (contradiction); if ALL active faces are matched,
+the shared normals force r_C >= r_x in a whole neighborhood, so no S_C
+point is near the boundary (contradiction). Any cube sharing a normal
+with an active face of C is automatically tying, so the split is
+exhaustive. The equal-norm + Cauchy-Schwarz choice handles arbitrary
+face/cube multiplicity in one stroke — the multiplicities and shared
+normals PROOF_67 flagged as gaps (i)/(ii). Shared normals are
+self-exclusion, not parasites: the shared plane removes an anchor,
+never adds one.
+
+**Consequences (all proved):**
+- **max(2) = 13** for every R in SO(3): d1 = #pi0(S_1)+#pi0(S_2) <= 12
+  (Theorem 1), d2 = 1 (convex core), attained. The project's FIRST
+  complete maximum theorem. Maximizer = 180 deg about the body diagonal
+  (1,1,1), quaternion (0,1,1,1) -> 13 = {12,1} EXACT (rational,
+  oracle-verified), on an open range of R.
+- **d2 <= 18 unconditionally at n=3** — Cluster 1 of max(3)=67 now
+  complete (was: proved only off the shared-normal locus).
+- **d_{n-1} <= 6n for all n unconditionally** — the l=1 ceiling law of
+  Postscript 19, previously only empirical (~1M configs), now a theorem.
+
+**Correction to PROOF_67 (mine):** I had written the n=2 maximizer as
+"45 deg about a face axis." Wrong — a face-axis rotation shares that
+normal (on the shared-normal locus), where Theorem 1's self-exclusion
+gives only d1 <= 8. Verified exactly: quaternion (2,0,0,1) and (5,0,0,2)
+both -> 9 = {8,1}. The genuine maximizer is 180-about-(1,1,1). Good
+catch by the agent, confirmed by main session.
+
+**Verification (main session, 2026-07-20):** all four gates re-run:
+G1 10,000 exact rational configs, max d1 = 12, zero violations; G2 seven
+witnesses all 13={12,1}, #pi0(S_i)=6; G3 400 exact shared-normal configs,
+worst per-cube count 4 (<=6). Maximizer 13 and face-axis 8/9 re-derived
+independently through certify_six. Proof reviewed and judged correct; the
+one soft step ("the ascent point lands in the SAME component U") is
+standard and tightenable, corroborated by the zero-violation stress test,
+and is not logically load-bearing for the reviewed argument.
+
+**Status of max(3)=67 after this:** deep half PROVED (d2<=18, d3<=1);
+shallow half is the sole remaining gap, exactly the inequality
+Sum_v(deg_v-2) <= 92 on the top diagram (PROOF_67 sect.5,
+CENSUS_BOUND_SPEC.md). 67 holds iff that holds.
+
 ## Postscript 31: the census extraction — the 92 budget is EXACT at both 67 witnesses, its accounting corrected, and the coincidences ARE top-diagram vertices
 
 CENSUS_SPEC.md executed (census_report.md, census_extract.py,

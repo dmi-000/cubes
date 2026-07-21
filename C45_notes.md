@@ -510,3 +510,24 @@ Full write-up in PROOF_67.md. Net position:
   Cluster-1 degeneracies closed at n=2 (a strict sub-problem).
 PROOF_L1b.md is superseded by PROOF_67.md sect.3 (same mechanism, the
 gradient-flow phrasing is tighter).
+
+## 16. THEOREM PROVED (2026-07-20): max(2)=13, and Cluster 1 closed unconditionally
+
+Both PROOF_67 sect.3 degeneracies (multi-face kinks, shared normals) are
+CLOSED by Theorem 1 (max2_report.md sect.1, folded into PROOF_67
+sect.3.1; ledger Postscript 33). Mechanism: at the boundary inf of r_C,
+all branch gradients have equal norm rho -> Cauchy-Schwarz makes
+v=e_{a1}/rho the unique steepest ascent; unmatched active face => into-U
+ascent (contradiction), all-matched => shared-normal self-exclusion
+(no S_C nearby, contradiction); a normal-sharing cube is automatically
+tying so the split is exhaustive; handles all multiplicities. PROVED
+(main-session-reviewed, gates re-run):
+- max(2) = 13, all R, maximizer 180-about-(1,1,1) = quat (0,1,1,1) ->
+  {12,1}. FIRST complete maximum theorem. (NB: my old "45-about-face-
+  axis maximizer" was WRONG - that's shared-normal, d1<=8; corrected.)
+- d2 <= 18 at n=3 unconditionally (Cluster 1 done).
+- d_{n-1} <= 6n for all n unconditionally (l=1 ceiling law now a theorem).
+One soft step (ascent point lands in same component U) flagged for
+publication-tightening; corroborated by 10^4-config zero-violation
+stress test. Remaining for max(3)=67: ONLY Cluster 2, i.e. (star)
+Sum(deg-2)<=92 (CENSUS_BOUND_SPEC.md). PROOF_L1b.md fully superseded.

@@ -122,12 +122,15 @@ check('G1f golden 351 chip text unchanged',
 // back to 723 for the rest
 loadPreset('quat', exports_.REC723_TXT, { total: 723, d: { 1: 210, 2: 216, 3: 164, 4: 96, 5: 36, 6: 1 } });
 
-// sanity: FAMILY_NAMED degrees match the closed-form values in the spec
+// sanity: FAMILY_NAMED degrees match the closed-form values (now 7 points:
+// mirror-golden 20.905157... = 90 - arctan(phi^2) added by the Postscript
+// 25 addendum round).
 {
-  const want = [0, 35.264389682754654, 45, 54.735610317245346, 69.0948425521107, 90];
+  const want = [0, 20.905157447889295, 35.264389682754654, 45,
+                54.735610317245346, 69.0948425521107, 90];
   const got = FAMILY_NAMED.map(n => n.deg);
-  const ok = want.every((w, i) => Math.abs(w - got[i]) < 1e-9);
-  check('G1g FAMILY_NAMED degrees match closed-form', ok, JSON.stringify(got));
+  const ok = got.length === want.length && want.every((w, i) => Math.abs(w - got[i]) < 1e-9);
+  check('G1g FAMILY_NAMED degrees match closed-form (7 points incl mirror-golden)', ok, JSON.stringify(got));
 }
 
 // =========================================================== geometry ====
@@ -184,20 +187,24 @@ function scanFamily(M) {
                    exports_.matMul(exports_.C3, exports_.matMul(exports_.C3, M))];
   const interior = [], corner = [];
   for (let i=0;i<3;i++) for (let j=i+1;j<3;j++) {
-    for (const [cc1,d1] of EDGES) for (const [cc2,d2] of EDGES) {
+    for (let ei=0;ei<EDGES.length;ei++) for (let ej=0;ej<EDGES.length;ej++) {
+      const [cc1,d1]=EDGES[ei], [cc2,d2]=EDGES[ej];
       const wc1=matVec(mats[i],cc1), wd1=matVec(mats[i],d1);
       const wc2=matVec(mats[j],cc2), wd2=matVec(mats[j],d2);
       const {gap,t1,t2} = segGap(wc1,wd1,wc2,wd2);
       if (gap < 1e-9) {
+        // ei/ej carried for pair-IDENTITY tracking (G10 core-persistence
+        // gates need set equality across psi, not just counts).
         if (Math.abs(t1)<0.999 && Math.abs(t2)<0.999)
-          interior.push({i,j,wc1,wd1,wc2,wd2,t1,t2,gap});
+          interior.push({i,j,ei,ej,wc1,wd1,wc2,wd2,t1,t2,gap});
         else if (Math.max(Math.abs(t1),Math.abs(t2))>0.999999)
-          corner.push({i,j,t1,t2,gap});
+          corner.push({i,j,ei,ej,t1,t2,gap});
       }
     }
   }
   return {interior, corner};
 }
+const pairKey = c => `${c.i},${c.j},${c.ei},${c.ej}`;
 // O = 24 proper (det=+1) signed-permutation matrices -- the rotation group
 // of the cube/octahedron -- for the "O-reduced pairwise invariant" (G4),
 // mirroring dihedral_scratch/family_fine.py's gen_O()/invariant().
@@ -333,12 +340,13 @@ if (g2cHits.length) {
 // ================================================================== G3 ====
 console.log('\n---- G3: crossing counts at the named positions ----');
 const G3_TARGETS = [
-  { label: '0 (shared axis)',        interior: 48, corner: 0 },
-  { label: 'arcsin(1/sqrt3) (oct)',  interior: 30, corner: 0 },
-  { label: '45 (face-diagonal)',     interior: 24, corner: 0 },
-  { label: 'arctan(sqrt2) (mirror)', interior: 30, corner: 0 },
-  { label: 'arctan(phi^2) (golden)', interior: 18, corner: 54 },
-  { label: '90 (shared axis)',       interior: 48, corner: 0 },
+  { label: '0 (shared axis)',            interior: 48, corner: 0 },
+  { label: '90-arctan(phi^2) (m-gold)',  interior: 18, corner: 54 },
+  { label: 'arcsin(1/sqrt3) (oct)',      interior: 30, corner: 0 },
+  { label: '45 (face-diagonal)',         interior: 24, corner: 0 },
+  { label: 'arctan(sqrt2) (mirror)',     interior: 30, corner: 0 },
+  { label: 'arctan(phi^2) (golden)',     interior: 18, corner: 54 },
+  { label: '90 (shared axis)',           interior: 48, corner: 0 },
 ];
 let g3AllOk = true;
 FAMILY_NAMED.forEach((n, i) => {
@@ -360,13 +368,13 @@ FAMILY_NAMED.forEach((n, i) => {
     `(${n.name}): interior=${interior.length} (want ${want.interior}), ` +
     `corner=${corner.length} (want ${want.corner}) | ring-code points: edge=${ringEdge}, corner=${ringCorner}`);
 });
-check('G3 crossing counts at all 6 named positions match 48/30/24/30/18+54/48', g3AllOk);
+check('G3 crossing counts at all 7 named positions match 48/18+54/30/24/30/18+54/48', g3AllOk);
 
 // ================================================================== G4 ====
 console.log('\n---- G4: congruence spot-check (O-reduced pairwise invariant) ----');
 const PHI_ = exports_.PHI;
-const psiOct = FAMILY_NAMED[1].deg * Math.PI/180;
-const psiGold = FAMILY_NAMED[4].deg * Math.PI/180;
+const psiOct = FAMILY_NAMED[2].deg * Math.PI/180;
+const psiGold = FAMILY_NAMED[5].deg * Math.PI/180;
 const invOct = pairwiseInvariant(familyMats(psiOct)[0]);
 const invGold = pairwiseInvariant(familyMats(psiGold)[0]);
 const wantOct = 0.5 + Math.sqrt(2);          // 1.914213562...
@@ -451,72 +459,94 @@ for (const [lo, hi] of GHOST_FREE_ZONES) {
 check(`G7a all 6 GHOST_FREE_ZONES are genuinely zero-ghost inside, non-zero just outside`,
   g7ZoneOk, g7ZoneDetail);
 
-// live lock behaviour, through the real DOM button handlers
+// live lock behaviour, through the real DOM button handlers. CORE-AWARE
+// semantics (Postscript 25 addendum, superseding the zone-based lock):
+// the lock clamps to the CORE_INTERVAL containing the current psi --
+// [0, 20.905] / [20.905, 69.095] / [69.095, 90] -- and always engages.
+const { CORE_INTERVALS, MIRROR_GOLDEN_DEG, GOLDEN_DEG } = run('({CORE_INTERVALS, MIRROR_GOLDEN_DEG, GOLDEN_DEG})');
 run(`$('pFamily').onclick();`);                    // enter family mode at psi=0
-run(`setFamily(10);`);                              // land inside zone [0.94, 18.67]
+run(`setFamily(10);`);                              // inside the left core-12 interval
 run(`$('famLock').onclick();`);                     // engage the lock
 const lockState1 = run(`({famLocked, famLockZone})`);
-check('G7b lock engages inside a zone', lockState1.famLocked === true && !!lockState1.famLockZone,
+check('G7b lock engages (core 12, left interval [0, 20.905])',
+  lockState1.famLocked === true && !!lockState1.famLockZone
+  && lockState1.famLockZone.label === 'core 12'
+  && Math.abs(lockState1.famLockZone.hi - MIRROR_GOLDEN_DEG) < 1e-9,
   JSON.stringify(lockState1));
-// try to drag far outside the zone (e.g. toward 80deg) while locked
+// try to drag far outside the interval (toward 80deg) while locked
 run(`$('famPos').value = 8000; $('famPos').oninput({target:$('famPos')});`);
-const afterDrag = run(`({famCurDeg, cubes})`);
-const inZone = lockState1.famLockZone && afterDrag.famCurDeg >= lockState1.famLockZone[0] - 1e-6
-  && afterDrag.famCurDeg <= lockState1.famLockZone[1] + 1e-6;
-check('G7c dragging past the zone bound while locked clamps psi to the zone',
-  inZone, `famCurDeg=${afterDrag.famCurDeg}, zone=${JSON.stringify(lockState1.famLockZone)}`);
+const afterDrag = run(`({famCurDeg})`);
+check('G7c dragging past the interval bound while locked clamps psi to the core interval',
+  afterDrag.famCurDeg <= MIRROR_GOLDEN_DEG + 1e-6,
+  `famCurDeg=${afterDrag.famCurDeg}, hi=${MIRROR_GOLDEN_DEG}`);
 // clicking a named tick overrides (releases) the lock
-run(`$('famTicks').children[1].onclick();`);        // index 1 = octahedral 67
+run(`$('famTicks').children[2].onclick();`);        // index 2 = octahedral 67
 const afterTick = run(`({famLocked})`);
 check('G7d clicking a named tick releases the lock', afterTick.famLocked === false,
   JSON.stringify(afterTick));
-// engaging the lock exactly AT a named point that sits inside a transition
-// band (not a zone) should refuse (no zone available there)
-run(`setFamily(${FAMILY_NAMED[1].deg});`); // octahedral 67, deg literal
+// engaging the lock exactly AT the octahedral point now ENGAGES with the
+// core-18 interval (old zone-based behavior refused here; superseded --
+// the 18-core is exact and unbroken across the whole middle interval,
+// spikes included).
+run(`setFamily(${FAMILY_NAMED[2].deg});`); // octahedral 67, deg literal
 run(`$('famLock').onclick();`);
-const lockAtOct = run(`({famLocked})`);
-check('G7e lock refuses at a named point with no zero-ghost zone (octahedral sits in a band)',
-  lockAtOct.famLocked === false, JSON.stringify(lockAtOct));
+const lockAtOct = run(`({famLocked, famLockZone})`);
+check('G7e lock AT octahedral engages with the core-18 interval (supersedes old refusal)',
+  lockAtOct.famLocked === true && lockAtOct.famLockZone.label === 'core 18'
+  && Math.abs(lockAtOct.famLockZone.lo - MIRROR_GOLDEN_DEG) < 1e-9
+  && Math.abs(lockAtOct.famLockZone.hi - GOLDEN_DEG) < 1e-9,
+  JSON.stringify(lockAtOct));
+run('unlockFamily();');
 
 // ================================================================== G8 ====
-// Follow-up #2 (live feedback): "mark the octahedral sqrt(2) and golden
-// sqrt(5) points of the slider, and also show where the number of regions
-// change." Added a track-mark overlay (#famMarks, populated by
-// renderFamilyMarks()): gold marks for the two field-named points
-// (octahedral 67 tagged sqrt2, golden 67 tagged sqrt5), plain marks for
-// the other four named points, and grey marks at every psi where the
-// exact crossing/region-count SET changes (REGION_CHANGE_DEG = 0, 45, 90,
-// plus all 12 GHOST_FREE_ZONES boundaries -- a superset of the named
-// points, since the count also changes at the two unnamed ~21deg/~68.6deg
-// transitions).
-console.log('\n---- G8: slider track marks (field points + region-change points) ----');
+// Follow-up #2 (live feedback), CORRECTED by the Postscript 25 addendum:
+// gold marks for the two field-named points, plain marks for the other
+// FIVE named points (mirror-golden added), strong "region" marks ONLY at
+// the true set changes (20.905 / 45 / 69.095 = SET_CHANGE_DEG), spike
+// marks at the octahedral points (momentary +12), and faint "band" marks
+// at the GHOST_FREE_ZONES boundaries (near-miss window edges, explicitly
+// NOT set changes).
+console.log('\n---- G8: slider track marks (field/named/set-change/spike/band) ----');
 run(`$('pFamily').onclick();`);
 const marksInfo = run(`({
   marks: [...$('famMarks').children].map(c => ({cls: c.className, left: c.style.left, title: c.title})),
-  REGION_CHANGE_DEG
+  SET_CHANGE_DEG, SPIKE_DEG
 })`);
 const fieldMarks = marksInfo.marks.filter(m => m.cls === 'tmark field');
 const namedMarks  = marksInfo.marks.filter(m => m.cls === 'tmark named');
 const regionMarks = marksInfo.marks.filter(m => m.cls === 'tmark region');
+const spikeMarks = marksInfo.marks.filter(m => m.cls === 'tmark spike');
+const bandMarks  = marksInfo.marks.filter(m => m.cls === 'tmark band');
 check('G8a exactly 2 field-tagged marks (octahedral sqrt2, golden sqrt5)',
   fieldMarks.length === 2
   && fieldMarks.some(m => m.title.includes('octahedral 67 (√2)'))
   && fieldMarks.some(m => m.title.includes('golden 67 (√5)')),
   JSON.stringify(fieldMarks));
-check('G8b exactly 4 plain named marks (shared axis x2, face-diagonal, mirror octahedral)',
-  namedMarks.length === 4, JSON.stringify(namedMarks));
-check('G8c region-change marks match REGION_CHANGE_DEG 1:1, correctly positioned',
-  regionMarks.length === marksInfo.REGION_CHANGE_DEG.length &&
-  regionMarks.every((m,i) => Math.abs(parseFloat(m.left) - marksInfo.REGION_CHANGE_DEG[i]/90*100) < 1e-6),
-  `${regionMarks.length} marks vs ${marksInfo.REGION_CHANGE_DEG.length} REGION_CHANGE_DEG entries`);
-check('G8d REGION_CHANGE_DEG is a superset of GHOST_FREE_ZONES boundaries and includes 0/45/90',
-  [0,45,90].every(d => marksInfo.REGION_CHANGE_DEG.includes(d))
-  && GHOST_FREE_ZONES.flat().every(d => marksInfo.REGION_CHANGE_DEG.includes(d)),
-  JSON.stringify(marksInfo.REGION_CHANGE_DEG));
+check('G8b exactly 5 plain named marks (shared axis x2, mirror golden, face-diagonal, mirror octahedral)',
+  namedMarks.length === 5
+  && namedMarks.some(m => m.title.includes('mirror golden 67')),
+  JSON.stringify(namedMarks));
+check('G8c set-change marks: exactly 3, at 20.905/45/69.095, correctly positioned and titled',
+  regionMarks.length === 3
+  && marksInfo.SET_CHANGE_DEG.length === 3
+  && Math.abs(marksInfo.SET_CHANGE_DEG[0] - MIRROR_GOLDEN_DEG) < 1e-9
+  && marksInfo.SET_CHANGE_DEG[1] === 45
+  && Math.abs(marksInfo.SET_CHANGE_DEG[2] - GOLDEN_DEG) < 1e-9
+  && regionMarks.every((m,i) => Math.abs(parseFloat(m.left) - marksInfo.SET_CHANGE_DEG[i]/90*100) < 1e-6)
+  && regionMarks.every(m => m.title.includes('set') && m.title.includes('changes')),
+  JSON.stringify(regionMarks));
+check('G8d spike marks: exactly 2 (octahedral points), titled "momentary +12"; band marks: 12, titled "not a set change"',
+  spikeMarks.length === 2
+  && marksInfo.SPIKE_DEG.length === 2
+  && spikeMarks.every((m,i) => Math.abs(parseFloat(m.left) - marksInfo.SPIKE_DEG[i]/90*100) < 1e-6)
+  && spikeMarks.every(m => m.title.includes('momentary +12'))
+  && bandMarks.length === GHOST_FREE_ZONES.flat().length
+  && bandMarks.every(m => m.title.includes('not a set change')),
+  `spikes=${JSON.stringify(spikeMarks)}, bands=${bandMarks.length}`);
 // spot-check mark position accuracy for the two field points
 const octMark = fieldMarks.find(m => m.title.includes('octahedral'));
 const goldMark = fieldMarks.find(m => m.title.includes('golden'));
-const octExpectPct = FAMILY_NAMED[1].deg/90*100, goldExpectPct = FAMILY_NAMED[4].deg/90*100;
+const octExpectPct = FAMILY_NAMED[2].deg/90*100, goldExpectPct = FAMILY_NAMED[5].deg/90*100;
 check('G8e octahedral/golden mark left% matches deg/90*100 to 1e-9',
   Math.abs(parseFloat(octMark.left)-octExpectPct) < 1e-9 && Math.abs(parseFloat(goldMark.left)-goldExpectPct) < 1e-9,
   `oct: ${octMark.left} vs ${octExpectPct}; gold: ${goldMark.left} vs ${goldExpectPct}`);
@@ -534,7 +564,7 @@ console.log('\n---- G9: split/merge highlight, zoom, one-sided opaque clip ----'
 // non-empty, every member a real element of opaqueSurface, and (the point
 // of the ka/kb + edge-proximity tightening) not simply "everything".
 {
-  const psiNear = (FAMILY_NAMED[1].deg + 0.5) * Math.PI/180;
+  const psiNear = (FAMILY_NAMED[2].deg + 0.5) * Math.PI/180;
   sandbox.__inject = familyMats(psiNear).map(matToCols);
   run('cubes=__inject; cubeSel=7; depthSel=new Set([1,2,3]); opaqueDirty=true; computeConcurrences(); ensureOpaqueSurface();');
   const info = run('({ghosts:ghosts.length, opaqueSurface:opaqueSurface.length, highlightFaces:[...highlightFaces]})');
@@ -614,6 +644,94 @@ check('G9m clipOpaque button toggles clipToSlice', run('clipToSlice') === true);
 run(`$('clipFlipBtn').onclick();`);
 check('G9n clipFlipBtn button toggles clipFlip', run('clipFlip') === true);
 run(`$('clipOpaque').onclick(); $('clipFlipBtn').onclick();`);  // leave both off
+
+// ================================================================= G10 ====
+// Postscript 25 addendum (core persistence + corrected transitions),
+// verified via the real extracted familyMats + the validated segment
+// classifier (pair identity, not just counts).
+console.log('\n---- G10: core-18 persistence + core-aware lock ----');
+
+// G10a: the interior crossing SET is one and the same set of 18 pairs at
+// psi = 25, 40, 50, 60, 68 (all inside the open interval (20.905, 69.095)).
+{
+  const keySets = [25, 40, 50, 60, 68].map(d => {
+    const { interior } = scanFamily(familyMats(d * Math.PI/180)[0]);
+    return interior.map(pairKey).sort();
+  });
+  const ref = JSON.stringify(keySets[0]);
+  check('G10a interior crossing set IDENTICAL (18 pairs) at psi=25/40/50/60/68',
+    keySets[0].length === 18 && keySets.every(s => JSON.stringify(s) === ref),
+    `sizes=${keySets.map(s=>s.length)}`);
+
+  // G10b: outside the interval the constant set has 12 members.
+  const s10 = scanFamily(familyMats(10 * Math.PI/180)[0]).interior.map(pairKey).sort();
+  const s80 = scanFamily(familyMats(80 * Math.PI/180)[0]).interior.map(pairKey).sort();
+  check('G10b interior set has 12 members at psi=10 and psi=80',
+    s10.length === 12 && s80.length === 12, `10deg=${s10.length}, 80deg=${s80.length}`);
+
+  // G10c: the core-18 is a SUBSET of the spike sets (octahedral 30, face-
+  // diagonal 24, mirror-octahedral 30) -- the spikes are core + extras,
+  // the core never opens.
+  const core = new Set(keySets[0]);
+  const oct = scanFamily(familyMats(FAMILY_NAMED[2].deg * Math.PI/180)[0]).interior.map(pairKey);
+  const fd  = scanFamily(familyMats(45 * Math.PI/180)[0]).interior.map(pairKey);
+  const mo  = scanFamily(familyMats(FAMILY_NAMED[4].deg * Math.PI/180)[0]).interior.map(pairKey);
+  check('G10c core-18 is a subset of every spike set (30/24/30 = core + extras)',
+    oct.length === 30 && fd.length === 24 && mo.length === 30
+    && [...core].every(k => oct.includes(k))
+    && [...core].every(k => fd.includes(k))
+    && [...core].every(k => mo.includes(k)));
+
+  // G10d: corner docking at golden -- of the core 18, exactly 6 remain
+  // interior (at t = +-1/phi^3) and exactly 12 appear among the corner
+  // contacts (t = +-1); nothing breaks.
+  const atGold = scanFamily(familyMats(GOLDEN_DEG * Math.PI/180)[0]);
+  const goldInterior = atGold.interior.map(pairKey);
+  const goldCorner = atGold.corner.map(pairKey);
+  const coreInteriorAtGold = goldInterior.filter(k => core.has(k));
+  const coreDockedAtGold = goldCorner.filter(k => core.has(k));
+  const PHI_G = exports_.PHI, invPhi3 = 1/(PHI_G*PHI_G*PHI_G);
+  const interiorTsOk = atGold.interior
+    .filter(c => core.has(pairKey(c)))
+    .every(c => Math.abs(Math.abs(c.t1)-invPhi3) < 1e-6 && Math.abs(Math.abs(c.t2)-invPhi3) < 1e-6);
+  check('G10d at golden: 6 core interior (t=+-1/phi^3) + 12 core docked on corners, 18/18 accounted',
+    coreInteriorAtGold.length === 6 && coreDockedAtGold.length === 12 && interiorTsOk,
+    `interior=${coreInteriorAtGold.length}, docked=${coreDockedAtGold.length}, tOk=${interiorTsOk}`);
+
+  // G10e: FACT-2 spot check -- inside a ghost band but away from the spike
+  // (psi=33, band around octahedral) the set STILL equals the core
+  // (ghost-band boundaries are not set changes).
+  const s33 = scanFamily(familyMats(33 * Math.PI/180)[0]).interior.map(pairKey).sort();
+  check('G10e set at psi=33 (inside octahedral ghost band) equals the core-18 (band edge is not a set change)',
+    JSON.stringify(s33) === ref, `size=${s33.length}`);
+}
+
+// G10f: core-aware lock drives the FULL octahedral->golden drag. Real DOM
+// handlers throughout.
+run(`$('pFamily').onclick();`);
+run(`setFamily(40);`);
+run(`$('famLock').onclick();`);
+const g10Lock = run(`({famLocked, famLockZone})`);
+run(`$('famPos').value = 6800; $('famPos').oninput({target:$('famPos')});`);
+const at68 = run(`famCurDeg`);
+run(`$('famPos').value = 500; $('famPos').oninput({target:$('famPos')});`);
+const atLow = run(`famCurDeg`);
+run(`$('famPos').value = 8500; $('famPos').oninput({target:$('famPos')});`);
+const atHigh = run(`famCurDeg`);
+check('G10f lock at psi=40 (core 18): drag to 68 allowed; clamps at 20.905 / 69.095',
+  g10Lock.famLocked === true && g10Lock.famLockZone.label === 'core 18'
+  && Math.abs(at68 - 68) < 1e-9
+  && atLow >= MIRROR_GOLDEN_DEG - 1e-9 && atLow <= MIRROR_GOLDEN_DEG + 0.3 + 1e-9
+  && atHigh <= GOLDEN_DEG + 1e-9 && atHigh >= GOLDEN_DEG - 0.3 - 1e-9,
+  `at68=${at68}, atLow=${atLow}, atHigh=${atHigh}`);
+// readout: core label + ghost count coexist (drag to a ghost band under lock)
+run(`$('famPos').value = 3300; $('famPos').oninput({target:$('famPos')});`);
+const readout = run(`$('famGhosts').textContent`);
+const ghostsAt33 = run(`ghosts.length`);
+check('G10g locked readout shows "core 18 maintained" alongside a live ghost count',
+  readout.includes('core 18 maintained') && ghostsAt33 > 0 && readout.includes(`${ghostsAt33} ghosts`),
+  `readout="${readout}", ghosts=${ghostsAt33}`);
+run('unlockFamily();');
 
 // restore the 723 preset (leave the harness's context in a known state)
 loadPreset('quat', exports_.REC723_TXT, { total: 723, d: { 1: 210, 2: 216, 3: 164, 4: 96, 5: 36, 6: 1 } });

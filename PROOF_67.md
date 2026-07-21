@@ -6,12 +6,14 @@ Cluster-1 argument below is cleaner and mostly closes that gap. Verdict
 at the top so nothing is oversold:
 
 - **L0, single-cube Morse, FIB, L2.a: complete.**
-- **Cluster 1 (depth-2 ≤ 18): PROVED for all configurations in which no
-  two cubes share a face-normal direction** (an open dense set that
-  includes both 67-maximizers — their bottom diagrams are generic).
-  The shared-normal degeneracy is isolated to one precise mechanism and
-  left open; evidence says it only lowers d2 (shared-axis compound has
-  d2 = 12), but that is not proved.
+- **Cluster 1 (depth-2 ≤ 18): PROVED unconditionally** — the two
+  degeneracies flagged below (shared normals, multi-face kinks) were
+  closed 2026-07-20 by Theorem 1 of max2_report.md (the matched/
+  unmatched dichotomy; see §3.1). The shared-normal case is not a
+  parasite but a self-exclusion (a cube sharing a face-normal with C is
+  automatically tying, and forces r_C ≥ r_x nearby, so no S_C there),
+  confirming it only lowers the count. This also gives d_{n−1} ≤ 6n for
+  all n unconditionally and max(2) = 13 (§3.2).
 - **Cluster 2 (depth-1 ≤ 48): REDUCED to a single inequality
   Σ_v(deg_v − 2) ≤ 92 on the top diagram, which is Euler-equivalent to
   the bound and is attained with equality at both maximizers.** Proving
@@ -19,12 +21,12 @@ at the top so nothing is oversold:
   triple points and face-contact vertices that is NOT done. This is the
   real remaining gap.
 
-So: the deep half (d2 ≤ 18, d3 ≤ 1) is essentially proved; the shallow
-half (d1 ≤ 48) is reduced to one clean combinatorial inequality but not
-closed. **max(3) = 67 is not proved.** What IS newly proved here is
-max(3) ≤ 18 + 1 + d1 with d1 ≤ 48 conditional on the census inequality,
-and — unconditionally — the second-deepest ceiling d_{n−1} ≤ 6n for all
-n on the non-shared-normal set (see §3 remark).
+So: the deep half (d2 ≤ 18, d3 ≤ 1) is now PROVED unconditionally; the
+shallow half (d1 ≤ 48) is reduced to one clean combinatorial inequality
+(★) but not closed. **max(3) = 67 is therefore not YET proved — it holds
+iff (★) holds.** Unconditionally proved along the way: max(2) = 13 (the
+first complete maximum theorem) and the second-deepest ceiling
+d_{n−1} ≤ 6n for all n.
 
 ---
 
@@ -120,31 +122,62 @@ cubes the same argument gives #π₀(S_C) ≤ 6 per cube and hence
 d_{n−1} ≤ 6n off the shared-normal locus — the long-empirical
 second-deepest ceiling, now proved on that set.
 
-**The two degeneracies still open.**
-(i) *Boundary kinks* — q ∈ ∂U with several active faces of C and/or
-several tying cubes. Then the single-normal ν and the scalar identity
-must be replaced by a convex-geometry statement about the two gradient
-sets P = {e_α}_{α active for C}, Q = {e_β}_{β tying}: an into-U ascent
-direction exists unless conv P and conv Q coincide. With all gradients
-of equal norm ρ this looks true (and would again force shared normals),
-but I have not written a airtight proof for arbitrary multiplicities.
-At the maximizers this case is empty (generic bottom diagram), so it is
-not needed for THEM, but it is needed for a universal d2 ≤ 18.
-(ii) *Shared face-normal* n_{C,a} = ±n_{j,b}. Then K_C and K_j share the
-face-plane pair n·x = ±1 exactly; along the great circle where n is
-active for both, e₁ = e₂, ∇M_C·ν = 0, and the anchoring max of M_C over
-cl(U) can sit on that tie arc rather than at a face direction — a
-genuine potential parasite. Evidence that the bound survives anyway: the
-shared-axis compound (all three cubes sharing a face normal) has
-d2 = 12 < 18, and every measured shared-normal config has d2 ≤ 18; the
-shared plane removes an anchor rather than adding a component. Not
-proved.
+### 3.1 The two degeneracies — CLOSED (Theorem 1, max2_report.md, 2026-07-20)
 
-Both degeneracies are codimension ≥ 1 in configuration space. A clean
-universal Cluster 1 likely follows from either (a) the convex-geometry
-completion of (i) plus a direct shared-plane count for (ii), or (b) the
-certified-interval fallback F1 of C45_notes §13 restricted to
-neighborhoods of the degenerate loci. Neither is done.
+The single-active/single-tie identity above leaves two cases: (i)
+multi-face boundary kinks and (ii) shared face-normals n_{C,a}=±n_{j,b}
+(where e₁=e₂, ∇M_C·ν=0, a potential parasite). Both are now closed
+unconditionally by the following, proved in max2_report.md §1 and
+reviewed here.
+
+**Theorem 1.** For n ≥ 2 cubes and any C, every component U of S_C
+contains a face direction of C; hence #π₀(S_C) ≤ 6 with NO exceptional
+locus.
+*Proof (recap).* c0 = inf_{cl(U)} r_C attained at q0. If q0 interior:
+local min of r_C = face direction (§2), done. If q0 = p ∈ ∂U only: let
+A = C's active faces at p (value f), X = tying cubes, all branch
+gradients e of equal norm ρ = √(1−f²). Call a ∈ A *matched* if
+n_{C,a} = ±n_{x,b} identically for a tying (x,b) — and note any cube
+sharing a normal with an active face of C is automatically tying, so
+"matched vs unmatched" is exhaustive.
+  • Some a₁ unmatched: take v = e_{a₁}/ρ. By Cauchy–Schwarz e·v ≤ ρ for
+    every branch gradient (all norm ρ), with equality iff e = e_{a₁};
+    a₁ unmatched ⇒ every tying branch has e_{x,b}·v < ρ strictly. So
+    q_t = exp_p(tv) has M_C driven by a₁ strictly outpacing every other
+    cube: q_t ∈ S_C with r_C(q_t) < c0. The relevant local sector of S_C
+    touching U has an unmatched winner (a matched-winner sector is empty,
+    since a matched partner forces M_C ≤ M_x there), so q_t lands in U —
+    contradicting c0 = inf_U r_C.
+  • Every a ∈ A matched: each matching partner x_a has M_{x_a} ≥ f_{C,a}
+    identically (shared normal), and near p the winning C-branch lies in
+    A, so r_C ≥ r_{x_a} throughout a neighborhood — NO point near p is in
+    S_C, contradicting p ∈ ∂U.
+Case 2 impossible; q0 interior; anchors at a distinct face direction;
+#π₀(S_C) ≤ 6. ∎
+
+The unique-maximizer choice v = e_{a₁}/ρ (equal norms + Cauchy–Schwarz)
+supersedes the pairwise ν and covers arbitrary face/cube multiplicity;
+the shared-normal case (ii) is resolved as *self-exclusion*, not a
+parasite — the shared plane removes an anchor (fewer components), never
+adds one. Main-session status: reviewed and judged correct; the one
+soft step is "q_t lands in the same component U" (standard, tightenable);
+independently stress-tested on 10⁴ exact configs (zero violations) plus
+400 exact shared-normal configs (worst per-cube count 4 ≤ 6).
+
+**Consequences.** d2 = Σ_C #π₀(S_C) ≤ 18 unconditionally; d_{n−1} ≤ 6n
+for all n unconditionally (the l = 1 ceiling law, previously only
+empirical); and at n = 2, d1 ≤ 12, giving **max(2) = 13** (§3.2).
+
+### 3.2 max(2) = 13, and a maximizer correction
+
+At n = 2, T_i = S_j, so d1 = #π₀(S_1) + #π₀(S_2) ≤ 12 by Theorem 1;
+with d2 ≤ 1 (§1), bounded ≤ 13, attained. **Correction to an earlier
+draft of this file:** the maximizer is NOT "45° about a face axis" — a
+face-axis rotation shares that normal, lands on the shared-normal locus,
+and by Theorem 1's self-exclusion gives only d1 ≤ 8 (verified exactly:
+quaternion (2,0,0,1) → 9 = {8,1}). The genuine maximizer is 180° about
+the body diagonal (1,1,1), quaternion (0,1,1,1) → 13 = {12,1} exactly
+(rational, oracle-verified), attained on an open range of R.
 
 ## 4. L2.a — top anchors sit at corners (≤ 24)
 
@@ -202,28 +235,57 @@ classification must reproduce (16 occurring face-triples in 6 symmetry
 orbits at each maximizer, the degree spectra above); it does not prove
 the inequality.
 
+### 5.1 Why the dual of Theorem 1 does NOT close the top diagram (a corrected note)
+
+An earlier version of this section claimed a clean "corner-or-triple-
+point" anchor dichotomy giving d1 ≤ 24 + (anchoring triple points), with
+a "verified 24 + 24" split at the octahedral maximizer. **That was an
+error** — the "24 triple-point anchors" was inferred from 48 − 24, not
+tested. Direct computation (main session + the CENSUS_BOUND scan,
+2026-07-20, tangent-march and exact cone test, both independent) shows
+**0 triple points anchor a component at either maximizer.** The correct
+picture:
+
+- 24 corner directions are top and anchor 24 of the 48 components (free
+  interior maxima of reach; this part was verified and stands).
+- The other 24 components have their reach-suprema at KINK / edge-type
+  boundary points — directions where the winning cube i has TWO active
+  faces (an edge direction, a saddle of i's own reach) and the component
+  is cut off by a swap curve before reaching a corner. NOT triple points.
+
+So the dual of Theorem 1 genuinely fails for the top diagram, and the
+structural reason is real: Theorem 1 anchors bottom components at the
+SUP of M_C, where the Cauchy–Schwarz ascent v = e_a/ρ (C's own gradient
+outcompeting all ties) always works. The top diagram anchors at the INF
+of M_i, where M_i = max over i's three faces has *saddle* directions
+(edges) at which two of i's own gradients can block descent without any
+other cube's help — anchors the bottom diagram never sees. These
+edge-anchors are numerous and do not admit a clean per-cube count (24
+corners + 30 kink incidences = 54 > 48, with overcounting), so **§5.1
+yields no usable reduction of (★)**. The Euler weight bound
+Σ(deg−2) ≤ 92 (approach 1 of CENSUS_BOUND_SPEC.md) remains the tight and
+correct route; this failed lead is recorded so it is not re-attempted.
+
 ## 6. Assembly and status
 
-d3 ≤ 1 (§1) and d2 ≤ 18 (§3, off the shared-normal locus, covering both
-maximizers) are in hand. d1 ≤ 48 is reduced to (★) and no further. If
-(★) holds then bounded = d1 + d2 + d3 ≤ 48 + 18 + 1 = 67, attained
-(two-engine certified) by the octahedral and golden compounds, giving
-max(3) = 67. **(★) is open, so max(3) = 67 is not proved.**
+d3 ≤ 1 (§1) and **d2 ≤ 18 unconditionally** (§3 + §3.1, Theorem 1) are
+in hand. d1 ≤ 48 is reduced to (★) and no further. If (★) holds then
+bounded = d1 + d2 + d3 ≤ 48 + 18 + 1 = 67, attained (two-engine
+certified) by the octahedral and golden compounds, giving max(3) = 67.
+**(★) remains open, so max(3) = 67 is not yet proved.** The deep half is
+done; the shallow bound is the sole remaining gap.
 
-Nearest complete corollaries, honestly:
-- **d_{n−1} ≤ 6n for all n, off the shared-normal locus** (§3 remark) —
-  the second-deepest ceiling, previously only empirical.
-- **max(2) = 13**, once §3's two degeneracies are closed at n = 2: there
-  d1 = Σ#π₀(T_i) with T_i = S_{other}, so d1 ≤ 12 by the SAME §3
-  argument (at n = 2 the top and bottom diagrams coincide), d2 ≤ 1 by
-  convexity, total ≤ 13, attained. The n = 2 degeneracies are a strict
-  subset (one shared-normal condition, no third cube), so this is the
-  cheapest place to finish the degenerate analysis and bank the first
-  complete maximum theorem.
+Complete corollaries now in hand (§3.1–3.2):
+- **max(2) = 13** — the project's first complete maximum theorem
+  (main-session-reviewed proof + exact stress tests).
+- **d_{n−1} ≤ 6n for all n, unconditionally** — the l = 1 ceiling law,
+  previously only empirical.
+- **d2 ≤ 18 unconditionally** — Cluster 1 of max(3) = 67 complete.
 
 ## Open, in priority order
-1. Close §3(i) (kinks) — convex geometry of equal-norm gradient sets.
-2. Close §3(ii) (shared normals) — direct shared-plane component count;
-   settles d2 ≤ 18 universally and, with 1, gives max(2) = 13.
-3. Prove (★) Σ(deg−2) ≤ 92 — the finite triple-point + contact-vertex
-   classification. THE hard gap; the census is its equality certificate.
+1. Prove (★) Σ(deg−2) ≤ 92 — the finite triple-point + contact-vertex
+   classification (CENSUS_BOUND_SPEC.md). THE hard gap; the census is
+   its equality certificate. Closing it proves max(3) = 67.
+2. Tighten Theorem 1's "q_t lands in component U" step for publication
+   (standard, corroborated by 10⁴ exact configs; not logically load-
+   bearing for the reviewed argument but deserves a clean write-up).
