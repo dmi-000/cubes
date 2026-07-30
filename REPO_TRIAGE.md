@@ -8,6 +8,7 @@ this is a proposal for approval.
 ## 1. Move into the repo (source and docs, small, currently untracked)
 
 - `DIHEDRAL_FAMILY_NEXT.md` (8 KB)  <- referenced by the ledger/memory but never tracked
+- `index_ledger.py` (4 KB)  <- regenerates the ledger's postscript index
 - `record_hunt.py` (12 KB)  <- today's record-hunt tooling
 - `record_hunt_wave2.py` (4 KB)  <- today's record-hunt tooling
 - `record_hunt_wave3.py` (4 KB)  <- today's record-hunt tooling
