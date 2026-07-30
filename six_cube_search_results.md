@@ -3313,8 +3313,16 @@ of the original 20 000 — returned **727 again, via a DIFFERENT sixth cube**:
     4,1,1,-1; 3,3,7,3; 5,-1,-5,-5; 2,1,1,1; 1,1,1,1; 15,-12,-2,-13
     by_depth = {1:214, 2:220, 3:156, 4:100, 5:36, 6:1}   (two-engine verified)
 
-identical histogram to the (7,14,1,-5) realization. So 727, like 723 before
-it, is a summit plateau rather than an isolated point. Next totals below it
+identical histogram to the (7,14,1,-5) realization.
+
+[CORRECTED 2026-07-30: the plateau reading here is WITHDRAWN. 723's plateau
+was established by DIFFERING depth histograms, which prove non-congruence
+outright; these two 727 realizations instead agree on the histogram, on the
+full 5-subset profile [393,385,385,385,383,377], AND on all fifteen O-reduced
+pair invariants mu(i,j) — consistent with one compound under a symmetry
+relabeling, not two. Same count via a different sixth cube is NOT evidence of
+a plateau. A real congruence test (or a genuinely different depth profile at
+727) is needed before any plateau claim.] Next totals below it
 in the sweep: 725, 725, then 723 repeatedly.
 
 **729 was NOT attained.** E1 caps this base at 393+336 = 729, and 80 000
