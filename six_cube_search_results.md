@@ -81,6 +81,7 @@ with `index_ledger.py` after appending.
 - [Postscript 45](#postscript-45-new-records-n7--1211-and-n8--1889--found-top-down-then-bottom-up-in-one-afternoon-1211-is-a-plateau-reached-by-four-independent-routes) — NEW RECORDS n=7 = 1211 and n=8 = 1889 — found top-down-then-bottom-up in one afternoon; 1211…
 - [Postscript 46](#postscript-46-723-is-beaten--n6--727-and-it-lifts-the-tower-to-n7--1217-n8--1891-the-large-height-quaternion-stratum-was-never-sampled) — 723 IS BEATEN — n=6 = 727, and it lifts the tower to n=7 = 1217, n=8 = 1891; the…
 - [Postscript 46 addendum](#postscript-46-addendum-727-is-a-plateau-and-729-was-not-reached-80-000-sixth-cubes-on-the-393-base) — 727 is a plateau, and 729 was not reached (80 000 sixth cubes on the 393 base)
+- [Postscript 47](#postscript-47-727-is-proved-isolated-on-the-393-base-and-its-coincidence-pattern-is-unaugmentable-the-record-has-fewer-coincidences-than-723-and-every-condition-is-a-quadric) — 727 is PROVED isolated on the 393 base and its coincidence pattern is unaugmentable; the…
 
 <!-- INDEX:END -->
 
@@ -3315,6 +3316,17 @@ of the original 20 000 — returned **727 again, via a DIFFERENT sixth cube**:
 
 identical histogram to the (7,14,1,-5) realization.
 
+[RE-ESTABLISHED 2026-07-30 (later): 727 IS a plateau, but not for the reason
+first given and not via the (15,-12,-2,-13) cube. The locus enumeration
+(Postscript 48) found two further sixth cubes, (3,-51,-93,29) and
+(40,48,-11,45), giving 727 with a DIFFERENT depth profile
+{1:216, 2:216, 3:160, 4:98, 5:36, 6:1} and a different pair structure
+[9,5,4,9,4] — two-engine verified. A differing histogram proves
+non-congruence outright, so there are at least two distinct 727 compounds,
+trading layers by (+2,-4,+4,-2) with d1+d2+d3+d4 = 690 conserved. The
+withdrawal below stands as written for the (15,-12,-2,-13) cube, which really
+is congruent to the original.]
+
 [CORRECTED 2026-07-30: the plateau reading here is WITHDRAWN. 723's plateau
 was established by DIFFERING depth histograms, which prove non-congruence
 outright; these two 727 realizations instead agree on the histogram, on the
@@ -3332,3 +3344,96 @@ the open question: a further n=6 record needs either the exact 729 corner
 (apparently very rare if it exists at all) or a NEW 5-cube compound >= 390,
 which no search has produced (the 5-subsets of both 727 realizations top out
 at 393). Log: record_hunt_n6b.jsonl.
+
+## Postscript 47: 727 is PROVED isolated on the 393 base and its coincidence pattern is unaugmentable; the record has FEWER coincidences than 723, and every condition is a quadric
+
+2026-07-30, main session, following the user's programme: constraints that
+individually have degrees of freedom may, taken together, have finitely many
+solutions or none — and none means the search can be skipped entirely.
+
+**STRUCTURE OF 727 (exact, incidence.py).** Against the five fixed cubes of
+393, the record's sixth cube (7,14,1,-5) realises
+
+    pair counts  9, 9, 9, 4, 4        18 interior edge-edge crossings
+                                      36 coplanarity conditions
+
+while 723's sixth cube (5,2,2,2) realises
+
+    pair counts  4, 4, 4, 13, 13      48 interior crossings
+
+**So the new record has FEWER coincidences than the old one and NO 13-pair at
+all** — it replaces two rigid maximal pairs with three tunable 9-pairs. That
+is Postscript 17's addendum thesis realised: the global optimum builds from
+locally-suboptimal-but-flexible pieces. It also refutes "more coincidences ⇒
+higher count" on this base, consistent with Postscript 30's finding that the
+±1-per-coincidence law fails at n ≥ 4, and with the 9-fold-concurrence sweet
+spot (over-concentration merges regions away).
+
+**ELIMINATION (eliminate729.py, sympy over ℚ).** Fix the five cubes of 393;
+the sixth then has three degrees of freedom, parameterised by Cayley
+coordinates q = (1,a,b,c). Each candidate coincidence is one polynomial
+det[dir(e), dir(f), pt(f)−pt(e)] = 0; there are 720 of them. Results:
+
+    GATE  36 conditions vanish at the known 727 cube (matches incidence.py)
+    Q1    their Gröbner basis has 3 elements and IS ZERO-DIMENSIONAL
+    Q1b   exactly ONE real solution point — the 727 cube itself
+    Q2    684 infeasible augmentations, 0 feasible
+
+So on the 393 base: **727 is isolated** (no continuous family through it —
+upgrading the single-cube DOF probe from empirical to algebraic), and **its
+coincidence pattern is unaugmentable** — no sixth cube realises those 36
+conditions plus any 37th, each certified by a Gröbner basis of {1}. This
+explains why all six swap-completions and the balanced climb landed on the
+identical profile [393,385,385,385,383,377]: there is nothing else there.
+
+NOT proved: that no 729 exists on this base. A 729 config need not contain
+727's pattern. Also the Cayley chart omits the 180° rotations (w = 0), which
+need a separate chart.
+
+**ALL CONDITIONS ARE QUADRICS** (total degree 2 in (a,b,c); measured over
+cube 0's full set of 144). Three consequences:
+ • per-stratum solving is cheap — three quadrics is easy for Gröbner;
+ • exhaustive stratification is DEAD as stated: C(720,3) ≈ 6.2e7 systems,
+   ≤ 2³ = 8 points each by Bézout, ~20 s per exact algebraic count;
+ • solution fields reach degree 8, not just degree 2 — so the cheap C++ port
+   (templating the coefficient type over ℤ[√d]) would cover only part of the
+   strata. **Verdict on porting the algebraic engines to C++: NO.** Measured
+   gap is ~120-200× (C++ integer n=6 = 0.11 s; certify_six = 13.1 s;
+   cube_compound_exact ≈ 20 s at n=6), but the next bottleneck is SYMBOLIC,
+   not numeric, and wolframscript + algebraic_groebner.wl already exist and
+   are validated. Cheaper 100× is the existing 3-tier interval filter
+   (cube_compound_interval.py), not a rewrite.
+
+**THE STRUCTURAL ROUTE.** Enumerate pair-relation LOCI, not condition
+triples. Dictionary measured today: a 9-pair carries 6 interior crossings
+(12 coplanarity conditions), a 13-pair carries 24. 727 is the intersection of
+three 9-loci (cubes 0, 1, 3). Each 9-locus is a curve (codim 2), so three of
+them in 3-space is codim 6 — generically EMPTY. That it is non-empty here
+means the five fixed cubes are mutually special, and that dependency is
+exactly why 727 exists. A complete search of the three-9-pair family is then
+tens of systems (C(5,3) = 10 triples of fixed cubes × components), not 6e7.
+
+**SEARCHES RUN, ALL NEGATIVE ABOVE 727.**
+ • swap-completion (balance_hunt.py): drop each of 727's six cubes and
+   re-optimise the replacement. All five never-before-completed bases return
+   to 727 with the IDENTICAL subset profile. The weak bases are the EASY
+   routes (dropping cube 3 or 4 gives 727 in all six top completions) while
+   the 393 base — the one every earlier search used — gave only 723 from an
+   8000-cube menu. 727 is far more accessible from its mediocre subsets than
+   from its best one.
+ • balanced climb, objective (min 5-subset, total): no move at all.
+ • core-and-clique (clique_hunt.py, the user's (n−2)-intersection idea): from
+   the 4-cube 183 core, 60 000 candidates screened at n=5 give 80 vertices
+   (after deduplication by the cube's own 24 rotations — the first run
+   omitted this and its K4 layer silently counted clones, reporting a 5-cube
+   total for an 8-cube config). 3 160 edges reach 727; 9 880 triangles reach
+   **1217**. Both records reproduced from the core; no improvement. Cost is
+   an order of magnitude below random menus, and the vertex screen is reused
+   at every level above.
+
+**NEW TOOLING** (all saved): record_hunt.py (extend/climb/subsets/campaign),
+record_hunt_wave2/3.py, balance_hunt.py, clique_hunt.py, incidence.py (exact
+coincidence signatures), eliminate729.py, dof_probe.py (count-preserving
+family probe, with the 13-pair continuum as its positive control),
+index_ledger.py (regenerates this file's postscript index — the ledger is
+append-only and ordered by write time, not by number).
