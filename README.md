@@ -7,12 +7,19 @@ region count is computed with rational or algebraic (ℚ(√d), and towers
 ℚ(√a,√b)) arithmetic and certified predicates, so a reported count is a
 theorem about that configuration, not a numerical estimate.
 
+**Start with [`RESULTS.md`](RESULTS.md)** — what the project currently
+believes, every claim tagged by how strongly it is established, with
+superseded claims confined to a table at the end so nothing in the body has
+to be walked back.
+
 The scientific record lives in **[`six_cube_search_results.md`](six_cube_search_results.md)**
-(read its postscripts in order — several early conclusions were overturned
-by exact counting and the corrections matter). For the narrative synthesis
-— the problem, the methods, the record chain, and the structural laws —
-read **[`PROJECT.md`](PROJECT.md)**. This README is the map of the code and
-documents around it.
+(append-only and ordered by write time, not by postscript number; it opens
+with an index. Several early conclusions were overturned by exact counting
+and the corrections matter, so read the postscripts in order — or read
+`RESULTS.md` instead if you only want the current state). For the narrative
+synthesis — the problem, the methods, the record chain, and the structural
+laws — read **[`PROJECT.md`](PROJECT.md)**. This README is the map of the
+code and documents around it.
 
 **Proved maxima.** max(2) = 13 and **max(3) = 67** are now theorems (the
 latter for all three concentric convex ≤6-facet cells meeting pairwise
