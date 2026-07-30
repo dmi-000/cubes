@@ -669,10 +669,10 @@ algebraic (even irrational) configurations that trial-and-error cannot.
 **From search to branch-and-prune.** The structural findings collapse the
 search space into something almost combinatorial. Since a configuration's
 worth is carried by its *blueprint* — how the cubes partition into
-shared-axis clusters, which pairs are rigid best-pairs versus tunable
+shared-axis clusters, which pairs are best-pairs versus tunable
 9-pairs, which cubes are free — the search becomes: enumerate the finite
 catalog of blueprints, *prune* the ones that provably can't win (a
-triangle of rigid best-pairs forces the golden wall, whose extensions are
+triangle of best-pairs forces the golden wall, whose extensions are
 known to lose; geometrically inconsistent labelings never existed), and
 optimize the surviving blueprints over their continuous knobs. The prize
 is a qualitatively stronger conclusion than any search so far: "no

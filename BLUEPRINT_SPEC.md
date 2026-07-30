@@ -20,6 +20,10 @@ TRADE-OFFS, structured as branch-and-prune:
   P1 realizability — 9-edges must form axis-sharing cliques; 13 is a
      rigid discrete relation (60° body-diagonal class); labelings that
      are geometrically inconsistent are pruned without counting.
+     [CORRECTED 2026-07-29: "13 is rigid / a single 60° class" is wrong
+     — 13 is attained at every angle about a body diagonal, and on a
+     closed arc about an edge axis too (see PROOF_67.md §3.2). Kept here
+     unchanged as the rule this already-completed search actually used.]
   P2 frustration — any all-13 triangle forces the golden/octahedral
      wall, whose extensions provably lose (681 < 723): prune subtree.
   P3 dominance — blueprints whose parts cannot be deep-saturated

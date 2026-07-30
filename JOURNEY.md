@@ -172,15 +172,21 @@ golden triple really is the n=3 maximum).
 Why does the maximum deliberately use "worse" parts? Two measured facts
 answer it:
 
-1. **Rigidity.** Sampling thousands of random pairs: 94% count 4
+1. **Rarity.** Sampling thousands of random pairs: 94% count 4
    (generic), 2% count 9, 0.1% count 13. The *optimal* pair is the
-   rarest and most rigid thing in the space — an isolated wall. The
-   9-pair, by contrast, is a continuous family: two cubes sharing a face
-   axis count exactly 9 at *every* angle about that axis. The suboptimal
-   configuration carries a knob; the optimal one doesn't. (Same one
-   level up: the 67-triples are isolated points; a continuous family
-   connecting the octahedral and golden 67s exists, but its interior
-   sags to ~37.)
+   rarest thing in the space, but it is not rigid: like the 9-pair
+   (two cubes sharing a face axis count exactly 9 at *every* angle about
+   that axis), 13 is also a continuous family — every angle about a
+   shared body diagonal, plus a whole closed arc about a shared edge
+   (face-diagonal) axis (see PROOF_67.md §3.2). Both loci are
+   measure-zero in the space of random pairs; neither is a single knob-
+   less point. [CORRECTED 2026-07-29: an earlier draft called the
+   13-pair "rigid" / "an isolated wall" with "no knob" — that was wrong,
+   and it originates in the ledger's Postscript 17 addendum, itself
+   corrected by Postscript 44.] (Same one level up: the 67-triples
+   *are* isolated points; a continuous family connecting the octahedral
+   and golden 67s exists, but its interior sags to ~37 — n=3, not n=2,
+   is where rigidity actually lives.)
 
 2. **What embedding conserves.** Compare the golden triple 67 =
    {48, 18, 1} with the 63-triples inside the 723 record, all of which
@@ -256,8 +262,8 @@ combine building blocks and trying frustration trade-offs — can it be
 reduced to something like branch-and-bound?"* Almost exactly.
 
 - **Branch**: a configuration's *blueprint* — how the cubes partition
-  into shared-axis clusters, which pairs are rigid 13s versus tunable
-  9s, which cubes are free. Finite after symmetry: 391 raw blueprints
+  into shared-axis clusters, which pairs are 13s versus tunable 9s,
+  which cubes are free. Finite after symmetry: 391 raw blueprints
   collapse to **67 canonical skeletons** at n=6.
 - **Prune**: with justified rules only — geometric inconsistency, and
   frustration itself as a pruning rule (an all-13 triangle forces the
@@ -478,7 +484,12 @@ feature. Three cubes appears to be the **one irrational rung** of the
 entire ladder — and the reason is now visible rather than mysterious.
 Attaining the maximum at two or three cubes requires maxing every depth
 layer at once, which pins the configuration to an isolated, algebraically
-rigid point (irrational, for three cubes). From four cubes on, *no*
+rigid point (irrational, for three cubes). [CORRECTED 2026-07-29: this
+overstates the n=2 case — max(2) = 13 is attained on a positive-
+dimensional continuum, not an isolated point (every angle about a body
+diagonal, plus a closed arc about an edge axis; rational throughout).
+Only n=3 is truly isolated and irrational; see PROOF_67.md §3.2.] From
+four cubes on, *no*
 configuration can max all layers simultaneously — the layers must be
 traded — and trades happen on open sets, which always contain rational
 points. The 387's tolerance for a whole interval of phases, and the 723

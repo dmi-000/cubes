@@ -1295,7 +1295,7 @@ symmetry of records, the incidence sweet spot, and why greedy extension
 |---|---|---|
 | 4 (generic) | 94% | full 3-D open sea |
 | 9 (shared face-axis) | 2% | CONTINUOUS — exactly 9 at every angle about the shared axis (verified 8 angles) |
-| 13 (the MAXIMUM) | 0.1% | rigid, near-isolated high-codimension wall |
+| 13 (the MAXIMUM) | 0.1% | rigid, near-isolated high-codimension wall [WRONG — corrected in Postscript 44: measure-zero but CONTINUOUS, a 1-parameter family] |
 
 The MAX pair (13) is the RAREST and most rigid; the suboptimal 9 sits on a
 fatter, continuously-parameterized locus. Same for triples: 67 is ISOLATED
@@ -1303,6 +1303,11 @@ fatter, continuously-parameterized locus. Same for triples: 67 is ISOLATED
 family whose INTERIOR drops to ~37; near-45° rational octahedral gives only
 55, exact 45° needed; a climbed 63-triple has 0% DOF openness). So **local
 optima (13, 67) are rigid points; they are NOT count-preserving-continuous.**
+[PARTLY WRONG — see Postscript 44 (2026-07-29). True for 67 (the two
+triples really are isolated), FALSE for 13: the 13-pair is measure-zero but
+count-preserving-CONTINUOUS — every angle about a body diagonal gives 13.
+The rigidity that drives the frustration principle lives one level up, at
+the triple, not at the pair.]
 
 Key distinction: a config always has CONFIGURATION DOF (you can perturb the
 cubes), but the optima have no COUNT-PRESERVING DOF. The flexibility that a
@@ -2997,3 +3002,96 @@ Docs: new PROOF_STEP_T.md (full proof); PROOF_FORMAL.md (Step T → CLOSED),
 PROOF_67.md, PROOF_NARRATIVE.md updated. Verify scripts saved to project:
 stepT_proof_verify.py (main), stepT_local/realize/degcheck.py (the
 counterexample).
+
+## Postscript 44: the n=3 anomaly audit — its maximum is the only one that is finite-yet-multiple, irrational, and non-nesting; the three are one phenomenon (and 13 is NOT rigid — corrects Postscript 17 addendum)
+
+2026-07-29, main session, answering the user's four questions: is n=3 the
+only level with two geometrically distinct maxima / with irrational
+maxima / whose maximum is not a subset of a larger-n maximum, and are
+these related. Everything below recomputed today; every count
+two-engine (cube_regions_n and certify_six.exact_count_config).
+
+**(a) MULTIPLICITY — n=3 is not the only level with several optima; it is
+the only level whose optimum set is FINITE. This CORRECTS the Postscript
+17 addendum claim that the 13-pair is "rigid, near-isolated".**
+
+- n=2: 13 is attained at EVERY rotation angle about a body diagonal
+  (excluded only at θ = 0, ±120°, where the cubes coincide and the count
+  is 1). Verified at 40 random rational angles plus (400,1,1,1) θ=0.496°,
+  (3,1,1,1) θ=60°, (0,1,1,1) θ=180° — all 13 = {12,1}. Also on the CLOSED
+  arc [arccos(1/3), arccos(−1/3)] = [70.5288°, 109.4712°] about an edge
+  (face-diagonal) axis: endpoints (2,0,1,1) and (1,0,1,1) give 13, just
+  outside ((201,0,100,100), (99,0,100,100)) gives 9. Plus further isolated
+  components (half-turns about (1,2,3), (1,1,2)). So max(2)'s maximizer set
+  is POSITIVE-DIMENSIONAL: infinitely many pairwise non-congruent
+  maximizers. It is nonetheless measure-zero — 400 random rotations gave
+  4 (392), 5 (5), 9 (3), never 13, and tilting the axis off a body diagonal
+  or off the edge axis drops the count to 5 or 9 immediately.
+- n=3: exactly two maximizers, isolated (the connecting family's interior
+  drops to ~37, Postscript 9) and provably non-congruent (Theorem R,
+  C45_notes §12: μ = 1/2+√2 octahedral vs 3φ/2 golden).
+- n=6: the record VALUE 723 is a summit plateau with ≥4 non-congruent
+  realizations (Postscript 29 addendum).
+
+So the anomaly is not multiplicity but rigidity-with-multiplicity: n=3 is
+the only level whose optimum set is 0-dimensional and bigger than a point.
+
+**(b) NESTING — the record tower nests at every adjacent level except
+n=3.** All subsets of the three records recounted (both engines agree):
+
+    183 (n=4): pairs 13,13,13,9,9,9      triples 63,63,63,55
+    393 (n=5): 4-subsets 183,179,179,179,171   (the 183 one has the
+               record profile {1:92,2:66,3:24,4:1} exactly)
+    723 (n=6): 5-subsets 393,387,381,381,381,375 ; 4-subsets max 183 ;
+               3-subsets max 63 ; pairs max 13
+
+13 ⊂ 183 ⊂ 393 ⊂ 723, and 1207 = 723 + one cube by construction. The best
+triple anywhere in the tower is 63 — four short of 67. n=3 is the sole
+break.
+
+**(c) THE THREE ANOMALIES ARE ONE PHENOMENON, and the switch is at n=4.**
+Postscript 23's cap-sum 1 + Σ_l C(l,n): 13 TIGHT, 67 TIGHT, 195 vs 183,
+429 vs 393. For n ≤ 3 there is no middle depth layer, so all per-layer
+ceilings are simultaneously attainable. Saturating all of them at once is
+a rigid, symmetry-forced condition — it pins the optimum to isolated
+points, and the only three-cube symmetries that do it are octahedral and
+icosahedral, i.e. ℚ(√2) and ℚ(√5). From n=4 the ceilings cannot be met
+together, the maximum must trade d1 down to fill the middle, that requires
+a tunable degree of freedom, and the tunable loci are rational and
+plateau'd. Hence:
+ rigidity → irrationality: only an isolated optimum can be irrational; a
+ positive-dimensional optimum locus cut out by rational equations has
+ dense rational points, which is why n=2's continuum and the n≥4 plateaus
+ all have rational maximizers and n=3's two points do not;
+ irrationality → non-nesting: any subset of a rational compound is
+ rational, so by Theorem R no rational record can contain either 67 —
+ (b) follows from Theorem R as a one-liner.
+The arithmetic-free version of the same fact is Postscript 17's
+frustration: the golden four-compound has ALL subsets optimal (pairs 13,
+triples 67) and still totals 177 < 183, so carrying 67-triples actively
+costs at n=4.
+
+**(d) CORRECTION to the frustration MECHANISM (not to the principle).**
+With 13 continuous, "the global max is forced to build from
+locally-suboptimal-but-flexible pieces" is wrong at the PAIR level: max₄
+(183) does use three 13-pairs (the hub-spoke structure), and those pairs
+sit on the tunable body-diagonal curve — optimal AND flexible. The
+mechanism survives one level up, where the rigidity is real: 67-triples
+are isolated, so 183 must detune its triples (63/63/63/55). Read the
+Postscript 17 addendum table with the 13-row corrected to "measure-zero
+but continuous".
+
+**Other ways n=3 is anomalous** (all from existing ledger results): it is
+the last level where golden/icosahedral IS the maximum (177 < 183,
+351 < 393 after); the last level where the cap-sum is tight — which is
+exactly why the max(3)=67 proof closes at all, both maximizers saturating
+every Euler step simultaneously; the only level with two optima in
+DIFFERENT quadratic fields, joined by the dihedral family (interior ~37,
+ℚ(√6) point 49 at ψ=45°); and the only level whose optimum is native-only
+(1207 came from 723+1, 393 exists only as a 723-subset and is unreachable
+by native n=5 search, but 67 cannot be inherited from anything above).
+
+Scope: n=2 and n=3 are proved maxima; the n≥4 statements are about
+RECORDS, and (a)/(b) for n≥4 are therefore conditional on those records
+being maximal. Theorem R's corollary is conditional on the two known 67s
+being the only n=3 maximizers.

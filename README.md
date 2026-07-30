@@ -25,8 +25,8 @@ missteps is [`PROOF_NARRATIVE.md`](PROOF_NARRATIVE.md).
 
 | n | best bounded regions | configuration | field |
 |---|---|---|---|
-| 2 | 13 | 60° about a shared body diagonal (confirmed max) | ℚ (rational) |
-| 3 | 67 | octahedral 3-compound = golden 3-subset (**proved max**) | ℚ(√2) / ℚ(√5) |
+| 2 | 13 | any angle about a shared body diagonal — a continuum of maximizers (**proved max**) | ℚ (rational) |
+| 3 | 67 | octahedral 3-compound *and* golden 3-subset — two non-congruent maximizers (**proved max**) | ℚ(√2) / ℚ(√5) |
 | 4 | **183** | wide-perturbation climb; golden 177 beaten | ℚ (rational) |
 | 5 | **393** | 5-subset of the 723 record; golden 351 beaten | ℚ (rational) |
 | 6 | **723** | C₃-orbit-of-3 + 3 free cubes, shared (1,1,1) axis | ℚ (rational) |

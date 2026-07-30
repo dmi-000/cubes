@@ -184,9 +184,14 @@ with d2 ≤ 1 (§1), bounded ≤ 13, attained. **Correction to an earlier
 draft of this file:** the maximizer is NOT "45° about a face axis" — a
 face-axis rotation shares that normal, lands on the shared-normal locus,
 and by Theorem 1's self-exclusion gives only d1 ≤ 8 (verified exactly:
-quaternion (2,0,0,1) → 9 = {8,1}). The genuine maximizer is 180° about
-the body diagonal (1,1,1), quaternion (0,1,1,1) → 13 = {12,1} exactly
-(rational, oracle-verified), attained on an open range of R.
+quaternion (2,0,0,1) → 9 = {8,1}). 13 is in fact attained on a
+positive-dimensional family, not a single maximizer: every rotation
+angle about a body diagonal works (e.g. quaternion (0,1,1,1), 180°,
+and (3,1,1,1), 60°, both = 13 = {12,1} exactly, oracle-verified), and
+so does every angle in the closed arc [arccos(1/3), arccos(−1/3)]
+about an edge (face-diagonal) axis. So, unlike n = 3's two isolated
+maximizer points, the n = 2 maximizer set is a continuum — though
+still measure-zero: random rotations give 4.
 
 ## 4. L2.a — top anchors sit at corners (≤ 24)
 
