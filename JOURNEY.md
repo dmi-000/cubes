@@ -299,6 +299,18 @@ deep layers hug the law's n=8 predictions from below (48 attained,
 then −2, −6, −4). The tower reads 183 → 393 → 723 → 1207 → 1879, every
 level the best known at its size, each built from the one below it.
 
+[UPDATED 2026-07-29, Postscript 46: 723 itself — "cornered" above and
+still standing through Postscript 45's 1211/1889 round — has now fallen,
+to **727**. Every earlier n≤6 sixth-cube sweep, including the one behind
+the cornering argument, sampled only small quaternions; the winning
+sixth cubes at high *n* are large (1879's eighth cube was
+(55,7,−148,79)), and log-uniform sampling over component heights 4..512
+found 727 — 393's five cubes plus a large-height sixth — immediately.
+E1's envelope bound (six-cube total ≤ best five-cube subset + 336) held
+exactly: 393 + 336 = 729, and 727 sits almost against that ceiling. The
+same recipe run forward from the new floor gives **1217** at n=7 and
+**1891** at n=8. The tower now reads 183 → 393 → 727 → 1217 → 1891.]
+
 ## Act VII: the dihedral family, or how a stray remark in a viewer became a closed-form theorem
 
 This act started, like several of the best ones, with a human just

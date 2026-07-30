@@ -29,21 +29,27 @@ missteps is [`PROOF_NARRATIVE.md`](PROOF_NARRATIVE.md).
 | 3 | 67 | octahedral 3-compound *and* golden 3-subset — two non-congruent maximizers (**proved max**) | ℚ(√2) / ℚ(√5) |
 | 4 | **183** | wide-perturbation climb; golden 177 beaten | ℚ (rational) |
 | 5 | **393** | 5-subset of the 723 record; golden 351 beaten | ℚ (rational) |
-| 6 | **723** | C₃-orbit-of-3 + 3 free cubes, shared (1,1,1) axis | ℚ (rational) |
+| 6 | **727** | 393's five + a large-height sixth cube (Postscript 46) | ℚ (rational) |
+| 6 | 723 | C₃-orbit-of-3 + 3 free cubes, shared (1,1,1) axis | ℚ (rational) |
 | 6 | 717 | D₂-orbit-of-4 + free + axis-aligned cube | ℚ (rational) |
 | 6 | 705 | two 3-fold triples on shared (1,1,1) axis | ℚ (rational) |
 | 6 | 699 | two 3-fold triples (earlier record) | ℚ (rational) |
 | 6 | 681 | golden five + sixth on the (1,1,1) wall | ℚ(√5) |
 | 6 | 655 | two 60°-body-diagonal pair walls, constructed | ℚ (rational) |
 | 6 | 635 | best from 360k random rational seeds + climbing | ℚ (rational) |
-| 7 | **1207+** | greedy extension of 723; certified vs climb+blueprints | ℚ (rational) |
-| 8 | **1879+** | greedy extension of 1207 (first n=8 config) | ℚ (rational) |
+| 7 | **1217+** | greedy extension of 727 (Postscript 46) | ℚ (rational) |
+| 8 | **1891+** | greedy extension of 1217 (Postscript 46) | ℚ (rational) |
 
 Deep-depth ceilings **d3 ≤ 164, d4 ≤ 102, d5 ≤ 36, d6 = 1** have never
 been exceeded in any config or on any wall tested (conjectures C4/C5/C6,
-with a proof program in `C45_notes.md`). The 723 record has depth
-histogram {1:210, 2:216, 3:164, 4:96, 5:36, 6:1} — it buys total by
-lowering depth-4 below its ceiling. See Postscript 12 for its quaternions.
+with a proof program in `C45_notes.md`). The current n=6 record, 727, has
+depth histogram {1:214, 2:220, 3:156, 4:100, 5:36, 6:1} — versus the
+prior record 723 {1:210, 2:216, 3:164, 4:96, 5:36, 6:1} it trades depth-3
+down for depth-1 and depth-2 up. 723 fell because every earlier n≤6
+campaign sampled small-quaternion sixth cubes, while the winning
+extension cubes at high n are large; log-uniform sampling over component
+heights 4..512 found 727 immediately (Postscript 46). See Postscript 12
+for 723's quaternions and Postscript 46 for 727's.
 
 **The dihedral family (Postscripts 25–26)**: a closed-form one-parameter
 family of 3-cube compounds (cube ± its 120° rotations about an
@@ -180,7 +186,7 @@ to it.
 
 | file | kind | what it is |
 |---|---|---|
-| `six_cube_search_results.md` | **ledger** | The authoritative project record. Postscripts 1–21: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→…→717→723 record chain, the ℚ(√5)/tower field program, the sliding-3-cube result, and the symmetry-stratified sweep. Postscripts 22–24: n=7/n=8 records (1207, 1879), the cap-sum-tight proof route for n=2/3, and the first proved theorem (the anchor lemma). Postscripts 25 (+4 addenda) and 26 (+1 addendum): the dihedral family — its closed-form discovery, the persistent 18-core and corner docking, the exact region-count staircase (including the new ℚ(√6) point, 49), the handoff-chase verdict, and the n>3 finding that records are gluings of family cliques. Start here. |
+| `six_cube_search_results.md` | **ledger** | The authoritative project record. Postscripts 1–21: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→…→717→723 record chain, the ℚ(√5)/tower field program, the sliding-3-cube result, and the symmetry-stratified sweep. Postscripts 22–24: n=7/n=8 records (1207, 1879; since improved to 727/1217/1891 for n=6/7/8, Postscript 46), the cap-sum-tight proof route for n=2/3, and the first proved theorem (the anchor lemma). Postscripts 25 (+4 addenda) and 26 (+1 addendum): the dihedral family — its closed-form discovery, the persistent 18-core and corner docking, the exact region-count staircase (including the new ℚ(√6) point, 49), the handoff-chase verdict, and the n>3 finding that records are gluings of family cliques. Start here. |
 | `C45_notes.md` | notes | Proof program for the deep ceilings (d3≤164, d4≤102, d5≤36) via the radial-escape lemma and bottom-diagram census (T1 Euler count + T2 semicontinuity). §10: the proven anchor lemma. §12: four proved theorems about the dihedral family (mirror symmetry, 90° periodicity, the coincidence identity, and the rational-invariant obstruction with its n=3-is-the-unique-irrational-level corollary). |
 | `nfamily_report.md` | report | Executes `NFAMILY_SPEC.md`: does the dihedral family help at n>3? Answer: not as a search space on its own (175/335/615 vs. records 183/393/723, growing deficit) — but every record is a gluing of family-position pairs (183: 6/6, 393: 10/10, 723: 12/15), which reframes the record search as a search over clique gluings. |
 | `handoff_report.md` | report | Executes `HANDOFF_SPEC.md`: chases whether more than the dihedral family's persistent 18 edge concurrences can be carried continuously from the octahedral 67 to the golden 67. Verdict: no path found beyond 18; a specific local obstruction (two extra-coincidence curves grazing the same ψ=45° wall ~70° apart in phase) is identified and described, not a proof of a ceiling. Also corrects an earlier "60 total contacts" figure for golden (correct: 18 interior + 54 corner label-pairs, 24 distinct physical points). |

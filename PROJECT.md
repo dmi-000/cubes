@@ -119,13 +119,15 @@ is beaten by a purely rational four-cube arrangement reaching **183**,
 and the golden five-cube compound (351) is beaten by a rational five-cube
 arrangement reaching **393** — which is, strikingly, a *sub-compound of
 the best six-cube arrangement* (drop one of its six cubes). This is the
-same surprise as at six cubes, where the best rational arrangement (723)
+same surprise as at six cubes, where the best rational arrangement (723,
+now 727, Postscript 46)
 beats the golden-based one (681): the golden compound is the best
 *symmetric* configuration, not the overall maximum. So the records for
 four and five cubes are at least 183 and 393, and none of these is proven
 maximal.
 
-**The records nest.** The best six-cube arrangement (723) contains the
+**The records nest.** The best six-cube arrangement (723, now 727 —
+Postscript 46; the nesting below still holds with 393 ⊂ 727) contains the
 best four-cube one (183) as a sub-compound, contains a five-cube
 sub-compound (393) that beats the old five-cube record, and its pairs
 reach the two-cube record (13). Outstanding arrangements are built from
@@ -202,7 +204,7 @@ families. The current chain of records, and how each was found:
 | 717 | four cubes in a symmetric cluster + two more | symmetry search |
 | **723** | three cubes about a diagonal + three "free" cubes | shared-axis "intersection" family |
 
-**723 is the current record.** Its depth profile is
+**723 was the record until Postscript 46 found 727 (Section 9).** Its depth profile is
 `{1: 210, 2: 216, 3: 164, 4: 96, 5: 36, 6: 1}` (summing to 723). Its six
 cubes, as integer quaternions:
 
@@ -247,7 +249,7 @@ Several exact regularities appear everywhere we look:
   n = 3, 4, 5); the records attain the deep caps; no arrangement attains
   all caps at once (that is the frustration, and summing the caps gives
   an upper bound on the total — 801 at six cubes, against the record
-  723). The same formula is confirmed by a completely independent
+  723, now 727, Postscript 46). The same formula is confirmed by a completely independent
   measurement: the vertex counts of the sphere diagrams of Section 6
   match its prediction exactly. Proving it is now the project's central
   theory goal.
@@ -286,7 +288,8 @@ Several exact regularities appear everywhere we look:
     total conserved (in one family depth-2 + depth-3 stays exactly 368).
   - *To raise the total*, since the deep layers can't grow, the shallow
     layers do; and near the ceiling one can *give back* a little deep
-    count to recover shallow count. The record's total 723 is reached
+    count to recover shallow count. The record's total 723 (now 727,
+    Postscript 46) is reached
     along a whole ridge of profiles — with depth-4 at its cap of 102, or
     dropped to 96 with depth-1+depth-2 correspondingly higher — the trade
     being about one-for-one. Sacrificing deep count *beyond* that ridge
@@ -295,13 +298,16 @@ Several exact regularities appear everywhere we look:
     deep caps, not depth-1, are the true limit — but a search over 20,000
     configurations found this trade-off surface *peaks* at 723, evidence
     (not proof) that the record is a genuine optimum of the surface, not
-    just a point on it.
+    just a point on it. (That 20,000-config sample missed 727 — Postscript
+    46 — because it sampled small quaternions; the true peak, and whether
+    the surface has more headroom above 727, is open again.)
 
   This reframes the whole optimization: the goal is not to maximize any
   single quantity but to find the best point on this trade-off surface —
   which deep layers to sacrifice, and by how much, to unlock the most
   shallow gain. Mapping that surface (the best shallow count reachable at
-  each deep-layer profile) is the current line of attack on 723.
+  each deep-layer profile) is the current line of attack — the target is
+  now 727, Postscript 46.
 - **A parity rule.** For a generic arrangement of *n* cubes, the total is
   always congruent to 2*n*−1 modulo 4. (Reason: each cube is symmetric
   through the centre, so pieces pair up under the point reflection
@@ -341,7 +347,7 @@ A clean fact ties this to the whole search: "several cubes share a
 corner" is exactly the same as "those cubes differ by rotations about the
 axis through that corner." So corner-sharing *is* the shared-axis
 symmetry — which is why the shared-axis families are where the records
-live. The record 723 has two 9-fold corner concurrences (three cubes
+live. The record 723 (now 727, Postscript 46) has two 9-fold corner concurrences (three cubes
 meeting at a corner, twice), and is thus *corner-dominated*, though it
 also contains about 180 lesser edge concurrences. (There are never any
 *line* concurrences — three planes sharing a whole line — because that
@@ -575,8 +581,8 @@ can search exhaustively and exactly. Two results:
 - **As a search space by itself, the family loses ground as n grows.**
   The best purely-single-axis family members found (an exact sweep of
   over 9,000 configurations at n=4,5,6) reach only 175, 335, 615 —
-  falling short of the true records 183, 393, 723 by 8, 58, and 108
-  respectively, a deficit that *widens* with n. (This measures the
+  falling short of the true records 183, 393, 723 (now 727, Postscript 46)
+  by 8, 58, and 108 respectively, a deficit that *widens* with n. (This measures the
   family's Pythagorean-sampled plateau, a lower bound on the true
   family's supremum — the family's own irrational spikes, like the two
   67s at n=3, are invisible to a rational sweep and could in principle
@@ -590,7 +596,11 @@ can search exhaustively and exactly. Two results:
   resolves exactly: five of its cubes form a complete family clique (this
   is exactly the embedded 393 record, consistent with the nesting
   property of Section 9), and the sixth cube is family-linked to two of
-  the five and generic against the rest. So the records are **gluings of
+  the five and generic against the rest. (723 has since been beaten by
+  727 — Postscript 46 — which has the same five-cube-clique-plus-one
+  structure: it is literally the 393 clique plus a sixth cube, just one
+  with much larger quaternion components than this search sampled.) So
+  the records are **gluings of
   family cliques living on different axes**, not members of one common-
   axis family — which is exactly why a single-axis sweep falls behind:
   it searches a strict subset of the structure the records actually use.
@@ -681,7 +691,11 @@ didn't find one." This search has now run to completion: 391 raw blueprints coll
 to 67 canonical skeletons (plus two pruned with documented reasons —
 the golden wall, whose extensions provably lose, and the
 polyhedral-forcing family, tested and dominated); all 67 were
-knob-optimized (over 83,000 exact counts) and none beats 723. What would upgrade it from
+knob-optimized (over 83,000 exact counts) and none beats 723 — a
+conclusion since overtaken: 727 (Postscript 46) is not among those 67
+skeletons because its sixth cube has much larger quaternion components
+than the knob search's range covered, not because the skeleton catalogue
+was wrong; see the note after this section. What would upgrade it from
 branch-and-*prune* to true branch-and-*bound* is one missing theorem — a
 **deficit-propagation lemma**: a guarantee that if a partial assembly's
 sub-compounds fall short of their deep caps by some amount, the completed
@@ -698,6 +712,15 @@ awaiting proof, but together they nearly corner 723: the search for a
 better six-cube arrangement reduces to the search for a new
 near-record five-cube one.
 
+**[Update, Postscript 46]** The corner held, and closed almost exactly:
+727 sits on the *known* 393 five-cube base (not a new near-record
+five-cube arrangement), and 393 + 336 = 729, so the envelope bound left
+only 729 available on that base — 727 uses all but 2 of it. The bound
+was sharp, as measured; what the 67-skeleton blueprint search missed was
+not a gap in the skeleton catalogue but sampling density in the sixth-
+cube knob range, which covered small quaternions only (see Section 9 and
+the ledger's Postscript 46).
+
 ---
 
 ## 9. More than six cubes, and the record tower
@@ -707,7 +730,7 @@ The counting method works for any *n*. Best arrangements found so far
 
 | cubes *n* | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|
-| best bounded pieces | 13 | 67 | 183+ | 393+ | 723 | 1207+ | 1879+ |
+| best bounded pieces | 13 | 67 | 183+ | 393+ | 727 | 1217+ | 1891+ |
 
 Several of these numbers are *corrections*: the golden compound gives 177
 at four cubes and 351 at five, and both were long taken as the answers —
@@ -722,11 +745,21 @@ near-certain at n=2, strong at n=3, down to "best found so far" at n=6,7.
 arrangement *contains* the best four-cube one and a five-cube sub-compound
 (393) that beats the old five-cube record; adjacent sizes differ by adding
 or removing one cube. This is not just descriptive — it *builds* records:
-taking the 723 six-cube record and adding a single seventh cube, over a
-few hundred orientations and with no fine-tuning, already reaches **1207**
-at seven cubes, beating a 50,000-arrangement random campaign (which topped
-out at 1085). So the recipe "take the best (*n*−1)-cube arrangement and
-add one cube well" outperforms searching from scratch.
+taking the six-cube record and adding a single seventh cube, over a
+few hundred orientations and with no fine-tuning, already reaches
+seven-cube totals beating a 50,000-arrangement random campaign (which
+topped out at 1085). So the recipe "take the best (*n*−1)-cube
+arrangement and add one cube well" outperforms searching from scratch,
+and it is itself a round trip: extending the seven-cube record to eight
+cubes produced a configuration whose best seven-cube subset already beat
+the input seven-cube record, and re-extending that improved record
+upward gave the new eight-cube record — the tower's cleanest instance
+yet of records feeding back into each other. The current chain is
+**727 → 1217 → 1891** (Postscript 46), superseding the 723 → 1211 → 1889
+chain of Postscript 45: 723 fell because every earlier n≤6 sixth-cube
+sweep sampled only small quaternions, while the winning extension cubes
+at high *n* are large, and log-uniform sampling over larger component
+heights found 727 immediately.
 
 **The tower is organized by a shared 3-fold symmetry.** Each
 golden-beating record keeps exactly a single 3-fold rotation axis (a
@@ -754,7 +787,9 @@ middle-layer exchange (depth-2 and depth-4 rise by 2 as depth-3 falls by
 4, holding depth-1, depth-5, depth-6 fixed). The record *value* is one
 number; "the 723 arrangement" is at least four non-congruent
 arrangements — the same shallow-for-deep conservation seen throughout,
-now operating exactly at the summit.
+then operating exactly at the summit. (723 is no longer the summit — see
+727, Postscript 46 — but the plateau finding about 723 itself stands;
+whether 727 is also a plateau is untested.)
 
 ---
 
@@ -795,14 +830,16 @@ now operating exactly at the summit.
    `PROOF_67.md`; story in `PROOF_NARRATIVE.md`. Only residual caveat: the
    pre-existing pairwise-tangency degeneracy (two cells sharing a boundary
    tangentially), not a triple-point issue.
-3. **Beat 723 for six cubes, or prove it is the maximum.** In the
+3. **Beat 727 for six cubes, or prove it is the maximum.** (723 held
+   this position until Postscript 46 found 727 — Section 9.) In the
    trade-off language of Section 5, this means finding the best point on
    the deep-sacrifice surface: since the deep layers are capped and the
    shallow layers are not, the question is exactly *how much* deep count
-   to give back to unlock the most shallow count. 723 sacrifices depth-4
-   alone; whether sacrificing depth-3 and depth-4 together (or another
-   combination) nets higher is open and is the active line of attack.
-   Depth-1 can already reach 224, so there is shallow headroom.
+   to give back to unlock the most shallow count. 723 sacrificed depth-4
+   alone; 727 additionally trades depth-3 down (164→156) for gains in
+   depth-1, depth-2, and depth-4, so whether sacrificing depth-3 further
+   (or another combination) nets higher is open and is the active line of
+   attack. Depth-1 can already reach 224, so there is shallow headroom.
 
 4. **Can non-concentric or unequal-sized cubes do better?** Everything
    above keeps the cubes centred at a common point and equal in size.
@@ -810,13 +847,15 @@ now operating exactly at the summit.
    neither maximum can be below the concentric-equal one — the question
    is whether either is strictly larger. Two experiments (with a counter
    built for the purpose, validated to reproduce the concentric-equal
-   counts exactly): **off-centring the record strictly hurts** — every
-   translation lowers the total (best 706, then monotonically worse), so
-   concentric is at least a local optimum. **Unequal sizes are so far
-   untested at the record**, because 723 is so symmetric that resizing
-   any cube by a rational factor creates an exact face-coincidence the
-   (non-robust) counter cannot evaluate; settling it needs a
-   degeneracy-tolerant counter. Note that resizing *preserves* the
+   counts exactly, both run against 723, the record at the time; neither
+   has been re-run against 727, Postscript 46's successor): **off-centring
+   the record strictly hurts** — every translation lowers the total (best
+   706, then monotonically worse), so concentric is at least a local
+   optimum. **Unequal sizes are so far untested at the record**, because
+   723 is so symmetric that resizing any cube by a rational factor
+   creates an exact face-coincidence the (non-robust) counter cannot
+   evaluate; settling it needs a degeneracy-tolerant counter. Note that
+   resizing *preserves* the
    central symmetry that off-centring destroys, so it is the gentler
    perturbation and the more plausible of the two to help — but there is
    no proof either way.
@@ -833,8 +872,8 @@ now operating exactly at the summit.
    lower bound with a described obstruction, not a proven ceiling.
 6. **Special number-field walls:** whether any arrangement needing √2, √3,
    or a combination beats the best plain-fraction arrangement. (The golden
-   √5 wall reaches 681; the overall record 723 is a plain-fraction
-   arrangement.) Section 7 adds one more exactly-certified data point in
+   √5 wall reaches 681; the overall record 723, now 727 (Postscript 46),
+   is a plain-fraction arrangement.) Section 7 adds one more exactly-certified data point in
    this vein — the ℚ(√6) face-diagonal compound at 49 — well short of the
    record and, notably, a local *minimum* of its own family rather than a
    maximum.
@@ -848,8 +887,9 @@ now operating exactly at the summit.
    "constant-8 deficit" from an earlier, more restricted gluing search,
    but did not pass a record; it also proved the six-cube record a
    plateau (Section 9). Whether the reframed space contains anything
-   beating 723 remains open, but it now looks like a landscape whose peaks
-   are the known records rather than a space hiding a larger one.
+   beating 723 (now 727, Postscript 46) remains open, but it now looks
+   like a landscape whose peaks are the known records rather than a
+   space hiding a larger one.
 9. **The n=4 resonance, resolved negative.** The two n=3 maximizers sit at
    irrational, algebraically special points of the dihedral family. The
    analogous question at four cubes — does an irrational resonance beat
