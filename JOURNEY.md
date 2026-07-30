@@ -1,9 +1,12 @@
 # Six glass cubes: weeks of experimental mathematics with a team of AIs
 
-*An informal account, updated 2026-07-18. Self-contained, but every claim
-here has a paper trail: `six_cube_search_results.md` (the dated ledger, now
-Postscripts 1–31) is the primary record, `PROJECT.md` is the formal
-write-up, and `README.md` maps all the code. Anyone with access to a
+*An informal account, updated 2026-07-30. Self-contained, but every claim
+here has a paper trail: `RESULTS.md` is the recommended starting point —
+every current claim tagged PROVED / VERIFIED / EXHAUSTED / CONJECTURE, with
+superseded claims confined to one table. `six_cube_search_results.md` (the
+dated ledger, now Postscripts 1–47) is the primary record beneath that,
+`PROJECT.md` is the formal write-up, and `README.md` maps all the code.
+Anyone with access to a
 mid-tier coding model (Claude Sonnet or similar) and a laptop can
 reproduce everything — a "how to reproduce" section is at the end. And a
 note on authorship, since it matters for how to read this: this document,
@@ -604,6 +607,110 @@ cubes but about convexity and Euler's formula. What remains genuinely open
 is one level up: whether the two 67s are the *only* three-cube maxima, the
 irrational-rung uniqueness that stays the best-supported conjecture here.
 
+## Act X: from searching to proving — 727's structure, and the wall that ended the search
+
+Postscript 47 (2026-07-30) is where the week's centre of gravity shifted
+from *finding* the record to *proving things about it* — and, true to
+form for this project, it started from a plain comparison: what actually
+changed between 723 and 727?
+
+**The comparison.** Against the fixed five cubes of 393, 727's sixth cube
+(7,14,1,-5) makes pair counts 9, 9, 9, 4, 4 with the other five, carrying
+18 interior edge-edge crossings. 723's sixth cube (5,2,2,2) instead makes
+4, 4, 4, 13, 13, carrying 48. The new record has *fewer* coincidences than
+the old one, and no maximal 13-pair at all — it replaces two rigid
+best-pairs with three tunable 9-pairs. This is Act IV's frustration
+principle showing up concretely, one notch sharper than before: not just
+"locally worse parts win," but "fewer, more flexible coincidences beat
+more, more rigid ones." Two things that had quietly hardened into working
+assumptions fell out of this comparison at the same time: that a 9-pair
+means a shared face axis (727 has three 9-pairs and no two of its cubes
+share a face axis), and that more coincidences mean a higher count (727
+has 18 crossings to 723's 48, and wins anyway).
+
+**Every search-shaped approach hit the same wall.** With the comparison in
+hand, the obvious next move was to look for something past 727. Five
+different methods were tried, and all five stopped in the same place: a
+menu of about 100,000 random sixth cubes; a swap-completion from all six
+five-cube bases of the record; a climb on the worst-subset objective; a
+core-and-clique construction (build every extension of the 183 four-cube
+core, then every clique above it — which reproduced 727 as an edge and
+1217 as a triangle, cheaply, but found nothing new); and roughly 3,600
+solution points of a new algebraic family described below. None went
+above 727. That convergence — five unrelated searches, one wall — is what
+motivated dropping the search framing and asking whether the wall could be
+*proved*, not just failed to cross.
+
+**The elimination.** Following the human's suggested programme —
+constraints that individually have degrees of freedom may, taken together,
+admit only finitely many solutions or none, and "none" means a whole
+search direction can be skipped outright — the five cubes of 393 were held
+fixed, leaving the sixth with three degrees of freedom, parameterised by
+Cayley coordinates q = (1, a, b, c). Every possible coincidence between the
+free cube and a fixed one is one polynomial equation in (a, b, c); there
+are 720 of them altogether. Feeding these to a computer-algebra system: the
+36 conditions that hold at the real 727 cube have a Gröbner basis with
+exactly one real solution point — the 727 cube itself — and every one of
+the other 684 conditions is inconsistent with those 36 (Gröbner basis {1},
+each, all 684 checked). So on the 393 base, 727 is not just unbeaten, it
+is *isolated*: no continuous family of sixth cubes passes through it, and
+its coincidence pattern cannot be augmented by even one more condition.
+Two things this does *not* show: a 729 configuration need not share 727's
+coincidence pattern at all, so this is not a proof that 729 is
+unreachable; and the Cayley chart used omits the 180° rotations, which
+would need a second chart to cover.
+
+**Why the wall has the shape it does.** A side-effect of writing out all
+720 conditions was noticing they are all quadrics — degree 2 in (a, b,
+c) — and that a 9-pair's locus is a codimension-1 surface. Bézout's
+theorem then says three such surfaces, one against each of three fixed
+cubes, meet in at most 2³ = 8 points. That is a small, structural
+explanation for something the project had only observed empirically for
+weeks: every record sits at the intersection of three "walls." It is a
+determined system, not a coincidence of the search.
+
+**Turning the geometry back into a search method.** The same Bézout
+observation immediately suggests a better way to look for records: instead
+of approaching a wall numerically (sweep and climb), solve one coincidence
+condition against each of three fixed cubes directly, and count whatever
+comes out. On a first trial this method reached 727 at roughly 30 times
+the hit rate of random menus — about 6 hits per 3,600 solution points,
+against roughly 1 hit per 20,000 random sixth cubes — and its solutions
+come out rational with small enough components that the fast C++ engine
+can count them without ever going through the slower algebraic machinery.
+Run further, it turned up two more sixth cubes reaching 727,
+(3,-51,-93,29) and (40,48,-11,45), both two-engine verified — but with a
+depth profile of {1:216, 2:216, 3:160, 4:98, 5:36, 6:1} and pair structure
+9, 5, 4, 9, 4, different from the original {1:214, 2:220, 3:156, 4:100,
+5:36, 6:1} and 9, 9, 4, 9, 4. A differing histogram proves non-congruence
+outright, so 727, like 723 before it, is a genuine plateau of at least two
+distinct compounds — trading depth layers by (+2, −4, +4, −2) with
+depth-1 through depth-4 summing to a conserved 690, the same exchange law
+seen at 723's own plateau, one level up. An exhaustive enumeration of the
+whole three-wall family is running as of this writing.
+
+**A quiet engineering verdict, settled along the way.** With the algebraic
+machinery now doing real work, the standing question of whether to port it
+to C++ (for the same kind of speedup the integer engine already enjoys)
+got measured properly: the C++ integer engine counts a six-cube
+configuration in 0.11 s, the rational-arithmetic Python cross-check
+(`certify_six.py`) takes 13.1 s, and the ℚ(√5) engine
+(`cube_compound_exact.py`) takes about 20 s — a real 120–200× gap. But
+porting is not the next move: the actual bottleneck is symbolic (Gröbner
+bases via `wolframscript`, and the validated `algebraic_groebner.wl`
+already exists), the coincidence conditions' solution fields reach degree
+8, so a quadratic-field C++ port would only ever cover part of the cases,
+and a cheaper 100× speedup is already sitting in the existing 3-tier
+interval filter. Filed as a decision, not a task.
+
+Nothing here has found a six-cube number bigger than 727. What changed is
+the *kind* of confidence available. 723's fall (Act VI) was a search
+result —
+a bigger, better-shaped sweep found something a smaller one missed, and
+nothing said a still-bigger sweep wouldn't do it again. 727's hold on the
+393 base is, for the first time in this project's six-cube story, a
+proof.
+
 ## The collaboration, honestly described
 
 This project was a four-layer collaboration, and the layering was not
@@ -723,9 +830,13 @@ Act VIII resolved several of these; the list below marks what moved.
    cubes** — the first complete maximum theorem — and proves
    depth-(n−1) ≤ 6n for *all* n, the project's oldest open problem. It
    is filed as a draft pending one adversarial read.
-3. **Beat 723 or corner it completely** — equivalent, by envelope E1, to
-   finding any fundamentally new five-cube arrangement ≥ 388, or proving
-   none exists. The rational-tangent slice reached 387 at five cubes
+3. **Beat 727 or corner it completely** — 723 fell on 2026-07-29 (Postscript
+   46), and by envelope E1 the question is now equivalent to finding a
+   fundamentally new five-cube arrangement ≥ 390, or proving none exists.
+   On the 393 base the room left is exactly 729, and three independent
+   lines now bound it: E1's cap, the elimination proving 727 isolated with
+   an unaugmentable coincidence pattern (Postscript 47), and the three-wall
+   enumeration (Postscript 48). The rational-tangent slice reached 387 at five cubes
    (breaking the old "constant-8 deficit") but has not passed a record;
    the six-cube record is now known to be a *plateau* of ≥ 27
    non-congruent realizations, all exactly 723.

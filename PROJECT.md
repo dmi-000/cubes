@@ -1,7 +1,11 @@
 # How many regions do overlapping cubes make? — a self-contained write-up
 
-*Last updated 2026-07-18. This document is standalone: every term is
-defined here, and no other file is required to follow it.*
+*Last updated 2026-07-30. This document is standalone: every term is
+defined here, and no other file is required to follow it. For the current
+state of every claim in the project — each tagged PROVED / VERIFIED /
+EXHAUSTED / CONJECTURE, with superseded claims confined to one table at the
+end — see `RESULTS.md`, now the recommended entry point, ahead of the
+dated ledger.*
 
 ---
 
@@ -211,6 +215,20 @@ cubes, as integer quaternions:
 ```
 4,1,1,-1 ; 3,3,7,3 ; 5,-1,-5,-5 ; 2,1,1,1 ; 1,1,1,1 ; 5,2,2,2
 ```
+
+**Postscript 47 dissected exactly what changed between 723 and 727.**
+Against the fixed five cubes of 393, 727's sixth cube (7,14,1,-5) makes
+pair counts 9, 9, 9, 4, 4 with the other five, carrying 18 interior
+edge-edge crossings; 723's sixth cube (5,2,2,2) instead makes 4, 4, 4, 13,
+13, carrying 48. So the new record has *fewer* coincidences than the old
+one and contains no maximal (13) pair at all — it replaces two rigid
+13-pairs with three tunable 9-pairs, a concrete instance of the
+frustration principle (Section 3): the global optimum builds from
+locally-suboptimal but flexible pieces. The same comparison refutes two
+things that had looked like patterns: that a 9-pair is characterised by a
+shared face axis (727 has three 9-pairs and no two of its cubes share a
+face axis), and that more coincidences imply a higher count (727 has 18
+crossings to 723's 48, and counts more).
 
 The searches that produced these fall into four kinds, each fixing a
 blind spot of the previous:
@@ -721,6 +739,48 @@ not a gap in the skeleton catalogue but sampling density in the sixth-
 cube knob range, which covered small quaternions only (see Section 9 and
 the ledger's Postscript 46).
 
+**[Update, Postscript 47]** The corner was then proved shut, not just
+measured. Holding the five cubes of 393 fixed, a sixth cube has 3 degrees
+of freedom, parameterised by Cayley coordinates q = (1, a, b, c); each of
+the 720 possible coincidences between the free cube and a fixed one is one
+polynomial equation in (a, b, c). The 36 conditions active at the known 727
+cube have a Gröbner basis that is zero-dimensional with exactly one real
+solution point — the 727 cube itself — and all 684 remaining conditions
+are inconsistent with those 36 (Gröbner basis {1}, each). So on the 393
+base, **727 is proved isolated** (no continuous family of sixth cubes
+passes through it) and its coincidence pattern is **unaugmentable** (no
+sixth cube realises those 36 conditions plus a 37th). Two caveats: this
+does *not* prove no 729 configuration exists — a 729 config need not
+contain 727's coincidence pattern at all — and the Cayley chart used omits
+the 180° rotations (w = 0), which need a separate chart.
+
+A side-effect of writing out all 720 conditions was noticing they are all
+**quadrics** (total degree 2 in a, b, c), and that a 9-pair's locus is
+codimension 1 — a surface. Three such walls, one against each of three
+fixed cubes, therefore meet in at most 2³ = 8 points by Bézout. That is
+why records sit at three-wall intersections: it is a determined system,
+not a coincidence. The same observation gives a **new search method**:
+solve one coincidence condition against each of three fixed cubes
+directly, instead of approaching the wall numerically. This reaches 727 at
+roughly 30× the hit rate of random menus (about 6 hits per ~3,600 solution
+points, against roughly 1 per 20,000 random sixth cubes), and its solution
+points come out rational with small enough components that the fast C++
+engine can count them directly. That method later found two further
+sixth cubes reaching 727 — see Section 9 — and an exhaustive enumeration
+over the three-wall family is running.
+
+On engineering: with the algebraic machinery now doing real work, is it
+worth porting to C++ for the same speedup the integer engine already
+enjoys? Measured timings say no. The C++ integer engine counts a six-cube
+configuration in 0.11 s, against 13.1 s for the rational-arithmetic Python
+cross-check (`certify_six.py`) and about 20 s for the ℚ(√5) engine
+(`cube_compound_exact.py`) — a real 120–200× gap. But the next bottleneck
+is symbolic, not numeric (`wolframscript` and the validated
+`algebraic_groebner.wl` already exist), the coincidence
+conditions' solution fields reach degree 8, so a quadratic-field C++ port
+would cover only part of the strata, and a cheaper 100× speedup already
+exists in the 3-tier interval filter (`cube_compound_interval.py`).
+
 ---
 
 ## 9. More than six cubes, and the record tower
@@ -788,8 +848,28 @@ middle-layer exchange (depth-2 and depth-4 rise by 2 as depth-3 falls by
 number; "the 723 arrangement" is at least four non-congruent
 arrangements — the same shallow-for-deep conservation seen throughout,
 then operating exactly at the summit. (723 is no longer the summit — see
-727, Postscript 46 — but the plateau finding about 723 itself stands;
-whether 727 is also a plateau is untested.)
+727, Postscript 46 — but the plateau finding about 723 itself stands.)
+
+**727 is a plateau too, now proved rather than untested.** The three-wall
+search method of Section 8 found two further sixth cubes, (3,-51,-93,29)
+and (40,48,-11,45), both giving 727 but with depth profile
+{1:216, 2:216, 3:160, 4:98, 5:36, 6:1} and pair structure 9, 5, 4, 9, 4 —
+different from the original 727's {1:214, 2:220, 3:156, 4:100, 5:36, 6:1}
+and 9, 9, 4, 9, 4. A differing depth histogram proves non-congruence
+outright, so there are at least two distinct 727 compounds, both
+two-engine verified. The layers trade by (+2, −4, +4, −2) with
+depth-1+depth-2+depth-3+depth-4 = 690 conserved — the same exchange law
+seen at 723's own plateau, now one level up.
+
+**Nothing above 727 has yet been found at six cubes**, by any of five
+independent methods: random menus (~100,000 sixth cubes), swap-completion
+from all six five-cube bases, a climb on the worst-subset objective,
+core-and-clique construction from the 183 four-cube core, or the roughly
+3,600 solution points of the three-wall family enumerated so far. The
+core-and-clique construction is notable for reproducing both records
+cheaply from that same 183 core — 727 as an edge, 1217 as a triangle — at
+roughly a tenth the cost of random menus, without finding anything new. An
+exhaustive enumeration over the three-wall family is currently running.
 
 ---
 
@@ -839,7 +919,15 @@ whether 727 is also a plateau is untested.)
    alone; 727 additionally trades depth-3 down (164→156) for gains in
    depth-1, depth-2, and depth-4, so whether sacrificing depth-3 further
    (or another combination) nets higher is open and is the active line of
-   attack. Depth-1 can already reach 224, so there is shallow headroom.
+   attack. Depth-1 can already reach 224, so there is shallow headroom. On
+   the specific 393 base, the question is now settled by elimination
+   (Section 8): 727 is proved isolated there and its coincidence pattern
+   is unaugmentable, so no better completion of *this* five-cube base
+   exists. That does not rule out a 729 built on a different coincidence
+   pattern, or on a different five-cube base entirely — and five
+   independent search methods (random menus, swap-completion, worst-
+   subset climbing, core-and-clique construction, and ~3,600 three-wall
+   solution points) have found nothing above 727 so far.
 
 4. **Can non-concentric or unequal-sized cubes do better?** Everything
    above keeps the cubes centred at a common point and equal in size.

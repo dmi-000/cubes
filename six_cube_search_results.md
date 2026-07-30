@@ -82,6 +82,7 @@ with `index_ledger.py` after appending.
 - [Postscript 46](#postscript-46-723-is-beaten--n6--727-and-it-lifts-the-tower-to-n7--1217-n8--1891-the-large-height-quaternion-stratum-was-never-sampled) — 723 IS BEATEN — n=6 = 727, and it lifts the tower to n=7 = 1217, n=8 = 1891; the…
 - [Postscript 46 addendum](#postscript-46-addendum-727-is-a-plateau-and-729-was-not-reached-80-000-sixth-cubes-on-the-393-base) — 727 is a plateau, and 729 was not reached (80 000 sixth cubes on the 393 base)
 - [Postscript 47](#postscript-47-727-is-proved-isolated-on-the-393-base-and-its-coincidence-pattern-is-unaugmentable-the-record-has-fewer-coincidences-than-723-and-every-condition-is-a-quadric) — 727 is PROVED isolated on the 393 base and its coincidence pattern is unaugmentable; the…
+- [Postscript 48](#postscript-48-the-locus-enumeration--9-loci-are-codimension-1-three-wall-intersection-is-a-30x-better-search-and-727-is-a-plateau-two-non-congruent-compounds) — the locus enumeration — 9-loci are codimension 1, three-wall intersection is a 30x better…
 
 <!-- INDEX:END -->
 
@@ -3437,3 +3438,72 @@ coincidence signatures), eliminate729.py, dof_probe.py (count-preserving
 family probe, with the 13-pair continuum as its positive control),
 index_ledger.py (regenerates this file's postscript index — the ledger is
 append-only and ordered by write time, not by number).
+
+## Postscript 48: the locus enumeration — 9-loci are codimension 1, three-wall intersection is a 30x better search, and 727 IS a plateau (two non-congruent compounds)
+
+2026-07-30, main session, executing the structural route Postscript 47 left
+open. Tooling: locus_probe.py, locus_enum.py (conditions cached in
+locus_polys.pkl).
+
+**CODIMENSION (A).** Taking the 12 coincidence conditions active at the 727
+cube against a single fixed cube: the Gröbner basis for cube 1 has ONE
+element — a principal ideal, hence a surface — and all three tested cubes
+(0, 1, 3) give positive-dimensional varieties. So a 9-pair locus is
+**codimension 1**, three walls in the sixth cube's 3-DOF space form a
+DETERMINED system, and Bézout caps it at 2³ = 8 points. That is why records
+sit at three-wall intersections: it is forced, not coincidental. (The earlier
+guess in Postscript 47 that the loci are codim-2 curves — which would make
+727's existence a codim-6 accident — is wrong. Codim 1 is the right picture.)
+
+**PAYOFF (B): a census of 500 sampled wall triples**, one wall against each
+of three fixed cubes, solved exactly (lex Gröbner → rational roots → back
+substitution), ~3 600 solution points:
+
+    peak of the distribution   689–701   (~1 600 points)
+    tail        717:86  719:8  721:21  723:21  725:9  727:6
+    nothing above 727;  positive-dimensional systems: 15;  degenerate: 434
+
+727 is reached 6 times per 500 trials — versus roughly one hit per 20 000
+random sixth cubes, a **~30x hit rate**. Every solution point came out
+RATIONAL with small components, so cube_regions_n counts them directly and no
+algebraic engine is needed for this family (reinforcing Postscript 47's
+verdict against a C++ port).
+
+**727 IS A PLATEAU — two non-congruent compounds.** The census turned up two
+further sixth cubes on the 393 base:
+
+    (3,-51,-93,29) and (40,48,-11,45)
+    727 = {1:216, 2:216, 3:160, 4:98, 5:36, 6:1}   pair counts 9,5,4,9,4
+
+against the known cube (7,14,1,-5):
+
+    727 = {1:214, 2:220, 3:156, 4:100, 5:36, 6:1}  pair counts 9,9,4,9,4
+
+Both two-engine verified (cube_regions_n and certify_six, identical
+histograms). A DIFFERING depth profile proves non-congruence outright — the
+same criterion that established 723's plateau in the Postscript 29 addendum —
+so there are at least two distinct 727 compounds, reached by different
+structures (three 9-pairs versus two 9-pairs and a 5-pair). The layers trade
+by (+2,−4,+4,−2) with d1+d2+d3+d4 = 690 conserved, echoing 723's (+2,−4,+2).
+This SUPERSEDES the withdrawal recorded in the Postscript 46 addendum: that
+withdrawal was correct for the (15,-12,-2,-13) cube, which is genuinely
+congruent to the original (identical histogram, identical 5-subset profile,
+identical O-reduced pair invariants), but wrong as a claim about 727 in
+general.
+
+**No consistency with 727 being beatable here so far.** Across the ~3 600
+census points nothing exceeded 727. An exhaustive enumeration of the
+three-wall family is running in three shards (locus_enum.py, ~9 h budget
+each, symmetry-reduced by fixing the first wall's sixth-cube edge index,
+candidates deduplicated by the cube's own 24 rotations before counting).
+If it completes without exceeding 727, that is an EXHAUSTIVE negative over
+the family that contains both 723 and 727 — which, with Postscript 47's
+elimination (727 isolated, its pattern unaugmentable) and E1's cap of 729,
+boxes n=6 on three independent sides.
+
+**Coverage gaps, stated honestly.** The enumeration keeps only RATIONAL
+solution points, so an irrational stratum could hide a configuration; and the
+~3% of systems that are positive-dimensional (continuous families of sixth
+cubes sharing three coincidences) are skipped entirely by a point
+enumeration. Neither is likely to hold a record given everything above, but
+both are real holes.
