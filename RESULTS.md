@@ -21,7 +21,7 @@ Status tags:
 | **EXHAUSTED** | a search that was complete over a stated family, not a sample |
 | **CONJECTURE** | consistent with all evidence, not proved |
 
-Last updated 2026-07-30.
+Last updated 2026-08-01.
 
 ---
 
@@ -97,13 +97,28 @@ one cube. Depth profiles:
   makes 4, 4, 4, 13, 13 with 48. The new record has *fewer* coincidences and
   *no* maximal pair, confirming that the global optimum builds from
   locally-suboptimal but tunable pieces.
-- **727 is a plateau**: at least two non-congruent compounds reach it, with
-  profiles {214,220,156,100,36,1} and {216,216,160,98,36,1} — different
-  histograms prove non-congruence. The layers trade by (+2,−4,+4,−2) with
-  d₁+d₂+d₃+d₄ = 690 conserved. Both VERIFIED.
+- **727 is a plateau of at least five non-congruent compounds**, four rational
+  and one irrational. Profiles {214,220,156,100,36,1}, {216,216,160,98,36,1},
+  {214,218,160,98,36,1}, {214,216,162,98,36,1}; the fifth shares the last
+  profile but lives in ℚ(√13) and is non-congruent to it (differing O-reduced
+  pair invariants), with sixth cube (1, 1−√13, 16−4√13, 11−3√13). All VERIFIED
+  on two engines. Every class satisfies d₁+d₂+d₃+d₄ = 690 with d₅ = 36 and
+  d₆ = 1 fixed — the deep tail is rigid, the shallow layers trade.
+- **The irrational 727 is the first configuration this project found by
+  SEARCH rather than by symmetry.** The two n=3 maximizers came from the
+  octahedron and the icosahedron; this one came from enumerating strata.
+- **ℚ(√13) is the only field whose strata reach 727** among the 56 counted.
+  It is the 393 base's own tilt field (the 4-clique axis (3,2,0), tan 2/3).
+  The most populous field ℚ(√5) tops out at 721, ℚ(√2) at 713.
 - **Coincidence conditions are quadrics** in the Cayley coordinates of the free
   cube, and a 9-pair locus is codimension 1. So three walls meet in at most 8
   points by Bézout — which is why records sit at three-wall intersections.
+- **Edge-edge conditions factor into PAIRS OF RATIONAL PLANES**; corner-on-face
+  conditions are IRREDUCIBLE QUADRICS. That difference decides the arithmetic:
+  three planes always meet in a rational point, so edge-edge strata cannot
+  contain an irrational configuration, while two planes and a quadric give a
+  quadratic in one parameter — rational or ℚ(√d). The mixed family holds
+  1 377 612 degree-2 solutions against 2 856 rational ones.
 
 ## 5. Conjectures
 
@@ -131,12 +146,24 @@ one cube. Depth profiles:
   the old norm bound all along — the gap was sampling density, not reach.
 - **Three-wall intersection is the best search method found.** Solving one
   coincidence condition against each of three fixed cubes reaches 727 at ~30×
-  the hit rate of random menus, and found two 727 compounds that eight prior
-  campaigns missed. EXHAUSTED enumeration over this family is in progress.
+  the hit rate of random menus, and found 727 compounds that eight prior
+  campaigns missed. Because the walls factor into planes, the whole family is
+  134 784 linear systems giving 2 733 distinct configurations — EXHAUSTED in
+  four minutes, max 727. A Gröbner enumeration of the same family ground
+  through 1.3 million systems to cover part of it; ~99% of that work was
+  re-deriving identical plane triples.
+- **Irrational configurations are now countable at scale.** `cube_regions_q2`
+  generalises the integer engine's scalar type to ℤ[√d] and runs ~100× faster
+  than the Python algebraic path. 82 458 irrational configurations across 56
+  fields have been counted: nothing above 727. Every earlier campaign in this
+  project sampled integer quaternions, so this stratum was structurally
+  invisible to all of them.
 - **Nothing above 727 has been found at n = 6** by: random menus (100k sixth
   cubes), swap-completion from all six five-cube bases, a balanced climb on the
-  worst-subset objective, core-and-clique construction from the 183 core, or
-  ~3,600 three-wall solution points.
+  worst-subset objective, core-and-clique construction from the 183 core, the
+  exhausted three-wall family (2 733 configurations), pure corner-wall triples
+  (best 719), the rational half of the mixed family (best 725), or 82 458
+  irrational configurations across 56 quadratic fields.
 
 ## 7. Superseded claims
 
@@ -153,6 +180,10 @@ current.
 | n = 7 = 1211 and n = 8 = 1889 | **SUPERSEDED** — 1217 and 1891, the same day | Postscript 46 |
 | 393 is reachable only as a subset of the n = 6 record | **REFUTED** — a wide-height menu on 183 reaches it bottom-up; the claim was an artifact of small-quaternion search | Postscript 46 |
 | 727 is a plateau (first claim, from a second sixth cube with the same count) | **WITHDRAWN then RE-ESTABLISHED** — that cube is congruent to the original; two genuinely non-congruent 727s were later found with a different depth profile | Postscripts 46, 48 |
+| The absence of irrational solutions in the wall strata says something about the problem | **ARTIFACT** — edge-edge conditions factor into rational planes, so those strata are all-rational by construction; the mixed strata are 240:1 irrational | Postscripts 49, 50 |
+| Porting the algebraic engines to C++ is not worth it | **REVERSED** — that verdict rested on solution fields reaching degree 8, measured on edge-edge systems which turn out all-rational anyway; the volume is degree-2 mixed strata, and the engine found the irrational 727 | Postscripts 47, 50, 51 |
+| The overflow budget's invariant is d·m² | **REFUTED** — tracing \|p\| and \|q\| separately shows the boundary is not constant in m²·d; the flat rule is over-permissive below d ≈ 38 (at d=5 it would admit m=2289 against a true limit of 1855) | Postscript 51 addendum 2 |
+| The Cayley chart omitting w = 0 leaves 180° rotations unreachable | **REFUTED** — q·(0,1,0,0) is a cube self-symmetry, so the chart omits quaternion representatives, not compounds; a second chart returns an identical census | Postscript 49 addendum |
 | A 9-pair is characterised by a shared face axis | **REFUTED** — 727 contains three 9-pairs and no two of its cubes share a face axis | Postscript 47 |
 | More coincidences imply a higher count | **REFUTED** — 727 has 18 interior crossings to 723's 48, and counts more | Postscript 47 |
 

@@ -154,3 +154,85 @@ C4 depth-3 <= 164;  C5 depth-4 <= 102;  C6 depth-5 = 36, depth-6 = 1
 A single certified counterexample falsifies; sustained failure to
 falsify across ~10^5 seeds + hill-climbing is reported as evidence, not
 proof.
+
+## Extension: `cube_regions_q2.cpp`, the ℚ(√d) engine
+
+A second engine extends the scalar type from plain integers to elements
+of ℤ[√d] (p + q√d, p and q both `__int128`, d a runtime-fixed nonnegative
+squarefree integer), so it can count compounds whose rotations carry
+irrational quaternion components -- exactly the mixed edge-plane /
+corner-quadric strata of the algebraic search (ledger Postscripts 50-51),
+which turn out to hold 1,377,612 degree-2 irrational solutions against
+2,856 rational ones for every configuration these strata produce.
+
+**What is unchanged.** Every algorithmic step -- clip order, cap-face
+construction, the phantom-facet union-find merge, the facet-flip
+real/phantom test -- is copied unchanged from `cube_regions.cpp`. Only
+the arithmetic underneath (plane coefficients, vertex homogeneous
+coordinates, the side-of-plane sign predicate) is generalised from a
+scalar to a field element. `cube_regions.cpp` itself is **not modified**
+by this work; it stays the validated pure-integer reference, and
+`cube_regions_q2 --d 0` is required to reproduce it bit-for-bit,
+including `per_label`, as the primary validation gate.
+
+**Field arithmetic.** Addition is componentwise; multiplication is
+(p1+q1√d)(p2+q2√d) = (p1p2 + d·q1q2) + (p1q2 + q1p2)√d -- the `+ d·q1q2`
+term is the one the plain-integer engine never had to budget for, and it
+is what makes the overflow analysis below necessary. Sign comparison is
+trivial when p and q share a sign (or either is zero); when they have
+opposite signs it reduces to comparing p² against d·q², which needs more
+headroom than the rest of the pipeline (see below) because it squares
+its own operands.
+
+**The overflow guard is a traced per-configuration bound, not a fixed
+rectangle.** The original design considered a rectangle -- squarefree
+d ≤ 100, |p|,|q| ≤ 512 -- on the assumption that the relevant invariant
+is the flat product d·m² (m = the component bound). **That assumption is
+wrong, and matters for anyone extending this engine.** Tracing |p| and
+|q| separately through the fixed 4-stage multiply chain every
+plane/vertex/predicate goes through (quaternion component → matrix/plane
+coefficient → det3 minor → det3 result/vertex homogeneous coordinates →
+side-of-plane predicate; each field multiply bounds to
+(P1P2 + d·Q1Q2, P1Q2 + Q1P2), each k-term sum to k times the per-term
+bound) shows the true admissible boundary is *not* constant in d·m²: it
+runs ~9.0×10⁶ at d=1, rises to ~2.53×10⁷ at d=29, crosses the old
+rectangle's corner value (100·512² ≈ 2.62×10⁷) near **d ≈ 38**, and
+plateaus around 2.9-3.0×10⁷ for d ≳ 500. A flat d·m² ≤ 2.62×10⁷ rule is
+therefore **over-permissive below d ≈ 38** -- at d=5 it would admit
+m=2,289 against a true safe limit of 1,855, a genuine exploitable
+overflow, not mere conservatism -- and needlessly restrictive above it.
+`validateBudget()` therefore computes the traced bound per call for the
+config's actual (m, d) rather than checking a precomputed formula.
+
+Two thresholds are enforced, chosen to match the old rectangle's margins
+exactly so no safety headroom is lost by widening the admissible region:
+every intermediate (p, q) in the matrix/plane/det3/vertex/predicate
+chain must stay under 2^112 (15 bits below `__int128`'s 2^127 capacity);
+and `FieldElem::sign()`'s mixed-sign branch, which squares its largest
+pipeline operand, must keep p² and d·q² under 2^231 (25 bits below a
+256-bit compare's capacity). Across the whole admissible (m, d) region
+the i128 chain bound is always the binding constraint in practice, but
+both are checked, since nothing guarantees that stays true for every
+input. The 256-bit compare itself is a from-scratch unsigned multiply
+(`mulU128`, four `uint64` limbs, 32-bit-limb schoolbook multiplication
+so every partial-product column is carry-safe) plus an unsigned 256-bit
+compare, used only inside the sign predicate's mixed-sign branch --
+nowhere else in the pipeline needs more than `__int128`.
+
+A non-squarefree d is rejected outright (not just discouraged): it makes
+p + q√d non-canonical -- e.g. √4 = 2 collapses distinct (p, q) pairs onto
+the same value -- which would silently break the vertex/plane-key dedup
+that the whole exact-identity approach relies on. `validateBudget()`
+throws before any arithmetic runs on an out-of-budget or non-squarefree
+input; as with the integer engine, this is a hard reject, not a clamp,
+because silent truncation on overflow is exactly the
+plausible-wrong-answer failure mode this spec warns about elsewhere.
+
+**Validation gates, independently re-run:** `--d 0` reproduces
+`cube_regions.cpp` bit-for-bit including `per_label`; a purely rational
+configuration evaluated with d ≠ 0 (all √-parts zero) returns the same
+count as the integer engine; an independently-derived ℚ(√5) golden
+triple returns 67 = {1:48, 2:18, 3:1}; and scaling invariance holds
+(multiplying every quaternion component by k > 0 is the same rotation,
+so the count must agree) both in the original rectangle and in the newly
+widened region.

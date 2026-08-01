@@ -1,27 +1,21 @@
 #!/usr/bin/env python3
 # Working principles: locus_linear.py (planes) + corner_probe.py (quadrics).
-"""Mixed strata: two edge-edge PLANES and one corner QUADRIC.
+"""Size the d > 100 gap: how large are the components in the big classes?
 
-The two condition types on the 393 base behave differently:
-  * edge-edge coplanarity factors into rational PLANES -> all-rational strata,
-    which is why the edge-edge enumeration found no irrational point (an
-    artifact of the type, Postscript 49);
-  * corner-on-face incidence is an IRREDUCIBLE QUADRIC -> can be irrational.
+The Q(sqrt d) engine's guard rejected every class with d > 100.  This measures
+whether those classes are actually ARITHMETICALLY large or merely outside a
+badly-shaped guard, by recording, for every squarefree class, the number of
+solutions and the smallest quaternion-component bound achieved in it.
 
-Their mixture is the tractable and interesting case.  Two planes cut a rational
-line; restricting a quadric to that line gives a QUADRATIC IN ONE PARAMETER,
-so every solution is rational or degree-2 irrational -- exactly Q(sqrt d),
-the field of the n=3 maximizers (sqrt 2 and sqrt 5).  Pure quadric triples
-reach degree 8 and produced almost no real points (corner_probe).
+Answer (Postscript 51 addendum): they are not large -- Q(sqrt115) reaches a
+component bound of 3, Q(sqrt217) 6, Q(sqrt145) 7, Q(sqrt465) and Q(sqrt481) 9,
+Q(sqrt8761) 36.  The guard was a rectangle where the constraint is a coupled
+region.
 
-No Groebner is needed: intersect two planes exactly, evaluate the quadric at
-three parameter values to recover the restricted quadratic by interpolation,
-then solve it.  Rational roots are counted by the integer engine; irrational
-roots are recorded with their field Q(sqrt d) for the algebraic counters.
-
-INVARIANT: exact rational arithmetic (Fraction) throughout; a discriminant is
-called a perfect square only when its exact rational square root is verified,
-never by floating point.
+CAUTION recorded here because it is easy to repeat: the first version of this
+script scored admissibility per CLASS, using each class's smallest component,
+and reported 68%.  A per-class extremum is not a per-member property; scored
+per SOLUTION the figure is 43.2%.
 """
 import itertools
 import json

@@ -58,6 +58,18 @@ extension cubes at high n are large; log-uniform sampling over component
 heights 4..512 found 727 immediately (Postscript 46). See Postscript 12
 for 723's quaternions and Postscript 46 for 727's.
 
+**727 is a plateau of at least five non-congruent compounds.** Four are
+rational, with depth profiles {214,220,156,100,36,1}, {216,216,160,98,36,1},
+{214,218,160,98,36,1}, {214,216,162,98,36,1} (Postscripts 46, 48–49); the
+fifth is **irrational**, in ℚ(√13) — the 393 base's own tilt field — with
+sixth cube (1, 1−√13, 16−4√13, 11−3√13) and the same profile as the fourth
+class but a different O-reduced pair invariant, hence non-congruent to it
+(Postscript 51). It is the first irrational configuration this project has
+found by search rather than by symmetry. An exhaustive search of the
+three-wall family (2,733 configurations) and a count of 82,458 irrational
+configurations across 56 quadratic fields both found nothing above 727
+(Postscripts 49, 51) — see `PROJECT.md` §8–9 for the full account.
+
 **The dihedral family (Postscripts 25–26)**: a closed-form one-parameter
 family of 3-cube compounds (cube ± its 120° rotations about an
 in-face-plane axis) has *both* n=3 records as special points — octahedral
@@ -225,6 +237,7 @@ method. Group by role:
 | file | purpose | principles |
 |---|---|---|
 | `cube_regions.cpp` | Primary engine. C++17, no deps. Integer-homogeneous exact counter; `--n`, `--seed(s)`, `--quats`, `--selftest`. ~5–80 ms/config. | `CPP_SPEC.md` |
+| `cube_regions_q2.cpp` | ℚ(√d) engine: `cube_regions.cpp`'s algorithm with its scalar type generalized to ℤ[√d] (d fixed at runtime, geometry/topology unchanged); `--d 0` reproduces `cube_regions.cpp` bit-for-bit. ~5–22 ms/config (n=3..5), ~100× the Python algebraic path. Overflow guard is a traced per-configuration bound, not a fixed rectangle. | `CPP_SPEC.md` (ledger Postscript 51) |
 | `certify_six.py` | Python oracle: `exact_count_config()` over certified intervals + ℚ(√5); the cross-check the C++ engine is validated against. Any n. | ledger + `CPP_SPEC.md` |
 | `cube_compound_exact.py` | ℚ(√5) golden-compound counter (`run(N)`); the `Q5` exact field class used everywhere. | ledger |
 | `cube_compound_interval.py` | 3-tier certified-interval kernel (float→mpmath→exact) that filters predicate signs. | ledger |
@@ -252,6 +265,9 @@ method. Group by role:
 | `slide3_search.py` | Quaternion/overlay library for the slide3 drivers. | `SLIDE3_SPEC_V2.md` |
 | `task_a_certify635.py` | Certifies 635 a local max (all ±1..±4 neighbor moves). | ledger (P5) |
 | `task_c_deep_hillclimb.py` | Deep multi-restart climb (confirmed 635 plateau). | ledger (P5) |
+| `record_hunt.py` | Record hunt at n=4..8: extension menus + greedy climbs + subset breakdowns, exact counts only (`cube_regions_n`); never claims a record without a second-engine agreement. Modes: `extend`, `climb`, `subsets`, `campaign`. Includes `record_hunt_wave2.py` / `record_hunt_wave3.py`, dependency-ordered waves that climbed 1211 and extended it to 1889, then propagated the new 727 up to 1217/1891. | ledger (Postscripts 45–46) |
+| `balance_hunt.py` | Subset-balanced n=6 search: swap-completion on 727's weak five-cube subsets, plus a balanced-climb objective (lexicographic on min-subset-then-total) that lifts the weak tail even when it doesn't raise the total. | ledger (Postscript 46 addendum) |
+| `clique_hunt.py` | Core-and-clique record hunt: fixes the 183 four-cube core and enumerates its extensions as a graph (edge = n−1, triangle = n, K4 = n+1), reproducing 727 as an edge and 1217 as a triangle cheaply. | ledger |
 
 ### Dihedral family (n>3 generalization)
 | file | purpose | principles |
@@ -262,6 +278,21 @@ method. Group by role:
 | `nfamily_q3_records.py` | Checks every pair of every record (183/393/723) and the n=3 octahedral witness for family membership (183: 6/6 pairs, 393: 10/10, 723: 12/15). | `nfamily_report.md` |
 | `dihedral_scratch/` | Exploration and verification scripts from the dihedral-family work: the original numerical discovery path, persistence/docking checks, the pair-curve identity, the corner-handoff linker and gates (`handoff_*.py`), and more. Read-only exploration history, not a maintained library. | `DIHEDRAL_FAMILY_NEXT.md`, `HANDOFF_SPEC.md` |
 | `glue_search.py` | **In progress.** Two-clique gluing search (does gluing dihedral-family cliques on different axes beat 723?). No report yet — see `GLUE_SPEC.md`. | `GLUE_SPEC.md` |
+
+### Algebraic locus search (n=6 walls as planes and quadrics)
+| file | purpose | principles |
+|---|---|---|
+| `locus_probe.py` | Pair-relation loci on the 393 base: establishes that a 9-pair locus is codimension 1 (a surface, so three walls form a determined system) and samples wall triples for payoff. | ledger (Postscripts 47–48) |
+| `locus_linear.py` | Exhaustive three-wall enumeration by linear algebra, once every edge-edge condition is known to factor into two rational planes: 134,784 systems, 2,733 configurations, ~4 minutes, max 727. | ledger (Postscript 49) |
+| `locus_enum.py` | **[Superseded by `locus_linear.py`, per its own header.]** The original Gröbner-basis three-wall enumeration; ~99% of its 1.3 million systems re-derived identical plane triples once those planes were found. Kept for provenance. | ledger (Postscripts 48–49) |
+| `corner_probe.py` | Samples pure corner-on-face wall triples — irreducible quadrics, unlike edge-edge's planes — and finds them sparse and low (245 systems → 55 real roots, max 719). | ledger (Postscript 50) |
+| `mixed_enum.py` | Two edge-edge planes + one corner quadric: restricting the quadric to the rational line the planes cut gives a quadratic in one parameter, so solutions are rational or ℚ(√d). Earlier version; tallies squarefree classes and holds every exact solution in memory. | ledger (Postscript 50) |
+| `mixed_q2.py`, `mixed_q2_full.py` | Same mixed-strata method as `mixed_enum.py`, but streaming solutions directly into ℤ[√d] quaternions for `cube_regions_q2` to count, rather than holding them in memory. | ledger (Postscripts 50–51) |
+| `incidence.py` | Exact incidence signature of a candidate sixth cube against a fixed set: reports both the coplanarity equation (the wall) and the interiority inequality (whether the crossing is actually interior) behind each edge-edge contact. | ledger (Postscripts 40, 47–48) |
+| `eliminate729.py` | Elimination on the 393 base: proves 727's 36-condition coincidence pattern is isolated (Gröbner basis with one real solution) and unaugmentable (Gröbner basis {1} against all 684 remaining conditions). | ledger (Postscript 47) |
+| `dof_probe.py` | Structured one-parameter sweeps (composing a fixed axis rotation, exactly) rather than random perturbation, to detect count-preserving continuous families; positive control is the 13-pair body-diagonal continuum. | ledger (Postscript 44) |
+| `irrational_probe.py` | Classifies every real root of sampled three-wall systems by the degree of its minimal polynomial (exact, via `CRootOf`), to size the irrational gap before deciding whether closing it is worth the cost. | ledger (Postscripts 48–49) |
+| `bigd_probe.py` | Measures the ℚ(√d) engine's d>100 overflow gap: traces the true per-configuration overflow boundary and sizes how many configurations a wider, non-rectangular guard would newly admit. | ledger (Postscript 51 addenda) |
 
 ### Analysis & checks
 | file | purpose | principles |
@@ -281,6 +312,8 @@ method. Group by role:
 |---|---|---|
 | `mt_sim.py` | Validated reimplementation of the seed→configuration RNG chain (numpy MT19937 + polar Gaussian + scipy quaternion order + common-scale rounding); the basis for the C++/JS ports. | `CPP_SPEC.md` |
 | `make_seed_viewer.py` | Rebuilds the interactive seed-viewer artifact HTML from the logs. | ledger |
+| `index_ledger.py` | Regenerates the postscript index block at the top of `six_cube_search_results.md` from its own headings (GitHub-anchor-exact slugs, replaced wholesale, body never touched). Run after appending a postscript. | ledger |
+| `recover_1889.py` | Reconstructs a specific n=8=1889 candidate's quaternions from a run that printed its total but was killed before logging the config, by replaying the RNG deterministically to the same state. | ledger (Postscripts 45–46) |
 
 ## Data logs (`.jsonl`)
 

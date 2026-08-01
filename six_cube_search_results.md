@@ -89,6 +89,7 @@ with `index_ledger.py` after appending.
 - [Postscript 50](#postscript-50-the-mixed-strata-are-2401-irrational-dominated-by-ℚ5--a-large-stratum-no-search-in-this-project-has-ever-counted) — the mixed strata are 240:1 IRRATIONAL, dominated by ℚ(√5) — a large stratum no search in…
 - [Postscript 51](#postscript-51-a-ℚd-c-engine-82-458-irrational-configurations-counted--nothing-above-727-but-a-fifth-727-class-that-is-irrational-in-ℚ13) — a ℚ(√d) C++ engine, 82 458 irrational configurations counted — nothing above 727, but a…
 - [Postscript 51 addendum](#postscript-51-addendum-the-d--100-gap-is-mostly-a-guard-shape-problem--a-joint-budget-unlocks-343-000-configurations-with-no-arithmetic-change) — the d > 100 gap is mostly a GUARD-SHAPE problem — a joint budget unlocks ~343 000…
+- [Postscript 51 addendum](#postscript-51-addendum-2-correction-dm²-is-not-the-overflow-invariant-and-the-joint-rule-proposed-above-would-have-been-unsafe) — d·m² is NOT the overflow invariant, and the joint rule proposed above would have been UNSAFE
 
 <!-- INDEX:END -->
 
@@ -3797,3 +3798,38 @@ counting every solution in a class whenever that class's SMALLEST component
 passed the budget. That is an upper bound, not an estimate; the per-solution
 figure is 43.2%. Recorded because the error is easy to repeat — a per-class
 extremum is not a per-member property.
+
+### Postscript 51 addendum 2 (CORRECTION): d·m² is NOT the overflow invariant, and the joint rule proposed above would have been UNSAFE
+
+The addendum above proposed replacing the engine's rectangular guard with a
+joint budget d·m² ≤ 26 214 400, on the reasoning that det3 growth goes as
+(m²·d)³. Implementing it properly (2026-08-01) showed that reasoning is wrong.
+
+Tracing |p| and |q| SEPARATELY through the pipeline — field multiply bounds to
+(P₁P₂ + d·Q₁Q₂, P₁Q₂ + Q₁P₂), k-term sums to k times the per-term bound —
+the true admissible boundary does not have constant m²·d. It runs ~9.0e6 at
+d=1, rises to ~2.53e7 at d=29, crosses the proposed 2.62e7 near **d ≈ 38**,
+plateaus around 2.9–3.0e7 for d ≳ 500, and drifts back to ~2.88e7 at d = 20000.
+
+So the flat rule is **over-permissive below d ≈ 38** — at d=5 the true safe
+component maximum is 1855 while the rule would admit 2289, an exploitable
+overflow, not mere conservatism — and merely over-restrictive above it. A
+monomial fit was the wrong instrument; the engine now evaluates the traced
+bound per configuration at runtime, against 2^112 for the i128 chain (the
+binding constraint throughout, verified over d ∈ [0, 3e7]) and 2^231 for the
+u256 sign path.
+
+Also corrected: the old file header cited (d=100, m=512) as a verified corner,
+but **100 is not squarefree**, so that d was never an acceptable input — its
+own squarefree gate would have rejected it. The nearest squarefree corner
+(d=101, true max m = 531) was verified instead.
+
+Verification of the new guard (independently re-run by the main session):
+d=0 reproduces the integer engine semantically on 727 and 183; the ℚ(√13) 727
+still counts 727 = {214,216,162,98,36,1}; SCALING INVARIANCE holds in the
+newly-admitted region (multiplying every component by k > 0 is the same
+rotation, so counts must agree — verified at d=8761 ×12, d=465 ×25,
+d=115 ×25); and the boundary rejects exactly where predicted (d=465 accepts
+m=253, rejects m=254).
+
+Absolute ceiling of the engine: at m = 1, d may reach 30 319 844.

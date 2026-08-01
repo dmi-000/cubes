@@ -1,10 +1,10 @@
 # Six glass cubes: weeks of experimental mathematics with a team of AIs
 
-*An informal account, updated 2026-07-30. Self-contained, but every claim
+*An informal account, updated 2026-08-01. Self-contained, but every claim
 here has a paper trail: `RESULTS.md` is the recommended starting point —
 every current claim tagged PROVED / VERIFIED / EXHAUSTED / CONJECTURE, with
 superseded claims confined to one table. `six_cube_search_results.md` (the
-dated ledger, now Postscripts 1–47) is the primary record beneath that,
+dated ledger, now Postscripts 1–51 with addenda) is the primary record beneath that,
 `PROJECT.md` is the formal write-up, and `README.md` maps all the code.
 Anyone with access to a
 mid-tier coding model (Claude Sonnet or similar) and a laptop can
@@ -710,6 +710,128 @@ a bigger, better-shaped sweep found something a smaller one missed, and
 nothing said a still-bigger sweep wouldn't do it again. 727's hold on the
 393 base is, for the first time in this project's six-cube story, a
 proof.
+
+## Act XI: the wall that was actually two planes, and the record's first irrational face
+
+Act X left the exhaustive three-wall enumeration running: three Gröbner
+shards, about nine hours each, roughly twenty-seven hours of compute for
+partial coverage, grinding through 1.3 million systems to log ~256,000
+configurations and a four-class rational plateau at 727. That was the
+state of things going into Postscript 49 — and it took one question from
+the human, not a bigger machine, to collapse it.
+
+**The question was about an absence, not a number.** Every solution the
+enumeration had found was rational; nothing irrational had ever turned up
+anywhere in the three-wall family. The human asked whether that absence
+might be an artifact of some restriction nobody had examined, rather than
+a fact about the geometry. It was — and chasing the answer down happened
+to also demolish the enumeration's cost by three orders of magnitude.
+
+**The walls are pairs of planes.** Every edge-edge coplanarity condition
+on the 393 base, written out in the sixth cube's Cayley coordinates, turns
+out not to be the irreducible quadric everyone had been treating it as,
+but a product of two rational linear forms. That single fact cascades: a
+three-wall system stops being a job for a Gröbner basis and becomes eight
+plain 3×3 linear solves — Bézout's bound of 8 turns out to be exactly the
+eight ways of picking a plane out of each factored wall — and the 144
+walls per fixed cube, which had looked like 144 independent surfaces,
+collapse to 24 distinct planes. The whole three-wall family shrinks from
+something that needed shards and hour budgets to 134,784 linear systems,
+which a script (`locus_linear.py`) finished **in about four minutes**:
+2,733 distinct configurations, exhausted, topping out at 727 — the same
+answer the twenty-seven-hour Gröbner run was still chasing, arrived at
+before that run would have finished even one more shard. Re-examined with
+that lens, the Gröbner enumeration hadn't been slow because the problem
+was hard; it had spent ~99% of its 1.3 million systems re-deriving the
+same handful of plane triples over and over, blind to the fact that they
+were planes at all.
+
+**And the absence of irrational solutions turned out to be exactly the
+artifact suspected.** Three rational planes always meet in a rational
+point — that is linear algebra, not a property of cube compounds — so a
+family built entirely out of factored-into-planes conditions cannot
+contain an irrational configuration *by construction*. Every previous
+report of "no irrational solutions found here" in this family had been
+reporting a tautology. It said nothing about whether the problem itself
+has irrational optima; it is already known to (max(3) = 67 is attained
+only irrationally). It said only that this one family of conditions
+happens to be the wrong place to look for them.
+
+**So the search moved to a stratum that couldn't be planes.** Corner-on-
+face incidence — a corner of one cube lying on another's face plane — is
+a genuinely irreducible quadric, not a disguised pair of planes, and a
+first pass showed why nobody had leaned on it before: 245 solved corner-
+triple systems gave only 55 real roots, all rational, none above 719.
+Pure corner strata are sparse, not rich. The interesting case turned out
+to be the *mixture*: two edge-edge planes plus one corner quadric. Two
+planes cut a rational line, and restricting an irreducible quadric to a
+line collapses it to a quadratic in one parameter — so every solution in
+this mixed family is either rational or lives in some ℚ(√d), the exact
+field flavor of the two n=3 maximizers. Run exhaustively, that family
+held 2,856 rational candidates (topping out at 725, still short of 727)
+against **1,377,612 degree-2 irrational solutions** — a ratio of about
+240 irrational configurations for every rational one. Every earlier
+search this project had ever run, all the way back to Act I, sampled
+integer quaternions — rational by construction — so this entire stratum,
+the overwhelming majority of the family, had been invisible to the
+project's whole history, not merely under-sampled.
+
+**That volume reversed Act X's own engineering verdict.** The "not worth
+porting to C++" call a few pages back rested on the coincidence
+conditions' solution fields reaching degree 8 — true of the edge-edge
+systems, which had just turned out to be all-rational anyway, and beside
+the point for where the real volume lives. Degree-2 arithmetic, elements
+p + q√d with integer p and q, costs about the same as the integer engine
+already in hand. A ℚ(√d) engine, `cube_regions_q2.cpp`, generalizes the
+scalar type of the validated integer engine to ℤ[√d] with d fixed at
+runtime, touching nothing about the geometry or topology underneath, and
+leaving `cube_regions.cpp` itself untouched. It passed its gates — exact
+bit-for-bit agreement with the integer engine at d=0, the golden triple's
+known 67 = {48,18,1}, scaling invariance — and ran roughly a hundred
+times faster than the Python algebraic path that had been the only tool
+for irrational counting until now.
+
+**Run against everything its overflow budget could reach — 56 quadratic
+fields, 82,458 configurations, every single one counted — the result was
+nothing above 727.** The most populous field, ℚ(√5), the golden field
+itself, tops out at 721. ℚ(√2) tops out at 713. Only one field reaches
+727 at all: **ℚ(√13)**, which is not an arbitrary field but the 393
+base's own tilt field, the same one carrying its unique 4-clique axis.
+72 of its configurations hit 727 exactly, all with a depth profile that
+also occurs rationally — but not congruently to it; the two differ in
+their O-reduced pair invariants. That makes five known non-congruent
+727 compounds now, four rational and one genuinely irrational, and it is
+the **first irrational configuration this project has ever found by
+search** rather than by symmetry — every earlier irrational result, at
+n=3, came from recognizing the octahedron or the icosahedron already
+sitting there, not from a search turning one up.
+
+**Two smaller corrections closed out the arc.** Tracing the engine's
+overflow behavior properly showed the natural guess for its invariant —
+that the boundary scales as d times the component bound squared — is
+simply wrong; the real boundary is not constant in that product at all,
+and the flat version of the rule would have silently admitted unsafe
+configurations at small d while needlessly rejecting safe ones at large
+d. The engine now checks a traced bound at runtime instead of a guessed
+formula. And a separate worry from Postscript 47 — that the coordinate
+chart used throughout can't represent 180° rotations, so might be hiding
+whole configurations — dissolved on inspection: the missing rotations are
+still reachable as *other* representatives of the same cube, via one of
+the cube's own symmetries, so the chart was only ever missing quaternions,
+never compounds.
+
+The shape of this act is different from Act X's. Act X turned a search
+into a proof by asking a structural question about a record already in
+hand. Act XI started from a challenge to something the project had
+started taking for granted — that the absence of irrational solutions
+meant something — and that challenge did two things at once: it showed
+the "something" was nothing, an accident of which condition type had been
+enumerated, and it handed the project the tool (planes instead of
+quadrics, then a ℚ(√d) engine instead of a Python fallback) to go find
+the stratum the accident had been hiding. Nothing above 727 turned up
+there either. But the record's fifth face, sitting in the base's own
+number field, is the first thing in this project's history that a search
+found rather than recognized.
 
 ## The collaboration, honestly described
 

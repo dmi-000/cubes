@@ -781,6 +781,102 @@ conditions' solution fields reach degree 8, so a quadratic-field C++ port
 would cover only part of the strata, and a cheaper 100× speedup already
 exists in the 3-tier interval filter (`cube_compound_interval.py`).
 
+**[Update, Postscript 49]** The three-wall family promised as "running"
+above is now exhausted, and it collapsed by three orders of magnitude on
+the way there. Every edge-edge coplanarity condition in Cayley coordinates
+on the 393 base turns out not to be an irreducible quadric but a **product
+of two rational linear forms** (e.g. −4(3a−5b−2c)(a+b−c+4)). Consequences:
+a three-wall system is 2³ = 8 linear 3×3 solves — Bézout's bound of 8 is
+exactly the eight plane choices, not a coincidence — and the 144 walls per
+fixed cube collapse to **24 distinct planes**, so the whole family is 10
+cube-triples × 24³ = 134,784 systems. `locus_linear.py` exhausted it in
+about four minutes: 2,733 distinct configurations after symmetry dedup and
+the height cap, topping out at 723×24, 725×12, **727×6 — nothing above
+727**. The Gröbner enumeration it replaces (Postscript 48) had ground
+through 1.3 million systems to cover only part of the same ground; roughly
+99% of that work was re-deriving identical plane triples.
+
+This also *explains*, rather than merely confirms, why the family's
+solutions came out all rational (`irrational_probe.py` found 0 of 2,451
+real roots irrational): three rational planes always meet in a rational
+point, so irrational configurations cannot arise in this family **by
+construction**. That is a fact about the edge-edge condition type, not
+about the problem — max(3) = 67 is attained only at irrational
+configurations (Postscript 44), so irrational optima are not in doubt
+elsewhere; this family simply cannot see them.
+
+**[Update, Postscript 50]** Corner-on-face conditions are a different
+stratum type: **irreducible quadrics**, not planes. Pure corner triples
+are sparse and low — 245 solved systems (`corner_probe.py`) gave only 55
+real roots, all rational, topping out at 719. But a **mixed** family — two
+edge-edge planes and one corner quadric — restricts the quadric to the
+rational line the two planes cut, giving a quadratic in one parameter:
+every solution is rational or degree-2 irrational, i.e. ℚ(√d), the field
+of the n=3 maximizers. Exhaustive over that family (`mixed_enum.py` /
+`mixed_q2.py`): 1,620,000 systems, 2,856 rational candidates (max 725,
+below 727) against **1,377,612 degree-2 irrational solutions** — a ratio
+of about 240:1. Every earlier search campaign in this project's history
+sampled integer quaternions, rational by construction, so this stratum —
+the large majority of the family — had been structurally invisible to all
+of them.
+
+**A ℚ(√d) engine, and the project's first search-found irrational
+record.** That volume reverses the C++-port verdict two paragraphs up:
+the "no" rested on solution fields reaching degree 8, true of the
+edge-edge systems (which turn out to be all-rational anyway) but not of
+the degree-2 mixed strata, where the actual volume is. `cube_regions_q2.cpp`
+generalises the integer engine's scalar type to ℤ[√d], with d given at
+runtime, leaving geometry and topology untouched — `cube_regions.cpp`
+itself is unmodified. Gates: `--d 0` reproduces `cube_regions.cpp`
+bit-for-bit, including per_label; an independently-derived ℚ(√5) golden
+triple gives 67 = {1:48, 2:18, 3:1}; scaling invariance holds (multiplying
+every component by k > 0 is the same rotation and must give the same
+count). Measured about 100× faster than the Python algebraic path
+(5.3/11.5/21.9 ms at n=3/4/5, against 0.48/1.10/2.20 s).
+
+Run against every configuration of the mixed family within the engine's
+overflow budget (squarefree d ≤ 100) — 56 quadratic fields, 82,458
+configurations, every one counted — the result is **nothing above 727**.
+Best per field, largest classes first: ℚ(√5) (7,374 configurations, the
+most populous field of all) tops out at 721; ℚ(√17) at 717; ℚ(√2) at 713.
+The one exception is **ℚ(√13)** — the 393 base's own tilt field, the
+unique 4-clique axis (3,2,0) with tan ψ = 2/3 (Postscript 27) — whose
+3,156 configurations reach 727, in 72 of them exactly.
+
+That makes 727 a plateau of at least **five** non-congruent compounds, one
+of them irrational: four rational classes with depth profiles
+{214,220,156,100,36,1}, {216,216,160,98,36,1}, {214,218,160,98,36,1},
+{214,216,162,98,36,1}, plus a fifth sharing the last profile but living in
+ℚ(√13) with sixth cube (1, 1−√13, 16−4√13, 11−3√13) — non-congruent to the
+rational class of the same profile (their O-reduced pair-invariant
+multisets differ). Two-engine verified, `cube_regions_q2` and
+`opencount.py`'s degree-agnostic field engine, separate codebases. Every
+class satisfies d1+d2+d3+d4 = 690 with d5 = 36, d6 = 1 fixed — the same
+exchange law as 723's own plateau, one level up. This is the **first
+irrational configuration the project has found by search** rather than by
+symmetry — the two n=3 maximizers came from the octahedron and the
+icosahedron.
+
+**Tooling notes.** The engine's overflow guard was originally a rectangle
+(squarefree d ≤ 100, |p|,|q| ≤ 512). Tracing |p| and |q| separately
+through the multiply chain showed the natural guess — that the true
+boundary is the invariant d·m² — is wrong: that quantity runs ~9.0×10⁶ at
+d=1, rises to ~2.53×10⁷ at d=29, and plateaus near 2.9–3.0×10⁷ for larger
+d, so a flat d·m² rule is *over-permissive below d≈38* (at d=5 it would
+admit m=2,289 against a true limit of 1,855 — an exploitable overflow, not
+mere conservatism) and needlessly restrictive above it. The engine now
+evaluates the traced bound per configuration at runtime instead. Widening
+the guard this way makes roughly 343,000 previously out-of-budget
+configurations countable; the remaining majority of the 1,377,612-solution
+mixed family (concentrated in fields with d > 100) needs genuinely wider
+intermediate arithmetic, not just a better bound.
+
+Separately, the Cayley chart's inability to represent 180° rotations
+(q = (1,a,b,c) cannot reach w = 0), flagged above as an open gap, turned
+out not to be one: q·(0,1,0,0) is a cube self-symmetry, so the chart omits
+quaternion *representatives*, not compounds — an independent second chart
+(q = (a,1,b,c)) returns an identical census down to the last entry.
+
 ---
 
 ## 9. More than six cubes, and the record tower
@@ -850,26 +946,43 @@ arrangements — the same shallow-for-deep conservation seen throughout,
 then operating exactly at the summit. (723 is no longer the summit — see
 727, Postscript 46 — but the plateau finding about 723 itself stands.)
 
-**727 is a plateau too, now proved rather than untested.** The three-wall
-search method of Section 8 found two further sixth cubes, (3,-51,-93,29)
-and (40,48,-11,45), both giving 727 but with depth profile
-{1:216, 2:216, 3:160, 4:98, 5:36, 6:1} and pair structure 9, 5, 4, 9, 4 —
-different from the original 727's {1:214, 2:220, 3:156, 4:100, 5:36, 6:1}
-and 9, 9, 4, 9, 4. A differing depth histogram proves non-congruence
-outright, so there are at least two distinct 727 compounds, both
-two-engine verified. The layers trade by (+2, −4, +4, −2) with
-depth-1+depth-2+depth-3+depth-4 = 690 conserved — the same exchange law
-seen at 723's own plateau, now one level up.
+**727 is a plateau too, now proved rather than untested — and, as of
+Postscripts 49–51, exhausted over several more strata than a handful of
+sample sixth cubes.** The three-wall search method of Section 8 found two
+further sixth cubes, (3,-51,-93,29) and (40,48,-11,45), both giving 727
+but with depth profile {1:216, 2:216, 3:160, 4:98, 5:36, 6:1} and pair
+structure 9, 5, 4, 9, 4 — different from the original 727's
+{1:214, 2:220, 3:156, 4:100, 5:36, 6:1} and 9, 9, 4, 9, 4. A differing
+depth histogram proves non-congruence outright, so there are at least two
+distinct 727 compounds, both two-engine verified. The layers trade by
+(+2, −4, +4, −2) with depth-1+depth-2+depth-3+depth-4 = 690 conserved —
+the same exchange law seen at 723's own plateau, now one level up. The
+exhaustive three-wall enumeration (Postscript 49) turned up two more
+rational classes at the same total, and the ℚ(√d) engine (Postscript 51)
+found a fifth class, irrational, in ℚ(√13) — so **727 is a plateau of at
+least five non-congruent compounds**, one of them irrational, all
+conserving d1+d2+d3+d4 = 690 with d5 = 36, d6 = 1 fixed. See Section 8 for
+the full account.
 
-**Nothing above 727 has yet been found at six cubes**, by any of five
-independent methods: random menus (~100,000 sixth cubes), swap-completion
-from all six five-cube bases, a climb on the worst-subset objective,
-core-and-clique construction from the 183 four-cube core, or the roughly
-3,600 solution points of the three-wall family enumerated so far. The
-core-and-clique construction is notable for reproducing both records
-cheaply from that same 183 core — 727 as an edge, 1217 as a triangle — at
-roughly a tenth the cost of random menus, without finding anything new. An
-exhaustive enumeration over the three-wall family is currently running.
+**Nothing above 727 has yet been found at six cubes**, and the search has
+grown from "five independent methods" to something closer to an
+exhaustion over several strata, though not a proof. The original five —
+random menus (~100,000 sixth cubes), swap-completion from all six
+five-cube bases, a climb on the worst-subset objective, core-and-clique
+construction from the 183 four-cube core, and the three-wall family — have
+been joined by: the three-wall family's **completion** (2,733
+configurations, exhaustive, max 727, Postscript 49); pure corner-wall
+triples (245 systems, max 719, Postscript 50); the mixed family's rational
+half (2,856 candidates, max 725, Postscript 50); and 82,458 irrational
+configurations across the 56 quadratic fields the ℚ(√d) engine's overflow
+budget reaches (max 727, in ℚ(√13) only, Postscript 51). The core-and-
+clique construction is notable for reproducing both records cheaply from
+that same 183 core — 727 as an edge, 1217 as a triangle — at roughly a
+tenth the cost of random menus, without finding anything new. What
+remains open, not exhausted: the mixed family's degree-2 solutions with
+d > 100 (the majority of its 1,377,612 irrational solutions, outside the
+engine's current arithmetic budget — Postscript 51), and coincidence
+types beyond edge-edge and corner-on-face altogether.
 
 ---
 
@@ -924,10 +1037,21 @@ exhaustive enumeration over the three-wall family is currently running.
    (Section 8): 727 is proved isolated there and its coincidence pattern
    is unaugmentable, so no better completion of *this* five-cube base
    exists. That does not rule out a 729 built on a different coincidence
-   pattern, or on a different five-cube base entirely — and five
-   independent search methods (random menus, swap-completion, worst-
-   subset climbing, core-and-clique construction, and ~3,600 three-wall
-   solution points) have found nothing above 727 so far.
+   pattern, or on a different five-cube base entirely — but this question
+   is now closed over several more strata than it was, though still not
+   proved: random menus, swap-completion, worst-subset climbing, and
+   core-and-clique construction found nothing above 727; the three-wall
+   family (edge-edge only) is now EXHAUSTED at 2,733 configurations, max
+   727 (Postscript 49); pure corner-wall triples top out at 719 and the
+   mixed family's rational half at 725 (Postscript 50); and a ℚ(√d) engine
+   has counted 82,458 irrational configurations across 56 quadratic
+   fields, finding nothing above 727 — with ℚ(√13), the 393 base's own
+   tilt field, the only one that even reaches it (Postscript 51). The
+   honest remaining gaps: the mixed family's degree-2 solutions with
+   d > 100 (the majority of its 1,377,612 irrational solutions, outside
+   the engine's current overflow budget) are uncounted, and coincidence
+   types beyond edge-edge and corner-on-face have not been enumerated at
+   all.
 
 4. **Can non-concentric or unequal-sized cubes do better?** Everything
    above keeps the cubes centred at a common point and equal in size.
