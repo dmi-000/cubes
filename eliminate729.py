@@ -87,7 +87,7 @@ def main():
     Q = (1, a, b, c)
     M6 = rot_sym(Q)
     e6 = edge_list(M6)
-    fixed = [edge_list(rot_sym(sp.Matrix(q).T if False else q)) for q in FIVE]
+    fixed = [edge_list(rot_sym(q)) for q in FIVE]
 
     subs = {a: sp.Rational(KNOWN[1], KNOWN[0]), b: sp.Rational(KNOWN[2], KNOWN[0]),
             c: sp.Rational(KNOWN[3], KNOWN[0])}

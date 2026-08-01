@@ -88,6 +88,7 @@ with `index_ledger.py` after appending.
 - [Postscript 49 addendum](#postscript-49-addendum-the-w--0-gap-was-illusory--the-chart-omits-quaternions-not-configurations) — the w = 0 "gap" was illusory — the chart omits quaternions, not configurations
 - [Postscript 50](#postscript-50-the-mixed-strata-are-2401-irrational-dominated-by-ℚ5--a-large-stratum-no-search-in-this-project-has-ever-counted) — the mixed strata are 240:1 IRRATIONAL, dominated by ℚ(√5) — a large stratum no search in…
 - [Postscript 51](#postscript-51-a-ℚd-c-engine-82-458-irrational-configurations-counted--nothing-above-727-but-a-fifth-727-class-that-is-irrational-in-ℚ13) — a ℚ(√d) C++ engine, 82 458 irrational configurations counted — nothing above 727, but a…
+- [Postscript 51 addendum](#postscript-51-addendum-the-d--100-gap-is-mostly-a-guard-shape-problem--a-joint-budget-unlocks-343-000-configurations-with-no-arithmetic-change) — the d > 100 gap is mostly a GUARD-SHAPE problem — a joint budget unlocks ~343 000…
 
 <!-- INDEX:END -->
 
@@ -3768,3 +3769,31 @@ continued-fraction sign test would let coordinates use the full width of the
 type (comparing |p|/|q| against √d by comparing continued-fraction expansions,
 with no products at all), though the binding constraint is the growth inside
 det3, not the final sign test.
+
+### Postscript 51 addendum: the d > 100 gap is mostly a GUARD-SHAPE problem — a joint budget unlocks ~343 000 configurations with no arithmetic change
+
+Measured (bigd_probe.py) to size the remaining work. Of the mixed strata's
+1 377 612 degree-2 solutions, 1 112 028 lie in the 1 328 classes with d > 100
+that the engine currently rejects. But those classes are NOT arithmetically
+large: the smallest quaternion component bound per class is 3 for ℚ(√115),
+6 for ℚ(√217), 7 for ℚ(√145), 9 for ℚ(√465) and ℚ(√481), 36 even for
+ℚ(√8761). The current guard rejects them only because it is a RECTANGLE
+(d ≤ 100 AND |p|,|q| ≤ 512) while the real overflow constraint couples the
+two — growth through det3 goes as roughly d·m².
+
+Under a joint budget d·m² ≤ 26 214 400 (the same corner as the present
+rectangle, so no weakening of safety), counted PER SOLUTION:
+
+    admissible:  595 452 of 1 377 612  (43.2%)
+    of which d > 100, i.e. newly reachable:  342 720
+
+So re-deriving the bound as a joint constraint — a change to validateBudget
+and its derivation, not to the arithmetic — would make ~343 000 currently
+unreachable configurations countable. The remaining ~57% needs genuinely wider
+intermediates (256-bit throughout, not only in the sign predicate).
+
+Methodological note: the first version of this measurement reported 68%, by
+counting every solution in a class whenever that class's SMALLEST component
+passed the budget. That is an upper bound, not an estimate; the per-solution
+figure is 43.2%. Recorded because the error is easy to repeat — a per-class
+extremum is not a per-member property.

@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # Working principles: locus_linear.py (planes) + corner_probe.py (quadrics).
-"""[SUPERSEDED by mixed_q2.py, which streams solutions into Z[sqrt d]
-quaternions and counts them.  This version tallies squarefree classes only,
-and an early edit of it accumulated every exact solution in memory.]
-
-Mixed strata: two edge-edge PLANES and one corner QUADRIC.
+"""Mixed strata: two edge-edge PLANES and one corner QUADRIC.
 
 The two condition types on the 393 base behave differently:
   * edge-edge coplanarity factors into rational PLANES -> all-rational strata,
@@ -45,8 +41,16 @@ CAP = 512
 
 
 def load_planes():
+    """Planes, cached.  Re-deriving them costs a sympy factor pass over 720
+    polynomials every run -- the peak-memory phase, and this machine has been
+    OOM-killing the job there.  Compute once, reuse thereafter."""
+    import os
+    if os.path.exists('locus_planes.pkl'):
+        return pickle.load(open('locus_planes.pkl', 'rb'))
     import locus_linear as L
-    return L.extract_planes()
+    p = L.extract_planes()
+    pickle.dump(p, open('locus_planes.pkl', 'wb'))
+    return p
 
 
 def quad_coeffs(P):
@@ -122,14 +126,21 @@ def sym_key(q):
 
 
 def main():
+    print('starting', flush=True)
     planes = load_planes()
-    quads = {j: [quad_coeffs(P) for P in Q]
-             for j, Q in pickle.load(open('corner_conds.pkl', 'rb')).items()}
+    import os
+    if os.path.exists('corner_quadcoeffs.pkl'):
+        quads = pickle.load(open('corner_quadcoeffs.pkl', 'rb'))
+    else:
+        quads = {j: [quad_coeffs(P) for P in Q]
+                 for j, Q in pickle.load(open('corner_conds.pkl', 'rb')).items()}
+        pickle.dump(quads, open('corner_quadcoeffs.pkl', 'wb'))
     print('planes/cube %s ; quadrics/cube %s'
           % ([len(planes[j]) for j in range(5)],
              [len(quads[j]) for j in range(5)]), flush=True)
 
-    seen, cands, irr = set(), [], {}
+    seen, cands, irr, bycls, stats = set(), [], {}, {}, {}
+    joint = [0, 0, 0]
     nsys = 0
     for tri in itertools.combinations(range(5), 3):
         for qi in tri:                       # which cube supplies the quadric
@@ -159,8 +170,56 @@ def main():
                             r = isqrt_exact(disc)
                             if r is None:
                                 if disc > 0:
-                                    key = disc.numerator * disc.denominator
-                                    irr[key] = irr.get(key, 0) + 1
+                                    m = disc.numerator * disc.denominator
+                                    sf = 1
+                                    d2 = 2
+                                    while d2 * d2 <= m:
+                                        e = 0
+                                        while m % d2 == 0:
+                                            m //= d2
+                                            e += 1
+                                        if e % 2:
+                                            sf *= d2
+                                        d2 += 1
+                                    sf *= m
+                                    irr[sf] = irr.get(sf, 0) + 1
+                                    # record (d, smallest component bound) for
+                                    # EVERY class, including d > 100, to see
+                                    # whether a joint (d, magnitude) budget
+                                    # would admit the classes the current
+                                    # rectangular guard rejects.
+                                    if True:
+                                        k2 = (B * B - 4 * A * C0) / sf
+                                        rr = isqrt_exact(k2)
+                                        if rr is not None:
+                                            for sgn in (1, -1):
+                                                comps = []
+                                                for u in range(3):
+                                                    al = p0[u] + (-B) / (2 * A) * d[u]
+                                                    be = sgn * rr / (2 * A) * d[u]
+                                                    comps.append((al, be))
+                                                L = 1
+                                                for al, be in comps:
+                                                    for v in (al, be):
+                                                        L = L * v.denominator // math.gcd(L, v.denominator)
+                                                quad = ((L, 0),) + tuple(
+                                                    (int(al * L), int(be * L)) for al, be in comps)
+                                                mx = max(abs(x) for pr in quad for x in pr)
+                                                rec = stats.setdefault(sf, [0, None])
+                                                rec[0] += 1
+                                                if rec[1] is None or mx < rec[1]:
+                                                    rec[1] = mx
+                                                # PER-SOLUTION budget test: the
+                                                # per-class minimum overstates
+                                                # admissibility badly.
+                                                w = sf * mx * mx
+                                                joint[0] += 1
+                                                if w <= 26214400:
+                                                    joint[1] += 1
+                                                    if sf > 100:
+                                                        joint[2] += 1
+                                                if mx <= 512 and sf <= 100:
+                                                    bycls.setdefault(sf, set()).add(quad)
                                 continue
                             ts = [(-B + r) / (2 * A), (-B - r) / (2 * A)]
                         for t in ts:
@@ -173,37 +232,31 @@ def main():
                                 continue
                             seen.add(k)
                             cands.append(qt)
-    print('systems %d -> %d distinct rational candidates; %d irrational '
-          '(degree-2) solution pairs by squarefree class'
-          % (nsys, len(cands), sum(irr.values())), flush=True)
-
-    eng = R.Engine(6, int(sys.argv[1]) if len(sys.argv) > 1 else 3)
-    out = open('mixed_enum.jsonl', 'a')
-    best, hist = (0, None), {}
-    B = 500
-    for s in range(0, len(cands), B):
-        chunk = cands[s:s + B]
-        res = eng.count([[list(x) for x in FIVE] + [list(q)] for q in chunk])
-        for q, (tot, bd) in zip(chunk, res):
-            hist[tot] = hist.get(tot, 0) + 1
-            if tot > best[0]:
-                best = (tot, q)
-            if tot >= 723:
-                out.write(json.dumps({'total': tot, 'sixth': q,
-                                      'by_depth': bd}) + '\n')
-                out.flush()
-                if tot > 727:
-                    print('*** ABOVE 727: %d %s' % (tot, q), flush=True)
-        print('  counted %d/%d best %s' % (min(s+B, len(cands)), len(cands),
-                                           best), flush=True)
-    print('\nDONE best=%s' % (best,), flush=True)
-    print('top:', {t: hist[t] for t in sorted(hist)[-12:]}, flush=True)
-    json.dump({'hist': {str(k): v for k, v in hist.items()},
-               'best': [best[0], list(best[1])],
-               'irrational_classes': len(irr),
-               'irrational_solutions': sum(irr.values())},
-              open('mixed_enum_summary.json', 'w'), indent=1)
+    # persist the enumeration BEFORE any reporting: it costs ~3 minutes and a
+    # failure in the reporting path has already discarded it once.
+    pickle.dump({k: sorted(v) for k, v in bycls.items()},
+                open('mixed_q2_configs.pkl', 'wb'))
+    top = sorted(irr.items(), key=lambda t: -t[1])[:12]
+    print('squarefree classes of the irrational solutions (top 12):', top,
+          flush=True)
 
 
-if __name__ == '__main__':
+    import json as _j
+    big = {d: v for d, v in stats.items() if d > 100}
+    print('classes with d > 100: %d, solutions %d'
+          % (len(big), sum(v[0] for v in big.values())), flush=True)
+    print('%-8s %8s %10s' % ('d', 'solutions', 'min|comp|'), flush=True)
+    for d, (n, mx) in sorted(big.items(), key=lambda t: -t[1][0])[:15]:
+        print('%-8d %8d %10s' % (d, n, mx), flush=True)
+    # how many would a JOINT budget admit?  det3 growth ~ d*(component)^2, so
+    # the true constraint is d*m^2 <= K with K set by the current corner of the
+    # rectangle (d=100, m=512).
+    print('\nPER-SOLUTION joint budget d*m^2 <= 26214400 (same corner as now):',
+          flush=True)
+    print('  admissible: %d of %d solutions (%.1f%%)'
+          % (joint[1], joint[0], 100.0 * joint[1] / max(joint[0], 1)), flush=True)
+    print('  of which d > 100 (newly reachable): %d' % joint[2], flush=True)
+    _j.dump({str(d): v for d, v in stats.items()}, open('bigd_stats.json', 'w'))
+
+if __name__ == "__main__":
     main()

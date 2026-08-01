@@ -20,6 +20,11 @@ at the identity indicates rigidity.
 POSITIVE CONTROL (must pass, or the negatives are meaningless): the 13-pair
 about a body diagonal has to show a full-length run.
 
+SCOPE: single-cube sweeps only.  A count-preserving family that moves several
+cubes in a COORDINATED way (the dihedral family does exactly this) is invisible
+to this probe, so a negative result here means "no single-cube family", not
+"rigid".
+
 INVARIANT: composition is exact integer quaternion arithmetic, gcd-reduced,
 and any product exceeding the engine's |component| <= 512 budget is DROPPED,
 never rescaled -- a rescaled quaternion is a different rotation.
@@ -29,8 +34,24 @@ import math
 import record_hunt as R
 
 CAP = 512
+FLOOR = 0        # 0 = require exact preservation; else a 'large enough' floor
 AXES = {'face(0,0,1)': (0, 0, 1), 'edge(0,1,1)': (0, 1, 1),
         'body(1,1,1)': (1, 1, 1), 'generic(1,2,3)': (1, 2, 3)}
+
+
+def is_cube_symmetry(q):
+    """True if q's rotation is one of the cube's own 24 -- i.e. a signed
+    permutation matrix.  Such a 'move' leaves the compound IDENTICAL, so
+    counting it as count-preserving is an artifact, not a degree of freedom.
+    The first version of this probe reported 90 and 180 degrees about a face
+    axis as preserving for every configuration tested, for exactly this
+    reason."""
+    w, x, y, z = q
+    n = w * w + x * x + y * y + z * z
+    M = [[w*w+x*x-y*y-z*z, 2*(x*y-w*z), 2*(x*z+w*y)],
+         [2*(x*y+w*z), w*w-x*x+y*y-z*z, 2*(y*z-w*x)],
+         [2*(x*z-w*y), 2*(y*z+w*x), w*w-x*x-y*y+z*z]]
+    return all(e in (0, n, -n) for row in M for e in row)
 # a-values give angle 2*atan(b|u|/a): large a = small angle, a=0 = 180 degrees
 AVALS = [40, 20, 12, 8, 6, 5, 4, 3, 2, 1, 0]
 
@@ -54,6 +75,8 @@ def sweep(cfg, i, axis, label, eng):
     out = []
     for a in AVALS:
         p = reduce_q((a, axis[0], axis[1], axis[2]))
+        if is_cube_symmetry(p):
+            continue                     # same compound; not a motion
         new = reduce_q(qmul(tuple(cfg[i]), p))
         if max(abs(c) for c in new) > CAP or not any(new):
             continue
@@ -73,7 +96,13 @@ def probe(name, cfg, expect):
     for i in range(len(cfg)):
         for label, axis in AXES.items():
             res = sweep(cfg, i, axis, label, eng)
-            keep = [ang for ang, c in res if c == base]
+            # "count-preserving" is the wrong criterion for whether a family is
+            # USEFUL: a subset only has to stay LARGE ENOUGH to be carried
+            # inside a bigger compound (floor = total minus the largest
+            # one-cube increment), not to stay maximal.  FLOOR asks that
+            # question; FLOOR = 0 keeps the original strict test.
+            keep = [ang for ang, c in res
+                    if (c >= FLOOR if FLOOR else c == base)]
             if len(keep) >= 2:
                 best_run = max(best_run, len(keep))
                 print('  cube %d about %-14s preserves %d at %d/%d angles: %s'

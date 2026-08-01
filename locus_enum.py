@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 # Working principles: locus_probe.py (cached conditions, same parameterisation).
-"""Exhaustive enumeration of three-wall strata on the 393 base.
+"""[SUPERSEDED 2026-07-31 by locus_linear.py -- see Postscript 49.]
+
+The walls turned out to factor into pairs of rational PLANES, so the whole
+family is 134 784 linear systems (2 733 distinct configurations) solvable in
+minutes by 3x3 rational solves.  This Groebner enumeration ground through
+1.3 million systems to cover part of the same ground -- roughly 99% of its
+work was re-deriving identical plane triples.  Kept for provenance; use
+locus_linear.py.
+
+Exhaustive enumeration of three-wall strata on the 393 base.
 
 Each coincidence condition is a quadric in the sixth cube's Cayley coordinates
 (a,b,c), and a 9-pair locus is codimension 1 (Postscript 47 + locus_probe).
