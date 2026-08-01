@@ -1,6 +1,6 @@
 # How many regions do overlapping cubes make? — a self-contained write-up
 
-*Last updated 2026-07-30. This document is standalone: every term is
+*Last updated 2026-08-01. This document is standalone: every term is
 defined here, and no other file is required to follow it. For the current
 state of every claim in the project — each tagged PROVED / VERIFIED /
 EXHAUSTED / CONJECTURE, with superseded claims confined to one table at the
@@ -857,6 +857,29 @@ irrational configuration the project has found by search** rather than by
 symmetry — the two n=3 maximizers came from the octahedron and the
 icosahedron.
 
+**[Update, Postscript 51 addendum 3]** Both the field count and the
+compound count above were properties of the overflow guard, not of the
+problem: "squarefree d ≤ 100" rejected every field beyond it before it
+could be counted, so "56 fields" and "the one exception is ℚ(√13)" were
+true only of the instrument, not the problem — the same failure mode as
+the three-wall family's all-rational solutions earlier in this section,
+which turned out to be a fact about the edge-edge condition type, not
+about six-cube compounds generally. The guard is now a traced
+per-configuration bound, and the recount is complete: 224,184 irrational
+configurations counted (up from 82,458), 284,634 rejected as genuinely
+exceeding the traced budget, still nothing above 727. **727 is reached
+in eight fields**, not one: ℚ(√13) ×144, ℚ(√226) ×51, ℚ(√403) ×36,
+ℚ(√1093) ×9, ℚ(√1614) ×6, ℚ(√1785) ×3, ℚ(√1930) ×3, ℚ(√2741) ×3 — 255
+configurations, falling into only three depth profiles, all also
+occurring rationally: {214,216,162,98,36,1} ×189, {214,220,156,100,36,1}
+×63, {214,218,160,98,36,1} ×3. By the O-reduced pair-invariant multiset,
+727 has **at least twelve congruence classes — four rational, eight
+irrational** — one per field: within a field every 727 shares one
+signature, and the signatures differ across fields, so the classes are
+indexed by field rather than merely counted, a structural fact rather
+than just a bigger number. d1+d2+d3+d4 = 690 with d5 = 36, d6 = 1 still
+holds in every class.
+
 **Tooling notes.** The engine's overflow guard was originally a rectangle
 (squarefree d ≤ 100, |p|,|q| ≤ 512). Tracing |p| and |q| separately
 through the multiply chain showed the natural guess — that the true
@@ -958,11 +981,13 @@ distinct 727 compounds, both two-engine verified. The layers trade by
 (+2, −4, +4, −2) with depth-1+depth-2+depth-3+depth-4 = 690 conserved —
 the same exchange law seen at 723's own plateau, now one level up. The
 exhaustive three-wall enumeration (Postscript 49) turned up two more
-rational classes at the same total, and the ℚ(√d) engine (Postscript 51)
-found a fifth class, irrational, in ℚ(√13) — so **727 is a plateau of at
-least five non-congruent compounds**, one of them irrational, all
-conserving d1+d2+d3+d4 = 690 with d5 = 36, d6 = 1 fixed. See Section 8 for
-the full account.
+rational classes at the same total, and the ℚ(√d) engine, once its
+overflow guard was fixed from a narrow d ≤ 100 rectangle to a traced
+per-configuration bound, found 727 reached in eight fields with at
+least eight irrational congruence classes (Postscript 51 addendum 3) —
+so **727 is a plateau of at least twelve non-congruent compounds**, four
+rational and eight irrational, all conserving d1+d2+d3+d4 = 690 with
+d5 = 36, d6 = 1 fixed. See Section 8 for the full account.
 
 **Nothing above 727 has yet been found at six cubes**, and the search has
 grown from "five independent methods" to something closer to an
@@ -973,16 +998,18 @@ construction from the 183 four-cube core, and the three-wall family — have
 been joined by: the three-wall family's **completion** (2,733
 configurations, exhaustive, max 727, Postscript 49); pure corner-wall
 triples (245 systems, max 719, Postscript 50); the mixed family's rational
-half (2,856 candidates, max 725, Postscript 50); and 82,458 irrational
-configurations across the 56 quadratic fields the ℚ(√d) engine's overflow
-budget reaches (max 727, in ℚ(√13) only, Postscript 51). The core-and-
+half (2,856 candidates, max 725, Postscript 50); and 224,184 irrational
+configurations across the fields the ℚ(√d) engine's traced
+per-configuration overflow budget reaches (max 727, in eight fields,
+Postscript 51 addendum 3 — an earlier figure of 82,458 across 56 fields
+was an artifact of a narrower, d ≤ 100 guard). The core-and-
 clique construction is notable for reproducing both records cheaply from
 that same 183 core — 727 as an edge, 1217 as a triangle — at roughly a
 tenth the cost of random menus, without finding anything new. What
-remains open, not exhausted: the mixed family's degree-2 solutions with
-d > 100 (the majority of its 1,377,612 irrational solutions, outside the
-engine's current arithmetic budget — Postscript 51), and coincidence
-types beyond edge-edge and corner-on-face altogether.
+remains open, not exhausted: the 284,634 irrational solutions that
+genuinely exceed the traced budget, positive-dimensional systems,
+one- and two-wall strata, and coincidence types beyond edge-edge and
+corner-on-face altogether (Postscript 51 addendum 3).
 
 ---
 
@@ -1043,14 +1070,16 @@ types beyond edge-edge and corner-on-face altogether.
    core-and-clique construction found nothing above 727; the three-wall
    family (edge-edge only) is now EXHAUSTED at 2,733 configurations, max
    727 (Postscript 49); pure corner-wall triples top out at 719 and the
-   mixed family's rational half at 725 (Postscript 50); and a ℚ(√d) engine
-   has counted 82,458 irrational configurations across 56 quadratic
-   fields, finding nothing above 727 — with ℚ(√13), the 393 base's own
-   tilt field, the only one that even reaches it (Postscript 51). The
-   honest remaining gaps: the mixed family's degree-2 solutions with
-   d > 100 (the majority of its 1,377,612 irrational solutions, outside
-   the engine's current overflow budget) are uncounted, and coincidence
-   types beyond edge-edge and corner-on-face have not been enumerated at
+   mixed family's rational half at 725 (Postscript 50); and a ℚ(√d) engine,
+   its overflow guard now a traced per-configuration bound rather than a
+   d ≤ 100 rectangle, has counted 224,184 irrational configurations
+   (up from an earlier, guard-limited 82,458), finding nothing above 727
+   — with 727 reached in eight fields, not the single field (ℚ(√13))
+   the narrower guard had made visible (Postscript 51 addendum 3). The
+   honest remaining gaps: the 284,634 irrational solutions that genuinely
+   exceed the traced budget are uncounted, positive-dimensional systems
+   and one- and two-wall strata are unexamined, and coincidence types
+   beyond edge-edge and corner-on-face have not been enumerated at
    all.
 
 4. **Can non-concentric or unequal-sized cubes do better?** Everything

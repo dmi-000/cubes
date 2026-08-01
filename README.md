@@ -58,17 +58,27 @@ extension cubes at high n are large; log-uniform sampling over component
 heights 4..512 found 727 immediately (Postscript 46). See Postscript 12
 for 723's quaternions and Postscript 46 for 727's.
 
-**727 is a plateau of at least five non-congruent compounds.** Four are
-rational, with depth profiles {214,220,156,100,36,1}, {216,216,160,98,36,1},
-{214,218,160,98,36,1}, {214,216,162,98,36,1} (Postscripts 46, 48–49); the
-fifth is **irrational**, in ℚ(√13) — the 393 base's own tilt field — with
-sixth cube (1, 1−√13, 16−4√13, 11−3√13) and the same profile as the fourth
-class but a different O-reduced pair invariant, hence non-congruent to it
-(Postscript 51). It is the first irrational configuration this project has
-found by search rather than by symmetry. An exhaustive search of the
-three-wall family (2,733 configurations) and a count of 82,458 irrational
-configurations across 56 quadratic fields both found nothing above 727
-(Postscripts 49, 51) — see `PROJECT.md` §8–9 for the full account.
+**727 has at least twelve non-congruent compounds, and is reached in
+eight fields.** Four classes are rational, with depth profiles
+{214,220,156,100,36,1}, {216,216,160,98,36,1}, {214,218,160,98,36,1},
+{214,216,162,98,36,1} (Postscripts 46, 48–49). The other eight are
+irrational, one per field that reaches 727: ℚ(√13) ×144, ℚ(√226) ×51,
+ℚ(√403) ×36, ℚ(√1093) ×9, ℚ(√1614) ×6, ℚ(√1785) ×3, ℚ(√1930) ×3,
+ℚ(√2741) ×3 — 255 configurations, falling into the same three depth
+profiles as the rational classes. Within a field every 727 shares one
+O-reduced pair-invariant signature and the signatures differ across
+fields, so the classes are indexed by field, not just counted
+(Postscript 51 addendum 3). It is the first irrational configuration
+this project has found by search rather than by symmetry. (An earlier
+count here — 82,458 configurations across 56 fields, with ℚ(√13) alone
+reaching 727 — was an artifact of a narrow overflow guard that rejected
+every field with d > 100 before it could be counted; the guard is now a
+traced per-configuration bound. The corrected recount reaches 224,184
+irrational configurations, 284,634 rejected as genuinely over budget.)
+An exhaustive search of the three-wall family (2,733 configurations)
+and this full irrational recount both found nothing above 727
+(Postscripts 49, 51 addendum 3) — see `PROJECT.md` §8–9 for the full
+account.
 
 **The dihedral family (Postscripts 25–26)**: a closed-form one-parameter
 family of 3-cube compounds (cube ± its 120° rotations about an

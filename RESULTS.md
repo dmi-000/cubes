@@ -97,19 +97,18 @@ one cube. Depth profiles:
   makes 4, 4, 4, 13, 13 with 48. The new record has *fewer* coincidences and
   *no* maximal pair, confirming that the global optimum builds from
   locally-suboptimal but tunable pieces.
-- **727 is a plateau of at least five non-congruent compounds**, four rational
-  and one irrational. Profiles {214,220,156,100,36,1}, {216,216,160,98,36,1},
-  {214,218,160,98,36,1}, {214,216,162,98,36,1}; the fifth shares the last
-  profile but lives in ℚ(√13) and is non-congruent to it (differing O-reduced
-  pair invariants), with sixth cube (1, 1−√13, 16−4√13, 11−3√13). All VERIFIED
-  on two engines. Every class satisfies d₁+d₂+d₃+d₄ = 690 with d₅ = 36 and
-  d₆ = 1 fixed — the deep tail is rigid, the shallow layers trade.
-- **The irrational 727 is the first configuration this project found by
+- **727 is a plateau of at least TWELVE non-congruent compounds** — four
+  rational and eight irrational, the latter one per field across ℚ(√13),
+  ℚ(√226), ℚ(√403), ℚ(√1093), ℚ(√1614), ℚ(√1785), ℚ(√1930), ℚ(√2741).
+  They fall into only three depth profiles, all of which also occur
+  rationally: {214,216,162,98,36,1}, {214,220,156,100,36,1},
+  {214,218,160,98,36,1}. Within each field every 727 shares one O-reduced
+  pair-invariant signature and the signatures differ across fields, so the
+  classes are **indexed by field** rather than scattered. Every class
+  satisfies d₁+d₂+d₃+d₄ = 690 with d₅ = 36 and d₆ = 1 fixed. VERIFIED.
+- **The irrational classes are the first configurations this project found by
   SEARCH rather than by symmetry.** The two n=3 maximizers came from the
-  octahedron and the icosahedron; this one came from enumerating strata.
-- **ℚ(√13) is the only field whose strata reach 727** among the 56 counted.
-  It is the 393 base's own tilt field (the 4-clique axis (3,2,0), tan 2/3).
-  The most populous field ℚ(√5) tops out at 721, ℚ(√2) at 713.
+  octahedron and the icosahedron; these came from enumerating strata.
 - **Coincidence conditions are quadrics** in the Cayley coordinates of the free
   cube, and a 9-pair locus is codimension 1. So three walls meet in at most 8
   points by Bézout — which is why records sit at three-wall intersections.
@@ -154,16 +153,15 @@ one cube. Depth profiles:
   re-deriving identical plane triples.
 - **Irrational configurations are now countable at scale.** `cube_regions_q2`
   generalises the integer engine's scalar type to ℤ[√d] and runs ~100× faster
-  than the Python algebraic path. 82 458 irrational configurations across 56
-  fields have been counted: nothing above 727. Every earlier campaign in this
+  than the Python algebraic path. 224,184 irrational configurations have been counted: nothing above 727. Every earlier campaign in this
   project sampled integer quaternions, so this stratum was structurally
   invisible to all of them.
 - **Nothing above 727 has been found at n = 6** by: random menus (100k sixth
   cubes), swap-completion from all six five-cube bases, a balanced climb on the
   worst-subset objective, core-and-clique construction from the 183 core, the
   exhausted three-wall family (2 733 configurations), pure corner-wall triples
-  (best 719), the rational half of the mixed family (best 725), or 82 458
-  irrational configurations across 56 quadratic fields.
+  (best 719), the rational half of the mixed family (best 725), or 224,184 irrational
+  configurations across the fields the overflow budget admits.
 
 ## 7. Superseded claims
 
@@ -184,6 +182,7 @@ current.
 | Porting the algebraic engines to C++ is not worth it | **REVERSED** — that verdict rested on solution fields reaching degree 8, measured on edge-edge systems which turn out all-rational anyway; the volume is degree-2 mixed strata, and the engine found the irrational 727 | Postscripts 47, 50, 51 |
 | The overflow budget's invariant is d·m² | **REFUTED** — tracing \|p\| and \|q\| separately shows the boundary is not constant in m²·d; the flat rule is over-permissive below d ≈ 38 (at d=5 it would admit m=2289 against a true limit of 1855) | Postscript 51 addendum 2 |
 | The Cayley chart omitting w = 0 leaves 180° rotations unreachable | **REFUTED** — q·(0,1,0,0) is a cube self-symmetry, so the chart omits quaternion representatives, not compounds; a second chart returns an identical census | Postscript 49 addendum |
+| ℚ(√13) is the only field whose strata reach 727; the irrational 727 is a fifth class | **REFUTED** — both were properties of a guard that made only 56 fields countable. Widening it gives eight fields and at least twelve classes | Postscript 51 addendum 3 |
 | A 9-pair is characterised by a shared face axis | **REFUTED** — 727 contains three 9-pairs and no two of its cubes share a face axis | Postscript 47 |
 | More coincidences imply a higher count | **REFUTED** — 727 has 18 interior crossings to 723's 48, and counts more | Postscript 47 |
 

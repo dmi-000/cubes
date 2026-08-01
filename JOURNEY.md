@@ -806,6 +806,26 @@ search** rather than by symmetry — every earlier irrational result, at
 n=3, came from recognizing the octahedron or the icosahedron already
 sitting there, not from a search turning one up.
 
+[UPDATED 2026-08-01, Postscript 51 addendum 3: this is the second time
+in the project's history that a property of the instrument got reported
+as a property of the problem — the first was a few pages back, where the
+three-wall family's all-rational solutions turned out to be a fact about
+the edge-edge condition type, not about six-cube compounds in general.
+Here, "56 quadratic fields" and "only one field reaches 727" were both
+properties of the overflow guard: squarefree d ≤ 100 rejected every
+wider field before it could even be counted. The guard is now a traced
+per-configuration bound, and the full recount finds 727 reached in
+**eight** fields — ℚ(√13) ×144, ℚ(√226) ×51, ℚ(√403) ×36, ℚ(√1093) ×9,
+ℚ(√1614) ×6, ℚ(√1785) ×3, ℚ(√1930) ×3, ℚ(√2741) ×3 — 255 configurations
+in only three depth profiles, all of which also occur rationally. By the
+O-reduced pair-invariant multiset that is **at least twelve** congruence
+classes, four rational and eight irrational, one per field: within a
+field every 727 shares one signature, and the signatures differ across
+fields, so the classes are indexed by field rather than merely counted.
+Overall: 224,184 irrational configurations counted (up from 82,458),
+284,634 rejected as genuinely exceeding the traced budget — still
+nothing above 727.]
+
 **Two smaller corrections closed out the arc.** Tracing the engine's
 overflow behavior properly showed the natural guess for its invariant —
 that the boundary scales as d times the component bound squared — is
@@ -959,9 +979,15 @@ Act VIII resolved several of these; the list below marks what moved.
    lines now bound it: E1's cap, the elimination proving 727 isolated with
    an unaugmentable coincidence pattern (Postscript 47), and the three-wall
    enumeration (Postscript 48). The rational-tangent slice reached 387 at five cubes
-   (breaking the old "constant-8 deficit") but has not passed a record;
-   the six-cube record is now known to be a *plateau* of ≥ 27
-   non-congruent realizations, all exactly 723.
+   (breaking the old "constant-8 deficit") but has not passed a record.
+   [CORRECTED 2026-08-01: this item previously ended by describing the
+   *723* summit as "a plateau of ≥ 27 non-congruent realizations" — that
+   was pre-727 text left standing under a rewritten heading, and it
+   conflated 27 sixth-cube *completions* with the four non-congruent depth
+   profiles among them. The current record 727 is itself a plateau, of at
+   least twelve non-congruent compounds: four rational and eight
+   irrational, one per field across ℚ(√13), ℚ(√226), ℚ(√403), ℚ(√1093),
+   ℚ(√1614), ℚ(√1785), ℚ(√1930), ℚ(√2741) — Postscript 51 addendum 3.]
 4. **Prove envelope E1** (a zone-style bound making the branch-and-prune
    a certified branch-and-bound) — unchanged, still open.
 5. **Why exactly does frustration switch on at four cubes?** Act VIII

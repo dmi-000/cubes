@@ -90,6 +90,9 @@ with `index_ledger.py` after appending.
 - [Postscript 51](#postscript-51-a-ℚd-c-engine-82-458-irrational-configurations-counted--nothing-above-727-but-a-fifth-727-class-that-is-irrational-in-ℚ13) — a ℚ(√d) C++ engine, 82 458 irrational configurations counted — nothing above 727, but a…
 - [Postscript 51 addendum](#postscript-51-addendum-the-d--100-gap-is-mostly-a-guard-shape-problem--a-joint-budget-unlocks-343-000-configurations-with-no-arithmetic-change) — the d > 100 gap is mostly a GUARD-SHAPE problem — a joint budget unlocks ~343 000…
 - [Postscript 51 addendum](#postscript-51-addendum-2-correction-dm²-is-not-the-overflow-invariant-and-the-joint-rule-proposed-above-would-have-been-unsafe) — d·m² is NOT the overflow invariant, and the joint rule proposed above would have been UNSAFE
+- [Postscript 51 addendum](#postscript-51-addendum-3-correction--completion-224-184-irrational-configurations-counted-still-nothing-above-727--but-727-has-at-least-twelve-congruence-classes-eight-of-them-irrational-across-eight-fields) — 224 184 irrational configurations counted, still nothing above 727 — but 727 has at least…
+- [Postscript 51 addendum](#postscript-51-addendum-4-the-region-count-is-not-galois-invariant--and-the-arithmetic-structure-reading-of-the-727-plateau-was-mostly-bookkeeping) — the region count is NOT Galois-invariant — and the "arithmetic structure" reading of the 727…
+- [Postscript 51 addendum](#postscript-51-addendum-5-n3-is-less-anomalous-than-postscript-44-claimed--two-of-its-three-anomalies-were-instrument-limited) — n=3 is less anomalous than Postscript 44 claimed — two of its three "anomalies" were…
 
 <!-- INDEX:END -->
 
@@ -3833,3 +3836,123 @@ d=115 ×25); and the boundary rejects exactly where predicted (d=465 accepts
 m=253, rejects m=254).
 
 Absolute ceiling of the engine: at m = 1, d may reach 30 319 844.
+
+### Postscript 51 addendum 3 (CORRECTION + completion): 224 184 irrational configurations counted, still nothing above 727 — but 727 has at least TWELVE congruence classes, EIGHT of them irrational, across EIGHT fields
+
+The full recount under the corrected (traced, per-configuration) overflow
+budget is complete. It **supersedes two claims of Postscript 51**, both of
+which were properties of the old narrow guard rather than of the problem.
+
+**WRONG:** "ℚ(√13) is the only field whose strata reach 727."
+**WRONG:** "a FIFTH 727 class, and it is irrational."
+
+Both were stated from a run in which only 56 fields were countable at all —
+everything with d > 100 was rejected before it could be counted. Scoping the
+claim to the instrument ("the only field among the 56 counted", as RESULTS.md
+happened to put it) would have been correct; stating it of the problem was not.
+
+**FINAL COUNT.** 224 184 irrational configurations counted (up from 82 458),
+284 634 rejected as genuinely exceeding the traced bound. Hits at or above 723:
+
+    723 x 1581     725 x 75     727 x 255     nothing above 727
+
+**727 IS REACHED IN EIGHT FIELDS:**
+
+    ℚ(√13)  144    ℚ(√226)  51    ℚ(√403)  36    ℚ(√1093)  9
+    ℚ(√1614)  6    ℚ(√1785)  3    ℚ(√1930)  3    ℚ(√2741)  3
+
+falling into only three depth profiles, all of which also occur rationally:
+{214,216,162,98,36,1} ×189, {214,220,156,100,36,1} ×63,
+{214,218,160,98,36,1} ×3.
+
+**AT LEAST TWELVE CONGRUENCE CLASSES — 4 rational, 8 irrational.** By the
+O-reduced pair-invariant multiset: within each field every 727 shares one
+signature, and the signatures differ across fields, so the classes are INDEXED
+BY FIELD rather than scattered. That is a structural fact worth pursuing: the
+plateau is not a loose collection of coincidences but an arithmetically
+organised family, with one congruence class per field that reaches it.
+
+d₁+d₂+d₃+d₄ = 690 with d₅ = 36, d₆ = 1 still holds in every class.
+
+**Scope of the negative, stated precisely.** No configuration above 727 exists
+among: the exhausted three-wall family (2 733 configs); pure corner-wall
+triples (sampled, best 719); the rational half of the mixed family (2 856,
+best 725); and 224 184 irrational mixed-family configurations across the
+fields admitted by the traced budget. Still uncounted: the 284 634 solutions
+whose (d, component) pair exceeds that budget, the positive-dimensional
+systems, one- and two-wall strata, and the coincidence types never modelled
+(corner-corner, edge-face, multi-cube concurrence).
+
+### Postscript 51 addendum 4: the region count is NOT Galois-invariant — and the "arithmetic structure" reading of the 727 plateau was mostly bookkeeping
+
+Prompted by the user pressing on a remark of mine — that one congruence class
+per field "suggests the plateau has arithmetic structure rather than being a
+loose collection, and that's a question worth asking properly." Asked
+properly, the interesting version is false.
+
+**THE TEST.** Every irrational 727 arose as a root of a quadratic on a
+rational line, so its Galois conjugate (√d → −√d, i.e. negate every √-part) is
+also a real configuration — a different one, since conjugation is not an
+isometry. If the count were preserved, the FIELD rather than the individual
+root would be carrying it, and one-class-per-field would follow.
+
+**RESULT: 0 of 255 conjugate pairs agree.** Conjugate counts by field:
+ℚ(√13) 727→687, ℚ(√226) 727→683, ℚ(√403) 727→711, ℚ(√1093) 727→683,
+ℚ(√1614) 727→683, ℚ(√1785) 727→695, ℚ(√1930) 727→675, ℚ(√2741) 727→699.
+Every conjugate lands in 675–711 — the bulk of the mixed-strata distribution,
+exactly where an unrelated configuration sits. So conjugation is effectively
+randomising, and the count is a property of the root, not of the field.
+
+**CORRECTION to the framing of addendum 3.** That addendum called the classes
+"INDEXED BY FIELD rather than scattered" and said the plateau is "an
+arithmetically organised family". That over-reads the data. A configuration's
+field of definition is itself a congruence invariant, so configurations over
+different fields are non-congruent almost by definition — the field-indexing
+is bookkeeping, not structure. The only genuine content is the word EXACTLY:
+each field contributes exactly one class rather than several, and even that is
+weakly supported, since four of the eight fields contributed only three
+configurations each.
+
+**WHAT REMAINS OPEN, and is a real question.** Only 8 of ~1 300 counted fields
+reach 727: d = 13, 226, 403, 1093, 1614, 1785, 1930, 2741. ℚ(√13) is the 393
+base's own tilt field and 403 = 13·31 contains it, but 226 = 2·113,
+1614 = 2·3·269, 1785 = 3·5·7·17, 1930 = 2·5·193, and 1093 and 2741 prime show
+no pattern the main session can see. No hypothesis with evidence behind it is
+offered here.
+
+### Postscript 51 addendum 5: n=3 is less anomalous than Postscript 44 claimed — two of its three "anomalies" were instrument-limited
+
+User's observation, 2026-08-01, and it is correct. Postscript 44's audit
+concluded that n=3 is (a) the only level whose optimum set is finite and larger
+than one point, (b) the unique IRRATIONAL rung of the tower, and (c) the only
+level that fails to embed in higher records. Today's results undercut the first
+two.
+
+**(a) Finite-and-multiple is ordinary, not anomalous.** 723 has four
+non-congruent realizations; 727 has at least twelve. n=3's two isolated
+maximizers are a small instance of a common phenomenon, not a unique one.
+
+**(b) Irrational configurations achieve the n=6 record too.** Eight of 727's
+twelve congruence classes are irrational. The claim that n=3 is "the unique
+irrational rung" rested on evidence STRUCTURALLY INCAPABLE of finding
+irrational configurations at other levels: every campaign in this project
+sampled integer quaternions, which are rational by construction. The limited
+exceptions — the quadratic-field and degree-4 resonance sweeps of Postscripts
+28 and 32 — swept specific families, not strata. This is the same
+instrument/problem conflation as the all-rational finding (Postscript 49) and
+the "only field reaching 727" claim (addendum 3), now recurring a third time
+in a claim recorded a week earlier.
+
+**WHAT SURVIVES.** The genuine distinction is REQUIREMENT versus
+AVAILABILITY: no rational configuration attains 67 (Theorem R, conditional on
+the two known maximizers being the only ones), whereas rational configurations
+DO attain 727 — irrationality is optional at n=6 and mandatory at n=3. That,
+plus the nesting break (best triple in any higher record is 63, four short of
+67), is what Postscript 44 should have led with. The cap-sum tightness at
+n ≤ 3 is a statement about the bound, not about configurations.
+
+**TESTABLE, and now cheap.** Run the mixed-strata enumeration on an n=4 or n=5
+base and ask whether an irrational configuration reaches or beats 183 or 393.
+If it does, n=3's distinction narrows to requirement alone, resting on a single
+conditional theorem. The ℚ(√d) engine makes this a few hours of compute; it was
+not possible before 2026-07-31.
