@@ -93,6 +93,8 @@ with `index_ledger.py` after appending.
 - [Postscript 51 addendum](#postscript-51-addendum-3-correction--completion-224-184-irrational-configurations-counted-still-nothing-above-727--but-727-has-at-least-twelve-congruence-classes-eight-of-them-irrational-across-eight-fields) — 224 184 irrational configurations counted, still nothing above 727 — but 727 has at least…
 - [Postscript 51 addendum](#postscript-51-addendum-4-the-region-count-is-not-galois-invariant--and-the-arithmetic-structure-reading-of-the-727-plateau-was-mostly-bookkeeping) — the region count is NOT Galois-invariant — and the "arithmetic structure" reading of the 727…
 - [Postscript 51 addendum](#postscript-51-addendum-5-n3-is-less-anomalous-than-postscript-44-claimed--two-of-its-three-anomalies-were-instrument-limited) — n=3 is less anomalous than Postscript 44 claimed — two of its three "anomalies" were…
+- [Postscript 52](#postscript-52-a-new-congruence-class-of-the-n5-record-393--and-a-correction-the-irrational-record-achievers-are-rationally-shadowed-so-irrationality-is-doing-no-work-at-n5-or-n6) — a NEW congruence class of the n=5 record 393 — and a correction: the irrational…
+- [Postscript 52 addendum](#postscript-52-addendum-n5-run-complete--three-fields-144-configurations-one-profile-and-the--part-structure) — n=5 run complete — three fields, 144 configurations, one profile, and the √-part structure
 
 <!-- INDEX:END -->
 
@@ -3956,3 +3958,109 @@ base and ask whether an irrational configuration reaches or beats 183 or 393.
 If it does, n=3's distinction narrows to requirement alone, resting on a single
 conditional theorem. The ℚ(√d) engine makes this a few hours of compute; it was
 not possible before 2026-07-31.
+
+## Postscript 52: a NEW congruence class of the n=5 record 393 — and a correction: the irrational record-achievers are RATIONALLY SHADOWED, so irrationality is doing no work at n=5 or n=6
+
+2026-08-01, main session, following the user's question about irrational
+configurations between n=3 and n=6.
+
+**METHOD.** The n=6 mixed-strata machinery generalised to an arbitrary rational
+base (mixed_base.py): fix the (n−1)-cube subset of a record, enumerate the
+2-plane + 1-quadric strata for the free cube, count with cube_regions_q2.
+
+**n=4 (base: three cubes of the 183 record).** 159 840 systems, 209 fields,
+25 900 irrational configurations counted. **Best 173 — short of 183 by ten.**
+Coverage caveat: three fixed cubes admit only ONE cube-triple, against four at
+n=5 and ten at n=6, so this negative is thinner than the others.
+
+**n=5 (base: the four cubes of 183).** Irrational configurations DO reach the
+record: 393 attained in ℚ(√1105) and ℚ(√1126), with depth profile
+**{1:146, 2:132, 3:84, 4:30, 5:1}** — different from the known rational 393's
+{1:156, 2:128, 3:78, 4:30, 5:1}, hence a genuinely new congruence class.
+Clustering the hits modulo the cube's own 24 rotations: all of them reduce to
+**six distinct configurations**, three per field, stable at every threshold
+below 0.1°; the nearest cross-field pair is 0.850663° apart. Pair counts
+against the base are 9,9,9,4 — three tunable 9-pairs and no maximal pair,
+where the rational 393's fifth cube has 13,9,9,9. The same
+rigid-for-flexible substitution 727 made against 723.
+
+**THE CORRECTION.** That class is NOT an irrational phenomenon. Rounding the
+ℚ(√1105) configuration to a rational quaternion at denominator 1000 gives
+
+    (1,0,0,0; 0,5,3,2; 1,-4,-1,1; 1,1,-1,-4; 4,-403,262,-137)
+    = 393, profile {1:146, 2:132, 3:84, 4:30, 5:1}   [two-engine verified]
+
+i.e. the same new class, realised RATIONALLY. So the n=5 record has at least
+two congruence classes, and the second is reachable without leaving ℚ. The
+enumeration found its irrational points first only because irrational points
+are what it enumerates.
+
+393 is NOT constant on a chamber here: 60 small perturbations of the rational
+point give 365–383, with 393 recurring once. It is a wall, as records in this
+project always are — but the wall carries rational points as well as
+irrational ones.
+
+**SAME CHECK AT n=6.** Rational approximations near the eight irrational 727s
+mostly fall short (715–721), but ℚ(√403)'s neighbour (92,−19,−80,−85) gives
+**727** with profile {214,216,162,98,36,1} — an already-known rational class
+(two-engine verified). So at least one of the eight irrational 727s is
+rationally shadowed too; the other seven are unresolved at the denominators
+tried, which is weak evidence either way.
+
+**WHAT THIS DOES TO THE n=3 QUESTION.** Addendum 5 concluded that n=3 is less
+anomalous than Postscript 44 claimed, since irrational configurations achieve
+the record at n=6. That conclusion now needs qualifying in the opposite
+direction: every irrational record-achiever CHECKED so far has a rational
+configuration nearby with the same count and profile, so irrationality is not
+doing work at n=5 or n=6. At n=3 it provably is — no rational configuration
+attains 67 (Theorem R). The distinction between REQUIREMENT and AVAILABILITY,
+already flagged in addendum 5 as the part that survives, is looking like the
+whole of it.
+
+**METHODOLOGICAL NOTE.** Enumerating irrational strata finds irrational
+points; that is not evidence that the count requires irrationality. The test
+that matters is whether a rational point on the same wall achieves the same
+count — cheap, and it should be run before any future claim that a record is
+irrational.
+
+### Postscript 52 addendum: n=5 run complete — three fields, 144 configurations, one profile, and the √-part structure
+
+Final numbers for the n=5 base (the four cubes of 183): 644 544 systems over
+543 squarefree classes, 188 382 candidate configurations, **79 398 counted**
+and 108 984 rejected as beyond the traced overflow budget. **Nothing above
+393.**
+
+393 is reached in THREE fields, not the two recorded in the parent postscript:
+
+    ℚ(√466) x63     ℚ(√1105) x36     ℚ(√1126) x45     (144 configurations)
+
+all sharing the single depth profile {1:146, 2:132, 3:84, 4:30, 5:1} — the new
+congruence class, distinct from the known rational 393's {1:156, 2:128, 3:78,
+4:30, 5:1}, and (per the parent postscript) reachable rationally as well at
+(4,−403,262,−137).
+
+**STRUCTURE OF THE IRRATIONAL PART.** Writing each quaternion component as
+p + q√d, the √-part of the axis is always a LOW-HEIGHT integer vector while the
+rational part is large and unstructured (e.g. (143, 23, −57)). Across the 144
+configurations there are 44 distinct primitive √-parts, and exactly HALF —
+72 of 144 — lie along a cube face axis or face diagonal:
+
+    (1,1,0) (1,0,−1) (0,1,1) (0,1,−1) (1,−1,0) (1,0,1)   x9 each  (face diagonals)
+    (1,0,0) (0,1,0) (0,0,1)                              x6 each  (face axes)
+
+the remainder being (1,2,3)-type, (3,3,4)-type and (2,3,5)-type vectors in
+permuted and sign-varied form. The SAME collection of directions recurs in all
+three fields. So the configuration is a generic rotation plus an irrational
+nudge along a cube-symmetry direction — consistent with how these arise, since
+the quadratic comes from restricting a CORNER condition (built from the cube's
+own face normals) to a line, so the discriminant inherits that structure.
+
+This also gives a concrete handle on the open "why these fields" question: the
+field appears to be determined by which small direction pairs with which line,
+rather than being an independent arithmetic property.
+
+**CAUTION recorded because it recurred three times today.** Two earlier
+readings of this data — "the √-parts are identical across fields" and
+"these configurations are near-half-turns" — were both drawn from the FIRST
+ROW of a file and were false of the set (44 distinct √-parts; angles spread
+30°–165° with median ~135°). Aggregate before describing.
