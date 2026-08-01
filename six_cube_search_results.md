@@ -96,6 +96,7 @@ with `index_ledger.py` after appending.
 - [Postscript 52](#postscript-52-a-new-congruence-class-of-the-n5-record-393--and-a-correction-the-irrational-record-achievers-are-rationally-shadowed-so-irrationality-is-doing-no-work-at-n5-or-n6) — a NEW congruence class of the n=5 record 393 — and a correction: the irrational…
 - [Postscript 52 addendum](#postscript-52-addendum-n5-run-complete--three-fields-144-configurations-one-profile-and-the--part-structure) — n=5 run complete — three fields, 144 configurations, one profile, and the √-part structure
 - [Postscript 52 addendum](#postscript-52-addendum-2-correction-the-μ-multiset-undercounts-classes--at-least-21-distinct-labelled-types-among-the-irrational-727s-not-8-and-the-irrational-727s-are-all-rationally-shadowed) — the μ-multiset UNDERCOUNTS classes — at least 21 distinct labelled types among the…
+- [Postscript 52 addendum](#postscript-52-addendum-3-n4s-shortfall-holds-across-all-four-bases-and-a-region-adjacency-invariant-now-exists) — n=4's shortfall holds across ALL FOUR bases; and a region-adjacency invariant now exists
 
 <!-- INDEX:END -->
 
@@ -4102,3 +4103,50 @@ containment classes while differing in which regions share a face. Any future
 claim about how many distinct configurations achieve a record should state
 which of these it is counting — three separate claims in this project have now
 been wrong because they did not.
+
+### Postscript 52 addendum 3: n=4's shortfall holds across ALL FOUR bases; and a region-adjacency invariant now exists
+
+**n=4 CONFIRMED AS THE OUTLIER.** The earlier n=4 negative rested on one
+cube-triple. Re-run over all four 3-subsets of the 183 record — every base
+from which a fourth cube can complete it:
+
+    base = 183 minus cube 3:  best 173  ℚ(√281)
+    base = 183 minus cube 2:  best 173  ℚ(√281)
+    base = 183 minus cube 1:  best 173  ℚ(√281)
+    base = 183 minus cube 0:  best 165  ℚ(√2190)
+
+Ten short of 183 in every case (the first three find the same configuration up
+to cube symmetry, as expected since those bases differ by which cube was
+dropped). So among n=3..6, n=4 is the only level whose record is NOT reached by
+an irrational configuration — while n=5 and n=6 are reached but RATIONALLY
+SHADOWED, and n=3 requires irrationality. Whether "rationality is required at
+n=4" is a fact or a coverage artifact remains open: unlike Theorem R at n=3,
+there is no candidate arithmetic obstruction pointing that way, and 183 is not
+a proved maximum, so any such claim would be doubly conditional.
+
+**REGION ADJACENCY (region_adjacency.py, new).** The counting pipeline already
+distinguishes fragment touches across PHANTOM walls (merge — same region) from
+touches across REAL faces (distinct regions); the latter were asserted and
+discarded. They are exactly the adjacency edges. Recording them costs nothing
+measurable (5.5–6.9 s per n=6 configuration against certify_six's own 6.5 s).
+
+STRUCTURAL GATE, and it is a real one: crossing a real face changes the
+containment set by exactly ONE cube, so every adjacency edge must join labels
+whose bitmasks differ in exactly one bit. Asserted (hard abort, not a filter)
+over ~14 000 edges across 8 configurations: zero violations.
+
+Gates: n=2 (quats 1,0,0,0 / 0,1,1,1) gives 13 regions and 24 edges with degree
+distribution {2:×12, 12:×2} — the twelve depth-1 regions each touching only the
+core and the outside, and those two each touching all twelve, verified
+independently by the main session. The 727 record reproduces total, by_depth
+AND all 64 per_label entries against cube_regions_n, with 2054 edges.
+
+FINDING, on the six rational 727 configurations: distinct depth profiles 4,
+distinct per-label vectors 5, distinct adjacency profiles 5. **Adjacency
+strictly refines the depth profile but added nothing beyond per-label on this
+sample.** The one pair it could not separate — (7,14,1,-5) and (15,-12,-2,-13)
+— is the pair already shown congruent by the O-reduced pair invariants
+(Postscript 46 addendum's withdrawal), so agreement is the correct answer
+there. Sample of six is small; the test worth running is the 21 per-label
+classes among the irrational 727s, which needs ℤ[√d] arithmetic in the Python
+pipeline (not yet built).
