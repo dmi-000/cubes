@@ -25,10 +25,20 @@ can *n* cubes make, and which set of angles is best?**
 
 For one cube the answer is 1. For two it's 13, and already non-obvious.
 By six cubes the answer runs into the hundreds and — as far as we know —
-nobody had mapped it. We ended the week at **723** for six cubes, with a
-formula that seems to govern every size, three independent arguments that
-723 is hard to beat, and a stack of conjectures that are begging for
-proofs.
+nobody had mapped it. The best known at six cubes is now **727**, with a
+formula that seems to govern every size and a stack of conjectures begging
+for proofs.
+
+*A note on how to read this.* What follows is chronological, and the
+record moved while it was being written. The narrative below spends its
+middle third on **723** and on three independent arguments that 723 was
+hard to beat — all of which were sound on the evidence available, and all
+of which 727 later walked through, because every sweep behind them had
+sampled only small quaternions. Later sections mark where each claim fell,
+in dated brackets. If you want the current state rather than the story of
+arriving at it, read [`RESULTS.md`](RESULTS.md) instead: every claim there
+is tagged by how strongly it is established, with superseded ones confined
+to a table at the end.
 
 One rule made the whole project possible: **every count is exact**. A
 configuration is given by *n* integer quaternions (four integers each —
@@ -87,6 +97,10 @@ The record chain, each verified twice:
 | 699 | two 3-fold triples sharing the (1,1,1) diagonal | overlaying symmetric triples |
 | 705, 717 | same families, searched properly | symmetry catalog, better seeds |
 | **723** | a 3-cube cluster about (1,1,1) + three "free" cubes | shared-axis family |
+
+[The chain did not stop there. 723 held for weeks and is the subject of the
+next several acts; it fell to **727** on 2026-07-29, and 1207/1879 at seven
+and eight cubes became 1217/1891 in the same pass. See Act X onward.]
 
 The 723 configuration, if you want to check it right now:
 
@@ -939,7 +953,19 @@ the anchors —
 ```
 clang++ -O2 -std=c++17 -o cube_regions cube_regions.cpp
 ./cube_regions --selftest                    # axial-6 → 121
-./cube_regions --quats '4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1;1,1,1,1;5,2,2,2'   # → 723
+# the current six-cube record, 727:
+./cube_regions --quats '4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1;1,1,1,1;7,14,1,-5'  # → 727
+# its predecessor 723, for comparison — same five cubes, different sixth:
+./cube_regions --quats '4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1;1,1,1,1;5,2,2,2'    # → 723
+```
+
+For configurations whose coordinates are not rational — the n=3 maxima, and
+the irrational strata of Act XI — build the field engine instead, which
+generalises the same counter to ℤ[√d]:
+
+```
+clang++ -O2 -std=c++17 -o cube_regions_q2 cube_regions_q2.cpp
+./cube_regions_q2 --d 5 --quats '1:0,0:0,0:0,0:0;1:1,-2:0,1:-1,0:0;-1:1,0:0,1:1,2:0'  # golden triple → 67
 ```
 
 From scratch, the essential recipe an assistant can implement in an
@@ -980,14 +1006,20 @@ Act VIII resolved several of these; the list below marks what moved.
    an unaugmentable coincidence pattern (Postscript 47), and the three-wall
    enumeration (Postscript 48). The rational-tangent slice reached 387 at five cubes
    (breaking the old "constant-8 deficit") but has not passed a record.
-   [CORRECTED 2026-08-01: this item previously ended by describing the
-   *723* summit as "a plateau of ≥ 27 non-congruent realizations" — that
-   was pre-727 text left standing under a rewritten heading, and it
-   conflated 27 sixth-cube *completions* with the four non-congruent depth
-   profiles among them. The current record 727 is itself a plateau, of at
-   least twelve non-congruent compounds: four rational and eight
-   irrational, one per field across ℚ(√13), ℚ(√226), ℚ(√403), ℚ(√1093),
-   ℚ(√1614), ℚ(√1785), ℚ(√1930), ℚ(√2741) — Postscript 51 addendum 3.]
+   [CORRECTED 2026-08-01: this item previously described the *723* summit
+   as "a plateau of ≥ 27 non-congruent realizations" — pre-727 text left
+   under a rewritten heading, conflating 27 sixth-cube *completions* with
+   the four non-congruent depth profiles among them. 727 is itself a
+   plateau, and larger than any count so far has managed: the 183
+   irrational 727 configurations alone carry 21 distinct per-label
+   vectors, so at least 21 non-congruent compounds, plus the rational
+   ones. An earlier figure of "twelve classes, eight irrational, one per
+   field" undercounted, because the O-reduced pair invariant it used is
+   only a NECESSARY condition for congruence. And the irrationality is
+   incidental: every one of the eight fields is rationally shadowed —
+   34 385 rational points sampled along the same 727-producing lines reach
+   727 too — so n=3 remains the only level where irrationality is
+   REQUIRED. Postscript 52 addendum 2.]
 4. **Prove envelope E1** (a zone-style bound making the branch-and-prune
    a certified branch-and-bound) — unchanged, still open.
 5. **Why exactly does frustration switch on at four cubes?** Act VIII
