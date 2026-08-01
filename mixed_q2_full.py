@@ -1,0 +1,277 @@
+#!/usr/bin/env python3
+# Working principles: locus_linear.py (planes) + corner_probe.py (quadrics).
+"""Mixed strata: two edge-edge PLANES and one corner QUADRIC.
+
+The two condition types on the 393 base behave differently:
+  * edge-edge coplanarity factors into rational PLANES -> all-rational strata,
+    which is why the edge-edge enumeration found no irrational point (an
+    artifact of the type, Postscript 49);
+  * corner-on-face incidence is an IRREDUCIBLE QUADRIC -> can be irrational.
+
+Their mixture is the tractable and interesting case.  Two planes cut a rational
+line; restricting a quadric to that line gives a QUADRATIC IN ONE PARAMETER,
+so every solution is rational or degree-2 irrational -- exactly Q(sqrt d),
+the field of the n=3 maximizers (sqrt 2 and sqrt 5).  Pure quadric triples
+reach degree 8 and produced almost no real points (corner_probe).
+
+No Groebner is needed: intersect two planes exactly, evaluate the quadric at
+three parameter values to recover the restricted quadratic by interpolation,
+then solve it.  Rational roots are counted by the integer engine; irrational
+roots are recorded with their field Q(sqrt d) for the algebraic counters.
+
+INVARIANT: exact rational arithmetic (Fraction) throughout; a discriminant is
+called a perfect square only when its exact rational square root is verified,
+never by floating point.
+"""
+import itertools
+import json
+import math
+import pickle
+import sys
+from fractions import Fraction as F
+
+import sympy as sp
+
+import record_hunt as R
+
+a, b, c = sp.symbols('a b c', real=True)
+FIVE = [(4, 1, 1, -1), (3, 3, 7, 3), (5, -1, -5, -5), (2, 1, 1, 1),
+        (1, 1, 1, 1)]
+CAP = 512
+
+
+def load_planes():
+    """Planes, cached.  Re-deriving them costs a sympy factor pass over 720
+    polynomials every run -- the peak-memory phase, and this machine has been
+    OOM-killing the job there.  Compute once, reuse thereafter."""
+    import os
+    if os.path.exists('locus_planes.pkl'):
+        return pickle.load(open('locus_planes.pkl', 'rb'))
+    import locus_linear as L
+    p = L.extract_planes()
+    pickle.dump(p, open('locus_planes.pkl', 'wb'))
+    return p
+
+
+def quad_coeffs(P):
+    """Quadric as {(i,j,k): rational coeff} over monomials a^i b^j c^k."""
+    p = sp.Poly(sp.expand(P), a, b, c)
+    return {m: F(int(sp.Rational(co).p), int(sp.Rational(co).q))
+            for m, co in zip(p.monoms(), p.coeffs())}
+
+
+def qeval(co, pt):
+    v = F(0)
+    for (i, j, k), cf in co.items():
+        v += cf * pt[0] ** i * pt[1] ** j * pt[2] ** k
+    return v
+
+
+def line_of(p, q):
+    """Intersection line of two planes: (point, direction), exact, or None."""
+    n1, n2 = p[:3], q[:3]
+    d = (n1[1] * n2[2] - n1[2] * n2[1], n1[2] * n2[0] - n1[0] * n2[2],
+         n1[0] * n2[1] - n1[1] * n2[0])
+    if not any(d):
+        return None
+    # fix the coordinate with the largest |d| component and solve the 2x2
+    k = max(range(3), key=lambda i: abs(d[i]))
+    i, j = [t for t in range(3) if t != k]
+    det = n1[i] * n2[j] - n1[j] * n2[i]
+    if det == 0:
+        return None
+    rhs1, rhs2 = -p[3], -q[3]
+    pt = [F(0), F(0), F(0)]
+    pt[i] = F(rhs1 * n2[j] - rhs2 * n1[j], det)
+    pt[j] = F(n1[i] * rhs2 - n2[i] * rhs1, det)
+    return (tuple(pt), tuple(F(x) for x in d))
+
+
+def isqrt_exact(fr):
+    """Exact rational square root of a non-negative Fraction, or None."""
+    if fr < 0:
+        return None
+    n, dd = fr.numerator, fr.denominator
+    rn, rd = math.isqrt(n), math.isqrt(dd)
+    return F(rn, rd) if rn * rn == n and rd * rd == dd else None
+
+
+def to_quat(pt):
+    den = 1
+    for v in pt:
+        den = den * v.denominator // math.gcd(den, v.denominator)
+    q = (den, int(pt[0] * den), int(pt[1] * den), int(pt[2] * den))
+    g = 0
+    for x in q:
+        g = math.gcd(g, abs(x))
+    q = tuple(x // g for x in q) if g > 1 else q
+    return q if any(q) and max(abs(x) for x in q) <= CAP else None
+
+
+def qmul(p, q):
+    w, x, y, z = p
+    e, f, g, h = q
+    return (w*e-x*f-y*g-z*h, w*f+x*e+y*h-z*g, w*g-x*h+y*e+z*f, w*h+x*g-y*f+z*e)
+
+
+SYMS = list(dict.fromkeys(
+    R.canon([t])[0] for t in
+    [(w, x, y, z) for w in (-1, 0, 1) for x in (-1, 0, 1) for y in (-1, 0, 1)
+     for z in (-1, 0, 1)
+     if (w, x, y, z) != (0, 0, 0, 0) and w*w+x*x+y*y+z*z in (1, 2, 4)]))
+
+
+def sym_key(q):
+    return min(R.canon([qmul(tuple(q), h)])[0] for h in SYMS)
+
+
+def main():
+    print('starting', flush=True)
+    planes = load_planes()
+    import os
+    if os.path.exists('corner_quadcoeffs.pkl'):
+        quads = pickle.load(open('corner_quadcoeffs.pkl', 'rb'))
+    else:
+        quads = {j: [quad_coeffs(P) for P in Q]
+                 for j, Q in pickle.load(open('corner_conds.pkl', 'rb')).items()}
+        pickle.dump(quads, open('corner_quadcoeffs.pkl', 'wb'))
+    print('planes/cube %s ; quadrics/cube %s'
+          % ([len(planes[j]) for j in range(5)],
+             [len(quads[j]) for j in range(5)]), flush=True)
+
+    seen, cands, irr, bycls = set(), [], {}, {}
+    nsys = 0
+    for tri in itertools.combinations(range(5), 3):
+        for qi in tri:                       # which cube supplies the quadric
+            pi, pj = [t for t in tri if t != qi]
+            for P1 in planes[pi]:
+                for P2 in planes[pj]:
+                    L = line_of(P1, P2)
+                    if L is None:
+                        continue
+                    p0, d = L
+                    s1 = tuple(p0[t] + d[t] for t in range(3))
+                    s2 = tuple(p0[t] - d[t] for t in range(3))
+                    for co in quads[qi]:
+                        nsys += 1
+                        # q(t) = A t^2 + B t + C from three exact samples
+                        C0 = qeval(co, p0)
+                        Cp = qeval(co, s1)
+                        Cm = qeval(co, s2)
+                        A = (Cp + Cm - 2 * C0) / 2
+                        B = (Cp - Cm) / 2
+                        if A == 0:
+                            if B == 0:
+                                continue
+                            ts = [-C0 / B]
+                        else:
+                            disc = B * B - 4 * A * C0
+                            r = isqrt_exact(disc)
+                            if r is None:
+                                if disc > 0:
+                                    m = disc.numerator * disc.denominator
+                                    sf = 1
+                                    d2 = 2
+                                    while d2 * d2 <= m:
+                                        e = 0
+                                        while m % d2 == 0:
+                                            m //= d2
+                                            e += 1
+                                        if e % 2:
+                                            sf *= d2
+                                        d2 += 1
+                                    sf *= m
+                                    irr[sf] = irr.get(sf, 0) + 1
+                                    if sf <= 30000000:
+                                        k2 = (B * B - 4 * A * C0) / sf
+                                        rr = isqrt_exact(k2)
+                                        if rr is not None:
+                                            for sgn in (1, -1):
+                                                comps = []
+                                                for u in range(3):
+                                                    al = p0[u] + (-B) / (2 * A) * d[u]
+                                                    be = sgn * rr / (2 * A) * d[u]
+                                                    comps.append((al, be))
+                                                L = 1
+                                                for al, be in comps:
+                                                    for v in (al, be):
+                                                        L = L * v.denominator // math.gcd(L, v.denominator)
+                                                quad = ((L, 0),) + tuple(
+                                                    (int(al * L), int(be * L)) for al, be in comps)
+                                                if max(abs(x) for pr in quad
+                                                       for x in pr) <= 4000:
+                                                    bycls.setdefault(sf, set()).add(quad)
+                                continue
+                            ts = [(-B + r) / (2 * A), (-B - r) / (2 * A)]
+                        for t in ts:
+                            pt = tuple(p0[u] + t * d[u] for u in range(3))
+                            qt = to_quat(pt)
+                            if qt is None:
+                                continue
+                            k = sym_key(qt)
+                            if k in seen:
+                                continue
+                            seen.add(k)
+                            cands.append(qt)
+    # persist the enumeration BEFORE any reporting: it costs ~3 minutes and a
+    # failure in the reporting path has already discarded it once.
+    pickle.dump({k: sorted(v) for k, v in bycls.items()},
+                open('mixed_q2_configs.pkl', 'wb'))
+    top = sorted(irr.items(), key=lambda t: -t[1])[:12]
+    print('squarefree classes of the irrational solutions (top 12):', top,
+          flush=True)
+
+    # --- emit Q(sqrt d) quaternions for the irrational solutions ------------
+    # A root t = (-B +- r*sqrt(sf)) / (2A) makes every coordinate of
+    # p0 + t*dir an element alpha + beta*sqrt(sf) of Q(sqrt sf); clearing
+    # denominators gives an integer quaternion over Z[sqrt sf], which
+    # cube_regions_q2 counts directly.  The engine's budget caps sf <= 100
+    # and |p|,|q| <= 512, so larger classes are reported but not counted.
+    import subprocess, tempfile
+    tot = sum(len(v) for v in bycls.values())
+    print('classes: %d, candidate configs: %d' % (len(bycls), tot), flush=True)
+
+    fixed = ';'.join(','.join('%d:0' % x for x in q) for q in FIVE)
+    out = open('mixed_q2_hits.jsonl', 'a')
+    done = rejected = 0
+    grand = (0, None, None)
+    for sf in sorted(bycls, key=lambda k: -len(bycls[k])):
+        cfgs = sorted(bycls[sf])
+        lines = [fixed + ';' + ','.join('%d:%d' % c for c in q) for q in cfgs]
+        with tempfile.NamedTemporaryFile('w', suffix='.txt', delete=False) as fh:
+            fh.write('\n'.join(lines) + '\n')
+            path = fh.name
+        p = subprocess.run(['./cube_regions_q2', '--d', str(sf),
+                            '--quats-stdin'], stdin=open(path),
+                           capture_output=True, text=True)
+        hist, best = {}, (0, None)
+        for line, q in zip(p.stdout.splitlines(), cfgs):
+            if not line.startswith('{'):
+                continue
+            dd = json.loads(line)
+            if 'bounded' not in dd:
+                continue
+            t = dd['bounded']
+            hist[t] = hist.get(t, 0) + 1
+            if t > best[0]:
+                best = (t, q)
+            if t >= 723:
+                out.write(json.dumps({'d': sf, 'total': t, 'quat': q,
+                                      'by_depth': dd['by_depth']}) + '\n')
+                out.flush()
+                if t > 727:
+                    print('*** ABOVE 727 in Q(sqrt%d): %d %s' % (sf, t, q),
+                          flush=True)
+        done += sum(hist.values())
+        rejected += len(cfgs) - sum(hist.values())
+        if best[0] > grand[0]:
+            grand = (best[0], sf, best[1])
+        if len(cfgs) >= 200 or best[0] >= 723:
+            print('  Q(sqrt%-8d): %6d cfgs, counted %6d, best %s'
+                  % (sf, len(cfgs), sum(hist.values()), best[0]), flush=True)
+    print('\nTOTAL counted %d, rejected by budget %d; overall best %s in Q(sqrt%s): %s'
+          % (done, rejected, grand[0], grand[1], grand[2]), flush=True)
+
+
+if __name__ == "__main__":
+    main()
