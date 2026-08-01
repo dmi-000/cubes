@@ -95,6 +95,7 @@ with `index_ledger.py` after appending.
 - [Postscript 51 addendum](#postscript-51-addendum-5-n3-is-less-anomalous-than-postscript-44-claimed--two-of-its-three-anomalies-were-instrument-limited) — n=3 is less anomalous than Postscript 44 claimed — two of its three "anomalies" were…
 - [Postscript 52](#postscript-52-a-new-congruence-class-of-the-n5-record-393--and-a-correction-the-irrational-record-achievers-are-rationally-shadowed-so-irrationality-is-doing-no-work-at-n5-or-n6) — a NEW congruence class of the n=5 record 393 — and a correction: the irrational…
 - [Postscript 52 addendum](#postscript-52-addendum-n5-run-complete--three-fields-144-configurations-one-profile-and-the--part-structure) — n=5 run complete — three fields, 144 configurations, one profile, and the √-part structure
+- [Postscript 52 addendum](#postscript-52-addendum-2-correction-the-μ-multiset-undercounts-classes--at-least-21-distinct-labelled-types-among-the-irrational-727s-not-8-and-the-irrational-727s-are-all-rationally-shadowed) — the μ-multiset UNDERCOUNTS classes — at least 21 distinct labelled types among the…
 
 <!-- INDEX:END -->
 
@@ -4064,3 +4065,40 @@ readings of this data — "the √-parts are identical across fields" and
 "these configurations are near-half-turns" — were both drawn from the FIRST
 ROW of a file and were false of the set (44 distinct √-parts; angles spread
 30°–165° with median ~135°). Aggregate before describing.
+
+### Postscript 52 addendum 2 (CORRECTION): the μ-multiset UNDERCOUNTS classes — at least 21 distinct labelled types among the irrational 727s, not 8; and the irrational 727s are all RATIONALLY SHADOWED
+
+Two corrections and one new measurement, prompted by the user asking which
+configurations are topologically distinct.
+
+**(1) RATIONAL SHADOWING IS UNIVERSAL AT n=6.** Each irrational 727 arose on a
+line cut by two rational planes. Sampling 34 385 RATIONAL points along those
+same lines: **every one of the eight fields is shadowed** — ℚ(√13), ℚ(√226),
+ℚ(√403), ℚ(√1093), ℚ(√1614), ℚ(√1785), ℚ(√1930), ℚ(√2741) each have rational
+points on their own 727-lines that also count 727. Combined with the n=5 result
+(Postscript 52), irrationality does NO work at either level: it is a property
+of which points the enumerator finds, not of which configurations reach the
+record. n=3 remains the only level where irrationality is REQUIRED (Theorem R).
+
+**(2) THE μ-MULTISET TEST UNDERCOUNTS.** Addendum 3 reported "at least twelve
+congruence classes, eight irrational, one per field" from the O-reduced
+pair-invariant multiset. That multiset is only a NECESSARY condition for
+congruence — non-congruent configurations can share it — so it bounds the
+class count from below, and weakly. Measuring instead by PER-LABEL vector
+(regions counted by containment bitmask, an invariant that congruent
+configurations must share): the 183 irrational 727 configurations have
+
+    3 distinct depth profiles      but    21 distinct per-label vectors
+
+so there are **at least 21 non-congruent irrational 727 configurations**, not 8.
+The earlier figure was an artifact of a weak invariant, the same way the field
+count was an artifact of a narrow guard.
+
+**(3) THE INVARIANT HIERARCHY, for future use.** Coarse to fine:
+total count (1) < depth profile (3) < per-label vector (21) < region adjacency
+/ face lattice (uncomputed, ≥21) < congruence (≥21). Per-label is NOT
+topological type: two arrangements can distribute regions identically among
+containment classes while differing in which regions share a face. Any future
+claim about how many distinct configurations achieve a record should state
+which of these it is counting — three separate claims in this project have now
+been wrong because they did not.
