@@ -83,6 +83,11 @@ with `index_ledger.py` after appending.
 - [Postscript 46 addendum](#postscript-46-addendum-727-is-a-plateau-and-729-was-not-reached-80-000-sixth-cubes-on-the-393-base) — 727 is a plateau, and 729 was not reached (80 000 sixth cubes on the 393 base)
 - [Postscript 47](#postscript-47-727-is-proved-isolated-on-the-393-base-and-its-coincidence-pattern-is-unaugmentable-the-record-has-fewer-coincidences-than-723-and-every-condition-is-a-quadric) — 727 is PROVED isolated on the 393 base and its coincidence pattern is unaugmentable; the…
 - [Postscript 48](#postscript-48-the-locus-enumeration--9-loci-are-codimension-1-three-wall-intersection-is-a-30x-better-search-and-727-is-a-plateau-two-non-congruent-compounds) — the locus enumeration — 9-loci are codimension 1, three-wall intersection is a 30x better…
+- [Postscript 48 addendum](#postscript-48-addendum-the-enumerations-first-9-h--727-is-a-four-class-plateau-with-d1d2d3d4--690-conserved-nothing-above-727-in-256-000-configurations) — the enumeration's first 9 h — 727 is a FOUR-class plateau with d1+d2+d3+d4 = 690 conserved;…
+- [Postscript 49](#postscript-49-the-walls-are-pairs-of-planes--the-three-wall-family-is-2-733-configurations-exhausted-in-four-minutes-max-727-and-why-its-all-rational-solutions-are-an-artifact) — the walls are PAIRS OF PLANES — the three-wall family is 2 733 configurations, exhausted in…
+- [Postscript 49 addendum](#postscript-49-addendum-the-w--0-gap-was-illusory--the-chart-omits-quaternions-not-configurations) — the w = 0 "gap" was illusory — the chart omits quaternions, not configurations
+- [Postscript 50](#postscript-50-the-mixed-strata-are-2401-irrational-dominated-by-ℚ5--a-large-stratum-no-search-in-this-project-has-ever-counted) — the mixed strata are 240:1 IRRATIONAL, dominated by ℚ(√5) — a large stratum no search in…
+- [Postscript 51](#postscript-51-a-ℚd-c-engine-82-458-irrational-configurations-counted--nothing-above-727-but-a-fifth-727-class-that-is-irrational-in-ℚ13) — a ℚ(√d) C++ engine, 82 458 irrational configurations counted — nothing above 727, but a…
 
 <!-- INDEX:END -->
 
@@ -3507,3 +3512,259 @@ solution points, so an irrational stratum could hide a configuration; and the
 cubes sharing three coincidences) are skipped entirely by a point
 enumeration. Neither is likely to hold a record given everything above, but
 both are real holes.
+
+### Postscript 48 addendum: the enumeration's first 9 h — 727 is a FOUR-class plateau with d1+d2+d3+d4 = 690 conserved; nothing above 727 in ~256 000 configurations
+
+Three shards ran to their 9 h budget (not to completion): ~1.3 million
+three-wall systems solved, ~256 000 distinct configurations counted, covering
+roughly the first six of the ten fixed-cube triples. Best in every shard:
+**727**. Hits at or above 723:
+
+    723 x 1347     725 x 135     727 x 17     (nothing above 727)
+
+**The 17 sixth cubes reaching 727 fall into FOUR depth profiles**, all
+two-engine verified:
+
+    d1   d2   d3   d4   d5  d6      count of sixth cubes
+    214  220  156  100  36   1        8      (the original, 7,14,1,-5)
+    216  216  160   98  36   1        6      (3,-51,-93,29 and others)
+    214  218  160   98  36   1        2      (e.g. 9,77,-27,-47)      NEW
+    214  216  162   98  36   1        1      (e.g. 17,-25,-1,11)      NEW
+
+Differing histograms prove non-congruence, so **727 is a plateau of at least
+four distinct compounds** — exactly the multiplicity 723's summit showed
+(Postscript 29 addendum). In every class
+
+    d1 + d2 + d3 + d4 = 690   with d5 = 36, d6 = 1 fixed,
+
+so the four classes are related by a conserved exchange, as at 723 — but
+richer: at 723 the exchange moved (d2,d3,d4) with d1 = 210 pinned, whereas
+here d1 itself varies (214 or 216). The deep tail is rigid, the shallow
+layers trade.
+
+Status of the enumeration: **not exhaustive yet** — the remaining triples are
+(1,2,3), (1,2,4), (1,3,4), (2,3,4) plus the tail of (0,3,4), roughly 40% of
+the family, about 7 h more at the same rate. The coverage gaps of the parent
+postscript still apply (rational solution points only; positive-dimensional
+systems skipped).
+
+## Postscript 49: the walls are PAIRS OF PLANES — the three-wall family is 2 733 configurations, exhausted in four minutes, max 727; and why its all-rational solutions are an ARTIFACT
+
+2026-07-31, main session. Prompted by the user asking whether the absence of
+irrational solutions might be an artifact of an unnecessary restriction. It
+is — see the scope section below — but the same investigation collapsed the
+enumeration by three orders of magnitude.
+
+**EVERY COINCIDENCE CONDITION FACTORS INTO TWO RATIONAL LINEAR FORMS.** In
+Cayley coordinates q = (1,a,b,c) on the rational 393 base, each edge-edge
+coplanarity condition is not an irreducible quadric but a PAIR OF PLANES,
+e.g. −4(3a−5b−2c)(a+b−c+4) and −4a(b−c). Consequences:
+
+ • a three-wall system is 2³ = 8 linear systems, each a 3×3 rational solve —
+   Bézout's bound of 8 is exactly the eight plane choices;
+ • the 144 walls per fixed cube collapse to **24 distinct planes** (23 for
+   cube 4), so the whole family is 10 cube-triples × 24³ = 134 784 systems;
+ • solutions are rational BY CONSTRUCTION.
+
+**EXHAUSTIVE RESULT (locus_linear.py, ~4 minutes).**
+
+    134 784 systems | 8 199 singular (positive-dimensional)
+    2 733 distinct configurations after symmetry dedup and the height cap
+    723 x 24    725 x 12    727 x 6    NOTHING ABOVE 727
+
+The six 727 points split 3/3 between the two known depth profiles
+{214,220,156,100,36,1} and {216,216,160,98,36,1}. So the entire three-wall
+family is 2 733 configurations — the Gröbner enumeration of Postscript 48
+ground through 1.3 million systems to sample part of that, because the 144
+walls per cube are only 24 planes and ~99% of its systems were re-deriving
+the same plane triples. The reformulation did not merely speed the search up;
+it showed the family was small all along.
+
+**WHY THE ALL-RATIONAL FINDING IS AN ARTIFACT.** irrational_probe.py measured
+0 irrational roots out of 2 451 (400 systems). That is now explained rather
+than lucky — and it is a property of the construction, not of the problem:
+
+ 1. The five fixed cubes are rational, so every wall has rational
+    coefficients, so every three-plane intersection is rational. Irrational
+    solutions CANNOT arise in this family. The one useful corollary: a sixth
+    cube on ≥ 3 independent walls is necessarily rational, hence irrational
+    candidates carry at most two coincidences.
+ 2. **The wall set is INCOMPLETE.** Only edge-edge coplanarity against a
+    single fixed cube was enumerated. Corner coincidences, face-plane
+    coincidences, edge-face incidences and multi-cube concurrences are all
+    absent — and Postscript 12 found records sit at high-multiplicity plane
+    concurrences (three cubes sharing a corner = 9 planes through a point),
+    with 723 corner-dominated. This enumeration cannot see those strata.
+ 3. The |component| ≤ 512 height cap drops rational points with large
+    denominators — exactly where near-irrational configurations live.
+
+That irrational optima exist in this problem is not in doubt: max(3) = 67 is
+attained ONLY at irrational configurations (Theorem R, Postscript 44).
+
+**HONEST SCOPE of the exhaustion.** Complete over sixth cubes lying on three
+EDGE-EDGE walls against three distinct fixed cubes of the rational 393 base,
+within the w ≠ 0 Cayley chart and the height cap, with 8 199 singular
+(positive-dimensional) systems skipped rather than resolved. That is the
+family containing both 723 and 727. It is NOT the statement "no sixth cube
+beats 727".
+
+**REMAINING GAPS, now cheap.** At four minutes per chart the closable ones
+are trivial: (a) the w = 0 chart (180° rotations — where symmetric
+configurations concentrate); (b) resolving the singular systems by sampling
+each component's generic count; (c) one- and two-wall strata; (d) the other
+coincidence TYPES, which is the substantive one and needs new conditions
+derived, not just a rerun.
+
+### Postscript 49 addendum: the w = 0 "gap" was illusory — the chart omits quaternions, not configurations
+
+Gap (a) of Postscript 49 is closed, by argument rather than by search. The
+Cayley chart q = (1,a,b,c) cannot represent w = 0, so the 180° rotations
+looked unreachable. But right multiplication by a cube SELF-symmetry leaves
+the cube unchanged as a set, and
+
+    q · (0,1,0,0) = (−x, w, z, −y),   with (0,1,0,0) = 180° about x ∈ O,
+
+so any w = 0 quaternion maps to one with nonzero first component (if x = 0
+too, use another generator; some component is nonzero). The chart therefore
+omits quaternion REPRESENTATIVES, not compounds, and the enumeration's
+existing deduplication by the cube's 24 rotations already absorbs the
+difference.
+
+Confirmed experimentally: rebuilding all conditions in the second chart
+q = (a,1,b,c) — which does cover every 180° rotation — and re-running the
+enumeration gives an identical census, 2 733 candidates, 8 199 singular
+systems, the same distribution to the last entry (723×24, 725×12, 727×6),
+and the SAME SIX 727 compounds up to cube symmetry (verified by symmetry
+key). Scripts: locus_probe_chart2.py, locus_linear_chart2.py.
+
+Remaining gaps of Postscript 49 are now (b) the 8 199 singular
+(positive-dimensional) systems, (c) one- and two-wall strata, and (d) the
+other coincidence TYPES — corner coincidences, face-plane coincidences,
+edge-face incidences, multi-cube concurrences. (d) is the substantive one:
+Postscript 12 found records sit at high-multiplicity corner concurrences and
+723 is corner-dominated, so the stratum type most associated with records is
+exactly the one these conditions do not encode.
+
+## Postscript 50: the mixed strata are 240:1 IRRATIONAL, dominated by ℚ(√5) — a large stratum no search in this project has ever counted
+
+2026-07-31, main session, following the user's challenge to the previous
+postscript's all-rational finding. That finding was an artifact of the
+condition type; here is what the other types look like.
+
+**CORNER-ON-FACE CONDITIONS ARE IRREDUCIBLE QUADRICS** — unlike edge-edge
+coplanarity, which factors into rational planes. Two families, both
+codimension 1 (96 distinct per fixed cube after dedup): a corner of the free
+cube on a face plane of a fixed cube, and the reverse. A sample of 250 pure
+corner-triples (corner_probe.py) is POOR: 245 solved systems yielded only 55
+real roots (edge-edge gives ~6.3 per system), all rational, best count **719**,
+distribution topping at 717/719. So pure corner strata are sparser and lower
+than the edge-edge family, not richer.
+
+**THE MIXED FAMILY IS WHERE THE IRRATIONALITY LIVES.** Two planes cut a
+rational line; restricting a quadric to it gives a QUADRATIC IN ONE
+PARAMETER, so every solution is rational or degree-2 — exactly ℚ(√d), the
+field of the n=3 maximizers. No Gröbner needed: intersect the planes exactly,
+recover the restricted quadratic from three exact samples, read the
+discriminant. Exhaustive over 2-plane + 1-quadric (mixed_enum2.py):
+
+    1 620 000 systems
+    2 856 distinct RATIONAL candidates -> max 725 (below 727)
+    688 806 degree-2 IRRATIONAL solutions
+
+    top squarefree classes:
+      √5   13 500      √17  12 930     √465  8 394     √15  8 106
+      √115  7 536      √6    7 104     √10   6 828     √481 6 594
+      √217  5 970      √145  5 508     √13   5 244     √73  4 998
+
+**ℚ(√5) is the most common field of all** — the golden field, in which the
+n=3 golden maximizer sits. ℚ(√13) in the top twelve is the 393 record's own
+tilt field (Postscript 27: the unique 4-clique axis (3,2,0), tan 2/3);
+ℚ(√6) is the dihedral ψ=45° field. These are the fields this problem's
+structure already produces, not arbitrary ones.
+
+**NONE OF THESE 688 806 CONFIGURATIONS HAS EVER BEEN COUNTED.** Every search
+campaign in this project's history sampled integer quaternions, which are
+rational by construction; the algebraic engines (cube_compound_exact for
+ℚ(√5), slide3_q2 for ℚ(√2), qtower, opencount) exist but run at ~20 s per
+n=6 count in Python, enough to verify a known configuration and far too slow
+to search. This is a large, structurally natural stratum that has been
+invisible to the entire program.
+
+Consequence: **the C++ port verdict of Postscript 47 is REVERSED.** That
+verdict rested on solution fields reaching degree 8 — true for edge-edge
+systems, which turn out to be all-rational anyway. The volume is here, in the
+mixed strata, and it is entirely DEGREE 2, which is the cheap case: elements
+p + q√d with integer p,q, arithmetic in the same cost class as the current
+integer path. A ℚ(√d) C++ engine (cube_regions_q2.cpp) is under construction,
+gated on reproducing the known algebraic values: golden 67/177/351 in ℚ(√5),
+octahedral 67 in ℚ(√2), the ψ=45° point 49 in ℚ(√6), and exact agreement
+with the integer engine when d = 0. 400 exact representatives are saved in
+mixed_irrational_sample.json; the first real job is the 13 500 ℚ(√5) points.
+
+Scope note: the rational half of this family maxes at 725, so no new record
+comes from it. Whether the irrational half contains anything above 727 is
+genuinely OPEN — the first such open question at n=6 in this program, as
+distinct from the many that were closed at 727.
+
+## Postscript 51: a ℚ(√d) C++ engine, 82 458 irrational configurations counted — nothing above 727, but a FIFTH 727 class that is IRRATIONAL, in ℚ(√13)
+
+2026-08-01, main session, completing the arc the user opened by asking whether
+the absence of irrational solutions was an artifact (it was) and then judging
+a C++ irrational engine "worth having on general principle" (it was).
+
+**THE ENGINE (cube_regions_q2.cpp).** The integer engine's scalar type
+generalised to Z[√d], d squarefree and given at runtime; geometry and topology
+untouched. Gates, all independently re-run by the main session:
+ • --d 0 reproduces cube_regions.cpp BIT-FOR-BIT including per_label (727,
+   183, and the axial self-test);
+ • the field path on a purely rational config (d=5, all √-parts zero) returns
+   727 with the correct histogram;
+ • on a golden triple the main session derived INDEPENDENTLY — from
+   cube_compound_exact's own axes, searching the cube's 24 frames for the
+   representative lying in Z[√5], since the naive frame gives nested radicals
+   √(7/16 + 3√5/16) — it returns 67 = {48,18,1} with per_label matching the
+   Python engine;
+ • the overflow guard rejects non-squarefree d, d > 100, and |p|,|q| > 512
+   rather than truncating silently.
+Measured ~100x faster than the Python algebraic path (n=3/4/5: 5.3/11.5/21.9 ms
+against 0.48/1.10/2.20 s). Note cube_compound_exact caps at N=5 — run(6)
+silently aliases to run(5) through a list slice — so the "~20 s at n=6" figure
+used earlier in this project was an extrapolation, not a measurement.
+
+**THE COUNT.** Of the 688 806 degree-2 solutions of the mixed strata
+(Postscript 50), those in the engine's budget (squarefree d ≤ 100, components
+≤ 512) are **56 fields, 82 458 configurations** — every one of them counted.
+Result: **NOTHING ABOVE 727.** Best per field, largest classes first:
+
+    ℚ(√5)  7374 cfgs -> 721      ℚ(√17) 6210 -> 717     ℚ(√6) 4218 -> 723
+    ℚ(√13) 3156 cfgs -> **727**  ℚ(√2)  3000 -> 713     ℚ(√41) 2850 -> 719
+    ℚ(√7), ℚ(√3), ℚ(√57), ℚ(√10), ℚ(√34), ℚ(√82), ℚ(√62) -> 723; rest lower
+
+**A FIFTH 727 CLASS, AND IT IS IRRATIONAL.** ℚ(√13) is the ONLY field reaching
+727, in 72 configurations, all with depth profile {1:214, 2:216, 3:162, 4:98,
+5:36, 6:1}. That profile also occurs rationally (once, in the Postscript 48
+run), but the two are NOT congruent: their O-reduced pair-invariant multisets
+differ (2.298618/2.394195/2.548272/2.986205 against
+2.277586/2.405405/2.540744/2.983337). Example sixth cube:
+
+    (1, 1−√13, 16−4√13, 11−3√13)     727 = {214, 216, 162, 98, 36, 1}
+
+Two-engine verified: cube_regions_q2 and opencount.py's degree-agnostic field
+engine (separate codebases) agree on total and full histogram. So 727 has at
+least FIVE congruence classes, one of them irrational — and this is the first
+irrational configuration this project has found by SEARCH; the two n=3
+maximizers came from symmetry.
+
+ℚ(√13) is not an arbitrary field here: it is the 393 base's own tilt field
+(Postscript 27, the unique 4-clique axis (3,2,0), tan 2/3). The base's
+arithmetic reappears as the only field whose strata reach the record, while
+the most populous field ℚ(√5) tops out at 721 and ℚ(√2) at 713.
+
+**REMAINING GAP.** Classes with d > 100 — ℚ(√465), ℚ(√115), ℚ(√481),
+ℚ(√217), ℚ(√145) and others, together the majority of the 688 806 solutions —
+are outside the engine's derived overflow budget and remain uncounted.
+Widening that budget needs wider arithmetic; the user's suggestion of a
+continued-fraction sign test would let coordinates use the full width of the
+type (comparing |p|/|q| against √d by comparing continued-fraction expansions,
+with no products at all), though the binding constraint is the growth inside
+det3, not the final sign test.

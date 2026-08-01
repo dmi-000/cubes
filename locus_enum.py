@@ -47,6 +47,11 @@ CAP = 512
 SHARD = int(sys.argv[1]) if len(sys.argv) > 1 else 0
 NSHARDS = int(sys.argv[2]) if len(sys.argv) > 2 else 1
 MAXH = float(sys.argv[3]) if len(sys.argv) > 3 else 9.0
+# Optional 4th arg: comma-separated indices into the C(5,3) triple list, so a
+# resumed run need not redo triples an earlier run already covered.  Indices:
+#   0:(0,1,2) 1:(0,1,3) 2:(0,1,4) 3:(0,2,3) 4:(0,2,4)
+#   5:(0,3,4) 6:(1,2,3) 7:(1,2,4) 8:(1,3,4) 9:(2,3,4)
+ONLY = ({int(x) for x in sys.argv[4].split(',')} if len(sys.argv) > 4 else None)
 
 per = pickle.load(open('locus_polys.pkl', 'rb'))
 eng = R.Engine(6, 1)
@@ -127,6 +132,8 @@ def main():
         pending = []
 
     for ti, tri in enumerate(triples):
+        if ONLY is not None and ti not in ONLY:
+            continue
         j0, j1, j2 = tri
         # symmetry: fix the first wall's sixth-cube edge index to 0
         w0 = [P for P, tag in per[j0] if tag[0] == 0]
