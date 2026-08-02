@@ -99,6 +99,11 @@ with `index_ledger.py` after appending.
 - [Postscript 52 addendum](#postscript-52-addendum-3-n4s-shortfall-holds-across-all-four-bases-and-a-region-adjacency-invariant-now-exists) — n=4's shortfall holds across ALL FOUR bases; and a region-adjacency invariant now exists
 - [Postscript 52 addendum](#postscript-52-addendum-4-the-727-plateau-holds-at-least-600-configurations--every-earlier-class-count-measured-the-enumerator) — the 727 plateau holds at least 600 configurations — every earlier class count measured the…
 - [Postscript 52 addendum](#postscript-52-addendum-5-the-727-plateau-has-at-least-109-distinct-combinatorial-types--and-per-label-is-as-sharp-as-adjacency) — the 727 plateau has at least 109 distinct combinatorial types — and per-label is as sharp as…
+- [Postscript 52 addendum](#postscript-52-addendum-6-a-taxonomy-of-the-727-plateau--types-are-tight-clusters-with-fixed-pair-relations-and-the-c3-quotient-corrects-the-counts) — a taxonomy of the 727 plateau — types are tight clusters with fixed pair relations, and the…
+- [Postscript 53](#postscript-53-a-failed-attempt-at-proving-e1-with-the-error-located--each-piece-adds-one-region-is-false-for-non-disk-pieces) — a FAILED attempt at proving E1, with the error located — "each piece adds one region" is…
+- [Postscript 54](#postscript-54-the-727-plateau-is-a-nested-chamber-structure-and-adjacent-types-differ-by-an-elementary-2-exchange-within-one-depth) — the 727 plateau is a nested chamber structure, and adjacent types differ by an elementary ±2…
+- [Postscript 55](#postscript-55-the-9-plane-corner-concurrence-stratum-is-capped-at-723--records-do-not-concentrate-there-723-did) — the 9-plane corner-concurrence stratum is CAPPED AT 723 — records do not concentrate there,…
+- [Postscript 55 addendum](#postscript-55-addendum-the-ways-of-reaching-727--the-discovered-record-is-a-1-in-161-outlier-and-one-route-carries-a-13-pair) — the ways of reaching 727 — the discovered record is a 1-in-161 outlier, and one route…
 
 <!-- INDEX:END -->
 
@@ -4221,3 +4226,243 @@ invariant (the full face lattice, or the adjacency graph up to isomorphism
 rather than by profile) could still separate configurations these two agree on.
 What is established is that the cheap invariant loses nothing the expensive one
 currently detects.
+
+### Postscript 52 addendum 6: a taxonomy of the 727 plateau — types are tight clusters with fixed pair relations, and the C3 quotient corrects the counts
+
+Correcting the counts first. The 393 base is invariant under the C3 rotation
+about (1,1,1) — it fixes cubes 3 and 4 (both lie on that axis) and 3-cycles the
+spokes 0,1,2 — so rotating a whole compound by it gives a CONGRUENT compound
+with the same base. Earlier counts quotiented only by the free cube's own 24
+rotations and therefore double-counted:
+
+    417 configurations, 109 types   ->   161 configurations, 54 types
+
+The base has no genuine mirror symmetry: its only improper "symmetries" are the
+central inversion times C3, and -I acts trivially on cubes because a cube is
+centrally symmetric. **The base is chiral**, so reflection maps these
+configurations out of the enumerated family rather than permuting within it.
+
+**WHY ORBIT SIZES CAME OUT {1,2,3}** — impossible for a group of order 3.
+The recovered set is not C3-closed, and the reason is structural: the C3
+generator (1,1,1,1) has norm 4, so multiplying inflates quaternion components
+about twofold. Of the C3 images of the 161 representatives, 49 EXCEED the
+engine's |component| <= 512 budget (median component 200 -> 261, max 512 ->
+1093) and are therefore unreachable by cube_regions_n. Nothing is lost
+mathematically — each such image is congruent to a representative already in
+hand, so its count and every invariant are known without evaluating it — but it
+means **the height cap is not symmetry-equivariant**: a bound on a coordinate
+representation is not a bound on the configuration. Same error shape as the
+rectangular overflow guard (addendum 2). The fix is to canonicalise over the
+orbit before filtering.
+
+**THE TAXONOMY.** Over 416 within-type pairs:
+
+    same pair-count signature vs the five base cubes : 416 / 416  (100%)
+    from the same wall line                         : 287 (69%)
+    geodesic separation WITHIN a type : min 0.005  median 0.285  max 1.568 deg
+    geodesic separation ACROSS types  : min 0.088  median 5.598  max 18.859 deg
+
+So a per-label TYPE is a tight geometric cluster — 20x closer within than
+between — whose members share their pair relations to the base exactly. That
+the fine combinatorial invariant determines the coarse geometric one is not a
+tautology: pair counts are properties of two-cube subconfigurations and are not
+readable from a six-cube per-label vector. No exceptions in 416 trials.
+
+Type sizes are uneven: {1:19, 2:15, 3:9, 4:2, 5:4, 6:1, 10:1, 12:1, 14:1, 15:1}.
+
+**Provenance does NOT determine type.** Only four wall-triple combinations
+occur, every one using cube 3 for a plane — (0,3)+quadric1 -> 11 types,
+(0,3)+quadric4 -> 7, (1,3)+quadric0 -> 24, (1,3)+quadric2 -> 12. The wall
+triple selects the neighbourhood; something finer selects the type within it,
+and what that is remains unidentified.
+
+SCOPE, stated because "taxonomy" invites over-reading: this classifies the
+RATIONAL 727s recovered from the 2-plane+1-quadric strata on the 393 base,
+within the height cap. It does not cover the irrational 727s (183 of them,
+classified at 21 types before this C3 correction, so that figure is inflated
+too), the pure-corner or one- and two-wall strata, the 8 199
+positive-dimensional systems, configurations not containing the 393 base, or
+any level other than n=6.
+
+## Postscript 53: a FAILED attempt at proving E1, with the error located — "each piece adds one region" is false for non-disk pieces
+
+2026-08-02, main session. E1 (Postscript 18) bounds the one-cube increment by
+a MEASURED constant, T <= S_max + 336 at n=6. This is an attempt to derive it
+instead, and it fails; recorded because the failure is instructive and the
+diagnosis points at the repair.
+
+**THE ATTEMPT.** The increment identity T = count(S_j) + Delta_j is exact.
+Every region created by re-adding cube j arises because dC_j cuts an existing
+region, so — the claimed step — Delta_j <= #pieces into which dC_j is divided
+by the other cubes' face planes. Then dC_j is a sphere, each other face plane
+meets it in a closed curve, crossings have degree 4 so E = 2V, and Euler gives
+F = 2 + V with V computable exactly (a plane pair contributes 2 iff their
+intersection line meets int C_j).
+
+**IT FAILS**, on 15 of 21 tested (config, j) pairs — e.g. the 183 record at
+j=0 has Delta = 128 against a bound of 98, and the n=2 13-pair has Delta = 12
+against a bound of 2.
+
+**WHERE IT BREAKS.** Two compounding errors, both found by testing the n=2
+case where the answer is checkable by hand:
+
+ 1. **F = 2 + V requires every face to be a DISK.** In the 13-pair the six
+    traces of A's face planes on dB are DISJOINT closed curves, so the faces
+    are annuli and worse, and that form of Euler does not apply. The correct
+    general count is F = 1 + C + V with C the number of connected components
+    of the curve union (verified: 1 circle -> 2 faces; 2 disjoint -> 3; 2
+    crossing twice -> 4; 3 great circles -> 8). That gives 7 for the 13-pair.
+
+ 2. **The piece bound itself is FALSE.** "Each connected piece adds at most
+    one region" holds only for disk pieces. In the 13-pair, dB ^ int A is ONE
+    connected piece with SIX boundary circles, and it separates int A into
+    seven parts. One piece, six extra regions. So 7 pieces cannot bound
+    Delta = 12.
+
+**THE REPAIR DIRECTION.** What governs how many parts a region is cut into is
+the number of BOUNDARY CIRCLES of the cutting surface, not the number of
+pieces: a connected separating surface with b boundary circles can create up
+to b parts. For the 13-pair that gives 6 circles inside A plus 6 lobes
+outside — exactly the 12 observed. So the right bookkeeping counts trace
+curves and their crossings, not arrangement faces.
+
+The geometric predicate is NOT at fault: line_meets_interior was cross-checked
+against dense numeric sampling on all 153 plane pairs of the n=4 case, 153/153
+agreement. Files: increment_bound.py (the failed bound, kept with this
+postscript as its documentation).
+
+E1 therefore remains an empirical envelope, and open problem 4 remains open.
+
+## Postscript 54: the 727 plateau is a nested chamber structure, and adjacent types differ by an elementary ±2 exchange within one depth
+
+2026-08-02, main session, answering "how are members of a type related?" and
+"are there other structures among types?"
+
+**NESTED CHAMBERS.** A wall line (the intersection of two coincidence planes)
+carries a chamber structure at two levels:
+
+    wall line
+      count-chamber   — the total is constant along a stretch
+        type-chamber  — the per-label vector is constant on a sub-stretch
+
+Verified on one line: the count is 727 at 76 of 77 rational points sampled
+across t in [2,6], including at denominators 11,13,17,19,23 deliberately
+coprime to the grid that produced the original points — so 727 holds on a
+genuine INTERVAL, not merely at lattice points. Within that one count-chamber
+sit **11 type-chambers**.
+
+**SO MEMBERS OF A TYPE ARE POINTS OF A COMMON TYPE-CHAMBER** — related by
+continuous deformation along the line crossing no wall that alters the label
+distribution. This explains the measured facts of addendum 6: pair signatures
+identical within a type (they are constant along the whole count-chamber),
+separations of a fraction of a degree, and 69% of within-type pairs sharing a
+line. The other 31%, on different lines, share a type by combinatorial
+coincidence with no deformation connecting them.
+
+**THE ELEMENTARY EXCHANGE.** Crossing between adjacent type-chambers:
+
+    label  2 -2  ->  label  1 +2      (both depth 1)
+    label 32 -2  ->  label  2 +2      (both depth 1)
+    label 40 -2  ->  label  6 +2      (both depth 2)
+    label 11 -2  ->  label 50 +2      (both depth 3)
+    label 1 -2, label 49 -2  ->  label 32 +2, label 7 +2   (depths 1 and 3,
+                                                            each balanced)
+
+Every observed transition moves **exactly ±2 regions**, between labels of the
+**same depth**, with net zero at every depth — magnitude patterns (2,2) eight
+times and (2,2,2,2) twice, out of ten transitions. So the type-transition is
+an elementary exchange: two regions change which cubes contain them, without
+changing how many.
+
+The quantum of 2 is not mysterious: every compound here is centrally symmetric
+(all cubes share the centre), so regions occur in antipodal pairs and no count
+can change by an odd amount. Same mechanism as the parity law bounded = 2n-1
+(mod 4), Postscript 4.
+
+**CONSEQUENCE.** The 54 types are not an unstructured list: they are vertices
+of a graph whose edges are these elementary exchanges, embedded along the wall
+lines. This also corrects the picture of Postscript 52 addendum 6, which
+described the 727 configurations as isolated points — true transverse to the
+walls, where perturbation collapses the count to 715-721, but false ALONG
+them, where the count persists on intervals. The earlier perturbation test
+moved off the line, which is exactly where the count dies.
+
+Scope: measured on one line of the 129, at n=6 on the 393 base. Whether the
+±2-same-depth rule is universal is untested, though central symmetry makes the
+parity half of it structural.
+
+## Postscript 55: the 9-plane corner-concurrence stratum is CAPPED AT 723 — records do not concentrate there, 723 did
+
+2026-08-02, main session. Postscript 12 concluded that records sit at
+high-multiplicity corner concurrences (three cubes sharing a corner, nine face
+planes through a point) and that 723 is corner-dominated. That stratum had
+never been enumerated: every wall condition used in this project encodes
+edge-edge coplanarity or corner-on-FACE incidence, never corner-to-corner
+coincidence, which is codimension 2.
+
+**IT IS DIRECTLY ENUMERABLE ON THE 393 BASE.** Cubes 3 = (2,1,1,1) and
+4 = (1,1,1,1) are both rotations ABOUT (1,1,1), so both fix that direction and
+both have a corner at exactly (1,1,1) — a 6-plane concurrence already in the
+base. A free cube with a corner there makes it 9-plane. Those free cubes form
+four rational one-parameter families: R0 * Rot((1,1,1), theta) where R0 carries
+a chosen corner to (1,1,1); R0 = identity for the corner (1,1,1) itself, and a
+180-degree turn about the bisector for the others — e.g. (0,1,1,0) carries
+(1,1,-1) to (1,1,1) — so all four are integer-quaternion sweepable. Every
+candidate was checked in exact arithmetic to actually have a corner at (1,1,1)
+(gate: 200 sampled, 0 off-stratum).
+
+**RESULT: 124 892 candidates, best 723, nothing above.**
+
+    723 x49345   699 x19257   719 x16422   711 x13495   715 x9954
+    707 x3972    703 x3252    717 x177     721 x69      713 x57
+    697 x45      705 x33      709 x30      701 x27
+
+723 occupies 40% of the stratum — unsurprising, since 723 IS this family: a C3
+orbit on the (1,1,1) axis, built by placing cubes into that corner
+concurrence. The stratum is the 723 family and it caps at 723.
+
+**727 IS NOT IN IT.** Its free cube (7,14,1,-5) has no corner at (1,1,1). This
+matches the incidence census (Postscript 47): 727 carries 18 interior edge-edge
+crossings to 723's 48, and no maximal (13) pair where 723 has two. **The new
+record beat the old one by LEAVING the stratum the old one occupied.**
+
+**SO POSTSCRIPT 12'S FRAMING NEEDS NARROWING.** "Records concentrate at corner
+concurrences" was a true statement about 723 and the chain below it — 699, 705,
+717 were all built on the (1,1,1) axis — and a false generalisation. Corner
+dominance was a property of one record, not of records. The searches that
+followed from that generalisation, this project's blueprint and shared-axis
+campaigns included, were therefore aimed at a stratum with a ceiling below the
+current record, which is part of why 723 stood for weeks.
+
+The count distribution is strongly quantised — five values hold 90% of the
+stratum, and the intermediate values (697, 701, 705, 709, 713, 721) are rare —
+as expected for a one-parameter family, where the count is piecewise constant
+and the common values are the wide chambers.
+
+### Postscript 55 addendum: the ways of reaching 727 — the discovered record is a 1-in-161 outlier, and one route carries a 13-pair
+
+Pair-count signatures of the free cube against the five base cubes, over all
+161 C3-quotiented configurations reaching 727:
+
+    (9, 9, 4, 4, 4)   159 configurations
+    (9, 9, 9, 4, 4)     1   <- the originally discovered record (7,14,1,-5)
+    (13, 5, 4, 4, 4)    1   <- reaches 727 WITH a maximal pair
+
+**CORRECTION.** Postscript 47 and its successors described 727 as "replacing
+two rigid 13-pairs with three tunable 9-pairs" relative to 723, and read that
+as the frustration principle appearing in a record. That is a true statement
+about ONE configuration and false about the plateau: 159 of 161 reach 727 with
+only TWO 9-pairs, and one reaches it carrying a 13-pair — the rigid maximal
+pair the frustration story says optima avoid. The generalisation was drawn
+from the single configuration then in hand, the same error as "the √-parts are
+identical" and "these configurations are near-half-turns" (Postscript 52
+addendum 4's caution).
+
+The discovered record is therefore structurally atypical of its own plateau —
+found first because extension-from-1207 and wide-height menus happened to land
+on it, not because its structure is representative.
+
+Signature and depth profile are INDEPENDENT axes: the (9,9,4,4,4) route spans
+all three profiles (124 / 27 / 8), while each singleton route has one. So
+neither invariant determines the other, and the earlier within-type constancy
+of signatures (416/416, addendum 6) is consistent — types are finer than both.
