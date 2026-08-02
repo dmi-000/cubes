@@ -4,7 +4,7 @@
 here has a paper trail: `RESULTS.md` is the recommended starting point —
 every current claim tagged PROVED / VERIFIED / EXHAUSTED / CONJECTURE, with
 superseded claims confined to one table. `six_cube_search_results.md` (the
-dated ledger, now Postscripts 1–51 with addenda) is the primary record beneath that,
+dated ledger, now Postscripts 1–52 with addenda) is the primary record beneath that,
 `PROJECT.md` is the formal write-up, and `README.md` maps all the code.
 Anyone with access to a
 mid-tier coding model (Claude Sonnet or similar) and a laptop can
@@ -984,20 +984,36 @@ ledger; every claimed number is checkable in seconds.
 ## Open questions
 
 Act VIII resolved several of these; the list below marks what moved.
+Items 1 and 2 are **CLOSED** — both were still listed as open long after
+they were proved, which is exactly the staleness this list exists to
+avoid; they are kept here, struck through, because the shape of what was
+open is part of the story.
 
-1. **Finish "67 is maximal" for three cubes.** Half of it is now proved
-   (see the No-Parasites draft): the second-deepest and deep bounds give
-   depth-2 ≤ 18 and depth-3 ≤ 1. What remains is the shallow bound
-   depth-1 ≤ 48 — a single finite classification of the top diagram's
-   vertices, for which the two maxima's exact censuses now supply the
-   equality cases that classification must reproduce. This is the
-   nearest theorem still open.
-2. **Harden the No-Parasites proof, then two cubes are done.** The draft
-   argument (equal-length tie gradients + great-circles-never-tangent +
-   Gordan's alternative) closes the last gap for **max = 13 at two
-   cubes** — the first complete maximum theorem — and proves
-   depth-(n−1) ≤ 6n for *all* n, the project's oldest open problem. It
-   is filed as a draft pending one adversarial read.
+1. ~~**Finish "67 is maximal" for three cubes.**~~ **PROVED**
+   (2026-07-21, Postscripts 41–43). max(3) = 67 holds for any three
+   concentric convex ≤6-facet cells meeting pairwise transversally —
+   cubes included, an open dense set containing both maximizers. Three
+   Euler arguments: depth-3 ≤ 1 and depth-2 ≤ 18 by convex cover, and
+   depth-1 ≤ 48 from Euler on the top diagram with the vertex weight
+   split 32 + 60 between triple points and pairwise intersection
+   polytopes. The route this item proposed — "a single finite
+   classification of the top diagram's vertices" — is not the route that
+   worked; the marked step "deg_top ≤ deg_bot at triple points" turned
+   out to be FALSE, and the proof goes through a two-budget local
+   inequality instead. Write-up: [`PROOF_67.md`](PROOF_67.md) +
+   [`PROOF_STEP_T.md`](PROOF_STEP_T.md). One caveat survives, inherited
+   from the contact analysis: two cells meeting *tangentially* rather
+   than transversally.
+2. ~~**Harden the No-Parasites proof, then two cubes are done.**~~
+   **PROVED** (2026-07-20, Postscript 33). max(2) = 13, and by a much
+   cheaper argument than the draft this item describes: A∖B is a union of
+   at most six convex pieces (one per face of B), likewise B∖A, plus one
+   core — so the bound holds for *any* two convex cells with at most six
+   faces, not just cubes. The same postscript's Theorem 1 gives
+   depth-(n−1) ≤ 6n for all n, the project's oldest open problem, now
+   closed. Correction recorded with it: the maximizer is not "45° about a
+   face axis" but any angle about a body diagonal — a continuum, not the
+   rigid point the project believed for weeks (Postscript 44).
 3. **Beat 727 or corner it completely** — 723 fell on 2026-07-29 (Postscript
    46), and by envelope E1 the question is now equivalent to finding a
    fundamentally new five-cube arrangement ≥ 390, or proving none exists.
@@ -1035,13 +1051,18 @@ Act VIII resolved several of these; the list below marks what moved.
 7. **The tower at scale** — does greedy extension stay within a constant
    of optimal as n grows, and what is the asymptotic growth of max(n)?
    (Cap-sum bound O(n³); the records track it suspiciously well.)
-8. **Is three the *only* irrational rung?** Two cubes rational, three
-   forced irrational, four proved not to gain from irrationality (best
-   resonance 151, count-negative) — conditional on the two 67s being the
-   unique three-cube maxima, three cubes is the sole irrational level of
-   the tower. The one live escape route: a short list of higher-degree
-   n=4 resonance candidates left uncounted for want of an exact-sign
-   routine (one sits in the record's own number field).
+8. **Is three the *only* irrational rung?** — largely answered
+   2026-08-01, and not the way this item expected. Once a ℚ(√d) engine
+   existed, irrational configurations turned out to REACH the records at
+   five and six cubes (393 in three fields, 727 in eight), so "three is
+   the only level with irrational optima" is false. But every one of them
+   is **rationally shadowed**: sampling rational points along the very
+   lines that produced them reaches the same counts, so irrationality is
+   doing no work there. At four cubes the irrational strata fall ten
+   short of 183, across all four bases. So the surviving claim is
+   narrower and sharper than the original: three cubes is the only level
+   where irrationality is **required** (Theorem R), not the only level
+   where it appears. Postscripts 51–52 and their addenda.
 9. **A create-versus-merge criterion.** Coincidences are exactly the
    top-diagram vertices; whether a new one creates or merges regions is
    now a bookkeeping question — does its added vertex weight exceed the
@@ -1053,11 +1074,14 @@ Act VIII resolved several of these; the list below marks what moved.
     coincidence curves grazing ψ=45° about 70° apart, never linking),
     not a proven ceiling.
 
-*Files for the deeper dive: `six_cube_search_results.md` (ledger, now
-Postscripts 1–31), `PROJECT.md` (formal write-up), `C45_notes.md` (proof
-program — the four dihedral-family theorems in §12, the max(3)=67 lemma
-tree in §13, the No-Parasites status in §14), `PROOF_L1b.md` (the
-No-Parasites draft), `census_report.md` (the two maxima as exact
+*Files for the deeper dive: `RESULTS.md` (current state, every claim
+tagged by strength — start here), `six_cube_search_results.md` (ledger,
+now Postscripts 1–52 with addenda, indexed at the top),
+`PROJECT.md` (formal write-up), `PROOF_67.md` + `PROOF_STEP_T.md` (the
+max(3)=67 proof), `C45_notes.md` (proof program — the four
+dihedral-family theorems in §12, the max(3)=67 lemma tree in §13),
+`region_adjacency.py` (region adjacency graphs, for classifying
+configurations beyond region counts), `census_report.md` (the two maxima as exact
 diagrams), `events_report.md` (the create-vs-merge catalogue),
 `rattan_report.md` (the rational-tangent sweep), `resonance4_report.md`
 (the n=4 resonance verdict), `nfamily_report.md`, `handoff_report.md`,

@@ -127,8 +127,9 @@ same surprise as at six cubes, where the best rational arrangement (723,
 now 727, Postscript 46)
 beats the golden-based one (681): the golden compound is the best
 *symmetric* configuration, not the overall maximum. So the records for
-four and five cubes are at least 183 and 393, and none of these is proven
-maximal.
+four and five cubes are at least 183 and 393, neither of which is proven
+maximal. (Two and three cubes *are* settled: max(2) = 13 and max(3) = 67
+are theorems — Section 10, items 1 and 2.)
 
 **The records nest.** The best six-cube arrangement (723, now 727 —
 Postscript 46; the nesting below still holds with 393 ⊂ 727) contains the
@@ -1015,26 +1016,23 @@ corner-on-face altogether (Postscript 51 addendum 3).
 
 ## 10. Open problems
 
-1. **Prove the second-deepest cap, depth-(n−1) ≤ 6n — now with a draft
-   proof.** This reduces (Section 5) to one lemma: the direction-sphere
-   function "distance to the nearest face" has local minima *only* at the
-   6n face-centre directions, with no extra "shoulder" (or "parasite")
-   minima. The two-normal case was long provable; the open crux was
-   whether three or more face-normals could conspire to make an extra
-   minimum. A short argument now appears to close it for *every* n, built
-   from three facts already in hand: at a point where several faces tie
-   for closest, their spherical gradients have *equal length*; the tie
-   curves are arcs of great circles, and distinct great circles are never
-   tangent; and a linear-algebra alternative (Gordan's theorem) forces
-   the equal-length gradients either to admit a strictly-improving
-   direction that the great-circle geometry keeps inside the cell, or to
-   be exactly equal — meaning two genuinely parallel faces, a degeneracy
-   that removes itself. The write-up (`PROOF_L1b.md`) is filed as a draft
-   pending one adversarial read; if it holds it proves this cap for all
-   n and, with the convexity bound depth-2 ≤ 1, settles **max = 13 at two
-   cubes**, the first complete maximum theorem. (The deeper caps
-   depth-3 ≤ 164 and depth-4 ≤ 102 at n=6 are separate, harder counting
-   statements.)
+1. **The second-deepest cap depth-(n−1) ≤ 6n — PROVED (2026-07-20),
+   and so is max(2) = 13.** The cap follows from the anchor lemma: the
+   direction-sphere function "distance to the nearest face" has local
+   minima *only* at the 6n face-centre directions, with no extra
+   "shoulder" minima. The argument runs through equal-length tie
+   gradients, great circles never being tangent, and Gordan's
+   alternative — the route this item previously described as a draft
+   (`PROOF_L1b.md`) pending an adversarial read. It held. **max(2) = 13**
+   followed, and by a cheaper route than expected: A∖B is a union of at
+   most six convex pieces, one per face of B, likewise B∖A, plus one
+   core — so the bound holds for *any* two convex cells with at most six
+   faces, not merely cubes. Postscript 33. One correction travelled with
+   it: the two-cube maximizer is not "45° about a face axis" but *any*
+   angle about a body diagonal, a continuum rather than the isolated
+   point the project assumed for weeks (Postscript 44). (The deeper caps
+   depth-3 ≤ 164 and depth-4 ≤ 102 at n=6 remain separate, harder
+   counting statements, still open.)
 
 2. **"max = 67 at three cubes" — PROVED (2026-07-21).** depth-2 ≤ 18,
    depth-3 ≤ 1, and the shallow bound depth-1 ≤ 48 are all now in hand, so
