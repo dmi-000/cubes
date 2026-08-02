@@ -97,6 +97,8 @@ with `index_ledger.py` after appending.
 - [Postscript 52 addendum](#postscript-52-addendum-n5-run-complete--three-fields-144-configurations-one-profile-and-the--part-structure) — n=5 run complete — three fields, 144 configurations, one profile, and the √-part structure
 - [Postscript 52 addendum](#postscript-52-addendum-2-correction-the-μ-multiset-undercounts-classes--at-least-21-distinct-labelled-types-among-the-irrational-727s-not-8-and-the-irrational-727s-are-all-rationally-shadowed) — the μ-multiset UNDERCOUNTS classes — at least 21 distinct labelled types among the…
 - [Postscript 52 addendum](#postscript-52-addendum-3-n4s-shortfall-holds-across-all-four-bases-and-a-region-adjacency-invariant-now-exists) — n=4's shortfall holds across ALL FOUR bases; and a region-adjacency invariant now exists
+- [Postscript 52 addendum](#postscript-52-addendum-4-the-727-plateau-holds-at-least-600-configurations--every-earlier-class-count-measured-the-enumerator) — the 727 plateau holds at least 600 configurations — every earlier class count measured the…
+- [Postscript 52 addendum](#postscript-52-addendum-5-the-727-plateau-has-at-least-109-distinct-combinatorial-types--and-per-label-is-as-sharp-as-adjacency) — the 727 plateau has at least 109 distinct combinatorial types — and per-label is as sharp as…
 
 <!-- INDEX:END -->
 
@@ -4150,3 +4152,72 @@ sample.** The one pair it could not separate — (7,14,1,-5) and (15,-12,-2,-13)
 there. Sample of six is small; the test worth running is the 21 per-label
 classes among the irrational 727s, which needs ℤ[√d] arithmetic in the Python
 pipeline (not yet built).
+
+### Postscript 52 addendum 4: the 727 plateau holds at least 600 configurations — every earlier class count measured the enumerator
+
+Sampling rational points along the same lines that produced the irrational
+727s (the two-plane intersections recorded in provenance_727.json) and counting
+each exactly:
+
+    417 distinct RATIONAL 727 configurations   (deduplicated by the cube's
+                                                own 24 rotations)
+      profile {214,220,156,100,36,1}  x311
+      profile {214,216,162, 98,36,1}  x82
+      profile {214,218,160, 98,36,1}  x24
+
+together with the 183 irrational ones already counted, **at least 600
+configurations reach 727** on these lines alone — and the lines are only the
+three-wall strata this enumeration happens to cover.
+
+**This retires the class counts recorded earlier in this session.** The
+progression was 4 (Postscript 48, by depth profile), then 12 (addendum 3, by
+O-reduced pair invariant), then ≥21 (addendum 2, by per-label vector), now
+≥600. Each figure was correct about what it measured and wrong as a statement
+about the plateau, because each measured the reach of the instrument in use:
+a coarser invariant merges classes, and a narrower enumeration finds fewer
+configurations. Only the last of these was ever presented with its scope
+attached.
+
+The honest current statement: the number of distinct configurations achieving
+727 on the 393 base is **at least 600 and not known**; the number of distinct
+combinatorial types among them is unmeasured, since only three depth profiles
+appear but per-label and adjacency both refine that (region_adjacency.py exists
+for exactly this, and has not been run over the 417).
+
+
+### Postscript 52 addendum 5: the 727 plateau has at least 109 distinct combinatorial types — and per-label is as sharp as adjacency
+
+Running region_adjacency.py over all 417 rational 727 configurations recovered
+from the 727-producing lines (2 260 s, 5.4 s each, ~850 000 edges, zero
+one-bit-gate violations):
+
+    distinct DEPTH profiles     :   3
+    distinct PER-LABEL vectors  : 109
+    distinct ADJACENCY profiles : 109
+
+**(1) The plateau is heterogeneous.** 109 distinct combinatorial types among
+417 configurations — the depth profile, which sees only 3, undercounts by a
+factor of 36. "The 727 compound" is not a meaningful phrase: it is at least 109
+genuinely different arrangements that happen to count the same, plus whatever
+the irrational ones and the unenumerated strata add.
+
+**(2) Adjacency adds NOTHING over per-label, at this scale.** The two
+invariants partition the 417 identically. A priori adjacency should be strictly
+finer — two arrangements can distribute regions identically across all 64
+containment classes and still glue them differently — but empirically, on this
+population, the containment-set distribution already determines the edge
+multiset. The earlier six-configuration test (Postscript 52 addendum 3) saw the
+same agreement but was far too small to support it; 417 configurations is not.
+
+Practical consequence: classification can use `per_label`, which the counting
+engine emits for free at 0.11 s, instead of the 5.4 s adjacency computation —
+**50x cheaper at no measured cost in resolution**. region_adjacency.py remains
+the instrument of record for checking that claim, and the one-bit assertion it
+carries is a genuine correctness gate, not a self-consistency check.
+
+Caveat on (2): "no measured loss" is not "provably equivalent". The adjacency
+profile in use is the multiset of edge label-pairs; a finer topological
+invariant (the full face lattice, or the adjacency graph up to isomorphism
+rather than by profile) could still separate configurations these two agree on.
+What is established is that the cheap invariant loses nothing the expensive one
+currently detects.
