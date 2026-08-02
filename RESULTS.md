@@ -21,7 +21,7 @@ Status tags:
 | **EXHAUSTED** | a search that was complete over a stated family, not a sample |
 | **CONJECTURE** | consistent with all evidence, not proved |
 
-Last updated 2026-08-01.
+Last updated 2026-08-02.
 
 ---
 
@@ -71,6 +71,14 @@ one cube. Depth profiles:
 - **d_{n−1} ≤ 6n for every n.** PROVED (the l = 1 ceiling law, via the anchor
   lemma: the radial envelope of any n-cube configuration has local minima only
   at the 6n face centres).
+- **The one-cube increment is bounded by an Euler count on the added cube's own
+  surface.** PROVED. With G the region adjacency graph including the outside
+  region and G_j its bit-j subgraph, Δ_j = |V(G)| − #components(G_j) exactly,
+  hence Δ_j ≤ |E(G_j)| ≤ B_j = 1 + c + Σ_v (deg(v)/2 − 1), the cell count of
+  the arrangement the other cubes' face planes trace on ∂C_j. Measured slack
+  1.00–1.11 over 21 (configuration, cube) pairs; G_j was a forest in all 9
+  cases where it was computed, making the first inequality an equality too.
+  Postscript 56.
 - **727 is isolated on the 393 base, and its coincidence pattern is
   unaugmentable.** PROVED by elimination. Holding the five cubes of 393 fixed,
   a sixth has 3 degrees of freedom; its 36 active coincidence conditions cut
@@ -92,26 +100,36 @@ one cube. Depth profiles:
 - **The record tower nests at every level except n = 3.** The best triple
   inside any higher record is 63, four short of 67 — a consequence of the
   irrationality above, since every subset of a rational compound is rational.
-- **727 replaces rigid pieces with flexible ones.** Its sixth cube makes pair
-  counts 9, 9, 9, 4, 4 and carries 18 interior edge-edge crossings, where 723's
-  makes 4, 4, 4, 13, 13 with 48. The new record has *fewer* coincidences and
-  *no* maximal pair, confirming that the global optimum builds from
-  locally-suboptimal but tunable pieces.
-- **727 is a plateau of at least TWELVE non-congruent compounds** — four
-  rational and eight irrational, the latter one per field across ℚ(√13),
-  ℚ(√226), ℚ(√403), ℚ(√1093), ℚ(√1614), ℚ(√1785), ℚ(√1930), ℚ(√2741).
-  They fall into only three depth profiles, all of which also occur
-  rationally: {214,216,162,98,36,1}, {214,220,156,100,36,1},
-  {214,218,160,98,36,1}. Within each field every 727 shares one O-reduced
-  pair-invariant signature and the signatures differ across fields, so the
-  classes are **indexed by field** rather than scattered. Every class
-  satisfies d₁+d₂+d₃+d₄ = 690 with d₅ = 36 and d₆ = 1 fixed. VERIFIED.
+- **727 is usually reached without a maximal pair, but not always.** Across the
+  161 configurations the sixth cube's pair signature is (9,9,4,4,4) in 159
+  cases, (9,9,9,4,4) once — the originally discovered record — and (13,5,4,4,4)
+  once, which reaches 727 while *carrying* a 13-pair. The discovered record
+  (18 interior crossings against 723's 48) is therefore atypical of its own
+  plateau, and the "records avoid rigid maximal pairs" reading drawn from it
+  holds for 160 of 161 configurations but is not a law.
+- **727 is a plateau of at least 161 non-congruent compounds in 54
+  combinatorial types**, after quotienting by each cube's 24 rotations AND by
+  the base's own C₃ symmetry about (1,1,1) — which triple-counts if forgotten.
+  They fall into only three depth profiles, all of which also occur rationally:
+  {214,216,162,98,36,1}, {214,220,156,100,36,1}, {214,218,160,98,36,1}. Every
+  class satisfies d₁+d₂+d₃+d₄ = 690 with d₅ = 36 and d₆ = 1 fixed. Eight of the
+  fields reached are irrational — ℚ(√13), ℚ(√226), ℚ(√403), ℚ(√1093), ℚ(√1614),
+  ℚ(√1785), ℚ(√1930), ℚ(√2741) — but every one is rationally shadowed, so
+  irrationality does no work at n = 6, and the classes are NOT indexed by field
+  (the O-reduced pair invariant that suggested that is only necessary for
+  congruence, not sufficient). VERIFIED.
 - **The irrational classes are the first configurations this project found by
   SEARCH rather than by symmetry.** The two n=3 maximizers came from the
   octahedron and the icosahedron; these came from enumerating strata.
 - **Coincidence conditions are quadrics** in the Cayley coordinates of the free
   cube, and a 9-pair locus is codimension 1. So three walls meet in at most 8
   points by Bézout — which is why records sit at three-wall intersections.
+- **The codimension-1 walls are exactly "four face planes concurrent"**, and
+  classify by how the four distribute over cubes: (3,1) corner-on-face, (2,2)
+  edge-edge, (2,1,1) edge meets a two-cube crossing line, (1,1,1,1) four planes
+  from four cubes. The first two are enumerated; the last two never were.
+  Corner-corner coincidence and edge-inside-a-face are codimension 2, so
+  neither is a wall — though both occur in the 393 base. Postscript 57.
 - **Edge-edge conditions factor into PAIRS OF RATIONAL PLANES**; corner-on-face
   conditions are IRREDUCIBLE QUADRICS. That difference decides the arithmetic:
   three planes always meet in a rational point, so edge-edge strata cannot
@@ -125,7 +143,12 @@ one cube. Depth profiles:
   C(l,n) = (12l−6)n − 2(l²−1) for l ≥ 2. Never exceeded in ~1M configurations;
   proved only for l = 1.
 - **max(6) ≤ 729.** The envelope bound gives T ≤ S_max + 336, and 727 sits on
-  the 393 five-subset, so only 729 remains available on that base.
+  the 393 five-subset, so only 729 remains available on that base. The
+  constant 336 is still MEASURED. The increment it bounds is now derived
+  (Postscript 56): T = S_j + Δ_j with Δ_j ≤ B_j, an exact Euler cell count on
+  the added cube's surface, ≤ 11% above the true increment everywhere tested —
+  but its universal ceiling at n = 6 is 872, so this conjecture is not yet a
+  theorem.
 - **The frustration deficit is 6(n−3)(n−2)** — the gap between the cap-sum
   1 + Σ C(l,n) and the true maximum. Exact at n = 3, 4, 5 (0, 12, 36); predicts
   max(6) = 729, max(7) = 1223, max(8) = 1907. A three-point fit, two of whose
@@ -185,6 +208,9 @@ current.
 | ℚ(√13) is the only field whose strata reach 727; the irrational 727 is a fifth class | **REFUTED** — both were properties of a guard that made only 56 fields countable. Widening it gives eight fields and at least twelve classes | Postscript 51 addendum 3 |
 | A 9-pair is characterised by a shared face axis | **REFUTED** — 727 contains three 9-pairs and no two of its cubes share a face axis | Postscript 47 |
 | More coincidences imply a higher count | **REFUTED** — 727 has 18 interior crossings to 723's 48, and counts more | Postscript 47 |
+| The E1 derivation fails because "each connected piece adds at most one region" is false for non-disk pieces | **REFUTED** — the piece bound was never needed; the real error was scoring twelve TANGENT vertices as zero, and the stated counterexample (∂B ∩ int A connected with six boundary circles) is geometrically false — it has six components | Postscripts 53, 56 |
+| Records concentrate at high-multiplicity concurrences | **REVERSED** — the sweet-spot caveat was noted early (Act III: "more alignment is not better"), but the heuristic still drove the searches. Measured, the correlation is negative. Over 1200 unselected draws, configurations counting ≥ 700 average 1.6 hits on the base's triple-point walls; those counting < 650 average 92.6. The heuristic described 723, which is exactly the 54-crossing corner family | Postscripts 55, 57 |
+| Corner-corner and edge-in-face are unmodelled wall types | **RECLASSIFIED** — both are codimension 2, so neither is a wall. The genuinely unenumerated codimension-1 types are (2,1,1) and (1,1,1,1) | Postscript 57 |
 
 Two methodological errors are worth carrying forward, because both produced
 plausible numbers rather than obvious failures. Counting cells of the infinite

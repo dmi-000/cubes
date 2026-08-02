@@ -95,9 +95,15 @@ d6 = 1: the deep tail is rigid, the shallow layers trade.
   one-dimensional — a union of segments.
 - Chamber widths run from 0 to 1.35 in the line parameter. Members per
   type track width x sampling density and mean nothing intrinsic.
-  **Zero-width types** are configurations sitting where extra
-  coincidences meet — the discovered record satisfies 36 conditions
-  with a unique real solution, the signature of a point type.
+  **Chamber boundaries are wall crossings** — verified exactly, 43 of 46
+  boundaries on four lines bracket a root of a catalogued condition, against
+  a 1.7% chance rate (Postscript 58). The walls doing the work are mostly the
+  ones no search had enumerated: the project's edge-edge and corner-on-face
+  catalogue explains only 6 of the 46, and adding the W4 walls of
+  Postscript 57 (a free-cube face plane through a real triple point of the
+  base) takes it to 43. A **zero-width type** is therefore a parameter value
+  where two crossings coincide; the discovered record, satisfying 36
+  conditions with a unique real solution, is such a multiple point.
 
 ## Scope
 

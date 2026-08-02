@@ -1,10 +1,12 @@
 # Six glass cubes: weeks of experimental mathematics with a team of AIs
 
-*An informal account, updated 2026-08-01. Self-contained, but every claim
+*An informal account, updated 2026-08-02. This is the LONG version — for a
+ten-minute, low-jargon tour that hits the same beats and links onward, read
+[`OVERVIEW.md`](OVERVIEW.md) instead. Self-contained, but every claim
 here has a paper trail: `RESULTS.md` is the recommended starting point —
 every current claim tagged PROVED / VERIFIED / EXHAUSTED / CONJECTURE, with
 superseded claims confined to one table. `six_cube_search_results.md` (the
-dated ledger, now Postscripts 1–52 with addenda) is the primary record beneath that,
+dated ledger, now Postscripts 1–58 with addenda) is the primary record beneath that,
 `PROJECT.md` is the formal write-up, and `README.md` maps all the code.
 Anyone with access to a
 mid-tier coding model (Claude Sonnet or similar) and a laptop can
@@ -300,9 +302,14 @@ totalling ≥ 388 — and after ~171,000 five-cube configurations, the only
 known members of that class are 723's own subsets. So the hunt for a
 better six-cube arrangement is no longer a 15-dimensional needle search;
 it is precisely the hunt for one new near-record five-cube arrangement.
-(E1 and E2 are measured envelopes, not theorems — clearly labelled as
-such — and proving E1, likely via a zone-style bound on how many regions
-six new faces can create, would make the cornering rigorous.)
+(E1 and E2 were measured envelopes, not theorems — clearly labelled as
+such. The *increment* half of E1 is now derived: Postscript 56 proves
+Delta_j = N − #components(G_j) ≤ B_j, where B_j is an Euler cell count of
+the plane arrangement traced on the added cube's own surface, and it holds
+on every configuration tested with at most 11% slack. What is still
+measured rather than proved is the flat constant: the derivation's
+universal ceiling at n = 6 is B_j ≤ 872, not 336, so "T ≤ S_max + 336"
+remains an empirical envelope and max(6) ≤ 729 remains a conjecture.)
 
 The same full apparatus — climb the record, enumerate blueprints, test
 the caps, extend the tower, measure the envelope — was then run at n=7,
@@ -1037,7 +1044,14 @@ open is part of the story.
    727 too — so n=3 remains the only level where irrationality is
    REQUIRED. Postscript 52 addendum 2.]
 4. **Prove envelope E1** (a zone-style bound making the branch-and-prune
-   a certified branch-and-bound) — unchanged, still open.
+   a certified branch-and-bound) — HALF DONE. The increment identity and
+   its geometric bound are proved (Postscript 56): the one-cube increment
+   equals N − #components of the bit-j adjacency subgraph, and is bounded
+   by an Euler cell count B_j on the added cube's surface, slack ≤ 1.11 on
+   every configuration measured. What remains is a good UNIVERSAL ceiling
+   on B_j: the crude one, 2 vertices per plane pair, gives 872 at n = 6,
+   far above the measured 336, so the branch-and-bound is not yet
+   certified.
 5. **Why exactly does frustration switch on at four cubes?** Act VIII
    gives the mechanism: attaining the maximum needs every depth layer
    maxed at once, which is possible only at n ≤ 3 (and forces

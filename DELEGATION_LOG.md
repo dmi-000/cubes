@@ -112,6 +112,59 @@ exactly what misleads a later reader, so the main session fixed it.
 
 ---
 
+## 2026-08-02 — The repaired increment bound
+
+**Model:** Sonnet. **Target:** new `increment_bound2.py`. **Spec:**
+`INCREMENT_BOUND_SPEC.md` (written by the main session, in the repo).
+
+**Task.** Implement the bound B_j = 1 + c + SUM_v (deg(v)/2 - 1) on the cell
+count of the plane arrangement cut on dC_j, which links (V) of the chain
+Delta_j = N - #comps(G_j) <= |E(G_j)| <= W_j <= K_j <= B_j.
+
+**Key instruction, and why it mattered:** G1 is a hand-computed case — the n=2
+13-pair, where the main session derived B = 12 = Delta by hand from eight
+named tangency points. *"If your code does not reproduce it, do not adjust the
+gate or the expected value to match your code."* The earlier failed attempt
+(Postscript 53) went wrong precisely there, by testing whether a line met the
+OPEN interior of the cube and so scoring twelve tangential vertices as zero.
+
+**Gates required:** G1 the hand-computed n=2 case (B = 12, c = 1, two degree-6
+and six degree-4 vertices at named points); G2 all 21 (config, j) rows of the
+old `increment_bound.py` with B_j >= Delta_j required and refutation explicitly
+welcomed; G3 reduction to the old 2+V formula on generic inputs; G4 an exact
+self-check on every emitted vertex.
+
+**Main session did independently:** derived the theorem and the failure
+diagnosis; verified identity (I) in `increment_identity.py` against the
+counting engine on 9 (config, j) rows by a genuinely different route (adjacency
+graph of the full compound vs re-counting the subset).
+
+---
+
+## 2026-08-02 — A 256-bit ℤ[√d] engine
+
+**Model:** Sonnet. **Target:** new `cube_regions_q2w.cpp`. **Spec:**
+`WIDE_ENGINE_SPEC.md`.
+
+**Task.** Widen the validated ℚ(√d) engine's scalar from __int128 to a signed
+256-bit type so the 284 634 mixed-strata configurations rejected by the
+2^112 chain budget can be counted; retrace the budget to 2^240 / 2^496 with
+the same headroom style; 512-bit sign predicate.
+
+**Recorded in the spec, not left implicit:** a continued-fraction sign test
+would NOT widen the admissible region, because the engine's own header
+establishes that the i128 chain bound always binds before the sign bound.
+Widening the scalar is the only thing that helps.
+
+**Gates required:** G1 equivalence — 3000+ in-budget configs across six or
+more d, identical `bounded` and `by_depth` from both engines, one mismatch
+being a refutation to report rather than tune around; G2 rational
+specialisation against `cube_regions_n` on 727 / 393 / 183 / 13; G3 a config
+rejected by the narrow engine and counted by the wide one; G4 randomised
+arithmetic selftest against __int128; G5 timing ratio.
+
+---
+
 ## What delegation was and was not used for
 
 **Delegated:** mechanical propagation across many documents; a well-specified

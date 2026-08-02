@@ -7,6 +7,11 @@ region count is computed with rational or algebraic (ℚ(√d), and towers
 ℚ(√a,√b)) arithmetic and certified predicates, so a reported count is a
 theorem about that configuration, not a numerical estimate.
 
+**New here? Start with [`OVERVIEW.md`](OVERVIEW.md)** — a ten-minute,
+low-jargon tour of the problem, what is known, what the record actually looks
+like, and what the project got wrong along the way. It links onward to
+everything below.
+
 **Start with [`RESULTS.md`](RESULTS.md)** — what the project currently
 believes, every claim tagged by how strongly it is established, with
 superseded claims confined to a table at the end so nothing in the body has

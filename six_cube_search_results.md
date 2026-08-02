@@ -104,6 +104,9 @@ with `index_ledger.py` after appending.
 - [Postscript 54](#postscript-54-the-727-plateau-is-a-nested-chamber-structure-and-adjacent-types-differ-by-an-elementary-2-exchange-within-one-depth) — the 727 plateau is a nested chamber structure, and adjacent types differ by an elementary ±2…
 - [Postscript 55](#postscript-55-the-9-plane-corner-concurrence-stratum-is-capped-at-723--records-do-not-concentrate-there-723-did) — the 9-plane corner-concurrence stratum is CAPPED AT 723 — records do not concentrate there,…
 - [Postscript 55 addendum](#postscript-55-addendum-the-ways-of-reaching-727--the-discovered-record-is-a-1-in-161-outlier-and-one-route-carries-a-13-pair) — the ways of reaching 727 — the discovered record is a 1-in-161 outlier, and one route…
+- [Postscript 56](#postscript-56-e1-is-now-a-theorem--the-one-cube-increment-is-bounded-by-an-euler-count-on-the-cubes-own-surface-and-postscript-53s-counterexample-was-itself-wrong) — E1 is now a THEOREM — the one-cube increment is bounded by an Euler count on the cube's own…
+- [Postscript 57](#postscript-57-the-complete-taxonomy-of-codimension-1-walls--two-types-were-never-enumerated-and-both-are-finite-catalogues-against-a-fixed-base) — the complete taxonomy of codimension-1 walls — two types were never enumerated, and both are…
+- [Postscript 58](#postscript-58-the-chamber-boundaries-of-the-plateau-are-wall-crossings--and-the-wall-type-that-governs-them-is-the-one-nobody-had-enumerated) — the chamber boundaries of the plateau are wall crossings — and the wall type that governs…
 
 <!-- INDEX:END -->
 
@@ -4466,3 +4469,209 @@ Signature and depth profile are INDEPENDENT axes: the (9,9,4,4,4) route spans
 all three profiles (124 / 27 / 8), while each singleton route has one. So
 neither invariant determines the other, and the earlier within-type constancy
 of signatures (416/416, addendum 6) is consistent — types are finer than both.
+
+## Postscript 56: E1 is now a THEOREM — the one-cube increment is bounded by an Euler count on the cube's own surface, and Postscript 53's counterexample was itself wrong
+
+2026-08-02, main session, picking up open thread 1. Postscript 53 recorded a
+failed derivation of E1 and diagnosed it as "each piece adds at most one
+region is false for non-disk pieces", with the n=2 13-pair as counterexample.
+**Both the diagnosis and the counterexample were wrong**, and the correct
+argument is shorter than the failed one.
+
+**THE IDENTITY.** Let G be the region adjacency graph of a compound S,
+INCLUDING the outside region as a node, and let G_j keep only the edges whose
+two labels differ in bit j. Forgetting cube j merges exactly those pairs, and
+merging is transitive, so the regions of S minus cube j are the connected
+components of G_j. With N = T + 1 nodes,
+
+    Delta_j = N - #components(G_j)                                       (I)
+            <= |E(G_j)| <= W_j <= K_j <= B_j                        (II-V)
+
+where W_j counts walls on dC_j, K_j the mask-constant cells of dC_j, and B_j
+the cells cut on dC_j by the other cubes' face PLANES (which refine the mask
+cells, since each other cube's boundary lies in its own six planes). No
+surface-separation lemma is needed anywhere: (II) is just "a graph on N nodes
+with c components has at least N - c edges".
+
+**THE EULER COUNT.** dC_j is a sphere and each other-cube face plane that
+cuts the interior meets it in a closed curve. For any graph embedded on a
+sphere with c components, F = 1 + c + E - V, so with E = sum_v deg(v)/2,
+
+    B_j = 1 + c + SUM_v ( deg(v)/2 - 1 ),        deg(v) = 2 * #curves at v.
+
+Checks: one circle -> 2; two disjoint circles -> 3; two circles crossing twice
+-> 4; three great circles -> 8.
+
+**WHERE POSTSCRIPT 53 WENT WRONG.** Its formula F = 2 + V assumed c = 1 and
+disk faces, and — the substantive error — it counted a vertex only when two
+planes' intersection line met the OPEN interior of C_j. In the 13-pair
+(quaternions (1,0,0,0), (0,1,1,1)) all twelve of cube A's edge lines are
+TANGENT to dB: min |R p|_inf = 1 exactly, never < 1. So the old predicate
+scored twelve real vertices as zero and reported a bound of 2 against
+Delta = 12. Counting them — two triple points at (1,1,1), (-1,-1,-1), six
+double points (1,-1,0), (1,0,-1), (-1,1,0), (-1,0,1), (0,1,-1), (0,-1,1) —
+gives 1 + 1 + (2*2 + 6*1) = 12 = Delta, EXACTLY TIGHT. The claim that
+dB ^ int A is "one connected piece with six boundary circles splitting int A
+into seven parts" is false; it has six components, one per wall.
+
+**MEASURED.** Identity (I) verified on 9 (config, j) rows by two independent
+routes — adjacency graph of the full compound vs re-counting the subset with
+the engine (`increment_identity.py`). In all 9, |E(G_j)| = Delta_j exactly:
+**G_j is a forest in every case measured**, so (II) is an equality, and the
+increment equals the number of distinct region PAIRS separated by dC_j.
+
+Bound (V) holds on all 21 rows of the old test set (`increment_bound2.py`,
+delegated, gates in `DELEGATION_LOG.md`; cross-checked here on n=2/n=3/n=4):
+
+    727 record   Delta 334-350   B 358-370    slack 1.02-1.11
+    723          Delta 330-348   B 348-366    slack 1.00-1.07
+    393 (n=5)    Delta 210-222   B 222-226    slack 1.00-1.06
+    183 (n=4)    Delta 120-128   B 128        slack 1.00-1.07
+
+Slack min 1.0000, median 1.0561, max 1.1078; tight at three real
+configurations, not only in the hand-built n=2 case.
+
+**WHAT IT BUYS.** E1's constant 336 was measured over a corpus; B_j is derived
+per configuration and never exceeded it by more than 11%. As a UNIVERSAL
+ceiling the derivation gives, at n=6, at most 2 vertices per plane pair and
+C(30,2) = 435 pairs, so B_j <= 872 — rigorous but weak. The useful form is the
+per-configuration one. Open problem 4 is closed for the identity and the
+bound; what remains open is a good universal ceiling on B_j.
+
+Files: `INCREMENT_BOUND_SPEC.md` (statement and gates), `increment_bound2.py`,
+`increment_bound2_report.md`, `increment_identity.py`. `increment_bound.py`
+stays as documentation of the failure, but Postscript 53's DIAGNOSIS is hereby
+superseded: the piece bound was not the error, the tangency blindness was.
+
+## Postscript 57: the complete taxonomy of codimension-1 walls — two types were never enumerated, and both are finite catalogues against a fixed base
+
+2026-08-02, main session, open thread 3 ("corner-corner and edge-face
+conditions"). Those two turn out not to be walls at all, and the real gap is
+elsewhere.
+
+**THE CLASSIFICATION.** For origin-centred congruent cubes the region complex
+changes combinatorially exactly when FOUR FACE PLANES BECOME CONCURRENT at a
+point lying on all four real faces — one condition, codimension 1 in the
+3-DOF family. Classifying by how the four planes distribute over cubes gives
+the complete list:
+
+    (3,1)      corner of A on a face of B        corner-on-face quadrics
+                                                 ENUMERATED (mixed strata)
+    (2,2)      edge of A meets edge of B         edge-edge coplanarity
+                                                 ENUMERATED (locus_linear)
+    (2,1,1)    edge of A meets the crossing
+               line of faces of B and C          NEVER ENUMERATED  -> W3
+    (1,1,1,1)  four planes, four cubes           NEVER ENUMERATED  -> W4
+
+The two conditions the thread named are codimension 2, hence not walls:
+corner-of-A = corner-of-B is 2 independent conditions (both corners already
+lie on the sphere of radius sqrt 3), and edge-of-A inside a face plane of B is
+2. Both nonetheless OCCUR in the 393 base, which is part of what makes that
+base special — see below.
+
+**FINITE CATALOGUES.** Against a FIXED base the missing types become finite,
+because what the free cube must meet is fixed in space (`base_points.py`):
+
+  - 424 REAL triple points of the base's 30 planes (real = lying on the actual
+    face square of every cube through it, not the plane extension). W4 becomes
+    "a free-cube face plane passes through one of them", i.e. 2544 quadric
+    walls in Cayley coordinates.
+  - 360 crossing lines of two DIFFERENT base cubes. W3 becomes "a free-cube
+    edge meets one of them": 4320 conditions.
+
+**THE 393 BASE, DESCRIBED PROPERLY.** The triple points sort as 272 with 3
+planes / 3 cubes, 60 with 4 planes / 2 cubes, 12 with **4 planes / 4 cubes**
+(the (1,1,1,1) type, already present in the base), 24 single-cube corners, and
+8 points carrying **6 planes from 2 cubes**. Those 8 are (+-1,+-1,+-1) — the
+corners of the axis-aligned cube C4 — and each of C0, C1, C2, C3 pins an
+antipodal corner pair onto them. So the base is not merely "hub-and-spoke
+13-pairs": **every base cube shares a corner pair with C4**, a codimension-2
+coincidence repeated four times. That is a sharper account of why 393 is
+special than any given so far.
+
+**ARE THE NEW WALLS PRODUCTIVE? EVIDENCE SAYS NO** (`w34_correlate.py`, 1200
+integer quaternions drawn from a height ladder only — nothing about the count
+or the incidence structure enters the draw):
+
+    count >= 700 (n=148):  mean W4 hits  1.64,  mean W3 hits 12.45
+    count <  650 (n= 37):  mean W4 hits 92.59,  mean W3 hits 96.97
+
+The correlation runs the WRONG WAY: heavy incidence goes with FEWER regions,
+as it must — coincidence merges regions. Within the low range there is a mild
+positive signal (0 hits: mean 689, max 717; one antipodal pair: mean 696, max
+723), then collapse. The best configuration in the sample, 717, sits on ZERO
+W3 and ZERO W4 walls. Separately, W3 = 54 is the signature of the 723
+corner-concurrence family, already capped in Postscript 55.
+
+So the maximum lives at LOW but nonzero coincidence, not at high concurrence —
+which retires, quantitatively, the working heuristic of Postscript 12 that
+records concentrate at high-multiplicity concurrences. That heuristic
+described 723, and 723 is exactly the W3 = 54 cluster.
+
+**LIMITS.** This is a statistical argument over random draws, not an
+enumeration: it says the new strata are not where a search should be pointed
+first, not that nothing above 727 lies on them. An exhaustive W4 sweep would
+need the wall parameterised (each is a rational conic condition on the free
+cube's normal, then a rational circle of rotations about it) and is not done.
+
+Files: `base_points.py`, `incidence2.py`, `w34_correlate.py`.
+
+## Postscript 58: the chamber boundaries of the plateau are wall crossings — and the wall type that governs them is the one nobody had enumerated
+
+2026-08-02, main session, open thread 4 ("do zero-width type-chambers coincide
+with the high-coincidence configurations?"). TYPOLOGY.md guessed that they
+"sit where extra coincidences meet". Sharpened to a testable claim: two planes
+define a wall line, so a chamber boundary should be a parameter value where a
+THIRD condition activates, and then
+
+    #type changes along the line  =  #wall crossings that the type notices.
+
+**A WRONG TEST FIRST, recorded because it is easy to repeat.** The first
+version evaluated the condition catalogue AT the sampled rational points and
+asked whether the type changed there. Wall crossings are measure zero, so
+samples essentially never land on one; it reported "25 of 27 type changes have
+no active condition" when what it had measured is that a rational sample
+rarely sits exactly on a wall. The right test restricts every condition TO the
+line — an edge-edge plane becomes linear in t, a corner-on-face quadric
+quadratic — solves for its exact roots in the range, and asks whether each
+observed change BRACKETS a root.
+
+**RESULT** (`chamber_walls.py`, four 727-carrying lines from
+`typology_data.json`, t in [2,6] at step 1/256, roots exact):
+
+    line   samples  type changes   distinct crossings   explained  without W4
+      9      874         11               19              11/11       3/11
+     10      874         13               18              13/13       2/13
+     11     1025         11               12               9/11       0/11
+     12      351         11               16              10/11       1/11
+                        ---                              -------     ------
+                         46                               43/46       6/46
+
+With ~16 crossings over ~1000 brackets, a bracket contains a crossing by
+chance about 1.7% of the time, so 43/46 is not saturation — it is the claim
+holding. **Chamber boundaries ARE wall crossings.**
+
+**AND THE WALLS ARE MOSTLY THE UNENUMERATED KIND.** The project's own
+catalogue — 119 edge-edge planes and 480 corner-on-face quadrics — explains
+only 6 of the 46 boundaries. Adding Postscript 57's W4 walls (a free-cube face
+plane through one of the base's 424 real triple points, 2544 quadrics) takes
+it to 43. On line 11 the old catalogue explains NONE of the eleven.
+
+So the combinatorial structure of the 727 plateau is governed by the
+codimension-1 type that no search in this project ever enumerated. This does
+NOT contradict Postscript 57's statistical finding that W4 hits do not predict
+a high count: W4 walls control where the type CHANGES, not how large the count
+is. Both can hold, and both now do.
+
+The three unexplained boundaries are candidates for W3 — the (2,1,1) type,
+still unmodelled as a polynomial in the Cayley coordinates — or for crossings
+of a condition outside the catalogue entirely.
+
+**WHAT THIS DOES AND DOES NOT SETTLE.** It establishes the mechanism: a
+zero-width chamber is a parameter value where two crossings coincide, and
+configurations satisfying many conditions at once (the discovered record's 36)
+are exactly such multiple points. It does NOT verify the correspondence
+configuration-by-configuration; that needs each root classified real vs
+phantom, which for the irrational roots needs the ℚ(√d) engine.
+
+Files: `chamber_walls.py`.
