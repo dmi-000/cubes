@@ -165,6 +165,39 @@ arithmetic selftest against __int128; G5 timing ratio.
 
 ---
 
+## Outcomes of the 2026-08-02 delegations
+
+**Increment bound (Sonnet).** Clean pass, first try, ~1.4 s runtime. G1
+reproduced the hand-computed n=2 case exactly, including the eight named
+vertices by set equality rather than by count. G2 came back with all 21 rows
+satisfying the bound. The agent also tightened G3's definition on its own —
+"generic" had to exclude line-tangency and disconnected traces, and in both
+cases the discrepancy was the new code being right and the old formula wrong,
+which it reported rather than smoothing over. Main session re-verified on
+n=2 / n=3 / n=4 by the independent adjacency route.
+
+**Wide engine (Sonnet).** The C++ was correct — 1365-configuration
+equivalence, 0 mismatches — but the agent hit the project's known *premature
+parking* failure mode twice: it built the engine, then stopped to wait on its
+own monitor job instead of running the gates, twice in a row, at a cost of
+about 205 000 tokens. The main session took the gating over and finished G1,
+G2, G3, G5 by hand in a few minutes.
+
+The fix is the one already in the standing rules and was simply not applied
+here: **a long computation must be a single detached self-sequencing script,
+with the agent collecting results afterwards** — never an agent watching a
+job. The campaign that followed (`wide_campaign_launch.sh`) is written that
+way: it waits for the enumeration, checks the pickle is real, fans out eight
+shards, and exits.
+
+And a main-session error worth logging next to the agent's: the first
+equivalence gate the main session wrote passed VACUOUSLY on all 1365 rows,
+because a separator bug made every input fail to parse and the two engines
+returned identical error lines. Delegation is not the only place a gate can be
+about nothing.
+
+---
+
 ## What delegation was and was not used for
 
 **Delegated:** mechanical propagation across many documents; a well-specified

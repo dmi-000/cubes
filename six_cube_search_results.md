@@ -107,6 +107,13 @@ with `index_ledger.py` after appending.
 - [Postscript 56](#postscript-56-e1-is-now-a-theorem--the-one-cube-increment-is-bounded-by-an-euler-count-on-the-cubes-own-surface-and-postscript-53s-counterexample-was-itself-wrong) — E1 is now a THEOREM — the one-cube increment is bounded by an Euler count on the cube's own…
 - [Postscript 57](#postscript-57-the-complete-taxonomy-of-codimension-1-walls--two-types-were-never-enumerated-and-both-are-finite-catalogues-against-a-fixed-base) — the complete taxonomy of codimension-1 walls — two types were never enumerated, and both are…
 - [Postscript 58](#postscript-58-the-chamber-boundaries-of-the-plateau-are-wall-crossings--and-the-wall-type-that-governs-them-is-the-one-nobody-had-enumerated) — the chamber boundaries of the plateau are wall crossings — and the wall type that governs…
+- [Postscript 59](#postscript-59-a-256-bit-ℚd-engine--the-284-634-configurations-the-old-budget-rejected-are-now-countable-and-the-equivalence-gate-nearly-passed-vacuously) — a 256-bit ℚ(√d) engine — the 284 634 configurations the old budget REJECTED are now…
+- [Postscript 60](#postscript-60-the-irrational-configurations-are-the-seams-between-rational-continua--never-interior-to-one-and-the-split-is-total) — the irrational configurations are the SEAMS between rational continua — never interior to…
+- [Postscript 61](#postscript-61-correction-to-postscript-60-the-irrational-configurations-are-in-continua--k-counted-walls-not-chamber-boundaries-and-most-of-those-walls-are-combinatorially-inert) — the irrational configurations ARE in continua — k counted walls, not chamber boundaries, and…
+- [Postscript 61 addendum](#postscript-61-addendum-over-all-183-some-are-in-continua-and-some-are-not--and-in-a-continuum-irrationality-is-the-generic-case-so-its-presence-was-never-informative) — over all 183, SOME are in continua and some are not — and in a continuum irrationality is…
+- [Postscript 62](#postscript-62-what-happens-at-the-endpoint-of-a-727-continuum--the-interval-is-open-the-endpoint-has-its-own-count-and-region-counts-are-not-semicontinuous) — what happens at the endpoint of a 727 continuum — the interval is OPEN, the endpoint has its…
+- [Postscript 62 addendum](#postscript-62-addendum-the-other-endpoint--w3-written-as-a-polynomial-at-last-and-both-ends-of-the-interval-are-725) — the OTHER endpoint — W3 written as a polynomial at last, and both ends of the interval are 725
+- [Postscript 63](#postscript-63-the-line-catalogue-was-never-symmetry-closed--the-richest-727-continuums-own-c3-images-were-missing-and-a-uniform-parameter-grid-is-not-equivariant) — the LINE catalogue was never symmetry-closed — the richest 727 continuum's own C3 images…
 
 <!-- INDEX:END -->
 
@@ -4675,3 +4682,398 @@ configuration-by-configuration; that needs each root classified real vs
 phantom, which for the irrational roots needs the ℚ(√d) engine.
 
 Files: `chamber_walls.py`.
+
+## Postscript 59: a 256-bit ℚ(√d) engine — the 284 634 configurations the old budget REJECTED are now countable, and the equivalence gate nearly passed vacuously
+
+2026-08-02, main session, open thread 2. `mixed_q2_full.out` records that of
+508 818 candidate configurations on the mixed 2-plane + 1-quadric strata, the
+narrow engine counted 224 184 and **rejected 284 634** for exceeding its 2^112
+chain budget. Rejected is not "checked and found wanting" — those
+configurations are uncounted, and 56% of the stratum is a large place for a
+record to hide.
+
+**THE CONTINUED-FRACTION QUESTION, ANSWERED.** Deciding sign(p + q√d) by
+continued-fraction convergents of √d instead of by comparing p² with d q²
+would indeed decide more (p, q) inside 128 bits. It buys NOTHING here, because
+the narrow engine's own budget derivation establishes that across the whole
+admissible region the i128 CHAIN bound always binds before the sign bound.
+Widening the scalar is the only thing that helps.
+
+**THE ENGINE.** `cube_regions_q2w.cpp` (delegated; spec `WIDE_ENGINE_SPEC.md`,
+gates in `DELEGATION_LOG.md`): the same engine with its scalar widened from
+__int128 to a signed 256-bit type, chain threshold 2^112 -> 2^240, sign
+threshold 2^231 -> 2^496, and a 512-bit square-compare in the sign predicate.
+The narrow engine was not modified.
+
+    G1 equivalence   1365 configs, 33 fields, identical bounded AND by_depth,
+                     0 mismatches
+    G2 rational      727 / 393 / 183 / 13 all agree with cube_regions_n
+    G3 boundary      d=5, m=3001: narrow REJECTS (117.5 bits needed, limit
+                     112), wide counts it (683). Wide rejects cleanly at
+                     m=10^14.
+    G4 selftest      ALL PASS
+    G5 timing        64.5s vs 149.6s on identical input -> 2.32x
+
+At d = 5 the admissible component magnitude moves from 1855 to between 10^13
+and 10^14 — the pipeline is roughly degree 4 in the magnitude, so 128 extra
+bits buys about 2^32.
+
+**THE GATE NEARLY PASSED VACUOUSLY, which is the part worth keeping.** The
+first version of the driver joined a quaternion's four components with ';'
+instead of ',', so every line failed to parse, both engines emitted the same
+error JSON, and comparing two identical lists of errors reported "IDENTICAL"
+on all 1365 rows — in 0.11 seconds. Nothing in the verdict was wrong; the
+verdict was about nothing. What caught it was the timing: 1365 six-cube counts
+cannot take 0.11s when one takes 0.1s. The driver now asserts that every row
+produced an actual count before any comparison is believed. **A gate that can
+pass on empty output is worse than no gate**, because it manufactures
+confidence.
+
+Also noted, pre-existing in both engines and not introduced by the widening: a
+component too large for int64 aborts in input parsing with an uncaught
+std::out_of_range rather than a clean ConfigError. Nothing is silently
+truncated, but it should be tidied.
+
+**RUNNING.** `wide_campaign.py`, a detached sharded campaign, re-counts ALL
+508 818 configurations with the wide engine — not just the 284 634 new ones,
+so it doubles as an equivalence check at scale, and any disagreement on a
+previously-counted configuration is a failure of the widening rather than a
+new result. Results to follow.
+
+Files: `cube_regions_q2w.cpp`, `wide_gate.py`, `wide_engine_report.md`,
+`wide_campaign.py`, `wide_campaign_launch.sh`.
+
+## Postscript 60: the irrational configurations are the SEAMS between rational continua — never interior to one, and the split is total
+
+2026-08-02, main session, answering "are all the irrational configurations
+with rational shadows part of a continuum?"
+
+**No, and the separation is clean.** Counting active walls k from the project's
+own catalogue (119 edge-edge planes + 480 corner-on-face quadrics) at every
+727 configuration in hand — exactly, in ℤ[√d] for the irrational side
+(`shadow_dim.py`, `shadow_type.py`):
+
+    161 RATIONAL representatives     k = 2  : 159      <- chamber INTERIORS
+                                     k = 3  :   1
+                                     k = 16 :   1      <- the discovered record
+    183 IRRATIONAL configurations    k = 4  : 183      <- ALL crossings
+
+Two conditions define a wall line, so k = 2 is a point interior to a chamber —
+a continuum of its own combinatorial type — and k >= 3 is a wall crossing, a
+zero-dimensional stratum. **Every irrational 727 is a crossing. Not one is
+interior to anything.** Their k = 4 is exactly the mixed-strata construction:
+two planes and one corner-on-face condition, which the catalogue counts twice
+as a ± pair.
+
+**AND IT HAS TO BE THIS WAY.** The wall lines of the enumerated strata are cut
+by pairs of RATIONAL planes (Postscript 49: edge-edge conditions factor into
+rational planes). A chamber interior is an open interval of such a line, and an
+open interval of a rational line contains rational points, on which the type is
+constant. So **any combinatorial type possessing a continuum is attained
+rationally**, and an irrational configuration can only ever be a zero-width
+type — an endpoint. Irrationality is confined to the seams.
+
+**MEASURED CONSEQUENCE.** Of the 21 distinct per-label types among the 183
+irrational 727s, 11 also occur among the 161 rational representatives and
+**10 occur at none of them** — the zero-width types whose defining root
+happens to be irrational.
+
+**WHAT "RATIONALLY SHADOWED" ACTUALLY MEANT.** Postscript 52 established
+shadowing at the level of the COUNT: 727 holds along the whole stretch of line
+through these points, so rationals are dense in the count-level set around
+them. That remains true and is why irrationality does no work for the RECORD
+VALUE at n = 6. It was never a statement about the configuration, and this
+postscript marks the boundary: the count continuum is rational-dense; the type
+stratum at an irrational point is a single algebraic point.
+
+Contrast with n = 3, where irrationality is required for the count itself, not
+merely realised at a seam. That distinction now has a mechanism rather than
+just a pair of observations.
+
+**LIMIT.** "Occurs at none of them" is relative to 161 known rational
+representatives, not a proof of non-attainability; the argument above says a
+type with a continuum must be rational, not that these 10 types have no other
+rational realisation elsewhere.
+
+Files: `shadow_type.py`, `shadow_dim.py`.
+
+## Postscript 61 (CORRECTION to Postscript 60): the irrational configurations ARE in continua — k counted walls, not chamber boundaries, and most of those walls are combinatorially inert
+
+2026-08-02, main session, same day, answering "what is the relationship
+between an irrational configuration and its rational shadow?"
+
+**THE RELATIONSHIP.** An irrational 727 and its shadow are the SAME
+COMBINATORIAL OBJECT at different parameter values of one rational
+one-parameter family. Verified exactly (`shadow_relation.py`, 16 configurations
+across all eight fields, gate: the recovered line must contain the point
+exactly in ℤ[√d], 16/16 pass):
+
+  - The two active edge-edge planes are RATIONAL, so they cut a RATIONAL line
+    in Cayley space. The irrational configuration lies on it, and so do its
+    shadows: they share its two edge-edge coincidences exactly.
+  - Its irrationality has one source and no other: the third condition, a
+    corner-on-face quadric, meets that rational line at an irrational
+    parameter t*. A rational line through a rational quadric, root irrational.
+  - The shadow is obtained by sliding along the line to a nearby rational
+    parameter. **In 14 of 16 cases the per-label type is IDENTICAL at t* and
+    at both neighbours**; in 2 cases one side differs.
+
+So the extra coincidence that makes the point irrational is invisible to the
+region complex: it changes neither the count nor the labelling. It is a
+tangency the combinatorics does not register.
+
+**WHICH REFUTES POSTSCRIPT 60'S HEADLINE.** That postscript inferred from
+k = 4 active walls that every irrational 727 is a chamber BOUNDARY and "not
+one is interior to anything". The inference used k as a proxy for "chamber
+boundary", and the proxy is wrong — Postscript 58 had already measured that
+k >= 3 points frequently pass with NO type change (8 of 19 crossings on line
+9 alone). Tested directly instead of by proxy, 14 of 16 irrational
+configurations are interior to their own type-chamber. **They are part of
+continua.** What survives from Postscript 60 is the wall count itself (161
+rational reps: 159 at k=2; 183 irrational: all at k=4) and the observation
+that irrationality enters only through a quadric root on a rational line.
+
+**AND THE SECOND CLAIM FALLS TOO.** Postscript 60 reported 10 of 21 irrational
+per-label types occurring at "no rational configuration", hedged as relative to
+the 161 known representatives. The hedge was right and the number was an
+artifact: of the sampled configurations whose type is absent from those 161,
+**7 of 7 have that exact type at an immediate RATIONAL neighbour** on their own
+line. The 161 representatives are k=2 points from the edge-edge three-wall
+enumeration — a different family — so their absence from that list says
+nothing about attainability. No type is known to be irrational-only.
+
+**METHODOLOGICAL NOTE.** This is the fourth time in this project a structural
+claim has been made from a proxy invariant rather than the thing itself
+(after: rigidity by openness, μ-multiset for congruence, and describing a
+family from its first member). The proxy was reasonable and the direct test
+was cheap. Postscript 60 stood for about an hour.
+
+**WHAT IRRATIONALITY DOES AT n = 6, FINALLY.** Nothing. Not to the count
+(rationally shadowed, Postscript 52), and not to the combinatorial type
+(shadowed as well, here). It is an accident of where a rational line happens to
+cross a rational quadric. Contrast n = 3, where the maximum cannot be attained
+rationally at all.
+
+Files: `shadow_relation.py`, `shadow_type.py`, `shadow_dim.py`.
+
+### Postscript 61 addendum: over all 183, SOME are in continua and some are not — and in a continuum irrationality is the generic case, so its presence was never informative
+
+2026-08-02, main session, after "are you now saying that n≠3 irrationals are
+part of a continuum?" and "some are and some aren't?" and "in any case every
+continuum of configurations will contain irrational points."
+
+**SCOPE FIRST.** No. Nothing here is a claim about irrational configurations at
+n ≠ 3 in general. Everything measured is the 183 irrational **727s at n = 6 on
+the 393 base**, produced by one enumeration (2 rational planes + 1 quadric).
+Nothing is measured at n = 4, 5, 7, 8, nor for non-record irrationals, nor for
+irrationals from the unenumerated strata — which need not lie on a rational
+line at all, and so need not have rational neighbours by construction.
+
+**THE FULL SET** (`shadow_all.py`, all 183, neighbours at step ~1e-5):
+
+    2 rational planes + 1 quadric (± pair)          183 of 183   STRUCTURAL
+    same per-label type on BOTH sides               105  (57%)
+    same type on exactly ONE side                    28  (15%)
+    neither side matches at this resolution          50  (27%)
+
+So **some are and some are not** — the correct answer, and not the one given
+from a 16-configuration sample an hour earlier, which read 14/16 and would have
+implied ~87%. The structural half is universal: all 183 lie on RATIONAL lines,
+so every one has rational neighbours; what varies is whether the type survives
+the crossing.
+
+**THE 50 ARE UNRESOLVED, NOT ISOLATED.** In most of them the sampled
+neighbours do not count 727 at all, meaning the 727 stretch around the point is
+narrower than the sampling step. Refining the step fails for an instrument
+reason: the finer neighbours need quaternion components beyond about 1e7 on
+these lines, and the rational engine rejects them ("degenerate plane triple").
+A run at step 2e-8 returned engine REJECTIONS for 119 of 183, which is not a
+measurement of anything — recorded here because such a run superficially
+produces a table that looks like data.
+
+**THE OBSERVATION THAT REFRAMES ALL OF IT.** Every continuum contains
+irrational points — and more than that, irrational points are the GENERIC ones:
+in any interval they have full measure and the rationals have measure zero. So
+the moment the 727 set contains any interval at all, "727 is attained at
+irrational configurations" is guaranteed and carries **no information**. The
+project has repeatedly treated its irrational finds as exotic (Postscript 51's
+"a fifth 727 class that is IRRATIONAL"); in a continuum, irrational is the
+default and it is the RATIONAL points that are special.
+
+Our 183 are not typical points of their continua either. They are the
+low-degree algebraic points an equation-solver can emit — degree 2, in ℚ(√d).
+A typical point of a 727 interval is irrational of unbounded degree, plausibly
+transcendental, and no enumerator in this project will ever produce one.
+
+**WHICH SHARPENS THE n = 3 STATEMENT.** What makes n = 3 different is not that
+its maximisers are irrational; it is that its optimum set is TWO ISOLATED
+POINTS. Isolated optima can be forced to be irrational; optima with a continuum
+cannot, since any interval carries rationals. The real dichotomy is
+isolated-versus-continuum, and irrationality is downstream of it.
+
+Files: `shadow_all.py`.
+
+## Postscript 62: what happens at the endpoint of a 727 continuum — the interval is OPEN, the endpoint has its own count, and region counts are NOT semicontinuous
+
+2026-08-03, main session, answering "when there are continua, what happens at
+the end points?"
+
+**THE ENDPOINT, EXACTLY.** On wall line 9 of `typology_data.json`, 727 holds
+across sampled t in [2, 13.5]. Its upper end is a W4 wall — the type
+Postscript 57 catalogued and no search had enumerated — at the IRRATIONAL
+parameter
+
+    t* = 18913/2736 + sqrt(4111761)/304 = 13.58286911126...
+
+verified by substituting back: the W4 condition simplifies to exactly 0 there.
+The configuration at t* is the integer quaternion over ℤ[√4111761]
+
+    (304:0, -12710:-6, 18913:9, 8980:4)          [p:q meaning p + q√4111761]
+
+which the NARROW engine cannot count — it needs 214 bits against a 112-bit
+chain budget, exactly the case this morning's wide engine was built for.
+
+    t = 13.58286  (below t*)   ->  727
+    t = t*        (the wall)   ->  725      <- two engines
+    t = 13.58287  (above t*)   ->  723
+
+The 725 is certified by the two-engine rule: `cube_regions_q2w` and,
+independently, the Python exact-sign field engine
+(`resonance4_solve.exact_count_field` over ℚ(√4111761)), agreeing on the total
+AND the profile {212, 220, 156, 100, 36, 1}.
+
+**SO THE INTERVAL IS OPEN.** The record value is not attained at its own
+boundary here; the endpoint sits one ±2 step below the plateau and one step
+above the next chamber. Three distinct values in a row, ±2 apart, which is the
+quantum central symmetry forces.
+
+**AND REGION COUNTS ARE NOT LOWER SEMICONTINUOUS.** The natural expectation —
+stated in `endpoint.py` before the measurement — was that a coincidence merges
+regions, so the count at a wall should be no larger than at nearby generic
+configurations on EITHER side. That is false: 725 at the wall exceeds 723 just
+above it. The mechanism is a PINCH. At a tangential contact the mask region is
+open-but-pinched at the contact point, so the point is excluded and the two
+lobes count as two regions; perturb one way and the channel opens and they
+MERGE into one; perturb the other way and they separate properly. A degenerate
+configuration can therefore carry MORE regions than a neighbour, and the count
+is neither upper nor lower semicontinuous.
+
+This also disposes of a tempting corollary — "records live in chamber
+interiors, never at boundaries". The endpoint here does lose the record, but
+the originally discovered 727 sits at k = 16 active walls (Postscript 60), a
+heavily degenerate point that attains the record. Both happen.
+
+**METHOD NOTE.** The first run of `endpoint.py` found ZERO roots at either end,
+because it searched only the classical catalogue. The endpoint is a W4 wall.
+An endpoint analysis using the pre-Postscript-57 vocabulary would have
+concluded the interval simply stops for no reason.
+
+Files: `endpoint.py`.
+
+### Postscript 62 addendum: the OTHER endpoint — W3 written as a polynomial at last, and both ends of the interval are 725
+
+2026-08-03, main session, prompted by "a line has two endpoints". The
+postscript above analysed only the upper one; the lower end had reported ZERO
+catalogued roots and was left unexplained. It is a W3 wall — the (2,1,1) type,
+the last one with no polynomial form.
+
+**W3 AS A POLYNOMIAL** (`w3_poly.py`). With q = (1,a,b,c), M the unnormalised
+rotation matrix and N = 1+a²+b²+c², the free cube's edge along axis A with
+signs sB, sC is the line through (M[:,B]sB + M[:,C]sC − M[:,A])/N with
+direction M[:,A]. Meeting a fixed base crossing line (p, d) is
+
+    det[ M[:,A],  d,  N·p − (M[:,B]·sB + M[:,C]·sC − M[:,A]) ] = 0.
+
+**It is degree 4**, not a quadric: 4320 conditions on the 393 base, and
+restricted to a wall line every one of them is a QUARTIC in t. So a W3
+crossing can be an algebraic number of degree 4, outside every ℚ(√d) — a class
+of configuration no enumeration in this project could ever have produced, since
+the mixed strata solve a quadratic and return ℚ(√d) by construction, and one
+that only the degree-agnostic `opencount.py` engine could count at all.
+
+**THE LOWER ENDPOINT.** Bisecting the 727 stretch on line 9 puts it at
+t ≈ 1.9317123. Exactly two W3 conditions change sign in that bracket — an
+antipodal pair, base cubes 0 and 2, free edge axis 2 — and there the quartic
+factors, leaving
+
+    4455 t² − 11790 t + 6151 = 0,    t* = (11790 + 648√70)/8910
+
+so this endpoint lands in ℚ(√70) after all. The configuration is the integer
+quaternion over ℤ[√70]
+
+    (55:0, -455:-24, 655:36, 395:16)
+
+which the NARROW engine again rejects — m = 655 with d = 70 is outside its
+budget. Counted by `cube_regions_q2w` and independently by the Python
+exact-sign field engine, both giving
+
+    count = 725,  by_depth {212, 220, 156, 100, 36, 1}
+
+**SO THE INTERVAL IS SYMMETRIC.** The 727 continuum on line 9 runs from
+(11790 + 648√70)/8910 to 18913/2736 + √4111761/304, is OPEN at both ends, and
+carries **725 with the identical depth profile at each**. One end is a W3 wall,
+the other a W4 wall — the two types this project had never enumerated until
+today, neither reachable with yesterday's vocabulary, and both needing
+this morning's widened engine to count.
+
+Files: `w3_poly.py`, `endpoint.py`.
+
+## Postscript 63: the LINE catalogue was never symmetry-closed — the richest 727 continuum's own C3 images were missing, and a uniform parameter grid is not equivariant
+
+2026-08-03, main session, answering "do lines fit into our TYPOLOGY?"
+
+**WHERE LINES SIT.** TYPOLOGY.md already places them: a per-label TYPE is a
+CHAMBER of a wall line, so a line is one level ABOVE a type and carries a
+sequence of them. The question is whether the typology's own structure extends
+upward, and the sharp test is the C3 — the rotation about (1,1,1) that leaves
+the 393 base invariant and that configurations must be quotiented by or they
+triple-count.
+
+**IT DOES.** The C3 acts on a free cube by LEFT MULTIPLICATION by (1,1,1,1),
+and in Cayley coordinates left multiplication by a fixed quaternion is a
+PROJECTIVE map of (1,a,b,c) — so it carries lines to lines. Measured exactly
+(`line_typology.py`, collinearity in Fractions): among the 129 recorded lines,
+all 129 distinct as geometric lines, 32 orbits of size 3.
+
+**BUT THE CATALOGUE IS NOT CLOSED UNDER IT.** 22 of the 129 have images that
+are not in the set. Closing it adds 33 lines: **162 total, 50 orbits of size 3
+covering 150**; the remaining 12 have images running through w = 0, outside the
+Cayley chart, which is a chart artifact rather than a geometric one.
+(`lines_c3_closed.json`.)
+
+**AND THE MISSING ONES ARE NOT MARGINAL.** Line 9 — the richest continuum
+found, carrying 727 across t in [1.9317, 13.5829], width 11.65, the line whose
+two endpoints Postscript 62 analysed — has BOTH its C3 images absent from the
+recorded catalogue. By equivariance there are two further 11.65-wide 727
+intervals that no enumeration in this project ever recorded. **Every census
+over the 129 lines, including the one currently running, is incomplete by
+construction.**
+
+**A UNIFORM PARAMETER GRID IS NOT EQUIVARIANT.** Because the C3 is projective
+it does NOT preserve the line parameter: a 727 stretch at t ≈ -1.75 maps to
+its image line at t ≈ -0.013, compressed far below any fixed sampling step. So
+scanning every line on the same grid in t systematically misses the compressed
+images of intervals it finds elsewhere. This is the failure mode already
+recorded for the height cap 512 and the rectangular (d, m) guard — a filter
+that is not preserved by the group — recurring in a new place.
+
+**TWO PROCESS FAILURES IN THE SAME HOUR**, both now in `FAILURE_MODES.md`:
+ 1. The first census run reported "0 continua" for all 129 lines in about two
+    minutes. Engine children were dying under memory pressure from the
+    concurrent 8-shard campaign; `count_many` returned an empty list;
+    `zip(ts, got)` produced nothing. Uniformly zero AND impossibly fast. The
+    driver now asserts result count equals input count.
+ 2. The orbit comparison then read `continua_shard_0.jsonl`, which is opened in
+    APPEND mode and still contained that broken run's 129 empty records — so
+    unscanned lines silently read as "no continua" and the comparison reported
+    a tidy "26 orbits agree, 6 disagree". Rebuilt from the live run's own
+    output: **0 orbits fully scanned so far**, so that entire table was about
+    nothing. Accumulated output from a superseded run is not data.
+
+**UNVERIFIED OBSERVATION.** The closed set has 54 orbits' worth of lines by
+count (162/3), and the plateau has 54 per-label types. Whether that is a
+correspondence or a coincidence is untested — types are chambers and a line
+carries several, so equinumerosity would be surprising and should not be
+assumed.
+
+Files: `line_typology.py`, `lines_c3_closed.json`, `continua.py`.

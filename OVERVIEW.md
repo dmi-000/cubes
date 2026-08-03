@@ -39,8 +39,14 @@ beautiful wrong answers for weeks.
 
 Here is the distinction. Each cube face lies in a plane. If you extend all
 those planes to infinity and count the cells they cut space into, you get one
-number. If you count *regions* — connected pieces on which the set of cubes
-containing you doesn't change — you get a smaller number. The difference is
+number. If you count *regions* — pieces you can walk around inside without the
+set of cubes containing you ever changing — you get a smaller number.
+
+Both halves of that matter. Two pieces can be contained by exactly the same
+cubes and still be different regions, if you cannot get from one to the other
+without leaving. With two cubes there are only three possible containment sets,
+{A}, {B} and {A,B}, but thirteen regions: the shared core, plus six lobes of
+each cube poking out of the other. The difference is
 that a plane's infinite extension, out where its own cube isn't, doesn't
 actually separate anything. Walk across it and nothing about your situation
 changes.
@@ -252,7 +258,9 @@ worth more than any individual entry:
   claimed structural laws turned out to be descriptions of whatever the
   enumerator could see.
 
-Every one of these produced *plausible numbers*, not obvious failures. That is
+Every one of these produced *plausible numbers*, not obvious failures.
+[`FAILURE_MODES.md`](FAILURE_MODES.md) catalogues them by symptom — what you
+notice first — so a later reader can triage rather than rediscover. That is
 the argument for the exactness rule and for two independent engines: a wrong
 answer that looks wrong costs an afternoon, and a wrong answer that looks right
 costs a month.
@@ -345,6 +353,8 @@ with the session, taking the gates with it.
 | [`PROOF_67.md`](PROOF_67.md) | the three-cube maximum, proved |
 | [`README.md`](README.md) | map of the code |
 | [`DELEGATION_LOG.md`](DELEGATION_LOG.md) | what was handed to which model, and what it had to prove |
+| [`FAILURE_MODES.md`](FAILURE_MODES.md) | every error the project made, organised by symptom, with the check that catches it |
+| [`GLOSSARY.md`](GLOSSARY.md) | the vocabulary, including terms that changed meaning and terms that are overloaded |
 
 Reproducing any count takes one command and no special hardware; see the "how
 to reproduce" section at the end of [`JOURNEY.md`](JOURNEY.md).

@@ -118,6 +118,19 @@ one cube. Depth profiles:
   irrationality does no work at n = 6, and the classes are NOT indexed by field
   (the O-reduced pair invariant that suggested that is only necessary for
   congruence, not sufficient). VERIFIED.
+- **An irrational configuration and its rational shadow are the same
+  combinatorial object at different parameters of one rational family.** The
+  two active edge-edge conditions are rational planes cutting a rational line;
+  the irrationality enters only through the third condition, a corner-on-face
+  quadric whose root on that line happens to be irrational. Sliding to a nearby
+  rational parameter gives the shadow, and in 14 of 16 configurations tested
+  across all eight fields the per-label type is IDENTICAL at the irrational
+  point and at both neighbours — so the coincidence that makes it irrational is
+  invisible to the region complex. Irrationality does nothing at n = 6: not to
+  the count, and not to the combinatorial type. Postscripts 60, 61 (61
+  corrects 60's inference that these points are chamber boundaries: it used the
+  active-wall count as a proxy, and most such walls turn out to be
+  combinatorially inert).
 - **The irrational classes are the first configurations this project found by
   SEARCH rather than by symmetry.** The two n=3 maximizers came from the
   octahedron and the icosahedron; these came from enumerating strata.
@@ -207,6 +220,7 @@ current.
 | The Cayley chart omitting w = 0 leaves 180° rotations unreachable | **REFUTED** — q·(0,1,0,0) is a cube self-symmetry, so the chart omits quaternion representatives, not compounds; a second chart returns an identical census | Postscript 49 addendum |
 | ℚ(√13) is the only field whose strata reach 727; the irrational 727 is a fifth class | **REFUTED** — both were properties of a guard that made only 56 fields countable. Widening it gives eight fields and at least twelve classes | Postscript 51 addendum 3 |
 | A 9-pair is characterised by a shared face axis | **REFUTED** — 727 contains three 9-pairs and no two of its cubes share a face axis | Postscript 47 |
+| Irrational 727s are chamber boundaries, never interior to a continuum; 10 of their types occur only irrationally | **REFUTED within the hour** — the active-wall count k was used as a proxy for "chamber boundary", but a wall crossing usually leaves the type unchanged. Tested directly, 14 of 16 are interior to their own type-chamber, and 7 of 7 supposedly irrational-only types occur at an immediate rational neighbour | Postscript 61 |
 | More coincidences imply a higher count | **REFUTED** — 727 has 18 interior crossings to 723's 48, and counts more | Postscript 47 |
 | The E1 derivation fails because "each connected piece adds at most one region" is false for non-disk pieces | **REFUTED** — the piece bound was never needed; the real error was scoring twelve TANGENT vertices as zero, and the stated counterexample (∂B ∩ int A connected with six boundary circles) is geometrically false — it has six components | Postscripts 53, 56 |
 | Records concentrate at high-multiplicity concurrences | **REVERSED** — the sweet-spot caveat was noted early (Act III: "more alignment is not better"), but the heuristic still drove the searches. Measured, the correlation is negative. Over 1200 unselected draws, configurations counting ≥ 700 average 1.6 hits on the base's triple-point walls; those counting < 650 average 92.6. The heuristic described 723, which is exactly the 54-crossing corner family | Postscripts 55, 57 |

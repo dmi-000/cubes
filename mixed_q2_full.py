@@ -227,9 +227,16 @@ def main():
     # denominators gives an integer quaternion over Z[sqrt sf], which
     # cube_regions_q2 counts directly.  The engine's budget caps sf <= 100
     # and |p|,|q| <= 512, so larger classes are reported but not counted.
-    import subprocess, tempfile
+    import os, subprocess, tempfile
+    # ENGINE selects the counting binary; Q2_SKIP_COUNT stops after the
+    # enumeration is pickled, so a sharded driver can do the counting.
+    ENGINE = os.environ.get('Q2_ENGINE', './cube_regions_q2')
     tot = sum(len(v) for v in bycls.values())
     print('classes: %d, candidate configs: %d' % (len(bycls), tot), flush=True)
+    if os.environ.get('Q2_SKIP_COUNT'):
+        print('Q2_SKIP_COUNT set: enumeration pickled, counting left to the'
+              ' sharded driver', flush=True)
+        return
 
     fixed = ';'.join(','.join('%d:0' % x for x in q) for q in FIVE)
     out = open('mixed_q2_hits.jsonl', 'a')
@@ -241,7 +248,7 @@ def main():
         with tempfile.NamedTemporaryFile('w', suffix='.txt', delete=False) as fh:
             fh.write('\n'.join(lines) + '\n')
             path = fh.name
-        p = subprocess.run(['./cube_regions_q2', '--d', str(sf),
+        p = subprocess.run([ENGINE, '--d', str(sf),
                             '--quats-stdin'], stdin=open(path),
                            capture_output=True, text=True)
         hist, best = {}, (0, None)

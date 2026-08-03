@@ -12,6 +12,14 @@ low-jargon tour of the problem, what is known, what the record actually looks
 like, and what the project got wrong along the way. It links onward to
 everything below.
 
+**Unfamiliar term?** [`GLOSSARY.md`](GLOSSARY.md) defines the project's
+vocabulary, including which terms have *changed meaning* and which are
+overloaded enough to have misled someone.
+
+**When something goes wrong**, or before trusting a clean result, read
+[`FAILURE_MODES.md`](FAILURE_MODES.md) — the project's accumulated errors
+organised by symptom, with the checks that catch each one.
+
 **Start with [`RESULTS.md`](RESULTS.md)** — what the project currently
 believes, every claim tagged by how strongly it is established, with
 superseded claims confined to a table at the end so nothing in the body has
