@@ -1,10 +1,16 @@
 # Cubes through one point: the short version
 
-*A ten-minute tour of the project. Everything here is stated plainly and
-without proof; each section says where to read the real thing.
-[`JOURNEY.md`](JOURNEY.md) is the same story told at length and in order, with
-the wrong turns left in. [`RESULTS.md`](RESULTS.md) is the current state of
-belief, every claim tagged. Last updated 2026-08-02.*
+*A ten-minute tour of the project: what the question is, what is known, and how
+a human and a shifting cast of AI models actually produced it. Everything here
+is stated plainly and without proof; each section says where to read the real
+thing. [`JOURNEY.md`](JOURNEY.md) is the same story told at length and in
+order, with the wrong turns left in. [`RESULTS.md`](RESULTS.md) is the current
+state of belief, every claim tagged. Last updated 2026-08-02.*
+
+*One disclosure up front, because it changes how to read everything else: the
+code, the searches, the analysis, and this document were written by an AI
+(Claude) working under human direction. What the human contributed was not
+supervision but the noticing — see [How this was made](#how-this-was-made).*
 
 ---
 
@@ -48,7 +54,11 @@ exact rational or algebraic arithmetic, by two independently written engines
 that must agree before anything is believed.
 
 That sounds like fussiness. It is the reason the results are trustworthy, and
-it caught at least four later errors that a tolerance would have hidden.
+it caught at least four later errors that a tolerance would have hidden. It is
+also the project's first house rule, and it came out of the failure rather than
+out of foresight: an early voxel pipeline reported a "stable plateau" of about
+1,340 regions for a configuration whose exact count is 567. Approximate methods
+may suggest; only exact counts decide.
 
 ## Two sizes that are actually solved
 
@@ -246,6 +256,70 @@ Every one of these produced *plausible numbers*, not obvious failures. That is
 the argument for the exactness rule and for two independent engines: a wrong
 answer that looks wrong costs an afternoon, and a wrong answer that looks right
 costs a month.
+
+Most were caught by the machinery. Several were caught by a human sentence.
+"Are you sure the lack of irrational solutions isn't an artifact of some
+unnecessary restriction?" reopened a closed question and turned out to be
+right. "This machine has only 16GB" prompted a measurement that demolished a
+confident diagnosis the AI had just given twice. And when a script was added to
+regenerate stale numbers automatically, the response — *"generated positions is
+good, but it doesn't update invalidated statements; discipline does that"* —
+named the actual problem, which was that ten claims had gone false in summary
+positions where nothing regenerates them.
+
+## How this was made
+
+The division of labour was not decorative; each layer did something the others
+couldn't.
+
+**The human noticed things.** Almost every pivot in the project came from a
+short human remark rather than a computation: the edge-versus-corner
+observation that separated the two three-cube maximisers, "are subsets of
+records also records?", the frustration reframing, and — most dramatically —
+looking at the 3-D viewer and saying that a scatter of near-miss edges seemed
+to lie in a plane perpendicular to (1,1,1). That last sentence became a
+closed-form family, four theorems, and a structural result about how records
+are built. The pattern is worth naming: **the human watched the data for
+meaning while the machines watched it for values.**
+
+**A frontier model ran the main session** — designing the exact algorithms,
+writing the specifications and their gates, spotting regularities (the ceiling
+formula was found by staring at a table of maxima), and catching errors,
+including its own. Three of the corrections in the ledger are the main session
+refuting a claim it had made itself a few days earlier.
+
+**Mid-tier models did the heavy building**: the C++ engines, the search
+campaigns, the algebraic arithmetic, the incidence analysers. Two failure modes
+showed up repeatedly, and both are manageable once named. *Coverage artifacts*
+— a search implemented perfectly over an accidentally-too-small parameter space
+— are fixed by a hard gate: your machinery must reproduce the current record
+before your negative results count for anything. *Premature parking* — an agent
+sets up a long computation and then stops to wait for it instead of running it
+— is fixed by making every campaign a single detached self-sequencing script.
+That second failure happened again on the day this document was written: an
+agent built its engine correctly, then stalled twice waiting on its own monitor
+job, and the main session finished the gating by hand.
+
+**A small model audited**, and on one occasion overturned the frontier model's
+stated belief about what the data showed. Cheap models audit well, partly
+because they have no stake in the hypothesis. Specifications were written to
+invite that: the instruction *"if the true invariant is not what I guessed,
+report what it is; do not force it to match"* is in the delegation log, and the
+two times an agent contradicted the main session, the agent was right.
+
+**Non-LLM tools carried the actual mathematics**: twin C++/Python counting
+engines that have never once disagreed across about a million counts, a
+computer-algebra system for the Gröbner-basis work that found configurations no
+numeric grid lands on, and a small browser visualiser — which is what the human
+was looking at when the remark that opened Act VII got made.
+
+**The filesystem was the long-term memory.** Sessions end, context windows
+fill, models get swapped mid-project. What survives is the append-only ledger,
+the specification files, and a log recording exactly what each delegated agent
+was told and which pre-existing numbers it had to reproduce
+([`DELEGATION_LOG.md`](DELEGATION_LOG.md)) — that last one exists because a
+specification handed to a subagent is otherwise stored nowhere and vanishes
+with the session, taking the gates with it.
 
 ## What is open
 
