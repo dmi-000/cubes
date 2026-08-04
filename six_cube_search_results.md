@@ -114,6 +114,22 @@ with `index_ledger.py` after appending.
 - [Postscript 62](#postscript-62-what-happens-at-the-endpoint-of-a-727-continuum--the-interval-is-open-the-endpoint-has-its-own-count-and-region-counts-are-not-semicontinuous) — what happens at the endpoint of a 727 continuum — the interval is OPEN, the endpoint has its…
 - [Postscript 62 addendum](#postscript-62-addendum-the-other-endpoint--w3-written-as-a-polynomial-at-last-and-both-ends-of-the-interval-are-725) — the OTHER endpoint — W3 written as a polynomial at last, and both ends of the interval are 725
 - [Postscript 63](#postscript-63-the-line-catalogue-was-never-symmetry-closed--the-richest-727-continuums-own-c3-images-were-missing-and-a-uniform-parameter-grid-is-not-equivariant) — the LINE catalogue was never symmetry-closed — the richest 727 continuum's own C3 images…
+- [Postscript 64](#postscript-64-the-n6-typology-applies-to-n3-but-the-wall-taxonomy-truncates-and-the-base-fixing-method-provably-cannot-reach-max3) — the n=6 typology applies to n=3, but the wall taxonomy TRUNCATES and the base-fixing method…
+- [Postscript 65](#postscript-65-max3-is-an-upward-spike-on-a-55-plateau--the-exact-inverse-of-n6-and-the-geometric-face-of-frustration) — max(3) is an upward SPIKE on a 55-plateau — the exact inverse of n=6, and the geometric face…
+- [Postscript 66](#postscript-66-correction-to-postscript-63-the-line-catalogue-was-symmetry-closed--the-test-compared-quaternion-representatives-instead-of-configurations) — the line catalogue WAS symmetry-closed — the test compared quaternion representatives…
+- [Postscript 67](#postscript-67-the-full-endpoint-census--every-continuum-end-counts-725-and-n6-also-has-isolated-727-spikes-the-n3-shape-appearing-rationally-at-n6) — the full endpoint census — every continuum end counts 725, and n=6 ALSO has isolated 727…
+- [Postscript 68](#postscript-68-epsilon-neighbourhoods-show-walls-are-not-equivalent--the-walls-carrying-727-are-worth-6-each-the-walls-that-end-it-cost-2) — epsilon-neighbourhoods show walls are NOT equivalent — the walls carrying 727 are worth +6…
+- [Postscript 69](#postscript-69-n2-mapped-completely--five-counts-generic-4-and-the-maximum-on-curves-the-same-codimension-as-n6s-727-lines) — n=2 mapped completely — five counts, generic 4, and the maximum on CURVES, the same…
+- [Postscript 69 addendum](#postscript-69-addendum-the-n2-stratification-from-epsilon-adjacency--the-count-is-determined-by-the-dimension-of-the-stratum) — the n=2 stratification, from epsilon-adjacency — the count is determined by the DIMENSION of…
+- [Postscript 70](#postscript-70-the-topology-of-the-n2-stratification--it-is-the-octahedral-mirror-arrangement-on-the-axis-sphere-fibred-by-the-rotation-angle) — the topology of the n=2 stratification — it is the OCTAHEDRAL MIRROR ARRANGEMENT on the axis…
+- [Postscript 71](#postscript-71-extending-the-n2-map-to-n3--every-triple-is-labelled-by-three-n2-strata-and-both-67s-live-in-the-single-cell-131313) — extending the n=2 map to n=3 — every triple is labelled by THREE n=2 strata, and both 67s…
+- [Postscript 72](#postscript-72-the-131313-cell-is-reducible--a-2-dimensional-shared-axis-component-at-55-and-isolated-points-where-67-lives) — the (13,13,13) cell is REDUCIBLE — a 2-dimensional shared-axis component at 55, and isolated…
+- [Postscript 73](#postscript-73-the-pair-label-of-every-record-and-what-extending-the-structure-graph-to-higher-n-would-cost) — the pair-label of every record, and what extending the structure graph to higher n would cost
+- [Postscript 74](#postscript-74-the-n4-cell-census-and-the-one-record-no-climb-can-reach) — the n=4 cell census, and the one record no climb can reach
+- [Postscript 74 addendum](#postscript-74-addendum-basins--the-n4-record-is-reachable-but-not-from-random-seeds-and-no-refinement-reaches-n3s-at-all) — basins — the n=4 record is reachable but NOT from random seeds, and no refinement reaches…
+- [Postscript 75](#postscript-75-zero-signal-means-a-uniform-region--and-characterising-it-separates-the-two-n3-maxima-for-the-first-time) — zero signal means a uniform REGION — and characterising it separates the two n=3 maxima for…
+- [Postscript 76](#postscript-76-correction-to-postscript-70-the-n2-13-locus-is-bigger-than-recorded--and-that-is-what-a-structural-proof-of-max3-would-have-to-be-built-on) — the n=2 13-locus is bigger than recorded — and that is what a structural proof of max(3)…
+- [Postscript 77](#postscript-77-step-a-complete--a-closed-form-exact-formula-for-the-two-cube-region-count-and-with-it-the-13-locus-as-a-criterion-rather-than-a-list) — STEP A COMPLETE — a closed-form exact formula for the two-cube region count, and with it the…
 
 <!-- INDEX:END -->
 
@@ -5077,3 +5093,911 @@ carries several, so equinumerosity would be surprising and should not be
 assumed.
 
 Files: `line_typology.py`, `lines_c3_closed.json`, `continua.py`.
+
+## Postscript 64: the n=6 typology applies to n=3, but the wall taxonomy TRUNCATES and the base-fixing method provably cannot reach max(3)
+
+2026-08-03, main session, answering "can the TYPOLOGY of n=6 apply to n=3
+configurations?"
+
+**THE MACHINERY TRANSFERS UNCHANGED.** Fix n−1 cubes, give the last one its 3
+degrees of freedom in Cayley coordinates, and everything the n=6 typology uses
+is defined: walls, lines as two-wall intersections, chambers, per-label types,
+plateaux. Nothing in it is specific to six cubes.
+
+**BUT THE TAXONOMY IS GRADED BY n.** A wall is four face planes concurrent, and
+the types are named by how many CUBES supply them:
+
+    (3,1)      corner-on-face     needs 2 cubes   exists from n = 2
+    (2,2)      edge-edge          needs 2 cubes   exists from n = 2
+    (2,1,1)    W3                 needs 3 cubes   exists from n = 3
+    (1,1,1,1)  W4                 needs 4 cubes   exists from n = 4
+
+So at n = 3 only three of the four types exist, and at n = 2 only two. **W4
+first exists at n = 4** — which is exactly the level where frustration switches
+on and the maximum stops being attainable by symmetry. Whether that is a
+mechanism or a coincidence is untested and should not be assumed; it is
+recorded because it is checkable.
+
+**AND THE METHOD PROVABLY CANNOT FIND max(3).** The n=6 programme works by
+fixing a RATIONAL base and sweeping the free cube. At n = 3 that is structurally
+excluded from the answer:
+
+  - Theorem R: a rational configuration has rational O-reduced pair invariants.
+  - Both 67 maximisers have IRRATIONAL pair invariants on every pair — ½+√2
+    (octahedral) and 3φ/2 (golden), and in each the three pairs are equivalent
+    by symmetry.
+  - μ of the base pair is an invariant OF THAT PAIR, untouched by whatever
+    third cube is added.
+
+Therefore fixing any rational pair excludes 67 no matter what the third cube
+is, rational or not. Measured, over ~3500 third cubes each on three rational
+bases:
+
+    base = 13-pair (1,0,0,0),(0,1,1,1)      max 59
+    base = 9-pair  (1,0,0,0),(2,1,0,0)      max 43
+    base = C0,C1 of the 393 base            max 63
+
+all short of 67, and 63 matches the known "best triple inside any higher
+record" figure.
+
+**THE FINDINGS INVERT.** At n = 6 the record is a PLATEAU — a union of
+1-dimensional segments, at least 161 configurations in 54 types. At n = 3 the
+maximum is TWO ISOLATED POINTS. So chamber language describes n = 3's
+sub-maximal strata perfectly well, while its optimum has no chamber at all: it
+is a zero-dimensional stratum. That the base-fixing method works at n = 6 is a
+fact about where the n = 6 record happens to live (reachable from the rational
+393 base), not a property of the method.
+
+## Postscript 65: max(3) is an upward SPIKE on a 55-plateau — the exact inverse of n=6, and the geometric face of frustration
+
+2026-08-03, main session, answering "could max(3) be thought of as a line where
+the endpoints have more regions instead of less?" Nearly — and running the
+measurement settles the shape. This also closes Task 1 of
+`DIHEDRAL_FAMILY_NEXT.md`, open since 2026-07-16.
+
+**THE FAMILY.** The dihedral family (Postscript 25) is the one-parameter
+compound {I, S, S²} with S(ψ) the ±120° rotation about n(ψ) = (sin ψ, cos ψ, 0).
+At Pythagorean ψ the entries lie in ℚ(√3), so `q3_count.py` counts them
+exactly. Sweeping ψ across (0°, 90°) gives a symmetric staircase:
+
+    psi      0      8.8    10-19    22.6-67.4    71-80    81     90
+    count   25       31      43         55         43      31     25
+
+**THE TWO 67s ARE SPIKES INSIDE THE 55 PLATEAU.** Refining with Pythagorean
+angles up to r = 900:
+
+    octahedral 67 at psi = 35.264deg (arcsin 1/sqrt3, irrational)
+        34.894 -> 55    35.051 -> 55    35.300 -> 55    35.489 -> 55
+    golden 67 at psi = 69.095deg (tan psi = phi^2, irrational)
+        68.574 -> 55    68.761 -> 55    69.017 -> 55    69.390 -> 43
+
+Both maxima are bracketed within a quarter of a degree by configurations
+counting 55. **The n=3 maximum is a +12 spike at an isolated irrational point
+of a plateau whose generic value is 55.** (+12 = six antipodal pairs, the
+quantum central symmetry forces.)
+
+**SO THE TWO LEVELS ARE OPPOSITE SHAPES**, though not quite as mirror images:
+
+    n = 6:  the record is an INTERVAL (727 across a stretch of a wall line),
+            and its ENDPOINTS DIP to 725 -- open at both ends (Postscript 62).
+    n = 3:  the record is a POINT, spiking UP by 12 from the 55 plateau it
+            sits inside. It is not the endpoint of a 67-interval; there is no
+            67-interval.
+
+**AND THE MECHANISM IS ALREADY IN HAND.** Postscript 62 found that region
+counts are NOT semicontinuous, because a tangential contact PINCHES a region
+at a point: the contact point is excluded, so the two lobes count separately.
+That is exactly what lets a degenerate configuration carry MORE regions than
+its neighbours — the upward spike here — while a coincidence that merges rather
+than pinches produces the downward dip seen at the n=6 endpoints. Both
+directions occur, and now both have been measured on real configurations.
+
+**THIS IS FRUSTRATION, GEOMETRICALLY.** The project's account has been: at
+n <= 3 every depth layer can be maxed at once, which is a RIGID demand and
+lands on isolated irrational points; from n = 4 the layers must be traded, and
+trades live on open sets, hence rational. The two shapes above are that story's
+geometry — **rigid optima are spikes, traded optima are plateaux.** The
+irrationality at n = 3 is then a corollary of the shape, not an extra fact: an
+isolated point has no interval around it to carry rationals.
+
+Files: `q3_count.py` (existed, never run), `dihedral_family_counts.out`.
+
+## Postscript 66 (CORRECTION to Postscript 63): the line catalogue WAS symmetry-closed — the test compared quaternion representatives instead of configurations
+
+2026-08-03, main session, after a chain script failed and forced a re-read of
+the previous hour's work.
+
+**POSTSCRIPT 63 IS WITHDRAWN in its structural claims.** It applied the C3 to
+lines by LEFT MULTIPLICATION, q -> g*q. But g = (1,1,1,1) is the 120-degree
+rotation about (1,1,1), which is a CUBE SELF-SYMMETRY, so g*q and g*q*g^-1
+describe the SAME SOLID — they differ by right multiplication by an octahedral
+element, which no cube can tell apart. Verified: both actions permute the five
+base solids identically, as (0,1,2)->(1,2,0).
+
+So the two differ only in WHICH of the 24 quaternion representatives they name,
+and the catalogue stores one representative per line. Postscript 63 therefore
+tested "is this particular representative in the list", not "is this
+configuration in the list". **This project had already recorded exactly this
+trap** — Postscript 49 addendum, "the Cayley chart omits quaternion
+representatives, not compounds" — and it was repeated.
+
+**THE CORRECTED MEASUREMENT.** Under conjugation q -> g*q*g^-1:
+
+    image in the catalogue        129 of 129   (Postscript 63 said 107)
+    orbits                        43, all of size 3, covering all 129
+    parameter along the line      PRESERVED EXACTLY: t -> t
+
+Line 9's images are lines 88 and 37, both present, both carrying 727 over the
+identical stretch t in [2, 13.5].
+
+Withdrawn with it: "22 lines have images outside the set"; "closing the
+catalogue adds 33 lines, 162 total"; "line 9's C3 images are absent"; "there
+are two further 11.65-wide 727 intervals never recorded"; "the C3 compresses
+the parameter, so a uniform grid in t is not equivariant"; and "every census
+over the 129 lines is incomplete by construction". The compression figure
+(t = -1.75 -> -0.013) was the wrong representative, not a projective effect.
+`lines_c3_closed.json` is an artifact of the error and should not be used.
+
+**AND THE CENSUS NOW CHECKS OUT AGAINST THE SYMMETRY.** All 129 lines scanned,
+t in [-20, 20] at step 1/2:
+
+    21 lines carry a 727 continuum = EXACTLY 7 C3 orbits of 3, with matching
+    widths in every orbit:
+        [9, 37, 88]      width 11.5     <- the long one, Postscript 62's line
+        [73, 116, 120]   width  1.5
+        [12, 38, 95] [24, 35, 82] [31, 32, 103] [69, 106, 119]   width 0.5
+        [28, 30, 34]     width  0.0     <- single sample; interval or isolated
+                                           POINT is unresolved at this step
+
+Locations differ within an orbit only because each line carries its own
+(p0, dir) convention; the widths agree everywhere. That is the equivariance
+Postscript 63 claimed was absent.
+
+**HOW IT SURFACED.** A chain script died with "continua_shard_0.jsonl: No such
+file or directory" — because the file had been renamed while the census still
+held it OPEN in append mode, and on Unix a rename follows the inode, so the
+running process kept writing to the renamed file and the expected name was
+never created. The chain then printed "phase B done" without checking the exit
+status. Both are now in `FAILURE_MODES.md`.
+
+Files: `line_typology.py` (uses the wrong action; superseded),
+`continua.py`, `continua_shard_0.jsonl` (rebuilt from the live run).
+
+## Postscript 67: the full endpoint census — every continuum end counts 725, and n=6 ALSO has isolated 727 SPIKES, the n=3 shape appearing rationally at n=6
+
+2026-08-03, main session, completing the census the "check all endpoints"
+thread asked for.
+
+**THE CONTINUA.** All 129 727-carrying lines scanned over t in [-20, 20] at
+step 1/2 (`continua.py`). **21 lines carry a 727 continuum, forming exactly 7
+C3 orbits of 3**, with matching widths inside every orbit:
+
+    [9, 37, 88]    width 11.5      <- the long one (Postscript 62's line)
+    [73, 116, 120] width  1.5
+    [12, 38, 95] [24, 35, 82] [31, 32, 103] [69, 106, 119]   width 0.5
+    [28, 30, 34]   width  0.0      <- below the sampling step
+
+**THE ENDPOINTS.** All 42 analysed exactly (`continua_endpoints.py`): bisect to
+a bracket ~1e-7 wide, find every catalogue condition changing sign inside it,
+take its exact root, count the configuration AT the root.
+
+    W3        -> 725    9 endpoints
+    W4        -> 725   18
+    edge-edge -> 725   12
+                      ---
+                       39, and EVERY ONE COUNTS 725
+
+So the finding of Postscript 62 generalises: **a 727 continuum is open at both
+ends, and its endpoint sits exactly one +-2 step below the plateau.** The W3
+endpoints resolve only after the quartic is FACTORED over Q — unfactored they
+report degree 4 and cannot be counted at all.
+
+**THE OTHER THREE ARE NOT ENDPOINTS.** On the orbit [69, 106, 119] the
+bisection converged on a point counting 727. It is not the edge of the
+continuum: at t = 11/8 on line 119, the configuration is the rational
+quaternion **(4, -28, -44, -17)**, and
+
+    count(11/8)          = 727   (cube_regions_n AND region_adjacency)
+    count(11/8 +- 1e-4)  = 723
+    count(11/8 +- 1e-5)  = 723
+    count(11/8 +- 1e-6)  = 723
+    count(11/8 +- 1e-7)  = 723        (finer is beyond the engine's budget)
+
+**This is an ISOLATED 727 point** — a +4 spike with 723 on both sides — sitting
+on the same line as, but separate from, the continuum over [1.5, 2.0].
+
+**SO n = 6 HAS BOTH SHAPES.** Postscript 65 found max(3) = 67 to be an upward
+spike on a 55-plateau, and contrasted it with n = 6's record being an interval.
+That contrast was too clean: n = 6 has continua AND isolated spikes, on the
+same line. The difference that survives is arithmetic, not shape — **n = 3's
+spikes are irrational and are the maximum; n = 6's spike here is RATIONAL and
+merely ties a value also attained on intervals.**
+
+**METHOD.** The bisection assumes a single monotone transition inside its
+starting bracket. Where a spike sits between the bracket end and the continuum,
+it converges on the spike instead. That is how these three were found — an
+accident that produced the most interesting object in the census, and a
+reminder that the routine is not a general endpoint locator.
+
+**FOUR PROCESS FAILURES, all now in `FAILURE_MODES.md`:** an output file opened
+in APPEND mode mixed four incompatible runs and made me "verify" a 727 endpoint
+at a parameter that was not even inside the continuum (the count there is 691,
+correctly); a file was RENAMED TWICE while a process held it open, so the live
+records followed the inode into the quarantined name; `sympy.real_roots`
+returned CRootOf objects which `nsimplify` then numerically GUESSED into
+expressions like 2**(103/253), putting a float heuristic inside an exact
+pipeline; and a chain script announced "phase B done" immediately after phase B
+crashed, because it never checked the exit status.
+
+Files: `continua.py`, `continua_endpoints.py`, `continua_phaseA.out`,
+`continua_phaseB2.out`.
+
+## Postscript 68: epsilon-neighbourhoods show walls are NOT equivalent — the walls carrying 727 are worth +6 each, the walls that end it cost −2
+
+2026-08-03, main session, following "let's see what epsilon-neighbourhoods tell
+us about the structure".
+
+**THE OBJECT.** A wall line is the intersection of TWO walls, so a point on it
+has a 9-cell neighbourhood in the 3-DOF configuration space: the line itself
+(on both walls), 4 sectors on exactly one wall, and 4 open quadrants on
+neither. With n1, n2 the defining normals and u1, u2 their reciprocal vectors,
+moving by s1*u1 + s2*u2 crosses wall i exactly when si != 0, so the sign pair
+names the cell with no numerical guessing (`eps_neighbourhood.py`).
+
+**THE COUNTS ARE COMPLETELY UNIFORM.** Every chamber of line 9, and every line
+tested — 6 different wall pairs drawn from 5 different C3 orbits — gives the
+identical picture:
+
+    on the line   (both walls)      727
+    one wall only (4 sectors)       721
+    neither wall  (4 quadrants)     715
+
+**So each defining wall is worth +6**, additively and independently:
+727 = 715 + 6 + 6. Six is three antipodal pairs, the ±2 quantum applied three
+times.
+
+**BUT THE ENDPOINT WALLS GO THE OTHER WAY.** At an endpoint the configuration
+lies on a THIRD wall, and the count is 725 (Postscript 67, all 39 of them) —
+not 715 + 18 = 733. The third wall contributes **−2**.
+
+So the naive grading "count = 715 + 6·(walls you are on)" is FALSE, and its
+failure is the finding: **walls are not equivalent.** Some add regions and some
+remove them. The two edge-edge walls that carry a 727 line are +6 walls; the
+W3, W4 and edge-edge walls that terminate the line are −2 walls. The same wall
+TYPE appears on both sides of that divide — edge-edge walls both define lines
+(+6) and end them (−2) — so the sign is not a function of the taxonomy of
+Postscript 57. It is presumably the pinch/merge distinction of Postscript 62: a
+coincidence that PINCHES a region into two adds regions, one that MERGES
+removes them.
+
+**WHICH REFRAMES WHAT A RECORD IS.** Not "a configuration with many
+coincidences" — Postscript 57 already measured that more coincidence means
+fewer regions. It is a configuration sitting on as many +6 walls as possible
+while avoiding the −2 walls. The 727 lines are exactly the loci where two +6
+walls meet, and they end precisely where a −2 wall crosses.
+
+**AND THE NEIGHBOURHOOD ADDS NOTHING AT THE COUNT LEVEL, EVERYTHING AT THE
+TYPE LEVEL.** The 9-cell count signature is identical for all 11 chambers of
+line 9, so it cannot distinguish letters. The 9-cell per-label TYPE signature
+is maximally fine: all 99 sampled cells (11 chambers x 9 cells) carry 99
+DISTINCT canonical types. Between those extremes there is no intermediate
+invariant here — counts are constant, types are injective.
+
+Files: `eps_neighbourhood.py`, `word_typology.py`.
+
+## Postscript 69: n=2 mapped completely — five counts, generic 4, and the maximum on CURVES, the same codimension as n=6's 727 lines
+
+2026-08-03, main session, answering "can we map the full structure of
+neighbourhoods for n=2?" Yes: two cubes have 3 degrees of freedom and, by
+Postscript 57's taxonomy, only two wall types can exist (W3 needs three cubes,
+W4 needs four), so n=2 is the one level where the whole space can be charted.
+
+**ONLY FIVE COUNTS OCCUR**, with depth profiles {d1, 1}:
+
+    count    1     4     5     9    13
+    d1       0     3     4     8    12
+
+**THE GENERIC COUNT IS 4.** Over random integer quaternions, as the height
+grows the distribution converges hard:
+
+    height     2 :  1:18.7%          9:35.0%  13:46.3%
+    height    10 :  4:26.2%  5:40.5%  9:27.3%  13: 5.5%
+    height   100 :  4:90.0%  5: 6.3%  9: 3.7%  13: 0%
+    height  1000 :  4:98.8%  5: 0.8%  9: 0.3%  13: 0%
+
+**CORRECTION, to a claim made an hour earlier in this same session.** A first
+sample over mixed heights 2..144 gave 13 on 9.5% of draws, and I read that as
+"the maximum is attained on an open set of positive measure". It is not.
+SMALL INTEGER QUATERNIONS ARE THE SPECIAL CONFIGURATIONS — they satisfy many
+rational conditions at once — so sampling them oversamples walls by an
+enormous factor. At height 60, ZERO of 400 draws reach 13; at height 1000 the
+count is 4 in 98.8% of draws. The ledger's own earlier description, "13 is a
+continuum" (Postscript 44), was right; my gloss of continuum as "open set"
+was the error.
+
+**THE 13-SET IS A CURVE.** Along the body-diagonal family (a,b,c) = (t,-t,t)
+the count is 13 at every sampled t; perturbing transversally at t = 5/7 gives
+9 on one side and 5 on the other. So the maximum sits at codimension 2 in the
+3-DOF space — **exactly the codimension of n=6's 727 lines**. The two levels
+have the same shape after all; what differs is the size of the bonus. At n=2
+the maximum is 3.25x the generic count (13 against 4); at n=6 it is 1.7% above
+the local generic value (727 against 715).
+
+**AND THE EXTREME DEGENERACY COLLAPSES.** The 24 rotations that are cube
+self-symmetries make the two cubes coincide and the count falls to 1 — the
+MINIMUM, at the most special points in the space. So "more coincidence" does
+not run one way: coincidence raises the count (4 -> 5 or 9 -> 13) until the
+cubes merge, at which point everything collapses.
+
+Files: `n2_map.py`.
+
+### Postscript 69 addendum: the n=2 stratification, from epsilon-adjacency — the count is determined by the DIMENSION of the stratum
+
+2026-08-03, main session, answering "which of those five counts are epsilon
+neighbours? identical counts epsilon-neighbours of each other should be
+members of a continuum."
+
+That criterion is exactly right, and it measures dimension. Probing each
+count's representative with a lattice p + (i,j,k)/D, |i,j,k| <= 2 (124 points),
+at D = 24, 96 and 384 — the neighbour distributions are IDENTICAL at all three
+radii, so the local structure is conical — and the number of neighbours
+sharing the count reads off the dimension directly:
+
+    count   own-count neighbours   of 124      dimension
+      4        124  (all)                        3   open
+      5         24  = 5^2 - 1, a plane           2
+      9         18                               2
+     13          4  = +-1, +-2 on a line         1   CURVE
+      1          0                               0   isolated
+
+**Self-adjacency detects the continuum exactly as proposed**: 4, 5, 9 and 13
+are each adjacent to themselves and so lie in continua; 1 is not, and is
+attained only at the 24 isolated points where the cubes coincide.
+
+**THE STRATIFICATION.** Every stratum has all the higher-dimensional ones in
+its neighbourhood:
+
+    dim 3   count  4     neighbours: 4
+    dim 2   count  5     neighbours: 4, 5
+    dim 2   count  9     neighbours: 4, 9
+    dim 1   count 13     neighbours: 4, 5, 9, 13
+    dim 0   count  1     neighbours: 4, 5, 9, 13
+
+So n=2's configuration space is a clean stratified space in which **the region
+count is a function of the stratum's dimension** — 3 -> 4, 2 -> 5 or 9,
+1 -> 13, 0 -> 1. The count rises as the dimension falls, until the final
+collapse at the coincidence points.
+
+**ONE LATTICE ARTIFACT, caught before it was recorded as a fact.** The lattice
+probe at the coincidence point reported neighbours {5, 9, 13} and NO 4,
+suggesting the generic count does not occur near a coincidence. It does:
+sampling genuinely generic rotations of angle ~1/1000, ~1/10^5 and ~1/10^7
+about that point gives 4 in about 60% of draws at every scale. The lattice
+near the origin consists entirely of small-denominator points, which are all
+arithmetically special — the same bias that made the "13 is attained on an open
+set" reading wrong earlier in this session. The bias is a useful instrument for
+finding rational walls and a trap for judging what is generic; it must not be
+used for both at once without saying which.
+
+Files: `n2_adjacency.py`.
+
+## Postscript 70: the topology of the n=2 stratification — it is the OCTAHEDRAL MIRROR ARRANGEMENT on the axis sphere, fibred by the rotation angle
+
+2026-08-03, main session, answering "if we fill the 3-DOF space with dimension
+labels, what is the topology of that structure?"
+
+**IT IS NOT AN ARBITRARY ARRANGEMENT.** Cayley coordinates (a,b,c) are the
+rotation AXIS scaled by tan(theta/2), so the space fibres over the sphere of
+axis directions with the angle as fibre — and the strata are governed by where
+the axis sits in the cube's OWN symmetry arrangement. Measured across 33
+angles per axis:
+
+    axis (1,2,3), (2,3,5)   GENERIC             count 4 at every angle
+    axis (1,2,0),(1,1,2),
+         (1,1,3)            IN A MIRROR PLANE   counts 5 and 9, never 4
+    axis (1,0,0)            FACE axis           count 9 at every angle
+    axis (1,1,0)            EDGE axis           count 9, with 13 on an arc
+    axis (1,1,1)            BODY DIAGONAL       count 13 at every angle
+
+**THE TOPOLOGY.** The octahedral group's reflection arrangement cuts the axis
+sphere S^2 by 9 great circles (3 coordinate planes, 6 diagonal) into **48
+spherical triangles** — the classical barycentric subdivision, whose vertices
+are the 6 face axes, 12 edge axes and 8 body diagonals. The n=2 stratification
+is that arrangement, fibred by the angle:
+
+    triangle interior (dim 2) x angle  ->  dim 3   count 4
+    triangle edge     (dim 1) x angle  ->  dim 2   count 5 or 9
+    triangle vertex   (dim 0) x angle  ->  dim 1   count 9 (face),
+                                                   9/13 (edge), 13 (diagonal)
+    the 24 cube-symmetry rotations     ->  dim 0   count 1
+
+which reproduces exactly the dimension/count table of the Postscript 69
+addendum, and explains it: the count is a function of the stratum because the
+stratum is a symmetry stratum.
+
+**THE MAXIMUM LOCUS, DESCRIBED COMPLETELY.** 13 occurs on the 4 body-diagonal
+circles (every angle) and on an arc of each of the 6 edge circles. Each circle
+passes through the identity, and the cube-symmetry rotations on it are its
+vertices. So **the 13-locus is a GRAPH embedded in SO(3)** — vertices at the 24
+cube symmetries (where the count collapses to 1), edges the arcs of 13. This
+is the derived form of Postscript 44's "every angle about a body diagonal, plus
+a closed arc about an edge axis", which was observed rather than explained.
+
+**A REFINEMENT: the walls come in two families.** The generic axis (1,2,3) gave
+5 at one angle of 33, so "special angle" is a codimension-1 condition in its
+own right, independent of the axis stratification. The 5-locus therefore has
+components of two kinds — {mirror axis} x {generic angle} and {generic axis} x
+{special angle} — both 2-dimensional. The fibration explains the axis
+direction; the angle direction carries its own walls.
+
+Files: `n2_map.py`, `n2_adjacency.py`.
+
+## Postscript 71: extending the n=2 map to n=3 — every triple is labelled by THREE n=2 strata, and both 67s live in the single cell (13,13,13)
+
+2026-08-03, main session, answering "every 3-cube configuration will be built
+of components from that graph, so can we extend the graph to n=3?" Yes, and
+the extension puts both maxima in one cell.
+
+**THE MAP.** A 3-cube compound {I, R1, R2} contains three PAIRS, with relative
+rotations R1, R2 and R1^-1 R2. Each is a point of the n=2 configuration space,
+so every n=3 configuration carries a coarse label: the multiset of its three
+n=2 strata, read off as the three pair counts from {1, 4, 5, 9, 13}. This is
+the project's "pair signature" (9-pair, 13-pair, ...) given its proper home —
+it is the image of the n=3 space in three copies of the n=2 map.
+
+**THE TRIPLE BOUNDS BUT DOES NOT DETERMINE THE TOTAL.** Over ~2080 random
+rational triples, 25 of the 35 possible labels occur, and each admits a range:
+
+    (9,9,13)   max 59, seen {39,41,49,53,59}     (13,13,13)  seen {55} only
+    (5,13,13)  max 59                            (9,9,9)     max 55, 9 values
+    (4,4,4)    max 38, min 22                    (4,4,5)     max 40, min 19
+
+So the label is a genuine invariant — it orders the cells by their ceiling —
+but the fibre over a label is not a single count.
+
+**A CONSISTENCY CHECK THE FRAMEWORK PASSES.** Every label containing a 1 (one
+pair coincident, so the compound is really two cubes) returns exactly that
+pair's count: (1,13,13) -> 13, (1,9,9) -> 9, (1,5,5) -> 5, (1,4,4) -> 4,
+(1,1,1) -> 1. The degenerate cells collapse to the n=2 answer, as they must.
+
+**BOTH MAXIMA ARE IN THE CELL (13,13,13).** Computed exactly in Q(sqrt 2): the
+octahedral 67 — three 45-degree turns, Cayley point (sqrt2 - 1) times each
+coordinate axis — has ALL THREE PAIRS EQUAL TO 13, and totals 67 with profile
+{48, 18, 1}. The golden 67's pairs are 13 as well, from its own subcompound
+chain 1, 13, 67, 177. So the two non-congruent maxima are not in different
+cells: they are two points of the same one.
+
+**AND THAT CELL IS MEASURE ZERO, WITH ITS RATIONAL MEMBERS CAPPED AT 55.**
+Sampling random rational triples by height, the (13,13,13) label appears 13
+times in 300 at height 2, then 4, 2, 1, and **zero from height 9 upward** — the
+signature of a thin stratum reached only by arithmetically special
+quaternions. Every rational member found totals 55. The 67s are the irrational
+points of that cell.
+
+**WHICH RESTATES THE n=3 IRRATIONALITY IN THE LANGUAGE OF THE MAP.** A 13-pair
+is a pair whose relative rotation lies on the n=2 maximum graph — the four
+body-diagonal circles and the six edge arcs (Postscript 70). So the n=3
+maximum is exactly a configuration whose three pairs ALL lie on the n=2
+maximum locus, and within that cell the maximum is attained only at points no
+rational configuration reaches. The user's reading is the right one: three-cube
+compounds are built from components of the two-cube graph, and the best ones
+are built from its best components.
+
+Files: `n2_adjacency.py`, and the pair-triple census in this postscript.
+
+## Postscript 72: the (13,13,13) cell is REDUCIBLE — a 2-dimensional shared-axis component at 55, and isolated points where 67 lives
+
+2026-08-03, main session, answering "what is the dimension of the one cell
+containing both maxima, and what else besides the triple label is needed to
+determine the total?"
+
+**THE CELL DECOMPOSES.** A 13-pair is a pair whose relative rotation lies on
+the n=2 maximum graph, whose main components are the four body-diagonal
+circles. Scanning pairs of body-diagonal rotations:
+
+    both rotations about the SAME diagonal     418 of 420 sampled pairs
+                                               are 13-pairs
+    rotations about DIFFERENT diagonals         40 of 441
+
+The asymmetry is structural, not statistical. If R1 and R2 are rotations about
+one diagonal then so is R1^-1 R2, so the third condition is FREE and two
+parameters survive: **the shared-axis component is 2-dimensional.** With
+distinct diagonals the third condition is a genuine codimension-2 constraint on
+a 2-parameter family, leaving isolated points.
+
+    component                       dimension    total
+    all three axes one diagonal         2         55   (1512 of 1512
+                                                        non-degenerate)
+    axes on distinct diagonals          0         67   (the two maxima)
+
+The 160 shared-axis cases returning 13 rather than 55 are the degenerate
+sublocus where a 120-degree turn makes one cube the same SOLID as another, so
+the compound is really two cubes.
+
+**WHICH EXPLAINS AN EARLIER OBSERVATION.** Postscript 71 reported that every
+rational (13,13,13) configuration found totals 55, and treated that as a cap on
+the cell. It is not a cap — it is the value of the cell's 2-dimensional
+component, which is the only part a rational scan lands on with any frequency.
+The 67s are on the thin piece, and irrational.
+
+**WHAT THE TRIPLE LABEL IS MISSING: THE AXIS RELATION.** The label records each
+pair's stratum SEPARATELY; it cannot see how the three pairs sit relative to one
+another. One extra bit — same diagonal or distinct diagonals — determines the
+total on the whole 2-dimensional component (55 in all 1512 non-degenerate
+cases) and isolates the piece where 67 becomes possible.
+
+So the structure is a fibration, not a partition: the pair triple is the image
+of an n=3 configuration in three copies of the n=2 map, and the FIBRE data —
+how the three axes are glued to each other — is what the label discards. The
+n=2 graph gives the components; the axis relation says how they are assembled;
+and only then does the count follow.
+
+Files: the body-diagonal scan in this postscript, on `cube_regions_n`.
+
+## Postscript 73: the pair-label of every record, and what extending the structure graph to higher n would cost
+
+2026-08-03, main session, answering "with full n=2 and n=3 structure graphs,
+how hard would it be to extend to higher n?"
+
+**THE LABEL LAYER IS ALREADY COMPUTABLE AT EVERY n**, in milliseconds — it is
+C(n,2) two-cube counts. For the whole record tower:
+
+    n   total   pairs   label
+    2      13     1     1x13
+    3      67     3     3x13                     <- every pair maximal
+    4     183     6     3x13 3x9
+    5     393    10     4x13 6x9
+    6     727    15     4x13 9x9 2x4
+    7    1217    21     6x13 9x9 6x4
+    8    1891    28     8x13 9x9 11x4
+
+Fraction of maximal pairs: 1.00, 1.00, 0.50, 0.40, 0.27, 0.29, 0.29. **Up to
+n=3 the maximum is built ENTIRELY from maximal pairs; from n=4 it cannot be,
+and settles near 30%.** The count of 9-pairs is 9 at n = 6, 7 and 8 alike.
+
+**AND ALL-MAXIMAL IS ALWAYS AVAILABLE, JUST NOT OPTIMAL.** Putting every cube
+on a shared body diagonal makes every pair a 13-pair at every n (verified,
+n = 2..8). Its total against the record:
+
+    n            2     3     4     5     6     7     8
+    all-13      13    55   145   301   541   883  1345
+    record      13    67   183   393   727  1217  1891
+    ratio     1.00  0.82  0.79  0.77  0.74  0.73  0.71
+
+So frustration, in the language of the graph, is a three-stage story:
+ * n = 2: the record IS the all-maximal configuration.
+ * n = 3: the record is still all-maximal, but on the ISOLATED component of the
+   (13,13,13) cell — the 2-dimensional shared-axis component reaches only 55
+   against 67 (Postscript 72).
+ * n >= 4: the record is NOT all-maximal. Trading maximal pairs for tunable
+   ones beats keeping them, by a margin that grows with n.
+
+**COST OF EXTENDING, BY LAYER.**
+ * *Nodes.* The label count is C(5 + C(n,2) - 1, C(n,2)): 35 at n=3, 210 at
+   n=4, 1001 at n=5, 3876 at n=6. Small. The impossibility argument
+   generalises: a pair counting 1 means the two cubes are the same solid, so
+   coincidence is an equivalence relation and the pair-count matrix must
+   respect it.
+ * *Dimensions.* The lattice probe costs 3^(3(n-1)) - 1 points: 728 at n=3,
+   19 682 at n=4, 531 440 at n=5, 14.3 MILLION at n=6 — about 16 core-days per
+   representative. Exhaustive lattices die at n=5; replace them with random
+   -direction sampling (the fraction of directions preserving the label
+   estimates the codimension) which scales at any n.
+ * *Ceilings.* These need search, which is the expensive part and exactly what
+   this project already does. The graph gives no new leverage there.
+
+**THE REAL LIMIT IS NOT COMPUTE, IT IS DISCRIMINATING POWER.** The label is the
+image of the configuration in C(n,2) copies of the n=2 map, and the fibre —
+the mutual geometry of the relative rotations — grows like 3(n-1). Already at
+n=3 the label fails to determine the total, and one extra bit (the axis
+relation) was needed. At n=6 the 727 plateau has 159 of its 161 configurations
+sharing ONE signature, so the label is nearly constant exactly where the
+interesting structure is.
+
+**VERDICT.** n=4 is a weekend: 210 labels, a 9-dimensional space, 19 682-point
+lattice probes, and a real question to settle — whether 183's cell
+(3x13, 3x9) is the ceiling cell. n=5 is feasible with random-direction
+dimension estimation. From n=6 the cell layer is still computable but too
+coarse to classify, and the useful objects remain the ones already built:
+walls, chambers, and the chamber words.
+
+Files: the record-label and shared-diagonal computations in this postscript.
+
+## Postscript 74: the n=4 cell census, and the one record no climb can reach
+
+2026-08-03, main session. The n=4 structure program (`n4_program.py`,
+`n4_climb.py`) run to completion on the M1; 239 338 configurations counted,
+127 of 210 cells observed.
+
+**THE CENSUS RANKS CELLS BY WHAT RANDOM SAMPLING REACHES, NOT BY THEIR
+CEILING.** The record 183 lives in cell (9,9,9,13,13,13) — three 13-pairs and
+three 9-pairs — whose census ceiling is **165**, eighteen short of the
+configuration we already know sits there. Four other cells read 171:
+(5,5,9,13,13,13), (4,9,9,13,13,13), (5,5,5,13,13,13), (4,4,9,13,13,13). Read
+naively that says the record is not in the best cell. Read correctly it says
+the census under-reads a cell by however special its optimum is.
+
+**CLIMBING SETTLES IT, AND THE LEAD WAS BACKWARDS.** Greedy ascent with wide
+restarts (the method that found 183 originally), seeded from each of the 16
+leading cells plus the record as control:
+
+    seed cell                 peak   cell the peak lives in
+    (5,5,5,13,13,13)   171 ->  183   (9,9,9,13,13,13)
+    (9,9,13,13,13,13)  169 ->  183   (9,9,9,13,13,13)
+    (4,9,13,13,13,13)  167 ->  183   (9,9,9,13,13,13)
+    (4,9,9,13,13,13)   171 ->  179   (9,9,9,13,13,13)
+    (4,5,9,13,13,13)   169 ->  179   (9,9,9,13,13,13)
+    control (the record 183)   ->  183   (9,9,9,13,13,13)
+
+Nothing exceeded 183. Every climb reaching 179 or above ended in the RECORD'S
+cell, having migrated out of its own. **(9,9,9,13,13,13) is an attractor.**
+
+And the three configurations that tie 183 are not new: identical depth profile
+{92,66,24,1} and identical per-label vector after canonicalising over the 24
+relabellings of four cubes. One combinatorial type, four quaternion
+representatives that look unrelated — one does not even have the identity as
+its first cube. Three independent seeds, one destination.
+
+**ARE ALL RECORDS REACHABLE BY CLIMBING? NO — AND n=3 IS THE EXCEPTION,
+PROVABLY.** 24 climbs from random seeds at each level:
+
+    n    record   best climb   reached the record
+    2      13         13         20 of 24
+    3      67         63          0 of 24    <- never
+    4     183        183         yes, from 3 independent cells
+
+At n=3 the ceiling was 63, with the rest spread over 49-59. This is not bad
+luck: every move a climb makes is a +-1 or +-2 integer perturbation of an
+integer quaternion, so **the entire orbit of a rational start is rational**,
+and max(3) = 67 requires irrational coordinates (Theorem R). No rational
+hill-climb can reach it at any step count. The rational climbing ceiling of 63
+coincides exactly with the known "best triple inside any higher record",
+reached here by an independent route.
+
+So the n=3 exceptionality has one more face. It is the only level whose
+maximum needs irrational coordinates; the only level whose optimum set is
+finite and larger than one point; the only rung the record tower does not
+nest through; the only level where the base-fixing method is structurally
+excluded (Postscript 64); and now the only level whose record is unreachable
+by the search method that found every other one.
+
+Files: `n4_program.py`, `n4_climb.py`, `n4_run_011b219ec3/`.
+
+### Postscript 74 addendum: basins — the n=4 record is reachable but NOT from random seeds, and no refinement reaches n=3's at all
+
+2026-08-03, main session, answering "rationals get arbitrarily close to an
+irrational — can we find a limit of climb steps? can basin size classify? what
+seeds favour basins?"
+
+**CORRECTION TO POSTSCRIPT 74.** It reported n=4's record as reached "from 3
+independent cells" without noting those seeds came from the CENSUS. From
+RANDOM seeds, 24 climbs at n=4 reach **0 of 24** — best 179, peaks spread
+135-179. The record is reachable; random restarts do not reach it.
+
+**THERE IS NO LIMIT PROCESS TOWARD THE n=3 RECORD** (`climb_limit.py`). The
+octahedral 67 sits at Cayley coordinate sqrt2 - 1 on each axis. Walking its
+continued-fraction convergents — the best rational approximations that exist
+at each denominator — straight at it:
+
+    p/q          distance     count        p/q            distance     count
+    1/2          8.6e-02       55          169/408        2.1e-06       55
+    2/5          1.4e-02       55          985/2378       6.3e-08       55
+    5/12         2.5e-03       55          5741/13860     1.8e-09       55
+    29/70        7.2e-05       55          13860/33461    3.2e-10       55
+                                           exact point                  67
+
+**Twelve orders of magnitude of approach and the count never leaves 55.** The
+spike has ZERO WIDTH: the signal at every finite distance is exactly zero, so
+no refinement schedule converts a rational climb into the irrational optimum.
+This is not "the climb needs smaller steps" — there is no gradient to follow at
+any scale. Contrast n=4, where the record sits on a 3-DIMENSIONAL continuum
+(lattice probe: 26 = 3^3 - 1 neighbours keep 183, identical at steps 1/32 and
+1/128, so the local structure is conical).
+
+**BASIN SIZE AS A CLASSIFICATION AXIS.** It works, with one caveat that must
+be stated or the number is meaningless: a basin is not a property of a
+configuration alone but of the triple (configuration, move set, seed
+distribution). Under this project's standard climb (+-1/+-2 integer moves,
+wide restarts) and log-uniform height seeding, measured:
+
+    n=2  record 13   basin >= 20/24     easily found
+    n=3  record 67   basin = 0          EMPTY, provably: every move preserves
+                                        rationality and 67 is irrational
+    n=4  record 183  basin < 1/24       nonempty but small; found only from
+                                        census-informed seeds
+
+That is a genuine third axis alongside count and dimension, and it is the one
+that predicts findability. Note it does not track dimension: 183 sits on a
+3-dimensional set and still has a basin under 1/24, because 3 dimensions
+inside 9 is thin.
+
+**BETTER SEEDING, demonstrated rather than argued.** What actually found 183
+was STRATIFIED seeding: sample broadly (239 338 configurations), bucket by a
+coarse invariant (the cell = multiset of pair counts), and climb from the BEST
+representative of each bucket. Uniform random restarts: 0 of 24. Cell-best
+seeds: 3 of 16 reached 183. The census does not find the record — it delivers
+the climb to a basin the climb can finish from.
+
+The principle generalises to any coarse invariant that is cheap relative to
+the objective: pair labels here, and the project's older "extension beats
+native search" is the same idea with the invariant being "contains a known
+(n-1)-record". What both avoid is spending the search budget re-discovering
+which region of the space is worth being in.
+
+Files: `climb_limit.py`, `n4_183_extent.py`.
+
+## Postscript 75: zero signal means a uniform REGION — and characterising it separates the two n=3 maxima for the first time
+
+2026-08-03, main session, from the observation that zero signal indicates a
+uniform region, a region has boundaries, boundaries are more interesting than
+interior points, and the size and shape of the region are themselves features.
+
+Postscript 74's addendum reported the count staying at 55 through twelve orders
+of magnitude of rational approach to the octahedral 67 and treated that as a
+dead end — no gradient, therefore nothing to do. That was the wrong reading.
+The flat 55 is not an absence of information; it is a UNIFORM REGION, and the
+thing to do is find its edges.
+
+**THE REGION.** In the dihedral family the 55 stretch runs from about
+psi = 22.6 degrees to about 69.09 degrees — roughly 46 degrees wide, bounded
+below by 43 and above by 43.
+
+**WHERE THE TWO MAXIMA SIT IN IT.** This is the new fact.
+
+  * The **octahedral 67** (psi = 35.26439) is DEEP INTERIOR: about 12.6
+    degrees from the lower edge and 33.8 from the upper. It is a puncture in
+    the middle of a uniform region — which is exactly why the approach study
+    saw nothing, and why no refinement schedule can find it.
+
+  * The **golden 67** (psi = 69.09484) is ON THE BOUNDARY. Bracketing with
+    Pythagorean angles up to r = 60000:
+
+        psi = 69.09032984   (-16.25 arcsec)   count 55
+        golden 67           psi = 69.09484
+        psi = 69.09673411   ( +6.81 arcsec)   count 43
+
+    The 55/43 boundary and the golden maximum coincide to within 23
+    arcseconds. Bracketed, not proved — but at that resolution the natural
+    reading is that the boundary IS the golden point.
+
+**SO THE TWO MAXIMISERS ARE STRUCTURALLY DIFFERENT, not merely non-congruent.**
+They have been distinguished until now only by field (Q(sqrt2) vs Q(sqrt5)) and
+by provenance (octahedron vs icosahedron). They differ in their position
+relative to the uniform region that contains them: one is an interior puncture,
+the other sits at the edge where the region gives way. Same count, same
+"isolated irrational maximum" description, entirely different local situation.
+
+**AND THE METHODOLOGICAL POINT GENERALISES.** A flat response is a cue to
+locate boundaries, not a reason to stop. This project has now hit uniform
+regions four times — the 727 continua (whose ENDS carried the W3/W4 walls and
+the 725s), the n=2 strata (whose walls carry the higher counts), the 55 plateau
+here, and the (13,13,13) cell's 2-dimensional shared-axis component at a flat
+55. In every case the structure was at the boundary. Size and shape of the
+region are then real characterising features: 46 degrees wide with a puncture
+at its centre is a different object from the same value attained on a sliver.
+
+Files: `climb_limit.py`, `region_shape.py`.
+
+## Postscript 76 (CORRECTION to Postscript 70): the n=2 13-locus is bigger than recorded — and that is what a structural proof of max(3) would have to be built on
+
+2026-08-03, main session, from the question of whether the region/neighbourhood
+graphs could guide a simpler proof of max(3) = 67. Testing the first structural
+fact such a proof would need immediately found an error in the graph.
+
+**THE ERROR.** Postscript 70 described the 13-locus as "the four body-diagonal
+circles (every angle) and an arc of each of the six edge circles" and
+summarised mirror-plane axes as giving "5 or 9". The sweeps behind it each
+showed a `13x1` in the mirror-plane rows, which the summary dropped.
+
+It matters because the OCTAHEDRAL 67's three pairs are 13-pairs whose relative
+rotations have axes [1,-1,sqrt2-1] and the like — not body diagonals, not edge
+axes. They lie in MIRROR PLANES (x = -y here). Measured directly:
+
+    axis (1,-1,1) body diagonal   13 at 358 of 359 angles
+    axis (1,-1,2)                 13 at exactly ONE angle (t = 1)
+    axis (1,-1,3)                 13 at exactly ONE angle
+    axis (1,1,2)                  13 at exactly ONE angle
+    axis (2,-2,1)                 13 at TWO angles
+    axis (1,2,0)                  13 at TWO angles
+
+So each mirror-plane axis carries isolated angles at which the count is 13,
+and as the axis varies within the plane those isolated angles sweep out
+CURVES. **The 13-locus has components inside the nine mirror planes**, in
+addition to the body-diagonal circles and edge arcs. It remains 1-dimensional
+(the n=2 adjacency measurement, 4 same-count neighbours in a radius-2 ball,
+stands) — it simply has more components than were recorded.
+
+**WHAT THIS SAYS ABOUT A STRUCTURAL PROOF OF max(3).** The strategy the graphs
+suggest is coherent:
+
+  1. show the maximum is attained in the cell (13,13,13) — currently observed,
+     not proved;
+  2. decompose that cell: the shared-axis component is 2-dimensional with the
+     count identically 55 (Postscript 72), so it cannot hold the maximum;
+  3. the distinct-axis part is 0-DIMENSIONAL, hence FINITE — enumerate it and
+     check every point.
+
+Step 3 is the appealing one, and it is only as good as the description of the
+13-locus feeding it: an enumeration built on "body diagonals plus edge arcs"
+would have MISSED BOTH MAXIMA, since the octahedral 67's pairs live on the
+mirror-plane components. That is the immediate lesson — the proof route is
+plausible, and the first deliverable is a complete and correct description of
+the n=2 13-locus, which this project did not have until now.
+
+**WHY IT MIGHT STILL BE WORTH IT.** The existing proof (PROOF_67.md +
+PROOF_STEP_T.md) bounds the count by three Euler arguments and is not
+constructive: several downstream claims — that n=3 is the unique irrational
+level, that its optimum set is exactly two points — are explicitly CONDITIONAL
+on the two known 67s being the only maximisers. A finite enumeration of the
+0-dimensional component would settle that outright, producing the complete
+list of maximisers rather than a bound. It trades Euler characteristic
+arguments for algebraic enumeration: more computational, more elementary, and
+constructive where the current proof is not.
+
+It is a research programme, not a shortcut.
+
+Files: `region_shape.py`, and the mirror-plane sweeps in this postscript.
+
+## Postscript 77: STEP A COMPLETE — a closed-form exact formula for the two-cube region count, and with it the 13-locus as a criterion rather than a list
+
+2026-08-03, main session, first step of the constructive-max(3) programme.
+
+**THE FORMULA.** For cubes A = [-1,1]^3 and B = R(A):
+
+    total = 1 + comp(A \ B) + comp(B \ A)
+
+where each term is the number of CONNECTED COMPONENTS of an explicit graph:
+ * nodes are the six slabs  A ^ {n_i . x > 1},  one per face normal n_i of B;
+ * slab i is NONEMPTY iff ||n_i||_1 > 1 (the support function of the box), so
+   it is empty exactly when n_i is a signed basis vector;
+ * slabs i and j OVERLAP iff  max_{x in A} min(n_i.x, n_j.x) > 1, and by LP
+   duality on the box that maximum equals
+
+        min over lambda in [0,1] of || lambda n_i + (1-lambda) n_j ||_1,
+
+   a one-dimensional piecewise-linear convex minimisation, solved exactly at
+   its breakpoints (where a component changes sign).
+
+Opposite faces never overlap, leaving 12 non-opposite pairs per side. Every
+ingredient is an exact rational inequality in the rotation's entries: no
+sampling, no floating point, no case enumeration.
+
+**VALIDATED: 2158 random rotations across nine height scales (2 to 257),
+2158 agreements with the engine, ZERO disagreements.**
+
+**COROLLARY — the 13-locus, as a criterion.**
+
+    L13 = { R : all six slabs nonempty, and all 12 non-opposite pairs
+                pairwise disjoint }
+
+This is what Step A needed, and it is better than the enumerated description
+it replaces. That description was wrong twice in one afternoon — Postscript 70
+listed only body-diagonal circles and edge arcs, missing the mirror-plane
+components where the OCTAHEDRAL 67's own pairs live (Postscript 76); and the
+follow-up conjecture that 13 forces the axis into a mirror plane was refuted
+within the hour by the axes (1,-9,4) and (-1,-4,-9), which reach 13 off every
+mirror plane. A criterion cannot be incomplete the way a list can.
+
+**WHERE THE PROGRAMME STANDS.**
+
+    A  complete L13                        DONE, and stronger than required
+    B  bound the total by the pair label   THE REAL GAP — still 239k samples
+                                           and a plausibility argument
+    C  decompose the (13,13,13) cell       partly done (shared-axis == 55);
+                                           A makes the rest tractable
+    D  enumerate the 0-dimensional part    now well-posed: solve three
+                                           simultaneous copies of A's
+                                           inequalities, modulo symmetry
+    E  conclude                            follows from C and D
+
+The prize is that D would be CONSTRUCTIVE: it produces the complete list of
+maximisers, settling outright the uniqueness hypothesis that several of this
+project's headline claims are still explicitly conditional on — that n=3 is
+the unique irrational level, and that its optimum set is exactly two points.
+
+A plausible attack on B now exists: the same slab decomposition applied to the
+third cube bounds the increment by how many slabs its faces can cut, which is
+the shape of argument Postscript 56 used for the one-cube increment.
+
+Files: `step_a.py` (the refuted mirror-plane conjecture, kept as its record),
+`step_a2.py` (the criterion), `step_a3.py` (the validated formula).

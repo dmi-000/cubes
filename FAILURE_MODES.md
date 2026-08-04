@@ -191,6 +191,40 @@ theory is pretty.
 - **Memory blowups.** Accumulating hundreds of thousands of exact `Fraction`
   records to report on them at the end. Stream instead.
 
+## 11b. Renaming a file a running process holds open
+
+**Symptom.** A downstream step dies with "No such file or directory" for a file
+you can see was being written.
+
+**Seen.** A census was quarantined mid-run with
+`mv continua_shard_0.jsonl continua_shard_0.CONTAMINATED.jsonl`. On Unix a
+rename follows the **inode**, so the still-running process kept appending to
+the renamed file and the original name was never recreated. The chained Phase B
+then crashed on the missing name.
+
+**Check.** Quarantine by copying, or stop the writer first. And when a script
+announces a stage is finished, have it check the exit status — the chain here
+printed "phase B done" immediately after Phase B crashed, because it never
+looked. A success message that cannot report failure is the shell equivalent of
+a gate that cannot fail (§2).
+
+## 11c. Comparing representatives instead of objects
+
+**Symptom.** A symmetry that should close a set appears not to.
+
+**Seen.** The C3 was applied to wall lines by left multiplication q -> g*q, and
+22 of 129 images appeared to fall outside the catalogue — supporting a whole
+postscript about the catalogue being incomplete. But g is a cube
+self-symmetry, so g*q and g*q*g^-1 are the SAME SOLID in different quaternion
+representatives, and the catalogue stores one representative per line. The test
+asked "is this representative listed", not "is this configuration listed".
+Under conjugation: 129 of 129, 43 orbits of 3, parameter preserved exactly.
+
+**Check.** Canonicalise before comparing, or compare invariants of the object
+rather than of the encoding. This project had already recorded the identical
+trap once — "the chart omits quaternion representatives, not compounds" — and
+repeated it a month later, which is the argument for this file existing.
+
 ## 12. Delegation-specific: premature parking
 
 **Symptom.** A subagent burns a large budget and returns having built the

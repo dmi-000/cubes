@@ -71,45 +71,84 @@ def squarefree(D):
     return d, s
 
 
-def count_at_root(root, p0, dd):
-    """Exact count at the configuration p0 + root*dd. Returns (count, note)."""
-    x = sympy.Symbol('x')
-    mp = sympy.minimal_polynomial(root, x)
-    deg = sympy.degree(mp)
+def sign_surd(P, Q, D):
+    """sign of P + Q*sqrt(D), P,Q rational, D a positive non-square integer."""
+    if Q == 0:
+        return (P > 0) - (P < 0)
+    if P == 0:
+        return (Q > 0) - (Q < 0)
+    if (P > 0) == (Q > 0):
+        return 1 if P > 0 else -1
+    # opposite signs: compare P^2 against Q^2*D
+    c = P*P - Q*Q*D
+    if c == 0:
+        return 0
+    return (1 if P > 0 else -1) * (1 if c > 0 else -1)
+
+
+def roots_of(co, lo, hi):
+    """Exact roots of the polynomial `co` (ascending Fraction coefficients)
+    lying in [lo, hi], each as (P, Q, D) meaning P + Q*sqrt(D).
+
+    Degree 1 and 2 only -- higher degrees are reported by the caller, never
+    approximated.  sympy is deliberately NOT used here: real_roots() returns
+    CRootOf objects for quartics, and any attempt to turn one into radicals
+    invites nsimplify, which is a NUMERIC guessing heuristic and produced
+    expressions like 2**(103/253) when it was let into this pipeline.
+    """
+    deg = len(co) - 1
     if deg == 1:
-        r = sympy.Rational(root)
-        pt = tuple(F(r.p, r.q)*F(dd[u]) + F(p0[u]) for u in range(3))
-        q = to_quat(pt, cap=10**8)
-        if q is None:
-            return None, 'rational root, components too large'
-        out = subprocess.run(['./cube_regions_q2w', '--d', '0', '--quats',
-                              FIXED_W + ';' + ','.join('%d:0' % v for v in q)],
-                             capture_output=True, text=True).stdout
+        r = -co[0]/co[1]
+        return [(r, F(0), 0)] if lo <= r <= hi else []
+    if deg > 2:
+        # FACTOR over Q first. A W3 condition is a quartic in t, but it may
+        # factor -- line 9's lower endpoint is a quartic whose quadratic
+        # factor 4455t^2 - 11790t + 6151 carries the root. Reporting "degree
+        # 4, cannot count" without factoring under-reports what is reachable.
+        # sympy is used here ONLY for exact symbolic factorisation over Q,
+        # never to approximate a root.
+        x = sympy.Symbol('x')
+        expr = sum(sympy.Rational(c.numerator, c.denominator)*x**i
+                   for i, c in enumerate(co))
         try:
-            return json.loads(out).get('bounded'), 'rational'
+            _, factors = sympy.factor_list(sympy.Poly(expr, x))
         except Exception:
-            return None, 'engine error'
-    if deg != 2:
-        return None, 'degree %d root -- needs the degree-agnostic engine' % deg
-    a2, a1, a0 = [sympy.Rational(c) for c in sympy.Poly(mp, x).all_coeffs()]
+            return None
+        out, hard = [], False
+        for f, _mult in factors:
+            fc = [sympy.Rational(c) for c in f.all_coeffs()[::-1]]
+            if len(fc) - 1 > 2:
+                hard = True
+                continue
+            sub = roots_of([F(c.p, c.q) for c in fc], lo, hi)
+            if sub:
+                out.extend(sub)
+        if out:
+            return out
+        return None if hard else []
+    a0, a1, a2 = co[0], co[1], co[2]
     disc = a1*a1 - 4*a2*a0
-    D = sympy.Rational(disc)
-    Dint = int(D) if D.q == 1 else None
-    if Dint is None or Dint < 0:
-        return None, 'non-integer or negative discriminant'
+    if disc < 0:
+        return []
+    num, den = disc.numerator, disc.denominator
+    Dint = num*den                        # sqrt(disc) = sqrt(num*den)/den
     sf, scale = squarefree(Dint)
-    sq = sympy.sqrt(sf)
-    comps = []
-    for v in [sympy.Integer(1)] + [sympy.expand(sympy.radsimp(
-            sympy.nsimplify(sympy.Rational(p0[u]) + root*sympy.Rational(dd[u]))))
-            for u in range(3)]:
-        pol = sympy.Poly(sympy.expand(v), sq)
-        cs = pol.all_coeffs()[::-1]
-        if len(cs) > 2:
-            return None, 'nested radical'
-        c0 = sympy.Rational(cs[0])
-        c1 = sympy.Rational(cs[1]) if len(cs) > 1 else sympy.Rational(0)
-        comps.append((F(c0.p, c0.q), F(c1.p, c1.q)))
+    out = []
+    for sgn in (1, -1):
+        P = -a1/(2*a2)
+        Q = F(sgn*scale, den) / (2*a2)
+        if sign_surd(P - lo, Q, sf) >= 0 and sign_surd(P - hi, Q, sf) <= 0:
+            out.append((P, Q, sf))
+        if disc == 0:
+            break
+    return out
+
+
+def count_at_root(root, p0, dd):
+    """Exact count at p0 + root*dd, root given as (P, Q, D)."""
+    P, Q, D = root
+    comps = [(F(1), F(0))] + [(F(p0[u]) + P*F(dd[u]), Q*F(dd[u]))
+                              for u in range(3)]
     den = 1
     for pp, qq in comps:
         for v in (pp, qq):
@@ -120,15 +159,18 @@ def count_at_root(root, p0, dd):
         g = math.gcd(g, math.gcd(abs(pp), abs(qq)))
     if g > 1:
         ints = [(pp//g, qq//g) for pp, qq in ints]
+    if max(max(abs(a), abs(b)) for a, b in ints) > 10**8:
+        return None, 'components too large'
     line = FIXED_W + ';' + ','.join('%d:%d' % c for c in ints)
-    out = subprocess.run(['./cube_regions_q2w', '--d', str(sf),
+    out = subprocess.run(['./cube_regions_q2w', '--d', str(D),
                           '--quats-stdin'], input=line + '\n',
                          capture_output=True, text=True).stdout
     for l in out.splitlines():
         if l.startswith('{'):
             j = json.loads(l)
-            return j.get('bounded'), 'Q(sqrt %d)' % sf
-    return None, 'no engine output'
+            return j.get('bounded'), ('rational' if D == 0
+                                      else 'Q(sqrt %d)' % D), j
+    return None, 'no engine output', None
 
 
 def main():
@@ -140,7 +182,11 @@ def main():
           % (len(todo), 2*len(todo)), flush=True)
 
     tally = collections.Counter()
-    out = open('continua_endpoints.jsonl', 'a')
+    # TRUNCATE, not append. This file has now caused the same error twice:
+    # records from superseded runs sit alongside the live ones, and any later
+    # analysis silently mixes them. A results file that accumulates across
+    # incompatible runs is not a log, it is a trap.
+    out = open('continua_endpoints.jsonl', 'w')
     for li, (a, b) in todo:
         L = data['lines'][li]
         p0 = tuple(F(x) for x in L['p0'])
@@ -153,26 +199,48 @@ def main():
             hits = []
             for kind, polys in restricted.items():
                 for co in polys:
+                    # A condition that vanishes IDENTICALLY on the line is one
+                    # of the two walls DEFINING it -- it is zero at every
+                    # parameter, so it brackets nothing and has no root to
+                    # find. Skipping these is not a convenience: including
+                    # them made the sign test fire on every endpoint and then
+                    # crash real_roots() on the zero polynomial.
+                    if all(c == 0 for c in co) or len(co) < 2:
+                        continue
                     vlo, vhi = peval(co, lo), peval(co, hi)
                     if vlo == 0 or vhi == 0 or (vlo > 0) != (vhi > 0):
                         hits.append((kind, co))
             info = {'line': li, 'side': side, 'bracket': [str(lo), str(hi)],
                     'walls': sorted({k for k, _ in hits})}
             got = None
+            degs = set()
             for kind, co in hits:
-                x = sympy.Symbol('x')
-                expr = sum(sympy.Rational(c.numerator, c.denominator)*x**i
-                           for i, c in enumerate(co))
-                for r in sympy.real_roots(expr, x):
-                    if sympy.Rational(lo.numerator, lo.denominator) <= r <= \
-                            sympy.Rational(hi.numerator, hi.denominator):
-                        cnt, note = count_at_root(r, p0, dd)
-                        info.update({'wall': kind, 'root': str(r),
-                                     'count': cnt, 'field': note})
-                        got = (kind, cnt, note)
-                        break
+                rs = roots_of(co, lo, hi)
+                if rs is None:
+                    degs.add(len(co) - 1)
+                    continue
+                for r in rs:
+                    cnt, note, full = count_at_root(r, p0, dd)
+                    if full:
+                        info['by_depth'] = full.get('by_depth')
+                        info['per_label'] = full.get('per_label')
+                    info.update({'wall': kind,
+                                 'root': '%s%+s*sqrt(%d)' % (r[0], r[1], r[2]),
+                                 'count': cnt, 'field': note})
+                    got = (kind, cnt, note)
+                    break
                 if got:
                     break
+            # Do NOT stop at the first bracketing condition when it failed to
+            # resolve: several walls can cross the same endpoint, and only some
+            # of their polynomials factor. Breaking early made C3 orbit-mates
+            # disagree (line 9's endpoint resolved, line 88's did not), which
+            # is impossible for congruent configurations and is what exposed
+            # this.
+            if got is None and degs:
+                info['unresolved_degree'] = sorted(degs)
+                got = ('degree %s' % sorted(degs), None,
+                       'needs the degree-agnostic engine')
             tally[(info.get('wall', 'NONE'), info.get('count'))] += 1
             print('line %3d %-5s bracket width %.2e  walls=%-28s -> %s'
                   % (li, side, float(hi-lo), ','.join(info['walls']) or 'none',

@@ -7,5 +7,8 @@ echo "phase A finished: $n lines scanned"
 if [ "$n" -lt 100 ]; then echo "phase A incomplete -- not starting phase B"; exit 1; fi
 c=$(wc -l < continua_shard_0.jsonl)
 echo "records: $c"
-python3 continua_endpoints.py > continua_phaseB.out 2>&1
-echo "phase B done"
+if python3 continua_endpoints.py > continua_phaseB.out 2>&1; then
+  echo "phase B done"
+else
+  echo "PHASE B FAILED (exit $?) -- see continua_phaseB.out"; exit 1
+fi
