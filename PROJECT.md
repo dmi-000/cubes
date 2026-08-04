@@ -640,7 +640,7 @@ Files: `q3_count.py`, `q6_count.py` (the two new field-clone engines),
 n-cube generalization and record-pair analysis), and
 `dihedral_scratch/` (exploration and verification scripts). The formal
 proofs are in `C45_notes.md`, section 12; the numerical exploration is
-`six_cube_search_results.md`, Postscripts 25 and 26.
+`LEDGER.md`, Postscripts 25 and 26.
 
 ---
 
@@ -1161,7 +1161,7 @@ The exact counter (`cube_regions`, C++), its slower cross-check
 (`certify_six.py`), the search drivers, the symmetry catalogue, and the
 algebraic-search scripts (which drive the computer-algebra system
 `wolframscript`) all live in this directory; a companion `README.md` maps
-each file and gives runnable commands, and `six_cube_search_results.md`
+each file and gives runnable commands, and `LEDGER.md`
 is the dated primary record of every result. Two further exact engines
 support Section 7's dihedral family: `q3_count.py` (field ℚ(√3), for
 Pythagorean-angle family members) and `q6_count.py` (field ℚ(√6), for the

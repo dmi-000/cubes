@@ -205,7 +205,7 @@ and no such constraint (among the ones checked: 9 wall-vertex candidates +
 - All work ran on a single core, well under the ≤4-core budget, and
   finished in well under a minute per script (no long-running jobs needed
   monitoring).
-- `six_cube_search_results.md` and all files under `cubes/scratchpad/`
+- `LEDGER.md` and all files under `cubes/scratchpad/`
   were only read, never modified.
 
 ## Files

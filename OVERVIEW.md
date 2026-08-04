@@ -348,7 +348,7 @@ with the session, taking the gates with it.
 | [`RESULTS.md`](RESULTS.md) | current beliefs, each tagged by strength of evidence; superseded claims in one table |
 | [`JOURNEY.md`](JOURNEY.md) | the long narrative, in order, with the wrong turns left in |
 | [`PROJECT.md`](PROJECT.md) | the formal write-up: methods, laws, record chain |
-| [`six_cube_search_results.md`](six_cube_search_results.md) | the dated ledger — the primary record, append-only, indexed |
+| [`LEDGER.md`](LEDGER.md) | the dated ledger — the primary record, append-only, indexed |
 | [`TYPOLOGY.md`](TYPOLOGY.md) | the classification of the 727 plateau, with generators |
 | [`PROOF_67.md`](PROOF_67.md) | the three-cube maximum, proved |
 | [`README.md`](README.md) | map of the code |

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md. Project index: README.md
+# Working principles: LEDGER.md. Project index: README.md
 """Search over compounds of 6 congruent concentric cubes for the configuration
 that maximizes the number of BOUNDED regions the 6 cube surfaces cut space into.
 
@@ -59,7 +59,7 @@ def count_mats(mats, R, tau=None, verbose=True, name='cfg', grot=True):
     does in ccr.labels_grid). Recommended for axis-aligned/structured
     families (six6, axial) per the module docstring -- BUT empirically for
     the axial family the un-rotated (jitter-only) path already avoids grid
-    artifacts and is *more* stable (see six_cube_search_results.md); grot
+    artifacts and is *more* stable (see LEDGER.md); grot
     is exposed as a flag rather than hardcoded so callers can pick per
     family instead of assuming '+rot' always helps."""
     label, _ = labels_grid_mats(mats, R, grot=grot)

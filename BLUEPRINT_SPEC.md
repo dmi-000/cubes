@@ -1,6 +1,6 @@
 # Spec: blueprint branch-and-prune search (n=6, exhaustive at the blueprint level)
 
-For a Sonnet agent. Read first: six_cube_search_results.md Postscripts
+For a Sonnet agent. Read first: LEDGER.md Postscripts
 17–19 (+ addenda: DOF hierarchy, ceiling law C(l,n), 63-vs-67 principle),
 shared_axis_search.py (REUSE its cluster/spoke construction and knob
 search — do not rewrite), PROJECT.md. Record to beat: n=6 723.
@@ -67,7 +67,7 @@ is auditable.
 ## Rules
 
 Exact arithmetic only (./cube_regions); do NOT modify validated files or
-six_cube_search_results.md; exact_search_results.jsonl read-only;
+LEDGER.md; exact_search_results.jsonl read-only;
 ≤4 cores; deliverables blueprint_enum.py + blueprint_search.py +
 blueprint_search.jsonl + blueprint_search_report.md. Honest negatives
 welcome — "no blueprint beats 723 at this coverage" is the expected and

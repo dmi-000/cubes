@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (certified-interval kernel). Project index: README.md
+# Working principles: LEDGER.md (certified-interval kernel). Project index: README.md
 """CERTIFIED-INTERVAL region count for sub-compounds of the five-cube compound.
 
 The middle option between floating voxels and full exact arithmetic:

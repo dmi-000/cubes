@@ -3,7 +3,7 @@
 """Q3: do the EXISTING RECORDS already contain family structure?
 
 For each record config (n=4: 183, n=5: 393, n=6: 723 -- integer quats, from
-six_cube_search_results.md; n=3: 67 -- irrational, ℚ(√2) octahedral witness,
+LEDGER.md; n=3: 67 -- irrational, ℚ(√2) octahedral witness,
 from Postscript 9), compute for every cube pair:
   (a) exact interior edge-edge crossing count (nfamily_common.exact_pair_
       crossings for n=4/5/6's rational quats; a hand-adapted ℚ(√2) version

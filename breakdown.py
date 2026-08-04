@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (Postscripts 2-3, per-subset structure). Project index: README.md
+# Working principles: LEDGER.md (Postscripts 2-3, per-subset structure). Project index: README.md
 """Per-subset breakdown of a configuration's exact region counts.
 
 Prints, for a given seed (or the current record), the depth-1 count per

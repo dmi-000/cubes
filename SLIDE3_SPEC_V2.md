@@ -7,7 +7,7 @@ Records to beat unchanged: overall 681, rational 655; n=3 wall value 67.
 All V1 infrastructure is reusable: slide3_q2.py (Q(√2) exact counter),
 qtower.py (Q(√3,√5)), cube_compound_exact.Q5, golden_six.golden_five(),
 the C++ engine `./cube_regions_n --n 3`. Do NOT edit validated files or
-six_cube_search_results.md; write slide3_report.md (append a V2 section)
+LEDGER.md; write slide3_report.md (append a V2 section)
 and slide3_search.jsonl.
 
 ## What V1 got wrong

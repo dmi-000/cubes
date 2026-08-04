@@ -1,6 +1,6 @@
 # Plan: multi-constraint (stacked-wall) search with ℚ(√a,√b,…) verification
 
-For a Sonnet implementation agent. Read first: six_cube_search_results.md
+For a Sonnet implementation agent. Read first: LEDGER.md
 Postscripts 4–5 and 7 (with update), QFIELD_SPEC.md (single-field
 program; this spec supersedes its priorities), golden_six.py +
 golden_search.jsonl (the ℚ(√5) pilot that found 681), certify_six.py,
@@ -138,6 +138,6 @@ M2 snap, and say so.
 
 Deliverables: qtower.py, gate log, the §3 exact count + incidence
 diagnosis, multiwall_search.jsonl, and multiwall_report.md (do NOT
-edit six_cube_search_results.md — the main session merges; Postscripts
+edit LEDGER.md — the main session merges; Postscripts
 6/7 are taken). Honest negatives welcome: "stacking walls beyond the
 golden five adds nothing" would itself be a finding.

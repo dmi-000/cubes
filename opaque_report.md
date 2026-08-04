@@ -4,7 +4,7 @@ Master edited: `depth_explorer.html`
 Mirror: `depth_explorer.html` (byte-identical, `diff` empty — G5)
 Test harness: `opaque_test.js`
 
-`six_cube_search_results.md` and `README.md` were not touched; no artifacts were published.
+`LEDGER.md` and `README.md` were not touched; no artifacts were published.
 
 ## What was built
 

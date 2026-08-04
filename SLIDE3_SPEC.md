@@ -1,6 +1,6 @@
 # Plan: two sliding 3-cube triples — overlay, slide, and relative-rotate
 
-For a Sonnet agent. Read first: six_cube_search_results.md Postscripts
+For a Sonnet agent. Read first: LEDGER.md Postscripts
 4–8, MULTIWALL_SPEC.md + multiwall_report.md (methods: constraint-first
 search, snap-and-verify, tower verification via qtower.py), golden_six.py
 (golden five matrices; wrapper into certify_six.exact_count_config).

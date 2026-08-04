@@ -77,19 +77,24 @@ def count(q):
     d = json.loads(o)
     return d.get('bounded'), {int(k):v for k,v in d['by_depth'].items() if int(k)}
 
-rng = random.Random(5)
-def red(t):
-    g=0
-    for x in t: g=math.gcd(g,abs(x))
-    return tuple(x//g for x in t) if g>1 else t
-seen = {}
-print('%-22s %-7s %-16s %s' % ('quaternion','count','depth profile','(nonempty, disjoint pairs) each way'))
-tests = [(1,1,1,1),(0,1,1,1),(1,2,3,0),(2,3,5,7),(1,0,0,0),(5,2,0,0),(12,5,0,0),
-         (1,1,2,0),(1,1,-1,2),(3,1,0,0),(1,-9,4,0)]
-while len(tests) < 22:
-    q = red(tuple(rng.randint(-6,6) for _ in range(4)))
-    if any(q): tests.append(q)
-for q in tests:
-    c, bd = count(q)
-    p = predict(q)
-    print('%-22s %-7s %-16s %s' % (str(q), c, str(bd), p))
+def main():
+    rng = random.Random(5)
+    def red(t):
+        g=0
+        for x in t: g=math.gcd(g,abs(x))
+        return tuple(x//g for x in t) if g>1 else t
+    seen = {}
+    print('%-22s %-7s %-16s %s' % ('quaternion','count','depth profile','(nonempty, disjoint pairs) each way'))
+    tests = [(1,1,1,1),(0,1,1,1),(1,2,3,0),(2,3,5,7),(1,0,0,0),(5,2,0,0),(12,5,0,0),
+             (1,1,2,0),(1,1,-1,2),(3,1,0,0),(1,-9,4,0)]
+    while len(tests) < 22:
+        q = red(tuple(rng.randint(-6,6) for _ in range(4)))
+        if any(q): tests.append(q)
+    for q in tests:
+        c, bd = count(q)
+        p = predict(q)
+        print('%-22s %-7s %-16s %s' % (str(q), c, str(bd), p))
+
+
+if __name__ == '__main__':
+    main()

@@ -4,7 +4,7 @@ Executed per MULTIWALL_SPEC.md, priority order gates -> section 3 -> M1 -> M2
 -> M4 -> M3. All work logged to `multiwall_search.jsonl`. Validated files
 (`certify_six.py`, `cube_compound_exact.py`, `exact_search.py`,
 `exact_search_results.jsonl`, `golden_six.py`, `golden_search.jsonl`) were
-read but never written. This file is new; `six_cube_search_results.md` was
+read but never written. This file is new; `LEDGER.md` was
 not edited (it changed size/mtime during this session from a concurrent
 process outside this agent's control -- not touched by any tool call here).
 
@@ -162,7 +162,7 @@ by_depth = {1:138, 2:214, 3:164, 4:102, 5:36, 6:1}   total 655
 vs matched-budget control best **615** (400 fully free configs). **The
 double-wall beats not just its matched control, but the entire previous
 unrestricted-search rational record of 635** (from ~360,000 seeds + deep
-hillclimbing, six_cube_search_results.md Postscript 4-5) -- from a search
+hillclimbing, LEDGER.md Postscript 4-5) -- from a search
 of only 2,476 configs. d3=164, d4=102, d5=36, d6=1 sit at the established
 ceilings; d2=214 ties the previous ceiling; **d1=138 exceeds the previously
 observed ceiling of 118** (a new high-water mark for depth-1, from a very
@@ -172,7 +172,7 @@ small sample -- flagged as new data, not a re-established ceiling).
 special to the golden (irrational) five -- imposing structure (here, two
 independent pair-13 relations) on an otherwise free rational search finds
 a substantially better basin than either an unstructured search of the
-same size or (per six_cube_search_results.md) the prior large-scale
+same size or (per LEDGER.md) the prior large-scale
 unstructured campaign found at all. This is arguably the single most
 actionable finding of this session: **wall-constrained search beats
 unconstrained search of comparable size**, independent of field theory.
@@ -225,7 +225,7 @@ only, chosen by M1/M2 evidence" budget.
 | M1(a) coincident-face-plane wall (any golden cube) | 563 | e.g. golden cube0 * rot_from_quat(4,0,0,3) |
 | M3 sibling diagonals (1,-1,1)/(1,1,-1)/(-1,1,1) | 657 | exact tower, same construction as the wall point with a different diagonal |
 | M3 exact 45deg-about-z wall, Q(sqrt2,sqrt5) | 543 | golden cube0 * R_z(45deg exact) |
-| prior rational-only record (context, six_cube_search_results.md) | 635 | quats=[[129,-171,-137,-28],[382,278,63,-186],[200,289,312,-203],[314,101,-391,1],[124,-61,26,-215],[276,269,33,335]] |
+| prior rational-only record (context, LEDGER.md) | 635 | quats=[[129,-171,-137,-28],[382,278,63,-186],[200,289,312,-203],[314,101,-391,1],[124,-61,26,-215],[276,269,33,335]] |
 
 ## Honest negatives / open items
 

@@ -13,7 +13,7 @@ was structurally blind to it.
 Reuses nfamily_common.py (CUBE_ROT_GROUP, mat_mul, mat_transpose,
 is_rotation_exact, matrix_to_int_quat, quat_to_matrix_exact, quat_to_int)
 and the C++ engine ./cube_regions_n (both read-only). Never edits
-six_cube_search_results.md or any validated/ledger file.
+LEDGER.md or any validated/ledger file.
 
 Key identity (verified as gate G0): for Delta a conic angle and psi with
 (p,q,d), Rel(Delta,psi)'s nine entries are all RATIONAL in p,q,d,c,s'

@@ -2,7 +2,7 @@
 
 For a Sonnet agent. Extends symmetry_search2.py (REUSE its validated
 build_blocks / orbit / O-dedup / dispatch / climber — do NOT rewrite).
-Read: symmetry_search2.py, six_cube_search_results.md Postscripts 10–11
+Read: symmetry_search2.py, LEDGER.md Postscripts 10–11
 (+ the 11 addendum), README.md. Record to beat: 717 (D₂:4+free2).
 
 ## Part A — rational families V2 never re-swept with full-quat grids
@@ -56,7 +56,7 @@ Fast C++ engine ./cube_regions, ≤4 cores. Log every eval (family, shared
 axis, full seed quats, total, by_depth) to symmetry_search3.jsonl. Flag
 any total > 717 immediately (new record) and any deep-ceiling violation
 (d3>164/d4>102/d5>36/d6≠1 = construction bug, stop). Do NOT edit
-six_cube_search_results.md (main session merges a postscript),
+LEDGER.md (main session merges a postscript),
 symmetry_search2.py, or validated files; exact_search_results.jsonl
 read-only; exact predicates only; honest negatives welcome. Robustness:
 skip degenerate configs (build returns None) instead of asserting — that

@@ -13,7 +13,7 @@ separate counters.*
 
 **The golden five-cube compound (351) is NOT the n=5 maximum.** Before this
 script's own search phases ran, the coordinator identified that a 5-cube
-subset of the six-cube record (723, `six_cube_search_results.md`) already
+subset of the six-cube record (723, `LEDGER.md`) already
 beats it: dropping the sixth cube (`5,2,2,2`) from the record leaves
 
 ```
@@ -74,7 +74,7 @@ It does not.
 
 ## 2. The seed that broke 351: a 5-subset of the six-cube record
 
-The six-cube record (723 bounded regions, `six_cube_search_results.md`) is
+The six-cube record (723 bounded regions, `LEDGER.md`) is
 
 ```
 4,1,1,-1 ; 3,3,7,3 ; 5,-1,-5,-5 ; 2,1,1,1 ; 1,1,1,1 ; 5,2,2,2

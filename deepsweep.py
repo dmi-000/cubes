@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md Postscript 14 (deep-sacrifice
+# Working principles: LEDGER.md Postscript 14 (deep-sacrifice
 # trade-off structure). Project index: README.md
 """Deep-sacrifice trade-off surface mapper for six-cube region records.
 
@@ -38,7 +38,7 @@ evaluated twice in one run (and evals persist across resumed runs via
 '*** NEW RECORD ***' and appended to deepsweep_RECORD_BEATEN.flag.
 
 Runs entirely on the validated ./cube_regions binary; never touches
-exact_search_results.jsonl, six_cube_search_results.md, or README.md.
+exact_search_results.jsonl, LEDGER.md, or README.md.
 
 Usage:
   python3 deepsweep.py [--workers 4] [--max-iters 60] [--strata-iters 100]

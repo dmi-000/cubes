@@ -144,7 +144,7 @@ One JSON line per config: {"seed": S or null, "quats": [[...]x6],
 - Phase C: breakdown analysis of everything found (per-cube depth-1,
   per-pair depth-2 distributions; is 22 the per-cube max? can two
   22-cubes coexist with high totals? do depth-3/4 sums exceed 164/102
-  anywhere?). Append findings to six_cube_search_results.md.
+  anywhere?). Append findings to LEDGER.md.
 
 ## Conjectures under attack (state explicitly in the final report)
 

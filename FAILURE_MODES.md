@@ -261,5 +261,36 @@ the main session, the agent was right.
 
 See [`DELEGATION_LOG.md`](DELEGATION_LOG.md) for what each delegated agent was
 told and which gates it had to pass, and
-[`six_cube_search_results.md`](six_cube_search_results.md) for the dated record
+[`LEDGER.md`](LEDGER.md) for the dated record
 in which every failure above is written down at the point it happened.
+
+## 11d. The lattice dimension probe is blind to loci that are not axis-aligned
+
+**Symptom.** A configuration you have other reasons to believe sits on a curve
+or surface reads "0 of 26" (or 0 of 728) on the lattice-cardinality probe, and
+gets written down as an ISOLATED POINT.
+
+**What the probe actually measures.** Perturb each coordinate by 0, ±ε and count
+how many of the 3^k − 1 neighbours keep the property; a d-dimensional family is
+supposed to show 3^d − 1. That inference assumes the locus is locally a
+COORDINATE SUBSPACE. A curve in general position contains no lattice neighbour
+at all, at any ε, so it reads exactly 0 — indistinguishable from a genuine
+isolated point.
+
+**Demonstration (2026-08-04).** On the 393 base, the sixth cube at Cayley point
+a₀ + (5/2)·(1,−3,−6), a₀ = (19/3,−7,−11), is the middle of an interval on which
+727 holds — verified by stepping along the tangent, which gives 727 at ±1/64 and
+±1/32. The lattice probe at that same point reads **0 of 26**, at ε = 1/64 and
+1/256 alike. Known 1-dimensional, measured 0-dimensional.
+
+**How to read past results.** A POSITIVE reading is still good evidence: it
+exhibits an aligned family of that dimension. A ZERO reading is uninformative —
+it means "no axis-aligned family", never "isolated". Claims resting on a zero
+reading need re-testing along candidate tangents before the word "isolated" is
+used. Affected and to be re-checked: the n=4 phase-2 cells reporting dim 0.00,
+and any 0-dimensional claim about the n=3 (13,13,13) distinct-axis component.
+
+**Triage.** To test for a curve you must move ALONG it; random and axis-aligned
+directions both leave a curve immediately, so a negative from either is not
+evidence. Get a tangent from the structure (a wall line, a symmetry, a family
+parameter) and step along that.

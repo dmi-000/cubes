@@ -7,7 +7,7 @@ and later retracted — claims that turned out wrong are listed once, in
 
 For the dated blow-by-blow, including how each result was reached and what was
 believed along the way, read the ledger
-[`six_cube_search_results.md`](six_cube_search_results.md) (append-only,
+[`LEDGER.md`](LEDGER.md) (append-only,
 ordered by write time; it has a postscript index at the top). For the
 narrative synthesis read [`PROJECT.md`](PROJECT.md); for the story with the
 wrong turns in place, [`JOURNEY.md`](JOURNEY.md).

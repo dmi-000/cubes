@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (Postscript 2, pair walls). Project index: README.md
+# Working principles: LEDGER.md (Postscript 2, pair walls). Project index: README.md
 """Pair-count checks prompted by a surprise: all 215 generic pairs counted
 exactly 4 bounded regions, while the five-compound pair is certified 13 and
 the axial pair 9.  Hypothesis: 13 and 9 live on DEGENERATE walls (shared

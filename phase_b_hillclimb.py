@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (Postscript 4). Project index: README.md
+# Working principles: LEDGER.md (Postscript 4). Project index: README.md
 """Phase B: exact hill-climbing on integer quaternion configurations.
 
 Starts from the top-K configurations found anywhere (exact_search_results

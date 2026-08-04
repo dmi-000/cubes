@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: PROJECT.md; six_cube_search_results.md Postscripts
+# Working principles: PROJECT.md; LEDGER.md Postscripts
 # 16-21 (record tower, ceiling law, envelope bounds, blueprint program).
 # REUSES verbatim: shared_axis_search.py's cluster/genome/climb machinery
 # (sas.build_config, cpp_batch_n, genome_config2, climb, multi_restart,
@@ -573,7 +573,7 @@ def task3_ceiling(hunt_restarts=24, seed=20260714):
 
     # always include the known record(s) explicitly (in case they are not
     # captured verbatim in any jsonl, e.g. 1207 was originally reported
-    # only in six_cube_search_results.md prose)
+    # only in LEDGER.md prose)
     known = [(RECORD_N7, CFG_1207)]
     if RESULTS['record_n7']['total'] != RECORD_N7:
         known.append((RESULTS['record_n7']['total'], RESULTS['record_n7']['quats']))

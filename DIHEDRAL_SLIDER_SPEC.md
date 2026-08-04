@@ -1,7 +1,7 @@
 # DIHEDRAL_SLIDER_SPEC — replace the 67↔67 slide with the dihedral-family slider
 
 Task for the implementing agent (Sonnet). Self-contained. Background (only if
-needed): Postscript 25 in six_cube_search_results.md, DIHEDRAL_FAMILY_NEXT.md.
+needed): Postscript 25 in LEDGER.md, DIHEDRAL_FAMILY_NEXT.md.
 
 ## Files
 
@@ -9,7 +9,7 @@ needed): Postscript 25 in six_cube_search_results.md, DIHEDRAL_FAMILY_NEXT.md.
 - **Mirror (sync when gates pass)**: `depth_explorer.html`
 - **Report (create)**: `dihedral_slider_report.md`
 - **Test harness (create/extend)**: scratchpad `dihedral_slider_test.js`
-- Never edit six_cube_search_results.md or validated files; do not publish
+- Never edit LEDGER.md or validated files; do not publish
   artifacts (main session does).
 
 ## What changes

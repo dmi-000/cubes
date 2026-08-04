@@ -14,7 +14,7 @@ order, so each stage starts from the best config the previous one produced:
   4. subsets of best8'                     -> n=7 candidates [top-down]
 
 Counts are exact (cube_regions_n); nothing here is a claimed record until
-certify_six agrees -- see the project rule in six_cube_search_results.md.
+certify_six agrees -- see the project rule in LEDGER.md.
 """
 import json
 import random

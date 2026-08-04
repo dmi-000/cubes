@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (Postscript 5). Project index: README.md
+# Working principles: LEDGER.md (Postscript 5). Project index: README.md
 """Task (c): deeper hill-climbing, move radius up to +-4.
 
 Gathers the top-50 configs by `bounded` from ALL exact logs:

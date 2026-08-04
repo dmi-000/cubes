@@ -1,6 +1,6 @@
 # RESONANCE4_SPEC — solve the coincidence-alignment conditions for non-uniform 4-cube family resonances, algebraically
 
-Task for the implementing agent (Sonnet). Background: six_cube_search_results.md
+Task for the implementing agent (Sonnet). Background: LEDGER.md
 Postscripts 25 (+addenda) and 26 (+addendum), C45_notes.md §12 (the four
 theorems — Rel gauge, mirror, periodicity, coincidence identity),
 nfamily_report.md and nfamily_common.py (exact machinery — REUSE it),

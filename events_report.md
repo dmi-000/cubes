@@ -4,7 +4,7 @@ Executes `EVENTS_SPEC.md`. All numbers below are exact (Fraction / Q(sqrt d)
 field arithmetic, no floats in any predicate) and reproduced by
 `events_extract.py` (run it; it prints G1/G2, rebuilds every matrix from a
 hand-derived or ledger-quoted witness, asserts orthonormality + S^3=I where
-relevant, and writes `events.jsonl`). Never edits `six_cube_search_results.md`
+relevant, and writes `events.jsonl`). Never edits `LEDGER.md`
 or any validated file; ran on 1 core, ~29s total.
 
 **Verdict up front.** The conjectured law ("Delta count = +-1 per coincidence

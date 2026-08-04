@@ -9,7 +9,7 @@ records' family structure actually lives, and which every prior
 `rattan_sweep.py`; raw log `rattan_results.jsonl`. Engine:
 `./cube_regions_n` (read-only); Python oracle
 `certify_six.exact_count_config` for all gate/record checks. Never
-edits `six_cube_search_results.md` or any validated file.
+edits `LEDGER.md` or any validated file.
 
 **Record-claim status: FLAG — record-EQUAL, non-congruent structures
 found (no record BEATEN anywhere in this campaign).** Tier 3 (393's
@@ -136,7 +136,7 @@ with the Python oracle (`certify_six.exact_count_config`); if
 confirmed, flag at the TOP of this report and in the run log. For
 = record hits, pairwise invariants (exact edge-crossing counts +
 family-axis tests, `nfamily_common`) decide congruence before any
-claim of a "new" structure. `six_cube_search_results.md` and validated
+claim of a "new" structure. `LEDGER.md` and validated
 files are never edited by this campaign.
 
 ## Sweep design

@@ -52,29 +52,34 @@ def batch(qs):
                 if l.startswith('{')]
     return out
 
-rng = random.Random(31)
-qs = []
-for h in (2, 3, 5, 9, 17, 33, 65, 129, 257):
-    for _ in range(240):
-        q = red(tuple(rng.randint(-h, h) for _ in range(4)))
-        if any(q): qs.append(q)
-truth = batch(qs)
-agree = dis = 0
-bad = []
-for q, t in zip(qs, truth):
-    f = formula(q)
-    if t is None: continue
-    if f == t: agree += 1
-    else:
-        dis += 1
-        if len(bad) < 6: bad.append((q, t, f))
-print('exact formula vs engine, %d random rotations across 9 height scales' % len(qs))
-print('   agree: %d    disagree: %d' % (agree, dis))
-for q, t, f in bad:
-    print('      %s engine %s formula %s' % (str(q), t, f))
-if dis == 0:
-    print('\nCOROLLARY (step A): the 13-locus is exactly')
-    print('   L13 = { R : ||n_i||_1 > 1 for all six face normals, and')
-    print('               min_lambda ||l n_i + (1-l) n_j||_1 <= 1 for all 12')
-    print('               non-opposite pairs }')
-    print('   i.e. all six slabs nonempty and pairwise disjoint.')
+def main():
+  rng = random.Random(31)
+  qs = []
+  for h in (2, 3, 5, 9, 17, 33, 65, 129, 257):
+      for _ in range(240):
+          q = red(tuple(rng.randint(-h, h) for _ in range(4)))
+          if any(q): qs.append(q)
+  truth = batch(qs)
+  agree = dis = 0
+  bad = []
+  for q, t in zip(qs, truth):
+      f = formula(q)
+      if t is None: continue
+      if f == t: agree += 1
+      else:
+          dis += 1
+          if len(bad) < 6: bad.append((q, t, f))
+  print('exact formula vs engine, %d random rotations across 9 height scales' % len(qs))
+  print('   agree: %d    disagree: %d' % (agree, dis))
+  for q, t, f in bad:
+      print('      %s engine %s formula %s' % (str(q), t, f))
+  if dis == 0:
+      print('\nCOROLLARY (step A): the 13-locus is exactly')
+      print('   L13 = { R : ||n_i||_1 > 1 for all six face normals, and')
+      print('               min_lambda ||l n_i + (1-l) n_j||_1 <= 1 for all 12')
+      print('               non-opposite pairs }')
+      print('   i.e. all six slabs nonempty and pairwise disjoint.')
+
+
+if __name__ == '__main__':
+    main()

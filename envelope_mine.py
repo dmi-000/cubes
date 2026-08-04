@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md Postscript 19 (ceiling law)
+# Working principles: LEDGER.md Postscript 19 (ceiling law)
 # and the branch-and-bound discussion. Project index: README.md
 """Mine the deficit-propagation envelope: how does a 6-config's total T
 relate to the totals/deep-profiles of its five-cube subsets?

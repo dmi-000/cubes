@@ -3,7 +3,7 @@
 """Golden five-cube compound + a RATIONAL sixth cube: does it beat/match/miss
 the six-all-rational-cube record of 635 bounded regions?
 
-Background (see six_cube_search_results.md Postscripts 4-5 for the full
+Background (see LEDGER.md Postscripts 4-5 for the full
 record derivation, and cube_compound_exact.py for the golden-five machinery):
   - the golden five-cube compound (icosahedral symmetry, faces on the 15
     two-fold axes of the icosahedron, coordinates in Q(sqrt5)) alone gives
@@ -11,7 +11,7 @@ record derivation, and cube_compound_exact.py for the golden-five machinery):
   - the best known RATIONAL six-congruent-cube compound (found by unrestricted
     search over rational rotations, no golden structure) gives 635, with
     per-depth histogram {1:118, 2:214, 3:164, 4:102, 5:36, 6:1} (verified
-    against six_cube_search_results.md Postscript 4, "Updated observed
+    against LEDGER.md Postscript 4, "Updated observed
     ceilings: total <= 635, d1 <= 118, d2 <= 214"; d3/d4/d5 ceilings 164/102/36
     "survive" as conjectures per Postscript 4's conjecture-status table).
 

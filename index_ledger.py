@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md is APPEND-ONLY and ordered by
+# Working principles: LEDGER.md is APPEND-ONLY and ordered by
 # write time, not by postscript number (numbers get reserved when work is
 # delegated and land whenever the report comes back -- see Postscript 9's
 # "Postscript 6 still reserved...").  This script does not reorder anything;
@@ -22,7 +22,7 @@ import re
 import sys
 import unicodedata
 
-LEDGER = 'six_cube_search_results.md'
+LEDGER = 'LEDGER.md'
 START = '<!-- INDEX:START (regenerate with index_ledger.py; do not hand-edit) -->'
 END = '<!-- INDEX:END -->'
 

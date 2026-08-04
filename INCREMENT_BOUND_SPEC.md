@@ -163,5 +163,5 @@ the observed slack distribution (min/median/max of B_j/Delta_j), the tally of
 degenerate tangent planes and any arc_overlap flags per configuration, and one
 paragraph on whether the bound is tight (slack 1.00) anywhere besides G1.
 
-Do NOT edit `six_cube_search_results.md` — the ledger is written only by the
+Do NOT edit `LEDGER.md` — the ledger is written only by the
 main session. Do not modify `increment_bound.py`.

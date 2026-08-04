@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md. Project index: README.md
+# Working principles: LEDGER.md. Project index: README.md
 """Certified re-run of the six-cube search: exact counts for rationalized
 configurations.
 

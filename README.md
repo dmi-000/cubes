@@ -25,7 +25,7 @@ believes, every claim tagged by how strongly it is established, with
 superseded claims confined to a table at the end so nothing in the body has
 to be walked back.
 
-The scientific record lives in **[`six_cube_search_results.md`](six_cube_search_results.md)**
+The scientific record lives in **[`LEDGER.md`](LEDGER.md)**
 (append-only and ordered by write time, not by postscript number; it opens
 with an index. Several early conclusions were overturned by exact counting
 and the corrections matter, so read the postscripts in order — or read
@@ -219,7 +219,7 @@ python3 check_live_boundaries.py 360000 500000       # scan a seed range
 python3 -c "import json;m=max(json.loads(l)['bounded'] for l in open('campaign_n7.jsonl'));print(m)"
 ```
 
-Record the outcome in `six_cube_search_results.md` (Postscript 6 for
+Record the outcome in `LEDGER.md` (Postscript 6 for
 n>6 is a living section; add a postscript for a new n=6 record).
 `exact_search_results.jsonl` is **read-only** ground truth — never write
 to it.
@@ -228,7 +228,7 @@ to it.
 
 | file | kind | what it is |
 |---|---|---|
-| `six_cube_search_results.md` | **ledger** | The authoritative project record. Postscripts 1–21: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→…→717→723 record chain, the ℚ(√5)/tower field program, the sliding-3-cube result, and the symmetry-stratified sweep. Postscripts 22–24: n=7/n=8 records (1207, 1879; since improved to 727/1217/1891 for n=6/7/8, Postscript 46), the cap-sum-tight proof route for n=2/3, and the first proved theorem (the anchor lemma). Postscripts 25 (+4 addenda) and 26 (+1 addendum): the dihedral family — its closed-form discovery, the persistent 18-core and corner docking, the exact region-count staircase (including the new ℚ(√6) point, 49), the handoff-chase verdict, and the n>3 finding that records are gluings of family cliques. Postscripts 27–43: the rational-tangent arc and the max(3)=67 proof (Step T's false route and its replacement). Postscripts 44–52 (+ addenda): the n=3 anomaly audit, the records 727/1217/1891, the elimination proving 727 isolated on the 393 base, the walls-are-plane-pairs discovery that made the three-wall family exhaustible, the ℚ(√d) engine, and the irrational strata — reached at n=5 and n=6 but rationally shadowed. **Read `RESULTS.md` first for current state**; this ledger is append-only and ordered by write time, not by postscript number, and it opens with an index. |
+| `LEDGER.md` | **ledger** | The authoritative project record. Postscripts 1–21: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→…→717→723 record chain, the ℚ(√5)/tower field program, the sliding-3-cube result, and the symmetry-stratified sweep. Postscripts 22–24: n=7/n=8 records (1207, 1879; since improved to 727/1217/1891 for n=6/7/8, Postscript 46), the cap-sum-tight proof route for n=2/3, and the first proved theorem (the anchor lemma). Postscripts 25 (+4 addenda) and 26 (+1 addendum): the dihedral family — its closed-form discovery, the persistent 18-core and corner docking, the exact region-count staircase (including the new ℚ(√6) point, 49), the handoff-chase verdict, and the n>3 finding that records are gluings of family cliques. Postscripts 27–43: the rational-tangent arc and the max(3)=67 proof (Step T's false route and its replacement). Postscripts 44–52 (+ addenda): the n=3 anomaly audit, the records 727/1217/1891, the elimination proving 727 isolated on the 393 base, the walls-are-plane-pairs discovery that made the three-wall family exhaustible, the ℚ(√d) engine, and the irrational strata — reached at n=5 and n=6 but rationally shadowed. **Read `RESULTS.md` first for current state**; this ledger is append-only and ordered by write time, not by postscript number, and it opens with an index. |
 | `C45_notes.md` | notes | Proof program for the deep ceilings (d3≤164, d4≤102, d5≤36) via the radial-escape lemma and bottom-diagram census (T1 Euler count + T2 semicontinuity). §10: the proven anchor lemma. §12: four proved theorems about the dihedral family (mirror symmetry, 90° periodicity, the coincidence identity, and the rational-invariant obstruction with its n=3-is-the-unique-irrational-level corollary). |
 | `nfamily_report.md` | report | Executes `NFAMILY_SPEC.md`: does the dihedral family help at n>3? Answer: not as a search space on its own (175/335/615 vs. records 183/393/723, growing deficit) — but every record is a gluing of family-position pairs (183: 6/6, 393: 10/10, 723: 12/15), which reframes the record search as a search over clique gluings. |
 | `handoff_report.md` | report | Executes `HANDOFF_SPEC.md`: chases whether more than the dihedral family's persistent 18 edge concurrences can be carried continuously from the octahedral 67 to the golden 67. Verdict: no path found beyond 18; a specific local obstruction (two extra-coincidence curves grazing the same ψ=45° wall ~70° apart in phase) is identified and described, not a proof of a ceiling. Also corrects an earlier "60 total contacts" figure for golden (correct: 18 interior + 54 corner label-pairs, 24 distinct physical points). |
@@ -335,7 +335,7 @@ method. Group by role:
 |---|---|---|
 | `mt_sim.py` | Validated reimplementation of the seed→configuration RNG chain (numpy MT19937 + polar Gaussian + scipy quaternion order + common-scale rounding); the basis for the C++/JS ports. | `CPP_SPEC.md` |
 | `make_seed_viewer.py` | Rebuilds the interactive seed-viewer artifact HTML from the logs. | ledger |
-| `index_ledger.py` | Regenerates the postscript index block at the top of `six_cube_search_results.md` from its own headings (GitHub-anchor-exact slugs, replaced wholesale, body never touched). Run after appending a postscript. | ledger |
+| `index_ledger.py` | Regenerates the postscript index block at the top of `LEDGER.md` from its own headings (GitHub-anchor-exact slugs, replaced wholesale, body never touched). Run after appending a postscript. | ledger |
 | `recover_1889.py` | Reconstructs a specific n=8=1889 candidate's quaternions from a run that printed its total but was killed before logging the config, by replaying the RNG deterministically to the same state. | ledger (Postscripts 45–46) |
 
 ## Data logs (`.jsonl`)

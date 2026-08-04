@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (Q(sqrt5) golden engine). Project index: README.md
+# Working principles: LEDGER.md (Q(sqrt5) golden engine). Project index: README.md
 """EXACT region count for sub-compounds of the compound of five cubes.
 
 All geometry lives in the golden field Q(sqrt5): the 15 two-fold axes of the

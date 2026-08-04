@@ -107,7 +107,7 @@ mark genuinely-open if the field build is intractable.
 **Record protocol**: any candidate ≥ 175 note; ≥ 183 FLAG AT TOP and
 re-verify by the OTHER representation (A vs B) or by certified interval
 arithmetic with symbolic zero-guard, then by a congruence check against
-the record. Never edit six_cube_search_results.md or validated files.
+the record. Never edit LEDGER.md or validated files.
 
 ## Deliverables
 

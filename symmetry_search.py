@@ -116,7 +116,7 @@ def orbit_reps(Gelems, seed, Oset):
 def proper_frame(R):
     """Force a PROPER (det=+1) frame. find_cubes() (cube_compound_exact.py)
     returns raw orthogonal axis triples; some are improper (det=-1) --
-    THE SAME BUG documented in six_cube_search_results.md Postscript 9
+    THE SAME BUG documented in LEDGER.md Postscript 9
     ("find_cubes returning two IMPROPER frames") that silently broke an
     earlier congruence check. Negating one column of an improper frame
     gives the IDENTICAL cube (the two opposite faces on that axis are
@@ -627,7 +627,7 @@ def search_family_stacked_axis(gname, qlist, axis, n_slots, rng,
     principal axis (so R commutes with G and each R^i.seed1 keeps orbit
     size |G|). This is the EXACT shape of the 699 record -- two C3 orbits
     3-fold-symmetric about (1,1,1) with the second = R.(first), R about
-    (1,1,1) (six_cube_search_results.md Postscript 9) -- and of the 655
+    (1,1,1) (LEDGER.md Postscript 9) -- and of the 655
     double-pair wall. The plain product-grid families cannot reach it
     because seed2 is not an independent aligned seed but R-linked to
     seed1; here R's (m,k) is a search parameter, recovering that plateau.

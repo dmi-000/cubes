@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (original region counter). Project index: README.md
+# Working principles: LEDGER.md (original region counter). Project index: README.md
 """Count the 3D regions formed by a compound of n cubes (or other bodies).
 
 Method

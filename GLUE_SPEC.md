@@ -1,7 +1,7 @@
 # GLUE_SPEC — two-clique gluing search (does gluing family cliques beat 723?)
 
 Task for the implementing agent (Sonnet). Background: Postscript 26 in
-six_cube_search_results.md (READ-ONLY) + nfamily_report.md + the exact
+LEDGER.md (READ-ONLY) + nfamily_report.md + the exact
 machinery in nfamily_common.py (reuse it; read-only reference engines
 q3_count.py, certify_six.py, C++ binary ./cube_regions_n — never edit
 validated files). ≤4 cores; run sweeps detached; don't park on monitors;

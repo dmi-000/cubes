@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (Postscript 2, subset maximality). Project index: README.md
+# Working principles: LEDGER.md (Postscript 2, subset maximality). Project index: README.md
 """Subset-maximality analysis of the certified 6-cube winner.
 
 Question (2026-07-09): in a maximal 6-cube configuration, are all pairs

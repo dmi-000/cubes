@@ -2,7 +2,7 @@
 
 Hand to an implementation agent ONLY after the current agent finishes
 (both touch cube_regions.cpp). Read CPP_SPEC.md and Postscripts 3-5 of
-six_cube_search_results.md first; this spec extends them.
+LEDGER.md first; this spec extends them.
 
 ## 1. Engine generalization (cube_regions.cpp)
 
@@ -63,6 +63,6 @@ six_cube_search_results.md first; this spec extends them.
   campaign_n7.jsonl (target ~50k seeds) and campaign_n8.jsonl (~10k);
   hill-climbs at n=7 from its top-20; a per-n census table (records,
   frozen depths, mod-4 exceptions, T1 numbers); Postscript 6 in
-  six_cube_search_results.md with the cross-n picture.
+  LEDGER.md with the cross-n picture.
 - Do not modify validated Python files; exact_search_results.jsonl
   read-only. Honest negatives welcome.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md + CPP_SPEC.md. Project index: README.md
+# Working principles: LEDGER.md + CPP_SPEC.md. Project index: README.md
 """Exact certification of the six-cube search winner (random seed 18).
 
-Pipeline (see six_cube_search_results.md for the search itself):
+Pipeline (see LEDGER.md for the search itself):
   1. rationalize: each of the 6 winner rotations is rounded to an exact
      RATIONAL rotation via a common-scale integer quaternion (N=512 by
      default: error ~2/N rad ~ 0.22 deg, matrix denominators ~N^2).

@@ -36,7 +36,7 @@ opaque clipping. A checkpoint of the pre-G9 state was saved first (see
 
 **Update 4 (theory corrections from the Postscript 25 addendum,
 coordinator-directed)**: two facts from the new pair-identity results in
-`six_cube_search_results.md` ("Postscript 25, addendum") invalidated parts
+`LEDGER.md` ("Postscript 25, addendum") invalidated parts
 of Updates 1-2, both re-verified independently here against the validated
 classifier before changing anything:
 - FACT 1 (core persistence): one FIXED set of 18 interior edge pairs is
@@ -76,7 +76,7 @@ Files touched:
   `dihedral_slider_test.js.pre-highlight-zoom-clip.js` — the state right
   before Update 3, kept as an explicit rollback point on request.
 
-Not touched: `six_cube_search_results.md`, any validated `.py`/`.cpp` file,
+Not touched: `LEDGER.md`, any validated `.py`/`.cpp` file,
 no artifacts published.
 
 ## What changed in depth_explorer.html

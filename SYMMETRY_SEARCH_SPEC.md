@@ -2,7 +2,7 @@
 
 For an implementation agent (Sonnet-level — this needs finite-group
 computation, multi-engine dispatch, and exact arithmetic; not a Haiku
-task). Read first: README.md, six_cube_search_results.md Postscripts
+task). Read first: README.md, LEDGER.md Postscripts
 4–9, QFIELD_SPEC.md (field/wall taxonomy), golden_six.py + slide3_q2.py
 + qtower.py (the field engines you dispatch to), cube_regions.cpp (the
 fast rational engine).
@@ -123,7 +123,7 @@ symmetry_search.jsonl (all evals), and symmetry_search_report.md — a
 catalog table (each (G, partition) family: best total + seeds, field,
 whether it beats/ties/loses to 699, and the active alignment), the two
 or three most promising families with the next move, and a "families
-that collapse or lose" list. Do NOT edit six_cube_search_results.md
+that collapse or lose" list. Do NOT edit LEDGER.md
 (the main session merges a postscript); exact_search_results.jsonl is
 read-only.
 

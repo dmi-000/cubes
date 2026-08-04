@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: README.md, ALGEBRAIC_SEARCH.md, six_cube_search_results.md
+# Working principles: README.md, ALGEBRAIC_SEARCH.md, LEDGER.md
 # Postscripts 9/11/12, slide3_q2.py, SLIDE3_SPEC_V2.md. Project index: README.md
 """Edge-concurrence-rich 6-cube search (task: substitute EDGE concurrences
 for CORNER concurrences and test competitiveness against the 723 record).
@@ -53,7 +53,7 @@ C(36,3) cost. Validated against find_concurrences on the known cases below.
 
 Do NOT modify: slide3_q2.py, cube_compound_exact.py, certify_six.py,
 exact_search.py, symmetry_search*.py, cube_regions[.cpp], golden_rotations.py,
-six_cube_search_results.md. exact_search_results.jsonl is read-only.
+LEDGER.md. exact_search_results.jsonl is read-only.
 """
 import itertools
 import json

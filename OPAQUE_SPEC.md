@@ -11,7 +11,7 @@ viewer source. Do not read other project docs unless something here is ambiguous
   gates were verified, piece counts and timings for the presets.
 - **Test harness (create)**: scratchpad `opaque_test.js` — node script exercising the
   geometry functions (see Gates).
-- Never edit `six_cube_search_results.md` or any file listed as validated/read-only
+- Never edit `LEDGER.md` or any file listed as validated/read-only
   in README.md. Do not publish artifacts; the main session does that.
 
 ## Context

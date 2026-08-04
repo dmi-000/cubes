@@ -1,9 +1,9 @@
 # Two sliding 3-cube triples: overlay/slide/relative-rotate search
 
-Executed per `SLIDE3_SPEC.md`. Read first: `six_cube_search_results.md`
+Executed per `SLIDE3_SPEC.md`. Read first: `LEDGER.md`
 Postscripts 4-8, `MULTIWALL_SPEC.md` + `multiwall_report.md`, `golden_six.py`,
 `qtower.py`. Validated files (`certify_six.py`, `cube_compound_exact.py`,
-`golden_rotations.py`, `exact_search_results.jsonl`, `six_cube_search_results.md`)
+`golden_rotations.py`, `exact_search_results.jsonl`, `LEDGER.md`)
 were read but never modified. New files: `slide3_q2.py` (Q(sqrt2) field +
 generic exact counter, mirrors `qtower.py`'s pattern with d=2 instead of
 d=3), `slide3_search.py` (quat/overlay library), `slide3_p1.py` /
@@ -138,7 +138,7 @@ direction), like the n=6 (1,1,1)-diagonal wall.
 random rational n=3 triples via `cube_regions_n --seeds`, then 6
 independent hill-climbs with +-1/+-2/+-3/+-4 component moves from the best
 starts) tops out at 33-43, NEVER reaching the 55 plateau, let alone 67.
-This matches the pre-existing record in `six_cube_search_results.md`
+This matches the pre-existing record in `LEDGER.md`
 Postscript 2 exactly: "triples: winner's subsets 29..38 (median 33),
 random max 38, golden subset 67" — independently reproduced here with a
 different (climbed, not just sampled) random baseline. **C(theta)'s

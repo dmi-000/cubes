@@ -139,6 +139,53 @@ derived (B_j); its flat constant is still empirical.
 invariants; the two n = 3 maximisers have ½+√2 and 3φ/2, so neither is
 congruent to any rational configuration.
 
+**Configuration vs class** — a CONFIGURATION is an actual placement in space, so
+two rotated copies are different configurations. A CLASS is a configuration up
+to rotation, and is what gets counted. Rotated copies are already identified in
+any statement about classes; the 3-dimensional fibre of rotations inside a class
+is bookkeeping about the unquotiented space and normally never needs mentioning.
+Pinning a base (as the 727 work does) spends those 3 degrees of freedom exactly
+so that every remaining move changes the class. Keep the words apart: sliding
+between them makes it sound as though rotated copies were being counted
+separately.
+
+**Congruence class** — an equivalence class of configurations under "some
+isometry fixing the origin carries one onto the other as a set". Restricting to
+O(3) rather than the full isometry group E(3) = R^3 x| O(3) costs nothing: a
+compound of origin-centred cubes has its centroid at the origin, so any isometry
+between two of them carries centroid to centroid and therefore fixes the origin.
+The translations are excluded by the geometry, not by assumption. Nor does the
+O(3)-vs-SO(3) choice matter: Q = [-1,1]^3 is centrally symmetric, so -I fixes
+every centred cube, and every improper isometry g = (-I)·r acts on these
+compounds exactly as the rotation r does. The two groups give IDENTICAL orbits,
+there is no handedness bit to gain, and -I sits in the stabiliser of every
+configuration (so a stabiliser computed among rotations alone is the one that
+measures the orbit). A congruence class here is one copy of SO(3) = RP^3. Note also that
+an isometry is an ELEMENT of O(3); the 48 isometries carrying one cube onto a
+DIFFERENT cube form a coset, not a subgroup (no identity), which is why they can
+be counted but not composed. Three
+redundancies are quotiented at once, and conflating them causes errors: a
+GLOBAL g acting on the left (same g for every cube); a PER-CUBE ambiguity, since
+Rᵢ and Rᵢ·u give the identical cube for any u in the octahedral group, so a cube
+is a coset Rᵢ·O and not a rotation; and LABELLING, since the cubes are
+unordered. Formally a point of O(3) \ (SO(3)/O)ⁿ / Sₙ.
+
+Beware which space you are counting in. As a subset of all compounds, a single
+class is an O(3) ORBIT — 3-dimensional, uncountably many members, one per rotated
+copy in space. Pinning a base (as the 727 family does) spends exactly those 3
+degrees of freedom, so within a pinned family a class has only finitely many
+members (≤480) and moving through the family moves you BETWEEN classes. Both
+"uncountably many classes" and "uncountably many members per class" hold, at
+cardinality 2^ℵ₀; cardinality cannot separate them and DIMENSION is the
+instrument that can — which is why "how many maximisers are there?" is
+ill-posed and "what is the dimension of the maximiser set, and where are its
+boundaries?" is not.
+
+A congruence class is NOT "same region count", "same depth profile", "same
+per-label profile" or "same μ". Those are INVARIANTS: a differing value proves
+non-congruence, a matching value proves nothing. Every wrong class count in this
+ledger came from reading an invariant as if it were a definition (§7).
+
 **μ (the O-reduced pair invariant)** — max over H in the octahedral group of
 trace(Rᵢᵀ Rⱼ H). Necessary for congruence, **not sufficient** — see §7.
 
@@ -233,6 +280,33 @@ W4 refer to that catalogue.
 fields countable. Now ≥ 161 configurations in 54 types, not indexed by field.
 
 ## 8. Overloaded terms
+
+### 8.0 The rule: never use the bare noun
+
+Every overload below is harmless in its COMPOUND form and dangerous when
+abbreviated. So the convention for this project is not to rename anything — it
+is to ban four bare words. Write the compound form every time, even when the
+context feels obvious. (It cost a wrong step on 2026-08-04: the "360 crossing
+lines" of Postscript 57 were proposed as a bound on the 727 arcs, which are
+lines in CONFIGURATION space, minutes after this very section was cited.)
+
+| never write | in R^3, the cubes' own space | in configuration space |
+|---|---|---|
+| "point"  | triple point, corner, contact point | configuration, parameter point |
+| "line"   | crossing line, edge line | arc, wall line |
+| "plane"  | face plane | wall plane, locus plane |
+| "isolated" | — | "isolated in the level set" vs "isolated as a solution of its conditions" — Postscript 47 means the SECOND |
+
+Two more that need a named space rather than a compound word:
+
+* **dimension** — always say of WHAT: of a locus in configuration space, of a
+  congruence class (always 3), or of the class set. "4-dimensional" and
+  "1-dimensional" describe the same 727 component in different spaces.
+* **degrees of freedom** — say GAUGE (rotating the whole compound; changes
+  nothing observable) or MODULI (changes the congruence class). The 727
+  component has 3 gauge + 1 moduli.
+
+
 
 **Line** — almost always a *line in configuration space* (§2), not a line in
 ℝ³. Base **crossing lines** (§3) are the exception: those are real lines in

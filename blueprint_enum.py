@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: BLUEPRINT_SPEC.md; six_cube_search_results.md
+# Working principles: BLUEPRINT_SPEC.md; LEDGER.md
 # Postscripts 12/13/17/17-addendum/18/19 (+addenda); shared_axis_search.py
 # (whose cluster/spoke genome format this file's `spec` tuples feed
 # directly, unmodified); PROJECT.md. Project index: README.md.
@@ -68,7 +68,7 @@ P3 (dominance, wholesale exclusion): the deferred multi-axis family
 12's direct test of exactly this shape -- the T-generating different-axis
 intersection C2(001)+C3(111) (forcing the tetrahedral group <C2,C3>=T) --
 which reached only 613, a net loser against every rational record from 655
-up (six_cube_search_results.md Postscript 12: "The T-generating different-
+up (LEDGER.md Postscript 12: "The T-generating different-
 axis intersection ... was a net loser at 613 -- forcing the full polyhedral
 symmetry HURTS"). No other P3 exclusions are applied a priori: every
 remaining canonical entry is run (see blueprint_search.py) rather than

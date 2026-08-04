@@ -12,7 +12,7 @@ whole reason a delegated result can be trusted, so they belong in the record
 alongside the result.
 
 **Standing rules applied to every delegation.** Agents never edit the ledger
-`six_cube_search_results.md` — the main session does. Agents do not modify
+`LEDGER.md` — the main session does. Agents do not modify
 `cube_regions.cpp`. Gates must be *pre-existing* values from independent
 sources, never self-consistency checks. An agent that cannot pass a gate must
 say so rather than adjust the expected value. Every substantive claim is

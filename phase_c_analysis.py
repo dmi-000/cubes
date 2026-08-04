@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (Postscript 4). Project index: README.md
+# Working principles: LEDGER.md (Postscript 4). Project index: README.md
 """Phase C: breakdown analysis over everything found (campaign + oracle +
 hill-climb log). Reports:
   - conjecture violation scan (C1..C6) over all exact results

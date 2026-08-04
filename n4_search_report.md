@@ -125,7 +125,7 @@ free cube coincides with one of the golden five's other two cubes
 `(1,-1,-1,1)`, `(1,-1,1,1)`, `(-1,1,1,1)` all land on exactly 177) — i.e.
 this just rediscovers golden 4-subsets, consistent with the known fact
 that every 4-subset of the golden five equals 177 (subset-maximality,
-Postscript 2 of `six_cube_search_results.md`). **No rational (non-golden)
+Postscript 2 of `LEDGER.md`). **No rational (non-golden)
 free 4th cube attached to a golden 3-subset beat or matched 177.**
 
 **Phase S1 — exact-rational octahedral-type 2-axis-pair family.**

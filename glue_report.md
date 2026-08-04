@@ -2,7 +2,7 @@
 
 Executes `GLUE_SPEC.md`. Reuses `nfamily_common.py` (exact Rodrigues/
 quaternion core, read-only) and `./cube_regions_n` (read-only); never
-edits `six_cube_search_results.md` or any validated file. Code:
+edits `LEDGER.md` or any validated file. Code:
 `glue_search.py` (modes `q0` / `gates` / `sweep`); raw sweep log
 `glue_results.jsonl` (319,141 configs); per-cell axis analysis
 `glue_q0.json`; per-cell best `glue_best.json`.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (seed-viewer artifact). Project index: README.md
+# Working principles: LEDGER.md (seed-viewer artifact). Project index: README.md
 """Rebuild the seed-viewer artifact HTML from the live search log.
 
 Reads exact_search_results.jsonl (seeds 40+) plus the hardcoded certified

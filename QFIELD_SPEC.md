@@ -4,7 +4,7 @@ PRIORITY: this program outranks the n>6 campaigns for compute and agent
 attention (user directive 2026-07-10). Hand to an implementation agent
 after the current golden-wall agent finishes (it owns golden_six.py /
 golden_search.jsonl / golden_wall_report.md until then). Read first:
-six_cube_search_results.md Postscripts 4-5 and 7, golden_wall_report.md
+LEDGER.md Postscripts 4-5 and 7, golden_wall_report.md
 (the ℚ(√5) pilot), cube_compound_exact.py (Q5), certify_six.py.
 
 ## 1. Why fields, and which (get this right — it is easy to overclaim)
@@ -120,7 +120,7 @@ never overwrite ./cube_regions or ./cube_regions_n.
 
 qfield.py, count_qd.py (or extended golden_six.py core), gate log,
 qfield_*.jsonl, and a report in qfield_report.md (do NOT edit
-six_cube_search_results.md — the main session merges; Postscripts 6
+LEDGER.md — the main session merges; Postscripts 6
 and 7 are taken). Report the F1/F2 deltas even if zero — a clean
 null ("exact quadratic incidences never change the count vs in-family
 rational angles") would itself justify closing the quadratic program

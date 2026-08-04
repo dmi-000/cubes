@@ -99,5 +99,5 @@ statement of what is still out of budget after widening (i.e. which of the
 `validateBudget` logic over the rejected set, or state that all of them now
 fit).
 
-Do NOT edit `six_cube_search_results.md` (ledger: main session only), and do
+Do NOT edit `LEDGER.md` (ledger: main session only), and do
 not modify `cube_regions_q2.cpp` or `cube_regions_n`.

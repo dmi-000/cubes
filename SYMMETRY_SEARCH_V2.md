@@ -8,7 +8,7 @@ family, which provably contains the 699 record, was searched only to
 
 For a Sonnet agent. Read: symmetry_search.py (REUSE its validated
 build_group / orbit / O-dedup / dispatch / count functions — do NOT
-rewrite them), symmetry_search_report.md, six_cube_search_results.md
+rewrite them), symmetry_search_report.md, LEDGER.md
 Postscript 10, README.md.
 
 ## The one change: seeds are FULL integer quaternions, not axis-angles
@@ -66,7 +66,7 @@ only the seed sampler + climber change.
 symmetry_search2.jsonl, and symmetry_search_report2.md: for each
 re-run family, the NEW best (vs the first run's floor and vs 699),
 whether C₃:3+3 now reproduces ≥699 (the key correctness check), and any
-config > 699 with quats. Do NOT edit six_cube_search_results.md (the
+config > 699 with quats. Do NOT edit LEDGER.md (the
 main session merges a postscript update) or the validated files;
 exact_search_results.jsonl read-only. Honest negatives welcome: "with
 full-quat grids the top families still cap at 699/681" is a much

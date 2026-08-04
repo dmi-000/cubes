@@ -2,7 +2,7 @@
 
 For a Sonnet agent. Read: symmetry_search2.py (REUSE its D₂:4+free2
 construction, orbit machinery, and climber — do not rewrite), README.md,
-six_cube_search_results.md Postscripts 10–11. Current record: 717
+LEDGER.md Postscripts 10–11. Current record: 717
 (D₂:4+free2), quats 5,2,2,2; -2,-2,2,5; -2,5,-2,2; -2,2,5,-2; 2,1,1,1;
 1,0,0,0 — by_depth {1:210, 2:210, 3:158, 4:102, 5:36, 6:1}.
 
@@ -52,7 +52,7 @@ tradeoff directly.
   CEILING violation (d3 > 164, d4 > 102, d5 > 36, d6 ≠ 1 — that is a
   construction bug, not a find; stop and check). Note: d3 BELOW 164 is
   expected and interesting here, not a bug.
-- Do NOT edit six_cube_search_results.md (main session merges a
+- Do NOT edit LEDGER.md (main session merges a
   postscript), symmetry_search2.py, or validated files;
   exact_search_results.jsonl read-only. Exact predicates only.
 

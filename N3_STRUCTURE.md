@@ -1,11 +1,11 @@
 # The n = 3 structure graph
 
 Written 2026-08-03. Every number here is an exact count; see
-[`six_cube_search_results.md`](six_cube_search_results.md) Postscripts 69–72
+[`LEDGER.md`](LEDGER.md) Postscripts 69–72
 for the runs, and [`GLOSSARY.md`](GLOSSARY.md) for the vocabulary.
 
 This is the n = 3 configuration space described through the n = 2 map of
-[Postscript 70](six_cube_search_results.md). It is complete at the level of
+[Postscript 70](LEDGER.md). It is complete at the level of
 **cells** (proved), partial at the level of **dimensions** and **edges**
 (measured at representatives).
 

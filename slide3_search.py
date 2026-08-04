@@ -25,7 +25,7 @@ stays fully rational and can be counted by the FAST validated C++ engine
 gcd reduction).
 
 Read-only: cube_regions[_n] binaries, certify_six.py, cube_compound_exact.py,
-golden_rotations.py, qtower.py, six_cube_search_results.md,
+golden_rotations.py, qtower.py, LEDGER.md,
 exact_search_results.jsonl. All logging goes to slide3_search.jsonl only.
 """
 import itertools

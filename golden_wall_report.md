@@ -26,7 +26,7 @@ arithmetic, no floats in any predicate). Implementation: `golden_six.py`
   verified on an IRRATIONAL coincident stack: duplicate of golden cube 2
   (√5-bearing plane normals) also gives exactly 351.
 
-Reference values verified against six_cube_search_results.md Postscripts
+Reference values verified against LEDGER.md Postscripts
 4–5 (not from memory): rational record total 635 with by_depth
 {1:118, 2:214, 3:164, 4:102, 5:36, 6:1}; observed rational ceilings
 d1 ≤ 118, d2 ≤ 214 (the older 112/208 were falsified); conjectured

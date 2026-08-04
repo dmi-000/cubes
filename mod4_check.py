@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (mod-4 law). Project index: README.md
+# Working principles: LEDGER.md (mod-4 law). Project index: README.md
 """Test of the mod-4 conjecture for generic cube compounds.
 
 Observation (2026-07-09): every certified generic count satisfies

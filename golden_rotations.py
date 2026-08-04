@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (rot_from_quat rational-rotation basis). Project index: README.md
+# Working principles: LEDGER.md (rot_from_quat rational-rotation basis). Project index: README.md
 """Exact arithmetic in the dense rotation group <cube, dodecahedron>.
 
 The rotation group O of the (axis-aligned) cube and the rotation group I of

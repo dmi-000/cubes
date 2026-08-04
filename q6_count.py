@@ -2,7 +2,7 @@
 (D: 2 -> 6 in Q2 arithmetic; everything else identical). Same role: a
 verifier for configs whose matrices live in Q(sqrt6), not a search engine.
 Created 2026-07-15 for the face-diagonal 120-degree compound {I, S, S^2},
-S = (1/4)[[1,3,r6],[3,1,-r6],[-r6,r6,-2]] (see six_cube_search_results.md,
+S = (1/4)[[1,3,r6],[3,1,-r6],[-r6,r6,-2]] (see LEDGER.md,
 dihedral-family postscript).
 """
 import math

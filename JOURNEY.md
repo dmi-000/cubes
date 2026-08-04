@@ -5,7 +5,7 @@ ten-minute, low-jargon tour that hits the same beats and links onward, read
 [`OVERVIEW.md`](OVERVIEW.md) instead. Self-contained, but every claim
 here has a paper trail: `RESULTS.md` is the recommended starting point —
 every current claim tagged PROVED / VERIFIED / EXHAUSTED / CONJECTURE, with
-superseded claims confined to one table. `six_cube_search_results.md` (the
+superseded claims confined to one table. `LEDGER.md` (the
 dated ledger, now Postscripts 1–58 with addenda) is the primary record beneath that,
 `PROJECT.md` is the formal write-up, and `README.md` maps all the code.
 Anyone with access to a
@@ -1089,7 +1089,7 @@ open is part of the story.
     not a proven ceiling.
 
 *Files for the deeper dive: `RESULTS.md` (current state, every claim
-tagged by strength — start here), `six_cube_search_results.md` (ledger,
+tagged by strength — start here), `LEDGER.md` (ledger,
 now Postscripts 1–52 with addenda, indexed at the top),
 `PROJECT.md` (formal write-up), `PROOF_67.md` + `PROOF_STEP_T.md` (the
 max(3)=67 proof), `C45_notes.md` (proof program — the four

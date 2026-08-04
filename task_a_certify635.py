@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (Postscript 5) + golden_wall_report.md. Project index: README.md
+# Working principles: LEDGER.md (Postscript 5) + golden_wall_report.md. Project index: README.md
 """Task (a): local-maximality certification of the 635 record under
 single-component move radius 4.
 

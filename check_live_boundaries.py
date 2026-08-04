@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: six_cube_search_results.md (Postscript 4 ceilings). Project index: README.md
+# Working principles: LEDGER.md (Postscript 4 ceilings). Project index: README.md
 """Standalone checker (does NOT touch run_campaign.py) for the SIX live
 conjecture boundaries, applied to a seed range of campaign_results.jsonl:
 
