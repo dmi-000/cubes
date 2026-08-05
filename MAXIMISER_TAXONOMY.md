@@ -1,233 +1,257 @@
-# A taxonomy of maximisers, applied across all levels
+# Maximiser taxonomy — results
 
-Written 2026-08-04, from a user observation: the 727 work had accumulated many
-ways to categorise a maximiser and had applied them all to one number. These are
-the axes, and the same questions asked of 13, 67, 183, 393, 727, 1217 and 1891.
+What is known about each maximiser, how to generate members of each category,
+why each cell reads what it does, and what would fill the gaps. **No chronology
+here** — the running record is [`LEDGER.md`](LEDGER.md); exact canonical
+representatives are [`MAXIMISERS.md`](MAXIMISERS.md).
 
 Terminology follows [`GLOSSARY.md`](GLOSSARY.md) §8.0 — no bare "point", "line",
 "plane" or "isolated"; "dimension" always names its space.
 
 ---
 
-## The axes
+## 1. The axes
 
-1. **Moduli dimension** — the dimension of the maximiser set in the space of
-   CONGRUENCE CLASSES. 0 means finitely many maximisers; ≥1 means a continuum.
-   The gauge dimension is always 3 (rotating the whole compound) and carries no
-   information, so it is never quoted below.
-2. **Components** — how many connected pieces the class set has. Finite, by
-   semialgebraicity. This is the well-posed replacement for "how many
-   maximisers are there".
-3. **Combinatorial types per component** — a type is a chamber, identified by
-   the 64-entry per-label profile; the count is constant across a whole
-   component while the type changes finitely often along it.
-4. **Symmetry** — the order of the maximiser's own rotation group. Equivalently
-   the stabiliser, which divides the volume of its congruence class.
-5. **Arithmetic** — whether the maximiser is rational, and whether that is
-   structural or an artifact of where a search sampled.
-6. **Boundary behaviour** — what the count drops to at the edges of the
-   maximiser set. Where the information is, when the interior is uniform.
-7. **Findability** — the basin size under climbing, which is a property of the
-   maximiser plus a move set, not of the maximiser alone.
+1. **Moduli dimension** — dimension of the maximiser set in the space of
+   CONGRUENCE CLASSES. 0 means finitely many maximisers, ≥1 a continuum. The
+   gauge dimension is always 3 (rotating the whole compound) and is never quoted.
+2. **Components** — connected pieces of the class set. Finite, by
+   semialgebraicity. The well-posed replacement for "how many maximisers".
+3. **Types** — a type is a chamber: the 64-entry per-label profile is constant
+   on it, while the count is constant across a whole component.
+4. **Symmetry** — order of the maximiser's own rotation group; equivalently its
+   stabiliser, which divides the volume of its congruence class.
+5. **Arithmetic** — rational or not, and whether that is structural.
+6. **Boundary behaviour** — what the count drops to at the edges.
+7. **Findability** — basin size under climbing; a property of the maximiser plus
+   a move set, not of the maximiser alone.
+8. **Topology, and the KIND of boundary** — whether a component is an arc or
+   WRAPS into a loop, and what its ends are. Two kinds of end are known and they
+   are not the same phenomenon: a **wall end**, where the count steps to a
+   neighbouring value (727 arc A ends at 723 and 721), and a **degeneracy
+   puncture**, where the count collapses because cubes coincide (the n=2
+   diagonal loop is punctured at three angles, each counting 1).
 
-## The table
+## 2. The table
 
-Measured values only; blanks are open, not zero.
-
-| n | max | moduli dim | components (class space) | types | symmetry | arithmetic |
+| n | max | moduli dim | components | types | symmetry | arithmetic |
 |---|---|---|---|---|---|---|
-| 2 | 13 | **1** (tangent) | **2 arcs + finitely many classes** | **1** | **12** | rational points dense on the arcs |
-| 3 | 67 | **0** (codimension) | **exactly 2, both 0-dimensional** | 1 each | **24** oct / **6** golden | both irrational, ℚ(√2) and ℚ(√5) |
-| 4 | 183 | **≥3** (aligned) | ≥1; all 5 climbs give ONE class | — | **3** | rational |
-| 5 | 393 | — (aligned reads 0) | — | — | **3** | rational |
-| 6 | 723 | **≥1** (tangent (1,1,1)) | — ; locus along the tangent is a UNION of intervals | **13** in one interval | **3** | rational |
-| 6 | **727** | **1** (tangent) | **≥4** | **9** on arc A | **1** | rational and irrational on ONE arc |
-| 7 | 1217 | **≥1** (aligned) | — | — | **1** | rational |
-| 8 | 1891 | **≥2** (aligned) | — | — | **1** | rational |
+| 2 | 13 | **1** | **2 arcs + finitely many classes** | **1** on the diagonal arc | **12** | rational dense on the arcs |
+| 3 | 67 | **0** | **exactly 2** | 1 each | **24** oct / **6** golden | both irrational, ℚ(√2), ℚ(√5) |
+| 4 | 183 | **≥3** | ≥1; all 5 climbs give ONE class | — | **3** | rational |
+| 5 | 393 | **0** against single-cube moves | — | — | **3** | rational |
+| 6 | 723 | **≥1** | — ; a UNION of intervals | **≥14** | **3** | rational |
+| 6 | **727** | **1** | **≥4** | **≥10** on arc A | **1** | rational and irrational on ONE arc |
+| 7 | 1217 | **≥1**, extent 1/32 | — | 1 | **1** | rational |
+| 8 | 1891 | **≥2**, two directions | — | 1 | **1** | rational |
 
-**Tangents can now be found rather than guessed** (`tangent_finder.py`). A curve
-inside a maximiser locus lies inside the wall surfaces through its point, so its
-tangent is orthogonal to every active wall's gradient; one active wall reduces
-the search from a sphere of directions to a circle, which is a finite scan.
-Validated by recovering arc A's known tangent (1,−3,−6) — 2 of 96 in-plane
-directions — then applied to 723, whose tangent was unknown and is **(1,1,1)**:
-the sixth cube sliding along the shared C₃ axis, the very family Postscript 12
-built 723 from. Walking it shows 723 holds on a UNION of intervals
-([9/32,35/32] the longest), punctured by dips to 711, 699 and 687. The method
-sees only catalogue walls, so a point lying on none of the 119 is still out of
-reach.
+Type counts are LOWER bounds: several chambers are narrower than the sweep grid
+and resolve to a single sample, so a finer grid can only split them further.
 
-Two probes are in play and they are not interchangeable. **Aligned** = how many
-of the 2k single-coordinate ±ε moves preserve the count; 2d of them survive for
-a family aligned with d coordinate directions, so a positive reading is a valid
-lower bound and a zero reading means only "not aligned" (FAILURE_MODES 11d).
-**Tangent** = stepping along a structurally identified direction, which is the
-only probe that detects a locus in general position. 393, 723 and 727 all read 0
-on the aligned probe; 727 is nonetheless 1-dimensional, which is exactly why the
-393 and 723 cells are blank rather than 0.
+## 3. How to generate a member of each category
 
-## The components, listed
+All commands run in this directory. `BASE` is the five-cube 393 compound:
 
-**n = 2, max 13.** In CLASS space, two positive-dimensional components plus
-finitely many extra classes:
-* the **body-diagonal arc** — Cayley t·(1,1,1); 13 at every t measured
-  (1/5, 1/4, 1/3, 2/5, 1/2, 3/5, 2/3, 3/4, 3/2, 2, 3) and **punctured at t = 1**,
-  where the rotation is a cube symmetry and the count collapses to 1. Off the
-  diagonal the count is 9 at ε = 1/64 in every direction tried.
-* the **edge arc** — the closed range [arccos(1/3), arccos(−1/3)] about an edge
-  axis (Postscript 44).
-* isolated classes: the half-turns about (1,2,3) and (1,1,2).
+    BASE="4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1;1,1,1,1"
 
-The 4 body diagonals and 6 edge axes are single orbits under the cube's own
-symmetry, so they are ONE component each in class space, not 4 and 6.
+### n = 2, max 13 — a one-parameter family
 
-**n = 3, max 67.** Two components, both 0-dimensional: the octahedral class in
-ℚ(√2) and the golden class in ℚ(√5).
+Body-diagonal arc, every member:
 
-**n = 6, max 727.** At least four components, pairwise non-intersecting:
+    ./cube_regions_n --quats "1,0,0,0;d,n,n,n"      any 0 < n < d, n/d ≠ 1
 
-| arc | direction | through | carries |
-|---|---|---|---|
-| A | (1,−3,−6) | (19/3, −7, −11) | d = 13, 1093, 2741; 727 on s ∈ [9/4, 3]; 9 types; 723/721 at the ends |
-| B | (1,1,−4) | (4/35, 2/5, −41/35) | d = 1614, 25561 |
-| C | (1,−3/2,9/4) | (245/29, −295/29, 428/29) | d = 1785, 5305 |
-| D | the record's own wall line | (7,14,1,−5) | the original compound; on none of A, B, C |
+13 for every such (n,d); at n/d = 1 the rotation is a cube symmetry and the
+count collapses to 1. One type along the whole arc. Off the diagonal: 9.
+The edge arc is rotations about an edge axis through [arccos(1/3), arccos(−1/3)];
+the extra classes are the half-turns about (1,2,3) and (1,1,2).
 
-**Each of these appears THREE times in the pinned slice.** The base's C₃ (120°
-about (1,1,1), acting on Cayley coordinates by cycling them) carries arc A to
-two further arcs, both verified to count 727. Pinning the base spends the global
-rotation but NOT the base's own symmetry, so slice-arcs overcount class-space
-components by a factor of 3 here. A, B and C lie in distinct C₃ orbits — none of
-A's two images has B's or C's direction — so they remain ≥4 components after the
-quotient.
+### n = 3, max 67 — two classes, so two members
 
-## What the filled cells already say
+    printf '1:0,0:0,0:0,0:0;1:0,1:0,0:1,0:0;-1:0,1:0,0:1,0:0\n' | ./cube_regions_q2 --d 2 --quats-stdin
+    printf '1:0,0:0,0:0,0:0;2:0,1:1,-1:1,0:0;-2:0,1:1,-1:1,0:0\n' | ./cube_regions_q2 --d 5 --quats-stdin
 
-**Symmetry decays with n, from the maximum possible, and dies exactly where the
-record left the symmetric stratum.** 24 and 6 at n=3, 12 at n=2, then 3, 3, 3,
-then 1, 1, 1. The octahedral 67 has the FULL cube rotation group, order 24 —
-the largest a compound can have. Note also that symmetry SEPARATES the two 67s
-(24 vs 6) where the per-label profile cannot: their profiles are identical, so
-this is a congruence invariant independent of Theorem R. The break is at 723 → 727, which
-Postscripts 52-55 independently describe as 727 beating 723 by LEAVING the
-corner-concurrence stratum. Two descriptions of one event. Note also that
-**183 is C₃-symmetric**, which appears not to have been recorded — it was found
-by wide-perturbation hill-climbing, not by symmetry-stratified seeding, so its
-symmetry was never the point of the search that found it.
+Both {I, R, R²} with R a 120° turn about the dihedral axis; derivation in
+`MAXIMISERS.md`. There is nothing else to generate — the set is these two.
 
-**Only n = 3 has a finite maximiser set.** Everything else measured is a
-continuum. By the semialgebraic dichotomy (Postscript 80 Addendum 2) a
-maximiser set is finite or uncountable, never countably infinite — so "finite"
-was the only alternative n = 3 could have had, and the question is why it takes
-it. The ledger's answer: the cap-sum bound is tight only at n ≤ 3, so the
-optimum must saturate every layer, which forces rigidity, which forces isolated
-classes — and an isolated class over ℚ need not be rational, whereas a
-positive-dimensional one has dense rational points. That single mechanism
-explains the irrationality of the 67s AND the rationality of every other record.
+### n = 4, max 183 — one known class
 
-**The n = 3 row was re-tested** — see the final section. Its 0 originally rested
-on a measurement now known to be unreliable, and has been re-founded on Step B's
-decomposition instead.
+    ./cube_regions_n --quats "1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4"
 
-**The n = 4 record is ONE class.** All five independent climbs that reached 183
-(from four different seed cells, plus the control) land on the same
-configuration up to congruence: symmetry order 3, depth profile {92,66,24,1},
-and an identical multiset of O-reduced pair angles — three at 43.004° and three
-at 46.826°, the 3+3 split that C₃ forces. That is a finer invariant than the
-per-label profile Postscript 74 used to say "all the same type", and it agrees.
-The angle split matches the cell (9,9,9,13,13,13) exactly: three 9-pairs at one
-angle, three 13-pairs at the other.
+### n = 5, max 393 — rigid against moving one cube
 
-## Cheapest ways to fill the blanks
+    ./cube_regions_n --quats "$BASE"
 
-* **Moduli dimension at 393, 1217, 1891** — lattice probe for a lower bound
-  (positive readings remain valid), then a tangent test if it reads 0.
-* **Components and types at 727** — sweep the 727 locus inside each of the 119
-  catalogue wall planes. One such sweep found exactly one arc in 272 sampled
-  cells, so the locus is thin and the enumeration is realistic. Incomplete on
-  its own: the measured arc lies in only ONE catalogue plane, its second wall
-  being of the never-enumerated W3/W4 type that Postscript 58 identified as the
-  one that actually governs chamber structure.
-* **Symmetry at the two 67s** — the same stabiliser computation, in ℚ(√2) and
-  ℚ(√5). Expected to be large, which would extend the decay pattern leftward
-  and make it a statement about all n rather than about n ≥ 4.
-* **Boundary behaviour** — known only at 727 (723 and 721 at the ends of the
-  measured arc, 711-721 transversally). Unknown everywhere else.
+No single-cube perturbation preserves it (§4), so within that slice this is the
+only member.
 
+### n = 6, max 723 — a fragmented family
 
----
+Free sixth cube at Cayley (2/5,2/5,2/5) + s·(1,1,1); as an integer quaternion,
+`den, num, num, num` with num/den = 2/5 + s. 723 holds on a union of intervals,
+the longest s ∈ [9/32, 35/32], punctured by dips to 711, 699, 687.
 
-## The n = 3 re-test
+One representative per chamber, all counting 723 with distinct per-label:
 
-The "exactly two isolated 67s" rested on a lattice probe reading 0, which
-FAILURE_MODES 11d shows cannot distinguish an isolated class from a curve in
-general position. Re-running that probe would answer nothing, and a tangent test
-needs a tangent, which is exactly what is unknown. So the claim was re-founded
-on Step B (Postscript 78) instead, where it becomes a codimension count.
+| s-range | member (append to BASE) |
+|---|---|
+| [9/64, 11/64] | `160,89,89,89` |
+| [9/32, 9/32] | `160,109,109,109` |
+| [19/64, 23/64] | `320,233,233,233` |
+| [3/8, 29/64] | `640,521,521,521` |
+| [15/32, 31/64] | `640,561,561,561` |
+| [1/2, 33/64] | `640,581,581,581` |
+| [17/32, 9/16] | `320,303,303,303` |
+| [37/64, 19/32] | `640,631,631,631` |
+| [39/64, 23/32] | `640,681,681,681` |
+| [47/64, 49/64] | `20,23,23,23` |
+| [25/32, 61/64] | `640,811,811,811` |
+| [31/32, 65/64] | `640,891,891,891` |
+| [33/32, 17/16] | `320,463,463,463` |
+| [69/64, 35/32] | `640,951,951,951` |
 
-**The argument.** Step B decomposes the three-cube total exactly:
+### n = 6, max 727 — an arc, with rational and irrational members alike
 
-    T = 1 + sum_ij p_ij + sum_i s_i,   p_ij <= 6 unconditionally
+Arc A: sixth cube at Cayley (19/3, −7, −11) + s·(1, −3, −6). 727 for s across
+roughly [2.11, 3.05]; 721 at s = 2, 723 at s = 13/4.
 
-so 67 = 1 + 18 + 48 forces **all three pair terms to 6 AND all three singleton
-terms to 16, simultaneously**. And s_i = 16 was measured to require both pairs
-at cube i to be 13-pairs (g(13,13) = 16; every other combination <= 14), on a
-set of dimension **2** in the 6-dimensional space of the two rotations at that
-cube — codimension 4.
+One representative per chamber:
 
-The n = 3 moduli space is 6-dimensional (two free cubes, the third pinned,
-spending the gauge). Each s_i = 16 is a codimension-4 condition on it. Two of
-them already exceed the available dimension, 4 + 4 = 8 > 6; three of them give
-12. The 67s exist only because the three conditions are strongly dependent, and
-a solution set cut by conditions that overshoot the ambient dimension this
-badly is expected to be **0-dimensional**.
+| s-range | member (append to BASE) |
+|---|---|
+| [67/32, 69/32] | `24,203,-321,-570` |
+| [35/16, 37/16] | `12,103,-165,-294` |
+| [75/32, 75/32] | `96,833,-1347,-2406` |
+| [19/8, 39/16] | `96,839,-1365,-2442` |
+| [79/32, 79/32] | `96,845,-1383,-2478` |
+| [5/2, 83/32] | `192,1705,-2811,-5046` |
+| [21/8, 21/8] | `24,215,-357,-642` |
+| [85/32, 85/32] | `96,863,-1437,-2586` |
+| [43/16, 11/4] | `96,869,-1455,-2622` |
+| [89/32, 101/32] | `96,893,-1527,-2766` |
 
-**Status: supported, not proved.** It is a codimension heuristic, not a rank
-computation — the honest next step is the Jacobian rank of the active conditions
-at each 67, in ℚ(√2) and ℚ(√5) respectively. But it is independent of the broken
-probe, and it draws on a decomposition that did not exist when the original
-claim was made.
+**A member in ANY quadratic field** — take s = 5/2 + √d/100, inside the arc for
+every d ≤ 97, giving a distinct congruence class per squarefree d:
 
-**Two corroborations already on record.** The best RATIONAL three-cube compound
-is 63, exhaustively; a positive-dimensional locus defined over ℚ would be
-expected to carry rational points, and none reaching 67 exists. And the
-distinct-axis part of the (13,13,13) cell, where both 67s live, has every
-rational member degenerate (N3_STRUCTURE §5).
+    printf '4:0,1:0,1:0,-1:0;3:0,3:0,7:0,3:0;5:0,-1:0,-5:0,-5:0;2:0,1:0,1:0,1:0;1:0,1:0,1:0,1:0;300:0,2650:3,-4350:-9,-7800:-18\n' \
+      | ./cube_regions_q2w --d 3 --quats-stdin
 
-**What this does NOT rescue.** The count of 67 classes — "exactly two" — is a
-separate claim resting on Theorem R, not on any dimension measurement, and is
-untouched either way.
+Three further arcs, not yet swept for chambers: B through (4/35, 2/5, −41/35)
+along (1,1,−4); C through (245/29, −295/29, 428/29) along (1,−3/2,9/4); D the
+record's own wall line through (7,14,1,−5). All pairwise skew with A.
 
+### n = 7 and n = 8
 
-## Types along the arcs — and a trend
+    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4"            # 1217
+    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;3,-3,3,-8"  # 1891
 
-A type is a chamber: the per-label profile is constant on it and the count is
-constant across the whole component. Measured where a tangent is known:
+1217 moves along cube 6's Cayley x over an interval of extent 1/32. 1891 moves
+along cube 6's x AND cube 7's z, two independent directions; along cube 7's z it
+is fragmented, holding on [0, 3/32] and again on [15/64, 3/8].
 
-| locus | types | over |
-|---|---|---|
-| n=2, 13, body-diagonal arc | **1** | 199 rational points, t = 1/2 … 24/25 |
-| n=6, 727, arc A | **9** | s ∈ [9/4, 3], walls at 75/32, 19/8, 79/32, 5/2, 21/8, 85/32, 43/16, 89/32 |
-| n=6, 723, longest interval of its tangent | **13** | s ∈ [9/32, 35/32], walls at 19/64, 3/8, 15/32, 1/2, 17/32, 37/64, 39/64, 47/64, 25/32, 31/32, 33/32, 69/64 |
+## 4. Why the cells read what they do
 
-**Type-richness grows with n while symmetry falls.** The n=2 maximiser is
-combinatorially UNIFORM along its entire continuum — one chamber, no walls at
-all — while the n=6 maximisers are cut into 9 and 13 chambers over comparable
-stretches. Read with the symmetry column (12 → 3 → 1), the picture is that low n
-gives a maximiser that is highly symmetric and combinatorially rigid, and high n
-gives one with no symmetry and a finely chambered plateau. The count is the same
-along all of it either way; what varies is how much internal structure the
-plateau carries.
+**Moduli dimension** is measured two ways, and they are not interchangeable.
+The *aligned* probe counts how many of the 2k single-coordinate ±ε moves
+preserve the count; 2d survive for a family aligned with d coordinate
+directions, so a positive reading is a valid lower bound and **a zero reading
+means only "not aligned"** — it cannot distinguish an isolated class from a
+curve in general position (`FAILURE_MODES.md` 11d). The *tangent space* is the
+null space of the active wall normals, exact over ℚ: rank 2 gives the tangent
+itself, rank 3 proves none exists (`tangent_finder.py`).
 
-## Still blank, and why
+* **13 = 1** — tangent along the body diagonal; perpendicular the count is 9.
+* **67 = 0** — 67 = 1 + 18 + 48 forces all three pair terms to 6 and all three
+  singleton terms to 16 at once; s_i = 16 needs both pairs at cube i to be
+  13-pairs, on a set of codimension 4 in the 6-dimensional moduli space. Two
+  such conditions already overshoot (4+4 > 6), three give 12. A codimension
+  heuristic, not a rank computation — the honest finish is the Jacobian rank at
+  each 67. Corroborated: the best rational triple is 63, and every rational
+  member of the distinct-axis part of (13,13,13) is degenerate.
+* **183 ≥ 3** — aligned probe, 6 of 18 single-axis moves.
+* **393 = 0 against single-cube moves** — 12 active walls of rank 3, so no
+  tangent; cross-checked by 548 in-plane directions at four ε scales down to
+  1/65536, none preserving 393, the count dropping to 377 in every one.
+* **723, 727 ≥ 1** — tangents (1,1,1) and (1,−3,−6), both from the null space,
+  both walked.
+* **1217, 1891** — aligned probe, engine-verified directions.
 
-* ~~Symmetry of the two 67s~~ — **DONE**: 24 (octahedral) and 6 (golden).
-  Representatives derived and recorded in [`MAXIMISERS.md`](MAXIMISERS.md).
-* **n = 5, 393** — `tangent_finder.py` works in the sixth-cube-on-393-base
-  slice; 393 itself needs a catalogue of wall planes for a FIFTH cube on a
-  four-cube base, which has not been enumerated.
-* **Components at n ≥ 4** — each needs its own arcs found first. The 727 route
-  (sweep the 727 locus inside each of the 119 catalogue planes) is the model.
-* **n = 7, 1217 and n = 8, 1891** — the aligned probe found 1 and 2 aligned
-  directions respectively, so tangents exist and are axis-aligned there; the
-  sweeps are straightforward but the engine is slow at these n.
+**Symmetry decays from the maximum possible**: 24 and 6 at n=3, 12 at n=2, then
+3, 3, 3, then 1, 1, 1. The octahedral 67 carries the full cube rotation group.
+The collapse to trivial is exactly at 723 → 727, which the ledger independently
+describes as the record leaving the corner-concurrence stratum. Symmetry also
+**separates the two 67s (24 vs 6) where per-label cannot** — their profiles are
+identical — so it is a congruence invariant independent of Theorem R. And 183
+is C₃-symmetric, though it was found by hill-climbing, not symmetry seeding.
+
+**Type-richness rises as symmetry falls.** The n=2 maximiser is combinatorially
+uniform along its entire continuum — one chamber, no walls — while the n=6
+maximisers are cut into ten and fourteen chambers over comparable stretches.
+
+**Finite or uncountable, never countably infinite.** Every level set is
+semialgebraic, so it has finitely many components, each a class or of dimension
+≥1. Hence the isolated maximisers are finite in number and any infinite
+maximiser set contains a continuum. "Finite" was the only alternative n=3 could
+have had.
+
+## 4a. The epsilon-neighbourhood as a recursive stratification
+
+The dimension figures above all come from probing an epsilon-neighbourhood, and
+the probes are steps of one recursion rather than separate tricks:
+
+1. The neighbourhood of a configuration is **3(n−1)-dimensional** (the moduli
+   space, gauge already spent).
+2. Probe it. Two probes that **DIFFER** imply a boundary between them. Two that
+   **AGREE** suggest a continuum through the centre in that direction.
+3. **Extend an agreeing direction.** It must either reach a boundary or **wrap**
+   — and wrapping is a distinct topological category, not a failure to find the
+   end.
+4. A boundary is a stratum of **lower dimension**. Recurse into it.
+5. Terminate at point transitions, dimension 0.
+
+Seen this way the tools line up: the *aligned probe* is step 2 by sampling; the
+*null space of the active wall normals* is step 2 done exactly, returning every
+agreeing direction at once and proving when there is none; the *sweep* is step 3;
+and step 4 is the part not yet built.
+
+**The loop case is real, not hypothetical.** The n=2 13-locus about a body
+diagonal wraps: in Cayley coordinates the family is t·(1,1,1), and t → ∞ is the
+half-turn (0,1,1,1), which counts 13. Verified at t = 1/1000, 1/10, 2, 10, 1000,
+∞, −1/1000, −10, −2 — all 13. So the locus is a **circle**, punctured at t = 0,
++1 and −1 (the identity and the two 120° cube symmetries), each counting 1. The
+three punctures are one C₃ orbit, so the C₃ about that axis permutes the three
+resulting arcs cyclically and they are ONE arc in class space.
+
+Contrast 727 arc A, which does not wrap: it terminates at 723 and 721. Same
+dimension, different topology, and the difference is invisible to every
+dimension measurement.
+
+## 5. Gaps, and the path to close each
+
+* **Multi-cube directions are untested at every n.** All dimension figures come
+  from moving ONE cube. A locus can be positive-dimensional via directions that
+  move several cubes together, and nothing here excludes that — including at
+  n = 3, where "exactly two 67s" would be affected. **This is the largest
+  standing gap in the table.** Path: extend the null-space method to the full
+  moduli space, which needs wall normals in all 3(n−1) coordinates rather than 3.
+* **Components at n ≥ 4** — each needs its arcs found first. Path: the 727
+  route, sweeping the maximiser locus inside each catalogue wall plane. Note
+  arc A lies in only ONE catalogue plane, so a complete enumeration also needs
+  the unenumerated W3/W4 walls.
+* **Step 4 of the recursion is not built.** Nothing yet descends INTO a boundary
+  and stratifies it. That is the general machine the one-off measurements above
+  are hand-worked instances of, and it would deliver components, types and
+  boundary kinds in one pass instead of one datum at a time.
+* **Loop-versus-arc is unmeasured everywhere except n = 2.** Whether 723's
+  intervals, 727's arcs B/C/D, or the n=7/n=8 families wrap has not been tested.
+  Cheap: extend each sweep well past its ends and look for the value returning.
+* **Arcs B, C, D at 727** — extents, chambers and endpoints unmeasured. Path:
+  mechanical, the same sweep as arc A.
+* **Types at n = 2's edge arc, and at 183** — unmeasured. Path: per-label sweeps
+  once a tangent is in hand.
+* **The two 67s' Jacobian rank** — would upgrade their isolation from a
+  codimension heuristic to a computation. Representatives are in
+  `MAXIMISERS.md`; the obstacle is that the walls must be differentiated in
+  ℚ(√2) and ℚ(√5) rather than ℚ.
+* **Lemma B** — max(3) = 67 reduces to one two-rotation statement, g(13,13) = 16
+  and g ≤ 14 otherwise, measured but unproved. Two attack routes are in the
+  ledger.

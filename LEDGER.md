@@ -134,6 +134,8 @@ with `index_ledger.py` after appending.
 - [Postscript 79](#postscript-79-the-wide-engine-campaign-is-complete--727-survives-all-508818-previously-unreachable-configurations-and-two-new-727-compounds-fall-out-of-it) — the wide-engine campaign is COMPLETE — 727 survives all 508,818 previously-unreachable…
 - [Postscript 80](#postscript-80-the-727-classes-are-not-indexed-by-field--they-are-quadratic-points-inside-one-rational-interval-and-there-are-infinitely-many-of-them) — the 727 classes are not indexed by field — they are quadratic points inside one rational…
 - [Postscript 81](#postscript-81-a-tangent-finder-the-two-67-representatives-recovered-and-symmetry-measured-across-every-record) — a tangent finder, the two 67 representatives recovered, and symmetry measured across every…
+- [Postscript 82](#postscript-82-the-tangent-is-a-null-space-393-is-rigid-against-moving-one-cube-and-the-n7n8-extents) — the tangent is a null space, 393 is rigid against moving one cube, and the n=7/n=8 extents
+- [Postscript 83](#postscript-83-the-epsilon-neighbourhood-probe-is-one-recursion-and-the-n2-maximiser-locus-is-a-punctured-circle) — the epsilon-neighbourhood probe is one recursion, and the n=2 maximiser locus is a punctured…
 
 <!-- INDEX:END -->
 
@@ -6537,3 +6539,112 @@ orders 22 and 5, which are not possible for a rotation group. The cause was a
 quaternion list holding 44 entries instead of 24 canonical rotations, so ± pairs
 double-counted unevenly. Caught only by checking the values against the finite
 subgroups of SO(3) — the wrong table was otherwise entirely plausible.
+
+---
+
+## Postscript 82: the tangent is a null space, 393 is rigid against moving one cube, and the n=7/n=8 extents
+
+Continuing the live threads. Method here; results in
+[`MAXIMISER_TAXONOMY.md`](MAXIMISER_TAXONOMY.md).
+
+**THE TANGENT FINDER IS NOW EXACT.** Postscript 81 found tangents by scanning a
+grid of directions inside one active wall and testing each with the engine. That
+is a sampling argument: it can say no sampled direction preserved the count,
+never that none exists. The right formulation is one line — a tangent must be
+orthogonal to EVERY active wall normal, so
+
+    tangent space = null space of the active normals,
+
+exact linear algebra over ℚ, with no epsilon, no grid and no engine calls. The
+rank answers the dimension question outright: rank 2 gives a 1-dimensional
+tangent space which IS the tangent; **rank 3 proves no tangent exists**. Both
+known tangents come back exactly — (−1/6,1/2,1) ∝ (1,−3,−6) at 727 arc A, and
+(1,1,1) at 723. `tangent_finder.py` rewritten; the scan is kept as a cross-check.
+
+**THE 393 BLOCKER WAS ILLUSORY.** Postscript 81 recorded that 393 was
+unreachable because the tangent finder needed "a catalogue of wall planes for a
+fifth cube on a four-cube base, which has not been enumerated". Wrong: reading
+`locus_linear.extract_planes`, the catalogue is keyed per FIXED cube, and the
+planes for "free cube vs cube j" depend on cube j alone. The existing 119 planes
+therefore serve ANY slice — fix four base cubes, vary the fifth, use the planes
+of those four. A five-minute look at the generator would have saved recording it
+as a blocker at all.
+
+**393 IS RIGID AGAINST MOVING ONE CUBE.** At the free fifth cube, Cayley
+(1,1,1) — which the engine confirms counts 393 — there are **12 active walls of
+rank 3, so no tangent**. Cross-checked by the old scan: 548 in-plane directions
+at ε = 1/64, 1/512, 1/4096 and 1/65536, not one preserving 393, and the count
+dropping to **377** in every direction at every scale. A drop of 16, uniformly.
+
+Stated with its scope, which matters: this is the one-cube-free slice, 3 of the
+12 moduli dimensions. 393 may still be positive-dimensional via directions that
+move several cubes together. What IS established is that 393 is rigid against
+moving any single cube, where 723 and 727 are not — both have tangents in
+exactly that sense. So the n=5 record differs in kind from its neighbours, and
+the "only n=3 is finite" reading of the taxonomy needs care: nobody has tested
+the multi-cube directions at any n.
+
+**n = 7 AND n = 8 EXTENTS.** No catalogue exists for cubes beyond the 393 base,
+but their aligned directions are engine-verified, so none is needed:
+
+    1217   2 of 36 single-axis moves preserve it, both cube 6 coordinate x;
+           the interval has extent 1/32
+    1891   4 of 42 — cube 6 coordinate x AND cube 7 coordinate z, two
+           INDEPENDENT directions, confirming moduli dimension >= 2;
+           along cube 7's z the locus is FRAGMENTED, 1891 on [0,3/32]
+           and again on [15/64,3/8]
+
+Both extents are far shorter than 727's arc, and 1891's fragmentation mirrors
+723's union-of-intervals rather than 727's single clean arc.
+
+**A reporting trap worth naming.** The rewritten finder reports arc A as "727 on
+s ∈ [−5/4, 5/4]" — which is exactly the sweep range. The arc extends past both
+ends; the interval reported is the WINDOW, not the locus. Any sweep that returns
+its own bounds is telling you the window was too small, not that it found an
+edge.
+
+---
+
+## Postscript 83: the epsilon-neighbourhood probe is one recursion, and the n=2 maximiser locus is a punctured CIRCLE
+
+From a user reframing: the epsilon-neighbourhood categorisation was not a
+separate technique from the dimension measurements — the dimension results came
+out of it, and everything since has been hand-worked instances of one recursion.
+
+**THE RECURSION.** The neighbourhood of a configuration is 3(n−1)-dimensional,
+gauge already spent. Probe it. Two probes that DIFFER imply a boundary between
+them; two that AGREE suggest a continuum through the centre. Extend an agreeing
+direction: it must reach a boundary **or wrap**. A boundary is a stratum of
+lower dimension — recurse into it. Terminate at point transitions, dimension 0.
+
+The tools built piecemeal are steps of exactly this: the aligned probe is step 2
+by sampling; the null space of the active wall normals (Postscript 82) is step 2
+done exactly, returning every agreeing direction at once and proving when none
+exists; the sweep is step 3. **Step 4 — descending into a boundary and
+stratifying it — has never been built**, which is why components and types have
+been collected one datum at a time instead of falling out of one pass.
+
+**WRAPPING IS A REAL CATEGORY, AND n = 2 IS IN IT.** The user's point that an
+extended agreeing direction might wrap all the way round rather than meet a
+boundary is not hypothetical. The n=2 13-locus about a body diagonal is the
+Cayley family t·(1,1,1), and t → ∞ is the half-turn (0,1,1,1) — which counts 13.
+Verified along the whole family:
+
+    t = 1/1000, 1/10, 2, 10, 1000, ∞, −1/1000, −10, −2      all 13
+    t = 0, +1, −1                                            all 1
+
+So the locus is a **CIRCLE**, punctured at three angles: the identity and the
+two 120° rotations, where the two cubes coincide and the count collapses to 1.
+The three punctures form one C₃ orbit, so the C₃ about that axis permutes the
+three resulting arcs cyclically — they are ONE arc in class space, which is what
+the taxonomy already recorded, but for a reason that was never stated.
+
+**TWO KINDS OF END, previously conflated.** 727 arc A terminates at 723 and 721:
+a WALL END, the count stepping to a neighbour. The n=2 loop's ends are
+DEGENERACY PUNCTURES, the count collapsing to 1 because the cubes coincide.
+Same dimension, different topology, and **no dimension measurement can tell them
+apart** — which is why the taxonomy now carries topology as its own axis.
+
+Untested everywhere else: whether 723's intervals, 727's arcs B/C/D, or the
+n=7/n=8 families wrap. Cheap to settle — extend each sweep well past its
+apparent ends and watch for the value returning.
