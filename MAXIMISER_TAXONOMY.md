@@ -36,14 +36,14 @@ Terminology follows [`GLOSSARY.md`](GLOSSARY.md) §8.0 — no bare "point", "lin
 
 | n | max | moduli dim | components | types | symmetry | arithmetic |
 |---|---|---|---|---|---|---|
-| 2 | 13 | **1** | **2 arcs + finitely many classes** | **1** on the diagonal arc | **12** | rational dense on the arcs |
-| 3 | 67 | **0** | **exactly 2** | 1 each | **24** oct / **6** golden | both irrational, ℚ(√2), ℚ(√5) |
-| 4 | 183 | **≥3** | ≥1; all 5 climbs give ONE class | — | **3** | rational |
-| 5 | 393 | **0** against single-cube moves | — | — | **3** | rational |
-| 6 | 723 | **≥1** | — ; a UNION of intervals | **≥14** | **3** | rational |
-| 6 | **727** | **1** | **≥4** — exactly 3 from the ℚ(√d) campaign, plus the record's line | **≥10** on arc A | **1** | rational and irrational on ONE arc |
-| 7 | 1217 | **≥1**, extent 1/32 | — | 1 | **1** | rational |
-| 8 | 1891 | **≥2**, two directions | — | 1 | **1** | rational |
+| 2 | 13 | **1** | **2 arcs + finitely many classes** | **1** on the diagonal arc | **D₆** (12) | rational dense on the arcs |
+| 3 | 67 | **0** | **exactly 2** | 1 each | **O** (24) oct / **D₃** (6) golden | both irrational, ℚ(√2), ℚ(√5) |
+| 4 | 183 | **≥3** | ≥1; all 5 climbs give ONE class | — | **C₃** | rational |
+| 5 | 393 | **0** against single-cube moves | — | — | **C₃** | rational |
+| 6 | 723 | **≥1** | **13** (orbit dedup) ; family is VAST — see below | **≥14** near the origin | **C₃** | rational |
+| 6 | **727** | **1** | **≥4** — exactly **3** from the ℚ(√d) campaign (orbit dedup), plus the record's line | **≥10** on arc A | **trivial** | rational and irrational on ONE arc |
+| 7 | 1217 | **≥1**, extent 1/32 | — | 1 | **trivial** | rational |
+| 8 | 1891 | **≥2**, two directions | — | 1 | **trivial** | rational |
 
 Type counts are LOWER bounds: several chambers are narrower than the sweep grid
 and resolve to a single sample, so a finer grid can only split them further.
@@ -84,7 +84,19 @@ Both {I, R, R²} with R a 120° turn about the dihedral axis; derivation in
 No single-cube perturbation preserves it (§4), so within that slice this is the
 only member.
 
-### n = 6, max 723 — a fragmented family
+### n = 6, max 723 — a one-parameter stratum, filtered
+
+**The family has a one-line generator.** Every member is the sixth cube rotated
+about the shared C₃ axis, so the candidates are exactly
+
+    ./cube_regions_n --quats "$BASE;d,n,n,n"        any coprime (n, d)
+
+— one parameter instead of three, the same shape as the n=2 generator. But 723
+is NOT universal on it: over 14 573 coprime (n,d) the counts are 723 (46.8%),
+699 (30.7%), 711 (18.9%), 687 (3.0%), and no tested parameter — denominator or
+|t| — predicts which. So the stratum generates the CANDIDATES for free; deciding
+membership still needs a count per member. The chamber table below lists
+verified members near the origin.
 
 Free sixth cube at Cayley (2/5,2/5,2/5) + s·(1,1,1); as an integer quaternion,
 `den, num, num, num` with num/den = 2/5 + s. 723 holds on a union of intervals,
@@ -175,8 +187,19 @@ itself, rank 3 proves none exists (`tangent_finder.py`).
   both walked.
 * **1217, 1891** — aligned probe, engine-verified directions.
 
-**Symmetry decays from the maximum possible**: 24 and 6 at n=3, 12 at n=2, then
-3, 3, 3, then 1, 1, 1. The octahedral 67 carries the full cube rotation group.
+**Symmetry decays from the maximum possible**, and is named by GROUP, not order
+— order alone is ambiguous, since 12 could be C₁₂, D₆ or T, 24 could be C₂₄,
+D₁₂ or O, and 6 could be C₆ or D₃. Identified from element-order histograms:
+
+    n=3  67 octahedral   O    {1:1, 2:9, 3:8, 4:6}   the FULL octahedral group
+    n=2  13              D₆   {1:1, 2:7, 3:2, 6:2}   (not T, the other order 12)
+    n=3  67 golden       D₃   {1:1, 2:3, 3:2}        (not C₆)
+    n=4,5,6  183/393/723 C₃   {1:1, 3:2}
+    n=6,7,8  727/1217/1891   trivial
+
+O → D₆ → D₃ → C₃ → trivial. The octahedral 67 carries the full cube rotation
+group, the largest a compound can have. Note the two 67s differ in group TYPE,
+O against D₃, not merely in order.
 The collapse to trivial is exactly at 723 → 727, which the ledger independently
 describes as the record leaving the corner-concurrence stratum. Symmetry also
 **separates the two 67s (24 vs 6) where per-label cannot** — their profiles are
@@ -250,9 +273,13 @@ dimension measurement.
   the 72-element group (base C₃ × the free cube's own 24 rotations), in three
   orbits of uniform size 72. With the record's rational line that is ≥4
   components, and any further ones must come from outside the mixed ℚ(√d) family.
-* **723's family is larger than mapped** — it still counts 723 at |s| = 1000
-  along (1,1,1), far outside the [9/32, 35/32] interval that was charted. Its
-  point at infinity counts 717. Path: sweep the whole line, not a window.
+* ~~723's family is larger than mapped~~ — **MEASURED**: over s ∈ [−50, 50],
+  579 of 801 samples count 723, dominated by runs [−50, −4] and [53/2, 50] that
+  both hit the sweep bounds and extend to at least |s| = 1000. The charted
+  [9/32, 35/32] was a fragmented zone near the base point. Its point at infinity
+  counts 717. Still open: where the two huge runs actually end.
+* **Component counts for other totals** — 725 has 6 arcs, 723 has 13, by the
+  same orbit dedup. Unmeasured for totals below 723 and for other n.
 * **Types at n = 2's edge arc, and at 183** — unmeasured. Path: per-label sweeps
   once a tangent is in hand.
 * **The two 67s' Jacobian rank** — would upgrade their isolation from a

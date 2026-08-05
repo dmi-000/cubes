@@ -137,6 +137,9 @@ with `index_ledger.py` after appending.
 - [Postscript 82](#postscript-82-the-tangent-is-a-null-space-393-is-rigid-against-moving-one-cube-and-the-n7n8-extents) — the tangent is a null space, 393 is rigid against moving one cube, and the n=7/n=8 extents
 - [Postscript 83](#postscript-83-the-epsilon-neighbourhood-probe-is-one-recursion-and-the-n2-maximiser-locus-is-a-punctured-circle) — the epsilon-neighbourhood probe is one recursion, and the n=2 maximiser locus is a punctured…
 - [Postscript 84](#postscript-84-the-727-arcs-enumerated--1449-records-216-chart-lines-exactly-three-arcs-up-to-congruence) — the 727 arcs enumerated — 1,449 records, 216 chart lines, exactly THREE arcs up to congruence
+- [Postscript 85](#postscript-85-component-counts-at-727725723-and-723s-family-is-enormous--the-charted-interval-was-a-fragment-near-the-origin) — component counts at 727/725/723, and 723's family is enormous — the charted interval was a…
+- [Postscript 86](#postscript-86-symmetries-named-by-group-not-by-order--and-three-of-them-were-ambiguous) — symmetries named by group, not by order — and three of them were ambiguous
+- [Postscript 87](#postscript-87-a-vast-family-has-a-one-line-generator--but-the-maximiser-subset-of-it-does-not) — a vast family has a one-line generator — but the MAXIMISER subset of it does not
 
 <!-- INDEX:END -->
 
@@ -6711,3 +6714,131 @@ Its point at infinity counts **717**, itself a record value (Postscript 11);
 whether that is the 717 compound or merely its count is untested.
 
 Files: `arc_survey.py`.
+
+---
+
+## Postscript 85: component counts at 727/725/723, and 723's family is enormous — the charted interval was a fragment near the origin
+
+**COMPONENT COUNTS BY ORBIT DEDUP** (`orbit_count.py`, the Postscript 84 method
+applied to every recorded total):
+
+    total 727 :  216 chart lines ->  3 orbits   sizes {72:3}
+    total 725 :  381 chart lines ->  6 orbits   sizes {27:1, 69:2, 72:3}
+    total 723 :  844 chart lines -> 13 orbits   sizes {7:1, 54:1, 69:3, 72:8}
+
+So the ℚ(√d) campaign's maximisers lie on **3, 6 and 13 arcs up to congruence**
+at 727, 725 and 723 — the component count rising as the count falls, which is
+what "more special ⇒ fewer places to be" predicts.
+
+**Read the orbit sizes as a completeness gauge, not as stabilisers.** 27, 69, 54
+and 7 do not divide 72, so they cannot be genuine orbit sizes under a
+72-element group. They are the number of an arc's 72 chart images that the
+campaign happened to RECORD. A size of 72 means the campaign saw every image;
+the size-7 orbit at 723 means it saw seven. The orbit COUNT is unaffected —
+any two observed lines in one true orbit are related by a single group element,
+so the union-find merges them regardless of which images are missing.
+
+**723's FAMILY IS FAR LARGER THAN RECORDED.** Postscript 82 charted 723 along
+its tangent (1,1,1) as a union of intervals with the longest [9/32, 35/32].
+Sweeping the whole line instead of a window, s ∈ [−50, 50] at step 1/8:
+
+    579 of 801 samples count 723            7 maximal runs
+    widest:  [−50, −4]  width 46            [53/2, 50]  width 47/2
+    then:    [−15/8,−9/8], [3/8,1], [−3/4,−3/8], [−23/8,−21/8], {0}
+
+**Both widest runs touch the sweep bounds**, and the wrap test already found 723
+at |s| = 1000, so they extend far beyond ±50 — plausibly to the point at
+infinity, where the count is 717. What Postscript 82 recorded as "a union of
+intervals" is a small FRAGMENTED ZONE near the origin, which is simply where the
+base point (2/5,2/5,2/5) sits. The family is dominated by two huge intervals
+nobody had looked at. Highest count anywhere on the line: 723, so no 727 on it.
+
+**The methodological point, for the third time this session.** A sweep centred
+on the one configuration you already know, over a window sized by convenience,
+describes the window. Postscript 82 flagged exactly this trap — "a sweep that
+returns its own bounds is telling you the window was too small" — and the
+charted 723 interval was itself an instance of it, unnoticed for two
+postscripts. The fix is not a bigger default window; it is to sweep until the
+count changes on BOTH sides, and to record when it does not.
+
+Files: `orbit_count.py`, `arc_survey.py`.
+
+---
+
+## Postscript 86: symmetries named by group, not by order — and three of them were ambiguous
+
+The symmetry column of Postscript 81 reported orders: 24, 12, 6, 3, 1. Order
+does not determine a finite subgroup of SO(3), so three entries were ambiguous:
+12 could be C₁₂, D₆ or T; 24 could be C₂₄, D₁₂ or O; 6 could be C₆ or D₃.
+Classifying by element-order histogram instead:
+
+    n=3  67 octahedral   O          {1:1, 2:9, 3:8, 4:6}   full octahedral group
+    n=2  13              D₆         {1:1, 2:7, 3:2, 6:2}   NOT T
+    n=3  67 golden       D₃         {1:1, 2:3, 3:2}        NOT C₆
+    n=4  183             C₃         {1:1, 3:2}
+    n=5  393             C₃
+    n=6  723             C₃
+    n=6  727             trivial
+    n=7  1217            trivial
+    n=8  1891            trivial
+
+**The chain is O → D₆ → D₃ → C₃ → trivial.** Two things the order-only version
+could not say. The n=2 maximiser is **D₆**, so it has a SIX-fold axis — a 60°
+rotation about the body diagonal exchanges the two cubes, which is exactly why
+the locus is the punctured circle of Postscript 83 and why its punctures are a
+C₃ orbit. And the two 67s differ in group TYPE, **O against D₃**, not merely in
+order 24 against 6: a far stronger separation than "different orders", and a
+sharper form of the congruence invariant that already separated them where
+per_label could not.
+
+---
+
+## Postscript 87: a vast family has a one-line generator — but the MAXIMISER subset of it does not
+
+From the user's question: if a family is vast, is there a simple program that
+generates it, short of redoing the searches that found it?
+
+**FOR THE FAMILY, YES, AND IT IS ONE LINE.** The 723 sweep direction (1,1,1)
+from base (2/5,2/5,2/5) keeps all three Cayley coordinates equal, so every
+member is the sixth cube rotated about the shared C₃ axis (1,1,1). In quaternion
+form the whole family is
+
+    sixth cube = (d, n, n, n)      any coprime (n, d)
+
+the SAME shape as the n=2 13-generator `1,0,0,0;d,n,n,n`. The vastness was never
+mysterious: the family is a natural one-parameter stratum — a full rotation axis
+— and the search only ever needed one point plus the tangent to name it. This is
+the general recipe: get the tangent from the null space, recognise which stratum
+it parametrises, write the closed form.
+
+**FOR THE MAXIMISER SUBSET, NO — AND A CLAIM RETRACTED.** I said 723 is "what
+you generically get" on that axis. It is not. Over 14 573 coprime (n,d) with
+d < 60, |n| ≤ 200:
+
+    723  46.8%    699  30.7%    711  18.9%    687  3.0%    717  0.3%
+    also 693, 705, 681, and 393 (six configurations, the degenerate ones)
+
+723 is the PLURALITY value, not the generic one. Nor is the pattern explained by
+any simple parameter tested. Rate of 723 by sampling window:
+
+    d = 2..5      |t| up to 100    74.0%
+    d = 56..59    |t| <= 3.6       39.3%
+    d = 197..223  |t| <= 1.0       56.8%
+
+non-monotonic in the denominator AND in |t|, so neither is the driver.
+
+**AND THE EARLIER "CONTINUOUS INTERVAL" WAS A GRID ARTEFACT.** Postscript 85
+reported 723 unbroken on t ∈ [−49.6, −3.6] from a step-1/8 sweep, yet the dense
+test finds exceptions at t = −9, inside that range. Both are right: the sweep
+stepped in s with t = 2/5 + s, so it sampled t ≡ 2/5 (mod 1/8) and **never hit
+an integer or a simple fraction at all**. An offset base point made the grid
+systematically avoid exactly the special rationals it most needed to test.
+Related to the window trap of Postscript 82, but distinct and worse: the window
+was right, the PHASE was wrong, and no amount of widening would have found it.
+
+**Where this leaves the question.** Generating the family is now free — one
+parameter instead of three, no search. Deciding which members are maximisers is
+not: no closed-form predicate has been found for which (n,d) give 723, and the
+honest description remains "enumerate the stratum and count each member", which
+is still an enormous reduction over searching Cayley space, and is exactly how
+`MAXIMISERS.md` lists members by chamber.
