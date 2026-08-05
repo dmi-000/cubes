@@ -145,6 +145,12 @@ with `index_ledger.py` after appending.
 - [Postscript 90](#postscript-90-arc-bounds-are-analytic--one-linear-solve-where-the-wall-is-catalogued-and-blocked-on-w3w4-where-it-is-not) — arc bounds ARE analytic — one linear solve where the wall is catalogued, and blocked on…
 - [Postscript 91](#postscript-91-w4-enumerated-as-crossings-on-a-line--arc-as-ends-solved-exactly-and-its-recorded-extent-was-wrong-at-both-ends) — W4 enumerated as crossings on a line — arc A's ends solved exactly, and its recorded extent…
 - [Postscript 92](#postscript-92-w3-enumerated-too--and-w3w4-account-for-every-chamber-wall-on-arc-a-15-of-15) — W3 enumerated too — and W3+W4 account for EVERY chamber wall on arc A, 15 of 15
+- [Postscript 93](#postscript-93-all-three-727-arcs-bounded-analytically--five-of-six-ends-are-w4) — all three 727 arcs bounded analytically — five of six ends are W4
+- [Postscript 94](#postscript-94-the-arc-network-has-measurable-geometry--c-and-d1s-lines-intersect-at-a-725-point-outside-both-arcs) — the arc network has measurable geometry — C and D1's LINES intersect, at a 725 point outside…
+- [Postscript 95](#postscript-95-what-a-w4-wall-actually-is--a-circle-of-face-normals-a-one-sheeted-hyperboloid-doubly-ruled) — what a W4 wall actually is — a circle of face normals, a one-sheeted hyperboloid, doubly ruled
+- [Postscript 96](#postscript-96-what-happens-at-an-arc-terminus--a-corner-to-corner-contact-doubled) — what happens at an arc terminus — a corner-to-corner contact, doubled
+- [Postscript 97](#postscript-97-the-500-extent-spread-was-a-chart-artifact--measured-as-rotation-the-arcs-differ-by-21) — the 500× extent spread was a chart artifact — measured as rotation, the arcs differ by 2.1×
+- [Postscript 98](#postscript-98-one-figure-for-all-seven-levels--the-mark-carries-the-dimension) — one figure for all seven levels — the mark carries the dimension
 
 <!-- INDEX:END -->
 
@@ -7083,3 +7089,260 @@ FIXED small denominator (k/256), never at an affine map of two awkward
 rationals. Diagnosis is one line — print the count histogram and look for None.
 
 Files: `wall_params.py` (both strata).
+
+---
+
+## Postscript 93: all three 727 arcs bounded analytically — five of six ends are W4
+
+Applying the Postscript 91/92 solve to arcs B and C completes the programme.
+
+    arc   lower bound                     upper bound                    width
+    B     43/105 = 0.409523810   W4       ≈ 0.579411080          W4      0.1699
+    A     ≈ 2.063979152          W4       19/6 = 3.166666...     W4      1.1027
+    C     ≈ 1.167462397          W3       ≈ 47.772089472         W4     46.6046
+
+Every bound is a root of a wall equation on the arc's line — a quadratic for W4,
+a quartic for W3 — not a bisection. Two are exactly rational (19/6 and 43/105);
+the rest are algebraic irrationals no sweep could have landed on.
+
+**FIVE OF SIX ENDS ARE W4.** Only arc C's lower end is W3. The (1,1,1,1)
+stratum — the free cube's face plane through a base triple point — is therefore
+the dominant bounding wall, while W3 (an edge meeting a crossing line) bounds
+rarely. Both strata still matter for CHAMBERS; it is specifically the arc ENDS
+that W4 governs.
+
+**DISAMBIGUATION MATTERED.** Arc B's end brackets each contained TWO crossings, a
+W3 and a W4 within 2×10⁻⁴ of each other. Testing between them settled it: the
+count is unchanged across each W3 and changes across each W4. A bracket
+containing a crossing is not the same as that crossing being the boundary — with
+48 to 77 crossings inside each arc and only ~12-15 changing anything, the
+majority are inert, so a bracket must be split, not merely reported.
+
+**CHAMBER WALLS, ALL THREE ARCS.** Transitions bracketing a W3/W4 crossing:
+
+    arc A  15 of 15        arc B  12 of 12        arc C  12 of 12
+
+**39 of 39.** The two strata account for every chamber wall observed on every
+known 727 arc. Against interior crossing counts of 48, 62 and 77 respectively,
+so roughly a quarter of crossings are boundaries and the rest are inert — the
+same ratio Postscript 58 saw and could not then explain.
+
+Files: `wall_params.py`.
+
+---
+
+## Postscript 94: the arc network has measurable geometry — C and D1's LINES intersect, at a 725 point outside both arcs
+
+Asked whether sliders could be arranged to mirror the arcs' geometry in
+configuration space. They can, because the geometry is measurable: with the 393
+base fixed the arcs are line segments in the sixth cube's 3-dimensional Cayley
+space, with directions, positions and lengths.
+
+**PAIRWISE ANGLES** between arc directions (mod reversal):
+
+    A-B 40.13    A-C 65.85    A-D1 74.62    A-D2 72.61
+    B-C 39.05    B-D1 62.84   B-D2 58.66    C-D1 84.15   C-D2 88.66
+                                            **D1-D2 4.51**
+
+The two arcs crossing at the record are only 4.51° apart: the node that makes
+the record special is a very shallow crossing, not a transverse one.
+
+**LENGTH IN CAYLEY SPACE**, as drawn:
+
+    D1 0.258    D2 0.330    B 0.721    A 7.479    C 134.368
+
+a 500-fold spread, so any faithful map renders three of the five as near-points
+beside C.
+
+**AND THE LINES OF C AND D1 INTERSECT EXACTLY** — skew distance 0.0000, at
+
+    Cayley (37/23, 2/23, −29/46),  s = −4562/667 on C,  t = 9/23 on D1
+
+Both parameters lie OUTSIDE the 727 ranges (C carries 727 on [1.1675, 47.772],
+D1 on [−0.0625, 0.1875]), and the count at the meeting point is **725**. So the
+LINES form a connected network while the ARCS do not: the 727 portions stop
+short of where their carriers meet. The "at least 4 components" count is
+unaffected, and now has a picture behind it rather than only a skew-lines
+argument.
+
+**DESIGN CONSEQUENCE.** The faithful mirror of this geometry is not a row of
+sliders but a configuration-space minimap in which the slider TRACK IS THE
+SEGMENT: arcs drawn in place, a draggable handle, the node at D letting the
+handle switch arcs, and chamber walls and W3/W4 crossings as tick marks in
+situ. Three tensions are inherent and should be labelled wherever the map
+departs from truth to stay usable: the 500x length spread, the 4.51° node that
+needs angular exaggeration to be legible, and the 72 chart copies of every arc
+(one representative per class is the sane default).
+
+---
+
+## Postscript 95: what a W4 wall actually is — a circle of face normals, a one-sheeted hyperboloid, doubly ruled
+
+Asked whether the wall drawn on the arc map has a representative shape. The
+drawn curve does not — it is a layout bezier routed to meet three lines at the
+right stations, and carries no information. The wall itself does.
+
+**GEOMETRICALLY.** The W4 condition is that a face normal n of the free cube
+satisfies n·p = ±1 for a fixed base triple point p. Since n is a unit vector,
+that puts n on a CIRCLE on the sphere of directions: the circle of angular
+radius arccos(1/|p|) about p̂. For the wall crossed by all three 727 arcs,
+p = (1, 7/11, −1/11), |p| = √171/11 = 1.18879, and the circle has radius
+**32.7339°**. The wall is "one of the free cube's six face normals sits exactly
+on that circle".
+
+**AS A QUADRIC.** In Cayley coordinates the same condition is a quadric, and
+classifying it:
+
+    quadratic-part eigenvalues  −2.1888, −2.0000, +0.1888   signature (+,−,−)
+    4x4 determinant  0.1708 ≠ 0                             non-degenerate
+    reduced constant +0.2066                                → HYPERBOLOID OF ONE SHEET
+
+**AND THEREFORE DOUBLY RULED.** A one-sheeted hyperboloid contains two families
+of straight lines, which matters here because the arcs ARE straight lines in
+Cayley space. Verified at the origin: two real rulings, and F stays 0 to 1e-16
+along the whole of each. One of them is exactly
+
+    (−1, 0, 0) — the x-axis of Cayley space
+
+i.e. rotation about the axis normal to that face, which of course keeps
+n·p = p₁ = 1 forever. The second, (−0.8412, −0.5353, 0.0765), is a non-obvious
+partner family doing the same job.
+
+So **every W4 wall carries two one-parameter families of configurations that
+MAINTAIN its concurrence** — the closed form of the "maintain concurrences" lock
+built by hand into `depth_explorer.html`. Worth noting the identity rotation
+lies on this particular wall, because p₁ = 1 puts p on the base cube's own face.
+
+**A drawing defect, recorded because the idiom invites it.** Stations on
+different lines of the arc map happened to align vertically, which in a transit
+map reads as correspondence — a timetable column. It means nothing: x-positions
+are per-line even spacing. The lines are now deliberately staggered and the map
+says so in a caption. Choosing an idiom imports its conventions, including the
+ones that make false statements.
+
+**Addendum to Postscript 95 — the wall drawn straight.** The arc map's station
+columns were meaningless coincidences of even spacing, a hazard because the
+transit idiom reads a column as correspondence. Rather than only warn about it,
+the map now chooses each line's spacing so the shared W4 wall crosses all three
+arcs at the same x. The wall's fractional station index is 3.42 along A, 3.24
+along B and 7.60 along C, so spacings of 110, 120 and 78 put all three crossings
+at one point and the wall becomes a straight vertical.
+
+That inverts the defect into the map's one meaningful vertical: which side of
+the wall a class lies on is now readable at a glance, across all three arcs,
+while every other column remains coincidence — and the caption says exactly
+that. A distorted diagram can afford one true axis if it is chosen deliberately;
+the mistake was letting the axes fall where the layout happened to put them.
+
+---
+
+## Postscript 96: what happens at an arc terminus — a corner-to-corner contact, doubled
+
+Asked whether there is a cube feature where an arc's count drops from 727 to
+723. There is, and it is the most degenerate contact two cubes can make.
+
+At arc A's upper terminus — s = 19/6 exactly, sixth cube at Cayley
+(19/2, −33/2, −30) — **four** base triple points lie exactly on the sixth cube's
+surface, in two antipodal pairs:
+
+    ±(−11/19, −31/19, −1/19)   3 planes from ONE cube  → a base cube's CORNER
+                               |R^T p| = (1, 1, 1)     → a sixth-cube CORNER
+
+    ±(−3/2, 0, 2/3)            4 planes from TWO cubes → two base cubes' edges cross
+                               |R^T p| = (1, 5/6, 1)   → on a sixth-cube EDGE
+
+The first pair is a **corner-to-corner coincidence**: a corner of the sixth cube
+lands exactly on a corner of a base cube. (|p|² = 1083/361 = 3, so p is at
+distance √3 — a cube corner, as it must be.) The second is an **edge through an
+edge-crossing**: a sixth-cube edge passes exactly through the point where two
+base cubes' edges already cross.
+
+**Why the count falls by 4 rather than 2.** A single generic wall crossing moves
+the count by a small even amount; here four coincidences fire simultaneously —
+two corner-to-corner and two edge-through-crossing, each doubled by central
+symmetry — so several regions collapse at once. The arc does not end at an
+ordinary wall; it ends where the configuration becomes maximally degenerate.
+
+**Relation to the taxonomy.** Postscript 57 classified corner-corner contacts as
+codimension 2 and therefore NOT walls, which is consistent: the arc is already
+codimension 2 in the pinned slice, and its endpoint is codimension 3. The
+endpoint is where the arc's own wall meets a further degeneracy, which is
+exactly what a terminus should be, and explains why arc bounds are algebraic
+points of higher degree rather than generic wall crossings.
+
+Unmeasured: the same anatomy at the other five endpoints. Arc A's lower end and
+arc C's ends are irrational, so exhibiting the contact there needs the ℚ(√d)
+engine rather than exact rationals.
+
+---
+
+## Postscript 97: the 500× extent spread was a chart artifact — measured as rotation, the arcs differ by 2.1×
+
+Asked what the units of "true length" were on the arc map. They were Euclidean
+lengths in the CAYLEY CHART, and the question exposed that the headline
+conclusion drawn from them was wrong.
+
+The Cayley chart sends a rotation of angle θ about n̂ to tan(θ/2)·n̂, so lengths
+diverge as θ→180°. The intrinsic measure is rotation angle: along a Cayley curve
+the angular speed is |ω| = 2√(|v̇|² + |v×v̇|²)/(1+|v|²), and integrating that over
+each arc gives its true extent.
+
+    arc   Cayley length      intrinsic rotation
+    A          7.479              3.994°
+    B          0.721              7.045°
+    C        134.368              8.431°
+    D1         0.258              5.910°
+    D2         0.330              7.314°
+
+    spread     520×                2.1×
+
+**Arc C is not 500 times arc B. It is 1.2 times arc B.** Its Cayley length is
+enormous only because it runs out toward a half-turn, where the chart blows up.
+
+**TWO CLAIMS RETRACTED**, both repeated across several postscripts and both in
+the taxonomy:
+
+* "Extent spans 300× across three otherwise indistinguishable arcs, so extent is
+  an INDEPENDENT AXIS." No — measured intrinsically the five arcs all lie
+  between 4° and 8.4° of rotation. Extent is roughly uniform, and the apparent
+  spread carried no information about the arcs at all, only about the chart.
+* "A faithful map is impossible; faithful geometry and usable interaction are in
+  direct conflict." No — a 2.1× spread draws to scale comfortably. The map now
+  does, at 60 px per degree, with line starts chosen so the shared W4 wall stays
+  a straight vertical. Only station SPACING within a line remains even rather
+  than proportional.
+
+**The general trap.** Every length, distance and angle quoted in this project's
+configuration-space work is a chart quantity unless stated otherwise, and the
+Cayley chart is badly non-uniform. The skew separations of Postscript 94, the
+"300× spread", the segment lengths in the arc tables — all are chart numbers.
+They are fine for deciding incidence, which is chart-independent, and unreliable
+for anything metric. Ask what a length is measured in before drawing a
+conclusion from its size.
+
+---
+
+## Postscript 98: one figure for all seven levels — the mark carries the dimension
+
+`shapes.svg` / `shapes.png`. The maximiser set at n = 2 through 8 in a single
+frame, each drawn with a mark whose TYPE is its dimension in class space: a
+filled dot for 0-dimensional (n=3, n=5), a line for a 1-dimensional continuum
+(n=2 as a punctured circle, n=6 as arcs with an interchange, n=7), a dashed
+patch for 2 or more (n=4, n=8). Each panel carries the maximum, the dimension,
+the component count, the symmetry group and the arithmetic.
+
+Put side by side, three things read off it that the taxonomy table states but
+does not show:
+
+* **n = 3 is the only finite case**, between continua on both sides — and by the
+  semialgebraic dichotomy finite was the ONLY alternative it could have taken.
+* **Symmetry decays left to right**, O and D₃ at n=3, D₆ at n=2, C₃ through
+  n=4-6, trivial from 727 on.
+* **The dimension is not monotone in n**: 1, 0, ≥3, 0, 1, ≥1, ≥2. Nothing about
+  the sequence of maxima predicts the shape of the set attaining them.
+
+The figure prints its own caveats: n=4 and n=8 dimensions are lower bounds from
+the axis-aligned probe, and n=5's zero holds only against single-cube moves.
+Both are consequences of the same untested gap — multi-cube directions have
+never been probed at any n — which the figure makes conspicuous by having to
+qualify two of its seven panels.

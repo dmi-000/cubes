@@ -1,0 +1,207 @@
+<title>The 727 arc network</title>
+<style>
+  :root{
+    --ground:#faf9f7; --panel:#fff; --ink:#15181d; --muted:#6a7180;
+    --rule:#dcd9d3;
+    --A:#c2553a; --B:#3f7f8f; --C:#4a6fb0; --D:#8a5aa8; --dead:#9aa0ab;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --ground:#101216; --panel:#171a20; --ink:#e9ecf1; --muted:#98a1b0;
+           --rule:#2a2f38; --A:#e0765a; --B:#5fa8b8; --C:#7d9ede; --D:#b184cc; --dead:#5b626e; }
+  }
+  :root[data-theme="dark"]{ --ground:#101216; --panel:#171a20; --ink:#e9ecf1;
+    --muted:#98a1b0; --rule:#2a2f38; --A:#e0765a; --B:#5fa8b8; --C:#7d9ede; --D:#b184cc; --dead:#5b626e; }
+  :root[data-theme="light"]{ --ground:#faf9f7; --panel:#fff; --ink:#15181d;
+    --muted:#6a7180; --rule:#dcd9d3; --A:#c2553a; --B:#3f7f8f; --C:#4a6fb0; --D:#8a5aa8; --dead:#9aa0ab; }
+  body{background:var(--ground);color:var(--ink);
+    font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    margin:0;padding:32px 20px 64px;}
+  .wrap{max-width:1080px;margin:0 auto;}
+  h1{font-size:26px;margin:0 0 4px;letter-spacing:-.01em;}
+  .sub{color:var(--muted);margin:0 0 22px;font-size:14px;}
+  .card{background:var(--panel);border:1px solid var(--rule);border-radius:10px;
+    padding:18px;margin:18px 0;overflow-x:auto;}
+  h2{font-size:15px;text-transform:uppercase;letter-spacing:.07em;
+    color:var(--muted);margin:26px 0 8px;font-weight:600;}
+  p{margin:10px 0;max-width:68ch;}
+  code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;
+    background:color-mix(in srgb,var(--ink) 7%,transparent);padding:1px 5px;border-radius:4px;}
+  table{border-collapse:collapse;font-size:13.5px;margin:8px 0;}
+  th,td{text-align:left;padding:5px 16px 5px 0;border-bottom:1px solid var(--rule);
+    font-variant-numeric:tabular-nums;}
+  th{color:var(--muted);font-weight:600;}
+  .note{color:var(--muted);font-size:13px;}
+  svg{display:block;min-width:940px;}
+  .stn{fill:var(--panel);stroke-width:3.5;}
+  .lbl{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:var(--ink);}
+  .lblm{font:11.5px ui-sans-serif,system-ui,sans-serif;fill:var(--muted);}
+  .lname{font:600 14px ui-sans-serif,system-ui,sans-serif;}
+</style>
+
+<div class="wrap">
+<h1>The 727 arc network</h1>
+<p class="sub">Every known six-cube configuration reaching 727, drawn as a transit map ·
+distances distorted, topology preserved</p>
+
+<div class="card">
+<svg viewBox="0 0 960 560" role="img" aria-label="Transit-style map of the four known 727 arcs">
+  <!-- ARC C : longest, horizontal spine -->
+  <path d="M 70 190 H 830" stroke="var(--C)" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <!-- ARC A : upper diagonal -->
+  <path d="M 150 60 H 530" stroke="var(--A)" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <!-- ARC B : lower diagonal -->
+  <path d="M 120 330 H 460" stroke="var(--B)" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <!-- ARC D1 / D2 : the crossing at the record -->
+  <path d="M 600 300 L 760 380" stroke="var(--D)" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M 610 380 L 770 302" stroke="var(--D)" stroke-width="7" fill="none" stroke-linecap="round"
+        stroke-dasharray="1 0" opacity=".72"/>
+
+  <!-- carrier crossing of C and D1, which is NOT an interchange -->
+  <circle cx="672" cy="190" r="6" fill="none" stroke="var(--dead)" stroke-width="2.5"/>
+  <line x1="672" y1="196" x2="672" y2="330" stroke="var(--dead)" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text class="lblm" x="682" y="188">carriers of C and D1 meet here — count 725</text>
+  <text class="lblm" x="682" y="204">both 727 arcs stop short: NOT an interchange</text>
+
+  <!-- ZONE BOUNDARY: the one W4 wall crossed by all three arcs -->
+  <path d="M 416 20 C 470 120, 700 150, 706 190 C 712 240, 418 250, 417 330"
+        fill="none" stroke="var(--dead)" stroke-width="2" stroke-dasharray="7 6" opacity=".85"/>
+  <text class="lblm" x="424" y="16">W4 wall — free-cube face plane through the base triple point (1, 7/11, −1/11)</text>
+  <text class="lblm" x="424" y="286">crossed by all three arcs, at three points 29–70 apart in Cayley space</text>
+  <!-- ARC C stations -->
+  <g stroke="var(--C)">
+    <circle class="stn" cx="70"  cy="190" r="7"/><circle class="stn" cx="155" cy="190" r="6"/>
+    <circle class="stn" cx="240" cy="190" r="6"/><circle class="stn" cx="325" cy="190" r="6"/>
+    <circle class="stn" cx="410" cy="190" r="6"/><circle class="stn" cx="495" cy="190" r="6"/>
+    <circle class="stn" cx="580" cy="190" r="6"/><circle class="stn" cx="665" cy="190" r="6"/>
+    <circle class="stn" cx="750" cy="190" r="6"/><circle class="stn" cx="830" cy="190" r="7"/>
+  </g>
+  <text class="lname" x="70" y="150" fill="var(--C)">C</text>
+  <text class="lblm" x="88" y="150">8 fields · 12 chambers · true length 134.4</text>
+  <g class="lbl" text-anchor="middle">
+    <text x="155" y="215">13461</text><text x="240" y="215">13489</text>
+    <text x="325" y="215">5305</text><text x="410" y="215">226</text>
+    <text x="495" y="215">27349</text><text x="580" y="215">3459</text>
+    <text x="665" y="215">1785</text><text x="750" y="215">1930</text>
+  </g>
+  <text class="lblm" x="70" y="172" text-anchor="middle">1.1675</text>
+  <text class="lblm" x="830" y="172" text-anchor="middle">47.7721</text>
+  <text class="lblm" x="70" y="234" text-anchor="middle">723 ↓</text>
+  <text class="lblm" x="830" y="234" text-anchor="middle">723 ↓</text>
+
+  <!-- ARC A stations -->
+  <g stroke="var(--A)">
+    <circle class="stn" cx="150" cy="60" r="7"/><circle class="stn" cx="226" cy="60" r="6"/>
+    <circle class="stn" cx="302" cy="60" r="6"/><circle class="stn" cx="378" cy="60" r="6"/>
+    <circle class="stn" cx="454" cy="60" r="6"/><circle class="stn" cx="530" cy="60" r="7"/>
+  </g>
+  <text class="lname" x="150" y="30" fill="var(--A)">A</text>
+  <text class="lblm" x="168" y="30">4 fields · 10 chambers · true length 7.48</text>
+  <g class="lbl" text-anchor="middle">
+    <text x="226" y="85">1093</text><text x="302" y="85">13</text>
+    <text x="378" y="85">403</text><text x="454" y="85">2741</text>
+  </g>
+  <text class="lblm" x="150" y="46" text-anchor="middle">2.0640</text>
+  <text class="lblm" x="530" y="46" text-anchor="middle">19/6</text>
+  <text class="lblm" x="150" y="104" text-anchor="middle">723 ↓</text>
+  <text class="lblm" x="572" y="64">723 ↓</text>
+
+  <!-- ARC B stations -->
+  <g stroke="var(--B)">
+    <circle class="stn" cx="120" cy="330" r="7"/><circle class="stn" cx="205" cy="330" r="6"/>
+    <circle class="stn" cx="290" cy="330" r="6"/><circle class="stn" cx="375" cy="330" r="6"/>
+    <circle class="stn" cx="460" cy="330" r="7"/>
+  </g>
+  <text class="lname" x="120" y="300" fill="var(--B)">B</text>
+  <text class="lblm" x="138" y="300">3 fields · 11 chambers · true length 0.72</text>
+  <g class="lbl" text-anchor="middle">
+    <text x="205" y="355">25561</text><text x="290" y="355">12313</text><text x="375" y="355">1614</text>
+  </g>
+  <text class="lblm" x="120" y="316" text-anchor="middle">43/105</text>
+  <text class="lblm" x="120" y="374" text-anchor="middle">723 ↓</text>
+  <text class="lblm" x="502" y="334">723 ↓</text>
+
+  <!-- D interchange -->
+  <g stroke="var(--D)">
+    <circle class="stn" cx="600" cy="300" r="6"/><circle class="stn" cx="760" cy="380" r="6"/>
+    <circle class="stn" cx="610" cy="380" r="6"/><circle class="stn" cx="770" cy="302" r="6"/>
+  </g>
+  <circle cx="685" cy="341" r="11" fill="var(--panel)" stroke="var(--D)" stroke-width="4"/>
+  <text class="lname" x="600" y="278" fill="var(--D)">D</text>
+  <text class="lblm" x="618" y="278">two arcs crossing at the record — 4.51° apart</text>
+  <text class="lbl" x="702" y="346">the n = 6 record (7,14,1,−5)</text>
+  <text class="lblm" x="702" y="362">interchange: D1 ↔ D2</text>
+  <text class="lblm" x="556" y="296">D1</text><text class="lblm" x="566" y="392">D2</text>
+
+  <!-- key -->
+  <g transform="translate(70,440)">
+    <text class="lblm" x="0" y="0">KEY</text>
+    <circle class="stn" cx="12" cy="22" r="7" stroke="var(--ink)"/>
+    <text class="lblm" x="30" y="26">terminus — the count steps to 723 beyond it</text>
+    <circle class="stn" cx="12" cy="48" r="6" stroke="var(--ink)"/>
+    <text class="lblm" x="30" y="52">a ℚ(√d) congruence class on that arc, labelled by d</text>
+    <circle cx="12" cy="74" r="11" fill="var(--panel)" stroke="var(--ink)" stroke-width="4"/>
+    <text class="lblm" x="30" y="78">interchange — two arcs genuinely meet</text>
+    <circle cx="12" cy="100" r="6" fill="none" stroke="var(--dead)" stroke-width="2.5"/>
+    <text class="lblm" x="30" y="104">carriers cross, arcs do not — no interchange</text>
+  </g>
+</svg>
+</div>
+
+<h2>What is true here and what is not</h2>
+<p>This is a transit map, so it lies about distance on purpose and tells the
+truth about structure. Specifically:</p>
+
+<table>
+<tr><th>preserved</th><th>distorted</th></tr>
+<tr><td>which classes lie on which arc</td><td>all distances</td></tr>
+<tr><td>their <em>order</em> along the arc</td><td>station spacing (drawn even)</td></tr>
+<tr><td>the two termini of each arc, and that both step to 723</td><td>arc length — the true spread is 500×</td></tr>
+<tr><td>the interchange at the record, where D1 meets D2</td><td>the angle there: really 4.51°, drawn wide</td></tr>
+<tr><td>that C and D1 do <em>not</em> connect</td><td>their relative position in space</td></tr>
+</table>
+
+<p>The distortion is not small. In Cayley coordinates the segments measure
+<code>D1 0.26</code>, <code>D2 0.33</code>, <code>B 0.72</code>,
+<code>A 7.48</code>, <code>C 134.37</code> — arc C is five hundred times arc D1.
+Drawn to scale, four of the five lines would be dots. Station counts are the
+honest axis instead: C has the most classes on it because it is the longest
+arc, and the map spaces them evenly the way a subway map does.</p>
+
+<h2>The one crossing that is not an interchange</h2>
+<p>The carrier lines of C and D1 meet exactly, at Cayley
+<code>(37/23, 2/23, −29/46)</code>. But that point sits at <code>s = −6.84</code>
+on C and <code>t = 0.391</code> on D1, outside both 727 ranges, and the count
+there is <strong>725</strong>. So the lines form a connected network while the
+arcs do not — which is exactly why the component count stays at four rather
+than collapsing. The map draws the crossing greyed and unlinked, the transit
+convention for two lines that share no station.</p>
+
+<h2>Chamber walls as zone boundaries</h2>
+<p>A chamber wall is not a property of one arc. It is a <em>surface</em> in
+configuration space, so different arcs cross the same wall at different
+stations — which is exactly what a fare-zone boundary does on a transit map,
+and the analogy turns out to be literal rather than decorative.</p>
+<p>Counting the W4 surfaces each arc meets inside its 727 range: arc A crosses
+40, arc B 32, arc C 36. Most are private to one line, but they do overlap —
+2 shared by A and B, 2 by A and C, 4 by B and C, and <strong>one crossed by all
+three</strong>: the wall where the free cube's face plane passes through the base
+triple point <code>(1, 7/11, −1/11)</code>. It meets arc A at s = 2.5997
+(between stations 403 and 2741), arc B at s = 0.5753 (just past 1614, close to
+that terminus), and arc C at s = 11.6614 (between 1785 and 1930). The three
+crossing points are genuinely distinct, 29 to 70 apart in Cayley space.</p>
+<p class="note">A caution recorded because it briefly looked like a deeper
+coincidence: the catalogue reports this as <em>two</em> walls, indices 131 and
+168, firing at the identical parameter on every arc. Those two triple points are
+antipodal, and since the cubes are centrally symmetric a face plane through
+<code>p</code> puts its opposite face through <code>−p</code>. It is one wall
+listed twice, not a doubly degenerate one.</p>
+
+<h2>What the map is missing</h2>
+<p>Only the one shared wall is drawn. Each arc crosses 32 to 40 W4 surfaces and
+far more W3 ones, all known exactly as roots of the wall equations, and drawing
+them all would bury the lines. Every arc also
+has 72 chart copies under the free cube's own rotations and the base's C₃; one
+representative per class is drawn. And the fourth line, D, is really two arcs
+whose extents are 1/4 and 5/16 — the shortest in the network, drawn longest
+here because an interchange needs room.</p>
+</div>

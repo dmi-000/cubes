@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img,svg{display:block;max-width:100%}</style>
+<title>The shape of two cubes</title>
+<style>
+  :root{
+    --ground:#faf9f7; --panel:#ffffff; --ink:#15181d; --muted:#6a7180;
+    --rule:#dcd9d3; --grid:#eceae5;
+    --c4:#5b6b8c; --c5:#3f8f84; --c9:#b8892b; --c13:#c4512e; --c1:#8b8f98;
+    --shadow:0 1px 2px rgba(20,24,32,.06),0 8px 28px rgba(20,24,32,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ground:#0f1216; --panel:#161a20; --ink:#e8e6e1; --muted:#9aa1ad;
+      --rule:#2a2f38; --grid:#1d222a;
+      --c4:#8aa0c6; --c5:#5cc0b1; --c9:#e0b449; --c13:#f0805a; --c1:#7e838d;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#faf9f7; --panel:#ffffff; --ink:#15181d; --muted:#6a7180;
+    --rule:#dcd9d3; --grid:#eceae5;
+    --c4:#5b6b8c; --c5:#3f8f84; --c9:#b8892b; --c13:#c4512e; --c1:#8b8f98;
+  }
+  :root[data-theme="dark"]{
+    --ground:#0f1216; --panel:#161a20; --ink:#e8e6e1; --muted:#9aa1ad;
+    --rule:#2a2f38; --grid:#1d222a;
+    --c4:#8aa0c6; --c5:#5cc0b1; --c9:#e0b449; --c13:#f0805a; --c1:#7e838d;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+    font-size:16.5px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:56px 24px 96px;
+        display:flex;flex-direction:column;gap:44px}
+  header{display:flex;flex-direction:column;gap:14px;max-width:66ch}
+  .eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+           color:var(--muted);font-weight:600}
+  h1{font-family:ui-serif,Georgia,"Iowan Old Style","Times New Roman",serif;
+     font-weight:600;font-size:clamp(30px,4.6vw,46px);line-height:1.1;
+     margin:0;letter-spacing:-.015em;text-wrap:balance}
+  .stand{color:var(--muted);font-size:18px;max-width:62ch;margin:0}
+  h2{font-family:ui-serif,Georgia,serif;font-weight:600;
+     font-size:22px;margin:0 0 4px;letter-spacing:-.01em;text-wrap:balance}
+  h3{font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+     color:var(--muted);margin:0 0 10px;font-weight:650}
+  p{margin:0 0 14px;max-width:66ch}
+  section{display:flex;flex-direction:column;gap:12px}
+  .panel{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+         box-shadow:var(--shadow)}
+  .figure{padding:20px;display:grid;grid-template-columns:minmax(0,1fr) 232px;gap:24px}
+  @media(max-width:800px){.figure{grid-template-columns:1fr}}
+  canvas{width:100%;height:auto;display:block;border-radius:2px;cursor:grab;touch-action:none}
+  canvas:active{cursor:grabbing}
+  .legend{display:flex;flex-direction:column;gap:14px;font-size:13.5px}
+  .lrow{display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start}
+  .sw{width:14px;height:14px;border-radius:2px;margin-top:4px}
+  .lrow b{font-weight:650;font-variant-numeric:tabular-nums}
+  .lrow span{color:var(--muted);display:block;font-size:12.5px;line-height:1.45}
+  .hint{font-size:12px;color:var(--muted);padding:0 20px 16px}
+  table{border-collapse:collapse;width:100%;font-size:14px;
+        font-variant-numeric:tabular-nums}
+  .scroll{overflow-x:auto}
+  th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--grid)}
+  th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+     color:var(--muted);font-weight:650;white-space:nowrap}
+  td.n{text-align:right}
+  tr:last-child td{border-bottom:none}
+  .tag{display:inline-block;padding:1px 8px;border-radius:2px;font-size:12px;
+       font-weight:650;color:#fff}
+  code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+             font-size:13px}
+  .note{border-left:2px solid var(--rule);padding-left:16px;color:var(--muted);
+        font-size:14.5px;max-width:64ch}
+  .mermaid{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+           padding:18px;overflow-x:auto}
+  ul{margin:0 0 14px;padding-left:20px;max-width:66ch}
+  li{margin-bottom:6px}
+  .kv{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;font-size:14px;
+      max-width:66ch}
+  .kv dt{color:var(--muted)}
+  .kv dd{margin:0;font-variant-numeric:tabular-nums}
+  footer{color:var(--muted);font-size:13px;border-top:1px solid var(--rule);
+         padding-top:20px;max-width:66ch}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Two concentric cubes · configuration space</div>
+  <h1>The region count of two cubes is a function of symmetry</h1>
+  <p class="stand">Rotate one cube against another and count the pieces their faces cut space into. Only five answers ever occur — and which one you get is decided entirely by where the rotation <em>axis</em> sits inside the cube's own mirror arrangement.</p>
+</header>
+
+<section>
+  <h2>The map</h2>
+  <p>Every rotation is an axis together with an angle. The sphere below is the space of axes. The cube's symmetry group cuts it with nine great circles into forty-eight triangles, and that partition <em>is</em> the stratification: the count depends only on which piece of it your axis lands in.</p>
+  <div class="panel">
+    <div class="figure">
+      <canvas id="c" width="1160" height="1160" aria-label="Sphere of rotation axes divided by nine mirror great circles into forty-eight triangles, with face axes, edge axes and body diagonals marked"></canvas>
+      <div class="legend">
+        <h3>Where the axis lands</h3>
+        <div class="lrow"><div class="sw" style="background:var(--c4)"></div>
+          <div><b>Triangle interior → 4</b><span>Generic axis. Three-dimensional: this is 98.8% of all rotations.</span></div></div>
+        <div class="lrow"><div class="sw" style="background:var(--c5)"></div>
+          <div><b>Triangle edge → 5 or 9</b><span>Axis lies in a mirror plane. Two-dimensional.</span></div></div>
+        <div class="lrow"><div class="sw" style="background:var(--c9)"></div>
+          <div><b>Face &amp; edge vertex → 9</b><span>Axis is a 4-fold or 2-fold symmetry axis. One-dimensional.</span></div></div>
+        <div class="lrow"><div class="sw" style="background:var(--c13)"></div>
+          <div><b>Body diagonal → 13</b><span>Axis is a 3-fold symmetry axis. The maximum, on a curve.</span></div></div>
+        <div class="lrow"><div class="sw" style="background:var(--c1)"></div>
+          <div><b>The 24 symmetries → 1</b><span>Cubes coincide. Isolated points; the count collapses.</span></div></div>
+      </div>
+    </div>
+    <div class="hint">Drag to rotate. Nine great circles: three coordinate planes, six diagonal. Dots mark the 6 face axes (square), 12 edge axes (diamond), 8 body diagonals (triangle).</div>
+  </div>
+</section>
+
+<section>
+  <h2>Precise description</h2>
+
+  <h3>The space</h3>
+  <p>Fix cube <span class="mono">A</span> = [−1,1]³ and let cube <span class="mono">B</span> be its image under a rotation <span class="mono">R ∈ SO(3)</span>. Both share the origin, so the configuration has three degrees of freedom. In Cayley coordinates the quaternion <span class="mono">(1, a, b, c)</span> gives the point <span class="mono">(a,b,c) ∈ ℝ³</span>, which is the rotation axis scaled by <span class="mono">tan(θ/2)</span>. The space therefore fibres over the sphere of axis directions, with the angle as fibre.</p>
+
+  <h3>The arrangement</h3>
+  <p>The octahedral group has nine mirror planes — the three coordinate planes <span class="mono">x=0, y=0, z=0</span> and the six diagonal planes <span class="mono">x=±y, y=±z, x=±z</span>. They meet the axis sphere in nine great circles which cut it into <strong>48 spherical triangles</strong>, the barycentric subdivision. Its vertices are the 6 face axes <span class="mono">⟨100⟩</span>, the 12 edge axes <span class="mono">⟨110⟩</span> and the 8 body diagonals <span class="mono">⟨111⟩</span>.</p>
+
+  <h3>The strata and their counts</h3>
+  <div class="scroll"><div class="panel"><table>
+    <thead><tr><th>Axis stratum</th><th>× angle</th><th class="n">Dim</th><th>Count</th><th class="n">Same-count neighbours</th></tr></thead>
+    <tbody>
+      <tr><td>triangle interior</td><td>generic</td><td class="n">3</td><td><span class="tag" style="background:var(--c4)">4</span></td><td class="n">124 of 124</td></tr>
+      <tr><td>triangle edge (mirror)</td><td>generic</td><td class="n">2</td><td><span class="tag" style="background:var(--c5)">5</span> <span class="tag" style="background:var(--c9)">9</span></td><td class="n">24, 18</td></tr>
+      <tr><td>face or edge vertex</td><td>generic</td><td class="n">1</td><td><span class="tag" style="background:var(--c9)">9</span></td><td class="n">—</td></tr>
+      <tr><td>body diagonal</td><td>generic</td><td class="n">1</td><td><span class="tag" style="background:var(--c13)">13</span></td><td class="n">4 of 124</td></tr>
+      <tr><td>any</td><td>cube symmetry</td><td class="n">0</td><td><span class="tag" style="background:var(--c1)">1</span></td><td class="n">0 of 124</td></tr>
+    </tbody>
+  </table></div></div>
+  <p class="note">The neighbour column is the measurement that fixes each dimension: probing a radius-2 rational lattice of 124 points around a representative, the number of neighbours sharing its count is 124 for a solid, 24 = 5²−1 for a plane, 4 for a line (±1 and ±2 along it) and 0 for an isolated point.</p>
+
+  <h3>Closure order</h3>
+  <p>Every stratum has all higher-dimensional strata in its neighbourhood, so the pieces fit together as a stratified space:</p>
+  <pre class="mermaid">
+graph LR
+  A["dim 3 · count 4<br/>triangle interior"] --> B["dim 2 · count 5<br/>mirror plane"]
+  A --> C["dim 2 · count 9<br/>mirror plane"]
+  B --> D["dim 1 · count 13<br/>body diagonal"]
+  C --> D
+  B --> E["dim 1 · count 9<br/>face / edge axis"]
+  C --> E
+  D --> F["dim 0 · count 1<br/>cubes coincide"]
+  E --> F
+  </pre>
+
+  <h3>The maximum</h3>
+  <p>13 is attained on the four body-diagonal circles at every angle, and on one arc of each of the six edge-axis circles. Every such circle passes through the identity. Cutting them at the cube-symmetry rotations, where the count collapses to 1, leaves <strong>a graph embedded in SO(3)</strong> — 24 vertices, and the arcs of 13 as its edges. The maximum is one-dimensional: a curve, not a region.</p>
+</section>
+
+<section>
+  <h2>Measured</h2>
+  <p>Exact region counts, integer arithmetic throughout. Each row sweeps 33 angles about a fixed axis.</p>
+  <div class="scroll"><div class="panel"><table>
+    <thead><tr><th>Axis</th><th>Position in the arrangement</th><th>Counts across the angle sweep</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">(2,3,5)</td><td>triangle interior</td><td>4 at every angle</td></tr>
+      <tr><td class="mono">(1,2,3)</td><td>triangle interior</td><td>4 at 32 of 33; 5 at one special angle</td></tr>
+      <tr><td class="mono">(1,2,0)</td><td>mirror plane <span class="mono">z=0</span></td><td>5 ×25, 9 ×7, 13 ×1 — never 4</td></tr>
+      <tr><td class="mono">(1,1,2)</td><td>mirror plane <span class="mono">x=y</span></td><td>5 ×10, 9 ×22, 13 ×1 — never 4</td></tr>
+      <tr><td class="mono">(1,0,0)</td><td>face axis (4-fold)</td><td>9 at every angle</td></tr>
+      <tr><td class="mono">(1,1,0)</td><td>edge axis (2-fold)</td><td>9 ×27, 13 ×6</td></tr>
+      <tr><td class="mono">(1,1,1)</td><td>body diagonal (3-fold)</td><td>13 at every angle</td></tr>
+    </tbody>
+  </table></div></div>
+  <p>Sampling random integer quaternions confirms the dimensions from the other side. As the entries grow the special strata thin out exactly as measure-zero sets must:</p>
+  <dl class="kv">
+    <dt>height 10</dt><dd>4: 26.2% · 5: 40.5% · 9: 27.3% · 13: 5.5%</dd>
+    <dt>height 100</dt><dd>4: 90.0% · 5: 6.3% · 9: 3.7% · 13: 0%</dd>
+    <dt>height 1000</dt><dd>4: 98.8% · 5: 0.8% · 9: 0.3% · 13: 0%</dd>
+  </dl>
+  <p class="note">Small integer quaternions are the arithmetically special ones, so they sit on walls far more often than chance. That bias is a good instrument for finding rational walls and a trap for judging what is generic — an earlier reading of this same data, taken at small heights, wrongly concluded that the maximum was attained on an open set.</p>
+</section>
+
+<section>
+  <h2>Two caveats</h2>
+  <ul>
+    <li><strong>The angle carries its own walls.</strong> A generic axis gave 5 at one angle out of 33, so "special angle" is a codimension-1 condition independent of the axis arrangement. The count-5 locus therefore has components of two kinds — mirror axis with generic angle, and generic axis with special angle — both two-dimensional. Symmetry explains the axis direction completely; it does not explain the angle.</li>
+    <li><strong>Coincidence is not monotone.</strong> The count rises as the stratum narrows — 4, then 5 or 9, then 13 — and then collapses to 1 at the most special points of all, where the two cubes become the same cube. More symmetry helps until it doesn't.</li>
+  </ul>
+</section>
+
+<footer>
+  Every count exact: integer quaternions, rational arithmetic, no floating point in any decision, each configuration agreed by two independently written engines. Counts by depth are <span class="mono">{d₁, 1}</span> with d₁ ∈ {0, 3, 4, 8, 12}.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  const cv=document.getElementById('c'), ctx=cv.getContext('2d');
+  const N=[[1,0,0],[0,1,0],[0,0,1],[1,-1,0],[1,1,0],[0,1,-1],[0,1,1],[1,0,-1],[1,0,1]]
+        .map(v=>{const L=Math.hypot(...v);return v.map(x=>x/L)});
+  const norm=v=>{const L=Math.hypot(...v);return v.map(x=>x/L)};
+  const face=[], edge=[], diag=[];
+  for(const s of [1,-1]) for(let i=0;i<3;i++){const v=[0,0,0];v[i]=s;face.push(v)}
+  for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)for(const s of [1,-1])for(const t of [1,-1]){
+    const v=[0,0,0];v[i]=s;v[j]=t;edge.push(norm(v))}
+  for(const x of[1,-1])for(const y of[1,-1])for(const z of[1,-1])diag.push(norm([x,y,z]));
+
+  let rx=-0.42, ry=0.62, drag=false, px=0, py=0, idle=true;
+  function rot(p){
+    let [x,y,z]=p;
+    let c=Math.cos(ry),s=Math.sin(ry); [x,z]=[x*c+z*s,-x*s+z*c];
+    c=Math.cos(rx); s=Math.sin(rx);    [y,z]=[y*c-z*s, y*s+z*c];
+    return [x,y,z];
+  }
+  function inv(p){
+    let [x,y,z]=p;
+    let c=Math.cos(-rx),s=Math.sin(-rx); [y,z]=[y*c-z*s,y*s+z*c];
+    c=Math.cos(-ry); s=Math.sin(-ry);    [x,z]=[x*c+z*s,-x*s+z*c];
+    return [x,y,z];
+  }
+  const css=k=>getComputedStyle(document.documentElement).getPropertyValue(k).trim();
+  function hex(h){h=h.replace('#','');if(h.length===3)h=h.split('').map(c=>c+c).join('');
+    return [parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]}
+
+  function draw(){
+    const W=cv.width, R=W*0.44, cx=W/2, cy=W/2;
+    const dark=matchMedia('(prefers-color-scheme: dark)').matches;
+    const attr=document.documentElement.getAttribute('data-theme');
+    const isDark = attr ? attr==='dark' : dark;
+    ctx.clearRect(0,0,W,W);
+    const base=hex(css('--c4')), hi=hex(css('--c5'));
+    const img=ctx.createImageData(W,W), D=img.data;
+    for(let py2=0;py2<W;py2++){
+      const y=(cy-py2)/R;
+      for(let px2=0;px2<W;px2++){
+        const x=(px2-cx)/R, r2=x*x+y*y;
+        if(r2>1) continue;
+        const z=Math.sqrt(1-r2);
+        const p=inv([x,y,z]);
+        let h=0;
+        for(let i=0;i<9;i++){ if(p[0]*N[i][0]+p[1]*N[i][1]+p[2]*N[i][2] > 0) h^= (1<<i); }
+        let n=0, v=h; while(v){n+=v&1;v>>=1;}
+        const t=(n%2)?0.16:0.0;
+        const lam=0.42+0.58*z;
+        const k=(py2*W+px2)*4;
+        for(let ch=0;ch<3;ch++){
+          const b=base[ch]*(1-t)+hi[ch]*t;
+          D[k+ch]= isDark ? b*lam*0.62 : 255-(255-b)*(0.30+0.42*lam);
+        }
+        D[k+3]=255;
+      }
+    }
+    ctx.putImageData(img,0,0);
+
+    // great circles
+    for(const n of N){
+      let u=Math.abs(n[0])<0.9?[1,0,0]:[0,1,0];
+      const d=u[0]*n[0]+u[1]*n[1]+u[2]*n[2];
+      u=norm([u[0]-d*n[0],u[1]-d*n[1],u[2]-d*n[2]]);
+      const w=[n[1]*u[2]-n[2]*u[1], n[2]*u[0]-n[0]*u[2], n[0]*u[1]-n[1]*u[0]];
+      for(const front of [false,true]){
+        ctx.beginPath(); let started=false;
+        for(let i=0;i<=720;i++){
+          const a=i/720*Math.PI*2;
+          const p=rot([u[0]*Math.cos(a)+w[0]*Math.sin(a),
+                       u[1]*Math.cos(a)+w[1]*Math.sin(a),
+                       u[2]*Math.cos(a)+w[2]*Math.sin(a)]);
+          if((p[2]>=0)!==front){started=false;continue}
+          const X=cx+p[0]*R, Y=cy-p[1]*R;
+          if(!started){ctx.moveTo(X,Y);started=true} else ctx.lineTo(X,Y);
+        }
+        ctx.strokeStyle=isDark?(front?'rgba(232,230,225,.62)':'rgba(232,230,225,.12)')
+                              :(front?'rgba(21,24,29,.48)':'rgba(21,24,29,.10)');
+        ctx.lineWidth=front?W*0.0022:W*0.0016; ctx.stroke();
+      }
+    }
+    // vertices
+    const marks=[[face,css('--c9'),'sq'],[edge,css('--c9'),'di'],[diag,css('--c13'),'tri']];
+    for(const [set,col,shape] of marks){
+      for(const v of set){
+        const p=rot(v); if(p[2]<-0.02) continue;
+        const X=cx+p[0]*R, Y=cy-p[1]*R, s=W*(p[2]>0?0.0115:0.0085);
+        ctx.fillStyle=col; ctx.globalAlpha=p[2]>0?1:0.35;
+        ctx.beginPath();
+        if(shape==='sq') ctx.rect(X-s,Y-s,2*s,2*s);
+        else if(shape==='di'){ctx.moveTo(X,Y-s*1.25);ctx.lineTo(X+s*1.25,Y);
+          ctx.lineTo(X,Y+s*1.25);ctx.lineTo(X-s*1.25,Y);ctx.closePath()}
+        else {ctx.moveTo(X,Y-s*1.3);ctx.lineTo(X+s*1.15,Y+s*0.85);
+          ctx.lineTo(X-s*1.15,Y+s*0.85);ctx.closePath()}
+        ctx.fill();
+        ctx.globalAlpha=1;
+      }
+    }
+  }
+  function resize(){const w=Math.min(cv.parentElement.clientWidth,760);
+    cv.width=Math.round(w*2); cv.height=Math.round(w*2); draw()}
+  cv.addEventListener('pointerdown',e=>{drag=true;idle=false;px=e.clientX;py=e.clientY;
+    cv.setPointerCapture(e.pointerId)});
+  cv.addEventListener('pointermove',e=>{if(!drag)return;
+    ry+=(e.clientX-px)*0.008; rx+=(e.clientY-py)*0.008;
+    rx=Math.max(-1.4,Math.min(1.4,rx)); px=e.clientX;py=e.clientY; draw()});
+  cv.addEventListener('pointerup',()=>drag=false);
+  addEventListener('resize',resize);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+  new MutationObserver(draw).observe(document.documentElement,{attributes:true,
+    attributeFilter:['data-theme']});
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  resize();
+  if(!reduce) (function spin(){ if(idle){ry+=0.0022; draw()} requestAnimationFrame(spin)})();
+})();
+</script>
+
+</html>

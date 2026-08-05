@@ -215,6 +215,7 @@
       <canvas id="cloud" width="520" height="520"></canvas>
       <div class="row" style="gap:10px;flex-wrap:wrap">
         <button class="ghost" id="wire" aria-pressed="true">wireframe</button>
+        <button class="ghost" id="edgeDepth" aria-pressed="false" title="Exact wall geometry: cube edges AND face-face intersection lines, cut at every crossing with another cube's real face and coloured by the depth of the cell they bound. Not sampled. The face lines are the ones that reach the deep cells.">walls by depth</button>
         <button class="ghost" id="spin" aria-pressed="true">spin</button>
         <button class="ghost" id="spinAxis" aria-pressed="false" title="Toggle the spin axis between the world y-axis (turntable) and the compound's shared 3-fold axis (1,1,1)">axis: y</button>
         <button class="ghost" id="conc" aria-pressed="true">concurrences</button>
@@ -530,7 +531,7 @@ function drawLegend(counts){
 
 // ---- 3D depth cloud ----
 const cloud=$('cloud'), cctx=cloud.getContext('2d');
-let pts=[], showWire=true, spin=!reduceMotion, rotX=-.5, rotY=.7, dragging=false;
+let pts=[], showEdgeDepth=false, showWire=true, spin=!reduceMotion, rotX=-.5, rotY=.7, dragging=false;
 let showConc=true, concurrences=[], ghosts=[];
 function samplePoints(){
   // Boundary-hugging sampling: every region wall lies on some cube's face
@@ -538,9 +539,18 @@ function samplePoints(){
   // inside/outside along the face normal. The cloud then renders the
   // arrangement's actual walls (each wall two-toned by the depths on its
   // two sides) instead of volumetric fog.
-  pts=[];
-  const N=26000, del=0.02, nc=cubes.length;
-  for(let i=0;i<N;i++){
+  //
+  // STRATIFIED BY DEPTH. Sampling uniformly over face AREA gives each depth a
+  // share proportional to how much wall it owns, and the deep cells own very
+  // little: at n=6 the depth-5 and depth-6 cells are slivers, so they arrive a
+  // few points at a time while depth 1 saturates. Since the deep structure is
+  // usually the point of looking, draw a large pool, bucket it by depth, and
+  // take an equal quota from each non-empty bucket. Rare depths then get as
+  // many points as common ones, and the readout reports what was available so
+  // an exhausted bucket is visible rather than silently under-drawn.
+  const N=26000, del=0.02, nc=cubes.length, POOL=6*N;
+  const bucket=new Map();
+  for(let i=0;i<POOL;i++){
     const k=(Math.random()*nc)|0, j=(Math.random()*3)|0,
           s=Math.random()<0.5?-1:1;
     const a=(j+1)%3, b=(j+2)%3, c=cubes[k];
@@ -550,10 +560,31 @@ function samplePoints(){
              c[j][1]*tj+c[a][1]*u+c[b][1]*v,
              c[j][2]*tj+c[a][2]*u+c[b][2]*v];
     const m=labelAt(p), dep=popcount(m);
-    if(dep>0) pts.push([p[0],p[1],p[2],dep,m]);
+    if(dep===0) continue;
+    if(!bucket.has(dep)) bucket.set(dep,[]);
+    bucket.get(dep).push([p[0],p[1],p[2],dep,m]);
   }
-  $('cloudn').textContent=`${pts.length.toLocaleString()} boundary samples`;
+  const depths=[...bucket.keys()].sort((x,y)=>x-y);
+  const quota=depths.length?Math.ceil(N/depths.length):0;
+  pts=[];
+  const short=[];
+  for(const d of depths){
+    const arr=bucket.get(d);
+    // Fisher-Yates prefix shuffle: an unshuffled prefix would bias towards the
+    // faces drawn earliest, which are not a random subset of the wall.
+    const take=Math.min(quota,arr.length);
+    for(let i=0;i<take;i++){
+      const j=i+((Math.random()*(arr.length-i))|0);
+      const t=arr[i]; arr[i]=arr[j]; arr[j]=t;
+      pts.push(arr[i]);
+    }
+    if(arr.length<quota) short.push(`d${d}:${arr.length}`);
+  }
+  const per=depths.map(d=>`${d}\u2009\u00d7\u2009${Math.min(quota,bucket.get(d).length)}`).join('  ');
+  $('cloudn').textContent=`${pts.length.toLocaleString()} boundary samples, stratified (${per})`
+    + (short.length?`  \u2014 exhausted: ${short.join(', ')}`:'');
 }
+
 
 // Concurrences: points where 4+ face-planes meet. Classified as EDGE
 // crossings (max 2 planes from any one cube -> two cube edges cross) or
@@ -599,6 +630,119 @@ function cubeEdgeSegs(k){
     M[0][2]*c[0]+M[1][2]*c[1]+M[2][2]*c[2]]);
   return CUBEE.map(([a,b])=>[corners[a],corners[b]]);
 }
+// ---- EXACT wall geometry along cube edges -------------------------------
+// The sampler can only ever approach a wall; the walls themselves are measure
+// zero and no cloud lands on them. But the 1-skeleton is cheap to compute
+// exactly: walk each cube's 12 edges and cut them wherever they cross another
+// cube's REAL face -- the plane |n.x| = 1 AND the crossing point inside that
+// face's square. Testing the plane alone would cut on phantom facets, the
+// extensions of faces where no cube material is, which change no containment
+// and are not walls (the error that invalidated an early region count).
+// Each sub-segment is then coloured by the depth at its midpoint, so the deep
+// structure is drawn as geometry rather than inferred from a point cloud.
+//
+// EDGES ALONE ARE NOT ENOUGH, and measuring said so: on the n=6 record the 72
+// cube edges yield 334 sub-segments of depth 0, 1 and 2 ONLY. An edge lies on
+// its own cube's boundary and outside most others, so it is exterior geometry
+// by construction and never visits a deep cell. The interior 1-skeleton is
+// where two cubes' real FACES meet -- 2 116 sub-segments on the same record,
+// reaching depth 6. Both are computed; the face lines are what show depth.
+let edgeArcs=[];
+function computeEdgeArcs(){
+  edgeArcs=[];
+  const nc=cubes.length;
+  for(let k=0;k<nc;k++){
+    for(const [P,Q] of cubeEdgeSegs(k)){
+      const D=[Q[0]-P[0],Q[1]-P[1],Q[2]-P[2]];
+      const ts=[0,1];
+      for(let l=0;l<nc;l++){
+        if(l===k) continue;
+        const c=cubes[l];
+        for(let j=0;j<3;j++){
+          const dj=c[j][0]*D[0]+c[j][1]*D[1]+c[j][2]*D[2];
+          if(Math.abs(dj)<1e-12) continue;
+          const pj=c[j][0]*P[0]+c[j][1]*P[1]+c[j][2]*P[2];
+          for(const sgn of [1,-1]){
+            const t=(sgn-pj)/dj;
+            if(t<=1e-9||t>=1-1e-9) continue;
+            const X=[P[0]+t*D[0],P[1]+t*D[1],P[2]+t*D[2]];
+            let inside=true;                    // inside the REAL face square?
+            for(let a=0;a<3;a++){
+              if(a===j) continue;
+              if(Math.abs(c[a][0]*X[0]+c[a][1]*X[1]+c[a][2]*X[2])>1+1e-9){inside=false;break;}
+            }
+            if(inside) ts.push(t);
+          }
+        }
+      }
+      ts.sort((a,b)=>a-b);
+      for(let i=0;i+1<ts.length;i++){
+        const t0=ts[i], t1=ts[i+1];
+        if(t1-t0<1e-9) continue;
+        const tm=(t0+t1)/2;
+        const M=[P[0]+tm*D[0],P[1]+tm*D[1],P[2]+tm*D[2]];
+        const mask=labelAt(M), dep=popcount(mask);
+        edgeArcs.push([[P[0]+t0*D[0],P[1]+t0*D[1],P[2]+t0*D[2]],
+                       [P[0]+t1*D[0],P[1]+t1*D[1],P[2]+t1*D[2]], dep, mask, k]);
+      }
+    }
+  }
+  computeFaceLines();
+}
+
+// Interior 1-skeleton: where two cubes' REAL faces meet. Each pair of face
+// planes meets in a line; clip it to both face squares, cut it at every
+// crossing with a third cube's real face, and colour each piece by the depth
+// at its midpoint.
+function computeFaceLines(){
+  const nc=cubes.length;
+  const cr=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+  const dt=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+  for(let k=0;k<nc;k++)for(let j=0;j<3;j++)for(const sk of [1,-1])
+  for(let l=k+1;l<nc;l++)for(let m=0;m<3;m++)for(const sl of [1,-1]){
+    const n1=cubes[k][j], n2=cubes[l][m], d=cr(n1,n2), nn=dt(d,d);
+    if(nn<1e-14) continue;                       // parallel faces: no line
+    const A=cr(n2,d), B=cr(d,n1);
+    const P=[(sk*A[0]+sl*B[0])/nn,(sk*A[1]+sl*B[1])/nn,(sk*A[2]+sl*B[2])/nn];
+    let lo=-1e9, hi=1e9;
+    for(const [cb,ax] of [[cubes[k],j],[cubes[l],m]]) for(let i=0;i<3;i++){
+      if((cb===cubes[k]&&i===ax)||(cb===cubes[l]&&i===ax)) continue;
+      const den=dt(cb[i],d), num=dt(cb[i],P);
+      if(Math.abs(den)<1e-12){ if(Math.abs(num)>1+1e-9){lo=1;hi=-1;} continue; }
+      const t1=(-1-num)/den, t2=(1-num)/den;
+      lo=Math.max(lo,Math.min(t1,t2)); hi=Math.min(hi,Math.max(t1,t2));
+    }
+    if(hi-lo<1e-9) continue;                     // line misses one of the squares
+    const ts=[lo,hi];
+    for(let o=0;o<nc;o++){
+      if(o===k||o===l) continue;
+      const c=cubes[o];
+      for(let f=0;f<3;f++){
+        const den=dt(c[f],d); if(Math.abs(den)<1e-12) continue;
+        const num=dt(c[f],P);
+        for(const sg of [1,-1]){
+          const t=(sg-num)/den; if(t<=lo+1e-9||t>=hi-1e-9) continue;
+          const X=[P[0]+t*d[0],P[1]+t*d[1],P[2]+t*d[2]];
+          let ins=true;
+          for(let a2=0;a2<3;a2++){
+            if(a2===f) continue;
+            if(Math.abs(dt(c[a2],X))>1+1e-9){ins=false;break;}
+          }
+          if(ins) ts.push(t);
+        }
+      }
+    }
+    ts.sort((x,y)=>x-y);
+    for(let i=0;i+1<ts.length;i++){
+      const t0=ts[i], t1=ts[i+1]; if(t1-t0<1e-9) continue;
+      const tm=(t0+t1)/2, X=[P[0]+tm*d[0],P[1]+tm*d[1],P[2]+tm*d[2]];
+      const mask=labelAt(X), dep=popcount(mask);
+      edgeArcs.push([[P[0]+t0*d[0],P[1]+t0*d[1],P[2]+t0*d[2]],
+                     [P[0]+t1*d[0],P[1]+t1*d[1],P[2]+t1*d[2]], dep, mask, k]);
+    }
+  }
+}
+
 function computeConcurrences(){
   concurrences=[];
   const P=[];
@@ -974,6 +1118,23 @@ function drawCloud(){
     cctx.globalAlpha=1;
   }
   drawPlane(S,cx,cy);
+  if(showEdgeDepth){
+    // exact wall geometry: cube edges cut at real-face crossings, depth-coloured
+    const seg=edgeArcs.filter(e=>visible(e[3],e[2])).map(e=>{
+      const A=rot(e[0]), B=rot(e[1]);
+      return {a:[A[0]*S+cx,-A[1]*S+cy], b:[B[0]*S+cx,-B[1]*S+cy],
+              z:(A[2]+B[2])/2, dep:e[2]};
+    });
+    seg.sort((p,q)=>p.z-q.z);
+    cctx.lineCap='round';
+    for(const g of seg){
+      cctx.globalAlpha=cue(g.z);
+      cctx.strokeStyle=DEPTH_COLORS[g.dep];
+      cctx.lineWidth=1.2+0.55*g.dep;
+      cctx.beginPath();cctx.moveTo(g.a[0],g.a[1]);cctx.lineTo(g.b[0],g.b[1]);cctx.stroke();
+    }
+    cctx.globalAlpha=1;cctx.lineCap='butt';
+  }
   if(showWire){
     cctx.lineWidth=1;
     for(let k=0;k<cubes.length;k++){
@@ -1086,7 +1247,7 @@ function apply(){
     buildFilters();
     opaqueDirty=true;
     $('err').textContent='';
-    samplePoints(); computeConcurrences(); renderSlice();
+    samplePoints(); computeConcurrences(); computeEdgeArcs(); renderSlice();
     renderExactChips();
   }catch(e){ $('err').textContent=String(e); $('exact').innerHTML=''; }
 }
@@ -1181,7 +1342,7 @@ function setFamily(psiDeg){
   cubes=mats.map(matToCols);
   cubeSel=7; depthSel=new Set([1,2,3]);
   buildFilters(); opaqueDirty=true; $('err').textContent='';
-  samplePoints(); computeConcurrences(); renderSlice();
+  samplePoints(); computeConcurrences(); computeEdgeArcs(); renderSlice();
   if(exactInfo) renderExactChips();
   else $('exact').innerHTML=`<span class="chip">exact crossings at this ψ; region count certified only at the 67/49/67/67 marked points</span>`;
   $('famPsi').textContent=`ψ = ${useDeg.toFixed(3)}°`;
@@ -1224,6 +1385,7 @@ $('mLabel').onclick=()=>{colorMode='label';$('mLabel').ariaPressed='true';$('mDe
 $('axis').onchange=e=>{sliceAxis=e.target.value;renderSlice();};
 $('pos').oninput=e=>{sliceOff=e.target.value/100;$('posv').textContent=sliceOff.toFixed(3);renderSlice();};
 $('wire').onclick=()=>{showWire=!showWire;$('wire').ariaPressed=String(showWire);};
+$('edgeDepth').onclick=()=>{showEdgeDepth=!showEdgeDepth;$('edgeDepth').ariaPressed=String(showEdgeDepth);};
 $('spin').onclick=()=>{spin=!spin;$('spin').ariaPressed=String(spin);};
 $('spinAxis').onclick=()=>{
   spinAxis = spinAxis==='y' ? 'diag' : 'y';

@@ -151,13 +151,23 @@ The other three arcs, now measured. All pairwise skew with A; none wraps.
 
 | arc | through | along | 727 extent | width | chambers |
 |---|---|---|---|---|---|
-| B | (4/35, 2/5, −41/35) | (1,1,−4) | s ≈ [0.42, 0.58] | 0.16 | 11 |
+| B | (4/35, 2/5, −41/35) | (1,1,−4) | s ∈ [**43/105**, ≈0.579411] — SOLVED | 0.1699 | ≥13 |
 | A | (19/3, −7, −11) | (1,−3,−6) | s ∈ [≈2.063979, **19/6**] — SOLVED | 1.103 | 10 |
-| C | (245/29, −295/29, 428/29) | (1,−3/2,9/4) | s ≈ [1.17, 47.75] | 46.6 | 12 |
+| C | (245/29, −295/29, 428/29) | (1,−3/2,9/4) | s ∈ [≈1.167462, ≈47.772089] — SOLVED | 46.605 | ≥13 |
 | D | (2, 1/7, −5/7) — the record | two tangents, see below | widths 1/4 and 5/16 | — | — |
 
-**Extent spans 300x** across three arcs that are otherwise indistinguishable —
-same count, same profile, same dimension — so extent is an independent axis.
+**All bounds are now solved, not swept** — each is a root of a wall equation on
+the arc's line (quadratic for W4, quartic for W3). Two are exactly rational,
+19/6 and 43/105; the rest are algebraic irrationals no grid could land on.
+**Five of the six ends are W4**, only arc C's lower end being W3. And W3+W4
+bracket every chamber wall observed on every arc — 15/15, 12/12, 12/12, i.e.
+**39 of 39** — though only about a quarter of the interior crossings (48, 62, 77)
+change anything, so a bracket containing a crossing must be split, not reported.
+
+**Extent is roughly UNIFORM**, contrary to what this file said until Postscript
+97. The 300–500× spread was Cayley-chart length; measured as rotation angle the
+arcs are A 3.99°, B 7.04°, C 8.43°, D1 5.91°, D2 7.31° — a spread of 2.1×. Arc C
+looked vast only because it runs toward a half-turn, where tan(θ/2) diverges.
 Chamber counts are comparable (10–12), so chamber DENSITY differs by the same
 factor. Every end steps down to 723, except arc A's lower end at 721.
 
