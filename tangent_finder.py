@@ -15,10 +15,21 @@ every active wall's normal.  Hence
     tangent space = null space of the active normals,
 
 a linear algebra problem, solved exactly over the rationals.  No epsilon, no
-direction scan, no engine calls.  The rank settles the dimension outright:
+direction scan, no engine calls.
 
-    rank 2  ->  tangent space is 1-dimensional, and IS the tangent
-    rank 3  ->  no tangent exists; the locus is 0-dimensional HERE
+    rank 2  ->  tangent space is 1-dimensional; a CANDIDATE tangent, verify it
+    rank 3  ->  no direction is orthogonal to every catalogue wall
+
+**RANK 3 DOES NOT PROVE ISOLATION** -- corrected 2026-08-04.  A catalogue plane
+through a point is a COINCIDENCE locus, and Postscript 58 established that most
+coincidence crossings do not change the count.  Requiring the tangent to be
+orthogonal to all of them therefore over-constrains, and reports "no tangent"
+where one exists.  Caught at the n=6 record (7,14,1,-5): 5 active walls of rank
+3, apparently 0-dimensional, yet TWO independent directions preserve 727.
+
+The repair is to test the null spaces of rank-2 SUBSETS of the active normals
+and verify each against the engine -- `subset_tangents` below.  Only the
+verified ones are tangents.
 
 (The first version scanned a grid of in-plane directions and tested each with
 the engine.  That works, but it is a sampling argument: it can report that no
@@ -31,9 +42,12 @@ VALIDATED against both loci whose tangents were known independently:
     723, Cayley (2/5,2/5,2/5)  11 active walls, rank 2 -> (1,1,1)
 
 both recovered exactly.  Applied to 393 (four base cubes fixed, the fifth free
-at Cayley (1,1,1)): 12 active walls, **rank 3, no tangent**.  Cross-checked by
-scan -- 548 in-plane directions over four epsilon scales down to 1/65536, none
-preserving 393, the count dropping to 377 in every one.
+at Cayley (1,1,1)) with the REPAIRED method: 12 active walls give 46 distinct
+rank-2 subset directions, and none preserves 393 at eps = 1/64 or 1/1024.
+Cross-checked by scan -- 548 in-plane directions over four epsilon scales down
+to 1/65536, none preserving 393, the count dropping to 377 in every one.  So 393
+is rigid against single-cube moves; that conclusion predates the repair but does
+not depend on the unsound step.
 
 SCOPE.  Two limits, both real.  (1) It sees only the 119 enumerated locus planes
 (the edge-edge conditions of Postscript 49); a point whose active walls are all
@@ -128,6 +142,32 @@ def tangents(pt, cubes):
     A = active_normals(pt, cubes)
     B = nullspace(A)
     return len(A), 3 - len(B), B
+
+
+def subset_tangents(pt, cubes, target, fixed, eps=(F(1, 64), F(1, 1024))):
+    """Candidate tangents from rank-2 SUBSETS, kept only if the engine agrees.
+
+    The full active set over-constrains (see the module docstring), so every
+    pair of active normals is tried and its null direction verified by stepping
+    both ways at two scales.  Returns the directions that hold up."""
+    import itertools
+    A = active_normals(pt, cubes)
+    cands = []
+    for i, j in itertools.combinations(range(len(A)), 2):
+        B = nullspace([A[i], A[j]])
+        if len(B) == 1 and B[0] not in cands:
+            cands.append(B[0])
+    good = []
+    for e in eps:
+        pts = []
+        for d in cands:
+            pts.append([pt[i] + e*d[i] for i in range(3)])
+            pts.append([pt[i] - e*d[i] for i in range(3)])
+        res = counts(pts, fixed)
+        for k, d in enumerate(cands):
+            if res[2*k] == target and res[2*k+1] == target and d not in good:
+                good.append(d)
+    return A, cands, good
 
 
 def sweep(pt, direction, target, fixed, lo=-40, hi=41, den=32):

@@ -140,6 +140,11 @@ with `index_ledger.py` after appending.
 - [Postscript 85](#postscript-85-component-counts-at-727725723-and-723s-family-is-enormous--the-charted-interval-was-a-fragment-near-the-origin) — component counts at 727/725/723, and 723's family is enormous — the charted interval was a…
 - [Postscript 86](#postscript-86-symmetries-named-by-group-not-by-order--and-three-of-them-were-ambiguous) — symmetries named by group, not by order — and three of them were ambiguous
 - [Postscript 87](#postscript-87-a-vast-family-has-a-one-line-generator--but-the-maximiser-subset-of-it-does-not) — a vast family has a one-line generator — but the MAXIMISER subset of it does not
+- [Postscript 88](#postscript-88-rank-3-does-not-prove-isolation--and-the-n6-record-sits-at-a-crossing-of-two-727-arcs) — rank 3 does NOT prove isolation — and the n=6 record sits at a CROSSING of two 727 arcs
+- [Postscript 89](#postscript-89-arcs-b-and-c-measured--the-three-727-arcs-differ-in-extent-by-300x) — arcs B and C measured — the three 727 arcs differ in extent by 300x
+- [Postscript 90](#postscript-90-arc-bounds-are-analytic--one-linear-solve-where-the-wall-is-catalogued-and-blocked-on-w3w4-where-it-is-not) — arc bounds ARE analytic — one linear solve where the wall is catalogued, and blocked on…
+- [Postscript 91](#postscript-91-w4-enumerated-as-crossings-on-a-line--arc-as-ends-solved-exactly-and-its-recorded-extent-was-wrong-at-both-ends) — W4 enumerated as crossings on a line — arc A's ends solved exactly, and its recorded extent…
+- [Postscript 92](#postscript-92-w3-enumerated-too--and-w3w4-account-for-every-chamber-wall-on-arc-a-15-of-15) — W3 enumerated too — and W3+W4 account for EVERY chamber wall on arc A, 15 of 15
 
 <!-- INDEX:END -->
 
@@ -6842,3 +6847,239 @@ not: no closed-form predicate has been found for which (n,d) give 723, and the
 honest description remains "enumerate the stratum and count each member", which
 is still an enormous reduction over searching Cayley space, and is exactly how
 `MAXIMISERS.md` lists members by chamber.
+
+---
+
+## Postscript 88: rank 3 does NOT prove isolation — and the n=6 record sits at a CROSSING of two 727 arcs
+
+**THE METHOD HAD A FALSE-NEGATIVE MODE.** Postscript 82 asserted that a rank-3
+active-wall set proves no tangent exists. It does not. A catalogue plane through
+a point is a COINCIDENCE locus, and Postscript 58 already established that most
+coincidence crossings do not change the count. So requiring the tangent to be
+orthogonal to every active catalogue plane over-constrains: it can only find
+directions tangent to walls that may not constrain the maximiser locus at all.
+
+    rank 2  ->  a CANDIDATE tangent, to be verified
+    rank 3  ->  no direction is orthogonal to every catalogue wall. Nothing more.
+
+**CAUGHT BY THE RECORD ITSELF.** At (7,14,1,-5), Cayley (2, 1/7, −5/7): five
+active walls, rank 3, apparently 0-dimensional — flatly contradicting
+Postscripts 52-55, which record the record as sitting on a 727 wall line. The
+repair is to take null spaces of rank-2 SUBSETS of the active normals and verify
+each against the engine (`subset_tangents` in `tangent_finder.py`).
+
+**THE RECORD HAS TWO INDEPENDENT TANGENTS, AND IT IS A CROSSING, NOT A SURFACE.**
+Of 4 subset directions, two preserve 727 on both sides at ε = 1/64 and 1/1024:
+
+    d1 = (−1, −1/7, 3/14)        d2 = (−1, −4/21, 2/7)      (cross product ≠ 0)
+
+but **every combination fails** — 1·d1+1·d2 gives 721, d1−d2 gives 717, and all
+of 2:1, 1:2, 3:−1, −1:3, 5:2, 1:4 give 721. A 2-dimensional surface would carry
+the combinations too. So the locus is 1-dimensional and **singular**: two
+distinct arcs crossing at the record. Their extents, swept at step 1/16:
+
+    along d1   727 on one run of width 1/4
+    along d2   727 on runs of width 5/16 and 1/16
+
+Both far shorter than arc A. **Arcs can meet**, the maximiser set has nodes, and
+the configuration this whole project found first sits on one — which is a
+plausible reason it was findable at all: a crossing is where two families of
+maximisers become simultaneously reachable.
+
+**393 SURVIVES THE CORRECTION, ON BETTER GROUNDS.** Re-run with the repaired
+method: 12 active walls give **46** distinct rank-2 subset directions, and **not
+one** preserves 393 at either scale. The rigidity claim of Postscript 82 was
+reached by an argument now known to be unsound, and happens to be right; it now
+rests on 46 verified directions instead.
+
+---
+
+## Postscript 89: arcs B and C measured — the three 727 arcs differ in extent by 300x
+
+Closing the gap left by Postscript 84, which settled that the ℚ(√d) campaign's
+727s lie on exactly three arcs but measured only arc A.
+
+    arc   through                        along          727 extent      width
+    B     (4/35, 2/5, −41/35)            (1,1,−4)       s ≈ [0.42, 0.58]   0.16
+    A     (19/3, −7, −11)                (1,−3,−6)      s ∈ [9/4, ≈3.05]   0.94
+    C     (245/29, −295/29, 428/29)      (1,−3/2,9/4)   s ≈ [1.17, 47.75]  46.6
+
+**A 300-fold spread.** The three arcs are the same kind of object — three
+congruence classes of 727 families, indistinguishable by count, profile or
+dimension — yet arc C is three hundred times longer than arc B. Extent is
+therefore an independent axis: it is not implied by anything else recorded.
+
+**Ends.** Every end is a step down to 723, except arc A's lower end at 721.
+Arc C runs 727 up to s = 191/4 and is 723 from s = 48.
+
+**Chambers**, sampled at 240 points inside each widest run: arc B has 11, arc C
+12, arc A 10. Comparable subdivision despite the extent spread, so chamber
+DENSITY differs by the same 300x — arc B's eleven chambers are packed into 0.16
+of parameter, arc C's twelve span 46.
+
+**Wrapping**: neither wraps. Arc B gives 691 at s = ±1000 and 693 at infinity;
+arc C gives 715 and 707 at ±1000 and 689 at infinity. So all three known arcs
+terminate, and the punctured-circle topology of Postscript 83 remains unique to
+n = 2 so far.
+
+**TWO MEASUREMENT FAULTS, both caught and both worth recording.**
+
+*Grid truncation, the fourth instance this session.* The step-1/16 sweep over
+s ∈ [−30, 30] reported arc C as "width 461/16, run [19/16, 30]" — the run ending
+exactly at the sweep bound. Extending to s = 300 found the real end at 47.75.
+Postscript 82 named this trap and Postscript 85 hit it again; it recurs because
+the natural instinct is to sweep a window centred on the known point, and the
+diagnostic is always the same: **a run that terminates at the sweep bound has
+not terminated.**
+
+*Bisection outruns the engine.* Refining the endpoints to 2^-14 produced
+rationals with denominators large enough to exceed the integer engine's budget,
+so it returned no count at all — and the refinement dutifully reported the
+neighbouring value as `None`. A `None` is a REJECTION, not a count, and must
+never be read as "the count changed here". Re-evaluating at moderate
+denominators (offsets 1/32, 1/64, 1/128) gave the real neighbours, and revealed
+that the 1/16 grid had also truncated arc B: it is 727 at 27/64 and 55/128,
+outside the run the grid reported. Endpoint refinement past ~2^-8 needs the wide
+engine, not the integer one.
+
+Files: `arcs_bc.py`.
+
+---
+
+## Postscript 90: arc bounds ARE analytic — one linear solve where the wall is catalogued, and blocked on W3/W4 where it is not
+
+An arc ends where its line crosses a count-changing wall, so the bound is a root
+of the wall's equation restricted to the line — not something to bisect for.
+
+**FOR A CATALOGUE PLANE THE SOLVE IS LINEAR AND EXACT.** With the arc as
+P(s) = a₀ + s·v and the wall as A·x + D = 0,
+
+    s = −(A·a₀ + D) / (A·v)
+
+an exact rational, computed for every catalogue plane at once: 111, 110 and 115
+crossings on arcs A, B and C respectively.
+
+**VERIFIED.** Arc B's lower end is **exactly s = 43/105**. The count is 723 at
+43/105 − 1/2000 and 727 at 43/105 + 1/2000. No sweep, no bisection, no engine
+overflow — the failure mode of Postscript 89, where refining past 2^-8 produced
+denominators the integer engine rejects and the rejections read as count
+changes, simply does not arise.
+
+**BUT MOST ENDS ARE NOT ON CATALOGUE WALLS.** Arc A's lower end has NO catalogue
+crossing between s = 2 and s = 17/8, and the count climbs
+
+    s = 2  ->  721        s = 33/16  ->  723        s = 17/8  ->  727
+
+so the "end" is a STAIRCASE of two crossings, neither enumerated. Arc C is
+worse: no catalogue plane crosses its line anywhere above s = 10, yet the arc
+runs to s ≈ 47.75.
+
+**So the analytic route is real and blocked on one long-standing gap.** The
+(2,1,1) and (1,1,1,1) wall types — W3 quartics and W4 quadrics — were never
+enumerated (Postscripts 57, 58), and they are precisely the walls that bound
+these arcs. Postscript 58 had already found that the unenumerated type governs
+the plateau's chamber structure while the catalogued type does not predict the
+count; this is the same fact reappearing as a boundary problem. With those
+equations in hand, every arc bound becomes root-finding on a line — degree 1 for
+planes, 2 for W4, 4 for W3, all exactly solvable — and the endpoints come out in
+ℚ or in a quadratic or quartic field, rather than as a bisection to 2^-14.
+
+That makes enumerating W3 and W4 against the 393 base the highest-value
+outstanding computation: it would deliver arc bounds, chamber walls to full
+precision, and the missing constraints for `tangent_finder.py` in one go.
+
+---
+
+## Postscript 91: W4 enumerated as crossings on a line — arc A's ends solved exactly, and its recorded extent was wrong at both ends
+
+Postscript 90 identified enumerating W3/W4 against the 393 base as the highest-
+value outstanding computation. W4 is now done, in the form the arc-bound problem
+actually needs.
+
+**THE FORMULATION.** Rather than deriving 2 544 quadric surfaces symbolically,
+solve them restricted to a line — which is all an arc bound requires. Along
+v(s) = a₀ + s·d the unnormalised rotation entries and N = 1 + |v|² are quadratic
+in s, so the W4 condition that a free-cube face plane passes through a base
+triple point p,
+
+    (Rᵀp)_i = ±1     <=>     (Mᵀp)_i ∓ N = 0
+
+is a **quadratic in s**, solved exactly: rational roots exactly, quadratic
+irrationals as (−b ± √D)/2a. Over 424 triple points × 3 components × 2 signs
+this gives every W4 crossing on the line at once. On arc A's line: **929
+crossings**. `wall_params.py`.
+
+**VALIDATED — BOTH OF ARC A'S ENDS ARE W4 CROSSINGS.**
+
+    upper end   s = 19/6 EXACTLY      727 at 19/6 − 1/1000, 723 at 19/6 + 1/1000
+    lower end   s ≈ 2.063979152        723 at 2.0639, 727 at 2.0640
+
+The upper end is rational and also happens to be a catalogue-plane crossing; the
+lower is a quadratic irrational, invisible to the plane catalogue. So the wall
+type Postscript 58 found to govern chamber structure is the same one that bounds
+the arcs — now confirmed by solving rather than by sampling.
+
+**AND THE RECORDED EXTENT WAS WRONG AT BOTH ENDS.**
+
+    recorded (1/32 sweep)   s ∈ [9/4, ≈3.05]        width 0.94
+    solved                  s ∈ [≈2.06398, 19/6]    width ≈1.103
+
+a 17% underestimate, with both ends misplaced — the grid never sampled near
+either true crossing. Every arc extent in this ledger obtained by sweeping is
+suspect to the same degree, and the fix is now available rather than merely
+described.
+
+**WHAT REMAINS: W3.** The (2,1,1) walls are the condition that a free-cube EDGE
+meets a base CROSSING LINE, det[d_edge, d_line, Δp] = 0. Along a line the
+entries are quadratic in s, so the determinant is degree ≤ 6 before the common
+N factors cancel — the project's quartic. 360 lines × 12 edges. The polynomial
+machinery in `wall_params.py` extends to it directly; only the determinant
+assembly and a degree-4 exact solver are missing. W4 alone already bounded both
+of arc A's ends, so W3 may prove less load-bearing for bounds than for chambers.
+
+Files: `wall_params.py`.
+
+---
+
+## Postscript 92: W3 enumerated too — and W3+W4 account for EVERY chamber wall on arc A, 15 of 15
+
+**W3 AS CROSSINGS ON A LINE.** The (2,1,1) condition is that a free-cube EDGE
+meets a base CROSSING LINE. With M the unnormalised rotation and N = 1+|v|², an
+edge has direction D = 2·M[:,a] and base point P = M[:,b]·s_b + M[:,c]·s_c −
+M[:,a], both over N, so the coplanarity determinant carries 1/N² and its
+numerator
+
+    det[ D , d_line , N·p_line − P ]
+
+is degree 4 in s — the project's quartic, now derived rather than asserted.
+360 lines × 12 edges. On arc A's line: **2 989 W3 crossings**, against 929 W4.
+`wall_params.w3_params`.
+
+**W3+W4 EXPLAIN EVERY CHAMBER WALL.** Sampling arc A at 282 points of
+denominator 256 — all counting 727, so the arc is unbroken — gives 15 per-label
+transitions between consecutive samples, and **every one of the 15 brackets a
+W3 or W4 crossing**. Postscript 58 could explain only 6 of 46 transitions from
+the enumerated catalogue, and 43 after adding W4 heuristically; with both
+strata computed exactly the account is complete.
+
+**AND MOST CROSSINGS CHANGE NOTHING.** 48 W3/W4 crossings lie inside the arc but
+only 15 change the type — the walls are a strict superset of the chamber
+boundaries, exactly as Postscript 58 found. So a wall crossing is necessary for
+a type change, not sufficient.
+
+**CHAMBER COUNTS WERE RESOLUTION-LIMITED.** Arc A was recorded with 10 chambers
+from a 1/32 grid; at denominator 256 it has at least 16, and the 48 interior
+crossings cap it at 49. Every chamber count in this ledger is a lower bound, and
+the true value is now bracketed rather than guessed.
+
+**THE None TRAP RECURRED — ONE POSTSCRIPT AFTER BEING NAMED.** The first attempt
+at this check sampled s = lo + (hi−lo)·k/300 with lo = 2064/1000 and hi = 19/6.
+Those parameters have large denominators, the quaternions reached 32 digits, and
+**133 of 301 samples came back as engine REJECTIONS** — which the signature
+logic read as type changes, reporting a spurious 187 transitions of which only
+35 matched a wall. Postscript 89 had already recorded that "a None is a
+REJECTION, not a count". The fix is not vigilance but parametrisation: sample at
+FIXED small denominator (k/256), never at an affine map of two awkward
+rationals. Diagnosis is one line — print the count histogram and look for None.
+
+Files: `wall_params.py` (both strata).

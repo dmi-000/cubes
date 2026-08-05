@@ -147,9 +147,23 @@ every d ≤ 97, giving a distinct congruence class per squarefree d:
     printf '4:0,1:0,1:0,-1:0;3:0,3:0,7:0,3:0;5:0,-1:0,-5:0,-5:0;2:0,1:0,1:0,1:0;1:0,1:0,1:0,1:0;300:0,2650:3,-4350:-9,-7800:-18\n' \
       | ./cube_regions_q2w --d 3 --quats-stdin
 
-Three further arcs, not yet swept for chambers: B through (4/35, 2/5, −41/35)
-along (1,1,−4); C through (245/29, −295/29, 428/29) along (1,−3/2,9/4); D the
-record's own wall line through (7,14,1,−5). All pairwise skew with A.
+The other three arcs, now measured. All pairwise skew with A; none wraps.
+
+| arc | through | along | 727 extent | width | chambers |
+|---|---|---|---|---|---|
+| B | (4/35, 2/5, −41/35) | (1,1,−4) | s ≈ [0.42, 0.58] | 0.16 | 11 |
+| A | (19/3, −7, −11) | (1,−3,−6) | s ∈ [≈2.063979, **19/6**] — SOLVED | 1.103 | 10 |
+| C | (245/29, −295/29, 428/29) | (1,−3/2,9/4) | s ≈ [1.17, 47.75] | 46.6 | 12 |
+| D | (2, 1/7, −5/7) — the record | two tangents, see below | widths 1/4 and 5/16 | — | — |
+
+**Extent spans 300x** across three arcs that are otherwise indistinguishable —
+same count, same profile, same dimension — so extent is an independent axis.
+Chamber counts are comparable (10–12), so chamber DENSITY differs by the same
+factor. Every end steps down to 723, except arc A's lower end at 721.
+
+**Arc D is a crossing**: the record carries two independent tangents,
+(−1,−1/7,3/14) and (−1,−4/21,2/7), whose combinations all fail — two arcs
+meeting at a node, not a surface.
 
 ### n = 7 and n = 8
 
@@ -168,8 +182,10 @@ preserve the count; 2d survive for a family aligned with d coordinate
 directions, so a positive reading is a valid lower bound and **a zero reading
 means only "not aligned"** — it cannot distinguish an isolated class from a
 curve in general position (`FAILURE_MODES.md` 11d). The *tangent space* is the
-null space of the active wall normals, exact over ℚ: rank 2 gives the tangent
-itself, rank 3 proves none exists (`tangent_finder.py`).
+null space of the active wall normals, exact over ℚ. **Rank 2 gives a CANDIDATE
+tangent, to be verified; rank 3 proves only that no direction is orthogonal to
+every catalogue wall — NOT isolation**, since most coincidence crossings do not
+change the count. Test rank-2 subsets and verify each (`tangent_finder.py`).
 
 * **13 = 1** — tangent along the body diagonal; perpendicular the count is 9.
 * **67 = 0** — 67 = 1 + 18 + 48 forces all three pair terms to 6 and all three
@@ -180,9 +196,10 @@ itself, rank 3 proves none exists (`tangent_finder.py`).
   each 67. Corroborated: the best rational triple is 63, and every rational
   member of the distinct-axis part of (13,13,13) is degenerate.
 * **183 ≥ 3** — aligned probe, 6 of 18 single-axis moves.
-* **393 = 0 against single-cube moves** — 12 active walls of rank 3, so no
-  tangent; cross-checked by 548 in-plane directions at four ε scales down to
-  1/65536, none preserving 393, the count dropping to 377 in every one.
+* **393 = 0 against single-cube moves** — 12 active walls giving **46** distinct
+  rank-2 subset directions, not one preserving 393 at ε = 1/64 or 1/1024; plus
+  548 in-plane directions at four ε scales down to 1/65536, the count dropping
+  to 377 in every one.
 * **723, 727 ≥ 1** — tangents (1,1,1) and (1,−3,−6), both from the null space,
   both walked.
 * **1217, 1891** — aligned probe, engine-verified directions.
@@ -267,7 +284,32 @@ dimension measurement.
 * **Loop-versus-arc is unmeasured everywhere except n = 2.** Whether 723's
   intervals, 727's arcs B/C/D, or the n=7/n=8 families wrap has not been tested.
   Cheap: extend each sweep well past its ends and look for the value returning.
-* **Arcs B, C, D at 727** — extents, chambers and endpoints unmeasured. Path:
+* ~~Arcs B, C, D~~ — **MEASURED**: extents 0.16, 46.6 and (two crossing arcs of
+  width 1/4 and 5/16), chambers 11 and 12, all ends stepping to 723 bar arc A's
+  721, none wrapping. Still open: chamber walls to full precision, which needs
+  the wide engine — bisection past ~2^-8 overflows the integer engine and
+  returns rejections that read as count changes. **Better: solve for them.** An
+  arc bound is a root of a wall equation on the line — exactly rational for a
+  catalogue plane (arc B's lower end is exactly s = 43/105, verified). Most ends
+  are NOT on catalogue walls, so this needs W3/W4 enumerated first.
+* ~~Enumerate W4~~ — **DONE** (`wall_params.py`): solved as crossings on a line,
+  where the condition is a quadratic in the line parameter. 929 crossings on arc
+  A's line, and BOTH of its ends are W4 crossings — upper exactly 19/6, lower the
+  quadratic irrational ≈2.063979. This corrected arc A's extent, which the 1/32
+  sweep had underestimated by 17% with both ends misplaced; every swept extent in
+  this file is suspect to the same degree.
+* ~~Enumerate W3~~ — **DONE** (`wall_params.w3_params`): the edge-meets-crossing-
+  line determinant is degree 4 in the line parameter; 2 989 crossings on arc A's
+  line. **W3+W4 bracket every chamber wall on arc A, 15 of 15**, closing the
+  Postscript 58 gap. Only 15 of the 48 interior crossings change the type, so a
+  wall crossing is necessary but not sufficient for a chamber boundary.
+* **Chamber counts are lower bounds** — arc A reads 10 chambers at 1/32, ≥16 at
+  denominator 256, and is capped at 49 by its interior crossings. Sample at FIXED
+  small denominator: affine maps of awkward rationals overflow the engine and the
+  rejections read as type changes. These wall types (Postscripts 57, 58) were never enumerated and
+  are the ones that actually bound the arcs, govern chamber structure, and
+  supply the constraints `tangent_finder.py` is missing. One computation unlocks
+  arc bounds, chamber walls to full precision, and correct tangent tests. Path:
   mechanical, the same sweep as arc A. Their COUNT is now settled: the campaign's
   1,449 727-records give 216 chart lines that dedupe to exactly **3 arcs** under
   the 72-element group (base C₃ × the free cube's own 24 rotations), in three
