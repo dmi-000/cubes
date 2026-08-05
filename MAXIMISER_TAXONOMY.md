@@ -275,8 +275,21 @@ Contrast 727 arc A, which does not wrap: it terminates at 723 and 721. Same
 dimension, different topology, and the difference is invisible to every
 dimension measurement.
 
+**Before trusting any dimension figure below**, see FAILURE_MODES 13: a method
+that reports 0 must first recover a known tangent, or its zeros are void.
+
 ## 5. Gaps, and the path to close each
 
+* ~~Multi-cube directions at n = 3~~ — **CLOSED** (`tight_set.py`, Postscript
+  100). Solving the TIGHT Step-A conditions rather than the concurrences: both
+  67s give rank 6 of 6 over all six coordinates of both free cubes, so tangent
+  dimension 0 — isolated against multi-cube motion, not just single-cube. The
+  method passes its control, recovering the known (1,1,0) tangent at n = 2.
+  (`multicube2.py`, which solved the concurrences instead, returned 0 everywhere
+  INCLUDING cases with known tangents, and is void by its own control.)
+* **Multi-cube directions at n = 4,5,6,7,8 — still open.** Path: the same
+  substitution, extending the condition set from Step A's pair conditions to
+  Step B's full decomposition.
 * **Multi-cube directions are untested at every n.** All dimension figures come
   from moving ONE cube. A locus can be positive-dimensional via directions that
   move several cubes together, and nothing here excludes that — including at
@@ -314,17 +327,9 @@ dimension measurement.
   Postscript 58 gap. Only 15 of the 48 interior crossings change the type, so a
   wall crossing is necessary but not sufficient for a chamber boundary.
 * **Chamber counts are lower bounds** — arc A reads 10 chambers at 1/32, ≥16 at
-  denominator 256, and is capped at 49 by its interior crossings. Sample at FIXED
-  small denominator: affine maps of awkward rationals overflow the engine and the
-  rejections read as type changes. These wall types (Postscripts 57, 58) were never enumerated and
-  are the ones that actually bound the arcs, govern chamber structure, and
-  supply the constraints `tangent_finder.py` is missing. One computation unlocks
-  arc bounds, chamber walls to full precision, and correct tangent tests. Path:
-  mechanical, the same sweep as arc A. Their COUNT is now settled: the campaign's
-  1,449 727-records give 216 chart lines that dedupe to exactly **3 arcs** under
-  the 72-element group (base C₃ × the free cube's own 24 rotations), in three
-  orbits of uniform size 72. With the record's rational line that is ≥4
-  components, and any further ones must come from outside the mixed ℚ(√d) family.
+  denominator 256, and is capped at 49 by its interior W3/W4 crossings. Sample at
+  a FIXED small denominator: affine maps of awkward rationals overflow the engine
+  and the rejections read as type changes.
 * ~~723's family is larger than mapped~~ — **MEASURED**: over s ∈ [−50, 50],
   579 of 801 samples count 723, dominated by runs [−50, −4] and [53/2, 50] that
   both hit the sweep bounds and extend to at least |s| = 1000. The charted
@@ -341,3 +346,34 @@ dimension measurement.
 * **Lemma B** — max(3) = 67 reduces to one two-rotation statement, g(13,13) = 16
   and g ≤ 14 otherwise, measured but unproved. Two attack routes are in the
   ledger.
+
+
+## 6. Added 2026-08-05
+
+* **Translation buys nothing, measured.** A 13-configuration loses the count
+  under EVERY tested shift, at every scale down to 1/1000 — 7 along a coordinate
+  axis, 5 along (1,1,0), 6 along (1,1,1). The 24 edge-edge crossings a 13-pair
+  carries are destroyed wholesale: all 24 by a shift along the rotation axis,
+  23 of 24 perpendicular in the mirror plane, 19 of 24 perpendicular out of it.
+  So the maximiser locus does not extend into the translation directions at all,
+  and the moduli space worth probing stays rotational. This sharpens Postscript
+  38, which showed off-centring cannot BEAT 13; it cannot even HOLD it.
+* **Translation can partially compensate a forced rotation, and the best
+  direction is solvable.** Fixing a rotation δω, each crossing survives to first
+  order iff aᵢ·δt = −bᵢ·δω, so the optimal δt is the solution of some 3-subset of
+  24 equations — enumerable exactly. An in-plane rotation keeps 8 crossings
+  unaided and 14 with the best shift; an out-of-plane rotation keeps 0 unaided
+  and 9 with a shift. Never 24, so no compensated motion holds the count.
+* **The mirror-plane 13 component IS a continuum** — corrected twice in one
+  session. Probing x, y, z and (1,−1,0) from Cayley (−12,−11,0) gave 9/5/4 and
+  was read as isolation; solving the crossing-condition Jacobian instead gave a
+  rank-5 image with a one-dimensional null space along **(1,1,0)**, and sweeping
+  it holds 13 for 129 of 129 samples across s ∈ [−8,8], hitting both bounds. A
+  578-direction scan at two scales finds exactly ±(1,1,0) and nothing else, so
+  the component is 1-dimensional here. The 784 rational members found earlier are
+  points ON this curve, which is why rational search finds so many.
+* **Still open from tonight:** whether the count-13 locus and the
+  all-24-crossings locus coincide in general (they do at this point, but the
+  count needs only six disjoint slabs, not those particular incidences); and the
+  dimension by SOLVING the Step A slab conditions rather than scanning
+  directions.

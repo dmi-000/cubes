@@ -294,3 +294,41 @@ and any 0-dimensional claim about the n=3 (13,13,13) distinct-axis component.
 directions both leave a curve immediately, so a negative from either is not
 evidence. Get a tangent from the structure (a wall line, a symmetry, a family
 parameter) and step along that.
+
+## 13. A dimension method's zeros mean nothing until it passes a control
+
+**The rule.** Any method that reports the dimension of a maximiser locus must
+first be run on a configuration whose tangent is ALREADY KNOWN. If it cannot
+recover that tangent, its zeros elsewhere are measurements of its own
+conservatism and carry no information about the geometry. Report them as void,
+not as evidence of isolation.
+
+**Why this keeps being needed.** Every dimension method tried in this project
+fails in the same direction — it under-reports:
+
+* the LATTICE PROBE reads 0 for any locus not aligned with the coordinate axes
+  (§11d), and read 0 at the middle of an interval proved to carry 727;
+* the WALL-NORMAL null space treats every active catalogue wall as binding,
+  though most concurrences do not change the count, so it reported the n=6
+  record 0-dimensional when it demonstrably carries two tangents (Postscript 88);
+* `multicube2.py` did the same over all 3(n−1) coordinates, exactly and
+  overnight, and returned 0 for all nine maximisers INCLUDING the record and
+  n=8 where tangents were already verified (Postscript 100);
+* a hand-picked direction scan missed the tangent (1,1,0) at n=2 because it
+  sampled x, y, z and (1,−1,0) — and the miss was read as isolation, twice in
+  one session.
+
+**The controls that exist.** Use them.
+
+    n=2 mirror-plane 13 at Cayley (−12,−11,0)   tangent (1,−3,−6)? no: (1,1,0)
+    n=6 727 arc A midpoint                       tangent (1,−3,−6)
+    n=6 723 at Cayley (2/5,2/5,2/5)              tangent (1,1,1)
+    n=6 record (7,14,1,−5)                       TWO tangents
+    n=8 1891                                     two aligned directions
+
+`tight_set.py` passes the first of these and is currently the only method that
+passes any. That is why its zeros at the two 67s are believed and
+`multicube2.py`'s are not.
+
+**The asymmetry to remember.** A POSITIVE result — a direction that verifies —
+is self-certifying. A zero never is.

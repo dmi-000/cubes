@@ -151,6 +151,8 @@ with `index_ledger.py` after appending.
 - [Postscript 96](#postscript-96-what-happens-at-an-arc-terminus--a-corner-to-corner-contact-doubled) — what happens at an arc terminus — a corner-to-corner contact, doubled
 - [Postscript 97](#postscript-97-the-500-extent-spread-was-a-chart-artifact--measured-as-rotation-the-arcs-differ-by-21) — the 500× extent spread was a chart artifact — measured as rotation, the arcs differ by 2.1×
 - [Postscript 98](#postscript-98-one-figure-for-all-seven-levels--the-mark-carries-the-dimension) — one figure for all seven levels — the mark carries the dimension
+- [Postscript 99](#postscript-99-the-octahedral-67-is-built-from-mirror-plane-13s-not-body-diagonal-ones) — the octahedral 67 is built from MIRROR-PLANE 13s, not body-diagonal ones
+- [Postscript 100](#postscript-100-the-multi-cube-gap-closed-at-n3--solve-the-tight-step-a-conditions-not-the-concurrences) — the multi-cube gap CLOSED at n=3 — solve the tight Step-A conditions, not the concurrences
 
 <!-- INDEX:END -->
 
@@ -7346,3 +7348,81 @@ the axis-aligned probe, and n=5's zero holds only against single-cube moves.
 Both are consequences of the same untested gap — multi-cube directions have
 never been probed at any n — which the figure makes conspicuous by having to
 qualify two of its seven panels.
+
+---
+
+## Postscript 99: the octahedral 67 is built from MIRROR-PLANE 13s, not body-diagonal ones
+
+Asked whether the 2-subsets of the octahedral 67 form another n=2 family. They
+do, and it is the component the n=2 map still gets wrong.
+
+All three pairs of {I, R, R²} count **13**, so the three-cube maximiser is three
+two-cube maximisers assembled. But the relative rotation R = (1, 1, √2, 0) is
+120° about
+
+    axis (1, √2, 0)/√3 = (0.5774, 0.8165, 0)
+
+which lies in the mirror plane z = 0 and is NEITHER a body diagonal (0.5774,
+0.5774, 0.5774) NOR an edge axis (0.7071, 0.7071, 0). It sits on a
+mirror-plane component of the 13-locus — exactly what Postscript 70 missed,
+Postscript 76 corrected, and `n2map_standalone.html` still misstates on its
+summary card while its own data table contradicts it. Third independent route to
+the same correction.
+
+**The axis is irrational**, so this 13-family is not the rational-dense one. The
+body-diagonal family has dense rational points; this one does not, which is why
+rational search found plenty of 13s and never assembled a 67 from them.
+
+**And it locates the "distinct axes" of N3_STRUCTURE §5.** The (13,13,13) cell
+splits into a 2-dimensional shared-axis part counting 55 and isolated
+distinct-axis points holding the 67s. The distinct axes are mirror-plane axes of
+this kind, not diagonals — so the search that would find a 67 constructively has
+to work on the mirror-plane component, which no rational sweep can reach.
+
+---
+
+## Postscript 100: the multi-cube gap CLOSED at n=3 — solve the tight Step-A conditions, not the concurrences
+
+**THE FAILURE FIRST.** `multicube2.py` ran all nine maximisers overnight (n=8
+took 7 946 s) building the exact Jacobian of the active 4-plane CONCURRENCES over
+all 3(n−1) coordinates. Every target returned 0 verified directions — and the
+run is void by its own control: the n=6 record and n=8 1891 both have tangents
+already verified, and it missed both. The cause is Postscript 88's, at scale:
+most concurrences do not change the count, so treating each as binding drove the
+rank to nearly full (17 of 18 at n=7, 20 of 21 at n=8, 6 of 6 at n=3) and
+rotated any surviving direction off the true tangent, so verification killed it
+too. A method that fails its control produces no information.
+
+**THE REPAIR.** Solve the conditions that actually FIX THE COUNT — Step A's. A
+slab is nonempty iff ||n||₁ > 1; two slabs meet iff min over λ of
+||λnᵢ + (1−λ)nⱼ||₁ > 1. A STRICT inequality binds nothing, since it stays strict
+under perturbation. Only the ones holding with EQUALITY constrain, and the
+tangent space is the null space of the TIGHT gradients. `tight_set.py`.
+
+**CONTROL PASSED.** At the mirror-plane 13, Cayley (−12,−11,0): 36 quantities,
+**24 tight**, rank 2 of 3, tangent dimension 1, direction **(1,1,0)** — the
+tangent found independently by sweeping, recovered with no search and no
+verification step.
+
+**RESULT.**
+
+    octahedral 67, ℚ(√2)   108 quantities, 60 tight, rank 6 of 6 -> tangent dim 0
+    golden 67,     ℚ(√5)   108 quantities, 72 tight, rank 6 of 6 -> tangent dim 0
+
+The parameters are all six coordinates of both free cubes, so multi-cube
+directions were in scope throughout. Full rank means NO direction — single or
+multi-cube — preserves the tight conditions.
+
+**WHAT THIS ESTABLISHES.** Step B shows 67 forces every pair to a 13-pair, and
+the tight conditions are exactly those pair conditions, so they are NECESSARY
+for 67. Tangent dimension 0 therefore proves the two 67s are isolated **against
+motion of several cubes at once**, not merely against moving one. The
+"exactly two 67s" claim that several headline results are conditional on no
+longer rests on the lattice probe FAILURE_MODES 11d disqualified, nor on the
+codimension heuristic of Postscript 78 — it rests on a solve that demonstrably
+recovers a tangent when one exists.
+
+**REMAINING.** The tightness test is numerical at 1e-9; the exact version runs
+over ℚ(√2) and ℚ(√5). And this closes n=3 only — n=4,5,6,7,8 need the same
+substitution, which is now a matter of extending the condition set from Step A
+pairs to Step B's full decomposition.
