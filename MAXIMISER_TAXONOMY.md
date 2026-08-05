@@ -41,7 +41,7 @@ Terminology follows [`GLOSSARY.md`](GLOSSARY.md) §8.0 — no bare "point", "lin
 | 4 | 183 | **≥3** | ≥1; all 5 climbs give ONE class | — | **3** | rational |
 | 5 | 393 | **0** against single-cube moves | — | — | **3** | rational |
 | 6 | 723 | **≥1** | — ; a UNION of intervals | **≥14** | **3** | rational |
-| 6 | **727** | **1** | **≥4** | **≥10** on arc A | **1** | rational and irrational on ONE arc |
+| 6 | **727** | **1** | **≥4** — exactly 3 from the ℚ(√d) campaign, plus the record's line | **≥10** on arc A | **1** | rational and irrational on ONE arc |
 | 7 | 1217 | **≥1**, extent 1/32 | — | 1 | **1** | rational |
 | 8 | 1891 | **≥2**, two directions | — | 1 | **1** | rational |
 
@@ -245,7 +245,14 @@ dimension measurement.
   intervals, 727's arcs B/C/D, or the n=7/n=8 families wrap has not been tested.
   Cheap: extend each sweep well past its ends and look for the value returning.
 * **Arcs B, C, D at 727** — extents, chambers and endpoints unmeasured. Path:
-  mechanical, the same sweep as arc A.
+  mechanical, the same sweep as arc A. Their COUNT is now settled: the campaign's
+  1,449 727-records give 216 chart lines that dedupe to exactly **3 arcs** under
+  the 72-element group (base C₃ × the free cube's own 24 rotations), in three
+  orbits of uniform size 72. With the record's rational line that is ≥4
+  components, and any further ones must come from outside the mixed ℚ(√d) family.
+* **723's family is larger than mapped** — it still counts 723 at |s| = 1000
+  along (1,1,1), far outside the [9/32, 35/32] interval that was charted. Its
+  point at infinity counts 717. Path: sweep the whole line, not a window.
 * **Types at n = 2's edge arc, and at 183** — unmeasured. Path: per-label sweeps
   once a tangent is in hand.
 * **The two 67s' Jacobian rank** — would upgrade their isolation from a

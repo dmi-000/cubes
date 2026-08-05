@@ -136,6 +136,7 @@ with `index_ledger.py` after appending.
 - [Postscript 81](#postscript-81-a-tangent-finder-the-two-67-representatives-recovered-and-symmetry-measured-across-every-record) — a tangent finder, the two 67 representatives recovered, and symmetry measured across every…
 - [Postscript 82](#postscript-82-the-tangent-is-a-null-space-393-is-rigid-against-moving-one-cube-and-the-n7n8-extents) — the tangent is a null space, 393 is rigid against moving one cube, and the n=7/n=8 extents
 - [Postscript 83](#postscript-83-the-epsilon-neighbourhood-probe-is-one-recursion-and-the-n2-maximiser-locus-is-a-punctured-circle) — the epsilon-neighbourhood probe is one recursion, and the n=2 maximiser locus is a punctured…
+- [Postscript 84](#postscript-84-the-727-arcs-enumerated--1449-records-216-chart-lines-exactly-three-arcs-up-to-congruence) — the 727 arcs enumerated — 1,449 records, 216 chart lines, exactly THREE arcs up to congruence
 
 <!-- INDEX:END -->
 
@@ -6648,3 +6649,65 @@ apart** — which is why the taxonomy now carries topology as its own axis.
 Untested everywhere else: whether 723's intervals, 727's arcs B/C/D, or the
 n=7/n=8 families wrap. Cheap to settle — extend each sweep well past its
 apparent ends and watch for the value returning.
+
+---
+
+## Postscript 84: the 727 arcs enumerated — 1,449 records, 216 chart lines, exactly THREE arcs up to congruence
+
+A search rather than a measurement, run over data already on disk.
+
+**THE METHOD.** Every ℚ(√d) configuration at 727 has Cayley coordinates
+a + b√d with a, b RATIONAL, so it names a rational line P(t) = a + t·b and sits
+on it at t = √d. Postscript 80 used this on ONE witness per field and found
+three lines. Running it over all **1,449** recorded 727s gives **216 distinct
+chart lines** — two orders of magnitude more, and the obvious reading was that
+the component count had been badly underestimated.
+
+**FIRST CHECK: are they arcs at all?** Naming a line is not the same as 727
+holding along it — the count could hold only at the conjugate pair, making the
+line an artefact of the parametrisation. `arc_survey.py` sweeps each line around
+its own √d, t ∈ √d ± 2.5 at step 1/16:
+
+    genuine ARCS (727 on >= 3 consecutive samples)   205
+    727 only at isolated samples                      11
+    no 727 anywhere on the swept range                 0
+
+**SECOND CHECK, AND THE ONE THAT MATTERS: dedupe by symmetry.** A Cayley line is
+a chart object. The same physical arc recurs under the free cube's own 24
+rotations (R → Ru gives a different quaternion for the SAME cube) and under the
+base's C₃ (R → gR), so up to 72 chart lines per arc. The dedup is exact because
+q → g·q·u is LINEAR in q: lift each line to the 2-plane spanned by (1,a₀) and
+(0,v), apply all 72 maps, reduce each image to row-echelon canonical form, and
+collect orbits.
+
+    ORBITS: 3        orbit sizes: 72, 72, 72
+
+**216 = 3 × 72, uniformly.** So the campaign's 1,449 configurations at 727 lie
+on exactly **three arcs up to congruence** — which are precisely the A, B, C of
+Postscript 80, found there from one witness per field. The 216 was the same trio
+seen 72 times each, and the uniform orbit size says no arc carries extra
+stabiliser. The 11 "isolated" lines are sweep-window artefacts, since the orbit
+structure places all 216 in those same three classes.
+
+With the record's own wall line D — rational, so it never appears in a ℚ(√d)
+campaign, and verified skew with A, B and C — the count stands at **at least 4
+components**, and the campaign contributes exactly 3 of them. The earlier "≥4"
+was right, and is now right for a reason.
+
+**WRAPPING, TESTED.** Postscript 83 raised loop-versus-arc as a category.
+Evaluating the point at infinity of a Cayley line — the half-turn about its
+direction vector:
+
+    727 arc A    s = ±10, ±100, ±1000 and ∞  ->  695/699/707, never 727
+                 so arc A does NOT wrap; it is an arc with wall ends
+
+    723 along (1,1,1)   s = −1000, −100, −10, +100, +1000  ->  **723**
+                        s = ∞  ->  717
+
+So 723 does not wrap either, but its family is **far larger than mapped**: it
+was recorded as a union of intervals inside [9/32, 35/32], and it still counts
+723 at |s| = 1000 — rotations approaching a half-turn about the shared C₃ axis.
+Its point at infinity counts **717**, itself a record value (Postscript 11);
+whether that is the 717 compound or merely its count is untested.
+
+Files: `arc_survey.py`.
