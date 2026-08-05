@@ -26,27 +26,41 @@ Terminology follows [`GLOSSARY.md`](GLOSSARY.md) §8.0 — no bare "point", "lin
 7. **Findability** — basin size under climbing; a property of the maximiser plus
    a move set, not of the maximiser alone.
 8. **Topology, and the KIND of boundary** — whether a component is an arc or
-   WRAPS into a loop, and what its ends are. Two kinds of end are known and they
-   are not the same phenomenon: a **wall end**, where the count steps to a
-   neighbouring value (727 arc A ends at 723 and 721), and a **degeneracy
-   puncture**, where the count collapses because cubes coincide (the n=2
-   diagonal loop is punctured at three angles, each counting 1).
+   WRAPS into a loop, and what its ends are. THREE kinds of end are known and
+   they are not the same phenomenon:
+   * a **wall end**, where the count steps to a neighbouring value and stays
+     there (727 arc A ends at 723 and 721);
+   * a **degeneracy puncture**, where the count collapses because cubes coincide
+     (the n=2 diagonal loop is punctured at three angles, each counting 1);
+   * a **wall dip**, where the count drops exactly ON the wall and recovers on
+     the far side, so the locus is not cut at all. Measured 2026-08-05: the 723
+     line dips to 717 at u = −4, u = 39, u = 56 and at its point at infinity,
+     with 723 on both sides of every one. A dip is invisible to any sweep whose
+     grid misses it and fatal to any sweep whose grid lands on it — a sampled
+     "end" at a nice rational should be suspected of being a dip until the
+     chamber on the far side is evaluated.
 
 ## 2. The table
 
 | n | max | moduli dim | components | types | symmetry | arithmetic |
 |---|---|---|---|---|---|---|
-| 2 | 13 | **1** | **2 arcs + finitely many classes** | **1** on the diagonal arc | **D₆** (12) | rational dense on the arcs |
-| 3 | 67 | **0** | **exactly 2** | 1 each | **O** (24) oct / **D₃** (6) golden | both irrational, ℚ(√2), ℚ(√5) |
-| 4 | 183 | **≥3** | ≥1; all 5 climbs give ONE class | — | **C₃** | rational |
-| 5 | 393 | **0** against single-cube moves | — | — | **C₃** | rational |
-| 6 | 723 | **≥1** | **13** (orbit dedup) ; family is VAST — see below | **≥14** near the origin | **C₃** | rational |
+| 2 | 13 | **1** | **2 arcs + finitely many classes** | **1** — one profile (1,6,6,1) on BOTH arcs | **D₆** (12) | rational dense on the arcs |
+| 3 | 67 | **0**, but see §4 | **exactly 2** | 1 each | **O** (24) oct / **D₃** (6) golden | both irrational, ℚ(√2), ℚ(√5) |
+| 4 | 183 | **0 by every probe**, not proved | ≥1; all 5 climbs give ONE class | 1 | **C₃** | rational |
+| 5 | 393 | **0** against single-cube moves | ≥1 | 1 | **C₃** | rational |
+| 6 | 723 | **≥1** | **13** (orbit dedup) ; family is VAST — see below | **≥11** exact on the wrapping line | **C₃** | rational |
 | 6 | **727** | **1** | **≥4** — exactly **3** from the ℚ(√d) campaign (orbit dedup), plus the record's line | **≥10** on arc A | **trivial** | rational and irrational on ONE arc |
-| 7 | 1217 | **≥1**, extent 1/32 | — | 1 | **trivial** | rational |
-| 8 | 1891 | **≥2**, two directions | — | 1 | **trivial** | rational |
+| 7 | 1217 | **≥1**, extent 2.64° | ≥1 | **exactly 7** | **trivial** | rational |
+| 8 | **1895** | **≥2**, two directions | ≥1 | **≥8** | **trivial** | rational |
 
-Type counts are LOWER bounds: several chambers are narrower than the sweep grid
-and resolve to a single sample, so a finer grid can only split them further.
+Type counts from a SWEEP are lower bounds: several chambers are narrower than
+the grid and resolve to a single sample, so a finer grid can only split them
+further. The n=7 count and the 723 count are not sweeps — they come from solving
+for every wall crossing on the line and evaluating once between consecutive
+roots (§3a), which cannot miss a chamber and so is exact.
+
+**n = 8 is 1895, not 1891** (2026-08-05). See §3 for the configuration and §7
+for how it was found; every other file in the repo still says 1891.
 
 ## 3. How to generate a member of each category
 
@@ -62,8 +76,25 @@ Body-diagonal arc, every member:
 
 13 for every such (n,d); at n/d = 1 the rotation is a cube symmetry and the
 count collapses to 1. One type along the whole arc. Off the diagonal: 9.
-The edge arc is rotations about an edge axis through [arccos(1/3), arccos(−1/3)];
-the extra classes are the half-turns about (1,2,3) and (1,1,2).
+
+The edge arc, now measured exactly, is rotations about an edge axis:
+
+    ./cube_regions_n --quats "1,0,0,0;d,n,n,0"      exactly 1/2 <= n/d <= 1
+
+— that is θ ∈ [arccos(1/3), arccos(−1/3)], since for t = n/d the rotation angle
+satisfies tan(θ/2) = t√2, so the two ends tan(θ/2) = 1/√2 and tan(θ/2) = √2 are
+exactly t = 1/2 and t = 1. **The interval is CLOSED**: t = 1/2 and t = 1 count
+13, while t = 1/2 − 1/1024 and t = 1 + 1/1024 count 9. So the ends are wall ends
+where the level set is closed, not punctures. The negative half t ∈ [−1, −1/2]
+is the inverse rotation and the same congruence class.
+
+**The two arcs carry the SAME type.** Both count 13 with per-label (1, 6, 6, 1)
+at every sampled point of both, so the n=2 type column is 1 globally, not 1
+per arc — an invariant that does not separate the two components even though
+they are geometrically unrelated. The edge arc does NOT wrap: t → ∞ is the
+half-turn about (1,1,0), which counts 1, and t = 3/2, 3, 10, 100 all count 9.
+
+The extra classes are the half-turns about (1,2,3) and (1,1,2).
 
 ### n = 3, max 67 — two classes, so two members
 
@@ -73,16 +104,34 @@ the extra classes are the half-turns about (1,2,3) and (1,1,2).
 Both {I, R, R²} with R a 120° turn about the dihedral axis; derivation in
 `MAXIMISERS.md`. There is nothing else to generate — the set is these two.
 
-### n = 4, max 183 — one known class
+### n = 4, max 183 — one known class, and every probe reads isolated
 
     ./cube_regions_n --quats "1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4"
+
+Nothing moves off it. Two independent probes, both 2026-08-05:
+
+* the aligned probe, 18 single Cayley-axis moves at ε = 1/64, 1/256, 1/1024 plus
+  the four quaternion-component moves of the half-turn cube — **0 of 20 hold**,
+  and the neighbouring counts (161–173) do not even depend on ε;
+* an exhaustive integer-direction scan, 290 primitive directions u with
+  |uᵢ| ≤ 3 in the chart q → q·(1, εu), each of the 3 free cubes, at
+  ε = 1/32, 1/128, 1/512 — **0 of 870 hold**. The same scan recovers ±(1,1,1)
+  at both n = 2 maximisers, so its zeros are not the FAILURE_MODES 13 kind.
+
+The chart matters here: cube 2 is the half-turn (0,5,3,2), whose Cayley
+coordinates are at infinity, so any probe of it in the Cayley chart is
+meaningless. The right-multiplication chart q → q·(1,u) is valid at every
+rotation and is what both probes above use.
 
 ### n = 5, max 393 — rigid against moving one cube
 
     ./cube_regions_n --quats "$BASE"
 
 No single-cube perturbation preserves it (§4), so within that slice this is the
-only member.
+only member. Re-confirmed 2026-08-05 by the same 290-direction scan as at n = 4
+(**0 of 1160** hold, 4 free cubes × 290 directions × 3 scales) and by sweeping
+each of the 12 Cayley axes over s ∈ [−1/2, 1/2] at step 1/64: 393 appears at
+exactly one sample of each of the 12 sweeps, its own, and is never exceeded.
 
 ### n = 6, max 723 — a one-parameter stratum, filtered
 
@@ -98,11 +147,41 @@ is NOT universal on it: over 14 573 coprime (n,d) the counts are 723 (46.8%),
 membership still needs a count per member. The chamber table below lists
 verified members near the origin.
 
-Free sixth cube at Cayley (2/5,2/5,2/5) + s·(1,1,1); as an integer quaternion,
-`den, num, num, num` with num/den = 2/5 + s. 723 holds on a union of intervals,
-the longest s ∈ [9/32, 35/32], punctured by dips to 711, 699, 687.
+Free sixth cube at Cayley u·(1,1,1) (the file previously wrote this as
+(2/5,2/5,2/5) + s·(1,1,1), i.e. u = 2/5 + s); as an integer quaternion,
+`den, num, num, num` with num/den = u. Near the origin 723 holds on a union of
+short intervals, the longest u ∈ [0.68, 1.50], punctured by dips to 711, 699,
+687. **That fragmented zone is the small part of the family.**
 
-One representative per chamber, all counting 723 with distinct per-label:
+**THE 723 STRATUM WRAPS** (2026-08-05, and the only wrap known outside n = 2).
+Solving every wall crossing on the line rather than sampling it:
+
+    723 on u in (26.883566786478..., +infinity] U [-infinity, -7/2)
+
+and the two are ONE arc, joined through the point at infinity. Both ends are
+solved, not bracketed: the lower is the exact rational **u = −7/2**, a W4
+crossing; the upper is a W3 crossing, the quartic irrational 26.883566786478….
+There are 743 wall roots on the whole line, none outside [−200.91, 680.48], and
+evaluating once between every consecutive pair shows 723 in **every** chamber
+from 26.8836 up through infinity and back down to −7/2 — **11 type-chambers**,
+exact rather than a lower bound (one wall-chamber, between two roots 6·10⁻¹⁵
+apart, overflows the engine and is unevaluated; it is flanked by 723).
+
+The point at infinity is the half-turn about (1,1,1). It counts **717**, and so
+do u = −4, u = 39 and u = 56: all four are wall dips, 723 on both sides. So the
+locus is a circle punctured at four points, not two arcs — and the older reading
+"two huge runs that extend to at least |s| = 1000" was those runs seen from
+inside, with the join at infinity never tested.
+
+Measured as rotation angle the loop spans **21.19°**, against 3.99–8.43° for the
+727 arcs: the 723 family is not merely larger than the record's, it is larger by
+2.5× than the widest 727 arc. The 1/32-grid picture of a fragmented zone near
+the origin described a different part of the same line.
+
+One representative per chamber of the near-origin zone, all counting 723 with
+distinct per-label. These ranges are in the OLD parameter s = u − 2/5, so the
+table's [9/64, 11/64] is u ∈ [0.5406, 0.5719]; the quaternions are the
+authoritative form:
 
 | s-range | member (append to BASE) |
 |---|---|
@@ -173,16 +252,88 @@ factor. Every end steps down to 723, except arc A's lower end at 721.
 
 **Arc D is a crossing**: the record carries two independent tangents,
 (−1,−1/7,3/14) and (−1,−4/21,2/7), whose combinations all fail — two arcs
-meeting at a node, not a surface.
+meeting at a node, not a surface. Both were re-verified exactly on 2026-08-05
+(727 at s = ±1/64, ±1/32, ±1/16 along each; their sum drops to 721 at ±1/64).
+Neither is axis-aligned, and correspondingly no single Cayley axis of any of the
+five free cubes holds 727 anywhere on s ∈ [−1/2, 1/2] except at s = 0 itself.
 
-### n = 7 and n = 8
+**None of the four 727 arcs wraps.** Each line's point at infinity is the
+half-turn about its direction, and those count 699 (A), 693 (B), 689 (C), 693
+and 691 (D's two tangents); the tails at |s| = 100 … 10⁶ count 691–715. So all
+four terminate, and 723 is the only wrapping family known above n = 2.
 
-    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4"            # 1217
-    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;3,-3,3,-8"  # 1891
+### n = 7, max 1217 — an arc, both ends solved
 
-1217 moves along cube 6's Cayley x over an interval of extent 1/32. 1891 moves
-along cube 6's x AND cube 7's z, two independent directions; along cube 7's z it
-is fragmented, holding on [0, 3/32] and again on [15/64, 3/8].
+    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4"
+
+The free direction is **cube 7's Cayley x** — the (4,−3,−4,−4) cube at Cayley
+(−3/4,−1,−1), not the sixth cube as this file said until 2026-08-05. Exactly
+**1 of 36** single-axis moves preserves 1217, at ε = 1/64 and 1/256 alike, and
+it is one-sided (x− holds, x+ does not), so the record sits near an end.
+
+Solved, not swept — every W3/W4 crossing on the line, evaluated once between
+consecutive roots:
+
+    1217 on s in (-0.045258752093..., +0.002550224044...)
+
+**both ends W4**, 32 wall-chambers carrying **exactly 7 types**. Cayley extent
+0.0478, which as rotation angle is **2.64°** — two thirds of 727 arc A and an
+eighth of the 723 loop. The earlier figure "extent 1/32" was a sweep artefact, 35% low.
+Does not wrap: the half-turn about x counts 727 and the tails 1209.
+
+### n = 8, max 1895 — a NEW RECORD, and the same shape
+
+    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;24,-24,24,-61"
+
+**1895, beating the 1891 that stood since Postscript 46.** by_depth
+{1:350, 2:454, 3:382, 4:302, 5:222, 6:136, 7:48, 8:1}; reproduced by both
+engines; a local maximum against every ±1, ±2 move of every quaternion
+component. Its 7-cube subsets give exactly 1217, its 6-cube 727, its 5-cube 393,
+so the tower is now **13 / 67 / 183 / 393 / 727 / 1217 / 1895**.
+
+It was found by continuing the sweep that the 1891 write-up had stopped: 1891's
+own eighth cube is (3,−3,3,−8) at Cayley (−1,1,−8/3), and the old report gave
+"1891 on [0,3/32] and again on [15/64,3/8]" along z. At z-offset **s = 1/8**,
+just past the first interval and inside the reported gap, the count is 1895.
+See §7.
+
+Two independent directions hold 1895 — **2 of 42** single-axis moves, cube 7's
+Cayley x and cube 8's Cayley z — so its moduli dimension is ≥ 2, as 1891's was.
+Along cube 8's z, solved:
+
+    1895 on s in (-0.025621839667..., +0.101360157756...)
+
+lower end **W3**, upper end **W4**, 29 wall-chambers carrying **≥ 8 types** — 28
+evaluated, and the 29th overflows the wide engine and is flanked by 1895 on both
+sides, so it is reported as unevaluated rather than as a gap. Cayley
+extent 0.127, rotation angle **2.72°**. Does not wrap: the half-turn about z
+counts 1217 and the tails 1887.
+
+### 3a. How the extents and chamber counts above were obtained
+
+Not by sweeping. A sweep gives an interval accurate to its step, a chamber count
+that is only a lower bound, and no way to tell a wall dip from an end. The count
+and the per-label profile are constant BETWEEN consecutive wall crossings on a
+line, so:
+
+1. build the base's W3/W4 catalogue — `incidence2.base_catalogue` is hard-wired
+   to the five-cube 393 base, so for the n = 7 and n = 8 lines it is rebuilt for
+   an arbitrary base (`catalogue(cubes)`, same code with `FIVE` parametrised);
+2. solve for every root on the line — `wall_params.w4_params` (a quadric in the
+   line parameter) and `w3_params` (a quartic);
+3. evaluate the engine ONCE strictly between each consecutive pair of roots.
+
+The result is the exact chamber decomposition: ends named as roots rather than
+bracketed, no chamber missed however narrow, and a dip distinguished from an end
+by looking at the chamber on the far side. Costs of the three lines used above:
+743 roots (723 line), 3 997 (n = 7), 5 985 (n = 8), and one engine call per
+chamber in the window. `exact_chambers.py` in the session scratch.
+
+Two caveats. The catalogue bounds triple points at |p| ≤ 4, so a wall from a
+point outside that ball is missed. And a rational strictly between two roots
+that are 10⁻⁷ apart has a denominator large enough to overflow even the wide
+engine — one chamber of the n = 8 line and one of the 723 line came back as
+rejections, and are reported as unevaluated rather than as count changes.
 
 ## 4. Why the cells read what they do
 
@@ -205,14 +356,51 @@ change the count. Test rank-2 subsets and verify each (`tangent_finder.py`).
   heuristic, not a rank computation — the honest finish is the Jacobian rank at
   each 67. Corroborated: the best rational triple is 63, and every rational
   member of the distinct-axis part of (13,13,13) is degenerate.
-* **183 ≥ 3** — aligned probe, 6 of 18 single-axis moves.
+* **183 = 0 by every probe** — this cell read "≥ 3, aligned probe, 6 of 18
+  single-axis moves" until 2026-08-05 and **that figure is withdrawn**: it is
+  sourced nowhere in the ledger, and re-running the probe gives 0 of 20 at three
+  ε and 0 of 870 integer directions at three scales (§3). What can be said is
+  that no single-cube direction of the tested kind holds 183 — not that 183 is
+  isolated, which needs a method that survives its controls.
 * **393 = 0 against single-cube moves** — 12 active walls giving **46** distinct
   rank-2 subset directions, not one preserving 393 at ε = 1/64 or 1/1024; plus
   548 in-plane directions at four ε scales down to 1/65536, the count dropping
-  to 377 in every one.
+  to 377 in every one; plus the 1160-direction scan and the 12 axis sweeps of §3.
 * **723, 727 ≥ 1** — tangents (1,1,1) and (1,−3,−6), both from the null space,
   both walked.
-* **1217, 1891** — aligned probe, engine-verified directions.
+* **1217 ≥ 1, 1895 ≥ 2** — aligned probe, engine-verified directions: 1 of 36 at
+  n = 7 (cube 7 Cayley x), 2 of 42 at n = 8 (cube 7 x and cube 8 z, different
+  cubes and so independent).
+
+**A third method exists and it FAILS ITS CONTROL** — recorded here because
+Postscript 100 rests on it. `tight_set.py` takes the null space of the gradients
+of the TIGHT Step-A conditions (those holding with equality), and its zeros at
+the two 67s are the current basis for "exactly two 67s". Run on the five
+configurations with independently verified tangents (2026-08-05):
+
+    n=2 mirror-plane 13     null dim 1   known tangent recovered  1.0000  PASS
+    n=2 body-diagonal 13    null dim 1   known tangent recovered  1.0000  PASS
+    n=6 723 at u = 9/10     null dim 2   known tangent recovered  1.0000  PASS
+    n=6 727 arc A midpoint  null dim 2   known tangent recovered  1.0000  PASS
+    n=6 727 RECORD          null dim 1   D1 0.6018, D2 0.6194     FAIL
+
+The record carries two verified tangents, so any correct linearisation must have
+null dimension ≥ 2 there; it returns 1, and neither tangent lies in it. **So the
+method's zeros are not upper bounds on the moduli dimension**, and its 0 at the
+two 67s is evidence, not proof.
+
+The natural repair is refuted too. A tight quantity sits exactly at 1, where the
+slab is degenerate and bounds no open region, which suggests the count-preserving
+set is the CONE {J·v ≤ 0} rather than the null space {J·v = 0}. It is not: at the
+record, J·D1 and J·D2 each have **6 strictly positive components** out of 204 and
+the count holds regardless. The failure is that some tight conditions are tight
+but not BINDING — the degenerate incidence is not where a bounded region would
+open — and identifying which is the open problem.
+
+Consequently, the null-space dimensions this method reports at the untested
+cells are candidates only, and are recorded as such rather than as table
+entries: n=4 183 → 1, n=5 393 → 1, n=7 1217 → 2, n=8 1891 → 3. None of their
+directions survives an engine walk.
 
 **Symmetry decays from the maximum possible**, and is named by GROUP, not order
 — order alone is ambiguous, since 12 could be C₁₂, D₆ or T, 24 could be C₂₄,
@@ -222,7 +410,7 @@ D₁₂ or O, and 6 could be C₆ or D₃. Identified from element-order histogr
     n=2  13              D₆   {1:1, 2:7, 3:2, 6:2}   (not T, the other order 12)
     n=3  67 golden       D₃   {1:1, 2:3, 3:2}        (not C₆)
     n=4,5,6  183/393/723 C₃   {1:1, 3:2}
-    n=6,7,8  727/1217/1891   trivial
+    n=6,7,8  727/1217/1895   trivial
 
 O → D₆ → D₃ → C₃ → trivial. The octahedral 67 carries the full cube rotation
 group, the largest a compound can have. Note the two 67s differ in group TYPE,
@@ -271,6 +459,14 @@ half-turn (0,1,1,1), which counts 13. Verified at t = 1/1000, 1/10, 2, 10, 1000,
 three punctures are one C₃ orbit, so the C₃ about that axis permutes the three
 resulting arcs cyclically and they are ONE arc in class space.
 
+**And the 723 stratum wraps too** (§3), which makes the loop case the rule
+rather than the curiosity: of the seven families now tested for it, two wrap.
+Both wrapping families run along a symmetry axis of the base — the body diagonal
+at n = 2, the shared C₃ axis at n = 6 — and both have their point at infinity a
+half-turn about that axis. The five that terminate (727 arcs A–D, n = 7, n = 8)
+run in general directions. That is a testable prediction rather than a proved
+statement, and the cheapest test is the next family found along an axis.
+
 Contrast 727 arc A, which does not wrap: it terminates at 723 and 721. Same
 dimension, different topology, and the difference is invisible to every
 dimension measurement.
@@ -280,16 +476,17 @@ that reports 0 must first recover a known tangent, or its zeros are void.
 
 ## 5. Gaps, and the path to close each
 
-* ~~Multi-cube directions at n = 3~~ — **CLOSED** (`tight_set.py`, Postscript
-  100). Solving the TIGHT Step-A conditions rather than the concurrences: both
-  67s give rank 6 of 6 over all six coordinates of both free cubes, so tangent
-  dimension 0 — isolated against multi-cube motion, not just single-cube. The
-  method passes its control, recovering the known (1,1,0) tangent at n = 2.
-  (`multicube2.py`, which solved the concurrences instead, returned 0 everywhere
-  INCLUDING cases with known tangents, and is void by its own control.)
-* **Multi-cube directions at n = 4,5,6,7,8 — still open.** Path: the same
-  substitution, extending the condition set from Step A's pair conditions to
-  Step B's full decomposition.
+* **Multi-cube directions at n = 3 — REOPENED.** Postscript 100 closed this with
+  `tight_set.py`, on the strength of one control at n = 2. Run against all five
+  controls it fails the fifth, the n = 6 record, returning null dimension 1 where
+  two independent tangents are verified (§4). Its rank 6 of 6 at the two 67s is
+  therefore evidence and not proof, and "exactly two 67s" is back to resting on
+  the codimension heuristic. Path: find which tight conditions are tight but not
+  binding — at the record, exactly 6 of 204 tight gradients are violated by each
+  surviving tangent, a small enough set to characterise by hand.
+* **Multi-cube directions at n = 4,5,6,7,8 — still open**, and now without a
+  method believed at n = 3 either. Candidate null dimensions are in §4; none of
+  their directions survives an engine walk.
 * **Multi-cube directions are untested at every n.** All dimension figures come
   from moving ONE cube. A locus can be positive-dimensional via directions that
   move several cubes together, and nothing here excludes that — including at
@@ -304,9 +501,12 @@ that reports 0 must first recover a known tangent, or its zeros are void.
   and stratifies it. That is the general machine the one-off measurements above
   are hand-worked instances of, and it would deliver components, types and
   boundary kinds in one pass instead of one datum at a time.
-* **Loop-versus-arc is unmeasured everywhere except n = 2.** Whether 723's
-  intervals, 727's arcs B/C/D, or the n=7/n=8 families wrap has not been tested.
-  Cheap: extend each sweep well past its ends and look for the value returning.
+* ~~Loop-versus-arc is unmeasured everywhere except n = 2~~ — **MEASURED for all
+  seven families** (2026-08-05), by evaluating each line's point at infinity —
+  the half-turn about its direction — rather than by extending a sweep, which
+  can only ever suggest an answer. **723 WRAPS**; 727 arcs A, B, C and both of
+  D's tangents terminate, as do n = 7 and n = 8. The decisive test is one engine
+  call per line: the half-turn (0, d) for line direction d.
 * ~~Arcs B, C, D~~ — **MEASURED**: extents 0.16, 46.6 and (two crossing arcs of
   width 1/4 and 5/16), chambers 11 and 12, all ends stepping to 723 bar arc A's
   721, none wrapping. Still open: chamber walls to full precision, which needs
@@ -326,19 +526,22 @@ that reports 0 must first recover a known tangent, or its zeros are void.
   line. **W3+W4 bracket every chamber wall on arc A, 15 of 15**, closing the
   Postscript 58 gap. Only 15 of the 48 interior crossings change the type, so a
   wall crossing is necessary but not sufficient for a chamber boundary.
-* **Chamber counts are lower bounds** — arc A reads 10 chambers at 1/32, ≥16 at
-  denominator 256, and is capped at 49 by its interior W3/W4 crossings. Sample at
-  a FIXED small denominator: affine maps of awkward rationals overflow the engine
-  and the rejections read as type changes.
-* ~~723's family is larger than mapped~~ — **MEASURED**: over s ∈ [−50, 50],
-  579 of 801 samples count 723, dominated by runs [−50, −4] and [53/2, 50] that
-  both hit the sweep bounds and extend to at least |s| = 1000. The charted
-  [9/32, 35/32] was a fragmented zone near the base point. Its point at infinity
-  counts 717. Still open: where the two huge runs actually end.
+* ~~Chamber counts are lower bounds~~ — **no longer, where the line is solved**
+  (§3a). Evaluating between consecutive W3/W4 roots gives the exact count:
+  n = 7's 1217 has exactly **7** types over 32 wall-chambers, the 723 loop
+  **11**. Arc A still reads a sweep bound (10 at 1/32, ≥16 at denominator 256,
+  capped at 49 by its interior crossings) and should be redone the same way.
+* ~~723's family is larger than mapped~~ — **SOLVED**, and it is a LOOP:
+  723 on u ∈ (26.883566786478…, +∞] ∪ [−∞, −7/2), one arc through the point at
+  infinity, 11 types, angular extent 21.19°. The lower end is exactly −7/2 (W4),
+  the upper a W3 quartic root. The "two huge runs" were the two sides of one arc.
 * **Component counts for other totals** — 725 has 6 arcs, 723 has 13, by the
-  same orbit dedup. Unmeasured for totals below 723 and for other n.
-* **Types at n = 2's edge arc, and at 183** — unmeasured. Path: per-label sweeps
-  once a tangent is in hand.
+  same orbit dedup. Unmeasured for totals below 723 and for other n. Note the 13
+  arcs of 723 were counted before the wrap was known, so any two of them joined
+  at a point at infinity are one component and the figure may be an overcount.
+* ~~Types at n = 2's edge arc~~ — **MEASURED**, and there is only one type in all
+  of n = 2: (1, 6, 6, 1) on both arcs (§3). **Types at 183** is not a gap but a
+  consequence: no direction holds 183, so its type count is 1 by default.
 * **The two 67s' Jacobian rank** — would upgrade their isolation from a
   codimension heuristic to a computation. Representatives are in
   `MAXIMISERS.md`; the obstacle is that the walls must be differentiated in
@@ -377,3 +580,30 @@ that reports 0 must first recover a known tangent, or its zeros are void.
   count needs only six disjoint slabs, not those particular incidences); and the
   dimension by SOLVING the Step A slab conditions rather than scanning
   directions.
+
+## 7. The n = 8 record, and what still says 1891
+
+**1895.**
+
+    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;24,-24,24,-61"
+
+**How it was found, because the method generalises.** 1891's write-up recorded
+its eighth cube as free along Cayley z, "1891 on [0, 3/32] and again on
+[15/64, 3/8]". 1895 occupies (0.1016, 0.2227) — precisely the gap BETWEEN those
+two intervals, inside the window the original sweep had already covered. It was
+missed because the sweep recorded where 1891 held rather than what the line
+carried, so the gap read as a dropout instead of a rise. **A plateau sweep should record the
+maximum over the line, not the indicator of one value.** Three other lines were
+re-swept the same way on 2026-08-05 (every Cayley axis of every free cube at
+n = 5, 6, 7, 8 over s ∈ [−1/2, 1/2] at step 1/64) and none beat its record, so
+this was an omission on one line rather than a systematic one.
+
+**Confidence.** Both engines agree; by_depth sums correctly; a local maximum
+against all 128 single-component ±1, ±2 lattice moves; its 7-, 6- and 5-cube
+subsets give exactly 1217, 727 and 393, so it sits on the known tower rather
+than beside it.
+
+**Not propagated.** `LEDGER.md`, `MAXIMISERS.md`, `RESULTS.md`, `OVERVIEW.md`
+and the growth-table sections of the reports all still say the n = 8 record is
+1891, and the ledger is a chronological record that should be appended to rather
+than edited. Until that is done, this file and those disagree.

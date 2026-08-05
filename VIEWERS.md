@@ -1,12 +1,37 @@
-# The HTML viewers
+# The viewers and figures
 
-Standalone pages in this directory. Each opens in a browser with no server and
-no network — everything is inlined, because the Artifact CSP that these were
-built under blocks external hosts.
+Standalone pages and static figures in this directory. Every page opens in a
+browser with no server and no network — everything is inlined, because the
+Artifact CSP that these were built under blocks external hosts. Every figure is
+self-contained too: literal colours in the SVG, no external stylesheet, no
+webfont.
+
+## Inventory
+
+| file | kind | subject | documented in |
+|---|---|---|---|
+| `n2map_source.html` | page fragment | the complete n = 2 map | §1 |
+| `n2map_standalone.html` | page | the same, wrapped to render offline | §1 |
+| `arcmap.svg` / `.png` / `@2x.png` | figure | the 727 arc network as a transit map | §2 |
+| `arcmap.html` | page fragment | the map plus its prose | §2 |
+| `arcmap_standalone.html` | page | the same, offline | §2 |
+| `shapes.svg` / `.png` / `@2x.png` | figure | the maximiser set at every n, side by side | §3 |
+| `depth_explorer.html` | page, interactive 3-D | one compound's region walls, by depth | §4 |
+| `seed119_viewer.html` | page, interactive 3-D | the exact-search seed explorer | §5 |
+
+Two are STALE against results in `MAXIMISER_TAXONOMY.md`; each has a "what has
+changed" subsection, and `shapes.svg` should not be shown to anyone without
+reading §3 first — it prints two superseded numbers in large type.
+
+**Static or interactive is the first thing to know about each.** `arcmap` and
+`shapes` are figures: they carry their argument at a glance and take no input.
+`n2map`, `depth_explorer` and `seed119_viewer` are instruments: they render
+almost nothing useful until dragged, so a screenshot of one is not a summary of
+it.
 
 ---
 
-## `n2map_standalone.html` — "The shape of two cubes"
+## 1. `n2map_standalone.html` — "The shape of two cubes"
 
 **What it is.** An interactive presentation of the complete n = 2 map: the claim
 that the two-cube region count is decided entirely by where the rotation axis
@@ -62,8 +87,16 @@ regenerated since. Three later results refine it:
 * **Postscript 86** — the n = 2 maximiser's symmetry group is **D₆**, not merely
   "order 12", which is why that circle's three punctures form one C₃ orbit and
   collapse to a single arc in class space.
+* **2026-08-05** — the edge arc, which the page's data table hints at and its
+  summary card omits, is now exact: 13 on the CLOSED interval t ∈ [1/2, 1] of
+  `1,0,0,0;d,n,n,0`, that is rotation angle θ ∈ [arccos(1/3), arccos(−1/3)], with
+  9 immediately outside both ends. It does not wrap. And both n = 2 arcs carry
+  the SAME per-label profile (1, 6, 6, 1), so the type invariant does not
+  separate them — a point the page's stratum table could make directly.
 
-Anyone regenerating this page should fix the summary card first.
+Anyone regenerating this page should fix the summary card first: the row
+"body diagonal (3-fold axis) → 13" is the one that reads as exhaustive and is
+not.
 
 ### Provenance
 
@@ -80,7 +113,7 @@ Anyone regenerating this page should fix the summary card first.
 
 ---
 
-## `arcmap.png` — the 727 arc network as a transit map
+## 2. `arcmap.png` — the 727 arc network as a transit map
 
 **What it is.** A static diagram of every known six-cube configuration reaching
 727, drawn in the transit-map idiom: **distances distorted, topology preserved,
@@ -131,9 +164,26 @@ counting 725. The map draws that as a crossing WITHOUT an interchange, the
 transit convention for lines sharing no station, because it is precisely why the
 component count stays at four.
 
+### What has changed since it was drawn
+
+Less than for `shapes` — every number printed on `arcmap` still holds. The
+2026-08-05 work confirms rather than contradicts it: both of the record's
+tangents were re-verified exactly, so the line-D interchange is real, and the
+point-at-infinity test now proves what the map assumed, that **none of the four
+arcs wraps** (the half-turns about their directions count 699, 693, 689, and 693
+and 691 for D's two tangents).
+
+One thing the map cannot show has become worth saying beside it. The 723
+stratum, which every terminus on this map steps down to, is itself a
+one-parameter family — and it **wraps**, spanning 21.19° of rotation against
+3.99–8.43° for the arcs drawn here. So the grey "723" annotations around the
+edge of this map are not background: they are a loop 2.5× longer than the
+longest line on the map, and the 727 network sits inside a much larger structure
+that the frame excludes. A redraw might show 723 as the enclosing ring it is.
+
 ---
 
-## `shapes.png` — the maximiser set at every n, side by side
+## 3. `shapes.png` — the maximiser set at every n, side by side
 
 **What it is.** One figure comparing the shape of the maximiser set for n = 2
 through 8, drawn in a single frame so the levels can be read against each other.
@@ -164,15 +214,159 @@ bounds from the axis-aligned probe, which cannot see a locus in general
 position; n = 5's zero holds only against moving a single cube, since
 multi-cube directions have never been tested at any n.
 
+### What has changed since it was drawn — READ BEFORE SHOWING THIS FIGURE
+
+`shapes.svg` hard-codes its numbers as text, so two of them are now wrong in
+large type, and one of its three marks is wrong with them (2026-08-05,
+`MAXIMISER_TAXONOMY.md` §2):
+
+| the figure says | now |
+|---|---|
+| `n = 8` · `1891` | **1895** — a new record; the whole n = 8 column is superseded |
+| `n = 4` · `≥3-dim`, dashed patch | **0 by every probe** — the "≥3, 6 of 18 aligned moves" figure is withdrawn as unsourced and unreproducible; 0 of 20 aligned at three ε, 0 of 870 integer directions at three scales |
+| `n = 5` · `components —` | ≥1 |
+| `n = 7` · `components —` | ≥1 |
+| `n = 8` · `components —` | ≥1 |
+
+So n = 4's dashed patch should become a filled dot or, more honestly, a dot with
+the caveat that "no direction found" is not "isolated proved". n = 8 keeps its
+dashed patch — 1895 still carries two independent aligned directions, 2 of 42 —
+but the value beside it changes.
+
+**The headline survives all of it.** "n = 3 is the only finite case" does not
+depend on either correction; if anything n = 4 collapsing from a patch to a dot
+weakens the visual contrast the figure is built on, which is a reason to redraw
+it rather than to leave it. Two further additions belong in a redraw: n = 2 and
+n = 6's 723 both WRAP, so a redrawn n = 6 wants a loop mark rather than the arcs
+it has, and the mark vocabulary needs a third entry for it.
+
+**Caveats the figure prints are themselves now understated.** It says the n = 4
+and n = 8 dimensions are lower bounds from the axis-aligned probe. Since then
+`tight_set.py`, the method that would have upgraded them, has been shown to fail
+its control at the n = 6 record, so there is currently NO method whose zeros are
+trustworthy at any n — including the n = 3 zero this figure's headline rests on.
+That headline is still the best-supported reading, but it is evidence rather
+than proof and the figure does not say so.
+
 ---
 
-## Other pages here, not yet documented
+## 4. `depth_explorer.html` — the compound, its walls, and the dihedral slider
 
-* `depth_explorer.html` (61 KB) — the dihedral-family slider: ψ from 0° to 90°
-  through a 3-cube compound with exact face-plane coincidences, with a
-  maintain-concurrences lock and marks at the region-count transitions. See
-  `DIHEDRAL_SLIDER_SPEC.md` and `dihedral_slider_report.md`.
-* `seed119_viewer.html` (56 KB) — the seed explorer.
+**What it is.** The only page here that draws the actual GEOMETRY rather than a
+summary of it: a 3-D view of a compound's cubes, the wall arrangement they cut,
+and a cross-section through it, with the walls coloured by DEPTH — how many
+cubes a region lies inside. 67 KB, self-contained, no network.
+
+**Opening it.** `open depth_explorer.html`, then drag to orbit. It starts on a
+preset; the four preset buttons are **723 record**, **octahedral √2**,
+**golden √5** and **dihedral family**, and the text box takes any compound as
+quaternions or as matrices (radio `quaternions` / `matrices`, then **Load**).
+The 723 preset is the five-cube base plus `5,2,2,2`, so it is the 723 stratum's
+own generator seen as a solid.
+
+**The controls, and which are analysis rather than decoration.**
+
+| control | what it does |
+|---|---|
+| depth / containment filters | show only regions at a chosen depth, or only walls bounding them |
+| slice: normal ∥ x, y, z, (1,1,1) | the cross-section plane; the count of slice regions is displayed live |
+| wireframe / walls by depth / opaque / clip / flip | render modes; `opaque` and `clip` are what make an interior depth legible at all |
+| concurrences | rings where **4 or more face planes meet**, sized by multiplicity and coloured by kind — **gold = corner coincidence, blue = edge crossing** |
+| spin, axis | slow rotation for reading a shape without dragging |
+
+**The dihedral slider is the part with a result in it.** Selecting the family
+preset gives ψ ∈ [0°, 90°] through the 3-cube dihedral family, with:
+
+One cube rotates ±120° about an axis in its own face plane, and ψ tilts that
+axis. Then:
+
+* **`🔒 maintain concurrences`** — clamps dragging to the current core interval.
+  Between the two golden copies, **ψ ∈ [20.905°, 69.095°]** — that is
+  90° − arctan(φ²) and arctan(φ²) — a fixed core of **18 edge concurrences**
+  stays exact and unbroken across the whole drag; outside that interval the core
+  is **12**. The lock is what makes the sweep a path along a stratum rather than
+  a drift off it, and the 18-to-12 step is the page's central claim.
+* **ticks at the region-count transitions**, at ψ = 20.905°, **45°** and
+  69.095°, plus **ghost-free zones** marking where nothing changes.
+* the two octahedral values, **ψ = arcsin(1/√3) ≈ 35.264°** and
+  **ψ = arctan(√2) ≈ 54.736°**, shown as **momentary spikes** in their own mark
+  colour. The page's own comment records what they are: +12 extra coincidences
+  existing only exactly AT those isolated ψ, with the set reverting on either
+  side and the core untouched. That is the **wall dip** of
+  `MAXIMISER_TAXONOMY.md` §1, drawn well before it was named there — a
+  coincidence that exists only on the wall and changes nothing on either side of
+  it. If you want to see why a sweep must not report the value it finds at a
+  nice-looking parameter, drag the slider onto one of those two spikes.
+* the arithmetic is why the two named angles matter: √2 resolves at the
+  octahedral point and φ = (1+√5)/2, hence √5, at the golden point — the same
+  two quadratic fields the two 67s live in.
+
+**Specs and report.** `DIHEDRAL_SLIDER_SPEC.md`, `dihedral_slider_report.md`,
+and `SLIDE3_SPEC.md` / `SLIDE3_SPEC_V2.md` for the underlying slide-3 work.
+
+**Older copies exist and differ.** `bak/depth_explorer.html` and
+`bak/depth_explorer.07-15.html` are earlier versions — `bak/depth_explorer.html`
+is NOT identical to the live one. `github/scratchpad/` holds two more, including
+`depth_explorer.pre-highlight-zoom-clip.html`, whose name records the feature
+added after it. Treat the top-level file as the only current one.
+
+---
+
+## 5. `seed119_viewer.html` — the exact-search seed explorer
+
+**What it is.** A browser for the six-cube exact search: type a seed, see that
+seed's compound in 3-D, its exact region count, its by-depth histogram, and its
+six integer quaternions. 56 KB, self-contained.
+
+**The filename is stale and the file is not.** It was named at seed 119 and has
+been regenerated repeatedly since: the embedded snapshot now covers **seeds 0
+through 1176**, counts ranging 463 to 619. Do not infer the contents from the
+name.
+
+**Opening it.** `open seed119_viewer.html`; drag to orbit, scroll to zoom. The
+seed box (with −/+ buttons) is the only real input; `face opacity` and
+`slow spin` are view settings. It opens on seed 403.
+
+**What the embedded data is.** One entry per seed: the exact bounded-region
+count, and for seeds 40 upward the full by-depth vector. Seeds 0–39 were
+certified in a batch that recorded counts only, so their histograms are absent
+and the bar chart is empty for them — that is missing data, not a zero.
+
+**The one number to read it for.** The best seed in the snapshot is **1026, at
+619**, with by-depth `110, 206, 164, 102, 36, 1`. Set against the conjectured
+per-depth ceiling `112, 208, 164, 102, 36, 1` — total 623 — it is 2 short at
+depth 1 and 2 short at depth 2 and exactly at the ceiling in every deeper slot.
+That is the page's actual argument: random seeds saturate the deep structure and
+lose only at the shallow end.
+
+**It self-checks.** A hidden banner (`id="warn"`) appears if the page's RNG
+reimplementation disagrees with the search's, because the geometry is
+regenerated in the browser from the seed rather than shipped: if the RNG does
+not match, the shapes are not the certified ones. If that banner is visible,
+the counts are still right and the picture is not.
+
+**Regenerating it.** `make_seed_viewer.py` rebuilds the HTML from
+`exact_search_results.jsonl` plus the hardcoded seeds 0–39 batch. Note the
+script's paths point at a scratchpad under `/private/tmp` and a log under
+`~/carroll/`, neither of which is in this repo — it will need its two path
+constants repointed before it runs. `cb/seed119_viewer.html` is a byte-identical
+older copy.
+
+---
+
+## Where the duplicates are
+
+Three trees hold copies, and only the top level is current:
+
+* **`github/`** — a full mirror, byte-identical for **all twelve** figure and
+  page files (verified with `cmp` on 2026-08-05). It is a publication staging
+  copy, not a fork.
+* **`bak/`** — older `depth_explorer.html`, which DIFFERS from the live file.
+* **`cb/`** — an older working directory; its `seed119_viewer.html` is identical
+  to the live one.
+
+If a figure is regenerated, `github/` needs the same file or the mirror silently
+goes stale.
 
 ---
 

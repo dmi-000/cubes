@@ -58,7 +58,7 @@ missteps is [`PROOF_NARRATIVE.md`](PROOF_NARRATIVE.md).
 | 6 | 655 | two 60°-body-diagonal pair walls, constructed | ℚ (rational) |
 | 6 | 635 | best from 360k random rational seeds + climbing | ℚ (rational) |
 | 7 | **1217+** | greedy extension of 727 (Postscript 46) | ℚ (rational) |
-| 8 | **1891+** | greedy extension of 1217 (Postscript 46) | ℚ (rational) |
+| 8 | **1895+** | the 1217 seven + `24,-24,24,-61` (Postscript 101; was 1891) | ℚ (rational) |
 
 Deep-depth ceilings **d3 ≤ 164, d4 ≤ 102, d5 ≤ 36, d6 = 1** have never
 been exceeded in any config or on any wall tested (conjectures C4/C5/C6,
@@ -152,6 +152,13 @@ live ghost/near-miss counter, and a "maintain concurrences" lock) that
 traces the exact-coincidence family of Postscripts 25–26 instead of the
 old slide's near-miss ghost gaps. Also hosted:
 https://claude.ai/code/artifact/044d34a6-3f36-43b2-9ec8-17fb5691c87c
+
+**Every page and figure is documented in [`VIEWERS.md`](VIEWERS.md)** — the
+interactive pages, the two static figures (`arcmap`, `shapes`) and their
+SVG/PNG forms, what each argues, which controls are analysis rather than decoration,
+where the duplicate copies live, and which figures have gone stale against
+`MAXIMISER_TAXONOMY.md`. Read it before showing `shapes.png` to anyone: it
+prints two superseded numbers in large type.
 
 ## Continuing the searches
 

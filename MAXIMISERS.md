@@ -55,7 +55,7 @@ non-congruence outright — an invariant independent of Theorem R's μ.
 Pair label (9,9,9,13,13,13); O-reduced pair angles three at 43.004° and three at
 46.826°. All five independent climbs that reached 183 give this class.
 
-## n = 5, max 393  ·  n = 6, max 723 and 727  ·  n = 7, max 1217  ·  n = 8, max 1891
+## n = 5, max 393  ·  n = 6, max 723 and 727  ·  n = 7, max 1217  ·  n = 8, max 1895
 
 All share the same five-cube base:
 
@@ -65,7 +65,14 @@ All share the same five-cube base:
     ./cube_regions_n --quats "$BASE;5,2,2,2"                      # 723, sym 3
     ./cube_regions_n --quats "$BASE;7,14,1,-5"                    # 727, sym 1
     ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4"         # 1217, sym 1
-    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;3,-3,3,-8"  # 1891, sym 1
+    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;24,-24,24,-61" # 1895, sym 1
+
+The n = 8 entry was `3,-3,3,-8`, counting 1891, until 2026-08-05. **1895
+supersedes it**, and the two differ only in the eighth cube: both are that cube
+at Cayley (−1, 1, z), the old one at z = −8/3 and the new at z = −61/24, one
+eighth of a unit further along the same line. See LEDGER Postscript 101.
+
+    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;3,-3,3,-8"   # 1891, superseded
 
 ### 727 is a continuum, so no single representative is canonical
 

@@ -153,6 +153,7 @@ with `index_ledger.py` after appending.
 - [Postscript 98](#postscript-98-one-figure-for-all-seven-levels--the-mark-carries-the-dimension) — one figure for all seven levels — the mark carries the dimension
 - [Postscript 99](#postscript-99-the-octahedral-67-is-built-from-mirror-plane-13s-not-body-diagonal-ones) — the octahedral 67 is built from MIRROR-PLANE 13s, not body-diagonal ones
 - [Postscript 100](#postscript-100-the-multi-cube-gap-closed-at-n3--solve-the-tight-step-a-conditions-not-the-concurrences) — the multi-cube gap CLOSED at n=3 — solve the tight Step-A conditions, not the concurrences
+- [Postscript 101](#postscript-101-n--8--1895--the-record-was-inside-a-window-an-earlier-sweep-had-already-covered-and-the-723-stratum-wraps) — n = 8 = 1895 — the record was inside a window an earlier sweep had already covered; and the…
 
 <!-- INDEX:END -->
 
@@ -7426,3 +7427,106 @@ recovers a tangent when one exists.
 over ℚ(√2) and ℚ(√5). And this closes n=3 only — n=4,5,6,7,8 need the same
 substitution, which is now a matter of extending the condition set from Step A
 pairs to Step B's full decomposition.
+
+---
+
+## Postscript 101: n = 8 = 1895 — the record was inside a window an earlier sweep had already covered; and the 723 stratum WRAPS
+
+**THE RECORD.**
+
+    ./cube_regions_n --quats "4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1;1,1,1,1;\
+    7,14,1,-5;4,-3,-4,-4;24,-24,24,-61"          -> 1895
+
+by_depth {1:350, 2:454, 3:382, 4:302, 5:222, 6:136, 7:48, 8:1}. Both engines
+agree. Symmetry order 1, by the same stabiliser computation that reproduces
+3/3/1/1/1 for 393/723/727/1217/1891. Its 7-, 6- and 5-cube subsets give exactly
+1217, 727 and 393, so it extends the tower rather than sitting beside it. Beaten
+by nothing in 33 060 further exact evaluations: all 18 048 one- and
+two-component lattice perturbations, 10 556 replacement eighth cubes (exhaustive
+to |component| ≤ 4 plus log-uniform samples to 512), 3 000 replacement sevenths
+and 3 000 replacement sixths.
+
+**HOW IT WAS MISSED, WHICH IS THE PART WORTH KEEPING.** Postscript 82 reported
+the 1891 locus along its eighth cube's Cayley z as "1891 on [0, 3/32] and again
+on [15/64, 3/8]". 1895 occupies (0.1016, 0.2227) — **precisely the gap between
+those two intervals**, inside the window that sweep had already covered. The
+sweep recorded WHERE THE KNOWN VALUE HELD rather than what the line carried, so
+a rise read as a dropout. A plateau sweep must report the maximum over the line,
+not the indicator of one value. Re-sweeping every Cayley axis of every free cube
+at n = 5, 6, 7, 8 over s ∈ [−1/2, 1/2] found no other omission of this kind, so
+it was one line, not a systematic fault — but the reporting habit was general.
+
+**THE PLATEAU, SOLVED.** 1895 on s ∈ (−0.025621839667…, +0.101360157756…) along
+that z, lower end a W3 crossing and upper a W4, 29 wall-chambers carrying ≥ 8
+types, Cayley extent 0.127 = **2.72°** of rotation. Two independent aligned
+directions hold it (2 of 42: cube 7's x and cube 8's z), so moduli dimension ≥ 2,
+as 1891's was. Does not wrap.
+
+**723 WRAPS.** Separately, and the more structural of the two results. The 723
+one-parameter family is the sixth cube at Cayley u·(1,1,1); solving every W3/W4
+crossing on that line rather than sampling it gives
+
+    723 on u in (26.883566786478..., +infinity] U [-infinity, -7/2)
+
+**and the two are ONE arc**, joined through the point at infinity. Lower end the
+exact rational **u = −7/2** (W4), upper a W3 quartic root. 743 wall roots on the
+line, none outside [−200.91, 680.48]; evaluating once between every consecutive
+pair gives 723 in every chamber across that whole stretch — 11 type-chambers,
+exact rather than a lower bound. Angular extent **21.19°**, against 3.99–8.43°
+for the 727 arcs, so the 723 family is 2.5× longer than the longest 727 arc.
+The point at infinity is the half-turn about (1,1,1), counting 717.
+
+**A THIRD KIND OF BOUNDARY: THE WALL DIP.** u = −4, 39, 56 and the point at
+infinity all count 717 with **723 on both sides**. The count drops exactly ON
+the wall and recovers — so the locus is not cut there at all. This is neither a
+wall end nor a degeneracy puncture, and it is the reason the older reading saw
+"two huge runs": the joins were dips, and the grid either missed them or landed
+on them. A sampled end at a nice rational is a dip until the chamber beyond it
+is evaluated. (`depth_explorer.html` has been drawing this for a year — its two
+octahedral spikes at ψ = arcsin(1/√3) and arctan(√2) carry +12 coincidences
+existing only exactly at those ψ.)
+
+**LOOP-VERSUS-ARC, NOW DECIDED FOR ALL SEVEN FAMILIES**, by one engine call each
+— the half-turn (0, d) for line direction d, which is the line's point at
+infinity. 723 wraps; 727 arcs A, B, C and both of the record's tangents
+terminate, as do n = 7 and n = 8 (their half-turns count 699, 693, 689, 693, 691,
+727, 1217). With n = 2 that is two wraps out of seven, and both wrapping families
+run along a symmetry axis of the base while all five that terminate do not. A
+prediction, not a theorem.
+
+**POSTSCRIPT 100 IS REOPENED.** `tight_set.py` closed the n = 3 multi-cube gap on
+the strength of one control. Run against all five configurations with
+independently verified tangents it passes four and **fails the fifth**: at the
+n = 6 record it returns null dimension 1, where D1 = (−1,−1/7,3/14) and
+D2 = (−1,−4/21,2/7) both hold 727 exactly at ±1/64 … ±1/16, and neither lies in
+the space (projections 0.6018 and 0.6194). Any correct linearisation must have
+null dimension ≥ 2 there. So its rank 6 of 6 at the two 67s is evidence, not
+proof, and "exactly two 67s" rests on the codimension heuristic again.
+
+The obvious repair fails too. A tight quantity sits at exactly 1, where the slab
+is degenerate and bounds no open region, suggesting the count-preserving set is
+the CONE {J·v ≤ 0} rather than the null space {J·v = 0}. It is not: J·D1 and
+J·D2 each have **6 strictly positive components** out of 204, and the count holds
+regardless. Some tight conditions are tight but not BINDING — the degenerate
+incidence is not where a bounded region would open. Six of 204 is a small enough
+set to characterise by hand, and that is the way back in.
+
+**AND THE n = 4 DIMENSION FIGURE IS WITHDRAWN.** `MAXIMISER_TAXONOMY.md` carried
+"183 ≥ 3 — aligned probe, 6 of 18 single-axis moves". That figure appears nowhere
+in this ledger and does not reproduce: 0 of 20 aligned moves at three ε, and 0 of
+870 integer directions |uᵢ| ≤ 3 at three scales, the same scan recovering
+±(1,1,1) at both n = 2 maximisers. The likely cause is a chart error — 183's
+second cube is the half-turn (0,5,3,2), whose Cayley coordinates are at infinity,
+so any Cayley-chart probe of it is meaningless. Use q → q·(1,u), valid at every
+rotation.
+
+**METHOD NOTE — SOLVE THE LINE, DO NOT SAMPLE IT.** Every extent and chamber
+count above comes from: build the base's W3/W4 catalogue (`incidence2` is
+hard-wired to the five-cube base; parametrising `FIVE` serves any base), solve
+`wall_params.w4_params` and `w3_params` for the roots on the line, then evaluate
+once strictly between each consecutive pair. Ends are named as roots rather than
+bracketed, no chamber is missed however narrow, and a dip is told from an end by
+looking past it. Two caveats: the catalogue bounds triple points at |p| ≤ 4, and
+a rational between two roots 10⁻⁷ apart overflows even the wide engine — one
+chamber on each of the n = 8 and 723 lines came back rejected and is reported as
+unevaluated, not as a count change.

@@ -45,14 +45,20 @@ enters any decision.
 | 5 | 393 | VERIFIED | 5-subset of the n=6 record |
 | 6 | **727** | VERIFIED | 393's five cubes + `7,14,1,-5` |
 | 7 | **1217** | VERIFIED | the 727 six + `4,-3,-4,-4` |
-| 8 | **1891** | VERIFIED | the 1217 seven + `3,-3,3,-8` |
+| 8 | **1895** | VERIFIED | the 1217 seven + `24,-24,24,-61` |
 
-The tower nests: 183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1891, adjacent levels differing by
-one cube. Depth profiles:
+The tower nests: 183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1895, adjacent levels differing by
+one cube — verified for 1895 by taking every 7-, 6- and 5-cube subset, which
+give exactly 1217, 727 and 393. Depth profiles:
 
     727  = {214, 220, 156, 100, 36, 1}
     1217 = {278, 328, 260, 190, 118, 42, 1}
-    1891 = {348, 452, 382, 302, 222, 136, 48, 1}
+    1895 = {350, 454, 382, 302, 222, 136, 48, 1}
+
+**1895 replaced 1891 on 2026-08-05** (Postscript 101). The two differ in the
+eighth cube alone and gain +2 at depth 1 and +2 at depth 2, every deeper slot
+unchanged — so the increment is entirely shallow, the same signature by which
+727 beat 723.
 
 ## 3. Theorems
 
@@ -212,6 +218,7 @@ current.
 | Step T reduces to "deg_top ≤ deg_bot at triple points" | **REFUTED** — false; a corner with two blades gives deg_top 8 against deg_bot 4. The theorem holds by a different argument | Postscripts 42, 43 |
 | 723 is the n = 6 maximum, cornered three independent ways | **SUPERSEDED** — 727 | Postscript 46 |
 | n = 7 = 1211 and n = 8 = 1889 | **SUPERSEDED** — 1217 and 1891, the same day | Postscript 46 |
+| n = 8 = 1891 | **SUPERSEDED** — 1895, found by continuing the sweep that produced 1891 past where it stopped | Postscript 101 |
 | 393 is reachable only as a subset of the n = 6 record | **REFUTED** — a wide-height menu on 183 reaches it bottom-up; the claim was an artifact of small-quaternion search | Postscript 46 |
 | 727 is a plateau (first claim, from a second sixth cube with the same count) | **WITHDRAWN then RE-ESTABLISHED** — that cube is congruent to the original; two genuinely non-congruent 727s were later found with a different depth profile | Postscripts 46, 48 |
 | The absence of irrational solutions in the wall strata says something about the problem | **ARTIFACT** — edge-edge conditions factor into rational planes, so those strata are all-rational by construction; the mixed strata are 240:1 irrational | Postscripts 49, 50 |
