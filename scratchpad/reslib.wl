@@ -22,13 +22,7 @@ pairCosSin[{j_, k_}] := Module[{cj, sj, ck, sk},
   {cj, sj} = cs[j]; {ck, sk} = cs[k];
   {cosDelta[cj, sj, ck, sk], sinDelta[cj, sj, ck, sk]}];
 
-gYX[cD_, sD_, cP_, sP_] := gXY[cD, -sD, cP, sP];
-gZY[cD_, sD_, cP_, sP_] := gYZ[cD, -sD, cP, sP];
-gZX[cD_, sD_, cP_, sP_] := gXZ[cD, -sD, cP, sP];
-
 gOf["xy"] = gXY; gOf["yz"] = gYZ; gOf["xz"] = gXZ;
-gOf["yx"] = gYX; gOf["zy"] = gZY; gOf["zx"] = gZX;
-allTypes = {"xy", "yz", "xz", "yx", "zy", "zx"};
 
 circleRels = {c2^2 + s2^2 - 1, c3^2 + s3^2 - 1, c4^2 + s4^2 - 1, cP^2 + sP^2 - 1};
 

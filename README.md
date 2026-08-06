@@ -18,7 +18,11 @@ overloaded enough to have misled someone.
 
 **When something goes wrong**, or before trusting a clean result, read
 [`FAILURE_MODES.md`](FAILURE_MODES.md) — the project's accumulated errors
-organised by symptom, with the checks that catch each one.
+organised by symptom, with the checks that catch each one. Its companion
+[`METHODS.md`](METHODS.md) collects what to DO: solve a line rather than sample
+it, report the maximum over it rather than the indicator of one value, decide
+wrapping at the point at infinity, pick the control that is hard for the method,
+and why coincidence count is a certificate but never a compass.
 
 **Start with [`RESULTS.md`](RESULTS.md)** — what the project currently
 believes, every claim tagged by how strongly it is established, with

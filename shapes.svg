@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="884" viewBox="0 0 1180 884">
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="902" viewBox="0 0 1180 902">
 <style>
 .ttl{font:600 26px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#15181d}
 .sub{font:14px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#6a7180}
@@ -10,7 +10,7 @@
 .cap{font:13px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#6a7180}
 .capb{font:600 13px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#15181d}
 </style>
-<rect width="1180" height="884" fill="#faf9f7"/>
+<rect width="1180" height="902" fill="#faf9f7"/>
 <text class="ttl" x="40" y="48">The shape of the maximiser set, cube by cube</text>
 <text class="sub" x="40" y="76">What the best configuration at each n looks like as a set of congruence classes · the mark carries the dimension, and whether it is established</text>
 
@@ -88,7 +88,7 @@
 <text class="k" x="570" y="425" text-anchor="middle">arithmetic</text>
 <text class="v" x="570" y="439" text-anchor="middle">rational</text>
 <text class="k" x="570" y="452" text-anchor="middle">drops to</text>
-<text class="v" x="570" y="466" text-anchor="middle">377</text>
+<text class="v" x="570" y="466" text-anchor="middle">391</text>
 
 <!-- n = 6 : the 727 arcs, with the record where two of them cross -->
 <text class="n" x="725" y="118" text-anchor="middle">n = 6</text>
@@ -127,7 +127,7 @@
 <text class="k" x="880" y="425" text-anchor="middle">arithmetic</text>
 <text class="v" x="880" y="439" text-anchor="middle">rational</text>
 <text class="k" x="880" y="452" text-anchor="middle">drops to</text>
-<text class="v" x="880" y="466" text-anchor="middle">1213</text>
+<text class="v" x="880" y="466" text-anchor="middle">1215</text>
 
 <!-- n = 8 : 1895 since 2026-08-05; still two independent aligned directions -->
 <text class="n" x="1035" y="118" text-anchor="middle">n = 8</text>
@@ -146,7 +146,7 @@
 <text class="k" x="1035" y="425" text-anchor="middle">arithmetic</text>
 <text class="v" x="1035" y="439" text-anchor="middle">rational</text>
 <text class="k" x="1035" y="452" text-anchor="middle">drops to</text>
-<text class="v" x="1035" y="466" text-anchor="middle">1891</text>
+<text class="v" x="1035" y="466" text-anchor="middle">1893</text>
 
 <line x1="40" y1="514" x2="1140" y2="514" stroke="#dcd9d3" stroke-width="1"/>
 <text class="capb" x="40" y="540">THE MARK IS THE DIMENSION — A HOLLOW MARK MEANS THE ZERO IS ONLY A READING, A TICK MEANS THE END IS IN THE SET</text>
@@ -165,17 +165,18 @@
 <line x1="812" y1="565" x2="842" y2="565" stroke="#c2553a" stroke-width="4"/>
 <line x1="842" y1="558" x2="842" y2="572" stroke="#c2553a" stroke-width="3"/>
 <text class="lg" x="850" y="569">its end is in the set</text>
-<text class="cap" x="40" y="596">Dimension is measured in CLASS space; the 3 gauge dimensions of rotating a whole compound are quotiented out and never counted. "Drops to" is the</text>
-<text class="cap" x="40" y="616">highest count found immediately off the locus, so the gap beneath each maximiser is readable by subtraction: 4 at n = 2, 8 at n = 3, 16 at n = 5.</text>
-<text class="cap" x="40" y="640">n = 2's mark is the one exception, drawn in the Cayley chart: there the body-diagonal family wraps into a circle, but its three punctures are a single C₃ orbit,</text>
-<text class="cap" x="40" y="658">so in class space it is one arc. The fainter arc beneath is the edge family, and its two ticks are the only closed ends in the table — 13 holds AT both.</text>
-<text class="cap" x="40" y="676">A bare end is not in the set: at a 727 arc end the count is 725, between the 727 inside and the 723 beyond. n = 7 and n = 8's ends are quadratic</text>
-<text class="cap" x="40" y="694">irrationals, untested either way, and drawn bare provisionally. Every boundary point of every kind carries MORE edge-edge coincidences than either</text>
-<text class="cap" x="40" y="712">side of it: 10 → 24 at the n = 2 edge-arc ends, 144 → 162 at arc A's, 24 → 48 at the diagonal punctures. An arc ends by running into a denser stratum.</text>
-<text class="capb" x="40" y="744">n = 3 IS THE ONLY FINITE CASE</text>
-<text class="cap" x="40" y="766">Every level set here is semialgebraic, so it has finitely many components and each is a point or a continuum: a maximiser set is finite or</text>
-<text class="cap" x="40" y="786">uncountable, never countably infinite. Only n = 3 takes the finite option — two classes, both irrational, in ℚ(√2) and ℚ(√5). The other two</text>
-<text class="cap" x="40" y="806">zeros on this figure are drawn hollow for exactly that reason: they are what no search has found, not what an argument rules out.</text>
-<text class="cap" x="40" y="836">Caveats carried on the figure: n = 8's ≥2 is a LOWER bound from the axis-aligned probe, which cannot see a locus in general position. n = 5's zero</text>
-<text class="cap" x="40" y="856">holds only against moving ONE cube. And no method's zeros are yet trustworthy — the one that would upgrade them fails its control at the n = 6 record.</text>
+<text class="cap" x="40" y="596">Dimension is measured in CLASS space; the 3 gauge dimensions of rotating a whole compound are quotiented out and never counted. "Drops to" is the best</text>
+<text class="cap" x="40" y="616">count among 290 primitive Cayley directions at ε = 1/64, so the gap is readable by subtraction: 4, 8, 10, 2, 4, 2, 2 — and the neighbourhood is NOT one</text>
+<text class="cap" x="40" y="634">value but 4, 6, 14, 14, 22 and 32 distinct counts as n runs 2 to 8. No direction preserves the count except along a tangent: every maximiser lies on walls.</text>
+<text class="cap" x="40" y="658">n = 2's mark is the one exception, drawn in the Cayley chart: there the body-diagonal family wraps into a circle, but its three punctures are a single C₃ orbit,</text>
+<text class="cap" x="40" y="676">so in class space it is one arc. The fainter arc beneath is the edge family, and its two ticks are the only closed ends in the table — 13 holds AT both.</text>
+<text class="cap" x="40" y="694">A bare end is not in the set: at a 727 arc end the count is 725, between the 727 inside and the 723 beyond. n = 7 and n = 8's ends are quadratic</text>
+<text class="cap" x="40" y="712">irrationals, untested either way, and drawn bare provisionally. Every boundary point of every kind carries MORE edge-edge coincidences than either</text>
+<text class="cap" x="40" y="730">side of it: 10 → 24 at the n = 2 edge-arc ends, 144 → 162 at arc A's, 24 → 48 at the diagonal punctures. An arc ends by running into a denser stratum.</text>
+<text class="capb" x="40" y="762">n = 3 IS THE ONLY FINITE CASE</text>
+<text class="cap" x="40" y="784">Every level set here is semialgebraic, so it has finitely many components and each is a point or a continuum: a maximiser set is finite or</text>
+<text class="cap" x="40" y="804">uncountable, never countably infinite. Only n = 3 takes the finite option — two classes, both irrational, in ℚ(√2) and ℚ(√5). The other two</text>
+<text class="cap" x="40" y="824">zeros on this figure are drawn hollow for exactly that reason: they are what no search has found, not what an argument rules out.</text>
+<text class="cap" x="40" y="854">Caveats carried on the figure: n = 8's ≥2 is a LOWER bound from the axis-aligned probe, which cannot see a locus in general position. n = 5's zero</text>
+<text class="cap" x="40" y="874">holds only against moving ONE cube. And no method's zeros are yet trustworthy — the one that would upgrade them fails its control at the n = 6 record.</text>
 </svg>

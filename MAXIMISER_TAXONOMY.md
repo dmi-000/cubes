@@ -40,6 +40,31 @@ Terminology follows [`GLOSSARY.md`](GLOSSARY.md) §8.0 — no bare "point", "lin
      "end" at a nice rational should be suspected of being a dip until the
      chamber on the far side is evaluated.
 
+   **All three are the same event seen three ways: a COINCIDENCE SPIKE.**
+   Counting the real edge-edge crossings on each side of a boundary and at it
+   (2026-08-06) — two edges from different cubes generically miss, so every
+   crossing is a codimension-1 coincidence:
+
+       n=2 edge arc, t = 1/2 and t = 1     interior 10  ->  END 24  ->  outside 8
+       n=6 727 arc A, s = 19/6             interior 144 ->  END 162 ->  beyond 142
+       n=2 diagonal arc, t = 1 (puncture)  interior 24  ->  END 48  ->  outside 24
+
+   Every boundary point carries MORE coincidences than either side. An arc ends
+   because its line runs into a more degenerate stratum, never because the
+   geometry runs out. What distinguishes the three kinds is only what the count
+   does at the spike: it HOLDS (13 at both edge-arc ends, so the end is in the
+   set and the arc is closed), it DROPS to a value of its own (725 at arc A's
+   end, between the 727 inside and the 723 beyond, so the arc is open), or it
+   COLLAPSES because the cubes coincide (1 at the diagonal puncture, where the
+   crossings double to 48 and the rotation is a cube symmetry).
+
+   The two edge-arc ends are worth a second look: 24 crossings is exactly what
+   the body-diagonal 13-pair carries along its whole length, and the rotation
+   there has every entry a third — (1/3)[[2,1,2],[1,2,−2],[−2,2,1]] at t = 1/2,
+   angle arccos(1/3). So the edge arc runs from one maximally-coincident
+   configuration to another across a 10-crossing interior, and is closed at both
+   ends because the count survives the spike.
+
 ## 2. The table
 
 | n | max | moduli dim | components | types | symmetry | arithmetic |
@@ -61,6 +86,79 @@ roots (§3a), which cannot miss a chamber and so is exact.
 
 **n = 8 is 1895, not 1891** (2026-08-05). See §3 for the configuration and §7
 for how it was found and where it has been propagated.
+
+## 2a. The wall signature — which coincidences meet at each maximiser
+
+A maximiser is never in the interior of a chamber: no direction preserves the
+count except along a tangent (0 of 580 at n = 4, 0 of 1160 at n = 5, down to
+ε = 1/512), so it lies on an intersection of walls. **Which** walls is a
+categorisation in its own right, and it is discrete. Counting real edge-edge
+coincidences per cube PAIR:
+
+| n | max | 13-pairs (24 crossings) | 9-pairs (6) | 4-pairs (0) | total | rank of the crossing Jacobian |
+|---|---|---|---|---|---|---|
+| 2 | 13 diagonal | 1 | – | – | 24 | 2 of 3 |
+| 2 | 13 edge arc, interior | 1 (but **10** crossings) | – | – | 10 | 3 of 3 |
+| 2 | 13 edge arc, ends | 1 | – | – | 24 | 2 of 3 |
+| 4 | 183 | 3 | 3 | 0 | 90 | 8 of 9 |
+| 5 | 393 | 4 | 6 | 0 | 132 | 11 of 12 |
+| 6 | 723 | 6 | 6 | 3 | 180 | 13 of 15 |
+| 6 | 727 arc A | 4 | 8 | 3 | 144 | 13 of 15 |
+| 6 | **727 record** | 4 | 9 | 2 | 150 | 14 of 15 |
+| 7 | 1217 | 6 | 9 | 6 | 198 | 16 of 18 |
+| 8 | **1895** | 8 | 9 | 11 | 246 | 18 of 21 |
+
+**Crossings per pair take only three values, 24, 6 and 0, and they correspond
+exactly to the project's existing pair labels 13, 9 and 4** — verified pair by
+pair at n = 5, 6 and 8. So at n ≥ 4 this axis re-derives the pair label from
+geometry rather than from counting, and it reproduces the ledger's
+`6x13 9x9 6x4` at n = 7 and `8x13 9x9 11x4` at n = 8 exactly.
+
+**But it is strictly FINER than the pair label**, and n = 2 shows where. A
+13-pair in isolation carries 24 crossings **or 10** — the diagonal family and the
+edge arc's two ends carry 24, the edge arc's interior carries 10 — and a 9-pair
+carries 8 in isolation but 6 inside every maximiser. The pair label cannot see
+either distinction. Maximisers use only the 24-kind of 13-pair and only the
+6-kind of 9-pair.
+
+### What it suggests for finding maxima
+
+**The 9-pair count is frozen at 9 along the top of the tower.** 727, 1217 and
+1895 all carry exactly nine 9-pairs while the 13-pairs run 4 → 6 → 8 and the
+4-pairs run 2 → 6 → 11. Both extensions therefore added **exactly two 13-pairs,
+zero 9-pairs, and 4-pairs for the rest** — 6 new pairs at n = 7 (2 + 0 + 4) and 7
+at n = 8 (2 + 0 + 5). That is a precise extension rule to search against: look
+for a cube forming exactly two 13-pairs with the existing compound and no
+9-pairs, rather than sampling rotations and counting.
+
+**Locally the relation is nearly a function, and still not monotone.** Taking
+all 290 primitive Cayley directions at ε = 1/64 from the n = 4 183 and recording
+both counts, each region value corresponds to ONE crossing value exactly — the
+range is zero within every row:
+
+    crossings   54    58    60    64    66    78   |   90
+    regions    161   163   167   169   173   171   |  183
+    directions 174    41    65     4     2     4   |  the maximiser
+
+Pearson r = **+0.927**, and the map crossings → regions is single-valued. But it
+inverts once: the 78-crossing direction gives **171**, while the 66-crossing
+direction gives **173**. A local climb on coincidences picks 78 and loses two
+regions. So coincidence count is a strong predictor and a broken objective at
+every scale — globally it prefers 723 over 727, locally it prefers 171 over 173.
+(Cubes 2 and 3 give identical tables, which is 183's C₃ acting.)
+
+What does hold at the maximiser itself: 90 crossings and 183 regions are both
+strict local maxima, every one of the 290 neighbours being lower in both. So the
+two agree AT a maximiser and disagree in how they rank the configurations around
+it — which is exactly the wrong way round for a search that has to navigate by
+comparing non-maximal candidates.
+
+**Do NOT maximise coincidences.** 723 carries the richest structure in the table
+— 180 crossings, six 13-pairs — and loses to 727's 150 crossings and four
+13-pairs. The record beat 723 by trading two 13-pairs for three 9-pairs, which is
+the pair-language version of "the record left the corner-concurrence stratum".
+Crossing count is therefore not a usable surrogate objective for a climb; the
+pair-type MULTISET is the thing to target, not its total.
 
 ## 3. How to generate a member of each category
 
@@ -391,6 +489,10 @@ change the count. Test rank-2 subsets and verify each (`tangent_finder.py`).
   rank-2 subset directions, not one preserving 393 at ε = 1/64 or 1/1024; plus
   548 in-plane directions at four ε scales down to 1/65536, the count dropping
   to 377 in every one; plus the 1160-direction scan and the 12 axis sweeps of §3.
+  **Note the scope of the 377**: those 548 directions were restricted to a wall
+  plane. Over all 290 primitive Cayley directions the neighbourhood of 393 takes
+  **14 distinct counts** and its best neighbour is **391**, not 377 — so 393
+  stands only 2 above its surroundings, not 16.
 * **723, 727 ≥ 1** — tangents (1,1,1) and (1,−3,−6), both from the null space,
   both walked.
 * **1217 ≥ 1, 1895 ≥ 2** — aligned probe, engine-verified directions: 1 of 36 at
@@ -627,11 +729,33 @@ that reports 0 must first recover a known tangent, or its zeros are void.
   578-direction scan at two scales finds exactly ±(1,1,0) and nothing else, so
   the component is 1-dimensional here. The 784 rational members found earlier are
   points ON this curve, which is why rational search finds so many.
-* **Still open from tonight:** whether the count-13 locus and the
-  all-24-crossings locus coincide in general (they do at this point, but the
-  count needs only six disjoint slabs, not those particular incidences); and the
-  dimension by SOLVING the Step A slab conditions rather than scanning
-  directions.
+* ~~whether the count-13 locus and the all-24-crossings locus coincide~~ —
+  **THEY DO NOT** (2026-08-06). Counting real edge-edge crossings across the
+  whole n = 2 maximiser set:
+
+      diagonal-arc member (4,1,1,1)      13   24 crossings
+      (1,1,1) half-turn, the wrap point  13   24
+      half-turn about (1,2,3)            13   24   isolated class
+      half-turn about (1,1,2)            13   24   isolated class
+      edge-arc ENDS, t = 1/2 and t = 1   13   24
+      edge-arc INTERIOR, t = 3/4         13   **10**
+      (1,1,0) half-turn                   1   48   a cube symmetry
+
+  Every 13 in the table sits at 24 crossings **except the interior of the edge
+  arc, which reaches 13 with only 10**. So the count does not require those
+  particular incidences, exactly as the six-disjoint-slabs argument suggested,
+  and the edge arc is the one part of the n = 2 maximiser set that is not
+  maximally coincident. Its two ends are where it climbs back to 24 — which is
+  why they are closed ends rather than open ones (§1).
+* **The two n = 2 arcs do not intersect.** Under the 24 cube rotations the
+  edge-arc endpoint's axis orbit is edge-type only, never a body diagonal, so no
+  edge-arc member is congruent to any diagonal-arc member however the angles are
+  matched — and the endpoint's angle arccos(1/3) IS also attained on the diagonal
+  arc, so equal angle and equal crossing number still do not make them meet.
+  n = 2 has two disjoint components and no node; the n = 6 record's crossing of
+  arc D remains the only intersection known anywhere in the table.
+* **Still open:** the dimension by SOLVING the Step A slab conditions rather than
+  scanning directions.
 
 ## 7. The n = 8 record, and what still says 1891
 
