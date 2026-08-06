@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="720" viewBox="0 0 1180 720">
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="884" viewBox="0 0 1180 884">
 <style>
 .ttl{font:600 26px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#15181d}
 .sub{font:14px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#6a7180}
@@ -10,7 +10,7 @@
 .cap{font:13px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#6a7180}
 .capb{font:600 13px "Helvetica Neue",Helvetica,Arial,sans-serif;fill:#15181d}
 </style>
-<rect width="1180" height="720" fill="#faf9f7"/>
+<rect width="1180" height="884" fill="#faf9f7"/>
 <text class="ttl" x="40" y="48">The shape of the maximiser set, cube by cube</text>
 <text class="sub" x="40" y="76">What the best configuration at each n looks like as a set of congruence classes · the mark carries the dimension, and whether it is established</text>
 
@@ -23,21 +23,25 @@
 <circle cx="141.0" cy="235.0" r="4" fill="#faf9f7" stroke="#6a7180" stroke-width="2.5"/>
 <circle cx="87.0" cy="203.8" r="4" fill="#faf9f7" stroke="#6a7180" stroke-width="2.5"/>
 <circle cx="87.0" cy="266.2" r="4" fill="#faf9f7" stroke="#6a7180" stroke-width="2.5"/>
-<path d="M 79 287 A 30 30 0 0 1 131 287" fill="none" stroke="#c2553a" stroke-width="4" opacity=".55"/>
+<path d="M 79 302 A 30 30 0 0 1 131 302" fill="none" stroke="#c2553a" stroke-width="4" opacity=".55"/>
+<line x1="84.2" y1="305.0" x2="73.8" y2="299.0" stroke="#c2553a" stroke-width="3" opacity=".55"/>
+<line x1="125.8" y1="305.0" x2="136.2" y2="299.0" stroke="#c2553a" stroke-width="3" opacity=".55"/>
 <line x1="41" y1="320" x2="169" y2="320" stroke="#dcd9d3" stroke-width="1"/>
 <text class="k" x="105" y="344" text-anchor="middle">dimension</text>
-<text class="v" x="105" y="358" text-anchor="middle">1 — a punctured circle</text>
+<text class="v" x="105" y="358" text-anchor="middle">1 — arc (circle in chart)</text>
 <text class="k" x="105" y="371" text-anchor="middle">components</text>
 <text class="v" x="105" y="385" text-anchor="middle">2 arcs + isolated classes</text>
 <text class="k" x="105" y="398" text-anchor="middle">symmetry</text>
 <text class="v" x="105" y="412" text-anchor="middle">D₆</text>
 <text class="k" x="105" y="425" text-anchor="middle">arithmetic</text>
 <text class="v" x="105" y="439" text-anchor="middle">rational, dense</text>
+<text class="k" x="105" y="452" text-anchor="middle">drops to</text>
+<text class="v" x="105" y="466" text-anchor="middle">9</text>
 
 <!-- n = 3 : the only argued zero -->
 <text class="n" x="260" y="118" text-anchor="middle">n = 3</text>
 <text class="max" x="260" y="152" text-anchor="middle">67</text>
-<line x1="183" y1="104" x2="183" y2="452" stroke="#dcd9d3" stroke-width="1"/>
+<line x1="183" y1="104" x2="183" y2="480" stroke="#dcd9d3" stroke-width="1"/>
 <circle cx="240" cy="227" r="7" fill="#15181d"/>
 <circle cx="280" cy="249" r="7" fill="#15181d"/>
 <line x1="196" y1="320" x2="324" y2="320" stroke="#dcd9d3" stroke-width="1"/>
@@ -49,11 +53,13 @@
 <text class="v" x="260" y="412" text-anchor="middle">O and D₃</text>
 <text class="k" x="260" y="425" text-anchor="middle">arithmetic</text>
 <text class="v" x="260" y="439" text-anchor="middle">both irrational</text>
+<text class="k" x="260" y="452" text-anchor="middle">drops to</text>
+<text class="v" x="260" y="466" text-anchor="middle">59</text>
 
 <!-- n = 4 : was a dashed patch labelled >=3-dim; the figure behind that was withdrawn -->
 <text class="n" x="415" y="118" text-anchor="middle">n = 4</text>
 <text class="max" x="415" y="152" text-anchor="middle">183</text>
-<line x1="338" y1="104" x2="338" y2="452" stroke="#dcd9d3" stroke-width="1"/>
+<line x1="338" y1="104" x2="338" y2="480" stroke="#dcd9d3" stroke-width="1"/>
 <circle cx="415" cy="235" r="7" fill="#faf9f7" stroke="#15181d" stroke-width="2.5"/>
 <line x1="351" y1="320" x2="479" y2="320" stroke="#dcd9d3" stroke-width="1"/>
 <text class="k" x="415" y="344" text-anchor="middle">dimension</text>
@@ -64,11 +70,13 @@
 <text class="v" x="415" y="412" text-anchor="middle">C₃</text>
 <text class="k" x="415" y="425" text-anchor="middle">arithmetic</text>
 <text class="v" x="415" y="439" text-anchor="middle">rational</text>
+<text class="k" x="415" y="452" text-anchor="middle">drops to</text>
+<text class="v" x="415" y="466" text-anchor="middle">173</text>
 
 <!-- n = 5 : zero only against single-cube moves, so hollow -->
 <text class="n" x="570" y="118" text-anchor="middle">n = 5</text>
 <text class="max" x="570" y="152" text-anchor="middle">393</text>
-<line x1="493" y1="104" x2="493" y2="452" stroke="#dcd9d3" stroke-width="1"/>
+<line x1="493" y1="104" x2="493" y2="480" stroke="#dcd9d3" stroke-width="1"/>
 <circle cx="570" cy="235" r="7" fill="#faf9f7" stroke="#15181d" stroke-width="2.5"/>
 <line x1="506" y1="320" x2="634" y2="320" stroke="#dcd9d3" stroke-width="1"/>
 <text class="k" x="570" y="344" text-anchor="middle">dimension</text>
@@ -79,11 +87,13 @@
 <text class="v" x="570" y="412" text-anchor="middle">C₃</text>
 <text class="k" x="570" y="425" text-anchor="middle">arithmetic</text>
 <text class="v" x="570" y="439" text-anchor="middle">rational</text>
+<text class="k" x="570" y="452" text-anchor="middle">drops to</text>
+<text class="v" x="570" y="466" text-anchor="middle">377</text>
 
 <!-- n = 6 : the 727 arcs, with the record where two of them cross -->
 <text class="n" x="725" y="118" text-anchor="middle">n = 6</text>
 <text class="max" x="725" y="152" text-anchor="middle">727</text>
-<line x1="648" y1="104" x2="648" y2="452" stroke="#dcd9d3" stroke-width="1"/>
+<line x1="648" y1="104" x2="648" y2="480" stroke="#dcd9d3" stroke-width="1"/>
 <line x1="679" y1="205" x2="755" y2="205" stroke="#c2553a" stroke-width="4"/>
 <line x1="691" y1="227" x2="771" y2="227" stroke="#c2553a" stroke-width="4"/>
 <line x1="685" y1="249" x2="743" y2="249" stroke="#c2553a" stroke-width="4"/>
@@ -99,11 +109,13 @@
 <text class="v" x="725" y="412" text-anchor="middle">trivial</text>
 <text class="k" x="725" y="425" text-anchor="middle">arithmetic</text>
 <text class="v" x="725" y="439" text-anchor="middle">rational + irrational</text>
+<text class="k" x="725" y="452" text-anchor="middle">drops to</text>
+<text class="v" x="725" y="466" text-anchor="middle">723</text>
 
 <!-- n = 7 -->
 <text class="n" x="880" y="118" text-anchor="middle">n = 7</text>
 <text class="max" x="880" y="152" text-anchor="middle">1217</text>
-<line x1="803" y1="104" x2="803" y2="452" stroke="#dcd9d3" stroke-width="1"/>
+<line x1="803" y1="104" x2="803" y2="480" stroke="#dcd9d3" stroke-width="1"/>
 <line x1="866" y1="235" x2="894" y2="235" stroke="#c2553a" stroke-width="4"/>
 <line x1="816" y1="320" x2="944" y2="320" stroke="#dcd9d3" stroke-width="1"/>
 <text class="k" x="880" y="344" text-anchor="middle">dimension</text>
@@ -114,11 +126,13 @@
 <text class="v" x="880" y="412" text-anchor="middle">trivial</text>
 <text class="k" x="880" y="425" text-anchor="middle">arithmetic</text>
 <text class="v" x="880" y="439" text-anchor="middle">rational</text>
+<text class="k" x="880" y="452" text-anchor="middle">drops to</text>
+<text class="v" x="880" y="466" text-anchor="middle">1213</text>
 
 <!-- n = 8 : 1895 since 2026-08-05; still two independent aligned directions -->
 <text class="n" x="1035" y="118" text-anchor="middle">n = 8</text>
 <text class="max" x="1035" y="152" text-anchor="middle">1895</text>
-<line x1="958" y1="104" x2="958" y2="452" stroke="#dcd9d3" stroke-width="1"/>
+<line x1="958" y1="104" x2="958" y2="480" stroke="#dcd9d3" stroke-width="1"/>
 <ellipse cx="1035" cy="235" rx="40" ry="20" fill="#4a6fb0" opacity=".22"/>
 <ellipse cx="1035" cy="235" rx="40" ry="20" fill="none" stroke="#4a6fb0" stroke-width="2" stroke-dasharray="5 4"/>
 <text class="k" x="1035" y="239" text-anchor="middle" style="fill:#4a6fb0">≥2-dim</text>
@@ -131,31 +145,37 @@
 <text class="v" x="1035" y="412" text-anchor="middle">trivial</text>
 <text class="k" x="1035" y="425" text-anchor="middle">arithmetic</text>
 <text class="v" x="1035" y="439" text-anchor="middle">rational</text>
+<text class="k" x="1035" y="452" text-anchor="middle">drops to</text>
+<text class="v" x="1035" y="466" text-anchor="middle">1891</text>
 
-<line x1="40" y1="486" x2="1140" y2="486" stroke="#dcd9d3" stroke-width="1"/>
-<text class="capb" x="40" y="512">THE MARK IS THE DIMENSION — AND A HOLLOW MARK MEANS THE ZERO IS ONLY A READING</text>
-
-<!-- legend: the five marks, drawn rather than described -->
-<circle cx="48" cy="537" r="7" fill="#15181d"/>
-<text class="lg" x="64" y="541">0-dimensional, argued</text>
-<circle cx="225" cy="537" r="7" fill="#faf9f7" stroke="#15181d" stroke-width="2.5"/>
-<text class="lg" x="241" y="541">reads 0 — no direction found</text>
-<line x1="434" y1="537" x2="464" y2="537" stroke="#c2553a" stroke-width="4"/>
-<text class="lg" x="474" y="541">a 1-dimensional continuum</text>
-<path d="M 656.4 543.4 A 9 9 0 1 1 656.4 530.6" fill="none" stroke="#c2553a" stroke-width="4"/>
-<circle cx="658.5" cy="537" r="3" fill="#faf9f7" stroke="#6a7180" stroke-width="2"/>
-<text class="lg" x="676" y="541">a continuum that wraps</text>
-<ellipse cx="843" cy="537" rx="15" ry="9" fill="#4a6fb0" opacity=".22"/>
-<ellipse cx="843" cy="537" rx="15" ry="9" fill="none" stroke="#4a6fb0" stroke-width="2" stroke-dasharray="5 4"/>
-<text class="lg" x="866" y="541">2 or more dimensions</text>
-
-<text class="cap" x="40" y="568">Dimension is measured in CLASS space; the 3 gauge dimensions of rotating a whole compound are quotiented out and never counted.</text>
-
-<text class="capb" x="40" y="600">n = 3 IS THE ONLY FINITE CASE</text>
-<text class="cap" x="40" y="622">Every level set here is semialgebraic, so it has finitely many components and each is a point or a continuum: a maximiser set is finite or</text>
-<text class="cap" x="40" y="642">uncountable, never countably infinite. Only n = 3 takes the finite option — two classes, both irrational, in ℚ(√2) and ℚ(√5). The other two</text>
-<text class="cap" x="40" y="662">zeros on this figure are drawn hollow for exactly that reason: they are what no search has found, not what an argument rules out.</text>
-
-<text class="cap" x="40" y="692">Caveats carried on the figure: n = 8's ≥2 is a LOWER bound from the axis-aligned probe, which cannot see a locus in general position. n = 5's zero</text>
-<text class="cap" x="40" y="712">holds only against moving ONE cube. And no method's zeros are yet trustworthy — the one that would upgrade them fails its control at the n = 6 record.</text>
+<line x1="40" y1="514" x2="1140" y2="514" stroke="#dcd9d3" stroke-width="1"/>
+<text class="capb" x="40" y="540">THE MARK IS THE DIMENSION — A HOLLOW MARK MEANS THE ZERO IS ONLY A READING, A TICK MEANS THE END IS IN THE SET</text>
+<circle cx="48" cy="565" r="7" fill="#15181d"/>
+<text class="lg" x="64" y="569">0-dimensional, argued</text>
+<circle cx="232" cy="565" r="7" fill="#faf9f7" stroke="#15181d" stroke-width="2.5"/>
+<text class="lg" x="248" y="569">reads 0 — none found</text>
+<line x1="404" y1="565" x2="434" y2="565" stroke="#c2553a" stroke-width="4"/>
+<text class="lg" x="442" y="569">a continuum</text>
+<path d="M 546.4 571.4 A 9 9 0 1 1 546.4 558.6" fill="none" stroke="#c2553a" stroke-width="4"/>
+<circle cx="548.5" cy="565" r="3" fill="#faf9f7" stroke="#6a7180" stroke-width="2"/>
+<text class="lg" x="558" y="569">one that wraps</text>
+<ellipse cx="678" cy="565" rx="15" ry="9" fill="#4a6fb0" opacity=".22"/>
+<ellipse cx="678" cy="565" rx="15" ry="9" fill="none" stroke="#4a6fb0" stroke-width="2" stroke-dasharray="5 4"/>
+<text class="lg" x="700" y="569">≥2 dimensions</text>
+<line x1="812" y1="565" x2="842" y2="565" stroke="#c2553a" stroke-width="4"/>
+<line x1="842" y1="558" x2="842" y2="572" stroke="#c2553a" stroke-width="3"/>
+<text class="lg" x="850" y="569">its end is in the set</text>
+<text class="cap" x="40" y="596">Dimension is measured in CLASS space; the 3 gauge dimensions of rotating a whole compound are quotiented out and never counted. "Drops to" is the</text>
+<text class="cap" x="40" y="616">highest count found immediately off the locus, so the gap beneath each maximiser is readable by subtraction: 4 at n = 2, 8 at n = 3, 16 at n = 5.</text>
+<text class="cap" x="40" y="640">n = 2's mark is the one exception, drawn in the Cayley chart: there the body-diagonal family wraps into a circle, but its three punctures are a single C₃ orbit,</text>
+<text class="cap" x="40" y="658">so in class space it is one arc. The fainter arc beneath is the edge family, and its two ticks are the only closed ends in the table — 13 holds AT both.</text>
+<text class="cap" x="40" y="676">A bare end is not in the set: at a 727 arc end the count is 725, between the 727 inside and the 723 beyond. n = 7 and n = 8's ends are quadratic</text>
+<text class="cap" x="40" y="694">irrationals, untested either way, and drawn bare provisionally. Every boundary point of every kind carries MORE edge-edge coincidences than either</text>
+<text class="cap" x="40" y="712">side of it: 10 → 24 at the n = 2 edge-arc ends, 144 → 162 at arc A's, 24 → 48 at the diagonal punctures. An arc ends by running into a denser stratum.</text>
+<text class="capb" x="40" y="744">n = 3 IS THE ONLY FINITE CASE</text>
+<text class="cap" x="40" y="766">Every level set here is semialgebraic, so it has finitely many components and each is a point or a continuum: a maximiser set is finite or</text>
+<text class="cap" x="40" y="786">uncountable, never countably infinite. Only n = 3 takes the finite option — two classes, both irrational, in ℚ(√2) and ℚ(√5). The other two</text>
+<text class="cap" x="40" y="806">zeros on this figure are drawn hollow for exactly that reason: they are what no search has found, not what an argument rules out.</text>
+<text class="cap" x="40" y="836">Caveats carried on the figure: n = 8's ≥2 is a LOWER bound from the axis-aligned probe, which cannot see a locus in general position. n = 5's zero</text>
+<text class="cap" x="40" y="856">holds only against moving ONE cube. And no method's zeros are yet trustworthy — the one that would upgrade them fails its control at the n = 6 record.</text>
 </svg>
