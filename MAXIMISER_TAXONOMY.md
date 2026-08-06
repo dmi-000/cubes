@@ -95,11 +95,13 @@ count except along a tangent (0 of 580 at n = 4, 0 of 1160 at n = 5, down to
 categorisation in its own right, and it is discrete. Counting real edge-edge
 coincidences per cube PAIR:
 
-| n | max | 13-pairs (24 crossings) | 9-pairs (6) | 4-pairs (0) | total | rank of the crossing Jacobian |
+| n | max | 13-pairs (24 crossings unless noted) | 9-pairs (6) | 4-pairs (0) | total | rank of the crossing Jacobian |
 |---|---|---|---|---|---|---|
 | 2 | 13 diagonal | 1 | – | – | 24 | 2 of 3 |
 | 2 | 13 edge arc, interior | 1 (but **10** crossings) | – | – | 10 | 3 of 3 |
 | 2 | 13 edge arc, ends | 1 | – | – | 24 | 2 of 3 |
+| 3 | 67 octahedral | 3 (but **10** crossings each) | – | – | **30** | – |
+| 3 | 67 golden | 3 | – | – | **72** | – |
 | 4 | 183 | 3 | 3 | 0 | 90 | 8 of 9 |
 | 5 | 393 | 4 | 6 | 0 | 132 | 11 of 12 |
 | 6 | 723 | 6 | 6 | 3 | 180 | 13 of 15 |
@@ -117,9 +119,27 @@ geometry rather than from counting, and it reproduces the ledger's
 **But it is strictly FINER than the pair label**, and n = 2 shows where. A
 13-pair in isolation carries 24 crossings **or 10** — the diagonal family and the
 edge arc's two ends carry 24, the edge arc's interior carries 10 — and a 9-pair
-carries 8 in isolation but 6 inside every maximiser. The pair label cannot see
-either distinction. Maximisers use only the 24-kind of 13-pair and only the
-6-kind of 9-pair.
+carries 8 in isolation but 6 inside every maximiser.
+
+**And at n = 3 that refinement separates the two 67s** (2026-08-06, the first run
+of the coincidence machinery over ℚ(√2) and ℚ(√5) rather than ℚ):
+
+    octahedral 67   3 pairs x 10 crossings  =  30
+    golden 67       3 pairs x 24 crossings  =  72
+
+Every pair of both is a 13-pair — pair label (13,13,13) for each — and their
+per-label profiles are identical, {1,16,16,6,16,6,6,1}. Neither invariant can
+tell them apart. **The crossing count does, 30 against 72**, so it is a second
+congruence invariant separating them, independent of the symmetry order (24
+against 6) that was previously the only one. Note which way it runs: the
+octahedral 67 carries the FULL cube rotation group and the FEWER coincidences.
+
+**This corrects a claim made from rational-only data.** Before n = 3 could be
+computed, the evidence said maximisers use only the 24-kind of 13-pair. The
+octahedral 67 is built from three 10-kind pairs, so that is false — both kinds
+occur among maximisers, and which kind appears is itself the distinguishing
+feature at n = 3. It is also the sharpest statement of §6's warning: two
+configurations with 30 and 72 crossings both count exactly 67.
 
 ### What it suggests for finding maxima
 

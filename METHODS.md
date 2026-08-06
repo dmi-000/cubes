@@ -98,6 +98,9 @@ candidates wrongly.
 * **What holds**: at a maximiser both are strict local maxima. So "not a local
   coincidence maximum" rules a candidate out, while "more coincidences" never
   rules one in.
+* **The extreme case**: the two n = 3 maximisers carry **30 and 72** crossings
+  and both count exactly **67**. Coincidence structure and region count are not
+  even close to determining one another across strata.
 
 ## 7. Every boundary is a coincidence boundary; most coincidences are not boundaries
 
@@ -125,9 +128,11 @@ running into a denser stratum, never by the geometry running out.
 
 ## 9. Search the pair-type multiset, not the rotation space
 
-Crossings per cube PAIR take only three values — 24, 6, 0 — corresponding exactly
-to the pair labels 13, 9, 4. Along the top of the tower the 9-pair count is
-frozen at nine:
+Crossings per cube PAIR are quantised: among the rational maximisers they take
+only 24, 6 and 0, corresponding exactly to the pair labels 13, 9 and 4. (The
+quantisation is real; the value set is not closed — the octahedral 67 is built
+from 13-pairs carrying **10**, so a pair label does not fix a crossing count.)
+Along the top of the tower the 9-pair count is frozen at nine:
 
     727    4x13   9x9    2x4
     1217   6x13   9x9    6x4
@@ -149,6 +154,33 @@ result, not just the text.
 
 ---
 
+## The tools
+
+All in this directory, copied out of a session scratchpad on 2026-08-06 and
+repointed to run from here. Each takes its imports from its own directory, so
+`python3 <name>.py` works in place.
+
+| file | what it does | section |
+|---|---|---|
+| `exact_chambers.py` | solve every W3/W4 root on a line, evaluate once per chamber, report the decomposition | §1 |
+| `solve_ends.py` | the same catalogue rebuilt for an ARBITRARY base, not just the five-cube 393 | §1 |
+| `maxline.py` | the maximum over a line, chamber by chamber | §2 |
+| `cayleyscan6.py` | the working direction scan: Cayley chart, \|u\| ≤ 6, three ε | §5 |
+| `edgecross.py` | edge-edge crossing sets, their Jacobian and null space, over ℚ | §6–9 |
+| `qfield.py` | exact ℚ(√d) arithmetic with exact SIGN, and the crossing machinery over it | §6, §9 |
+| `record_six.py` | decodes which tight conditions a tangent violates, by cube pair and type | Postscript 102 |
+| `interior.py` | dense sampling inside chambers — the test that boundaries are coincidences | §7 |
+| `localcorr.py` | region count against crossing count over a neighbourhood | §6 |
+| `around.py` | the histogram of counts around a maximiser, all directions | §6 |
+| `tight2.py`, `dirscan.py`, `cayleyscan.py`, `n78.py` | supporting: tight Step-A sets in the right chart, batched engine calls, the n=7/8 sweeps | — |
+
+**They were nearly lost.** Everything above ran for a day out of
+`/private/tmp/.../scratchpad`, which is volatile, while `METHODS.md` cited the
+techniques as if the implementations were durable. `VIEWERS.md` records the same
+failure for the n = 2 map's source — *"Artifact sources live nowhere durable
+unless copied"* — so this is the second occurrence in the project. A method is
+not written down until the code that performs it is in the repository.
+
 ## Where to test whether these generalise
 
 Everything above was learned on one base — the five-cube 393 and its extensions —
@@ -162,7 +194,11 @@ somewhere they have never been:
   9-pairs, is a prediction that either finds a cube or fails cleanly.
 * **a base that is not the 393**, to separate what is true of this problem from
   what is true of this compound.
-* **n = 3's two 67s**, where the coincidence machinery needs ℚ(√2) and ℚ(√5)
-  exact arithmetic rather than ℚ. Every crossing-based result here is rational-
-  only, so the two most-studied maximisers in the project are the two this file
-  has never touched.
+* ~~n = 3's two 67s~~ — **DONE, and it paid immediately** (`qfield.py`, exact
+  a + b√d with exact sign). First run overturned a claim made from rational-only
+  data: maximisers were said to use only the 24-crossing kind of 13-pair, but the
+  octahedral 67 is three 10-crossing ones. It also produced a new congruence
+  invariant separating the two 67s, 30 crossings against 72, where the pair label
+  and the per-label profile are identical for both. **The first excursion into
+  untested territory broke a rule inferred from the tested part** — which is the
+  argument for the other three below.
