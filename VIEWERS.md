@@ -19,9 +19,9 @@ webfont.
 | `depth_explorer.html` | page, interactive 3-D | one compound's region walls, by depth | §4 |
 | `seed119_viewer.html` | page, interactive 3-D | the exact-search seed explorer | §5 |
 
-Two are STALE against results in `MAXIMISER_TAXONOMY.md`; each has a "what has
-changed" subsection, and `shapes.svg` should not be shown to anyone without
-reading §3 first — it prints two superseded numbers in large type.
+`shapes` was **redrawn on 2026-08-06** and now matches `MAXIMISER_TAXONOMY.md`;
+§3 records what changed. `n2map` is still as published and is the one file here
+that is stale — §1 lists the four results that have overtaken it.
 
 **Static or interactive is the first thing to know about each.** `arcmap` and
 `shapes` are figures: they carry their argument at a glance and take no input.
@@ -214,11 +214,13 @@ bounds from the axis-aligned probe, which cannot see a locus in general
 position; n = 5's zero holds only against moving a single cube, since
 multi-cube directions have never been tested at any n.
 
-### What has changed since it was drawn — READ BEFORE SHOWING THIS FIGURE
+### Redrawn 2026-08-06 — what changed and why
 
-`shapes.svg` hard-codes its numbers as text, so two of them are now wrong in
-large type, and one of its three marks is wrong with them (2026-08-05,
-`MAXIMISER_TAXONOMY.md` §2):
+`shapes.svg`, `shapes.png` and `shapes@2x.png` were regenerated on 2026-08-06 and
+now match `MAXIMISER_TAXONOMY.md`. The mirror in `github/` was updated with them.
+The figure gained a fourth and fifth mark, a drawn legend, and a taller canvas
+(720px, was 660). What was wrong before, kept because the corrections are the
+point:
 
 | the figure says | now |
 |---|---|
@@ -228,17 +230,28 @@ large type, and one of its three marks is wrong with them (2026-08-05,
 | `n = 7` · `components —` | ≥1 |
 | `n = 8` · `components —` | ≥1 |
 
-So n = 4's dashed patch should become a filled dot or, more honestly, a dot with
-the caveat that "no direction found" is not "isolated proved". n = 8 keeps its
-dashed patch — 1895 still carries two independent aligned directions, 2 of 42 —
-but the value beside it changes.
+n = 4's dashed patch became a HOLLOW dot, and n = 5's filled dot became hollow
+with it: a hollow mark now means the zero is only a reading, not an argument.
+n = 8 keeps its dashed patch — 1895 still carries two independent aligned
+directions, 2 of 42 — and only the value beside it changed.
 
-**The headline survives all of it.** "n = 3 is the only finite case" does not
-depend on either correction; if anything n = 4 collapsing from a patch to a dot
-weakens the visual contrast the figure is built on, which is a reason to redraw
-it rather than to leave it. Two further additions belong in a redraw: n = 2 and
-n = 6's 723 both WRAP, so a redrawn n = 6 wants a loop mark rather than the arcs
-it has, and the mark vocabulary needs a third entry for it.
+**The headline was what the redraw had to solve.** "n = 3 is the only finite
+case" is still the best-supported reading, but the figure would have stopped
+carrying it: turning n = 4's patch into a dot puts dots in three of seven
+columns, and a legend reading "a filled dot is 0-dimensional — finitely many
+maximisers" would then contradict the headline printed below it. So the mark no
+longer means the dimension alone. It distinguishes a zero with an argument
+behind it (n = 3, filled) from a zero that only means no direction has been
+found (n = 4 and n = 5, hollow), and the subtitle and both caption blocks say
+so. That is the whole reason the figure still works with three dots on it.
+
+**The n = 6 column does not change.** It is 727, and 727's arcs terminate —
+re-confirmed by the point-at-infinity test. The family that wraps at n = 6 is
+723, which is not on this figure because it is not the maximiser. And the loop
+vocabulary already exists here: the n = 2 panel is drawn as a punctured circle,
+three arcs with three open circles at the punctures. The legend text simply
+never mentions it, listing only dot / line / dashed patch. A redraw should add
+the loop to the legend rather than invent it.
 
 **Caveats the figure prints are themselves now understated.** It says the n = 4
 and n = 8 dimensions are lower bounds from the axis-aligned probe. Since then

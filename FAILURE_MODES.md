@@ -326,9 +326,67 @@ fails in the same direction — it under-reports:
     n=6 record (7,14,1,−5)                       TWO tangents
     n=8 1891                                     two aligned directions
 
-`tight_set.py` passes the first of these and is currently the only method that
-passes any. That is why its zeros at the two 67s are believed and
-`multicube2.py`'s are not.
+`tight_set.py` passes the first FOUR of these and **fails the fifth**: at the
+n = 6 record it returns null dimension 1 where two independent tangents are
+verified, and neither lies in the space (projections 0.6018, 0.6194). So its
+zeros at the two 67s are evidence, not proof, and Postscript 100's closure of
+the n = 3 multi-cube gap is reopened.
+
+`edgecross.py` solves an unrelated condition set — preservation of the real
+edge-edge crossings, a purely geometric incidence — and produces the IDENTICAL
+null space at all nine configurations (principal angles 0°, despite 90 crossings
+against 108 tight quantities at n = 4). Step-A tightness and edge-crossing
+preservation are the same linear condition. It therefore fails at the record for
+the same reason, and the failure is a fact about the record rather than a bug in
+either formulation: there the count-preserving directions destroy crossings and
+the crossing-preserving direction does not hold the count. Everywhere else
+tested, the crossing null space CONTAINS the true tangent — so crossing
+preservation is necessary for the count on every maximiser except the one that
+sits at a node.
 
 **The asymmetry to remember.** A POSITIVE result — a direction that verifies —
 is self-certifying. A zero never is.
+
+## 13a. A control chosen because it is convenient tests nothing
+
+**The rule.** Passing a control only licenses the zeros if the control was HARD
+for the method. Pick the control that stresses the assumption you are least sure
+of; a control that every plausible version of the method would pass is a
+formality, not a check.
+
+**Demonstration (2026-08-06), three attempts at one direction scan.** The
+question was whether any single-cube direction preserves 183 at n = 4. Attempt 1
+scanned 290 primitive integer triples |uᵢ| ≤ 3 in the body chart q → q·(1,εu) and
+read 0 of 870. Attempt 2 rescanned the world chart (1,εu)·q and read 0 of 870.
+Both were void, for two INDEPENDENT reasons:
+
+* **chart** — a direction that is an integer triple in one chart is not one in
+  another, and every tangent this project has verified is integral in the CAYLEY
+  chart and no other;
+* **range** — |uᵢ| ≤ 3 does not contain 727 arc A's tangent (1,−3,−6) or arc B's
+  (1,1,−4), so two of the four known tangents were never candidates at all.
+
+**Neither defect was detectable from the controls used**, which were n = 2's
+(1,1,0) and (1,1,1) and 723's (1,1,1). Those three are axis-parallel, so every
+chart agrees on them and the chart defect is invisible; and they are the smallest
+integer triples in existence, so they lie inside any search set and the range
+defect is invisible. The controls passed both times while the method was broken
+both times.
+
+**The repair.** Cayley chart, |uᵢ| ≤ 6, control 727 arc A — whose tangent
+(1,−3,−6) is in general position and outside the old range. It returns exactly
+±(1,−3,−6), **2 of 1 730 directions**, and nothing else. Only then do the zeros
+mean anything: n = 4 reads 0 of 3 460 and n = 5 reads 0 of 6 920.
+
+**How to pick one.** Rank the available controls by how much they differ from
+the easy case along the axis the method could plausibly be wrong about — chart
+dependence, search range, tolerance, symmetry — and use the extreme one. In this
+project that ordering is:
+
+    (1,1,1) at n=2 or 723   trivial: axis-parallel AND minimal
+    (1,1,0) at n=2 mirror   axis-parallel
+    (1,1,-4) on 727 arc B   general position, range 4
+    (1,-3,-6) on 727 arc A  general position, range 6
+    the n=6 record          two tangents at a node, neither in any null space yet
+
+A method that only passes the first line has been tested against nothing.

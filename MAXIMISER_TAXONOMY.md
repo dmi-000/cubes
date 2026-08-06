@@ -60,7 +60,7 @@ for every wall crossing on the line and evaluating once between consecutive
 roots (§3a), which cannot miss a chamber and so is exact.
 
 **n = 8 is 1895, not 1891** (2026-08-05). See §3 for the configuration and §7
-for how it was found; every other file in the repo still says 1891.
+for how it was found and where it has been propagated.
 
 ## 3. How to generate a member of each category
 
@@ -108,30 +108,55 @@ Both {I, R, R²} with R a 120° turn about the dihedral axis; derivation in
 
     ./cube_regions_n --quats "1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4"
 
-Nothing moves off it. Two independent probes, both 2026-08-05:
+Two probes, one of which took three attempts to make meaningful:
 
-* the aligned probe, 18 single Cayley-axis moves at ε = 1/64, 1/256, 1/1024 plus
-  the four quaternion-component moves of the half-turn cube — **0 of 20 hold**,
-  and the neighbouring counts (161–173) do not even depend on ε;
-* an exhaustive integer-direction scan, 290 primitive directions u with
-  |uᵢ| ≤ 3 in the chart q → q·(1, εu), each of the 3 free cubes, at
-  ε = 1/32, 1/128, 1/512 — **0 of 870 hold**. The same scan recovers ±(1,1,1)
-  at both n = 2 maximisers, so its zeros are not the FAILURE_MODES 13 kind.
+* **The aligned probe**: 18 single Cayley-axis moves at ε = 1/64, 1/256, 1/1024
+  plus the four quaternion-component moves of the half-turn cube — **0 of 20
+  hold**, and the neighbouring counts (161–173) do not even depend on ε. Per
+  `FAILURE_MODES.md` 11d this means "not aligned", never "isolated".
+* **The direction scan, third attempt and the first that carries information**:
+  1 730 primitive integer directions |uᵢ| ≤ 6 in the **Cayley** chart, both free
+  cubes with w ≠ 0, ε = 1/32, 1/128, 1/512 — **0 of 3 460 hold**. Its control is
+  727 arc A, whose tangent (1,−3,−6) is in general position: the same protocol
+  returns exactly ±(1,−3,−6) there, **2 of 1 730**, and nothing else.
 
-The chart matters here: cube 2 is the half-turn (0,5,3,2), whose Cayley
-coordinates are at infinity, so any probe of it in the Cayley chart is
-meaningless. The right-multiplication chart q → q·(1,u) is valid at every
-rotation and is what both probes above use.
+**The first two attempts were void, for two independent reasons, and both are
+worth keeping.** (a) CHART: the scan ran in the quaternion charts q → q·(1,εu)
+and (1,εu)·q. A direction that is an integer triple in one chart is not one in
+another, and every tangent this project has verified — (1,1,0), (1,1,1),
+(1,−3,−6), (1,1,−4) — is integral in the CAYLEY chart and no other. (b) RANGE:
+the direction set was |uᵢ| ≤ 3, which does not contain (1,−3,−6) or (1,1,−4) at
+all, so two of the four known tangents were never candidates in any chart.
+
+**Both slipped through because of how the controls were chosen**, which is the
+part that generalises. The controls used were n = 2's (1,1,0) and (1,1,1) and
+723's (1,1,1) — the three easiest tangents in the project. They are axis-parallel,
+so every chart agrees on them and (a) is invisible; and they are the smallest
+integer triples there are, so they sit inside any search set and (b) is invisible
+too. **A control has to be chosen because it is hard for the method, not because
+it is to hand.** See `FAILURE_MODES.md` 13a.
+
+One defect no chart fixes: cube 2 is the half-turn (0,5,3,2), whose Cayley point
+is at infinity, so a Cayley scan cannot reach it. A third of n = 4's moduli space
+is unscannable this way, and the cell's zero is partial by construction.
 
 ### n = 5, max 393 — rigid against moving one cube
 
     ./cube_regions_n --quats "$BASE"
 
 No single-cube perturbation preserves it (§4), so within that slice this is the
-only member. Re-confirmed 2026-08-05 by the same 290-direction scan as at n = 4
-(**0 of 1160** hold, 4 free cubes × 290 directions × 3 scales) and by sweeping
-each of the 12 Cayley axes over s ∈ [−1/2, 1/2] at step 1/64: 393 appears at
-exactly one sample of each of the 12 sweeps, its own, and is never exceeded.
+only member. The 393 cell rests on the 46 rank-2 wall directions and the 548
+in-plane directions of §4, plus, from 2026-08-05, sweeping each of the 12 Cayley
+axes over s ∈ [−1/2, 1/2] at step 1/64: 393 appears at exactly one sample of each
+of the 12 sweeps, its own, and is never exceeded anywhere on them.
+
+And from the same date, the repaired direction scan of §3 n = 4 — 1 730 Cayley
+directions |uᵢ| ≤ 6 at three ε — reads **0 of 6 920** here. Unlike n = 4 every
+free cube at n = 5 has w ≠ 0, so the Cayley chart reaches all four and this
+covers the whole single-cube slice, with a control that recovers a
+general-position tangent 2 of 1 730. It is the strongest negative reading in the
+table. (The earlier 290-direction quaternion-chart scans, which also read 0
+here, are void — see n = 4.)
 
 ### n = 6, max 723 — a one-parameter stratum, filtered
 
@@ -395,7 +420,34 @@ set is the CONE {J·v ≤ 0} rather than the null space {J·v = 0}. It is not: a
 record, J·D1 and J·D2 each have **6 strictly positive components** out of 204 and
 the count holds regardless. The failure is that some tight conditions are tight
 but not BINDING — the degenerate incidence is not where a bounded region would
-open — and identifying which is the open problem.
+open.
+
+**The offending conditions are now identified by name** (2026-08-06,
+`record_six.py`). Decoding each violated row of the Jacobian:
+
+    D1 violates 12 rows: cubes (1,5) and (5,1), all SLAB-PAIR conditions
+    D2 violates 12 rows: cubes (0,5) and (5,0), all SLAB-PAIR conditions
+
+Three facts fall out, and together they explain the node.
+
+* **Every violated condition is a slab-PAIR condition.** Not one single-slab
+  ‖n‖₁ = 1 condition is violated by either tangent. The two halves of Step A are
+  not equally binding: the singletons hold the count, the pair minima need not.
+* **Each tangent's violations are confined to ONE base cube against the free
+  cube** — cube 1 for D1, cube 0 for D2, six quantities each, twice over because
+  the quantity is emitted for both orders of the pair.
+* **The two tangents release DIFFERENT cubes.** That is what arc D's crossing is:
+  the record sits where the free cube can give up its pair conditions with cube 1
+  (one arc) or with cube 0 (the other), and a combination gives up both at once,
+  which is why every combination fails.
+
+Dropping exactly those 24 rows takes the rank from 14 of 15 to **12 of 15**, null
+dimension 3, and **both tangents project 1.0000** into it. So the repair is real
+and the method is recoverable; what is missing is a NON-CIRCULAR rule for
+identifying a tight-but-not-binding pair condition, since "drop the rows the
+known tangent violates" uses the answer. The candidate rule is geometric rather
+than algebraic — a pair tangency that does not bound a region — and testing it
+needs the arrangement, not the ℓ¹ norms.
 
 Consequently, the null-space dimensions this method reports at the untested
 cells are candidates only, and are recorded as such rather than as table
@@ -603,7 +655,44 @@ against all 128 single-component ±1, ±2 lattice moves; its 7-, 6- and 5-cube
 subsets give exactly 1217, 727 and 393, so it sits on the known tower rather
 than beside it.
 
-**Not propagated.** `LEDGER.md`, `MAXIMISERS.md`, `RESULTS.md`, `OVERVIEW.md`
-and the growth-table sections of the reports all still say the n = 8 record is
-1891, and the ledger is a chronological record that should be appended to rather
-than edited. Until that is done, this file and those disagree.
+**The omission was confined to that one line — audited, 2026-08-06.** If a sweep
+reporting the indicator of a known value rather than the maximum could hide 1895,
+every other line in the catalogue could be hiding something too. All six were
+re-read for their MAXIMUM by the solve of §3a — roots, then one evaluation
+strictly between each consecutive pair:
+
+| line | chambers | unevaluable | max | known |
+|---|---|---|---|---|
+| 723, u·(1,1,1), the middle stretch u ∈ (−7/2, 26.88) | 705 | 14 | **723** | 723 |
+| 727 arc A, s ∈ (−20, 20) | 3 808 | 255 | **727** | 727 |
+| 727 arc B, s ∈ (−20, 20) | 3 805 | 123 | **727** | 727 |
+| 727 arc C, s ∈ (−20, 60) | 4 411 | 894 | **727** | 727 |
+| 727 arc D1, s ∈ (−20, 20) | 3 767 | 207 | **727** | 727 |
+| 727 arc D2, s ∈ (−20, 20) | 3 812 | 234 | **727** | 727 |
+
+**20 308 chambers, nothing above the known value on any line.** The 723 line is
+now read end to end — both tails, the point at infinity and this middle stretch,
+which had only ever been sampled. Scope: 1 727 chambers (8.5%) are unevaluable,
+their midpoints between roots too close together for even the wide engine, and
+arc C is the worst at 20%. So this is "no record in 91.5% of the chambers on six
+lines", not a proof.
+
+**And the counts are arithmetically stratified.** Listing every chamber value and
+every wall value separately over a window of each line:
+
+    arc A, s in (2, 3.5)    chambers 727, 723, 719      walls 727, 725, 723
+    723,   u in (-6, -3)    chambers 723, 711           walls 717, 705
+
+**Every chamber count is ≡ 3 (mod 4); the values ≡ 1 (mod 4) occur only ON
+walls** — 725, 717, 705 never appear on an open interval. That gives a free
+diagnostic on these lines: a count ≡ 1 (mod 4) means the configuration is on a
+wall, not in a chamber, which is exactly what the 717 dips were. It connects to
+the project's existing mod-4 thread (`mod4_check.py`; 183 ≡ 3 mod 4). It is NOT
+universal — n = 4's own neighbourhood shows chambers at 161, 163, 167, 169, both
+residues — so it is a property of these lines, not of the problem.
+
+**Propagated 2026-08-05**, once a 33 060-configuration hunt around 1895 found
+nothing above it: `LEDGER.md` (appended as Postscript 101, not edited — it is a
+chronological record), `MAXIMISERS.md`, `RESULTS.md`, `OVERVIEW.md`, `README.md`
+and `shapes.svg`. What still says 1891 by design: `README.md`'s summary of
+Postscripts 22–52, which describes what those postscripts said at the time.

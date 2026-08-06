@@ -157,8 +157,7 @@ https://claude.ai/code/artifact/044d34a6-3f36-43b2-9ec8-17fb5691c87c
 interactive pages, the two static figures (`arcmap`, `shapes`) and their
 SVG/PNG forms, what each argues, which controls are analysis rather than decoration,
 where the duplicate copies live, and which figures have gone stale against
-`MAXIMISER_TAXONOMY.md`. Read it before showing `shapes.png` to anyone: it
-prints two superseded numbers in large type.
+`MAXIMISER_TAXONOMY.md`.
 
 ## Continuing the searches
 

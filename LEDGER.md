@@ -154,6 +154,7 @@ with `index_ledger.py` after appending.
 - [Postscript 99](#postscript-99-the-octahedral-67-is-built-from-mirror-plane-13s-not-body-diagonal-ones) — the octahedral 67 is built from MIRROR-PLANE 13s, not body-diagonal ones
 - [Postscript 100](#postscript-100-the-multi-cube-gap-closed-at-n3--solve-the-tight-step-a-conditions-not-the-concurrences) — the multi-cube gap CLOSED at n=3 — solve the tight Step-A conditions, not the concurrences
 - [Postscript 101](#postscript-101-n--8--1895--the-record-was-inside-a-window-an-earlier-sweep-had-already-covered-and-the-723-stratum-wraps) — n = 8 = 1895 — the record was inside a window an earlier sweep had already covered; and the…
+- [Postscript 102](#postscript-102-the-records-twelve--the-tight-set-failure-is-localised-to-slab-pair-conditions-one-base-cube-per-arc) — the record's twelve — the tight-set failure is localised to slab-PAIR conditions, one base…
 
 <!-- INDEX:END -->
 
@@ -7530,3 +7531,42 @@ looking past it. Two caveats: the catalogue bounds triple points at |p| ≤ 4, a
 a rational between two roots 10⁻⁷ apart overflows even the wide engine — one
 chamber on each of the n = 8 and 723 lines came back rejected and is reported as
 unevaluated, not as a count change.
+
+---
+
+## Postscript 102: the record's twelve — the tight-set failure is localised to slab-PAIR conditions, one base cube per arc
+
+Postscript 101 left the multi-cube method broken at the n = 6 record: null
+dimension 1 where D1 and D2 both verify. Decoding which rows of the tight
+Jacobian each tangent violates (`record_six.py`) localises it completely.
+
+    D1  violates 12 rows: cubes (1,5) and (5,1), every one a SLAB-PAIR condition
+    D2  violates 12 rows: cubes (0,5) and (5,0), every one a SLAB-PAIR condition
+
+**Not one single-slab condition is violated by either tangent.** Step A's two
+halves are not equally binding — the singleton ‖n‖₁ = 1 conditions hold the
+count, the pair minima need not. And each tangent's violations sit entirely in
+ONE base cube paired with the free cube: cube 1 for D1, cube 0 for D2.
+
+**That is what arc D's crossing IS.** The record is the configuration where the
+free cube can release its pair conditions with cube 1, giving one arc, or with
+cube 0, giving the other. A combination releases both at once, which is exactly
+why every combination of D1 and D2 fails (Postscript 101 measured 721 at ±1/64
+along D1+D2 while each alone holds 727 out to ±1/16). The node is not a
+coincidence of two unrelated arcs; it is one free cube with two separable
+partners.
+
+**The repair works, and is not yet legitimate.** Dropping those 24 rows takes the
+rank from 14 of 15 to 12 of 15, null dimension 3, and both tangents project
+1.0000. So nothing is wrong with the linearisation — the condition SET was wrong.
+But "drop the rows the known tangent violates" uses the answer, so this is a
+diagnosis and not yet a method. What is needed is a test for tight-but-not-binding
+that does not consult the tangent, and the shape of it is now clear: it must be
+geometric, asking whether a pair tangency bounds a region, rather than algebraic
+in the ℓ¹ norms. `edgecross.py` gives the identical null space, so it inherits
+both the failure and the repair.
+
+**Scope.** This is the record only. Whether the same rule — pair conditions
+binding at some configurations and not others — accounts for the zeros at the two
+67s is untested, and until it is, Postscript 100's closure of the n = 3
+multi-cube gap stays reopened.
