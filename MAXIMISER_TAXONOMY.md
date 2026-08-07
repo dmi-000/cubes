@@ -173,6 +173,13 @@ two agree AT a maximiser and disagree in how they rank the configurations around
 it — which is exactly the wrong way round for a search that has to navigate by
 comparing non-maximal candidates.
 
+**The extension rule above was tested and failed** (2026-08-06, `n9_hunt.py`,
+~1M candidates): the 2x13/0x9 bucket's mean n = 9 count is not better than the
+1x13 or 3x13 buckets, and the three are near-equally common. What does predict a
+good ninth cube is proximity to a cube symmetry — 19 of the 20 best are k·S + P
+with |P| = 1. **n = 9 ≥ 2781** as a by-product, the project's first n = 9 value.
+See `METHODS.md` §9.
+
 **Do NOT maximise coincidences.** 723 carries the richest structure in the table
 — 180 crossings, six 13-pairs — and loses to 727's 150 crossings and four
 13-pairs. The record beat 723 by trading two 13-pairs for three 9-pairs, which is

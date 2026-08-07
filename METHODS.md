@@ -143,6 +143,41 @@ the rest. Testing a candidate's pair types is an incidence test, far cheaper tha
 an arrangement count, so it prescreens at a rate region counting cannot reach.
 Two data points: a heuristic to test, not a law.
 
+**TESTED, 2026-08-06, and the rule does not hold.** `n9_hunt.py` sampled ~1M
+ninth cubes against the 1895 eight and counted all three neighbouring buckets
+rather than only the hypothesis:
+
+    1x13/0x9   n=761    mean 2726.4   max 2771
+    2x13/0x9   n=3380   mean ~2729    max 2781      <- the rule
+    3x13/0x9   n=930    mean 2732.0   max 2777
+
+Means within 8 of each other and the rule bucket not the best of them. The three
+profiles are also near-equally COMMON (2362 / 2322 / 2299 per million), so
+"exactly two 13-pairs" is neither rare nor predictive. The pattern was real in
+the three configurations it was read from and did not survive its first test.
+
+**What predicts a good extension instead: proximity to a cube symmetry.**
+19 of the 20 best ninth cubes are `k*S + P` with S one of the 24 cube-symmetry
+quaternions and **|P| = 1** — one unit step off a scaled symmetry:
+
+    2781  (21, 22, 21, -21)  = 21*(1,1,1,-1) + (0,1,0,0)
+    2781  (14,-14,-14,-15)   = 14*(1,-1,-1,-1) + (0,0,0,-1)
+    2781  (74, 1, 0, -75)    = 74*(1,0,0,-1) + (0,1,0,-1)
+    2781  (1, -91, 1, 1)     = 91*(0,-1,0,0) + (1,0,1,1)
+
+Near a symmetry the new cube nearly coincides with a copy already present, which
+is the mechanism that puts n = 2's 13 just off the body diagonal: many thin slabs
+rather than few fat ones. `n9_hunt2.py` enumerates that family directly
+(24 symmetries x k <= 400 x |P| <= 1, ~768 000 before dedup) instead of waiting
+for random sampling to land in it.
+
+**The methodological point outlives the rule.** v1 as first written screened only
+the hypothesis, so it could find a record but could not falsify the rule — the
+same shape as choosing a control for convenience (section 4). Adding the two
+neighbouring buckets cost almost nothing, because the pair screen was the
+bottleneck rather than the arrangement count, and it turned a confirmation
+exercise into a measurement that overturned the claim.
+
 ## 10. Render the figure and look at it
 
 Text extents cannot be estimated. Legend labels overflowed twice in one session
