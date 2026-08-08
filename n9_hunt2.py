@@ -80,7 +80,7 @@ def main():
     gen = candidates(); done = False
     while not done:
         chunk = []
-        for _ in range(2000):
+        for _ in range(400):
             try: chunk.append(next(gen))
             except StopIteration: done = True; break
         if not chunk: break

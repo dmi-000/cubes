@@ -143,7 +143,17 @@ the rest. Testing a candidate's pair types is an incidence test, far cheaper tha
 an arrangement count, so it prescreens at a rate region counting cannot reach.
 Two data points: a heuristic to test, not a law.
 
-**TESTED, 2026-08-06, and the rule does not hold.** `n9_hunt.py` sampled ~1M
+**TESTED — and the answer depends on where you test it.** Read both parts.
+
+**Within the near-symmetry family the rule DOES hold** (`n9_hunt2.py`, 178 000
+candidates of the form k·S + P):
+
+    0x13/1x9   n=71678  mean 2655.9   max 2779
+    0x13/0x9   n=52114  mean 2752.1   max 2775
+    3x13/0x9   n=16354  mean 2768.7   max 2777
+    2x13/0x9   n=16454  mean 2775.7   max 2785    <- the rule, best mean AND best max
+
+**On random quaternions it does not.** `n9_hunt.py` sampled ~1M
 ninth cubes against the 1895 eight and counted all three neighbouring buckets
 rather than only the hypothesis:
 
@@ -152,9 +162,13 @@ rather than only the hypothesis:
     3x13/0x9   n=930    mean 2732.0   max 2777
 
 Means within 8 of each other and the rule bucket not the best of them. The three
-profiles are also near-equally COMMON (2362 / 2322 / 2299 per million), so
-"exactly two 13-pairs" is neither rare nor predictive. The pattern was real in
-the three configurations it was read from and did not survive its first test.
+profiles are also near-equally COMMON (2362 / 2322 / 2299 per million).
+
+**So the rule is conditional, not absolute**: it discriminates once you are in
+the productive stratum and says nothing outside it. The first test looked like a
+refutation because it was run on a sample where almost nothing was any good —
+comparing buckets inside a bad neighbourhood measures the neighbourhood, not the
+rule. A conditional claim needs its condition sampled before it can be judged.
 
 **What predicts a good extension instead: proximity to a cube symmetry.**
 19 of the 20 best ninth cubes are `k*S + P` with S one of the 24 cube-symmetry

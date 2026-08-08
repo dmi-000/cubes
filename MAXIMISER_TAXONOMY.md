@@ -173,12 +173,55 @@ two agree AT a maximiser and disagree in how they rank the configurations around
 it — which is exactly the wrong way round for a search that has to navigate by
 comparing non-maximal candidates.
 
-**The extension rule above was tested and failed** (2026-08-06, `n9_hunt.py`,
-~1M candidates): the 2x13/0x9 bucket's mean n = 9 count is not better than the
-1x13 or 3x13 buckets, and the three are near-equally common. What does predict a
-good ninth cube is proximity to a cube symmetry — 19 of the 20 best are k·S + P
-with |P| = 1. **n = 9 ≥ 2781** as a by-product, the project's first n = 9 value.
-See `METHODS.md` §9.
+### n = 9 — 2785, and it is a continuum running into a degeneracy
+
+    ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;24,-24,24,-61;56,56,55,56"
+
+**n = 9 ≥ 2785** (2026-08-07), the project's first n = 9 value. It is not an
+isolated configuration: the ninth cube runs along the line **q(k) = k·S + P** with
+S = (1,1,1,1) and P = (1,1,0,1), and 2785 holds for
+
+    k in [55, infinity)      verified at k = 55 … 90 at step 1/8, then
+                             150, 300, 1000, 5000, 60000
+
+with 2781 on k ∈ [40, 54.875] below it. **The point at infinity is S itself — a
+cube symmetry that is already cube 5 of the base**, so there the ninth cube
+duplicates an existing one and the compound collapses to the eight, counting
+1895. That is a degeneracy puncture in the §1 sense, and the whole structure
+repeats n = 2's body-diagonal picture one dimension up: a line of maximisers
+running into a coincident-cube point at infinity.
+
+Below the half-line there is also an **isolated hit at k = 13** on each family,
+with k = 14 … 54 counting less (2781 on [40, 54.875]). So each line carries an
+isolated 2785 point and then a half-line of them — the same
+isolated-plus-continuum mix the n = 2 row has.
+
+The locus is wide: of 335 600 distinct near-symmetry candidates counted,
+**21 290 reach 2785**, spread over **128 (S, P) families** and at most **2 150
+classes** after orbit dedup by the ninth cube's own 24 rotations.
+
+**A frontier is not a boundary.** The enumeration's largest contiguous run read
+"k = 55–314", which looks like an upper end and is not one: the generator walks k
+upward and 314 was simply how far it had got. Probing past it gives 2785
+continuously to k = 2 000 and at 5 000, 60 000. This is Postscript 82's reporting
+trap — *any sweep that returns its own bounds is telling you the window was too
+small, not that it found an edge* — and it survived being written down, so check
+the frontier against the generator's state before reading a number as a limit.
+
+Note for anyone reading `n9_hunt2.jsonl` directly: it is appended across restarts
+and the generator re-enumerates from k = 1 each launch, so the file contains
+duplicates — 513 600 lines for 335 600 distinct candidates. Dedupe by quaternion.
+
+**How it was found** (`n9_hunt2.py`): 19 of the 20 best ninth cubes from a random
+search were k·S + P with |P| = 1, so the family was enumerated directly rather
+than sampled. Within it the §2a pair rule discriminates well — 2×13/0×9 gives
+mean 2775.7 against 2768.7 for 3×13 and 2752.1 for 0×13 — even though the same
+rule looked useless on random quaternions. See `METHODS.md` §9 for why both
+readings are correct.
+
+**The extension rule above was tested and holds only conditionally** — it discriminates inside the near-symmetry
+family and not on random quaternions, so what a test of it measures depends
+entirely on where the sample was drawn. See `METHODS.md` §9.
 
 **Do NOT maximise coincidences.** 723 carries the richest structure in the table
 — 180 crossings, six 13-pairs — and loses to 727's 150 crossings and four
