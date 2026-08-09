@@ -46,14 +46,30 @@ enters any decision.
 | 6 | **727** | VERIFIED | 393's five cubes + `7,14,1,-5` |
 | 7 | **1217** | VERIFIED | the 727 six + `4,-3,-4,-4` |
 | 8 | **1895** | VERIFIED | the 1217 seven + `24,-24,24,-61` |
+| 9 | **2785** | VERIFIED | the 1895 eight + `56,56,55,56` — a CONTINUUM, see below |
 
-The tower nests: 183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1895, adjacent levels differing by
-one cube — verified for 1895 by taking every 7-, 6- and 5-cube subset, which
-give exactly 1217, 727 and 393. Depth profiles:
+The tower nests: 183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1895 ⊂ 2785, adjacent levels differing
+by one cube — verified at the top by taking every 8-, 7-, 6- and 5-cube subset of
+the 2785, which give exactly 1895, 1217, 727 and 393. Depth profiles:
 
     727  = {214, 220, 156, 100, 36, 1}
     1217 = {278, 328, 260, 190, 118, 42, 1}
     1895 = {350, 454, 382, 302, 222, 136, 48, 1}
+    2785 = {426, 594, 524, 434, 346, 250, 156, 54, 1}
+
+**n = 9 = 2785 is the project's first n = 9 value** (2026-08-07), and unlike the
+levels below it the maximiser found is explicitly a CONTINUUM rather than a
+configuration. The ninth cube runs along q(k) = k·(1,1,1,1) + (1,1,0,1) and 2785
+holds for every k ≥ 55 — verified continuously to k = 2 000 and at 5 000 and
+60 000 — punctured only at k = ∞, where the ninth cube becomes a duplicate of the
+base's fifth and the count collapses to 1895. Of 335 600 near-symmetry candidates
+counted, 21 290 reach 2785 across 128 line families. Both engines agree on the
+representative. Details in `MAXIMISER_TAXONOMY.md` and `METHODS.md` §9.
+
+**Status caveat.** 2785 is a strong LOWER bound found by a directed search of one
+stratum — ninth cubes near a cube symmetry, extending the 1895 eight. Nothing
+excludes a better n = 9 that does not extend 1895, and the search of the family
+is about 44% complete.
 
 **1895 replaced 1891 on 2026-08-05** (Postscript 101). The two differ in the
 eighth cube alone and gain +2 at depth 1 and +2 at depth 2, every deeper slot

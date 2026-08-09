@@ -19,6 +19,16 @@ Terminology follows [`GLOSSARY.md`](GLOSSARY.md) §8.0 — no bare "point", "lin
    semialgebraicity. The well-posed replacement for "how many maximisers".
 3. **Types** — a type is a chamber: the 64-entry per-label profile is constant
    on it, while the count is constant across a whole component.
+
+   **Per-label is the right invariant and by_depth is not a substitute.** Since
+   by_depth[j] is the sum of per_label[k] over labels of popcount j, it is a
+   COARSENING of per-label and can never split what per-label does not. Measured
+   on the n = 7 1217 stratum (2026-08-08): 32 chambers carry **7 distinct
+   per-label profiles and exactly ONE by_depth profile**. So the depth structure
+   is rigid along the whole continuum while the per-label detail varies — the
+   seven types differ only in how regions are distributed among labels within
+   each depth, never in the depth counts themselves. by_depth is the readable
+   summary; it is not a classifier.
 4. **Symmetry** — order of the maximiser's own rotation group; equivalently its
    stabiliser, which divides the volume of its congruence class.
 5. **Arithmetic** — rational or not, and whether that is structural.
@@ -39,6 +49,20 @@ Terminology follows [`GLOSSARY.md`](GLOSSARY.md) §8.0 — no bare "point", "lin
      grid misses it and fatal to any sweep whose grid lands on it — a sampled
      "end" at a nice rational should be suspected of being a dip until the
      chamber on the far side is evaluated.
+
+   **The wall between two DIFFERENT chamber values carries their mean**, in
+   every step-type end measured so far — four independent instances across three
+   levels:
+
+       727 arc A end   725 between 727 and 723        (723+727)/2 = 725
+       723 line end    717 between 723 and 711        (711+723)/2 = 717
+       n=7 both ends  1215 between 1217 and 1213    (1213+1217)/2 = 1215
+       n=8 upper end  1893 between 1895 and 1891    (1891+1895)/2 = 1893
+
+   The wall loses exactly half the step. It does NOT extend to dips, where the
+   two sides are equal: u = −4 on the 723 line has 723 on both sides and 717 on
+   the wall, where the mean would be 723. Four instances, one rule, one known
+   exception — a pattern to test, not a law.
 
    **All three are the same event seen three ways: a COINCIDENCE SPIKE.**
    Counting the real edge-edge crossings on each side of a boundary and at it
@@ -199,6 +223,30 @@ isolated-plus-continuum mix the n = 2 row has.
 The locus is wide: of 335 600 distinct near-symmetry candidates counted,
 **21 290 reach 2785**, spread over **128 (S, P) families** and at most **2 150
 classes** after orbit dedup by the ninth cube's own 24 rotations.
+
+**Both ends are now solved** (`n9_wall.py`). In Cayley coordinates the line is
+simply **(1, t, 1)** with t = k/(k+1) — a coordinate-axis line — so the 8-cube
+W3/W4 catalogue applies directly: 2 158 real triple points, 1 008 crossing lines,
+4 181 W4 + 6 455 W3 roots on the line, 99 of them in t ∈ (0.9, 1).
+
+    lower end   t = 0.982138827898...   a W4 crossing, quadratic irrational
+                (k = 54.987367), stepping 2781 -> 2785
+    upper end   t = 1                    the ninth cube duplicates the base's
+                fifth; count collapses to 1895
+
+**So this is the first family in the table with one wall end and one degeneracy
+puncture** — every other continuum has two of a kind. The integer scan saw the
+lower end at k = 55 only because the true root sits at 54.9874, between integers.
+
+Below it the line is busy rather than empty: 2777 and 2781 alternate through
+walls at k = 9, 12.787, 14.098, 14.595 and exactly **k = 55/2** (a W3 root at
+t = 55/57), so the 2785 stretch is the last and widest chamber before the
+degeneracy, not an isolated feature.
+
+**And the lower end explains why the crossing count missed it.** A W4 crossing is
+a face PLANE through a base triple point; it does not create or destroy an
+edge-edge incidence, which is why the edge-edge count reads 294 on both sides of
+a wall that moves the region count by 4. See `METHODS.md` §7.
 
 **A frontier is not a boundary.** The enumeration's largest contiguous run read
 "k = 55–314", which looks like an upper end and is not one: the generator walks k
@@ -469,7 +517,10 @@ consecutive roots:
 
     1217 on s in (-0.045258752093..., +0.002550224044...)
 
-**both ends W4**, 32 wall-chambers carrying **exactly 7 types**. Cayley extent
+**both ends W4**, 32 wall-chambers carrying **exactly 7 types**. **Both ends are
+OPEN and both are now named exactly** (`n78_ends.py`, 2026-08-08): the lower is
+s = 337/364 − (1/91)√7809 and the upper s = −49/12 + (1/6)√601, and the count AT
+each is **1215** — not 1217. So the arc does not contain its ends. Cayley extent
 0.0478, which as rotation angle is **2.64°** — two thirds of 727 arc A and an
 eighth of the 723 loop. The earlier figure "extent 1/32" was a sweep artefact, 35% low.
 Does not wrap: the half-turn about x counts 727 and the tails 1209.
@@ -495,6 +546,11 @@ Cayley x and cube 8's Cayley z — so its moduli dimension is ≥ 2, as 1891's w
 Along cube 8's z, solved:
 
     1895 on s in (-0.025621839667..., +0.101360157756...)
+
+**Its upper end is OPEN and now named exactly**: s = 253/24 − √109 in ℚ(√109),
+where the count is **1893** — between the 1895 inside and the 1891 beyond. The
+lower end is a W3 quartic root, outside any quadratic field, so it stays out of
+reach of the ℚ(√d) engine.
 
 lower end **W3**, upper end **W4**, 29 wall-chambers carrying **≥ 8 types** — 28
 evaluated, and the 29th overflows the wide engine and is flanked by 1895 on both
@@ -694,6 +750,27 @@ statement, and the cheapest test is the next family found along an axis.
 Contrast 727 arc A, which does not wrap: it terminates at 723 and 721. Same
 dimension, different topology, and the difference is invisible to every
 dimension measurement.
+
+**Step 4 has now been probed once, and the boundary IS stratified.** At the
+727 arc A end — the rational wall point Cayley (19/2, −33/2, −30), counting 725 —
+moving ALONG the wall rather than across it was tested by offsetting the line and
+re-solving the same W4 condition (`wall_stratum.py`). Two independent offsets
+give the same answer:
+
+    delta = 0      the arc's own crossing      count 725
+    delta = 1/16   both offset directions      count 715
+
+So a wall does not carry one count: it has chambers of its own, and the 725 that
+ends arc A is a chamber of the wall, not the whole of it. That is the first
+direct evidence for the recursion of step 4 rather than an argument for it.
+
+**Two caveats.** Only δ = 0 and δ = 1/16 are usable — the intermediate offsets
+put the endpoint in ℚ(√211144753) and similar, with quaternion components near
+10⁵, which exceeds the wide engine's joint budget and returns a rejection. And a
+290-direction integer scan from the wall point finds **nothing** holding 725,
+which is not evidence of isolation but of `METHODS.md` §5: a W4 wall is an
+algebraic surface whose tangent plane is irrational, so integer directions never
+lie in it. The wall had to be followed by solving, not by scanning.
 
 **Before trusting any dimension figure below**, see FAILURE_MODES 13: a method
 that reports 0 must first recover a known tangent, or its zeros are void.

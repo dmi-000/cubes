@@ -112,6 +112,16 @@ Tested directly (2026-08-06): 40 small-denominator samples inside each of the 12
 widest chambers on the 723 line, **480 evaluations, every chamber single-valued**.
 No boundary was found that the coincidence catalogue does not carry.
 
+**But edge-edge crossings alone are NOT a complete boundary detector.** At the
+lower end of the n = 9 continuum the count steps 2781 -> 2785 between k = 439/8
+and k = 55 while the edge-edge crossing count is **294 on both sides**,
+unchanged. The wall there is of a type the edge-edge count does not register — a
+face-plane/triple-point event rather than an edge-edge one — so §6's "boundary
+points are coincidence spikes" holds for the boundaries examined at n <= 8 and
+must not be read as a test that can certify the absence of a wall. It also
+breaks, at this scale, the local single-valued map from crossings to regions
+found at n = 4: here 294 crossings corresponds to both 2781 and 2785.
+
 ## 8. Tell chamber values from wall values
 
 On the lines examined, **every chamber count is ≡ 3 (mod 4) and the values ≡ 1
@@ -192,7 +202,69 @@ neighbouring buckets cost almost nothing, because the pair screen was the
 bottleneck rather than the arrangement count, and it turned a confirmation
 exercise into a measurement that overturned the claim.
 
-## 10. Render the figure and look at it
+## 10. Prune by the SUBSET SPECTRUM, not by subset maximality
+
+Every (n−1)-subset of an n-record is *near*-maximal; almost none is maximal. The
+full spectrum, dropping each cube in turn:
+
+    2785 (n=9)  ->  1895, 1887, 1887, 1883, 1875, 1873, 1873, 1869, 1867
+    1895 (n=8)  ->  1217, 1217, 1209, 1205, 1203, 1201, 1201, 1197
+
+So the strong constraint — *all* (n−1)-subsets are known (n−1) configurations —
+is false: only one subset of the 2785 reaches 1895, and two of the 1895 reach
+1217. The rest are ordinary compounds nobody has catalogued.
+
+**The weak form is real and quantitative.** Every subset lands in a narrow band
+just under the level below:
+
+    worst 8-subset of 2785 = 1867 = 98.5% of 1895
+    worst 7-subset of 1895 = 1197 = 98.4% of 1217
+
+Two levels agreeing to a tenth of a percent. As a pruning rule: a candidate
+n-compound whose WORST (n−1)-subset falls below roughly 98% of the (n−1) record
+is not a record. That is n cheap counts at level n−1 in place of one expensive
+count at level n, and it prunes on the worst subset rather than the best — the
+opposite of how extension search is usually organised, which only ever looks at
+the subset it started from.
+
+Two data points; test it before trusting the 98%.
+
+## 11. The depth profile is an EULER count on the intersection curve
+
+For two cubes the intersection curve Γ = ∂A ∩ ∂B is a graph on the sphere ∂A:
+its **vertices** are edge-face incidences, its **edges** are the segments
+(face i of A) ∩ (face j of B), and it has **c** connected components. Euler on
+S² for a graph with c components gives F = E − V + c + 1, and measured against
+the depth profile (2026-08-08, two-cube configurations at every stratum):
+
+     c     V     E     X    d1   total    E − V + c + 1
+     1     8    18    24    12      13         12   ✓
+     1    10    20    10    12      13         12   ✓
+     1    12    18     8     8       9          8   ✓
+     1    14    20     6     8       9          8   ✓
+     1    16    18     4     4       5          4   ✓
+     2    20    20     0     3       4          3   ✓
+     1    16    24    16     8       9         10   ✗
+     1     8    24    48     0       1         18   ✗ (cubes coincide)
+
+**d1 = E − V + c + 1 in six of the eight classes**, including every one of the
+n = 2 strata 13, 9, 5 and 4. So the depth profile is not merely correlated with
+the incidence data — at least generically it IS an Euler characteristic of it.
+
+**And this is the mechanism by which coincidences change the count.** An
+edge-edge coincidence MERGES two vertices of Γ into one, so it lowers V by one
+and raises F by one. That is why coincidence count tracks region count (section
+6) without determining it: V is only one of three terms, and E and c move too.
+The 13-locus's two kinds of 13-pair are visible here as (V, E) = (8, 18) with
+X = 24 against (10, 20) with X = 10 — different incidence data, same F = 12.
+
+**The two exceptions matter.** X = 48 is the coincident-cube degeneracy, where Γ
+is not a curve at all. The X = 16 row is a genuine failure at F = 10 against
+d1 = 8 and is unexplained; the likely cause is Γ having a vertex of degree > 4,
+where two faces of the complement merge and the naive face count over-reports.
+Six of eight is a relation to derive properly, not a formula to trust.
+
+## 12. Render the figure and look at it
 
 Text extents cannot be estimated. Legend labels overflowed twice in one session
 on arithmetic that looked right, and a near-tangency of 0.97px between two marks

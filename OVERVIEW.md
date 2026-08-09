@@ -126,6 +126,7 @@ up is entirely rational.
 | 6 | **727** | best found |
 | 7 | 1217 | best found |
 | 8 | **1895** | best found |
+| 9 | **2785** | best found — a continuum |
 
 The records **nest**: the 393 is five of the six cubes of the 727, the 727 is
 six of the seven of the 1217, and so on down. Adding a good cube to a good
@@ -333,7 +334,7 @@ with the session, taking the gates with it.
 
 - **Is 729 reachable at six cubes?** The formula predicts it; exhaustive
   searches of three separate strata cap out at 727, 725 and 723.
-- **Are 183, 393, 727, 1217, 1895 actually maximal?** None is proved. Only
+- **Are 183, 393, 727, 1217, 1895, 2785 actually maximal?** None is proved. Only
   *n* = 2 and *n* = 3 have theorems. 1895 replaced 1891 on 2026-08-05, and it
   was sitting inside a window an earlier sweep had already covered — the
   plainest evidence that "best found" at the top of the tower means "nobody has

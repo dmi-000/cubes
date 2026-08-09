@@ -170,9 +170,9 @@
 <text class="cap" x="40" y="634">value but 4, 6, 14, 14, 22 and 32 distinct counts as n runs 2 to 8. No direction preserves the count except along a tangent: every maximiser lies on walls.</text>
 <text class="cap" x="40" y="658">n = 2's mark is the one exception, drawn in the Cayley chart: there the body-diagonal family wraps into a circle, but its three punctures are a single C₃ orbit,</text>
 <text class="cap" x="40" y="676">so in class space it is one arc. The fainter arc beneath is the edge family, and its two ticks are the only closed ends in the table — 13 holds AT both.</text>
-<text class="cap" x="40" y="694">A bare end is not in the set: at a 727 arc end the count is 725, between the 727 inside and the 723 beyond. n = 7 and n = 8's ends are quadratic</text>
-<text class="cap" x="40" y="712">irrationals, untested either way, and drawn bare provisionally. Every boundary point of every kind carries MORE edge-edge coincidences than either</text>
-<text class="cap" x="40" y="730">side of it: 10 → 24 at the n = 2 edge-arc ends, 144 → 162 at arc A's, 24 → 48 at the diagonal punctures. An arc ends by running into a denser stratum.</text>
+<text class="cap" x="40" y="694">A bare end is not in the set: at a 727 arc end the count is 725, between the 727 inside and the 723 beyond — and n = 7's two ends and n = 8's upper,</text>
+<text class="cap" x="40" y="712">solved in ℚ(√7809), ℚ(√601) and ℚ(√109), are open too, at 1215 and 1893. In every step measured the wall carries exactly the MEAN of the two</text>
+<text class="cap" x="40" y="730">chambers it separates. Boundary points also carry MORE edge-edge coincidences than either side — 10 → 24, 144 → 162, 24 → 48 — except at a W4 wall.</text>
 <text class="capb" x="40" y="762">n = 3 IS THE ONLY FINITE CASE</text>
 <text class="cap" x="40" y="784">Every level set here is semialgebraic, so it has finitely many components and each is a point or a continuum: a maximiser set is finite or</text>
 <text class="cap" x="40" y="804">uncountable, never countably infinite. Only n = 3 takes the finite option — two classes, both irrational, in ℚ(√2) and ℚ(√5). The other two</text>

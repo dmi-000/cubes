@@ -63,6 +63,7 @@ missteps is [`PROOF_NARRATIVE.md`](PROOF_NARRATIVE.md).
 | 6 | 635 | best from 360k random rational seeds + climbing | ℚ (rational) |
 | 7 | **1217+** | greedy extension of 727 (Postscript 46) | ℚ (rational) |
 | 8 | **1895+** | the 1217 seven + `24,-24,24,-61` (Postscript 101; was 1891) | ℚ (rational) |
+| 9 | **2785+** | the 1895 eight + `56,56,55,56`; a continuum in k, see `MAXIMISER_TAXONOMY.md` | ℚ (rational) |
 
 Deep-depth ceilings **d3 ≤ 164, d4 ≤ 102, d5 ≤ 36, d6 = 1** have never
 been exceeded in any config or on any wall tested (conjectures C4/C5/C6,
