@@ -111,6 +111,60 @@ roots (§3a), which cannot miss a chamber and so is exact.
 **n = 8 is 1895, not 1891** (2026-08-05). See §3 for the configuration and §7
 for how it was found and where it has been propagated.
 
+## 1a. The boundaries themselves: dimension and topology
+
+A wall is where the count changes, and until now it has only ever been met
+transversally — as a root on a line. Characterised as a surface (2026-08-09):
+
+**W4 walls are hyperboloids of ONE SHEET, all of them.** The condition "a face
+plane of the free cube passes through a base triple point" reads (Mᵀp)ᵢ = ±N with
+M the unnormalised rotation and N = 1 + |v|², both quadratic in the Cayley vector
+— so the wall is a QUADRIC SURFACE. Classifying the 4×4 form for 360 of them
+(60 triple points × 3 components × 2 signs): **every single one has signature
+(2,2)**, a one-sheeted hyperboloid. Not a distribution over quadric types — one
+type.
+
+    dimension   2, i.e. codimension 1 in the free cube's 3-dimensional slice
+    topology    connected, non-compact, S¹ × ℝ
+    geometry    doubly ruled — it carries TWO families of straight lines
+
+**The ruling explains why line sweeps have worked so well.** A straight line in
+Cayley space is a one-parameter family of rotations, and that is exactly what
+every arc in this file is: 723's u·(1,1,1), arc A's a₀ + s·(1,−3,−6), the n = 9
+family's (1, t, 1). A W4 wall does not merely get crossed by such lines — it is
+made of them, two families' worth. So a maximiser arc lying in a wall is lying
+along a ruling, and the wall it ends on is met by its line at a point of the
+other ruling.
+
+**W3 walls are quadrics TOO — every wall is the same surface type.** This
+corrects a claim made here from the line restriction alone. The
+edge-meets-crossing-line determinant is degree 4 in the Cayley vector, but it
+carries a factor of N = 1 + |v|², which is strictly positive and so contributes
+NO real points. Removing it, exactly and symbolically over ℚ: **30 of 30 W3 walls
+have degree 2 and signature (2,2)** — the same one-sheeted hyperboloid as W4. The
+"degree 4" recorded in `wall_params` is the restriction to a line with the N
+factor still in it: N(s) quadratic × quadric(s) quadratic = 4.
+
+So the classification is uniform across both wall types:
+
+    dimension   2, codimension 1 in the free cube's 3-dimensional slice
+    surface     quadric of signature (2,2) -- a one-sheeted hyperboloid
+    topology    projectively a TORUS S¹ × S¹; connected; doubly ruled
+    position    unbounded in the Cayley chart, so it meets the plane at
+                infinity -- every wall CONTAINS half-turns
+
+**Which is why the point-at-infinity test decides wrapping** (§3): asking whether
+a family wraps is asking whether its line leaves the chart through a wall, and
+every wall is there to be left through.
+
+**And "at most 2 components" is proved, not sampled.** Every connected component
+of a real surface contains a point of horizontal tangency, so F = F_x = F_y = 0
+meets every component. Solved exactly by Gröbner elimination for one W3 wall: the
+univariate eliminant has degree 2 with **exactly 2 real roots**, so at most two
+components — and a one-sheeted hyperboloid is connected, which is the one the
+grid found. The earlier 46³ grid reading is now a theorem rather than a
+resolution-limited observation.
+
 ## 2a. The wall signature — which coincidences meet at each maximiser
 
 A maximiser is never in the interior of a chamber: no direction preserves the
@@ -330,6 +384,11 @@ Two probes, one of which took three attempts to make meaningful:
   plus the four quaternion-component moves of the half-turn cube — **0 of 20
   hold**, and the neighbouring counts (161–173) do not even depend on ε. Per
   `FAILURE_MODES.md` 11d this means "not aligned", never "isolated".
+* **No double-13 family exists through it at all**: of the 96 coincident-curve
+  systems on the 183 base (`solve13_all.py`), **none** is degenerate, so unlike
+  every level from n = 5 up there is no one-parameter family of fifth cubes
+  forming two body-diagonal 13-pairs. 183's rigidity now has a candidate cause
+  rather than only repeated null probes.
 * **The direction scan, third attempt and the first that carries information**:
   1 730 primitive integer directions |uᵢ| ≤ 6 in the **Cayley** chart, both free
   cubes with w ≠ 0, ε = 1/32, 1/128, 1/512 — **0 of 3 460 hold**. Its control is
@@ -583,6 +642,18 @@ point outside that ball is missed. And a rational strictly between two roots
 that are 10⁻⁷ apart has a denominator large enough to overflow even the wide
 engine — one chamber of the n = 8 line and one of the 723 line came back as
 rejections, and are reported as unevaluated rather than as count changes.
+
+**Those chambers are no longer lost.** The incidence identity of `METHODS.md` §11
+counts them — its cost is combinatorial, not arithmetic, so coefficient size does
+not matter (0.19 s at component size 10⁹, the same as at size 14). The 723 line's
+**14 unevaluable chambers of 744 are now counted**, including the one at
+u = −7.7099 whose midpoint has components of order 10¹⁵ and which flanked a 723
+chamber: it counts **723**. The five 727 arc lines are being filled the same way
+(`fill_gaps.py` -> `fill_gaps.log`). **Arc A is COMPLETE: 313 gaps filled, max 723**
+(723x2, 719x3, 715x17, 711x8, 707x6, 703x3, 699x14, 695x65), so its swept maximum of
+727 survives the holes being closed and arc A is the first line in the table that is
+genuinely complete rather than 92% complete. Arc B (668 gaps) and C, D1, D2 are in
+progress; any count above 727 is logged at once with its exact parameter and cube.
 
 ## 4. Why the cells read what they do
 

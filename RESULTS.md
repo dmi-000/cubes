@@ -81,6 +81,14 @@ unchanged — so the increment is entirely shallow, the same signature by which
 - **max(2) = 13**, for any two convex cells with ≤ 6 faces each. PROVED. The
   bound is the convex-cover argument: A∖B is a union of at most 6 convex
   pieces, likewise B∖A, plus one core.
+  **A second derivation, 2026-08-09** (`METHODS.md` §11): the intersection curve
+  Γ = ∂A ∩ ∂B is a graph with V vertices, E edges and c components, and Euler on
+  the sphere gives F = E − V + c + 1 faces. ∂(A∪B) is a sphere tiled by the
+  outside faces of both bodies, so d₁ = F, while ∂(A∩B) is a sphere tiled by the
+  inside ones. The six-face bound then reads O_A ≤ 6, O_B ≤ 6, hence F ≤ 12 and
+  d₁ ≤ 12 — the same theorem as a face count on the union's boundary rather than
+  as a covering of A∖B. Verified numerically on 229 of 229 pairs in the regime
+  where the face-to-component bijection holds.
 - **max(3) = 67**, for any three concentric convex ≤6-facet cells whose
   boundaries meet pairwise transversally — an open dense set including both
   maximizers. PROVED, in [`PROOF_67.md`](PROOF_67.md) +
@@ -90,6 +98,14 @@ unchanged — so the increment is entirely shallow, the same signature by which
   polytopes). One caveat remains, inherited from the contact analysis: two
   cells meeting *tangentially* rather than transversally, a higher-codimension
   degeneracy.
+- **d₁ ≤ 108·C(n,3) + 2 for every n.** PROVED, but loose (2026-08-09,
+  `METHODS.md` §11). The depth-1 count equals V₃/2 + c + 1 with V₃ the triple
+  points on ∂(A₁∪…∪Aₙ) — verified on coincidence-free configurations at n = 3,
+  4, 5 and 6 — and a triple point takes one face-plane from each of three cubes,
+  so V₃ ≤ 216·C(n,3). Gives d₁ ≤ 434 at n = 4 (actual 92) and ≤ 2162 at n = 6
+  (actual 214). These are the first upper bounds the project has above n = 3;
+  they bound d₁ only, not a total, and tightening them means counting which
+  plane-triples can be real AND outside every other body.
 - **d_{n−1} ≤ 6n for every n.** PROVED (the l = 1 ceiling law, via the anchor
   lemma: the radial envelope of any n-cube configuration has local minima only
   at the 6n face centres).
