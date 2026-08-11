@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# Working principles: CENSUS_BOUND_SPEC.md. Project index: README.md / PROOF_67.md sect.5,5.1
+# Working principles: specs/CENSUS_BOUND_SPEC.md. Project index: README.md / PROOF_67.md sect.5,5.1
 """(bound) FEASIBILITY-FIRST investigation of (*) Sigma_v(deg_v-2) <= 92 on
 the n=3 TOP-1 diagram (equivalently d1 <= 48, the sole remaining gap in
 max(3) = 67; see PROOF_67.md sect.5, sect.5.1).
 
-This is NOT a proof attempt. Per CENSUS_BOUND_SPEC.md the primary
+This is NOT a proof attempt. Per specs/CENSUS_BOUND_SPEC.md the primary
 deliverable is a feasibility verdict with concrete numbers for the four
 approaches listed there. It:
 

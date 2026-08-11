@@ -1,6 +1,6 @@
 # N-FAMILY report — does the dihedral/big family help at n > 3?
 
-Executes `NFAMILY_SPEC.md`. Answer up front: **no** — the family is a rich
+Executes `specs/NFAMILY_SPEC.md`. Answer up front: **no** — the family is a rich
 exact-coincidence scaffold, and it already *is* buried inside the n=4/5/6
 records (Q3's headline result), but as a *search space to maximize over*
 it falls further and further behind the true records as n grows (deficit

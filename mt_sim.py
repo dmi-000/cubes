@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: CPP_SPEC.md (validated seed->config RNG chain). Project index: README.md
+# Working principles: specs/CPP_SPEC.md (validated seed->config RNG chain). Project index: README.md
 """Validate a from-scratch reimplementation of the seed -> configuration
 chain (numpy MT19937 + legacy polar Gaussian + scipy Rotation.random
 quaternion order + our common-scale rationalization) against the real

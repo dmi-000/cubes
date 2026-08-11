@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Working principles: SLIDE3_SPEC_V2.md + slide3_report.md. Project index: README.md
-"""SLIDE3_SPEC.md Section 1, Phase P3: constraint-first fine map of the
+"""specs/SLIDE3_SPEC.md Section 1, Phase P3: constraint-first fine map of the
 (1,1,1)-diagonal alignment wall.
 
 Constraint imposed exactly: R = rotation about (1,1,1) by angle alpha,

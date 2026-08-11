@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: NPLUS_SPEC.md (mod-4 at scale). Project index: README.md
+# Working principles: specs/NPLUS_SPEC.md (mod-4 at scale). Project index: README.md
 """mod-4 law check for arbitrary n using the validated C++ engine (fast):
 bounded == 2n-1 (mod 4) conjectured for generic configs (mod4_check.py
 established this for n=4..7 via the slow Python oracle). Read-only

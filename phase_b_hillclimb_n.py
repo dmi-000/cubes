@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# Working principles: NPLUS_SPEC.md. Project index: README.md
+# Working principles: specs/NPLUS_SPEC.md. Project index: README.md
 """Phase B (n-general): exact hill-climbing on integer quaternion configs
 for arbitrary cube count n. Adapted from phase_b_hillclimb.py (which stays
 untouched, n=6-only, reading exact_search_results.jsonl/campaign_results
-.jsonl) per NPLUS_SPEC.md section 4.
+.jsonl) per specs/NPLUS_SPEC.md section 4.
 
 Starts from the top-K configs found in campaign_n<n>.jsonl (+ hillclimb_n
 <n>_log.jsonl for resumability), applies integer component moves (add

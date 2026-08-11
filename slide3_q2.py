@@ -5,7 +5,7 @@ instead of 5) plus a generic field-parameterized exact region-counting core
 (a direct clone of qtower.exact_count_tower's algorithm, but taking the
 field's ONE/mk_frac as parameters instead of hardcoding Ext3/Q5).
 
-Used for SLIDE3_SPEC.md Check O: the octahedral endpoint of the candidate
+Used for specs/SLIDE3_SPEC.md Check O: the octahedral endpoint of the candidate
 sliding family needs cos(45deg) = sin(45deg) = 1/sqrt(2), i.e. Q(sqrt2) --
 NOT touching qtower.py / certify_six.py / cube_compound_exact.py (all
 read-only ground truth per the spec).

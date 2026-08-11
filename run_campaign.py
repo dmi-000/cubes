@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: CPP_SPEC.md + LEDGER.md (Postscript 4). Project index: README.md
+# Working principles: specs/CPP_SPEC.md + LEDGER.md (Postscript 4). Project index: README.md
 """Parallel falsification campaign driver for cube_regions (C++).
 
 Splits a seed range across worker processes (seeds are independent and

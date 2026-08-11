@@ -509,6 +509,21 @@ none reaching 1217. So at n = 6 -> 7 the chain looks sound for bases NEAR it --
 which says nothing about a record far from the chain, and 183 is nowhere near any
 67.
 
+**And the member sweeps were answering the wrong question.** Given the near-
+symmetry search, the 1217-arc member s = -9/200 reached only 1887 in 52 800
+candidates over two hours. SOLVED instead -- the coincident-curve systems of
+section 12 -- the same base reaches **1895 in seconds**, from three closed-form
+families scanned at 500 points each. So that member is not deficient; the
+shortfall was the instrument. Two lessons: solve a base before searching it, and
+treat "member X falls short" as a claim about the search until a solve agrees.
+
+**The coincident-curve structure is INVARIANT along the arc.** The three
+degenerate systems on the s = -9/200 member are the same three as on the record
+member -- cube 1 and cube 2 on axis (-1,-1,1), cube 3 on (1,1,1) -- reaching
+1887 / 1879 / 1895 in both cases. Moving the seventh cube within its plateau does
+not change which systems degenerate. That is why members are interchangeable,
+stated in linear algebra rather than inferred from comparing search outcomes.
+
 **A control worth copying.** `offchain.py` extends non-record n = 6 bases and
 includes the record base in the list. 4 800 random seventh cubes on the 727 base
 find 1217, so the instrument demonstrably locates a record when one is reachable
@@ -675,17 +690,93 @@ failure for the n = 2 map's source — *"Artifact sources live nowhere durable
 unless copied"* — so this is the second occurrence in the project. A method is
 not written down until the code that performs it is in the repository.
 
+## Where work is allowed to live
+
+Third occurrence, 2026-08-11, so it is now a rule rather than an anecdote.
+
+**Deliverables are written straight to the repository. Scratch is only for output
+you will never cite.** The delegated rulings run got this mostly right — code,
+data, log and report all landed in the repo — but its INDEPENDENT CONTROL did
+not. `rulings_report.md` rests three ways on a check that rebuilt the wall
+quadric from scratch, sharing no code with the program under test; that check was
+written to `/private/tmp/.../scratchpad` and would have died with the session,
+leaving the report asserting a verification that nothing in the repo could
+perform. It is now `rulings_control.py` and runs in place. So:
+
+* **A control is a deliverable.** If the negative or independent check lives only
+  in scratch, the gate it supports is not reproducible, whatever the report says.
+* **Write it where it belongs the first time.** Scratch-then-copy is the step that
+  gets skipped; there is no reason to take it for anything you intend to cite.
+* **A spec names its deliverable paths**, so "did the agent save its work" is a
+  check rather than a judgement call.
+
+**And name files by their PATH in a report, not by their basename.** This one cost
+a false alarm the same day: `handoff_report.md` cites ten bare filenames, eight of
+which live in `dihedral_scratch/`, so a root-level existence check reported the
+whole Postscript 25–29 dihedral chase as unreproducible. It is not — the scripts
+are archived, just not where the report implies. Of 29 reports, 24 have a
+same-stem script and four more name their producers under other names; the only
+artifacts genuinely absent anywhere on disk are `handoff_witness.jsonl` and
+`clip.html`.
+
+## The documents, and which kind each one is
+
+The old rule — UPPERCASE = hand-authored, lowercase = named after its script,
+`LEDGER.md` excepted — encoded PROVENANCE and nothing else, so 24 one-shot work
+orders sat under the same convention as the standing references. Revised
+2026-08-11, on three axes that were previously implicit:
+
+**Lifetime.** `specs/` holds work orders written for a delegated agent; they are
+spent when the run finishes and are kept only so a result's instructions can be
+re-read. Everything uppercase in the root is a standing document. The 24 specs
+were moved and all 229 references in authored files swept the same day
+(`specs/MOVE_LOG.json` records exactly what moved and what was rewritten). The
+precedent is the `six_cube_search_results.md` → `LEDGER.md` rename: **consistent
+renaming is data-preserving**, so authored documents get swept — including this
+one and the ledger, whose append-only discipline governs CLAIMS, not paths. Two
+kinds of thing are exempt, for two different reasons: **verbatim records** —
+session transcripts and `bak/` — are what was actually said or held at the time,
+so a sweep would falsify them; and `github/` is a **separate git repository,
+maintained by hand**, so a sweep there is a publication act rather than
+bookkeeping. Export timing between the two is deliberately out of scope: expect
+`github/` to lag, and do not treat a difference between it and the root as
+a defect to fix automatically.
+
+**Structure.** Chronological — `LEDGER.md` (by write time), `JOURNEY.md`, every
+`*_report.md`, the transcripts. Logical — `RESULTS.md` (by claim), this file,
+`FAILURE_MODES.md` (by symptom), `GLOSSARY.md` (grouped by meaning),
+`MAXIMISER_TAXONOMY.md` (by axis). The pairing is deliberate and each side links
+to the other; do not merge them.
+
+**Mutability, and how an immutable record survives it.** A `.md` is LIVING: when
+it is found wrong it is corrected in place, with the correction marked and dated
+rather than silently absorbed. Its data siblings — `.json`, `.jsonl`, `.log`,
+`.out` — are IMMUTABLE and are never edited, so the original numbers stay
+derivable from the run's own artifacts. That is what makes a living report safe:
+`rulings_report.md` was corrected the morning after its run (17 entries → 8
+distinct rulings, "5 constant" → 2 and both vacuous) while `rulings_data.json`
+went untouched and still proves both readings. A report whose script is missing
+from the repo breaks this, and 15 of 29 currently do.
+
+Every standing document opens by saying what it is and who should read it. If a
+new one cannot, it does not yet know what it is.
+
 ## The paths worth taking next (2026-08-10)
 
 Ranked, each arising from something established rather than from backlog.
 
-1. **Sweep the RULINGS.** Every wall is a signature-(2,2) quadric, hence doubly
+1. **ENUMERATE the rulings; SOLVE each one** (§1 -- do not sweep them; the first
+   ruling ever done was grid-sampled out of habit, 7 of 13 samples came back
+   unevaluable, and solving the same line replaced "725 at 5 points" with 725 in
+   all eleven chambers). Every wall is a signature-(2,2) quadric, hence doubly
    ruled, and a straight line in Cayley space IS a one-parameter family of
    rotations -- exactly what every maximiser arc here has been. So each wall
    carries two natural families of arcs and **not one ruling has ever been
    swept**. Cheap: the rulings of a quadric are closed-form. Through a point p on
    the wall, a direction d rules it iff p^T Q d = 0 and Q(d) = 0 -- one linear and
-   one quadratic condition, two real solutions for signature (2,2).
+   one quadratic condition, two real solutions for signature (2,2). The
+   enumeration is over WALLS and rational points on them (a rational root of an
+   existing catalogue line is one); the solve is along each resulting ruling.
 2. **BOUND C, do not search for it.** `C = V + E - M + sum c_i + n - c` is exact
    on every record and every term is an incidence count over face planes. A real
    upper bound needs them bounded JOINTLY, since E enters positively and M

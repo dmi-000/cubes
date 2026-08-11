@@ -35,7 +35,12 @@ The best point of each combination is then measured for plateau dimension by
 the 3^6 - 1 lattice probe, so the result carries the shape of its optimum and
 not just its value.
 
-    python3 step_b4.py [tries] [climb_steps]
+    python3 step_b4.py [tries] [climb_steps] [seed]
+
+The optional SEED (default 20260803, the original run's) was added 2026-08-11 so
+the ten combinations can be attacked by independent shards: g is a MAXIMUM, so
+shards never contradict each other -- the largest value any shard reaches is the
+best lower bound on g, and Lemma B needs the <= 14 half to survive all of them.
 """
 import itertools
 import math
@@ -160,7 +165,9 @@ def best_for(rng, want, tries, steps):
 def main():
     tries = int(sys.argv[1]) if len(sys.argv) > 1 else 40
     steps = int(sys.argv[2]) if len(sys.argv) > 2 else 300
-    rng = random.Random(20260803)
+    seed_arg = int(sys.argv[3]) if len(sys.argv) > 3 else 20260803
+    rng = random.Random(seed_arg)
+    print('# step_b4  tries=%d steps=%d seed=%d' % (tries, steps, seed_arg), flush=True)
     combos = [(13, 13), (13, 9), (13, 5), (13, 4), (9, 9), (9, 5), (9, 4),
               (5, 5), (5, 4), (4, 4)]
     got = {}

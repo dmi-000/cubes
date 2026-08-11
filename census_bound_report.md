@@ -1,6 +1,6 @@
 # census_bound: feasibility report on (★) Σ_v(deg_v−2) ≤ 92
 
-Run against CENSUS_BOUND_SPEC.md, feasibility-first mode. This is **not**
+Run against specs/CENSUS_BOUND_SPEC.md, feasibility-first mode. This is **not**
 a proof of (★); it is the requested feasibility verdict with concrete
 numbers, plus one negative result (approach 4, killed and confirmed by
 main session mid-run — see below). Produced by `census_bound.py`, which
@@ -153,7 +153,7 @@ tied-and-farthest at once) than to the naive "eliminate degenerate
 vertex types" framing of C45_notes §8.
 
 Note on the spec's cited "naive 3·3·3·2 = 54": that figure (from
-CENSUS_BOUND_SPEC.md's own text) describes the swap-*circle* count per
+specs/CENSUS_BOUND_SPEC.md's own text) describes the swap-*circle* count per
 cube pair × cross combinations, not the elementary-triple space; the
 actual naive elementary-triple space, using census_extract's own
 (f0,f1,f2,s01,s12) classification, is 3×3×3×2×2 = 108 (108/108 realized

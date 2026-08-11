@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Working principles: NFAMILY_SPEC.md. Project index: README.md
-"""G0/G1/G2 gates for the n-family sweep (NFAMILY_SPEC.md). Run with no
+# Working principles: specs/NFAMILY_SPEC.md. Project index: README.md
+"""G0/G1/G2 gates for the n-family sweep (specs/NFAMILY_SPEC.md). Run with no
 args; prints PASS/FAIL for each gate and exits nonzero on any failure."""
 import json
 import subprocess

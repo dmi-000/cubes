@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: NPLUS_SPEC.md (gate G2cross). Project index: README.md
+# Working principles: specs/NPLUS_SPEC.md (gate G2cross). Project index: README.md
 """G2cross: for n in {2,3,4,5,7,8}, three seeds each (777,778,779 -- the
 spec's known n=7 values, reused across n for a uniform, reproducible
 gate), C++ (./cube_regions_n) must match the Python oracle

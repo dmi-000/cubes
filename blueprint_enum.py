@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-# Working principles: BLUEPRINT_SPEC.md; LEDGER.md
+# Working principles: specs/BLUEPRINT_SPEC.md; LEDGER.md
 # Postscripts 12/13/17/17-addendum/18/19 (+addenda); shared_axis_search.py
 # (whose cluster/spoke genome format this file's `spec` tuples feed
 # directly, unmodified); PROJECT.md. Project index: README.md.
 """blueprint_enum.py -- enumerate the n=6 "blueprint" catalog up to symmetry.
 
-A BLUEPRINT (BLUEPRINT_SPEC.md's definition) = the partition of 6 cubes into
+A BLUEPRINT (specs/BLUEPRINT_SPEC.md's definition) = the partition of 6 cubes into
 shared-axis clusters + free cubes, plus each cluster's KIND (onaxis: base=
 None, corner sits on the axis, generically 13-capable; spoke: generic base,
 generically 9-capable -- see shared_axis_search.py's docstring and Postscript

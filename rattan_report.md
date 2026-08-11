@@ -1,4 +1,4 @@
-# RATTAN — the rational-tangent sweep (RATTAN_SPEC.md)
+# RATTAN — the rational-tangent sweep (specs/RATTAN_SPEC.md)
 
 Sweep of the single-axis cube family at RATIONAL-TANGENT tilts
 tan ψ = q/p with d = p² + q² **non-square** (sin ψ, cos ψ irrational, in

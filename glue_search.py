@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Working principles: GLUE_SPEC.md. Project index: README.md
-"""Glued family-clique search (GLUE_SPEC.md): does gluing two dihedral-
+# Working principles: specs/GLUE_SPEC.md. Project index: README.md
+"""Glued family-clique search (specs/GLUE_SPEC.md): does gluing two dihedral-
 family cliques on DIFFERENT axes (clique A on axis/tilt psiA, clique B on
 axis/tilt psiB rotated wholesale by an integer quaternion G) reach or beat
 the records 183 (n=4) / 393 (n=5) / 723 (n=6)?

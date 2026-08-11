@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: golden_wall_report.md + QFIELD_SPEC.md. Project index: README.md
+# Working principles: golden_wall_report.md + specs/QFIELD_SPEC.md. Project index: README.md
 """Targeted follow-up sweep for golden_six.py (same log, same wrappers).
 
 Motivation (from the first search phase, golden_search.jsonl): the best

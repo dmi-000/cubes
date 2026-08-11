@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: NFAMILY_SPEC.md. Project index: README.md
+# Working principles: specs/NFAMILY_SPEC.md. Project index: README.md
 """Q3: do the EXISTING RECORDS already contain family structure?
 
 For each record config (n=4: 183, n=5: 393, n=6: 723 -- integer quats, from

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """G1/G3/G5 for the widened engine: is cube_regions_q2w the SAME engine?
 
-WIDE_ENGINE_SPEC.md widens the validated ℚ(√d) engine's scalar from 128 to
+specs/WIDE_ENGINE_SPEC.md widens the validated ℚ(√d) engine's scalar from 128 to
 256 bits so the 284 634 mixed-strata configurations rejected by the old chain
 budget can be counted.  A widened engine is only worth having if it is
 provably the same engine on everything the old one could already do, so the

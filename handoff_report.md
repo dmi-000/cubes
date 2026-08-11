@@ -1,6 +1,6 @@
 # Handoff report: can >18 edge concurrences be carried octahedral → golden?
 
-Task: HANDOFF_SPEC.md. Verdict up front: **no path was found that carries
+Task: specs/HANDOFF_SPEC.md. Verdict up front: **no path was found that carries
 more than 18 physical edge-concurrence points continuously from the
 octahedral 3-cube compound to the golden 3-cube compound.** 18 is the best
 found, it is reproduced independently by the trajectory-linking code
@@ -19,7 +19,7 @@ spec's definitions), `handoff_linker.py` (trajectory linker with
 `exec()` any file from `cubes/scratchpad/`; none of the ledger or
 validated files were modified.
 
-**Note on the spec's own file paths.** HANDOFF_SPEC.md says the background
+**Note on the spec's own file paths.** specs/HANDOFF_SPEC.md says the background
 scripts live in `dihedral_scratch/`; they are actually
 in `cubes/scratchpad/` (`dihedral_scratch/` exists but
 only contains an unrelated handful of `edge_close*.py` files). Read from

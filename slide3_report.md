@@ -1,7 +1,7 @@
 # Two sliding 3-cube triples: overlay/slide/relative-rotate search
 
-Executed per `SLIDE3_SPEC.md`. Read first: `LEDGER.md`
-Postscripts 4-8, `MULTIWALL_SPEC.md` + `multiwall_report.md`, `golden_six.py`,
+Executed per `specs/SLIDE3_SPEC.md`. Read first: `LEDGER.md`
+Postscripts 4-8, `specs/MULTIWALL_SPEC.md` + `multiwall_report.md`, `golden_six.py`,
 `qtower.py`. Validated files (`certify_six.py`, `cube_compound_exact.py`,
 `golden_rotations.py`, `exact_search_results.jsonl`, `LEDGER.md`)
 were read but never modified. New files: `slide3_q2.py` (Q(sqrt2) field +

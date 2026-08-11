@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Working principles: SLIDE3_SPEC_V2.md + slide3_report.md. Project index: README.md
-"""SLIDE3_SPEC.md Section 1, Phase P2: exact hill-climb from the top P1
+"""specs/SLIDE3_SPEC.md Section 1, Phase P2: exact hill-climb from the top P1
 candidates over all 8 free integers (q1, p1, q2, p2, Rw, Rx, Ry, Rz).
 """
 import json

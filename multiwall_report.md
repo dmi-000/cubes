@@ -1,6 +1,6 @@
 # Multi-constraint (stacked-wall) search with Q(sqrt3, sqrt5) verification
 
-Executed per MULTIWALL_SPEC.md, priority order gates -> section 3 -> M1 -> M2
+Executed per specs/MULTIWALL_SPEC.md, priority order gates -> section 3 -> M1 -> M2
 -> M4 -> M3. All work logged to `multiwall_search.jsonl`. Validated files
 (`certify_six.py`, `cube_compound_exact.py`, `exact_search.py`,
 `exact_search_results.jsonl`, `golden_six.py`, `golden_search.jsonl`) were

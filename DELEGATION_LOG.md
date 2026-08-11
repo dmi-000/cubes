@@ -65,7 +65,7 @@ runtime, leaving geometry and topology untouched.
 `cube_regions.cpp` exactly on 727, 183, and the axial self-test; ℚ(√5) golden
 triple 67, 4-compound 177, 5-compound 351; ℚ(√2) octahedral triple 67; ℚ(√6)
 ψ=45° dihedral point 49. Overflow analysis required, not optional, with the
-note that *silent truncation is the specific failure mode `CPP_SPEC.md` warns
+note that *silent truncation is the specific failure mode `specs/CPP_SPEC.md` warns
 about, and it produces plausible wrong answers.*
 
 **Outcome.** All gates passed; ~100× faster than the Python algebraic path. The
@@ -86,7 +86,7 @@ quaternions the main session derived **independently** from
 ## 2026-07-30 and 07-31 — Documentation propagation (four delegations)
 
 **Model:** Sonnet each. **Targets:** `README.md`, `PROJECT.md`, `JOURNEY.md`,
-`PROOF_67.md`, `n7_program_report.md`, `BLUEPRINT_SPEC.md`, `CPP_SPEC.md`.
+`PROOF_67.md`, `n7_program_report.md`, `specs/BLUEPRINT_SPEC.md`, `specs/CPP_SPEC.md`.
 
 **Tasks, in order:** (1) propagate the max(2)=13 continuum correction and the
 n=3 non-congruence wording; (2) propagate records n=7 = 1211, n=8 = 1889;
@@ -115,7 +115,7 @@ exactly what misleads a later reader, so the main session fixed it.
 ## 2026-08-02 — The repaired increment bound
 
 **Model:** Sonnet. **Target:** new `increment_bound2.py`. **Spec:**
-`INCREMENT_BOUND_SPEC.md` (written by the main session, in the repo).
+`specs/INCREMENT_BOUND_SPEC.md` (written by the main session, in the repo).
 
 **Task.** Implement the bound B_j = 1 + c + SUM_v (deg(v)/2 - 1) on the cell
 count of the plane arrangement cut on dC_j, which links (V) of the chain
@@ -144,7 +144,7 @@ graph of the full compound vs re-counting the subset).
 ## 2026-08-02 — A 256-bit ℤ[√d] engine
 
 **Model:** Sonnet. **Target:** new `cube_regions_q2w.cpp`. **Spec:**
-`WIDE_ENGINE_SPEC.md`.
+`specs/WIDE_ENGINE_SPEC.md`.
 
 **Task.** Widen the validated ℚ(√d) engine's scalar from __int128 to a signed
 256-bit type so the 284 634 mixed-strata configurations rejected by the

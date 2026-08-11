@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# Working principles: NPLUS_SPEC.md. Project index: README.md
+# Working principles: specs/NPLUS_SPEC.md. Project index: README.md
 """Parallel falsification campaign driver for cube_regions_n (C++), any n.
 
 Generalization of run_campaign.py (which stays untouched and keeps writing
-campaign_results.jsonl for n=6 continuity) per NPLUS_SPEC.md section 3.
+campaign_results.jsonl for n=6 continuity) per specs/NPLUS_SPEC.md section 3.
 Splits a seed range across worker processes (seeds are independent and
 deterministic, so parallelism cannot affect results), shards output,
 merges into campaign_n<K>.jsonl (deduped by seed), and watches C1-C6 ONLY

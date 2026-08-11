@@ -1,7 +1,7 @@
 # The widened ℚ(√d) engine — gate report
 
 `cube_regions_q2w.cpp` / `./cube_regions_q2w`, built to
-[`WIDE_ENGINE_SPEC.md`](WIDE_ENGINE_SPEC.md). The validated narrow engine
+[`specs/WIDE_ENGINE_SPEC.md`](specs/WIDE_ENGINE_SPEC.md). The validated narrow engine
 `cube_regions_q2.cpp` was not modified.
 
 **Why.** Of 508 818 candidate configurations on the mixed 2-plane + 1-quadric

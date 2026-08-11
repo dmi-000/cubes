@@ -481,7 +481,7 @@ If NP survives hardening: max(2)=13 complete (with L0+FIB write-up),
 cluster 1 of max(3)=67 complete (d2<=18), and d_{n-1}<=6n proven for
 all n (the l=1 ceiling law). Remaining for 67: cluster 2 only.
 Census (c1) extraction and the create-vs-merge event catalogue are
-delegated and running (CENSUS_SPEC.md, EVENTS_SPEC.md).
+delegated and running (specs/CENSUS_SPEC.md, specs/EVENTS_SPEC.md).
 
 ## 15. CONSOLIDATED (2026-07-20): see PROOF_67.md; honest verdict = NOT proved
 
@@ -530,7 +530,7 @@ tying so the split is exhaustive; handles all multiplicities. PROVED
 One soft step (ascent point lands in same component U) flagged for
 publication-tightening; corroborated by 10^4-config zero-violation
 stress test. Remaining for max(3)=67: ONLY Cluster 2, i.e. (star)
-Sum(deg-2)<=92 (CENSUS_BOUND_SPEC.md). PROOF_L1b.md fully superseded.
+Sum(deg-2)<=92 (specs/CENSUS_BOUND_SPEC.md). PROOF_L1b.md fully superseded.
 
 ## 17. THEOREM PROVED (2026-07-21): Cluster 2 closed — max(3) = 67
 
@@ -557,5 +557,5 @@ The 92 splits as 32 (triple points) + 60 (contacts):
 
 Only residual caveat: the pre-existing pairwise-TANGENCY degeneracy of
 Cluster 2 / Part D (two cells sharing a boundary tangentially), not a
-triple-point phenomenon, higher codimension. `CENSUS_BOUND_SPEC.md`'s
+triple-point phenomenon, higher codimension. `specs/CENSUS_BOUND_SPEC.md`'s
 program is thereby discharged. `PROOF_L1b.md` remains superseded.

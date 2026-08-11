@@ -7,7 +7,7 @@ i.e. c = 1 and no isolated curves, and it dropped TANGENT lines instead of
 counting them, so at the degenerate records (where tangency is the rule, not
 the exception) it undercounted badly.
 
-See INCREMENT_BOUND_SPEC.md for the full derivation. In brief: with G the
+See specs/INCREMENT_BOUND_SPEC.md for the full derivation. In brief: with G the
 region-adjacency graph of a compound S (including the outside region), and
 G_j its "bit j" subgraph (edges joining regions whose labels differ only in
 bit j), forgetting cube j merges exactly the components of G_j, so
@@ -428,7 +428,7 @@ def main():
     report_lines = []
     report_lines.append('# increment_bound2 report\n\n')
     report_lines.append(
-        'B_j computed by formula (*) of INCREMENT_BOUND_SPEC.md: exact '
+        'B_j computed by formula (*) of specs/INCREMENT_BOUND_SPEC.md: exact '
         'rational arithmetic throughout, `fractions.Fraction` only.\n')
 
     g1_ok = gate_G1(report_lines)

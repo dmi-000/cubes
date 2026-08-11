@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Link (I) of the increment chain: Delta_j = |V(G)| - #components(G_j).
 
-INCREMENT_BOUND_SPEC.md derives the one-cube increment from the region
+specs/INCREMENT_BOUND_SPEC.md derives the one-cube increment from the region
 adjacency graph.  Forgetting cube j merges exactly the region pairs joined by
 a "bit j" edge -- an adjacency whose two labels differ in bit j -- and merging
 is transitive, so

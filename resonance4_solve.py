@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# Working principles: RESONANCE4_SPEC.md. Project index: README.md
+# Working principles: specs/RESONANCE4_SPEC.md. Project index: README.md
 """Exact algebraic solver + counter for n=4 dihedral-family cross-class
-RESONANCES (RESONANCE4_SPEC.md).
+RESONANCES (specs/RESONANCE4_SPEC.md).
 
 Pipeline:
   1. reslib.wl / gate_r1.wl (wolframscript): symbolic derivation of the
@@ -358,7 +358,7 @@ def rel_matrix_field(Field, cD, sD, cP, sP):
 
 # =====================================================================
 # GATE R2: reproduce the n=3 octahedral 67 through this ladder, in Q(sqrt2)
-# per RESONANCE4_SPEC.md ("slide3_q2.py is validated and read-only, use it
+# per specs/RESONANCE4_SPEC.md ("slide3_q2.py is validated and read-only, use it
 # as the reference for a fresh clone's output").
 # =====================================================================
 def gate_r2():

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: PROJECT.md, NPLUS_SPEC.md, golden_wall_report.md (golden_six.py
+# Working principles: PROJECT.md, specs/NPLUS_SPEC.md, golden_wall_report.md (golden_six.py
 # pattern generalized from n=6 to n=4). Project index: README.md
 """n=4 record hunt: establish/confirm the golden four-cube compound (177) and
 search for anything that beats it.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: CENSUS_SPEC.md. Project index: README.md / C45_notes.md sect.13
+# Working principles: specs/CENSUS_SPEC.md. Project index: README.md / C45_notes.md sect.13
 """(c1) exact census extraction from both n=3 max(3)=67 witnesses.
 
 Feeds lemma L2.c of the max(3) = 67 proof plan (C45_notes.md sect.13):

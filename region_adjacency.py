@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: certify_six.py (exact_count_config) + CPP_SPEC.md.
+# Working principles: certify_six.py (exact_count_config) + specs/CPP_SPEC.md.
 """Region ADJACENCY graph for cube compounds, on top of certify_six's
 exact counting engine.
 

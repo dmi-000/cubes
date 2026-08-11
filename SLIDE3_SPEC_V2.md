@@ -1,6 +1,6 @@
 # SLIDE3 correction (V2): the RIGHT continuous 3-cube family
 
-Supersedes SLIDE3_SPEC.md section 0. The V1 agent proved a real but
+Supersedes specs/SLIDE3_SPEC.md section 0. The V1 agent proved a real but
 NEGATIVE result about the WRONG family; the user has identified the
 correct one. Read slide3_report.md section 0 (V1) first, then this.
 Records to beat unchanged: overall 681, rational 655; n=3 wall value 67.

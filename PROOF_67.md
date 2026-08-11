@@ -277,7 +277,7 @@ other cube's help — anchors the bottom diagram never sees. These
 edge-anchors are numerous and do not admit a clean per-cube count (24
 corners + 30 kink incidences = 54 > 48, with overcounting), so **§5.1
 yields no usable reduction of (★)**. The Euler weight bound
-Σ(deg−2) ≤ 92 (approach 1 of CENSUS_BOUND_SPEC.md) remains the tight and
+Σ(deg−2) ≤ 92 (approach 1 of specs/CENSUS_BOUND_SPEC.md) remains the tight and
 correct route; this failed lead is recorded so it is not re-attempted.
 
 ### 5.2 Feasibility verdict (CENSUS_BOUND, 2026-07-20): split (★) into 32 + 60

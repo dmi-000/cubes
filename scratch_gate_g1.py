@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: NPLUS_SPEC.md (gate G1regression). Project index: README.md
+# Working principles: specs/NPLUS_SPEC.md (gate G1regression). Project index: README.md
 """G1regression: --n 6 must reproduce exact_search_results.jsonl (ground
 truth, read-only) with zero mismatches on totals AND depth histograms.
 

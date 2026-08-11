@@ -209,7 +209,7 @@ domain, not a measure-zero point).
 
 ## 4. Why no box-covering was needed (relation to the spec's Strategy A/B)
 
-MAX2_SPEC.md's Strategy A (certified interval covering of the whole
+specs/MAX2_SPEC.md's Strategy A (certified interval covering of the whole
 fundamental domain) and Strategy B (parametrize Σ + neighborhood
 inheritance) both anticipate a genuinely two-part argument: analytic proof
 off the degenerate loci, plus a separate certified/semicontinuity argument

@@ -38,6 +38,19 @@ synthesis — the problem, the methods, the record chain, and the structural
 laws — read **[`PROJECT.md`](PROJECT.md)**. This README is the map of the
 code and documents around it.
 
+**How to read a file's name** (revised 2026-08-11, stated in full in
+[`METHODS.md`](METHODS.md) § *The documents, and which kind each one is*):
+UPPERCASE `.md` in the root is a standing document; `specs/` holds the one-shot
+work orders written for delegated agents, spent once their run finishes;
+lowercase `*_report.md` is the write-up of the run of the script with the same
+stem. A `.md` is **living** — corrected in place, with corrections marked and
+dated — while its `.json`/`.jsonl`/`.log`/`.out` siblings are **immutable**, so
+the numbers a report originally carried stay derivable after it is corrected.
+The 24 specs moved into `specs/` on 2026-08-11 and all 229 references in
+authored files were swept with them; `specs/MOVE_LOG.json` records exactly what
+moved. Session transcripts, `bak/` and the `github/` publication repo keep the
+old paths deliberately — they are verbatim records, not authored documents.
+
 **Proved maxima.** max(2) = 13 and **max(3) = 67** are now theorems (the
 latter for all three concentric convex ≤6-facet cells meeting pairwise
 transversally, cubes included). The clean proof is
@@ -200,7 +213,7 @@ python3 golden_six.py search             # golden ℚ(√5) wall (681)
 python3 slide3_p3.py --help              # two-triple overlay (699)
 ```
 
-### n > 6 (generalized campaign — spec: `NPLUS_SPEC.md`)
+### n > 6 (generalized campaign — spec: `specs/NPLUS_SPEC.md`)
 
 ```sh
 # Continue n=7 from where it stopped (capped at 4 workers by convention
@@ -241,18 +254,18 @@ to it.
 |---|---|---|
 | `LEDGER.md` | **ledger** | The authoritative project record. Postscripts 1–21: exact-count corrections to the voxel era, subset maximality, the C++ campaign, the 635→…→717→723 record chain, the ℚ(√5)/tower field program, the sliding-3-cube result, and the symmetry-stratified sweep. Postscripts 22–24: n=7/n=8 records (1207, 1879; since improved to 727/1217/1891 for n=6/7/8, Postscript 46), the cap-sum-tight proof route for n=2/3, and the first proved theorem (the anchor lemma). Postscripts 25 (+4 addenda) and 26 (+1 addendum): the dihedral family — its closed-form discovery, the persistent 18-core and corner docking, the exact region-count staircase (including the new ℚ(√6) point, 49), the handoff-chase verdict, and the n>3 finding that records are gluings of family cliques. Postscripts 27–43: the rational-tangent arc and the max(3)=67 proof (Step T's false route and its replacement). Postscripts 44–52 (+ addenda): the n=3 anomaly audit, the records 727/1217/1891, the elimination proving 727 isolated on the 393 base, the walls-are-plane-pairs discovery that made the three-wall family exhaustible, the ℚ(√d) engine, and the irrational strata — reached at n=5 and n=6 but rationally shadowed. **Read `RESULTS.md` first for current state**; this ledger is append-only and ordered by write time, not by postscript number, and it opens with an index. |
 | `C45_notes.md` | notes | Proof program for the deep ceilings (d3≤164, d4≤102, d5≤36) via the radial-escape lemma and bottom-diagram census (T1 Euler count + T2 semicontinuity). §10: the proven anchor lemma. §12: four proved theorems about the dihedral family (mirror symmetry, 90° periodicity, the coincidence identity, and the rational-invariant obstruction with its n=3-is-the-unique-irrational-level corollary). |
-| `nfamily_report.md` | report | Executes `NFAMILY_SPEC.md`: does the dihedral family help at n>3? Answer: not as a search space on its own (175/335/615 vs. records 183/393/723, growing deficit) — but every record is a gluing of family-position pairs (183: 6/6, 393: 10/10, 723: 12/15), which reframes the record search as a search over clique gluings. |
-| `handoff_report.md` | report | Executes `HANDOFF_SPEC.md`: chases whether more than the dihedral family's persistent 18 edge concurrences can be carried continuously from the octahedral 67 to the golden 67. Verdict: no path found beyond 18; a specific local obstruction (two extra-coincidence curves grazing the same ψ=45° wall ~70° apart in phase) is identified and described, not a proof of a ceiling. Also corrects an earlier "60 total contacts" figure for golden (correct: 18 interior + 54 corner label-pairs, 24 distinct physical points). |
-| `dihedral_slider_report.md` | report | Executes `DIHEDRAL_SLIDER_SPEC.md`: replaces the viewer's old "67↔67 slide" with a slider along the dihedral family, plus four rounds of follow-up from live feedback — a core-aware "maintain concurrences" lock, track tick marks (field points + exact region-count transitions), split/merge surface highlighting, zoom, and one-sided opaque clipping. |
-| `opaque_report.md` | report | Executes `OPAQUE_SPEC.md`: adds the opaque surface rendering mode to the viewer (each cube face split into its true convex pieces by every other selected cube's planes, depth- or containment-coloured, painter's-algorithm sorted), with a full gate suite (membership audits, ray audits, regression checks). |
+| `nfamily_report.md` | report | Executes `specs/NFAMILY_SPEC.md`: does the dihedral family help at n>3? Answer: not as a search space on its own (175/335/615 vs. records 183/393/723, growing deficit) — but every record is a gluing of family-position pairs (183: 6/6, 393: 10/10, 723: 12/15), which reframes the record search as a search over clique gluings. |
+| `handoff_report.md` | report | Executes `specs/HANDOFF_SPEC.md`: chases whether more than the dihedral family's persistent 18 edge concurrences can be carried continuously from the octahedral 67 to the golden 67. Verdict: no path found beyond 18; a specific local obstruction (two extra-coincidence curves grazing the same ψ=45° wall ~70° apart in phase) is identified and described, not a proof of a ceiling. Also corrects an earlier "60 total contacts" figure for golden (correct: 18 interior + 54 corner label-pairs, 24 distinct physical points). |
+| `dihedral_slider_report.md` | report | Executes `specs/DIHEDRAL_SLIDER_SPEC.md`: replaces the viewer's old "67↔67 slide" with a slider along the dihedral family, plus four rounds of follow-up from live feedback — a core-aware "maintain concurrences" lock, track tick marks (field points + exact region-count transitions), split/merge surface highlighting, zoom, and one-sided opaque clipping. |
+| `opaque_report.md` | report | Executes `specs/OPAQUE_SPEC.md`: adds the opaque surface rendering mode to the viewer (each cube face split into its true convex pieces by every other selected cube's planes, depth- or containment-coloured, painter's-algorithm sorted), with a full gate suite (membership audits, ray audits, regression checks). |
 | `DIHEDRAL_FAMILY_NEXT.md` | handoff | Task list for continuing the dihedral-family work (region-count sweep, second-engine verification, formalizing the coincidence theorem, extending to n>3, the viewer preset) — the source of the task numbering referenced by the reports above. |
-| `NFAMILY_SPEC.md`, `HANDOFF_SPEC.md`, `DIHEDRAL_SLIDER_SPEC.md`, `OPAQUE_SPEC.md` | specs | Working-principles docs for `nfamily_report.md`, `handoff_report.md`, `dihedral_slider_report.md`, `opaque_report.md` respectively. |
-| `GLUE_SPEC.md`, `RESONANCE4_SPEC.md` | specs | **In progress, no report yet.** `GLUE_SPEC.md`: does gluing dihedral-family cliques on different axes beat 723 (the reframing Postscript 26 motivates)? `RESONANCE4_SPEC.md`: an algebraic solve for whether the n=4 record has an irrational family "resonance" point analogous to the n=3 67s. Neither is claimed to have produced a result yet. |
-| `CPP_SPEC.md` | spec | Design of the C++ engine: integer-homogeneous coordinates, int128 predicate budget, seed chain, validation gates. Working-principles doc for `cube_regions.cpp`. |
-| `NPLUS_SPEC.md` | spec | Generalization of the engine and campaigns to n>6 (`--n K`). Working-principles doc for the `*_n.py` and `scratch_*_n.py` drivers. |
-| `QFIELD_SPEC.md` | spec | Extend the search from rational rotations to ℚ(√d) (and the ℚ(√3,√5) tower). Field/wall taxonomy. |
-| `MULTIWALL_SPEC.md` | spec | Multi-constraint ("stacked wall") search + tower verification. Working-principles doc for `qtower.py` and `multiwall_*.py`. |
-| `SLIDE3_SPEC.md` | spec (V1) | Original plan for overlaying two sliding 3-cube triples. Its section 0 family is **superseded** by V2 (kept for the record). |
+| `specs/NFAMILY_SPEC.md`, `specs/HANDOFF_SPEC.md`, `specs/DIHEDRAL_SLIDER_SPEC.md`, `specs/OPAQUE_SPEC.md` | specs | Working-principles docs for `nfamily_report.md`, `handoff_report.md`, `dihedral_slider_report.md`, `opaque_report.md` respectively. |
+| `specs/GLUE_SPEC.md`, `specs/RESONANCE4_SPEC.md` | specs | **In progress, no report yet.** `specs/GLUE_SPEC.md`: does gluing dihedral-family cliques on different axes beat 723 (the reframing Postscript 26 motivates)? `specs/RESONANCE4_SPEC.md`: an algebraic solve for whether the n=4 record has an irrational family "resonance" point analogous to the n=3 67s. Neither is claimed to have produced a result yet. |
+| `specs/CPP_SPEC.md` | spec | Design of the C++ engine: integer-homogeneous coordinates, int128 predicate budget, seed chain, validation gates. Working-principles doc for `cube_regions.cpp`. |
+| `specs/NPLUS_SPEC.md` | spec | Generalization of the engine and campaigns to n>6 (`--n K`). Working-principles doc for the `*_n.py` and `scratch_*_n.py` drivers. |
+| `specs/QFIELD_SPEC.md` | spec | Extend the search from rational rotations to ℚ(√d) (and the ℚ(√3,√5) tower). Field/wall taxonomy. |
+| `specs/MULTIWALL_SPEC.md` | spec | Multi-constraint ("stacked wall") search + tower verification. Working-principles doc for `qtower.py` and `multiwall_*.py`. |
+| `specs/SLIDE3_SPEC.md` | spec (V1) | Original plan for overlaying two sliding 3-cube triples. Its section 0 family is **superseded** by V2 (kept for the record). |
 | `SLIDE3_SPEC_V2.md` | spec | Corrected sliding-3-cube family (common 3-fold axis; congruence up to octahedral self-symmetry). Working-principles doc for `slide3_*.py`. |
 | `golden_wall_report.md` | report | Results of the ℚ(√5) golden-wall pilot (found 681). |
 | `multiwall_report.md` | report | Results of the multi-constraint / tower search (found rational 655; explained the (1,1,1) wall). |
@@ -270,14 +283,14 @@ method. Group by role:
 ### Exact counting engines
 | file | purpose | principles |
 |---|---|---|
-| `cube_regions.cpp` | Primary engine. C++17, no deps. Integer-homogeneous exact counter; `--n`, `--seed(s)`, `--quats`, `--selftest`. ~5–80 ms/config. | `CPP_SPEC.md` |
-| `cube_regions_q2.cpp` | ℚ(√d) engine: `cube_regions.cpp`'s algorithm with its scalar type generalized to ℤ[√d] (d fixed at runtime, geometry/topology unchanged); `--d 0` reproduces `cube_regions.cpp` bit-for-bit. ~5–22 ms/config (n=3..5), ~100× the Python algebraic path. Overflow guard is a traced per-configuration bound, not a fixed rectangle. | `CPP_SPEC.md` (ledger Postscript 51) |
-| `certify_six.py` | Python oracle: `exact_count_config()` over certified intervals + ℚ(√5); the cross-check the C++ engine is validated against. Any n. | ledger + `CPP_SPEC.md` |
+| `cube_regions.cpp` | Primary engine. C++17, no deps. Integer-homogeneous exact counter; `--n`, `--seed(s)`, `--quats`, `--selftest`. ~5–80 ms/config. | `specs/CPP_SPEC.md` |
+| `cube_regions_q2.cpp` | ℚ(√d) engine: `cube_regions.cpp`'s algorithm with its scalar type generalized to ℤ[√d] (d fixed at runtime, geometry/topology unchanged); `--d 0` reproduces `cube_regions.cpp` bit-for-bit. ~5–22 ms/config (n=3..5), ~100× the Python algebraic path. Overflow guard is a traced per-configuration bound, not a fixed rectangle. | `specs/CPP_SPEC.md` (ledger Postscript 51) |
+| `certify_six.py` | Python oracle: `exact_count_config()` over certified intervals + ℚ(√5); the cross-check the C++ engine is validated against. Any n. | ledger + `specs/CPP_SPEC.md` |
 | `cube_compound_exact.py` | ℚ(√5) golden-compound counter (`run(N)`); the `Q5` exact field class used everywhere. | ledger |
 | `cube_compound_interval.py` | 3-tier certified-interval kernel (float→mpmath→exact) that filters predicate signs. | ledger |
 | `cube_compound_regions.py` | Original general region counter (plane-arrangement construction). | ledger |
 | `six_cube_search.py` | Shared config helpers (`count_mats`, `random_mats`, rational rotations). | ledger |
-| `qtower.py` | Recursive quadratic-tower field ℚ(√a,√b) with exact recursive sign; verifier for wall points. | `MULTIWALL_SPEC.md` |
+| `qtower.py` | Recursive quadratic-tower field ℚ(√a,√b) with exact recursive sign; verifier for wall points. | `specs/MULTIWALL_SPEC.md` |
 | `slide3_q2.py` | ℚ(√2) field + counter (octahedral 45° endpoint). | `SLIDE3_SPEC_V2.md` |
 | `q3_count.py` | ℚ(√3) field + counter, a field-constant clone of `slide3_q2.py`; counts Pythagorean-angle dihedral-family members exactly. | `DIHEDRAL_FAMILY_NEXT.md` |
 | `q6_count.py` | ℚ(√6) field + counter, same clone pattern; counts the ψ=45° face-diagonal family point (49 = {30,18,1}). | `DIHEDRAL_FAMILY_NEXT.md` |
@@ -287,14 +300,14 @@ method. Group by role:
 | file | purpose | principles |
 |---|---|---|
 | `exact_search.py` | Seed search; validate (axial=121, five=351) then count rationalized configs. `nohup`-friendly. | ledger |
-| `run_campaign.py` | Parallel n=6 falsification campaign (shards → `campaign_results.jsonl`, ceiling watch). | `CPP_SPEC.md` |
-| `run_campaign_n.py` | Same for any n (`--n K` → `campaign_n<K>.jsonl`). | `NPLUS_SPEC.md` |
+| `run_campaign.py` | Parallel n=6 falsification campaign (shards → `campaign_results.jsonl`, ceiling watch). | `specs/CPP_SPEC.md` |
+| `run_campaign_n.py` | Same for any n (`--n K` → `campaign_n<K>.jsonl`). | `specs/NPLUS_SPEC.md` |
 | `phase_b_hillclimb.py` | Exact greedy hill-climb on integer quats (±1/±2 moves, \|c\|≤512), logs every eval. | ledger (P4) |
-| `phase_b_hillclimb_n.py` | Hill-climb for general n. | `NPLUS_SPEC.md` |
+| `phase_b_hillclimb_n.py` | Hill-climb for general n. | `specs/NPLUS_SPEC.md` |
 | `golden_six.py` | Golden five + rational sixth cube search (found 681). | `golden_wall_report.md` |
 | `golden_sweep.py`, `golden_sweep2.py` | Angle/parameter sweeps around the golden wall. | `golden_wall_report.md` |
-| `multiwall_m1.py` | In-field (ℚ(√5)) stacked-wall search. | `MULTIWALL_SPEC.md` |
-| `multiwall_m4.py`, `multiwall_m4_extend.py` | Rational double-wall construction (found 655). | `MULTIWALL_SPEC.md` |
+| `multiwall_m1.py` | In-field (ℚ(√5)) stacked-wall search. | `specs/MULTIWALL_SPEC.md` |
+| `multiwall_m4.py`, `multiwall_m4_extend.py` | Rational double-wall construction (found 655). | `specs/MULTIWALL_SPEC.md` |
 | `slide3_p1.py`, `slide3_p2.py`, `slide3_p3.py` | Sliding-triple overlay search phases (grid → climb → alignment walls). | `SLIDE3_SPEC_V2.md` |
 | `slide3_search.py` | Quaternion/overlay library for the slide3 drivers. | `SLIDE3_SPEC_V2.md` |
 | `task_a_certify635.py` | Certifies 635 a local max (all ±1..±4 neighbor moves). | ledger (P5) |
@@ -310,8 +323,8 @@ method. Group by role:
 | `nfamily_gates.py` | The three validation gates (exact round-trip, two-engine agreement, record reproduction) for the n-cube family machinery. | `nfamily_report.md` |
 | `nfamily_sweep.py` | Sweep driver (chains, random phase tuples, neighbor-hillclimb rounds) that produced the n=4/5/6 family maxima (175/335/615). | `nfamily_report.md` |
 | `nfamily_q3_records.py` | Checks every pair of every record (183/393/723) and the n=3 octahedral witness for family membership (183: 6/6 pairs, 393: 10/10, 723: 12/15). | `nfamily_report.md` |
-| `dihedral_scratch/` | Exploration and verification scripts from the dihedral-family work: the original numerical discovery path, persistence/docking checks, the pair-curve identity, the corner-handoff linker and gates (`handoff_*.py`), and more. Read-only exploration history, not a maintained library. | `DIHEDRAL_FAMILY_NEXT.md`, `HANDOFF_SPEC.md` |
-| `glue_search.py` | **In progress.** Two-clique gluing search (does gluing dihedral-family cliques on different axes beat 723?). No report yet — see `GLUE_SPEC.md`. | `GLUE_SPEC.md` |
+| `dihedral_scratch/` | Exploration and verification scripts from the dihedral-family work: the original numerical discovery path, persistence/docking checks, the pair-curve identity, the corner-handoff linker and gates (`handoff_*.py`), and more. Read-only exploration history, not a maintained library. | `DIHEDRAL_FAMILY_NEXT.md`, `specs/HANDOFF_SPEC.md` |
+| `glue_search.py` | **In progress.** Two-clique gluing search (does gluing dihedral-family cliques on different axes beat 723?). No report yet — see `specs/GLUE_SPEC.md`. | `specs/GLUE_SPEC.md` |
 
 ### Algebraic locus search (n=6 walls as planes and quadrics)
 | file | purpose | principles |
@@ -337,14 +350,14 @@ method. Group by role:
 | `pair_checks.py` | Pair-wall experiments (generic 4 vs wall 9/13). | ledger (P2) |
 | `phase_c_analysis.py` | Campaign aggregate analysis (spectrum, ceilings, per-subset budgets). | ledger (P4) |
 | `check_live_boundaries.py` | Standalone ceiling-violation scan over a seed range (read-only). | ledger (P4) |
-| `scratch_census_n.py` | Bottom-diagram census measurement for general n. | `NPLUS_SPEC.md` |
-| `scratch_gate_g1.py`, `scratch_gate_g2.py` | n>6 validation gates (G1 regression, G2 cross-check). Run with no args. | `NPLUS_SPEC.md` |
-| `scratch_mod4_check_n.py` | mod-4 law at scale for general n. | `NPLUS_SPEC.md` |
+| `scratch_census_n.py` | Bottom-diagram census measurement for general n. | `specs/NPLUS_SPEC.md` |
+| `scratch_gate_g1.py`, `scratch_gate_g2.py` | n>6 validation gates (G1 regression, G2 cross-check). Run with no args. | `specs/NPLUS_SPEC.md` |
+| `scratch_mod4_check_n.py` | mod-4 law at scale for general n. | `specs/NPLUS_SPEC.md` |
 
 ### Infrastructure
 | file | purpose | principles |
 |---|---|---|
-| `mt_sim.py` | Validated reimplementation of the seed→configuration RNG chain (numpy MT19937 + polar Gaussian + scipy quaternion order + common-scale rounding); the basis for the C++/JS ports. | `CPP_SPEC.md` |
+| `mt_sim.py` | Validated reimplementation of the seed→configuration RNG chain (numpy MT19937 + polar Gaussian + scipy quaternion order + common-scale rounding); the basis for the C++/JS ports. | `specs/CPP_SPEC.md` |
 | `make_seed_viewer.py` | Rebuilds the interactive seed-viewer artifact HTML from the logs. | ledger |
 | `index_ledger.py` | Regenerates the postscript index block at the top of `LEDGER.md` from its own headings (GitHub-anchor-exact slugs, replaced wholesale, body never touched). Run after appending a postscript. | ledger |
 | `recover_1889.py` | Reconstructs a specific n=8=1889 candidate's quaternions from a run that printed its total but was killed before logging the config, by replaying the RNG deterministically to the same state. | ledger (Postscripts 45–46) |

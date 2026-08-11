@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: LEDGER.md + CPP_SPEC.md. Project index: README.md
+# Working principles: LEDGER.md + specs/CPP_SPEC.md. Project index: README.md
 """Exact certification of the six-cube search winner (random seed 18).
 
 Pipeline (see LEDGER.md for the search itself):

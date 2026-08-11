@@ -1,6 +1,6 @@
 # EVENTS report — the create-vs-merge event catalogue, and the death of the "+-1 per coincidence" law
 
-Executes `EVENTS_SPEC.md`. All numbers below are exact (Fraction / Q(sqrt d)
+Executes `specs/EVENTS_SPEC.md`. All numbers below are exact (Fraction / Q(sqrt d)
 field arithmetic, no floats in any predicate) and reproduced by
 `events_extract.py` (run it; it prints G1/G2, rebuilds every matrix from a
 hand-derived or ledger-quoted witness, asserts orthonormality + S^3=I where
@@ -184,7 +184,7 @@ growth: the 6 new vertex-vertex contacts still only ever touch d1.
 
 - The n=4 and n=5 census used the SPEC-supplied / ledger-supplied rational
   witnesses (175/151/143 quats from `nfamily_report.md` §Q1 and
-  `EVENTS_SPEC.md`; 387-plateau-edge quats read directly from
+  `specs/EVENTS_SPEC.md`; 387-plateau-edge quats read directly from
   `rattan_results.jsonl`, kind `393clique+5th-onaxis`, at the exact
   Farey-adjacent boundary pair (1/5, 8/39) and (3/14, 2/9) already
   identified in `rattan_report.md`'s P1 line). No new search was run; this

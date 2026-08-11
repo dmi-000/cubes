@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# Working principles: MULTIWALL_SPEC.md + multiwall_report.md. Project index: README.md
+# Working principles: specs/MULTIWALL_SPEC.md + multiwall_report.md. Project index: README.md
 """Depth-2 tower arithmetic: Q(sqrt3, sqrt5), built as Q5(sqrt3).
 
-Per MULTIWALL_SPEC.md section 1: "Element of K(sqrt d): pair (p, q) with
+Per specs/MULTIWALL_SPEC.md section 1: "Element of K(sqrt d): pair (p, q) with
 p, q in K; base case K = Q uses Fraction."  Here K = Q5 (cube_compound_exact's
 ALREADY VALIDATED Q(sqrt5) field -- reused, not re-derived, per the spec's
 "reuse the field-parameterized core" instruction) and d = 3, giving
@@ -166,7 +166,7 @@ def sixth_wall_R():
     R = u u^T + [u]_x  (cos90=0, sin90=1, so the I*cos term vanishes).
     u = (1,1,1)/sqrt3 -> u_i u_j = 1/3 for all i,j (RATIONAL: sqrt3*sqrt3=3);
     [u]_x entries are +-1/sqrt3 = +-sqrt3/3.  Entries 1/3 +- sqrt3/3, exactly
-    as MULTIWALL_SPEC.md section 3 states."""
+    as specs/MULTIWALL_SPEC.md section 3 states."""
     third = Ext3(Q5(Fr(1, 3)))
     s3 = Ext3(Q5(0), Q5(Fr(1, 3)))    # sqrt3/3 = 1/sqrt3
     rows = [

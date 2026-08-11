@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Working principles: SLIDE3_SPEC_V2.md + slide3_report.md. Project index: README.md
-"""SLIDE3_SPEC.md Section 1, Phase P1: coarse (theta1, theta2, R) map.
+"""specs/SLIDE3_SPEC.md Section 1, Phase P1: coarse (theta1, theta2, R) map.
 
 Runs the full grid in parallel (<=4 worker processes, each its own
 `cube_regions --quats-stdin` subprocess on a disjoint chunk), logs every

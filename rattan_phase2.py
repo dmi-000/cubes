@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: RATTAN_SPEC.md. Project index: README.md
+# Working principles: specs/RATTAN_SPEC.md. Project index: README.md
 """RATTAN phase 2 -- the targeted completion runs, per main-session
 priorities after run 1:
 

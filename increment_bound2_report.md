@@ -1,6 +1,6 @@
 # increment_bound2 report
 
-B_j computed by formula (*) of INCREMENT_BOUND_SPEC.md: exact rational arithmetic throughout, `fractions.Fraction` only.
+B_j computed by formula (*) of specs/INCREMENT_BOUND_SPEC.md: exact rational arithmetic throughout, `fractions.Fraction` only.
 ## G1 — n=2 hand-computed degenerate case
 j=0: status=ok  B=12 c=1 deg6=2 deg4=6 other_deg=0 n_vertices=8 points_match_spec=True tangent_tally=0  -> PASS
 j=1: status=ok  B=12 c=1 deg6=2 deg4=6 other_deg=0 n_vertices=8 points_match_spec=True tangent_tally=0  -> PASS

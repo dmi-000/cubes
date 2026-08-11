@@ -155,6 +155,9 @@ with `index_ledger.py` after appending.
 - [Postscript 100](#postscript-100-the-multi-cube-gap-closed-at-n3--solve-the-tight-step-a-conditions-not-the-concurrences) — the multi-cube gap CLOSED at n=3 — solve the tight Step-A conditions, not the concurrences
 - [Postscript 101](#postscript-101-n--8--1895--the-record-was-inside-a-window-an-earlier-sweep-had-already-covered-and-the-723-stratum-wraps) — n = 8 = 1895 — the record was inside a window an earlier sweep had already covered; and the…
 - [Postscript 102](#postscript-102-the-records-twelve--the-tight-set-failure-is-localised-to-slab-pair-conditions-one-base-cube-per-arc) — the record's twelve — the tight-set failure is localised to slab-PAIR conditions, one base…
+- [Postscript 103](#postscript-103-rulings-are-not-constant-count-lines--the-path-ranked-first-refutes-its-own-premise-and-every-wall-splits-over-ℚ) — rulings are NOT constant-count lines — the path ranked first refutes its own premise, and…
+- [Postscript 104](#postscript-104-every-wall-splits-over-ℚ-and-now-for-a-reason--detq-is-a-perfect-square-identically) — every wall splits over ℚ, and now for a reason — det(Q) is a perfect square identically
+- [Postscript 105](#postscript-105-hunt_v3-stopped-at-720-500-candidates--a-30-hour-search-returns-a-plateau-member-and-the-exchange-rate-is-the-point) — hunt_v3 stopped at 720 500 candidates — a 30-hour search returns a plateau member, and…
 
 <!-- INDEX:END -->
 
@@ -499,7 +502,7 @@ superseded. Found because the C++ campaign smoke test flagged sub-36
 configs at seeds 3088/3168/3244/3346 and the oracle confirmed they are
 genuine (the "law" was an artifact of looking only at maxima and records).
 
-**C++ engine** (`cube_regions.cpp`, spec in `CPP_SPEC.md`): exact integer
+**C++ engine** (`cube_regions.cpp`, spec in `specs/CPP_SPEC.md`): exact integer
 arithmetic in homogeneous coordinates (vertices from plane-triple Cramer,
 int128, 256-bit centroid predicates), same algorithm and assert suite as
 `certify_six.py`. Gates passed: axial-6 rational-twist selftest = 121 with
@@ -518,7 +521,7 @@ engine.
 
 ## Postscript 4: mass falsification campaign — C1/C2/C3 fall, new record 635
 
-Full campaign delivered (Phases A-C of `CPP_SPEC.md`), superseding the
+Full campaign delivered (Phases A-C of `specs/CPP_SPEC.md`), superseding the
 "pending" status above.
 
 **Scope.** Phase A: 106,525 random seeds counted exactly (8 parallel
@@ -700,7 +703,7 @@ the 635 record is now displayable despite having no seed.
 STATUS: IN PROGRESS (last updated 2026-07-11). This postscript records
 what the n>6 program has reached so far and is updated as the campaign
 continues; the parked implementation agent resumes it toward the full
-cross-n picture (spec: NPLUS_SPEC.md). Numbers below are exact and
+cross-n picture (spec: specs/NPLUS_SPEC.md). Numbers below are exact and
 independently re-verified by the engine.
 
 **Engine.** cube_regions.cpp gained `--n K` (K = 2..12) with no change
@@ -801,7 +804,7 @@ golden_wall_report.md and will be merged here. The continuation
 framework for ℚ(√2)/ℚ(√3)/further ℚ(√5) — field-generic Qd class,
 five hard gates, symmetric-vs-rational-control methodology (the delta
 against a matched rational control is the measurement), and the
-256-bit caveat for any future C++ ℤ[√d] port — is `QFIELD_SPEC.md`.
+256-bit caveat for any future C++ ℤ[√d] port — is `specs/QFIELD_SPEC.md`.
 This program has priority over the n>6 campaigns.
 
 **Update (2026-07-10, same day): the golden wall SHATTERS the rational
@@ -897,7 +900,7 @@ still never exceeded anywhere, including on every wall tested.
 ## Postscript 9: sliding 3-cube triples — a new RATIONAL AND OVERALL record 699 (slide3_report.md)
 
 (slide3_report.md, slide3_search.jsonl, slide3_q2.py, slide3_search.py,
-slide3_p1/p2/p3.py; SLIDE3_SPEC.md + SLIDE3_SPEC_V2.md. Postscript 6 still
+slide3_p1/p2/p3.py; specs/SLIDE3_SPEC.md + SLIDE3_SPEC_V2.md. Postscript 6 still
 reserved for the parked n>6 cross-n report.)
 
 Prompted by the user's observation that a family of maximal 3-cube
@@ -968,7 +971,7 @@ ceilings d3 ≤ 164 / d4 ≤ 102 / d5 ≤ 36 still never exceeded anywhere.
 ## Postscript 10: symmetry-stratified sweep of the walls — no new record, framework validated, coverage caveat
 
 (symmetry_search.py, symmetry_search.jsonl, symmetry_search_report.md,
-SYMMETRY_SEARCH_SPEC.md.) Systematic search of the symmetry walls: for
+specs/SYMMETRY_SEARCH_SPEC.md.) Systematic search of the symmetry walls: for
 each finite subgroup G ⊂ SO(3), enumerate 6-cube orbit-partitions and
 exact-count each family in its proper field. A cube is a coset in
 SO(3)/O, so orbits are computed and deduped modulo the octahedral group
@@ -2039,7 +2042,7 @@ Files: q3_count.py (engine + sweep driver, 40-point table in __main__).
 
 ### Postscript 25, addendum 4: the handoff chase — 18 stands, the obstruction identified, and a CORRECTION to addendum 2's golden contact count
 
-The corner-handoff exploration (HANDOFF_SPEC.md; scripts
+The corner-handoff exploration (specs/HANDOFF_SPEC.md; scripts
 dihedral_scratch/handoff_*.py; full report handoff_report.md) is done.
 Verdict: **no path carrying more than 18 physical concurrences from
 octahedral to golden was found** — 18 is the confirmed lower bound with a
@@ -2091,7 +2094,7 @@ exhausted.
 
 ## Postscript 26: the records are BUILT FROM family pairs — the n>3 verdict on the dihedral family
 
-NFAMILY_SPEC.md executed (nfamily_report.md; two-engine gates G0/G1/G2 all
+specs/NFAMILY_SPEC.md executed (nfamily_report.md; two-engine gates G0/G1/G2 all
 passed; spot-verified by the main session). The family generalized to n
 cubes = {Rel(theta_k, psi)} with Rel(D,psi) = Rodrigues rotation by D
 about axis (sin psi, cos psi, 0) — a new closed form making every
@@ -2169,7 +2172,7 @@ Postscript 23 for max(3)=67.
 
 ## Postscript 27: the gluing search — records still unbeaten (deficit exactly 8 at every n), and the RATIONAL-TANGENT discovery (with a correction to the agent's clique inventory)
 
-GLUE_SPEC.md executed (glue_report.md; gates G1/G2/G3 all passed;
+specs/GLUE_SPEC.md executed (glue_report.md; gates G1/G2/G3 all passed;
 319,141 exact configs; every near-record hit re-verified with the Python
 oracle). Headline numbers, all two-engine verified:
 
@@ -2216,12 +2219,12 @@ The exactly-8 floor at three consecutive n is either a coincidence or a
 structural constant of the gluing space; the rational-tangent sweep
 should decide which.
 
-(Also: the n=4 resonance solve (RESONANCE4_SPEC.md) hit its session
+(Also: the n=4 resonance solve (specs/RESONANCE4_SPEC.md) hit its session
 limit mid-run; to be resumed.)
 
 ## Postscript 28: the n=4 resonance solve — cross-class alignment is count-NEGATIVE at n=4; best resonance 151, and it is secretly RATIONAL
 
-RESONANCE4_SPEC.md executed (resonance4_report.md, resumed after a
+specs/RESONANCE4_SPEC.md executed (resonance4_report.md, resumed after a
 session-limit interruption; resonance4_solve.py/.wl,
 resonance4_results.jsonl). Gates R1 and R2 passed; R1 additionally
 re-verified independently by the main session (sympy: both polynomials
@@ -2282,7 +2285,7 @@ reached.
 
 ## Postscript 29: the rational-tangent sweep (interim) — the "exactly 8" floor is BROKEN at n=5: deficit now 6
 
-RATTAN_SPEC.md in flight (rattan_report.md; rattan_sweep.py;
+specs/RATTAN_SPEC.md in flight (rattan_report.md; rattan_sweep.py;
 rattan_results.jsonl, 17,080 configs at smoke scale; the implementing
 agent hit its session limit before launching the full sweep — interim
 results below are already two-engine verified and recorded now).
@@ -2333,7 +2336,7 @@ like 393's cube 0). Chains alone top out at 175 (n=4) / 671 (n=6).
 
 ## Postscript 30: the event catalogue — the "+-1 per coincidence" law dies, a depth-conservation law survives 12/12, and a correction to Postscript 25 addendum 3
 
-EVENTS_SPEC.md executed (events_report.md, events_extract.py,
+specs/EVENTS_SPEC.md executed (events_report.md, events_extract.py,
 events.jsonl; all gates passed; new field-agnostic coincidence census
 pair_census validated against nfamily_common on 16 pairs and against
 the golden 18+54/6 census from an independently hand-derived matrix).
@@ -2381,14 +2384,14 @@ redundancy at the fully degenerate shared-axis point.
 Consequence for the theory program: a "create-vs-merge criterion"
 cannot be a function of the coincidence census alone — it must see
 the d1-layer combinatorics (top-diagram cell structure), which is
-exactly what the census extraction (CENSUS_SPEC.md, in flight) is
+exactly what the census extraction (specs/CENSUS_SPEC.md, in flight) is
 digging out. The exact algebraic location of the ~9.5 deg wall is
 still unpinned (bracketed (7.628, 9.527) deg; needs a resultant on
 the top-diagram cell-change condition — natural follow-up).
 
 ## Postscript 32: the open n=4 resonance candidates counted exactly — still all count-negative; best 169 < 175, the sqrt13 chain = 159
 
-OPENCOUNT_SPEC.md executed (opencount_report.md, opencount.py,
+specs/OPENCOUNT_SPEC.md executed (opencount_report.md, opencount.py,
 opencount_results.jsonl, opencount_wl_data.json). resonance4
 (Postscript 28) left ~160 n=4 resonance candidates uncounted because
 their coordinates live in degree-4 (nested-radical) fields where the
@@ -2440,7 +2443,7 @@ remains conditional on the two 67s being the sole 3-cube maxima
 
 ## Postscript 33: FIRST COMPLETE MAXIMUM THEOREM — max(2) = 13 proved (all R), and d2<=18 / d_{n-1}<=6n proved unconditionally
 
-MAX2_SPEC.md executed (max2_report.md, max2_verify.py,
+specs/MAX2_SPEC.md executed (max2_report.md, max2_verify.py,
 max2_verify_log.jsonl). The task was framed as a certified interval
 covering; the agent instead found a clean ANALYTIC proof (Theorem 1)
 that closes both degeneracies PROOF_67.md §3 had left open, for all n at
@@ -2497,11 +2500,11 @@ and is not logically load-bearing for the reviewed argument.
 **Status of max(3)=67 after this:** deep half PROVED (d2<=18, d3<=1);
 shallow half is the sole remaining gap, exactly the inequality
 Sum_v(deg_v-2) <= 92 on the top diagram (PROOF_67 sect.5,
-CENSUS_BOUND_SPEC.md). 67 holds iff that holds.
+specs/CENSUS_BOUND_SPEC.md). 67 holds iff that holds.
 
 ## Postscript 34: feasibility verdict on the last gap (star) Sum(deg-2)<=92 — it splits 32+60, the easy half reduces to a clean "<=16 simultaneous triples" lemma, the hard half needs targeted (not random) search
 
-CENSUS_BOUND_SPEC.md run in feasibility-first mode (census_bound_report.md,
+specs/CENSUS_BOUND_SPEC.md run in feasibility-first mode (census_bound_report.md,
 census_bound.py). Gates: G1 reproduces 67={48,18,1} both witnesses; G2
 the weight is exactly 92 at both maximizers via an INDEPENDENT code path
 (cross-validates census_extract); G3 10,000 Haar-random configs, ZERO
@@ -2956,7 +2959,7 @@ the answer is that cubes are extremal and the cap is a triple Euler bound.
 
 ## Postscript 31: the census extraction — the 92 budget is EXACT at both 67 witnesses, its accounting corrected, and the coincidences ARE top-diagram vertices
 
-CENSUS_SPEC.md executed (census_report.md, census_extract.py,
+specs/CENSUS_SPEC.md executed (census_report.md, census_extract.py,
 census_data.json; main session re-verified the Euler arithmetic from
 the raw V/E and the weight decompositions below). Gates: G1 both
 witnesses reproduce 67 = {48,18,1} (slide3_q2 for octahedral Q(sqrt2);
@@ -4586,7 +4589,7 @@ C(30,2) = 435 pairs, so B_j <= 872 — rigorous but weak. The useful form is the
 per-configuration one. Open problem 4 is closed for the identity and the
 bound; what remains open is a good universal ceiling on B_j.
 
-Files: `INCREMENT_BOUND_SPEC.md` (statement and gates), `increment_bound2.py`,
+Files: `specs/INCREMENT_BOUND_SPEC.md` (statement and gates), `increment_bound2.py`,
 `increment_bound2_report.md`, `increment_identity.py`. `increment_bound.py`
 stays as documentation of the failure, but Postscript 53's DIAGNOSIS is hereby
 superseded: the piece bound was not the error, the tangency blindness was.
@@ -4740,7 +4743,7 @@ the narrow engine's own budget derivation establishes that across the whole
 admissible region the i128 CHAIN bound always binds before the sign bound.
 Widening the scalar is the only thing that helps.
 
-**THE ENGINE.** `cube_regions_q2w.cpp` (delegated; spec `WIDE_ENGINE_SPEC.md`,
+**THE ENGINE.** `cube_regions_q2w.cpp` (delegated; spec `specs/WIDE_ENGINE_SPEC.md`,
 gates in `DELEGATION_LOG.md`): the same engine with its scalar widened from
 __int128 to a signed 256-bit type, chain threshold 2^112 -> 2^240, sign
 threshold 2^231 -> 2^496, and a 512-bit square-compare in the sign predicate.
@@ -7570,3 +7573,180 @@ both the failure and the repair.
 binding at some configurations and not others — accounts for the zeros at the two
 67s is untested, and until it is, Postscript 100's closure of the n = 3
 multi-cube gap stays reopened.
+
+**ADDENDUM, same day — the crossing count confirms all of it independently.**
+Counting real edge-edge crossings at the node and along each arc:
+
+    off both arcs (along D1+D2)   138 crossings   count 721
+    anywhere on arc D1 or D2      144 crossings   count 727
+    the node itself               150 crossings   count 727
+
+A ladder in steps of exactly **6**, and 6 is exactly the number of distinct
+tight pair quantities each tangent violates (12 rows, being 6 quantities emitted
+for both orders of the pair). So the node is the configuration holding six
+edge-edge crossings with cube 0 AND six with cube 1 at once; moving along D1
+destroys cube 1's six and keeps cube 0's, D2 does the reverse, and D1+D2 destroys
+both. 150 = 138 + 6 + 6 exactly.
+
+This is measured geometry — counting incidences — reaching the same decomposition
+as the Jacobian row analysis above, by a route that never touches Step A. Two
+independent confirmations of the same structure.
+
+**And it says why the node is not a better record.** The count is already 727
+with only ONE set of six; the node's extra six coincidences buy nothing. Extra
+degeneracy at an intersection is free but not productive, which is the same
+lesson as 723 being the most coincidence-rich configuration in the table (180
+crossings) while counting four fewer than the record.
+
+---
+
+## Postscript 103: rulings are NOT constant-count lines — the path ranked first refutes its own premise, and every wall splits over ℚ
+
+The 2026-08-10 session ranked "sweep the rulings" first of five paths, on the
+strength of one instance: through arc A's end point, the count held at 725 across
+all eleven chambers of a ruling. Run systematically (`rulings.py`, spec
+`specs/RULINGS_SPEC.md`, data `rulings_data.json`, report `rulings_report.md`),
+the premise does not survive.
+
+**THE COUNT IS NOT CONSTANT ALONG A RULING.** Of eight distinct rulings solved at
+matched Cayley extent, the six whose window crosses any wall all VARY — n = 8's
+runs [1875, 1875, 1875, 1879, 1871, 1867, 1863, …], n = 7's [1195, 1199, 1207,
+1203, 1199]. The two that read "constant" produced windows of ONE and TWO
+chambers, i.e. crossed zero and one wall, so their constancy is vacuous. The
+2026-08-10 instance is exceptional, not a law.
+
+**A candidate reason, and the experiment it implies.** That instance's base point
+is arc A's own terminus s = 19/6, where three W4 conditions vanish at once (the
+corner-to-corner contact of Postscript 96); every point sampled here is an
+arbitrary rational root, one per line. Rulings through STRUCTURED points versus
+generic ones is now the open question, and it was invisible before the campaign.
+
+**"ONE RATIONAL RULING, ONE IRRATIONAL" IS IMPOSSIBLE, not merely wrong.** The
+two ruling directions at a rational point are the roots of a binary quadratic
+with rational coefficients (the null-space basis of pᵀQd = 0 is rational, Q is
+rational), so by Vieta one rational root forces the other. Both rational, or a
+Galois-conjugate irrational PAIR — never one of each, on any wall, at any point.
+The 2026-08-10 reading came from a second direction that was not solved exactly;
+all three active branches at that triple point have square discriminants (64/729,
+64/961, 16/841). Verified by `rulings_control.py`, which rebuilds the quadric
+symbolically and shares no code with the program under test.
+
+**EVERY WALL THESE LINES TOUCH SPLITS OVER ℚ: 63 432 rational rulings, 0
+irrational, across 31 716 (wall, point) pairs on four lines.** Since the
+discriminant class is a property of the quadric and not of the point, splitting
+is a property of the WALL. This inverts the same day's claim that half of every
+wall's ruled structure is invisible to rational search: none of it is. Testable
+consequence, not yet run: det(Q) should be a perfect square for every W3 and W4
+wall.
+
+**Gates.** G1 reproduced 2026-08-10 exactly (863 W4 + 3184 W3 roots, 10 inside,
+11 chambers, 725 throughout). G3: **10 250 walls built, every one signature
+(2,2)** — far beyond the 360 W4 / 30 W3 sampled for MAXIMISER_TAXONOMY §1a, and
+zero exceptions. G4: all 5 640 W3 walls divide by N exactly. No count above any
+record: 699 vs 727, 719 vs 723, 1207 vs 1217, 1879 vs 1895.
+
+**A SCALE BUG IN THE SPEC, and what the first run actually measured.** The spec
+fixed the window at s ∈ (−4, 4) for every ruling, but directions are normalised to
+primitive INTEGER vectors, so the swept extent is 4·|d| and varied ~200× across
+rulings; arc A's first ruling swept ±4296 per coordinate and crossed 4 656 walls
+at 640 s each. Corrected to ±20/L, L the direction's max component, which
+reproduces G1 exactly. Read as long-range excursions, those three runs are still a
+result: the count varies AND its maximum stays below the record on every line
+(711/719/1197), so a ruling leaves the record's neighbourhood at long range.
+**A window that is not tied to the direction's scale measures a different question
+per ruling.**
+
+**Two defects found in existing tooling.** `exact_chambers.decompose` raises
+IndexError on large decompositions (11 004 chambers, and again at n = 8) rather
+than degrading; and the campaign's own dedupe let single rulings be re-solved up
+to three times, which inflated its first report from 8 distinct rulings to "17"
+and its "2 constant" to "5". The report was corrected in place from
+`rulings_data.json`, which was never edited — the living-document / immutable-data
+rule now written into METHODS.md.
+
+**Coverage, stated honestly:** 8 distinct rulings through 4 base points, one per
+line, out of 34 696 distinct walls carrying a rational ruling — 0.02%. The
+negative conclusion above is about local constancy, which six of six non-vacuous
+cases refute; it is not a claim about the whole ruled structure.
+
+**Consequence for the path ranking.** Path 1 was ranked first because rulings
+looked like constant-count lines. Executed, it demotes itself. What it promotes is
+in METHODS.md: Lemma B and the elementary max(3), the det(Q) check this postscript
+implies, tower arithmetic for the families at their walls, and n = 5 as the
+binding constraint on n = 6.
+
+---
+
+## Postscript 104: every wall splits over ℚ, and now for a reason — det(Q) is a perfect square identically
+
+Postscript 103 could only report a census: 63 432 rational rulings, 0 irrational.
+The reason is an identity, and it is two lines of algebra (`detq_check.py`).
+
+The two ruling families of a nondegenerate quadric surface are defined over
+ℚ(√(det Q)), so a wall splits over ℚ exactly when det Q is a square in ℚ — a
+property of the WALL, not of whichever rational point was used to probe it.
+Computed symbolically over ℚ(p) and ℚ(q, m), for every branch of both wall types:
+
+    W4  face plane of the free cube through base triple point p
+        det(Q) = (|p|² − 1)²                      all 6 (axis, sign) branches
+
+    W3  edge of the free cube meeting base crossing line (point q, direction m)
+        det(Q) = 16(|m × q|² − 2|m|²)²            all 12 edges
+
+Both are squares for every RATIONAL base datum. **So every wall of a rational
+base is split over ℚ, at every n and every base** — nothing in the derivation
+mentions either. The census is now explained rather than extended, and the
+2026-08-10 claim that half of every wall's ruled structure is invisible to
+rational search is refuted structurally, not just empirically.
+
+**THE DEGENERATE LOCI ARE DISTINGUISHED RADII OF THE CUBE.** det Q = 0 is where
+the quadric degenerates to a cone or plane pair rather than a one-sheeted
+hyperboloid, and each condition names a radius:
+
+    W4 degenerate  ⟺  |p| = 1                   the FACE distance
+    W3 degenerate  ⟺  dist(line, origin)² = 2   the EDGE distance squared
+
+A triple point on the inscribed sphere, or a crossing line tangent to the
+edge-sphere. Neither occurs in the 393 base: **0 of 424 triple points and 0 of
+360 crossing lines**, so all 2 544 W4 and 4 320 W3 walls there are nondegenerate
+signature-(2,2) quadrics, split over ℚ, exactly as MAXIMISER_TAXONOMY §1a
+records from sampling — now with the sampling replaced by an identity.
+
+**Method note.** This began as a cheap check proposed to turn an empirical 100%
+into a reason (Postscript 103's closing line), and the numeric run gave it away
+before the algebra did: 2 544 walls carried only **52 distinct determinants**,
+every one of the form (a/b²)². A determinant taking that few values across
+thousands of walls is a closed form asking to be computed. **When a census
+returns far fewer distinct values than objects, stop counting and factor.**
+
+---
+
+## Postscript 105: hunt_v3 stopped at 720 500 candidates — a 30-hour search returns a plateau member, and the exchange rate is the point
+
+Stopped by the user 2026-08-11 after **30.2 hours and 720 500 sixth cubes** on the
+393 base, at 6.6 candidates/second. Its trajectory: 717 → 721 → 723 → 725 → **727
+at 139 750 candidates, 6.0 hours in**, then **580 750 candidates and 24.2 hours
+with no movement whatever**. It found its ceiling in the first fifth of the run
+and spent the remaining four fifths confirming it (2 322 log lines at 727).
+
+**Its best is a plateau member, not a result.** `(10, 85, -66, 73)` on the 393
+base, engine-verified at **727**, by_depth {214, 220, 156, 100, 36, 1} — the
+record's own depth profile. Postscript 80 established that 727's maximiser set is
+positive-dimensional with UNCOUNTABLY many congruence classes, so another member
+is a point on a known continuum. Recorded here so the run leaves something
+checkable, and deliberately NOT added to `MAXIMISERS.md`, which holds
+representatives rather than plateau samples.
+
+**The ceiling was structural, and known in advance.** E1 bounds an n = 6 total by
+S_max + 336, so on a 393 base nothing above 729 is reachable at all; and
+Postscript 47 proved 727 isolated on that base with all 684 augmentations of its
+pattern infeasible. A sixth-cube search there could only ever return 727, or a 729
+arriving by a pattern the elimination says the base does not support. This is
+`METHODS.md` §5 at scale: **searches produce lower bounds forever.**
+
+**THE EXCHANGE RATE, measured on one day.** Thirty hours of search on a core
+produced a point on a known plateau. Twenty minutes of factoring a determinant —
+prompted by noticing 2 544 walls carried only 52 distinct values — produced
+Postscript 104, a theorem holding at every n and every base. When a search's
+ceiling is already implied by a bound in this ledger, the search is not evidence;
+it is an expensive way to re-derive the bound.

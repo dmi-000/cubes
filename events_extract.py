@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Working principles: EVENTS_SPEC.md. Project index: README.md
-"""EVENTS_SPEC.md executor -- the exact create-vs-merge event catalogue.
+# Working principles: specs/EVENTS_SPEC.md. Project index: README.md
+"""specs/EVENTS_SPEC.md executor -- the exact create-vs-merge event catalogue.
 
 Tests the conjectured "+-1 region per coincidence" law across:
   - the n=3 dihedral family (Postscript 25 + addenda 1-4): the staircase

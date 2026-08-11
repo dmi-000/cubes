@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: golden_wall_report.md + QFIELD_SPEC.md. Project index: README.md
+# Working principles: golden_wall_report.md + specs/QFIELD_SPEC.md. Project index: README.md
 """Final exploration phase (same log/wrappers as golden_six.py).
 
 1. Off-axis neighbor scans around three MORE representatives of the

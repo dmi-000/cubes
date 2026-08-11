@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: MULTIWALL_SPEC.md + multiwall_report.md. Project index: README.md
+# Working principles: specs/MULTIWALL_SPEC.md + multiwall_report.md. Project index: README.md
 """Extend M4: more random trials + deeper hillclimb from the top few starts."""
 import json
 from multiwall_m4 import (rand_quat, build_config, run_batch, log, gcd_reduce,

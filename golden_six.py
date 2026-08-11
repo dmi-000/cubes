@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: golden_wall_report.md + QFIELD_SPEC.md. Project index: README.md
+# Working principles: golden_wall_report.md + specs/QFIELD_SPEC.md. Project index: README.md
 """Golden five-cube compound + a RATIONAL sixth cube: does it beat/match/miss
 the six-all-rational-cube record of 635 bounded regions?
 

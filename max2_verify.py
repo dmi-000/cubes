@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: MAX2_SPEC.md, PROOF_67.md §3 (the analytic argument this
+# Working principles: specs/MAX2_SPEC.md, PROOF_67.md §3 (the analytic argument this
 # completes), certify_six.py / cube_compound_interval.py (REUSED exact/
 # certified-numeric core, READ-ONLY), golden_rotations.py (rational rotation
 # builder, READ-ONLY). Project index: README.md

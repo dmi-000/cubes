@@ -1,6 +1,6 @@
 # RESONANCE4 report — cross-class coincidence resonances of the n=4 dihedral family, solved algebraically
 
-Executes `RESONANCE4_SPEC.md`. **Verdict up front: no n=4 family resonance
+Executes `specs/RESONANCE4_SPEC.md`. **Verdict up front: no n=4 family resonance
 found reaches 183, or even the 175 family plateau.** The best exactly-counted
 resonance is **151** = {d1:68, d2:58, d3:24, d4:1} in ℚ(√5) at the
 rational-tangent tilt tanψ=2 (≡ tanψ=1/2 in the fundamental domain). At n=4,

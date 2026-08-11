@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Working principles: NFAMILY_SPEC.md. Project index: README.md
-"""Sweep driver for the n-cube BIG/DIHEDRAL FAMILY (NFAMILY_SPEC.md).
+# Working principles: specs/NFAMILY_SPEC.md. Project index: README.md
+"""Sweep driver for the n-cube BIG/DIHEDRAL FAMILY (specs/NFAMILY_SPEC.md).
 
 Generates exact-integer-quaternion family configs at n in {4,5,6} in three
 tiers -- (a) chain phases theta_k = k*a, (b) independent random Pythagorean
@@ -10,7 +10,7 @@ n to avoid per-config subprocess overhead). Every result is appended to
 nfamily_results.jsonl as {n, kind, psi_pqr, thetas (pqr list or 'chain:a'),
 quats, total, by_depth}.
 
-<=4 worker processes (multiprocessing.Pool), matching NFAMILY_SPEC.md's
+<=4 worker processes (multiprocessing.Pool), matching specs/NFAMILY_SPEC.md's
 core budget. Designed to run detached:
     nohup python3 nfamily_sweep.py --n 4 5 6 --random 2500 --workers 4 \\
         > nfamily_sweep.out 2>&1 &

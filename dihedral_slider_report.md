@@ -1,6 +1,6 @@
 # Dihedral slider — implementation report
 
-Task: DIHEDRAL_SLIDER_SPEC.md. Replaced the depth_explorer.html viewer's
+Task: specs/DIHEDRAL_SLIDER_SPEC.md. Replaced the depth_explorer.html viewer's
 "67 ↔ 67 slide" (Postscript 9's `pSlide`/`slideGrp`/`slideMats`) with a
 slider along the dihedral family (Postscript 25), which has exact edge
 crossings at every ψ instead of the old slide's dashed ghost gaps.

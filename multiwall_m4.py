@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: MULTIWALL_SPEC.md + multiwall_report.md. Project index: README.md
+# Working principles: specs/MULTIWALL_SPEC.md + multiwall_report.md. Project index: README.md
 """M4 (control): purely-rational double wall -- two independent 60-deg-about-
 own-body-diagonal pair relations among 6 otherwise-free rational cubes,
 climbed with the C++ engine (./cube_regions_n --quats-stdin). Does stacking

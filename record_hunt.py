@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-# Working principles: NPLUS_SPEC.md (engine contract), README.md (project index).
+# Working principles: specs/NPLUS_SPEC.md (engine contract), README.md (project index).
 """Record hunt at n = 4..8: extension menus + greedy climbs, exact counts only.
 
 Every count here comes from cube_regions_n (integer-quaternion exact engine).
 INVARIANTS this file must preserve:
   * |component| <= 512 after gcd reduction -- the int128 overflow budget in
-    CPP_SPEC.md.  A config violating this is silently WRONG, not slow, so it
+    specs/CPP_SPEC.md.  A config violating this is silently WRONG, not slow, so it
     is rejected before evaluation, never clamped.
   * A "region" is a component of constant cube-containment; only the project
     engines count that.  Never substitute an LP/grid/sign-vector counter here

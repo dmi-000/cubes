@@ -78,7 +78,7 @@ Add "dihedral family" preset/slider to depth_explorer.html analogous to the
 columns above, theta=0). Endpoints label the two 67s, tick marks at
 35.26/45/54.74/69.09. This one SHOWS the crossings staying exact the whole
 way — the pedagogical counterpart of the ghost rings. Spec it like
-OPAQUE_SPEC.md with gates (t=35.264deg must reproduce the octahedral 67
+specs/OPAQUE_SPEC.md with gates (t=35.264deg must reproduce the octahedral 67
 histogram chips; crossing rings must show 30/24/18 per the plateau table).
 
 ## State snapshot (2026-07-15)

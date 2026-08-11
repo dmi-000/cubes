@@ -21,7 +21,7 @@ Status tags:
 | **EXHAUSTED** | a search that was complete over a stated family, not a sample |
 | **CONJECTURE** | consistent with all evidence, not proved |
 
-Last updated 2026-08-02.
+Last updated 2026-08-11.
 
 ---
 
@@ -106,6 +106,17 @@ unchanged — so the increment is entirely shallow, the same signature by which
   (actual 214). These are the first upper bounds the project has above n = 3;
   they bound d₁ only, not a total, and tightening them means counting which
   plane-triples can be real AND outside every other body.
+- **Every wall splits over ℚ.** PROVED (`detq_check.py`, Postscript 104). A
+  nondegenerate quadric surface's two ruling families are defined over
+  ℚ(√(det Q)), and computed symbolically the determinant is a perfect square
+  identically: **det(Q) = (|p|² − 1)²** for a W4 wall through base triple point p
+  (all six axis/sign branches), and **det(Q) = 16(|m × q|² − 2|m|²)²** for a W3
+  wall against base crossing line (q, m) (all twelve edges). Both are squares for
+  every rational base datum, so the result holds at every n and every base —
+  nothing in the derivation mentions either. The degenerate loci are distinguished
+  radii of the cube: |p| = 1, the face distance, and dist(line, origin)² = 2, the
+  edge distance squared; neither occurs in the 393 base (0 of 424 triple points,
+  0 of 360 crossing lines).
 - **d_{n−1} ≤ 6n for every n.** PROVED (the l = 1 ceiling law, via the anchor
   lemma: the radial envelope of any n-cube configuration has local minima only
   at the 6n face centres).
@@ -188,6 +199,23 @@ unchanged — so the increment is entirely shallow, the same signature by which
   quadratic in one parameter — rational or ℚ(√d). The mixed family holds
   1 377 612 degree-2 solutions against 2 856 rational ones.
 
+- **The walls are ruled over ℚ, and their rulings are NOT constant-count lines.**
+  Every wall is a signature-(2,2) quadric, hence doubly ruled — confirmed on
+  **10 250 walls with zero exceptions**, against the 360 W4 / 30 W3 originally
+  sampled. Both rulings through a rational point are rational or a
+  Galois-conjugate irrational pair, never one of each (Vieta on a rational binary
+  quadratic), and **every wall splits over ℚ — PROVED, not sampled** (see the
+  theorem below), so none of their ruled structure is hidden from rational search;
+  the census that first showed it was 63 432 rational rulings to 0 across 31 716
+  (wall, point) pairs. But the count
+  VARIES along a ruling: of eight solved at matched Cayley extent, all six whose
+  window crosses a wall vary, and the two "constant" ones crossed zero and one
+  wall. The single 2026-08-10 instance that held 725 across eleven chambers sits
+  at an arc terminus where three W4 conditions vanish at once; rulings through
+  such structured points versus generic ones is untested. VERIFIED (counts) /
+  EXHAUSTED only over 0.02% of the walls carrying a rational ruling.
+  Postscript 103.
+
 ## 5. Conjectures
 
 - **d₃ ≤ 164, d₄ ≤ 102, d₅ ≤ 36** and the general ceiling law
@@ -264,6 +292,8 @@ current.
 | The E1 derivation fails because "each connected piece adds at most one region" is false for non-disk pieces | **REFUTED** — the piece bound was never needed; the real error was scoring twelve TANGENT vertices as zero, and the stated counterexample (∂B ∩ int A connected with six boundary circles) is geometrically false — it has six components | Postscripts 53, 56 |
 | Records concentrate at high-multiplicity concurrences | **REVERSED** — the sweet-spot caveat was noted early (Act III: "more alignment is not better"), but the heuristic still drove the searches. Measured, the correlation is negative. Over 1200 unselected draws, configurations counting ≥ 700 average 1.6 hits on the base's triple-point walls; those counting < 650 average 92.6. The heuristic described 723, which is exactly the 54-crossing corner family | Postscripts 55, 57 |
 | Corner-corner and edge-in-face are unmodelled wall types | **RECLASSIFIED** — both are codimension 2, so neither is a wall. The genuinely unenumerated codimension-1 types are (2,1,1) and (1,1,1,1) | Postscript 57 |
+| Rulings are constant-count lines, so they are the walls' own coordinate lines | **REFUTED** — true of the one instance it was drawn from, false in six of six non-vacuous cases solved systematically. That instance's base point is an arc terminus with three W4 conditions vanishing; the generic case varies | Postscript 103 |
+| A doubly-ruled wall has one rational ruling and one irrational, so half its ruled structure is invisible to rational search | **REFUTED, and impossible as stated** — a rational binary quadratic cannot have exactly one rational root. Measured, all 63 432 rulings found were rational | Postscript 103 |
 
 Two methodological errors are worth carrying forward, because both produced
 plausible numbers rather than obvious failures. Counting cells of the infinite

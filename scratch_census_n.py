@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: NPLUS_SPEC.md. Project index: README.md
+# Working principles: specs/NPLUS_SPEC.md. Project index: README.md
 """Per-n census over a campaign_n<K>.jsonl (+ optional hillclimb log):
 record total, frozen deep-depth sums near the top, generic (most-common)
 per-depth values with their frequency (the T1(l,n) census numbers,

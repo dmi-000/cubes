@@ -1,6 +1,6 @@
 # Glued family-clique search — does gluing reach or beat 183/393/723?
 
-Executes `GLUE_SPEC.md`. Reuses `nfamily_common.py` (exact Rodrigues/
+Executes `specs/GLUE_SPEC.md`. Reuses `nfamily_common.py` (exact Rodrigues/
 quaternion core, read-only) and `./cube_regions_n` (read-only); never
 edits `LEDGER.md` or any validated file. Code:
 `glue_search.py` (modes `q0` / `gates` / `sweep`); raw sweep log

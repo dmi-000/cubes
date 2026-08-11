@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: MULTIWALL_SPEC.md + multiwall_report.md. Project index: README.md
+# Working principles: specs/MULTIWALL_SPEC.md + multiwall_report.md. Project index: README.md
 """M1 (mechanism A): within-Q(sqrt5) stacked walls, existing Q5 engine only.
 Logs to multiwall_search.jsonl. Does NOT modify certify_six.py / golden_six.py.
 """

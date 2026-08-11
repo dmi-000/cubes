@@ -314,8 +314,8 @@ axis. Then:
   octahedral point and φ = (1+√5)/2, hence √5, at the golden point — the same
   two quadratic fields the two 67s live in.
 
-**Specs and report.** `DIHEDRAL_SLIDER_SPEC.md`, `dihedral_slider_report.md`,
-and `SLIDE3_SPEC.md` / `SLIDE3_SPEC_V2.md` for the underlying slide-3 work.
+**Specs and report.** `specs/DIHEDRAL_SLIDER_SPEC.md`, `dihedral_slider_report.md`,
+and `specs/SLIDE3_SPEC.md` / `SLIDE3_SPEC_V2.md` for the underlying slide-3 work.
 
 **Older copies exist and differ.** `bak/depth_explorer.html` and
 `bak/depth_explorer.07-15.html` are earlier versions — `bak/depth_explorer.html`

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# Working principles: OPENCOUNT_SPEC.md. Project index: README.md
+# Working principles: specs/OPENCOUNT_SPEC.md. Project index: README.md
 """Degree-agnostic exact sign engine for the n=4 family-resonance OPEN
-candidates (OPENCOUNT_SPEC.md) -- the ~160 degree-4 (nested-radical /
+candidates (specs/OPENCOUNT_SPEC.md) -- the ~160 degree-4 (nested-radical /
 genuine-quartic) points that resonance4_solve.py's Q(sqrt d) engine could
 not represent.
 
@@ -31,7 +31,7 @@ Two field representations, both exposing the `Field(x)` / +,-,*,/,neg,
   (B) Relative quadratic tower K(sqrt b), K = Q(sqrt a), b = p+q*sqrt(a) in
       K (an OPTIMIZATION / cross-check for the candidates that are honest
       degree-2-over-degree-2 towers -- rows with structure "Q(sqrt a)(sqrt
-      ...)" in OPENCOUNT_SPEC.md).  Element A+B*sqrt(b), A,B in K.  Sign via
+      ...)" in specs/OPENCOUNT_SPEC.md).  Element A+B*sqrt(b), A,B in K.  Sign via
       the standard quadratic-surd recursion (qtower.py's Ext3 pattern,
       generalized so the "D" of the outer extension is a full K-element,
       not just a rational int): if sign(A)==sign(B), that is the sign; if

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Working principles: RATTAN_SPEC.md. Project index: README.md
-"""The rational-tangent sweep (RATTAN_SPEC.md): tilts tan psi = q/p with
+# Working principles: specs/RATTAN_SPEC.md. Project index: README.md
+"""The rational-tangent sweep (specs/RATTAN_SPEC.md): tilts tan psi = q/p with
 d = p^2+q^2 NON-SQUARE (irrational sin/cos), phase steps parametrized by
 rational points on the conic c^2 + d s'^2 = 1 (c = cos(Delta), s' =
 sin(Delta)/sqrt(d)), so every pairwise relative rotation Rel(Delta,psi)

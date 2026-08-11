@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # Working principles: SLIDE3_SPEC_V2.md + slide3_report.md. Project index: README.md
-"""SLIDE3_SPEC.md Section 1: overlay search over two sliding 3-cube triples.
+"""specs/SLIDE3_SPEC.md Section 1: overlay search over two sliding 3-cube triples.
 
 X(theta1, theta2, R) = C(theta1) UNION R . C(theta2)
   C(theta) = { Rx(theta).cube, Ry(theta).cube, Rz(theta).cube }   (Section 0

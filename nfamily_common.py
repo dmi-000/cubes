@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# Working principles: NFAMILY_SPEC.md. Project index: README.md
+# Working principles: specs/NFAMILY_SPEC.md. Project index: README.md
 """Exact rational arithmetic core for the n-cube BIG/DIHEDRAL FAMILY.
 
-The family (NFAMILY_SPEC.md): n cubes, each with a face-axis u(theta_k)
+The family (specs/NFAMILY_SPEC.md): n cubes, each with a face-axis u(theta_k)
 perpendicular to a common axis s=(1,1,1)/sqrt3, common tilt psi, free
 phases theta_k. Derivation here (verified symbolically with sympy,
 2026-07-16): the RELATIVE rotation between family members j and k depends
@@ -167,7 +167,7 @@ def quat_to_matrix_exact(w, x, y, z):
 def quat_to_int(w, x, y, z, cap=512):
     """Clear denominators of a rational quaternion, gcd-reduce, return
     integer tuple. Raises ValueError if any |component| > cap after
-    reduction (the C++ engine's int128 budget, CPP_SPEC.md)."""
+    reduction (the C++ engine's int128 budget, specs/CPP_SPEC.md)."""
     fracs = [Fr(w), Fr(x), Fr(y), Fr(z)]
     lcd = 1
     for f in fracs:

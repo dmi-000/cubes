@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Working principles: PROJECT.md, NPLUS_SPEC.md, n4_search.py (mirrored
+# Working principles: PROJECT.md, specs/NPLUS_SPEC.md, n4_search.py (mirrored
 # methodology, n=4 -> n=5), LEDGER.md Postscript 15.
 # Project index: README.md
 """n=5 record hunt: confirm the golden five-cube compound (351) and the

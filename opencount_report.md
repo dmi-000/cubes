@@ -1,6 +1,6 @@
 # OPENCOUNT report — exact counts for the n=4 open (degree-4) family-resonance candidates
 
-Executes `OPENCOUNT_SPEC.md`. **Verdict up front: none of the candidates
+Executes `specs/OPENCOUNT_SPEC.md`. **Verdict up front: none of the candidates
 exactly counted here reach the family plateau (175), let alone the record
 (183).** The headline candidate — the pure CHAIN at tanψ=(1+√13)/6, whose
 tilt field ℚ(√13) is literally the record's own tilt field — counts
@@ -270,7 +270,7 @@ future look, not as a dedup.
 - **Not reached**: the uniform xy/yx k=4 systems (30 of the original 90),
   the full non-triangle mixed-class combinatorial space (~19,000 systems),
   and the remainder of the "≥90 unique unparsed mixed-sweep points"
-  mentioned in resonance4_report.md/OPENCOUNT_SPEC.md beyond the 238
+  mentioned in resonance4_report.md/specs/OPENCOUNT_SPEC.md beyond the 238
   fingerprints resampled here. These are reported as genuinely open, with
   no numeric count claimed for them (per spec's "never approximate a
   claimed count with floats" rule) — not because they are expected to
@@ -289,7 +289,7 @@ future look, not as a dedup.
 in this task is 169, a full 14 short.
 
 **Does any reach the 175 plateau?** No — same conclusion; the closest
-approach (169) is 6 short. Record protocol (§ of OPENCOUNT_SPEC.md) is not
+approach (169) is 6 short. Record protocol (§ of specs/OPENCOUNT_SPEC.md) is not
 triggered at either threshold.
 
 **Specifically for the headline suspect** (CHAIN at tanψ=(1+√13)/6, the
