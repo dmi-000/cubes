@@ -3,7 +3,7 @@
 Sweep of the single-axis cube family at RATIONAL-TANGENT tilts
 tan ψ = q/p with d = p² + q² **non-square** (sin ψ, cos ψ irrational, in
 √d·ℚ), phases parametrized by rational points on the conic
-c² + d·s′² = 1 — the slice Postscript 27 identified as where the
+c² + d·s′² = 1 — the slice Postscript [27](LEDGER.md#p27) identified as where the
 records' family structure actually lives, and which every prior
 (Pythagorean-tilt) sweep was structurally blind to. Code:
 `rattan_sweep.py`; raw log `rattan_results.jsonl`. Engine:
@@ -69,7 +69,7 @@ pass on every generated matrix.
 
 The 393 record `4,1,1,-1; 3,3,7,3; 5,-1,-5,-5; 2,1,1,1; 1,1,1,1`
 (cubes indexed 0–4): its unique single-axis 4-clique is cubes
-{1,2,3,4}, axis (3,2,0), tan ψ = 2/3, d = 13 (Postscript 27). Method:
+{1,2,3,4}, axis (3,2,0), tan ψ = 2/3, d = 13 (Postscript [27](LEDGER.md#p27)). Method:
 fix cube **2** as the unlabeled base (Q_base = I; empirically the
 clique's own internal gauge puts the base at index 2, not index 1 —
 with any other base the axis witnesses land on permuted axes like
@@ -202,9 +202,9 @@ completions per record base + full Farey-40 on-axis sweeps). Summary:
   ledger depth profile {92,66,24,1}, oracle-confirmed. Main session
   verified congruence to the ledger 183: (1,−1,−1,4) right-multiplied
   by cube symmetry (0,1,−1,0) equals the ledger's (0,5,3,2) — a
-  RE-FIND, not a new structure (recorded in ledger Postscript 29).
+  RE-FIND, not a new structure (recorded in ledger Postscript [29](LEDGER.md#p29)).
 - **n=5 387** (deficit −6, breaking the glue campaign's "exactly −8"
-  floor): oracle-verified by main session, recorded in Postscript 29.
+  floor): oracle-verified by main session, recorded in Postscript [29](LEDGER.md#p29).
   The 4-clique base is EXACT (G1's t-values); the 5th cube sits on the
   same axis at any t₅ in an open plateau [≈8/39, ≈3/14].
 - **n=6 explicit re-find check**: 393's five + the known (5,2,2,2) 

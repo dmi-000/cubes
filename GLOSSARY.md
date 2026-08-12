@@ -78,7 +78,7 @@ union of 1-dimensional segments.
 irrational configuration in one is guaranteed and carries no information.
 
 **Seam** **(ours, and now retired)** — was proposed for "irrational points
-between rational continua". Postscript 61 refuted the picture; see §7.
+between rational continua". Postscript [61](LEDGER.md#p61) refuted the picture; see §7.
 
 **C₃ quotient** **(ours)** — the 393 base is invariant under the 120° rotation
 about (1,1,1), which 3-cycles three of its cubes. Configurations must be
@@ -256,7 +256,7 @@ Read these before trusting an older document.
 **"Rationally shadowed"** — originally suggested that irrational record
 configurations are somehow reducible to rational ones. It was only ever
 established at the level of the **count**: 727 holds along a stretch of line
-containing them, so rationals are dense nearby. Postscript 61 then established
+containing them, so rationals are dense nearby. Postscript [61](LEDGER.md#p61) then established
 the configuration-level statement separately: an irrational point and its
 shadow are the same combinatorial object at different parameters of one
 rational family, with the type identical at the point and both neighbours in
@@ -264,7 +264,7 @@ rational family, with the type identical at the point and both neighbours in
 
 **"Chamber boundary"** — was inferred from k ≥ 3 active walls. That inference
 is wrong: most wall crossings leave the type unchanged, so k is not a proxy for
-boundary. Postscripts 60 → 61.
+boundary. Postscripts [60](LEDGER.md#p60) → 61.
 
 **"Records concentrate at high-multiplicity concurrences"** — reversed.
 Measured over 1200 unselected draws, configurations counting ≥ 700 average 1.6
@@ -287,7 +287,7 @@ Every overload below is harmless in its COMPOUND form and dangerous when
 abbreviated. So the convention for this project is not to rename anything — it
 is to ban four bare words. Write the compound form every time, even when the
 context feels obvious. (It cost a wrong step on 2026-08-04: the "360 crossing
-lines" of Postscript 57 were proposed as a bound on the 727 arcs, which are
+lines" of Postscript [57](LEDGER.md#p57) were proposed as a bound on the 727 arcs, which are
 lines in CONFIGURATION space, minutes after this very section was cited.)
 
 | never write | in R^3, the cubes' own space | in configuration space |
@@ -295,7 +295,7 @@ lines in CONFIGURATION space, minutes after this very section was cited.)
 | "point"  | triple point, corner, contact point | configuration, parameter point |
 | "line"   | crossing line, edge line | arc, wall line |
 | "plane"  | face plane | wall plane, locus plane |
-| "isolated" | — | "isolated in the level set" vs "isolated as a solution of its conditions" — Postscript 47 means the SECOND |
+| "isolated" | — | "isolated in the level set" vs "isolated as a solution of its conditions" — Postscript [47](LEDGER.md#p47) means the SECOND |
 
 Two more that need a named space rather than a compound word:
 

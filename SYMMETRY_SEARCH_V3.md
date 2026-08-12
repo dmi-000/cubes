@@ -2,7 +2,7 @@
 
 For a Sonnet agent. Extends symmetry_search2.py (REUSE its validated
 build_blocks / orbit / O-dedup / dispatch / climber — do NOT rewrite).
-Read: symmetry_search2.py, LEDGER.md Postscripts 10–11
+Read: symmetry_search2.py, LEDGER.md Postscripts [10](LEDGER.md#p10)–[11](LEDGER.md#p11)
 (+ the 11 addendum), README.md. Record to beat: 717 (D₂:4+free2).
 
 ## Part A — rational families V2 never re-swept with full-quat grids

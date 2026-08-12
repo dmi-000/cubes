@@ -50,14 +50,14 @@ Structural facts established symbolically:
   - g_xz vanishes at ψ = arctan(φ²): both engines → 0 exactly.
   Additionally the *other* member of the yz antipodal family also vanishes
   at the octahedral point (the two curves crossing there), matching
-  Postscript 25-addendum-2's rank-2 Jacobian observation. Reduction of the
+  Postscript [25](LEDGER.md#p25)-addendum-2's rank-2 Jacobian observation. Reduction of the
   second yz-variant modulo the ideal ⟨g_yz, circles⟩ leaves
   2(cD·sP² + cD − sP² + 1) ≠ 0 — the two variants are genuinely different
   curves that happen to intersect at (120°, 35.264°).
 
 Tracing g_yz's Δ(ψ) branch through the octahedral point reproduces the
 known pair-curve: Δ(35.264°)=120°, Δ(45°)=109.471° (the tetrahedral angle —
-the psi=45 wall of Postscript 25 addendum 4), Δ→90° as ψ→90°.
+the psi=45 wall of Postscript [25](LEDGER.md#p25) addendum 4), Δ→90° as ψ→90°.
 
 ## 2. GATE R2 (PASS)
 
@@ -118,7 +118,7 @@ predicate). They collapse to a handful of congruence classes:
 | arctan 2 (63.435 ≡ 26.565) | **2 (rational!)** | ℚ(√5) | (−131.81, 96.38, −167.24) and variants | **151** | {68, 58, 24, 1} | **−24** |
 | arctan 2 | 2 | ℚ(√5) | (−131.81, 96.38, 35.43) variants | 143 | {62, 56, 24, 1} | −32 |
 | arctan 2 | 2 | ℚ(√5) | two cubes coincident (Δ=0 pair) | 57 | {24/26, 20/18, 12, 1} | (degenerate: 3 distinct cubes) |
-| 45° | 1 | ℚ(√2) | θ's at multiples of 90 | 13, 1 | {6,·,6,1} / {·} | (degenerate: 90°-self-symmetry collapse, cf. Postscript 26's 93) |
+| 45° | 1 | ℚ(√2) | θ's at multiples of 90 | 13, 1 | {6,·,6,1} / {·} | (degenerate: 90°-self-symmetry collapse, cf. Postscript [26](LEDGER.md#p26)'s 93) |
 | 135°≡45° | 1 | ℚ(√2) | mixed | 57 | {24–26, 18–20, 12, 1} | (one Δ=0 pair, 3 distinct cubes) |
 
 Notes:
@@ -140,7 +140,7 @@ Notes:
   forbid Δ_jk=0); they are exact counts of effectively-3-cube compounds and
   not competitive by construction.
 - All ψ=45 solutions of the xz class are the known degenerate corner of the
-  family (Postscript 25 addendum 4's ψ=45 resonance wall) — the counts (1,
+  family (Postscript [25](LEDGER.md#p25) addendum 4's ψ=45 resonance wall) — the counts (1,
   13) reflect θ's collapsing to multiples of 90°.
 - Depth-profile constancy: every non-degenerate 4-cube resonance counted
   has d4=1 and d3=24 — the family-typical deep layers — reconfirming
@@ -154,7 +154,7 @@ Per spec, these are NOT counted; minimal polynomials and structure only
 | ψ (deg) | tanψ minimal poly | field notes | structure |
 |---|---|---|---|
 | 53.794 / 69.896 | 2t²−2t−1 (t=(1±√3)/2) | cosψ needs √(4±√3): degree-4 *nested*, not a ℚ(√a,√b) tower — outside the qtower D_LIST pattern | yz-class, θ ≈ (102.2, −155.6, 48.8) |
-| 37.510 / 66.527 | 3t²−t−1 (t=(1±√13)/6) | ℚ(√13)-tangent (the record-tilt field of Postscript 27!), coordinates degree-4 nested | **chain** θ_k = k·a, a ≡ 200.891° — pairs {12,23,34,14} all on one zy curve |
+| 37.510 / 66.527 | 3t²−t−1 (t=(1±√13)/6) | ℚ(√13)-tangent (the record-tilt field of Postscript [27](LEDGER.md#p27)!), coordinates degree-4 nested | **chain** θ_k = k·a, a ≡ 200.891° — pairs {12,23,34,14} all on one zy curve |
 | 12.666 / 24.203 | 2t²+4t−1 | √6-nested | yz-class |
 | 38.173 / 51.827 | t⁴+t²−1 | golden-nested (t²=1/φ) | xz-class |
 | 31.72 / 58.28 | 5s⁴−5s²+1 (s=sinψ) | pentagonal; many members have Δ=0 pairs | xz, θ at multiples of 72° |

@@ -1,7 +1,7 @@
 # Spec: symmetry search re-run with full-quaternion seed grids
 
 Refinement of specs/SYMMETRY_SEARCH_SPEC.md. The first run (symmetry_search.py,
-Postscript 10) validated the FRAMEWORK — gates GA–GE pass, reproducing
+Postscript [10](LEDGER.md#p10)) validated the FRAMEWORK — gates GA–GE pass, reproducing
 67/681/699 — but its per-family seed grids were too thin: the C₃:3+3
 family, which provably contains the 699 record, was searched only to
 399. This run fixes the search coverage, not the construction.
@@ -9,7 +9,7 @@ family, which provably contains the 699 record, was searched only to
 For a Sonnet agent. Read: symmetry_search.py (REUSE its validated
 build_group / orbit / O-dedup / dispatch / count functions — do NOT
 rewrite them), symmetry_search_report.md, LEDGER.md
-Postscript 10, README.md.
+Postscript [10](LEDGER.md#p10), README.md.
 
 ## The one change: seeds are FULL integer quaternions, not axis-angles
 

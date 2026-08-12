@@ -84,7 +84,7 @@ Notes on orbit-size structure (probed empirically, not hand-derived):
 ## Verdict
 
 - C3:3+3 with full-quaternion seeds reproduces 699 from the known seeds
-  (gate) and reaches **705** -- the coverage gap identified in Postscript 10
+  (gate) and reaches **705** -- the coverage gap identified in Postscript [10](LEDGER.md#p10)
   is fixed.
 - Beat 699? **YES, twice.** New project record **717** (D2:4+free2) and a
   secondary **705** (C3:3+3). Both exact, both radius-4 local maxima, both

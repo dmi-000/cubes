@@ -677,7 +677,7 @@ repointed to run from here. Each takes its imports from its own directory, so
 | `cayleyscan6.py` | the working direction scan: Cayley chart, \|u\| ≤ 6, three ε | §5 |
 | `edgecross.py` | edge-edge crossing sets, their Jacobian and null space, over ℚ | §6–9 |
 | `qfield.py` | exact ℚ(√d) arithmetic with exact SIGN, and the crossing machinery over it | §6, §9 |
-| `record_six.py` | decodes which tight conditions a tangent violates, by cube pair and type | Postscript 102 |
+| `record_six.py` | decodes which tight conditions a tangent violates, by cube pair and type | Postscript [102](LEDGER.md#p102) |
 | `interior.py` | dense sampling inside chambers — the test that boundaries are coincidences | §7 |
 | `localcorr.py` | region count against crossing count over a neighbourhood | §6 |
 | `around.py` | the histogram of counts around a maximiser, all directions | §6 |
@@ -713,7 +713,7 @@ perform. It is now `rulings_control.py` and runs in place. So:
 **And name files by their PATH in a report, not by their basename.** This one cost
 a false alarm the same day: `handoff_report.md` cites ten bare filenames, eight of
 which live in `dihedral_scratch/`, so a root-level existence check reported the
-whole Postscript 25–29 dihedral chase as unreproducible. It is not — the scripts
+whole Postscript [25](LEDGER.md#p25)–[29](LEDGER.md#p29) dihedral chase as unreproducible. It is not — the scripts
 are archived, just not where the report implies. Of 29 reports, 24 have a
 same-stem script and four more name their producers under other names; the only
 artifacts genuinely absent anywhere on disk are `handoff_witness.jsonl` and
@@ -761,43 +761,70 @@ from the repo breaks this, and 15 of 29 currently do.
 Every standing document opens by saying what it is and who should read it. If a
 new one cannot, it does not yet know what it is.
 
-## The paths worth taking next (2026-08-10)
+## The paths worth taking next (re-ranked 2026-08-12)
 
-Ranked, each arising from something established rather than from backlog.
+Ranked, each arising from something established rather than from backlog. The
+2026-08-10 ranking led with the rulings; that path was executed and demoted
+itself, so this is the revision, with the old order kept visible below.
 
-1. **ENUMERATE the rulings; SOLVE each one** (§1 -- do not sweep them; the first
-   ruling ever done was grid-sampled out of habit, 7 of 13 samples came back
-   unevaluable, and solving the same line replaced "725 at 5 points" with 725 in
-   all eleven chambers). Every wall is a signature-(2,2) quadric, hence doubly
-   ruled, and a straight line in Cayley space IS a one-parameter family of
-   rotations -- exactly what every maximiser arc here has been. So each wall
-   carries two natural families of arcs and **not one ruling has ever been
-   swept**. Cheap: the rulings of a quadric are closed-form. Through a point p on
-   the wall, a direction d rules it iff p^T Q d = 0 and Q(d) = 0 -- one linear and
-   one quadratic condition, two real solutions for signature (2,2). The
-   enumeration is over WALLS and rational points on them (a rational root of an
-   existing catalogue line is one); the solve is along each resulting ruling.
-2. **BOUND C, do not search for it.** `C = V + E - M + sum c_i + n - c` is exact
-   on every record and every term is an incidence count over face planes. A real
+1. **PROVE s ≤ a + b + m − 2.** The Step B singleton term is a component count on
+   the sphere, and the whole of max(3) now rests on this one inequality:
+   a, b ≤ 6 is proved (the six-slab convex cover, the max(2) = 13 argument) and
+   m ≤ 6 is FREE (C is a cone; cutting by which coordinate attains ‖u‖∞ gives six
+   convex polygons), so s ≤ 16 and T ≤ 1 + 18 + 48 = 67. Since χ_c(X) ≤ comp(X)
+   for any open surface, the other three sets need no hypothesis at all.
+   **CORRECTED 2026-08-12:** the target is NOT "every component of K ∩ L is simply
+   connected" — that is FALSE, and the project's own parity data says so. When s is
+   odd, central symmetry forces a self-antipodal component of K ∩ L, and an open
+   disk admits no fixed-point-free involution (Brouwer), so that component is not
+   simply connected; yet the inequality still held there. Writing χ_c(X) =
+   comp(X) − D(X) with D(X) = Σ(kᵢ − 1) over components and their boundary circles,
+   the identity is exact and the target is
+
+       s ≤ a + b + m − 2   ⟺   D(K ∩ L)  ≤  D(K) + D(L) + D(C),
+
+   an inequality about EXCESS BOUNDARY CIRCLES — submodularity-flavoured, true in
+   1 930 of 1 930 pairs, and not requiring any set to be a disk. Equality holds
+   exactly when a, b, m, s are all even, which includes the maximiser.
+   [Postscript 106](#p106), [107](#p107).
+
+2. **TEST 12F − 5 AT F ≠ 6, by climbing.** The bound generalises to congruent
+   centrally symmetric F-facet cells as T ≤ 12F − 5, giving 67 at F = 6 — so the
+   cube's number is one case of a family, not a coincidence. `cells.py` computes
+   a, b, m, s for any such cell exactly and measures m = F in every configuration
+   tested. Nobody has ever climbed a non-cube family: is 91 approached at F = 8?
+   If yes the whole Step B picture is shape-generic; if the maximum sits far below,
+   cubes are special and the reason is worth finding. Cheap, and it is the only
+   item here that could falsify yesterday's result rather than extend it.
+
+3. **BOUND C, do not search for it.** `C = V + E − M + Σ cᵢ + n − c` is exact on
+   every record and every term is an incidence count over face planes. A real
    upper bound needs them bounded JOINTLY, since E enters positively and M
-   negatively -- a combinatorial question about how many plane-triples can be
-   simultaneously real and mutually outside. This is the only route in the project
-   to proving a record maximal; every search, including all of today's, produces
-   lower bounds forever.
-3. **Tower arithmetic Q(sqrt a, sqrt b), then re-evaluate the families at their
-   walls.** Sweeping the dihedral family rationally gives 59; evaluating at its
-   two wall parameters gives 67. `nfamily_common.py` states its own sweeps are
-   Pythagorean, so the ledger's family maxima -- 175 at n=4, 335 at n=5, 615 at
-   n=6 -- are maxima over RATIONAL members and none has been evaluated where its
-   optimum would sit. `cellcomplex.py` is field-agnostic and works as soon as the
-   arithmetic exists.
-4. Postscript 102's non-circular binding test; the middle depths d_2..d_{n-2},
-   still without identity or bound; the n = 9 continuum, characterised end to end
-   and never extended by a single cube.
-5. **A SECOND BASE.** Everything from 393 upward is the same five cubes. Whether
-   wrapping strata, ruled walls and the coincidence ladder are properties of this
-   problem or of this compound is untested, and a second base is the cheapest way
-   to find out.
+   negatively. This is still the only route in the project to proving a record
+   maximal at n ≥ 4; every search produces lower bounds forever, as
+   [Postscript 105](#p105) cost 30 hours to demonstrate again.
+
+4. **Tower arithmetic ℚ(√a, √b), then re-evaluate the families at their walls.**
+   Sweeping the dihedral family rationally gives 59; evaluating at its two wall
+   parameters gives 67. The ledger's family maxima — 175 at n=4, 335 at n=5, 615
+   at n=6 — are maxima over RATIONAL members and none has been evaluated where its
+   optimum would sit. Still the likeliest place an actual RECORD moves.
+   `cellcomplex.py` is field-agnostic and works as soon as the arithmetic exists.
+
+5. **A SECOND BASE**, and [Postscript 102](#p102)'s non-circular binding test; the middle depths
+   d₂…d_{n−2}, still without identity or bound; the n = 9 continuum, characterised
+   end to end and never extended by a single cube.
+
+**SPENT — the rulings (was #1 on 2026-08-10).** Executed 2026-08-11/12. Every
+wall is a signature-(2,2) quadric and doubly ruled, and det(Q) is a perfect
+square identically — `(|p|²−1)²` for W4, `16(|m×q|²−2|m|²)²` for W3 — so every
+wall SPLITS over ℚ and none of its ruled structure is hidden from rational search
+([Postscript 104](#p104)). But rulings are not constant-count lines, the premise the ranking
+rested on ([Postscript 103](#p103)), and two passes measured it with a window-dependent criterion
+before that was noticed. What survives is a question, not a path: at the arc-A
+terminus a ruling holds 725 across 99 consecutive chambers and then ends, so the
+right statistic is the longest constant RUN, and whether rulings beat generic
+directions through the same point is being measured by `rulings3.py`.
 
 ## Where to test whether these generalise
 

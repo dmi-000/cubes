@@ -70,7 +70,7 @@ All share the same five-cube base:
 The n = 8 entry was `3,-3,3,-8`, counting 1891, until 2026-08-05. **1895
 supersedes it**, and the two differ only in the eighth cube: both are that cube
 at Cayley (−1, 1, z), the old one at z = −8/3 and the new at z = −61/24, one
-eighth of a unit further along the same line. See LEDGER Postscript 101.
+eighth of a unit further along the same line. See LEDGER Postscript [101](LEDGER.md#p101).
 
     ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;3,-3,3,-8"   # 1891, superseded
 

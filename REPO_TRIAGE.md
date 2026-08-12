@@ -13,7 +13,7 @@ this is a proposal for approval.
 - `record_hunt_wave2.py` (4 KB)  <- today's record-hunt tooling
 - `record_hunt_wave3.py` (4 KB)  <- today's record-hunt tooling
 - `recover_1889.py` (4 KB)  <- today's record-hunt tooling
-- `scratch_diagram` (152 KB)  <- census tools + result_*.json cited in Postscript 5
+- `scratch_diagram` (152 KB)  <- census tools + result_*.json cited in Postscript [5](LEDGER.md#p5)
 
 The four scripts are the tooling behind 727 / 1217 / 1891; `record_hunt.py` is
 reusable at every level.  `scratch_diagram/` holds the exact-arrangement census

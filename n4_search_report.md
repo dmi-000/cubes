@@ -125,7 +125,7 @@ free cube coincides with one of the golden five's other two cubes
 `(1,-1,-1,1)`, `(1,-1,1,1)`, `(-1,1,1,1)` all land on exactly 177) — i.e.
 this just rediscovers golden 4-subsets, consistent with the known fact
 that every 4-subset of the golden five equals 177 (subset-maximality,
-Postscript 2 of `LEDGER.md`). **No rational (non-golden)
+Postscript [2](LEDGER.md#p2) of `LEDGER.md`). **No rational (non-golden)
 free 4th cube attached to a golden 3-subset beat or matched 177.**
 
 **Phase S1 — exact-rational octahedral-type 2-axis-pair family.**
@@ -267,7 +267,7 @@ the n=6 chain.
   called "certified locally maximal," and even that record was later
   superseded by 723 via entirely different (constructive, non-climbing)
   methods. The same could happen here.
-- ℚ(√2) or ℚ(√3) walls (echoing the n=6 program's Postscript 7-8) were
+- ℚ(√2) or ℚ(√3) walls (echoing the n=6 program's Postscript [7](LEDGER.md#p7)-[8](LEDGER.md#p8)) were
   NOT explored for n=4 in this task — only the golden ℚ(√5) wall (via
   the golden 3-subset) and plain rational configurations. This is an
   open direction (mirrors open problem 5 in `PROJECT.md`).

@@ -6,7 +6,7 @@ ten-minute, low-jargon tour that hits the same beats and links onward, read
 here has a paper trail: `RESULTS.md` is the recommended starting point —
 every current claim tagged PROVED / VERIFIED / EXHAUSTED / CONJECTURE, with
 superseded claims confined to one table. `LEDGER.md` (the
-dated ledger, now Postscripts 1–58 with addenda) is the primary record beneath that,
+dated ledger, now Postscripts [1](LEDGER.md#p1)–[58](LEDGER.md#p58) with addenda) is the primary record beneath that,
 `PROJECT.md` is the formal write-up, and `README.md` maps all the code.
 Anyone with access to a
 mid-tier coding model (Claude Sonnet or similar) and a laptop can
@@ -201,8 +201,8 @@ answer it:
    measure-zero in the space of random pairs; neither is a single knob-
    less point. [CORRECTED 2026-07-29: an earlier draft called the
    13-pair "rigid" / "an isolated wall" with "no knob" — that was wrong,
-   and it originates in the ledger's Postscript 17 addendum, itself
-   corrected by Postscript 44.] (Same one level up: the 67-triples
+   and it originates in the ledger's Postscript [17](LEDGER.md#p17a) addendum, itself
+   corrected by Postscript [44](LEDGER.md#p44).] (Same one level up: the 67-triples
    *are* isolated points; a continuous family connecting the octahedral
    and golden 67s exists, but its interior sags to ~37 — n=3, not n=2,
    is where rigidity actually lives.)
@@ -303,7 +303,7 @@ known members of that class are 723's own subsets. So the hunt for a
 better six-cube arrangement is no longer a 15-dimensional needle search;
 it is precisely the hunt for one new near-record five-cube arrangement.
 (E1 and E2 were measured envelopes, not theorems — clearly labelled as
-such. The *increment* half of E1 is now derived: Postscript 56 proves
+such. The *increment* half of E1 is now derived: Postscript [56](LEDGER.md#p56) proves
 Delta_j = N − #components(G_j) ≤ B_j, where B_j is an Euler cell count of
 the plane arrangement traced on the added cube's own surface, and it holds
 on every configuration tested with at most 11% slack. What is still
@@ -323,8 +323,8 @@ deep layers hug the law's n=8 predictions from below (48 attained,
 then −2, −6, −4). The tower reads 183 → 393 → 723 → 1207 → 1879, every
 level the best known at its size, each built from the one below it.
 
-[UPDATED 2026-07-29, Postscript 46: 723 itself — "cornered" above and
-still standing through Postscript 45's 1211/1889 round — has now fallen,
+[UPDATED 2026-07-29, Postscript [46](LEDGER.md#p46): 723 itself — "cornered" above and
+still standing through Postscript [45](LEDGER.md#p45)'s 1211/1889 round — has now fallen,
 to **727**. Every earlier n≤6 sixth-cube sweep, including the one behind
 the cornering argument, sampled only small quaternions; the winning
 sixth cubes at high *n* are large (1879's eighth cube was
@@ -630,7 +630,7 @@ irrational-rung uniqueness that stays the best-supported conjecture here.
 
 ## Act X: from searching to proving — 727's structure, and the wall that ended the search
 
-Postscript 47 (2026-07-30) is where the week's centre of gravity shifted
+Postscript [47](LEDGER.md#p47) (2026-07-30) is where the week's centre of gravity shifted
 from *finding* the record to *proving things about it* — and, true to
 form for this project, it started from a plain comparison: what actually
 changed between 723 and 727?
@@ -738,7 +738,7 @@ Act X left the exhaustive three-wall enumeration running: three Gröbner
 shards, about nine hours each, roughly twenty-seven hours of compute for
 partial coverage, grinding through 1.3 million systems to log ~256,000
 configurations and a four-class rational plateau at 727. That was the
-state of things going into Postscript 49 — and it took one question from
+state of things going into Postscript [49](LEDGER.md#p49) — and it took one question from
 the human, not a bigger machine, to collapse it.
 
 **The question was about an absence, not a number.** Every solution the
@@ -827,7 +827,7 @@ search** rather than by symmetry — every earlier irrational result, at
 n=3, came from recognizing the octahedron or the icosahedron already
 sitting there, not from a search turning one up.
 
-[UPDATED 2026-08-01, Postscript 51 addendum 3: this is the second time
+[UPDATED 2026-08-01, Postscript [51](LEDGER.md#p51) addendum 3: this is the second time
 in the project's history that a property of the instrument got reported
 as a property of the problem — the first was a few pages back, where the
 three-wall family's all-rational solutions turned out to be a fact about
@@ -854,7 +854,7 @@ simply wrong; the real boundary is not constant in that product at all,
 and the flat version of the rule would have silently admitted unsafe
 configurations at small d while needlessly rejecting safe ones at large
 d. The engine now checks a traced bound at runtime instead of a guessed
-formula. And a separate worry from Postscript 47 — that the coordinate
+formula. And a separate worry from Postscript [47](LEDGER.md#p47) — that the coordinate
 chart used throughout can't represent 180° rotations, so might be hiding
 whole configurations — dissolved on inspection: the missing rotations are
 still reachable as *other* representatives of the same cube, via one of
@@ -997,7 +997,7 @@ avoid; they are kept here, struck through, because the shape of what was
 open is part of the story.
 
 1. ~~**Finish "67 is maximal" for three cubes.**~~ **PROVED**
-   (2026-07-21, Postscripts 41–43). max(3) = 67 holds for any three
+   (2026-07-21, Postscripts [41](LEDGER.md#p41)–[43](LEDGER.md#p43)). max(3) = 67 holds for any three
    concentric convex ≤6-facet cells meeting pairwise transversally —
    cubes included, an open dense set containing both maximizers. Three
    Euler arguments: depth-3 ≤ 1 and depth-2 ≤ 18 by convex cover, and
@@ -1012,7 +1012,7 @@ open is part of the story.
    from the contact analysis: two cells meeting *tangentially* rather
    than transversally.
 2. ~~**Harden the No-Parasites proof, then two cubes are done.**~~
-   **PROVED** (2026-07-20, Postscript 33). max(2) = 13, and by a much
+   **PROVED** (2026-07-20, Postscript [33](LEDGER.md#p33)). max(2) = 13, and by a much
    cheaper argument than the draft this item describes: A∖B is a union of
    at most six convex pieces (one per face of B), likewise B∖A, plus one
    core — so the bound holds for *any* two convex cells with at most six
@@ -1020,14 +1020,14 @@ open is part of the story.
    depth-(n−1) ≤ 6n for all n, the project's oldest open problem, now
    closed. Correction recorded with it: the maximizer is not "45° about a
    face axis" but any angle about a body diagonal — a continuum, not the
-   rigid point the project believed for weeks (Postscript 44).
+   rigid point the project believed for weeks (Postscript [44](LEDGER.md#p44)).
 3. **Beat 727 or corner it completely** — 723 fell on 2026-07-29 (Postscript
    46), and by envelope E1 the question is now equivalent to finding a
    fundamentally new five-cube arrangement ≥ 390, or proving none exists.
    On the 393 base the room left is exactly 729, and three independent
    lines now bound it: E1's cap, the elimination proving 727 isolated with
-   an unaugmentable coincidence pattern (Postscript 47), and the three-wall
-   enumeration (Postscript 48). The rational-tangent slice reached 387 at five cubes
+   an unaugmentable coincidence pattern (Postscript [47](LEDGER.md#p47)), and the three-wall
+   enumeration (Postscript [48](LEDGER.md#p48)). The rational-tangent slice reached 387 at five cubes
    (breaking the old "constant-8 deficit") but has not passed a record.
    [CORRECTED 2026-08-01: this item previously described the *723* summit
    as "a plateau of ≥ 27 non-congruent realizations" — pre-727 text left
@@ -1042,10 +1042,10 @@ open is part of the story.
    incidental: every one of the eight fields is rationally shadowed —
    34 385 rational points sampled along the same 727-producing lines reach
    727 too — so n=3 remains the only level where irrationality is
-   REQUIRED. Postscript 52 addendum 2.]
+   REQUIRED. Postscript [52](LEDGER.md#p52) addendum 2.]
 4. **Prove envelope E1** (a zone-style bound making the branch-and-prune
    a certified branch-and-bound) — HALF DONE. The increment identity and
-   its geometric bound are proved (Postscript 56): the one-cube increment
+   its geometric bound are proved (Postscript [56](LEDGER.md#p56)): the one-cube increment
    equals N − #components of the bit-j adjacency subgraph, and is bounded
    by an Euler cell count B_j on the added cube's surface, slack ≤ 1.11 on
    every configuration measured. What remains is a good UNIVERSAL ceiling
@@ -1076,7 +1076,7 @@ open is part of the story.
    short of 183, across all four bases. So the surviving claim is
    narrower and sharper than the original: three cubes is the only level
    where irrationality is **required** (Theorem R), not the only level
-   where it appears. Postscripts 51–52 and their addenda.
+   where it appears. Postscripts [51](LEDGER.md#p51)–[52](LEDGER.md#p52) and their addenda.
 9. **A create-versus-merge criterion.** Coincidences are exactly the
    top-diagram vertices; whether a new one creates or merges regions is
    now a bookkeeping question — does its added vertex weight exceed the
@@ -1090,7 +1090,7 @@ open is part of the story.
 
 *Files for the deeper dive: `RESULTS.md` (current state, every claim
 tagged by strength — start here), `LEDGER.md` (ledger,
-now Postscripts 1–52 with addenda, indexed at the top),
+now Postscripts [1](LEDGER.md#p1)–[52](LEDGER.md#p52) with addenda, indexed at the top),
 `PROJECT.md` (formal write-up), `PROOF_67.md` + `PROOF_STEP_T.md` (the
 max(3)=67 proof), `C45_notes.md` (proof program — the four
 dihedral-family theorems in §12, the max(3)=67 lemma tree in §13),

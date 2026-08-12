@@ -21,7 +21,7 @@ story below, Q0 first as required.
 ## Q0 (critical first step): is 183 or 393 itself SINGLE-AXIS?
 
 **No — flagged prominently as required, but the answer does NOT flip
-Postscript 26's verdict.** Exact test (`glue_search.py --mode q0`, all
+Postscript [26](LEDGER.md#p26)'s verdict.** Exact test (`glue_search.py --mode q0`, all
 Fraction/no-float arithmetic; method and airtightness argument in the
 module docstring above `q0_report()`): for every pair, find the cube-
 symmetry relabeling that puts the relative rotation in `Rel(Δ,ψ)` form
@@ -38,7 +38,7 @@ global axis line; then test whether ONE axis and ONE common tilt ψ
 | 723's embedded 393 (cubes 0–4) | empty | **not single-axis** |
 | 723 full (n=6) | empty | **not single-axis** |
 
-So Postscript 26's core claim — the records are gluings, not disguised
+So Postscript [26](LEDGER.md#p26)'s core claim — the records are gluings, not disguised
 single-axis members — **stands**, exactly as tested for the first time
 here (the earlier per-pair test in `nfamily_report.md` was axis-agnostic
 and never checked this).
@@ -69,7 +69,7 @@ records.** Every record contains **(n−1)-of-n single-axis sub-cliques**
   `p²+q²` is a perfect square; here `13, 29, 34` — none are). The `13`
   case (`tan ψ=2/3`, `sin ψ=2/√13`, `cos ψ=3/√13`) recurs **both** inside
   183 and inside 393/723 — a candidate n>3 analogue of the irrational
-  octahedral/golden special points already known at n=3 (Postscript 25).
+  octahedral/golden special points already known at n=3 (Postscript [25](LEDGER.md#p25)).
 
 **Why this matters for the "sweep menu too coarse" hypothesis (Q0's
 explicit charge).** It does *not* flip to "coarse menu" — it sharpens

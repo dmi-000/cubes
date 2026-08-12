@@ -90,8 +90,8 @@ quaternions the main session derived **independently** from
 
 **Tasks, in order:** (1) propagate the max(2)=13 continuum correction and the
 n=3 non-congruence wording; (2) propagate records n=7 = 1211, n=8 = 1889;
-(3) supersede those with 727 / 1217 / 1891 the same day; (4) add Postscript 47
-(727's structure and the elimination), and later Postscripts 48–51.
+(3) supersede those with 727 / 1217 / 1891 the same day; (4) add Postscript [47](LEDGER.md#p47)
+(727's structure and the elimination), and later Postscripts [48](LEDGER.md#p48)–[51](LEDGER.md#p51).
 
 **Standing instruction across all four:** update live "current record" claims,
 but *annotate rather than rewrite* dated or historical passages — a report of a
@@ -99,7 +99,7 @@ completed run stays as-run, with a forward pointer. This keeps the documents
 readable as history while preventing a reader from picking up a stale claim.
 
 **Notable agent catches.** The third delegation flagged that a ledger
-cross-reference pointed at "Postscript 48" before that postscript existed — a
+cross-reference pointed at "Postscript [48](LEDGER.md#p48)" before that postscript existed — a
 dangling forward reference the main session had created and had to resolve by
 writing it. The first determined that `cubes/` was a live mirror while `cb/`
 was a frozen July-10 snapshot, and correctly left the latter alone.
@@ -125,7 +125,7 @@ Delta_j = N - #comps(G_j) <= |E(G_j)| <= W_j <= K_j <= B_j.
 13-pair, where the main session derived B = 12 = Delta by hand from eight
 named tangency points. *"If your code does not reproduce it, do not adjust the
 gate or the expected value to match your code."* The earlier failed attempt
-(Postscript 53) went wrong precisely there, by testing whether a line met the
+(Postscript [53](LEDGER.md#p53)) went wrong precisely there, by testing whether a line met the
 OPEN interior of the cube and so scoring twelve tangential vertices as zero.
 
 **Gates required:** G1 the hand-computed n=2 case (B = 12, c = 1, two degree-6

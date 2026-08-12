@@ -133,4 +133,4 @@ project), and the "second-deepest" ceiling d_{n−1} ≤ 6n holds for every n.
 
 *Full details, with the marked intermediate steps, are in
 `PROOF_FORMAL.md`; the dated blow-by-blow — including the retracted
-claims — is in the ledger `LEDGER.md`, Postscripts 33–41.*
+claims — is in the ledger `LEDGER.md`, Postscripts [33](LEDGER.md#p33)–[41](LEDGER.md#p41).*

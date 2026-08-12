@@ -20,7 +20,7 @@ which pair of cubes touches. The rule that survives all twelve events is not
 arithmetic but structural: **every event's entire count delta lands in the
 shallow depths (d1, occasionally d1+d2), with all deeper layers exactly
 conserved** — the project's recurring "deep structure conserved, d1 is what
-varies" principle (Postscript 17), now confirmed pointwise at n=3, n=4 *and*
+varies" principle (Postscript [17](LEDGER.md#p17)), now confirmed pointwise at n=3, n=4 *and*
 n=5, across create and merge events, interior and corner mechanisms alike.
 
 ## Gates (all PASS, `events_extract.py selftest`)
@@ -50,7 +50,7 @@ census:
 - octahedral (35.264deg): interior=30, corner=0.
 - 45deg: interior=24, corner=0.
 - golden (69.095deg): interior=18, corner label-pairs=54, deduped to 6
-  physical points (18+6=24 total contacts) — exactly Postscript 25
+  physical points (18+6=24 total contacts) — exactly Postscript [25](LEDGER.md#p25)
   addendum 4's "18 interior + 54 corner label-pairs, 6 physical points."
 
 **G3** — engine per row throughout (named in each event/row below); the
@@ -105,7 +105,7 @@ directions are informative.)
    instead of interior crossings, at ratio +2.000/point, not +1. A single
    n=3 compound can hit the exact same region-count ceiling by two
    structurally different routes with two different exchange rates — the
-   "+-1" was already an artifact of which mechanism Postscript 25 happened
+   "+-1" was already an artifact of which mechanism Postscript [25](LEDGER.md#p25) happened
    to sample first.
 3. **At n=4 the law fails in *sign*, not just magnitude.** Event #9 (175
    plateau -> 151 resonance) has coincidences *increasing* (+2 interior)
@@ -129,7 +129,7 @@ directions are informative.)
    at the shallowest 1-2 layers.** Every single event in the table (12/12)
    has its ENTIRE Delta(count) accounted for by Delta(d1) alone, or by
    Delta(d1)+Delta(d2) (events #2 and #10), with every deeper layer bit-
-   for-bit unchanged. This generalizes Postscript 25 addendum 3's "all
+   for-bit unchanged. This generalizes Postscript [25](LEDGER.md#p25) addendum 3's "all
    staircase variation is in d1" and nfamily_report.md's n=4/5/6 finding
    ("the top two depths stay pinned... the records buy their extra total
    almost entirely in the shallow layers") into a single pointwise
@@ -140,7 +140,7 @@ directions are informative.)
    patch over.** Event #2 (31->43, ~9.5deg) has the exact edge-edge
    crossing count FROZEN at 12 on both sides — confirmed here for the
    first time with an exact (not numeric) crossing count, extending
-   Postscript 25 addendum 3 point 4's claim from "no edge-crossing event"
+   Postscript [25](LEDGER.md#p25) addendum 3 point 4's claim from "no edge-crossing event"
    (checked to 1e-16 previously) to an exact zero-Fraction-difference
    certificate. Region count still jumps +12 via d1(+6)+d2(+6) alone —
    demonstrating that d1/d2 combinatorics (how the existing, UNCHANGED set
@@ -165,7 +165,7 @@ golden-mirror point is: **{25 at psi=0 only} | 31-plateau (0,~9.5) |
 addendum's table implied four plateaus. This reclassifies psi=0 itself as
 event #1 in the table above: a **negative mega-spike** — interior crossings
 jump from 12 to 48 (the shared-axis compound's own "48 at psi=0/90" already
-noted in the ledger's main Postscript 25 text) yet the region count *drops*
+noted in the ledger's main Postscript [25](LEDGER.md#p25) text) yet the region count *drops*
 by 6 relative to its immediate surroundings, the most extreme
 coincidence-rich/count-poor pairing found in this whole campaign (ratio
 -0.167, i.e. 36 new coincidences buy back only 6 fewer regions — most of
@@ -207,7 +207,7 @@ growth: the 6 new vertex-vertex contacts still only ever touch d1.
   (a) exact agreement with `nfamily_common.exact_pair_crossings` on every
   rational pair checked (16 pairs across the n=4/n=5 configs, zero
   mismatches); (b) exact reproduction of the golden 18+54/6 census
-  (Postscript 25 addendum 4) from an independently hand-derived Q5 matrix,
+  (Postscript [25](LEDGER.md#p25) addendum 4) from an independently hand-derived Q5 matrix,
   not copied from any prior script.
 
 ## Files

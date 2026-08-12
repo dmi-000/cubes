@@ -1,7 +1,7 @@
 # The n = 3 structure graph
 
 Written 2026-08-03. Every number here is an exact count; see
-[`LEDGER.md`](LEDGER.md) Postscripts 69–72
+[`LEDGER.md`](LEDGER.md) Postscripts [69](LEDGER.md#p69)–[72](LEDGER.md#p72)
 for the runs, and [`GLOSSARY.md`](GLOSSARY.md) for the vocabulary.
 
 This is the n = 3 configuration space described through the n = 2 map of

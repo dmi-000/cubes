@@ -16,23 +16,23 @@ at the top so nothing is oversold:
   all n unconditionally and max(2) = 13 (§3.2).
 - **Cluster 2 (depth-1 ≤ 48): triple-point weight ≤ 32 PROVED (§5.3),
   and contact-vertex weight ≤ 60 now has a CANDIDATE PROOF (§5.4, ledger
-  Postscript 41) via Euler on the three pairwise intersection polytopes.**
+  Postscript [41](LEDGER.md#p41)) via Euler on the three pairwise intersection polytopes.**
   Combined: d1 ≤ 48.
 
-**UPDATE 2026-07-21 (see ledger Postscripts 38-41): the whole theorem is
+**UPDATE 2026-07-21 (see ledger Postscripts [38](LEDGER.md#p38)-[41](LEDGER.md#p41)): the whole theorem is
 now understood shape-independently — d3 ≤ 1, d2 ≤ 18, triple ≤ 32, and
 contact ≤ 60 all hold for ANY 3 concentric convex 6-faced cells, cubes
 being one case. IMPORTANT: "regions" means components of constant cube-
 CONTAINMENT (separated by real faces), NOT cells of the infinite-plane
 arrangement — a counting error on the latter was caught and retracted
-(Postscript 38).**
+(Postscript [38](LEDGER.md#p38)).**
 
 So: d2 ≤ 18 and d3 ≤ 1 (deep half) PROVED; d1 ≤ 48 = triple ≤ 32 (§5.3)
 + contact ≤ 60 (§5.4, candidate proof), giving total ≤ 67, attained by
 cubes/parallelepipeds. **max(3) = 67 is proved** for all 3 concentric
 convex ≤6-facet cells meeting pairwise transversally (an open dense set
 including both maximizers). Step T (degenerate triple points) is now
-CLOSED — see [PROOF_STEP_T.md](PROOF_STEP_T.md) and Postscript 43; the
+CLOSED — see [PROOF_STEP_T.md](PROOF_STEP_T.md) and Postscript [43](LEDGER.md#p43); the
 natural route deg_top ≤ deg_bot is false but unnecessary. Also proved: max(2) = 13 and
 d_{n−1} ≤ 6n all n. (The record 67 was first established by exhaustive
 engine search; the proof now explains it.)
@@ -282,7 +282,7 @@ correct route; this failed lead is recorded so it is not re-attempted.
 
 ### 5.2 Feasibility verdict (CENSUS_BOUND, 2026-07-20): split (★) into 32 + 60
 
-A feasibility pass (census_bound_report.md; ledger Postscript 34) settled
+A feasibility pass (census_bound_report.md; ledger Postscript [34](LEDGER.md#p34)) settled
 how to attack (★) and ruled out the blind routes. The weight-92 budget
 splits exactly as the census's 32 + 60, and the two halves have very
 different character:
@@ -363,9 +363,9 @@ bound.
 
 ### 5.4 Sub-lemma 1b — CANDIDATE PROOF: contact weight ≤ 60 (via the pairwise intersection polytopes)
 
-(2026-07-21; ledger Postscripts 41–43. Verified on 130 configs, tight at
+(2026-07-21; ledger Postscripts [41](LEDGER.md#p41)–[43](LEDGER.md#p43). Verified on 130 configs, tight at
 both maximizers. The |S|=2 contact bound below is rigorous; the degenerate
-|S|=3 case (Step T) is now CLOSED — see PROOF_STEP_T.md / Postscript 43.
+|S|=3 case (Step T) is now CLOSED — see PROOF_STEP_T.md / Postscript [43](LEDGER.md#p43).
 Holds for any 3 concentric convex 6-faced cells meeting pairwise
 transversally.)
 
@@ -408,8 +408,8 @@ edges — pointedness because the a+b active facet-normals span ℝ³ (the two
 cells meet transversally at the isolated point x₀). No "cut-off face"
 issue arises. This covers every contact at both maximizers. The
 degenerate triple points (|S|=3 with top-degree > 3) are handled by the
-unified local inequality (◆) (PROOF_STEP_T.md, Postscript 43): the natural
-route deg_top ≤ deg_bot is FALSE (Postscript 42: a corner-plus-two-blades
+unified local inequality (◆) (PROOF_STEP_T.md, Postscript [43](LEDGER.md#p43)): the natural
+route deg_top ≤ deg_bot is FALSE (Postscript [42](LEDGER.md#p42): a corner-plus-two-blades
 triple point has deg_top = 8, deg_bot = 4, realized on genuine cells), but
 (◆) charges each triple point to the bottom AND pairwise budgets at once,
 and an elementary case split (deg_bot ≥ 3 / = 0 / = 2) proves it with no
@@ -431,7 +431,7 @@ d3 ≤ 1 (§1), **d2 ≤ 18** (§3+§3.1), **triple weight ≤ 32** (§5.3), and
 d1 ≤ 48 and bounded = d1 + d2 + d3 ≤ 48 + 18 + 1 = **67**, attained
 (two-engine certified) by the octahedral and golden compounds. So
 **max(3) = 67 is proved for ALL 3 concentric convex ≤6-facet cells meeting
-pairwise transversally** (Postscripts 38–43; degenerate triple points
+pairwise transversally** (Postscripts [38](LEDGER.md#p38)–[43](LEDGER.md#p43); degenerate triple points
 closed in PROOF_STEP_T.md). The only residual caveat is the milder
 pairwise-tangency degeneracy of §5.4, not a triple-point phenomenon.
 
@@ -442,7 +442,7 @@ Complete corollaries now in hand:
   Cluster 2, and both generalize to all convex 6-faced cells.
 
 ## Open, in priority order
-1. **Step T (degenerate triple points) — CLOSED (Postscript 43,
+1. **Step T (degenerate triple points) — CLOSED (Postscript [43](LEDGER.md#p43),
    PROOF_STEP_T.md).** Not via deg_top ≤ deg_bot (false) but via the
    two-budget local inequality (◆): deg_top − 2 ≤ (deg_bot−2)⁺ +
    Σ_pairs(d_{ij}−2), proven by an elementary case split using

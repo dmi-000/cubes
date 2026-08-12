@@ -305,7 +305,7 @@ a wall that moves the region count by 4. See `METHODS.md` §7.
 **A frontier is not a boundary.** The enumeration's largest contiguous run read
 "k = 55–314", which looks like an upper end and is not one: the generator walks k
 upward and 314 was simply how far it had got. Probing past it gives 2785
-continuously to k = 2 000 and at 5 000, 60 000. This is Postscript 82's reporting
+continuously to k = 2 000 and at 5 000, 60 000. This is Postscript [82](LEDGER.md#p82)'s reporting
 trap — *any sweep that returns its own bounds is telling you the window was too
 small, not that it found an edge* — and it survived being written down, so check
 the frontier against the generator's state before reading a number as a limit.
@@ -588,7 +588,7 @@ Does not wrap: the half-turn about x counts 727 and the tails 1209.
 
     ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;24,-24,24,-61"
 
-**1895, beating the 1891 that stood since Postscript 46.** by_depth
+**1895, beating the 1891 that stood since Postscript [46](LEDGER.md#p46).** by_depth
 {1:350, 2:454, 3:382, 4:302, 5:222, 6:136, 7:48, 8:1}; reproduced by both
 engines; a local maximum against every ±1, ±2 move of every quaternion
 component. Its 7-cube subsets give exactly 1217, its 6-cube 727, its 5-cube 393,
@@ -697,7 +697,7 @@ change the count. Test rank-2 subsets and verify each (`tangent_finder.py`).
   cubes and so independent).
 
 **A third method exists and it FAILS ITS CONTROL** — recorded here because
-Postscript 100 rests on it. `tight_set.py` takes the null space of the gradients
+Postscript [100](LEDGER.md#p100) rests on it. `tight_set.py` takes the null space of the gradients
 of the TIGHT Step-A conditions (those holding with equality), and its zeros at
 the two 67s are the current basis for "exactly two 67s". Run on the five
 configurations with independently verified tangents (2026-08-05):
@@ -848,7 +848,7 @@ that reports 0 must first recover a known tangent, or its zeros are void.
 
 ## 5. Gaps, and the path to close each
 
-* **Multi-cube directions at n = 3 — REOPENED.** Postscript 100 closed this with
+* **Multi-cube directions at n = 3 — REOPENED.** Postscript [100](LEDGER.md#p100) closed this with
   `tight_set.py`, on the strength of one control at n = 2. Run against all five
   controls it fails the fifth, the n = 6 record, returning null dimension 1 where
   two independent tangents are verified (§4). Its rank 6 of 6 at the two 67s is
@@ -896,7 +896,7 @@ that reports 0 must first recover a known tangent, or its zeros are void.
 * ~~Enumerate W3~~ — **DONE** (`wall_params.w3_params`): the edge-meets-crossing-
   line determinant is degree 4 in the line parameter; 2 989 crossings on arc A's
   line. **W3+W4 bracket every chamber wall on arc A, 15 of 15**, closing the
-  Postscript 58 gap. Only 15 of the 48 interior crossings change the type, so a
+  Postscript [58](LEDGER.md#p58) gap. Only 15 of the 48 interior crossings change the type, so a
   wall crossing is necessary but not sufficient for a chamber boundary.
 * ~~Chamber counts are lower bounds~~ — **no longer, where the line is solved**
   (§3a). Evaluating between consecutive W3/W4 roots gives the exact count:
@@ -1034,7 +1034,7 @@ universal — n = 4's own neighbourhood shows chambers at 161, 163, 167, 169, bo
 residues — so it is a property of these lines, not of the problem.
 
 **Propagated 2026-08-05**, once a 33 060-configuration hunt around 1895 found
-nothing above it: `LEDGER.md` (appended as Postscript 101, not edited — it is a
+nothing above it: `LEDGER.md` (appended as Postscript [101](LEDGER.md#p101), not edited — it is a
 chronological record), `MAXIMISERS.md`, `RESULTS.md`, `OVERVIEW.md`, `README.md`
 and `shapes.svg`. What still says 1891 by design: `README.md`'s summary of
-Postscripts 22–52, which describes what those postscripts said at the time.
+Postscripts [22](LEDGER.md#p22)–[52](LEDGER.md#p52), which describes what those postscripts said at the time.

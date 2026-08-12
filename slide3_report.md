@@ -1,7 +1,7 @@
 # Two sliding 3-cube triples: overlay/slide/relative-rotate search
 
 Executed per `specs/SLIDE3_SPEC.md`. Read first: `LEDGER.md`
-Postscripts 4-8, `specs/MULTIWALL_SPEC.md` + `multiwall_report.md`, `golden_six.py`,
+Postscripts [4](LEDGER.md#p4)-[8](LEDGER.md#p8), `specs/MULTIWALL_SPEC.md` + `multiwall_report.md`, `golden_six.py`,
 `qtower.py`. Validated files (`certify_six.py`, `cube_compound_exact.py`,
 `golden_rotations.py`, `exact_search_results.jsonl`, `LEDGER.md`)
 were read but never modified. New files: `slide3_q2.py` (Q(sqrt2) field +
@@ -139,7 +139,7 @@ random rational n=3 triples via `cube_regions_n --seeds`, then 6
 independent hill-climbs with +-1/+-2/+-3/+-4 component moves from the best
 starts) tops out at 33-43, NEVER reaching the 55 plateau, let alone 67.
 This matches the pre-existing record in `LEDGER.md`
-Postscript 2 exactly: "triples: winner's subsets 29..38 (median 33),
+Postscript [2](LEDGER.md#p2) exactly: "triples: winner's subsets 29..38 (median 33),
 random max 38, golden subset 67" — independently reproduced here with a
 different (climbed, not just sampled) random baseline. **C(theta)'s
 constant-55 plateau sits well above the generic random ceiling (~38-43) for
@@ -301,7 +301,7 @@ established deep ceilings** (no violation); d6=1, total odd. **d2 = 216
 exceeds the previously observed d2 ceiling of 214** and **d1 = 180**; both
 are new depth-1/2 high-water marks (flagged as data from a wall-constrained
 search, not a re-established generic ceiling). The entire gain over 681 is
-shallow (d1+d2), exactly the golden-wall / T2 pattern from Postscript 7–8.
+shallow (d1+d2), exactly the golden-wall / T2 pattern from Postscript [7](LEDGER.md#p7)–[8](LEDGER.md#p8).
 
 **Why it works (the active constraint).** Both triples are 3-fold symmetric
 about the SAME axis (1,1,1), and R = (a,b,b,b) is a rotation about that same
@@ -309,7 +309,7 @@ about the SAME axis (1,1,1), and R = (a,b,b,b) is a rotation about that same
 (1,1,1). The 9 cross-triple relative rotations fall into 3 cyclic classes of
 3 (angles 63.26°/70.30°/78.84°, each appearing 3× under the shared 3-cycle).
 This is the **same "shared 3-fold axis" constraint that built the 681 golden
-wall** (Postscript 8: "ANY sixth-cube angle about the exact (1,1,1) axis
+wall** (Postscript [8](LEDGER.md#p8): "ANY sixth-cube angle about the exact (1,1,1) axis
 gives 681") — but here BOTH halves are 3-fold-symmetric triples on that
 axis, not five golden cubes + one, and it is reachable with fully RATIONAL
 rotations. Constraint-first wins again, and this time entirely inside ℚ.
@@ -373,8 +373,8 @@ on top of the shared axis for a higher-codimension win? The infrastructure
 | construction | total | field | notes |
 |---|---:|---|---|
 | **two 3-fold triples, shared (1,1,1) axis, R=(a,b,b,b)** | **699** | ℚ | NEW overall record; C++ + Q5-oracle verified; cert. local max; d1=180,d2=216 |
-| golden five + sixth on (1,1,1) wall (prior overall) | 681 | ℚ(√5) | Postscript 8 |
-| double 60°-diagonal pair wall (prior rational) | 655 | ℚ | Postscript 8 |
+| golden five + sixth on (1,1,1) wall (prior overall) | 681 | ℚ(√5) | Postscript [8](LEDGER.md#p8) |
+| double 60°-diagonal pair wall (prior rational) | 655 | ℚ | Postscript [8](LEDGER.md#p8) |
 | sibling-diagonal R overlay | 671 | ℚ | this work |
 | two golden {1,3,4} triples overlaid | ≤673 | ℚ(√5) | net loser vs 699 |
 | single 3-fold triple (octahedral or dodecahedral endpoint) | 67 | ℚ(√2)/ℚ(√5) | n=3 wall |

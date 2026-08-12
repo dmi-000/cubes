@@ -1,8 +1,8 @@
 # Dihedral slider — implementation report
 
 Task: specs/DIHEDRAL_SLIDER_SPEC.md. Replaced the depth_explorer.html viewer's
-"67 ↔ 67 slide" (Postscript 9's `pSlide`/`slideGrp`/`slideMats`) with a
-slider along the dihedral family (Postscript 25), which has exact edge
+"67 ↔ 67 slide" (Postscript [9](LEDGER.md#p9)'s `pSlide`/`slideGrp`/`slideMats`) with a
+slider along the dihedral family (Postscript [25](LEDGER.md#p25)), which has exact edge
 crossings at every ψ instead of the old slide's dashed ghost gaps.
 
 **Update 1**: live feedback while this was in progress — "the slide shown
@@ -34,9 +34,9 @@ precomputed 8-point table. See G9 below for this plus zoom and one-sided
 opaque clipping. A checkpoint of the pre-G9 state was saved first (see
 "Checkpoint" note) per an explicit save-state request.
 
-**Update 4 (theory corrections from the Postscript 25 addendum,
+**Update 4 (theory corrections from the Postscript [25](LEDGER.md#p25) addendum,
 coordinator-directed)**: two facts from the new pair-identity results in
-`LEDGER.md` ("Postscript 25, addendum") invalidated parts
+`LEDGER.md` ("Postscript [25](LEDGER.md#p25), addendum") invalidated parts
 of Updates 1-2, both re-verified independently here against the validated
 classifier before changing anything:
 - FACT 1 (core persistence): one FIXED set of 18 interior edge pairs is
@@ -122,7 +122,7 @@ no artifacts published.
   populated on entering family mode): a small gold mark at each of
   octahedral 67 and golden 67 — renamed `octahedral 67 (√2)` /
   `golden 67 (√5)` in `FAMILY_NAMED` to match the static preset buttons'
-  naming (Postscript 9: entries at these two points live in ℚ(√2) /
+  naming (Postscript [9](LEDGER.md#p9): entries at these two points live in ℚ(√2) /
   ℚ(√5) respectively) — plain marks at the other four named points, and
   grey marks at every ψ in the new `REGION_CHANGE_DEG` list (0°, 45°, 90°,
   plus all 12 `GHOST_FREE_ZONES` boundaries — the full set of psi where
@@ -210,7 +210,7 @@ as an **open decision**: if that reflection claim is confirmed, the mirror
 point's chip should become `{total:67, d:{1:48,2:18,3:1}}` like the other
 two 67s.
 
-**Update-4 revision**: the Postscript 25 addendum settled the ψ→90°−ψ
+**Update-4 revision**: the Postscript [25](LEDGER.md#p25) addendum settled the ψ→90°−ψ
 congruence question for the GOLDEN pair specifically ("sliding
 35.264→20.905 arrives at a congruent golden compound"), so `FAMILY_NAMED`
 now carries a certified `{total:67}` at mirror-golden (20.905°) too —
@@ -255,7 +255,7 @@ harness — reproducible):
 - **(b) edge-pair coplanarity < 1e-9**: PASS, 360 interior crossings found
   across the 25 draws (via a segment-pair classifier mirroring
   `dihedral_scratch/edge_close4.py`'s validated `seg_gap`/`EDGES`, the
-  same engine that produced Postscript 25's published plateau numbers);
+  same engine that produced Postscript [25](LEDGER.md#p25)'s published plateau numbers);
   every one had an independently-computed scalar-triple-product
   coplanarity value under 1e-9.
 - **(c) ghost detector: 0 ghosts, literal reading — FAILED, 5/25 draws**:
@@ -269,7 +269,7 @@ harness — reproducible):
   **continuously** into small nonzero gaps as ψ moves away, before
   becoming unrelated (gap > 0.02) a few degrees further out. This is
   forced by continuity (a crossing cannot switch from gap=0 to gap≫0.02
-  discontinuously) and is fully consistent with Postscript 25's own
+  discontinuously) and is fully consistent with Postscript [25](LEDGER.md#p25)'s own
   framing of the family as plateaus with spikes — it is not a break in
   the "exact crossings everywhere" claim, which is about the crossings
   that *do* exist at each ψ (certified exact by (b) above), not about the
@@ -310,7 +310,7 @@ edge-pairs, or several corner-touches, land at the exact same spot at
 high-symmetry ψ, and the ring code draws one dot per point, not one per
 pair). This is a real, separate, and correct property of the two
 different countings (pairwise edge-crossing count vs. distinct visual
-markers), not a contradiction — Postscript 25's published plateau numbers
+markers), not a contradiction — Postscript [25](LEDGER.md#p25)'s published plateau numbers
 are the pairwise convention, which is what G3 (and the hint text's
 "exact count 49") refers to. Noted for anyone comparing the on-screen
 ring count to the published numbers.

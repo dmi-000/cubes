@@ -42,7 +42,7 @@ every row agrees.
 configurations in 0.11 seconds. The driver had joined a quaternion's four
 components with `;` instead of `,`, so every line failed to parse, both
 engines emitted the same error JSON, and the comparison compared two identical
-lists of errors. (Postscript 59.)
+lists of errors. (Postscript [59](LEDGER.md#p59).)
 
 **Seen again, same day.** The continua census reported "0 continua" for all
 129 lines in about two minutes. The engine children were being killed under
@@ -88,7 +88,7 @@ most confident wrong statements.
 - **Chamber boundary by active-wall count.** k ≥ 3 was used to conclude that
   no irrational 727 is interior to a continuum. But a wall crossing usually
   leaves the combinatorial type unchanged, so k is not that property. Tested
-  directly, most of them *are* interior. (Postscripts 60 → 61; the wrong
+  directly, most of them *are* interior. (Postscripts [60](LEDGER.md#p60) → 61; the wrong
   version stood for one hour.)
 
 **Check.** When the direct test is cheap — and here it always was, minutes at
@@ -153,7 +153,7 @@ changed and why.
   needed) *and* the counterexample was geometrically false. The real error was
   that the code tested whether a line met the **open** interior of a cube, so
   twelve *tangential* contacts scored as zero. Corrected, the bound is exactly
-  tight on that very example. It had stood for weeks. (Postscripts 53 → 56.)
+  tight on that very example. It had stood for weeks. (Postscripts [53](LEDGER.md#p53) → 56.)
 - "Irrational 727s are never interior to a continuum" — see §4. Stood for an
   hour.
 
@@ -170,7 +170,7 @@ wall against 723 just beyond it. The measurement was right and the argument
 was wrong — at a tangential contact the region is *pinched* at a point, the
 point is excluded, and the two lobes count separately; perturbing one way opens
 the channel and merges them. Region counts are neither upper nor lower
-semicontinuous. (Postscript 62.)
+semicontinuous. (Postscript [62](LEDGER.md#p62).)
 
 **Check.** Confirm the measurement with a second, independently written engine
 *and* re-examine the argument. Do not assume the code is at fault because the
@@ -310,10 +310,10 @@ fails in the same direction — it under-reports:
   (§11d), and read 0 at the middle of an interval proved to carry 727;
 * the WALL-NORMAL null space treats every active catalogue wall as binding,
   though most concurrences do not change the count, so it reported the n=6
-  record 0-dimensional when it demonstrably carries two tangents (Postscript 88);
+  record 0-dimensional when it demonstrably carries two tangents (Postscript [88](LEDGER.md#p88));
 * `multicube2.py` did the same over all 3(n−1) coordinates, exactly and
   overnight, and returned 0 for all nine maximisers INCLUDING the record and
-  n=8 where tangents were already verified (Postscript 100);
+  n=8 where tangents were already verified (Postscript [100](LEDGER.md#p100));
 * a hand-picked direction scan missed the tangent (1,1,0) at n=2 because it
   sampled x, y, z and (1,−1,0) — and the miss was read as isolation, twice in
   one session.
@@ -329,7 +329,7 @@ fails in the same direction — it under-reports:
 `tight_set.py` passes the first FOUR of these and **fails the fifth**: at the
 n = 6 record it returns null dimension 1 where two independent tangents are
 verified, and neither lies in the space (projections 0.6018, 0.6194). So its
-zeros at the two 67s are evidence, not proof, and Postscript 100's closure of
+zeros at the two 67s are evidence, not proof, and Postscript [100](LEDGER.md#p100)'s closure of
 the n = 3 multi-cube gap is reopened.
 
 `edgecross.py` solves an unrelated condition set — preservation of the real

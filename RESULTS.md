@@ -71,7 +71,7 @@ stratum — ninth cubes near a cube symmetry, extending the 1895 eight. Nothing
 excludes a better n = 9 that does not extend 1895, and the search of the family
 is about 44% complete.
 
-**1895 replaced 1891 on 2026-08-05** (Postscript 101). The two differ in the
+**1895 replaced 1891 on 2026-08-05** (Postscript [101](LEDGER.md#p101)). The two differ in the
 eighth cube alone and gain +2 at depth 1 and +2 at depth 2, every deeper slot
 unchanged — so the increment is entirely shallow, the same signature by which
 727 beat 723.
@@ -106,7 +106,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
   (actual 214). These are the first upper bounds the project has above n = 3;
   they bound d₁ only, not a total, and tightening them means counting which
   plane-triples can be real AND outside every other body.
-- **Every wall splits over ℚ.** PROVED (`detq_check.py`, Postscript 104). A
+- **Every wall splits over ℚ.** PROVED (`detq_check.py`, Postscript [104](LEDGER.md#p104)). A
   nondegenerate quadric surface's two ruling families are defined over
   ℚ(√(det Q)), and computed symbolically the determinant is a perfect square
   identically: **det(Q) = (|p|² − 1)²** for a W4 wall through base triple point p
@@ -117,6 +117,21 @@ unchanged — so the increment is entirely shallow, the same signature by which
   radii of the cube: |p| = 1, the face distance, and dist(line, origin)² = 2, the
   edge distance squared; neither occurs in the 393 base (0 of 424 triple points,
   0 of 360 crossing lines).
+- **The singleton term obeys s ≤ a + b + m − 1 − c_U, hence s ≤ a + b + m − 2.**
+  PROVED (Postscript [110](LEDGER.md#p110)). With K = {r_i > r_j}, L = {r_i > r_k},
+  U = K ∪ L and C = S²∖U, the Mayer–Vietoris sequence of the two open sets gives
+  s = rank ker φ + (a + b − c_U) with ker φ = im ∂ ⊆ H₁(U), and **Alexander
+  duality** on S² gives rank H₁(U) = m − 1. **No contractibility hypothesis is
+  needed** — the nerve route required every component of K, L, K∩L to be a disk,
+  which the parity data falsifies whenever a count is odd. Equality iff
+  H₁(K)⊕H₁(L) → H₁(U) is zero, which is why a non-contractible component always
+  LOWERS s: its own 1-cycle already accounts for a hole of U. Hypotheses:
+  a, b ≥ 1, U ≠ ∅, C ≠ ∅; Čech cohomology, fine for semialgebraic sets.
+  **Consequence:** with a, b ≤ 6 proved (six-slab convex cover) and m ≤ 6, this
+  gives s ≤ 16 and **max(3) ≤ 67 = 1 + 18 + 3·16** — the elementary route no
+  longer rests on any measured quantity. The general form T ≤ 12F − 5 for F-facet
+  cells needs m ≤ F, which is proved for cubes and UNSETTLED in general (the
+  computation disagrees across three methods; Postscript [110](LEDGER.md#p110)).
 - **d_{n−1} ≤ 6n for every n.** PROVED (the l = 1 ceiling law, via the anchor
   lemma: the radial envelope of any n-cube configuration has local minima only
   at the 6n face centres).
@@ -127,7 +142,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
   the arrangement the other cubes' face planes trace on ∂C_j. Measured slack
   1.00–1.11 over 21 (configuration, cube) pairs; G_j was a forest in all 9
   cases where it was computed, making the first inequality an equality too.
-  Postscript 56.
+  Postscript [56](LEDGER.md#p56).
 - **727 is isolated on the 393 base, and its coincidence pattern is
   unaugmentable.** PROVED by elimination. Holding the five cubes of 393 fixed,
   a sixth has 3 degrees of freedom; its 36 active coincidence conditions cut
@@ -176,7 +191,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
   across all eight fields the per-label type is IDENTICAL at the irrational
   point and at both neighbours — so the coincidence that makes it irrational is
   invisible to the region complex. Irrationality does nothing at n = 6: not to
-  the count, and not to the combinatorial type. Postscripts 60, 61 (61
+  the count, and not to the combinatorial type. Postscripts [60](LEDGER.md#p60), [61](LEDGER.md#p61) (61
   corrects 60's inference that these points are chamber boundaries: it used the
   active-wall count as a proxy, and most such walls turn out to be
   combinatorially inert).
@@ -191,7 +206,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
   edge-edge, (2,1,1) edge meets a two-cube crossing line, (1,1,1,1) four planes
   from four cubes. The first two are enumerated; the last two never were.
   Corner-corner coincidence and edge-inside-a-face are codimension 2, so
-  neither is a wall — though both occur in the 393 base. Postscript 57.
+  neither is a wall — though both occur in the 393 base. Postscript [57](LEDGER.md#p57).
 - **Edge-edge conditions factor into PAIRS OF RATIONAL PLANES**; corner-on-face
   conditions are IRREDUCIBLE QUADRICS. That difference decides the arithmetic:
   three planes always meet in a rational point, so edge-edge strata cannot
@@ -214,7 +229,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
   at an arc terminus where three W4 conditions vanish at once; rulings through
   such structured points versus generic ones is untested. VERIFIED (counts) /
   EXHAUSTED only over 0.02% of the walls carrying a rational ruling.
-  Postscript 103.
+  Postscript [103](LEDGER.md#p103).
 
 ## 5. Conjectures
 
@@ -224,10 +239,12 @@ unchanged — so the increment is entirely shallow, the same signature by which
 - **max(6) ≤ 729.** The envelope bound gives T ≤ S_max + 336, and 727 sits on
   the 393 five-subset, so only 729 remains available on that base. The
   constant 336 is still MEASURED. The increment it bounds is now derived
-  (Postscript 56): T = S_j + Δ_j with Δ_j ≤ B_j, an exact Euler cell count on
+  (Postscript [56](LEDGER.md#p56)): T = S_j + Δ_j with Δ_j ≤ B_j, an exact Euler cell count on
   the added cube's surface, ≤ 11% above the true increment everywhere tested —
   but its universal ceiling at n = 6 is 872, so this conjecture is not yet a
   theorem.
+
+
 - **The frustration deficit is 6(n−3)(n−2)** — the gap between the cap-sum
   1 + Σ C(l,n) and the true maximum. Exact at n = 3, 4, 5 (0, 12, 36); predicts
   max(6) = 729, max(7) = 1223, max(8) = 1907. A three-point fit, two of whose
@@ -273,27 +290,27 @@ current.
 
 | claim | status now | corrected in |
 |---|---|---|
-| Off-centred cubes and general hexahedra beat the records | **REFUTED** — an artifact of counting sign-vector cells of the infinite face planes instead of containment regions | Postscript 38 |
-| The n = 2 optimum (13) is rigid and near-isolated | **REFUTED** — it is a continuum: 13 holds at every angle about a body diagonal | Postscript 44 |
-| Step T reduces to "deg_top ≤ deg_bot at triple points" | **REFUTED** — false; a corner with two blades gives deg_top 8 against deg_bot 4. The theorem holds by a different argument | Postscripts 42, 43 |
-| 723 is the n = 6 maximum, cornered three independent ways | **SUPERSEDED** — 727 | Postscript 46 |
-| n = 7 = 1211 and n = 8 = 1889 | **SUPERSEDED** — 1217 and 1891, the same day | Postscript 46 |
-| n = 8 = 1891 | **SUPERSEDED** — 1895, found by continuing the sweep that produced 1891 past where it stopped | Postscript 101 |
-| 393 is reachable only as a subset of the n = 6 record | **REFUTED** — a wide-height menu on 183 reaches it bottom-up; the claim was an artifact of small-quaternion search | Postscript 46 |
-| 727 is a plateau (first claim, from a second sixth cube with the same count) | **WITHDRAWN then RE-ESTABLISHED** — that cube is congruent to the original; two genuinely non-congruent 727s were later found with a different depth profile | Postscripts 46, 48 |
-| The absence of irrational solutions in the wall strata says something about the problem | **ARTIFACT** — edge-edge conditions factor into rational planes, so those strata are all-rational by construction; the mixed strata are 240:1 irrational | Postscripts 49, 50 |
-| Porting the algebraic engines to C++ is not worth it | **REVERSED** — that verdict rested on solution fields reaching degree 8, measured on edge-edge systems which turn out all-rational anyway; the volume is degree-2 mixed strata, and the engine found the irrational 727 | Postscripts 47, 50, 51 |
-| The overflow budget's invariant is d·m² | **REFUTED** — tracing \|p\| and \|q\| separately shows the boundary is not constant in m²·d; the flat rule is over-permissive below d ≈ 38 (at d=5 it would admit m=2289 against a true limit of 1855) | Postscript 51 addendum 2 |
-| The Cayley chart omitting w = 0 leaves 180° rotations unreachable | **REFUTED** — q·(0,1,0,0) is a cube self-symmetry, so the chart omits quaternion representatives, not compounds; a second chart returns an identical census | Postscript 49 addendum |
-| ℚ(√13) is the only field whose strata reach 727; the irrational 727 is a fifth class | **REFUTED** — both were properties of a guard that made only 56 fields countable. Widening it gives eight fields and at least twelve classes | Postscript 51 addendum 3 |
-| A 9-pair is characterised by a shared face axis | **REFUTED** — 727 contains three 9-pairs and no two of its cubes share a face axis | Postscript 47 |
-| Irrational 727s are chamber boundaries, never interior to a continuum; 10 of their types occur only irrationally | **REFUTED within the hour** — the active-wall count k was used as a proxy for "chamber boundary", but a wall crossing usually leaves the type unchanged. Tested directly, 14 of 16 are interior to their own type-chamber, and 7 of 7 supposedly irrational-only types occur at an immediate rational neighbour | Postscript 61 |
-| More coincidences imply a higher count | **REFUTED** — 727 has 18 interior crossings to 723's 48, and counts more | Postscript 47 |
-| The E1 derivation fails because "each connected piece adds at most one region" is false for non-disk pieces | **REFUTED** — the piece bound was never needed; the real error was scoring twelve TANGENT vertices as zero, and the stated counterexample (∂B ∩ int A connected with six boundary circles) is geometrically false — it has six components | Postscripts 53, 56 |
-| Records concentrate at high-multiplicity concurrences | **REVERSED** — the sweet-spot caveat was noted early (Act III: "more alignment is not better"), but the heuristic still drove the searches. Measured, the correlation is negative. Over 1200 unselected draws, configurations counting ≥ 700 average 1.6 hits on the base's triple-point walls; those counting < 650 average 92.6. The heuristic described 723, which is exactly the 54-crossing corner family | Postscripts 55, 57 |
-| Corner-corner and edge-in-face are unmodelled wall types | **RECLASSIFIED** — both are codimension 2, so neither is a wall. The genuinely unenumerated codimension-1 types are (2,1,1) and (1,1,1,1) | Postscript 57 |
-| Rulings are constant-count lines, so they are the walls' own coordinate lines | **REFUTED** — true of the one instance it was drawn from, false in six of six non-vacuous cases solved systematically. That instance's base point is an arc terminus with three W4 conditions vanishing; the generic case varies | Postscript 103 |
-| A doubly-ruled wall has one rational ruling and one irrational, so half its ruled structure is invisible to rational search | **REFUTED, and impossible as stated** — a rational binary quadratic cannot have exactly one rational root. Measured, all 63 432 rulings found were rational | Postscript 103 |
+| Off-centred cubes and general hexahedra beat the records | **REFUTED** — an artifact of counting sign-vector cells of the infinite face planes instead of containment regions | Postscript [38](LEDGER.md#p38) |
+| The n = 2 optimum (13) is rigid and near-isolated | **REFUTED** — it is a continuum: 13 holds at every angle about a body diagonal | Postscript [44](LEDGER.md#p44) |
+| Step T reduces to "deg_top ≤ deg_bot at triple points" | **REFUTED** — false; a corner with two blades gives deg_top 8 against deg_bot 4. The theorem holds by a different argument | Postscripts [42](LEDGER.md#p42), [43](LEDGER.md#p43) |
+| 723 is the n = 6 maximum, cornered three independent ways | **SUPERSEDED** — 727 | Postscript [46](LEDGER.md#p46) |
+| n = 7 = 1211 and n = 8 = 1889 | **SUPERSEDED** — 1217 and 1891, the same day | Postscript [46](LEDGER.md#p46) |
+| n = 8 = 1891 | **SUPERSEDED** — 1895, found by continuing the sweep that produced 1891 past where it stopped | Postscript [101](LEDGER.md#p101) |
+| 393 is reachable only as a subset of the n = 6 record | **REFUTED** — a wide-height menu on 183 reaches it bottom-up; the claim was an artifact of small-quaternion search | Postscript [46](LEDGER.md#p46) |
+| 727 is a plateau (first claim, from a second sixth cube with the same count) | **WITHDRAWN then RE-ESTABLISHED** — that cube is congruent to the original; two genuinely non-congruent 727s were later found with a different depth profile | Postscripts [46](LEDGER.md#p46), [48](LEDGER.md#p48) |
+| The absence of irrational solutions in the wall strata says something about the problem | **ARTIFACT** — edge-edge conditions factor into rational planes, so those strata are all-rational by construction; the mixed strata are 240:1 irrational | Postscripts [49](LEDGER.md#p49), [50](LEDGER.md#p50) |
+| Porting the algebraic engines to C++ is not worth it | **REVERSED** — that verdict rested on solution fields reaching degree 8, measured on edge-edge systems which turn out all-rational anyway; the volume is degree-2 mixed strata, and the engine found the irrational 727 | Postscripts [47](LEDGER.md#p47), [50](LEDGER.md#p50), [51](LEDGER.md#p51) |
+| The overflow budget's invariant is d·m² | **REFUTED** — tracing \|p\| and \|q\| separately shows the boundary is not constant in m²·d; the flat rule is over-permissive below d ≈ 38 (at d=5 it would admit m=2289 against a true limit of 1855) | Postscript [51](LEDGER.md#p51) addendum 2 |
+| The Cayley chart omitting w = 0 leaves 180° rotations unreachable | **REFUTED** — q·(0,1,0,0) is a cube self-symmetry, so the chart omits quaternion representatives, not compounds; a second chart returns an identical census | Postscript [49](LEDGER.md#p49) addendum |
+| ℚ(√13) is the only field whose strata reach 727; the irrational 727 is a fifth class | **REFUTED** — both were properties of a guard that made only 56 fields countable. Widening it gives eight fields and at least twelve classes | Postscript [51](LEDGER.md#p51) addendum 3 |
+| A 9-pair is characterised by a shared face axis | **REFUTED** — 727 contains three 9-pairs and no two of its cubes share a face axis | Postscript [47](LEDGER.md#p47) |
+| Irrational 727s are chamber boundaries, never interior to a continuum; 10 of their types occur only irrationally | **REFUTED within the hour** — the active-wall count k was used as a proxy for "chamber boundary", but a wall crossing usually leaves the type unchanged. Tested directly, 14 of 16 are interior to their own type-chamber, and 7 of 7 supposedly irrational-only types occur at an immediate rational neighbour | Postscript [61](LEDGER.md#p61) |
+| More coincidences imply a higher count | **REFUTED** — 727 has 18 interior crossings to 723's 48, and counts more | Postscript [47](LEDGER.md#p47) |
+| The E1 derivation fails because "each connected piece adds at most one region" is false for non-disk pieces | **REFUTED** — the piece bound was never needed; the real error was scoring twelve TANGENT vertices as zero, and the stated counterexample (∂B ∩ int A connected with six boundary circles) is geometrically false — it has six components | Postscripts [53](LEDGER.md#p53), [56](LEDGER.md#p56) |
+| Records concentrate at high-multiplicity concurrences | **REVERSED** — the sweet-spot caveat was noted early (Act III: "more alignment is not better"), but the heuristic still drove the searches. Measured, the correlation is negative. Over 1200 unselected draws, configurations counting ≥ 700 average 1.6 hits on the base's triple-point walls; those counting < 650 average 92.6. The heuristic described 723, which is exactly the 54-crossing corner family | Postscripts [55](LEDGER.md#p55), [57](LEDGER.md#p57) |
+| Corner-corner and edge-in-face are unmodelled wall types | **RECLASSIFIED** — both are codimension 2, so neither is a wall. The genuinely unenumerated codimension-1 types are (2,1,1) and (1,1,1,1) | Postscript [57](LEDGER.md#p57) |
+| Rulings are constant-count lines, so they are the walls' own coordinate lines | **REFUTED** — true of the one instance it was drawn from, false in six of six non-vacuous cases solved systematically. That instance's base point is an arc terminus with three W4 conditions vanishing; the generic case varies | Postscript [103](LEDGER.md#p103) |
+| A doubly-ruled wall has one rational ruling and one irrational, so half its ruled structure is invisible to rational search | **REFUTED, and impossible as stated** — a rational binary quadratic cannot have exactly one rational root. Measured, all 63 432 rulings found were rational | Postscript [103](LEDGER.md#p103) |
 
 Two methodological errors are worth carrying forward, because both produced
 plausible numbers rather than obvious failures. Counting cells of the infinite

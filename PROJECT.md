@@ -124,7 +124,7 @@ and the golden five-cube compound (351) is beaten by a rational five-cube
 arrangement reaching **393** — which is, strikingly, a *sub-compound of
 the best six-cube arrangement* (drop one of its six cubes). This is the
 same surprise as at six cubes, where the best rational arrangement (723,
-now 727, Postscript 46)
+now 727, Postscript [46](LEDGER.md#p46))
 beats the golden-based one (681): the golden compound is the best
 *symmetric* configuration, not the overall maximum. So the records for
 four and five cubes are at least 183 and 393, neither of which is proven
@@ -132,7 +132,7 @@ maximal. (Two and three cubes *are* settled: max(2) = 13 and max(3) = 67
 are theorems — Section 10, items 1 and 2.)
 
 **The records nest.** The best six-cube arrangement (723, now 727 —
-Postscript 46; the nesting below still holds with 393 ⊂ 727) contains the
+Postscript [46](LEDGER.md#p46); the nesting below still holds with 393 ⊂ 727) contains the
 best four-cube one (183) as a sub-compound, contains a five-cube
 sub-compound (393) that beats the old five-cube record, and its pairs
 reach the two-cube record (13). Outstanding arrangements are built from
@@ -209,7 +209,7 @@ families. The current chain of records, and how each was found:
 | 717 | four cubes in a symmetric cluster + two more | symmetry search |
 | **723** | three cubes about a diagonal + three "free" cubes | shared-axis "intersection" family |
 
-**723 was the record until Postscript 46 found 727 (Section 9).** Its depth profile is
+**723 was the record until Postscript [46](LEDGER.md#p46) found 727 (Section 9).** Its depth profile is
 `{1: 210, 2: 216, 3: 164, 4: 96, 5: 36, 6: 1}` (summing to 723). Its six
 cubes, as integer quaternions:
 
@@ -217,7 +217,7 @@ cubes, as integer quaternions:
 4,1,1,-1 ; 3,3,7,3 ; 5,-1,-5,-5 ; 2,1,1,1 ; 1,1,1,1 ; 5,2,2,2
 ```
 
-**Postscript 47 dissected exactly what changed between 723 and 727.**
+**Postscript [47](LEDGER.md#p47) dissected exactly what changed between 723 and 727.**
 Against the fixed five cubes of 393, 727's sixth cube (7,14,1,-5) makes
 pair counts 9, 9, 9, 4, 4 with the other five, carrying 18 interior
 edge-edge crossings; 723's sixth cube (5,2,2,2) instead makes 4, 4, 4, 13,
@@ -268,7 +268,7 @@ Several exact regularities appear everywhere we look:
   n = 3, 4, 5); the records attain the deep caps; no arrangement attains
   all caps at once (that is the frustration, and summing the caps gives
   an upper bound on the total — 801 at six cubes, against the record
-  723, now 727, Postscript 46). The same formula is confirmed by a completely independent
+  723, now 727, Postscript [46](LEDGER.md#p46)). The same formula is confirmed by a completely independent
   measurement: the vertex counts of the sphere diagrams of Section 6
   match its prediction exactly. Proving it is now the project's central
   theory goal.
@@ -326,7 +326,7 @@ Several exact regularities appear everywhere we look:
   which deep layers to sacrifice, and by how much, to unlock the most
   shallow gain. Mapping that surface (the best shallow count reachable at
   each deep-layer profile) is the current line of attack — the target is
-  now 727, Postscript 46.
+  now 727, Postscript [46](LEDGER.md#p46).
 - **A parity rule.** For a generic arrangement of *n* cubes, the total is
   always congruent to 2*n*−1 modulo 4. (Reason: each cube is symmetric
   through the centre, so pieces pair up under the point reflection
@@ -366,7 +366,7 @@ A clean fact ties this to the whole search: "several cubes share a
 corner" is exactly the same as "those cubes differ by rotations about the
 axis through that corner." So corner-sharing *is* the shared-axis
 symmetry — which is why the shared-axis families are where the records
-live. The record 723 (now 727, Postscript 46) has two 9-fold corner concurrences (three cubes
+live. The record 723 (now 727, Postscript [46](LEDGER.md#p46)) has two 9-fold corner concurrences (three cubes
 meeting at a corner, twice), and is thus *corner-dominated*, though it
 also contains about 180 lesser edge concurrences. (There are never any
 *line* concurrences — three planes sharing a whole line — because that
@@ -421,7 +421,7 @@ coincidences through every point in between — answering, in closed form,
 what kind of continuous path connects them. It was found by acting on a
 concrete observation made while looking at the interactive viewer: the
 near-miss edge crossings along the midpoint of an earlier, cruder
-attempt at such a slide (Postscript 9 of the ledger) looked like they
+attempt at such a slide (Postscript [9](LEDGER.md#p9) of the ledger) looked like they
 were sitting in a plane perpendicular to the direction (1,1,1) — and
 that observation turned out to identify the whole family.
 
@@ -511,7 +511,7 @@ matters is not how many face-planes concur at a point but exactly how
 they concur — coincidence-richness cuts both ways.
 
 **Why the earlier slide had ghosts.** The project's original attempt at
-a continuous path between the two 67s (Postscript 9 of the ledger) does
+a continuous path between the two 67s (Postscript [9](LEDGER.md#p9) of the ledger) does
 connect them, but its interior points are *not* on this family surface —
 its seed direction has a small but nonzero component along (1,1,1) where
 the family requires exactly zero — so its near-miss crossings never quite
@@ -600,7 +600,7 @@ can search exhaustively and exactly. Two results:
 - **As a search space by itself, the family loses ground as n grows.**
   The best purely-single-axis family members found (an exact sweep of
   over 9,000 configurations at n=4,5,6) reach only 175, 335, 615 —
-  falling short of the true records 183, 393, 723 (now 727, Postscript 46)
+  falling short of the true records 183, 393, 723 (now 727, Postscript [46](LEDGER.md#p46))
   by 8, 58, and 108 respectively, a deficit that *widens* with n. (This measures the
   family's Pythagorean-sampled plateau, a lower bound on the true
   family's supremum — the family's own irrational spikes, like the two
@@ -616,7 +616,7 @@ can search exhaustively and exactly. Two results:
   is exactly the embedded 393 record, consistent with the nesting
   property of Section 9), and the sixth cube is family-linked to two of
   the five and generic against the rest. (723 has since been beaten by
-  727 — Postscript 46 — which has the same five-cube-clique-plus-one
+  727 — Postscript [46](LEDGER.md#p46) — which has the same five-cube-clique-plus-one
   structure: it is literally the 393 clique plus a sixth cube, just one
   with much larger quaternion components than this search sampled.) So
   the records are **gluings of
@@ -640,7 +640,7 @@ Files: `q3_count.py`, `q6_count.py` (the two new field-clone engines),
 n-cube generalization and record-pair analysis), and
 `dihedral_scratch/` (exploration and verification scripts). The formal
 proofs are in `C45_notes.md`, section 12; the numerical exploration is
-`LEDGER.md`, Postscripts 25 and 26.
+`LEDGER.md`, Postscripts [25](LEDGER.md#p25) and [26](LEDGER.md#p26).
 
 ---
 
@@ -711,7 +711,7 @@ to 67 canonical skeletons (plus two pruned with documented reasons —
 the golden wall, whose extensions provably lose, and the
 polyhedral-forcing family, tested and dominated); all 67 were
 knob-optimized (over 83,000 exact counts) and none beats 723 — a
-conclusion since overtaken: 727 (Postscript 46) is not among those 67
+conclusion since overtaken: 727 (Postscript [46](LEDGER.md#p46)) is not among those 67
 skeletons because its sixth cube has much larger quaternion components
 than the knob search's range covered, not because the skeleton catalogue
 was wrong; see the note after this section. What would upgrade it from
@@ -731,16 +731,16 @@ awaiting proof, but together they nearly corner 723: the search for a
 better six-cube arrangement reduces to the search for a new
 near-record five-cube one.
 
-**[Update, Postscript 46]** The corner held, and closed almost exactly:
+**[Update, Postscript [46](LEDGER.md#p46)]** The corner held, and closed almost exactly:
 727 sits on the *known* 393 five-cube base (not a new near-record
 five-cube arrangement), and 393 + 336 = 729, so the envelope bound left
 only 729 available on that base — 727 uses all but 2 of it. The bound
 was sharp, as measured; what the 67-skeleton blueprint search missed was
 not a gap in the skeleton catalogue but sampling density in the sixth-
 cube knob range, which covered small quaternions only (see Section 9 and
-the ledger's Postscript 46).
+the ledger's Postscript [46](LEDGER.md#p46)).
 
-**[Update, Postscript 47]** The corner was then proved shut, not just
+**[Update, Postscript [47](LEDGER.md#p47)]** The corner was then proved shut, not just
 measured. Holding the five cubes of 393 fixed, a sixth cube has 3 degrees
 of freedom, parameterised by Cayley coordinates q = (1, a, b, c); each of
 the 720 possible coincidences between the free cube and a fixed one is one
@@ -782,7 +782,7 @@ conditions' solution fields reach degree 8, so a quadratic-field C++ port
 would cover only part of the strata, and a cheaper 100× speedup already
 exists in the 3-tier interval filter (`cube_compound_interval.py`).
 
-**[Update, Postscript 49]** The three-wall family promised as "running"
+**[Update, Postscript [49](LEDGER.md#p49)]** The three-wall family promised as "running"
 above is now exhausted, and it collapsed by three orders of magnitude on
 the way there. Every edge-edge coplanarity condition in Cayley coordinates
 on the 393 base turns out not to be an irreducible quadric but a **product
@@ -793,7 +793,7 @@ fixed cube collapse to **24 distinct planes**, so the whole family is 10
 cube-triples × 24³ = 134,784 systems. `locus_linear.py` exhausted it in
 about four minutes: 2,733 distinct configurations after symmetry dedup and
 the height cap, topping out at 723×24, 725×12, **727×6 — nothing above
-727**. The Gröbner enumeration it replaces (Postscript 48) had ground
+727**. The Gröbner enumeration it replaces (Postscript [48](LEDGER.md#p48)) had ground
 through 1.3 million systems to cover only part of the same ground; roughly
 99% of that work was re-deriving identical plane triples.
 
@@ -803,10 +803,10 @@ real roots irrational): three rational planes always meet in a rational
 point, so irrational configurations cannot arise in this family **by
 construction**. That is a fact about the edge-edge condition type, not
 about the problem — max(3) = 67 is attained only at irrational
-configurations (Postscript 44), so irrational optima are not in doubt
+configurations (Postscript [44](LEDGER.md#p44)), so irrational optima are not in doubt
 elsewhere; this family simply cannot see them.
 
-**[Update, Postscript 50]** Corner-on-face conditions are a different
+**[Update, Postscript [50](LEDGER.md#p50)]** Corner-on-face conditions are a different
 stratum type: **irreducible quadrics**, not planes. Pure corner triples
 are sparse and low — 245 solved systems (`corner_probe.py`) gave only 55
 real roots, all rational, topping out at 719. But a **mixed** family — two
@@ -841,7 +841,7 @@ configurations, every one counted — the result is **nothing above 727**.
 Best per field, largest classes first: ℚ(√5) (7,374 configurations, the
 most populous field of all) tops out at 721; ℚ(√17) at 717; ℚ(√2) at 713.
 The one exception is **ℚ(√13)** — the 393 base's own tilt field, the
-unique 4-clique axis (3,2,0) with tan ψ = 2/3 (Postscript 27) — whose
+unique 4-clique axis (3,2,0) with tan ψ = 2/3 (Postscript [27](LEDGER.md#p27)) — whose
 3,156 configurations reach 727, in 72 of them exactly.
 
 That makes 727 a plateau of at least **five** non-congruent compounds, one
@@ -858,7 +858,7 @@ irrational configuration the project has found by search** rather than by
 symmetry — the two n=3 maximizers came from the octahedron and the
 icosahedron.
 
-**[Update, Postscript 51 addendum 3]** Both the field count and the
+**[Update, Postscript [51](LEDGER.md#p51) addendum 3]** Both the field count and the
 compound count above were properties of the overflow guard, not of the
 problem: "squarefree d ≤ 100" rejected every field beyond it before it
 could be counted, so "56 fields" and "the one exception is ℚ(√13)" were
@@ -935,8 +935,8 @@ cubes produced a configuration whose best seven-cube subset already beat
 the input seven-cube record, and re-extending that improved record
 upward gave the new eight-cube record — the tower's cleanest instance
 yet of records feeding back into each other. The current chain is
-**727 → 1217 → 1891** (Postscript 46), superseding the 723 → 1211 → 1889
-chain of Postscript 45: 723 fell because every earlier n≤6 sixth-cube
+**727 → 1217 → 1891** (Postscript [46](LEDGER.md#p46)), superseding the 723 → 1211 → 1889
+chain of Postscript [45](LEDGER.md#p45): 723 fell because every earlier n≤6 sixth-cube
 sweep sampled only small quaternions, while the winning extension cubes
 at high *n* are large, and log-uniform sampling over larger component
 heights found 727 immediately.
@@ -968,10 +968,10 @@ middle-layer exchange (depth-2 and depth-4 rise by 2 as depth-3 falls by
 number; "the 723 arrangement" is at least four non-congruent
 arrangements — the same shallow-for-deep conservation seen throughout,
 then operating exactly at the summit. (723 is no longer the summit — see
-727, Postscript 46 — but the plateau finding about 723 itself stands.)
+727, Postscript [46](LEDGER.md#p46) — but the plateau finding about 723 itself stands.)
 
 **727 is a plateau too, now proved rather than untested — and, as of
-Postscripts 49–51, exhausted over several more strata than a handful of
+Postscripts [49](LEDGER.md#p49)–[51](LEDGER.md#p51), exhausted over several more strata than a handful of
 sample sixth cubes.** The three-wall search method of Section 8 found two
 further sixth cubes, (3,-51,-93,29) and (40,48,-11,45), both giving 727
 but with depth profile {1:216, 2:216, 3:160, 4:98, 5:36, 6:1} and pair
@@ -981,11 +981,11 @@ depth histogram proves non-congruence outright, so there are at least two
 distinct 727 compounds, both two-engine verified. The layers trade by
 (+2, −4, +4, −2) with depth-1+depth-2+depth-3+depth-4 = 690 conserved —
 the same exchange law seen at 723's own plateau, now one level up. The
-exhaustive three-wall enumeration (Postscript 49) turned up two more
+exhaustive three-wall enumeration (Postscript [49](LEDGER.md#p49)) turned up two more
 rational classes at the same total, and the ℚ(√d) engine, once its
 overflow guard was fixed from a narrow d ≤ 100 rectangle to a traced
 per-configuration bound, found 727 reached in eight fields with at
-least eight irrational congruence classes (Postscript 51 addendum 3) —
+least eight irrational congruence classes (Postscript [51](LEDGER.md#p51) addendum 3) —
 so **727 is a plateau of at least twelve non-congruent compounds**, four
 rational and eight irrational, all conserving d1+d2+d3+d4 = 690 with
 d5 = 36, d6 = 1 fixed. See Section 8 for the full account.
@@ -997,12 +997,12 @@ random menus (~100,000 sixth cubes), swap-completion from all six
 five-cube bases, a climb on the worst-subset objective, core-and-clique
 construction from the 183 four-cube core, and the three-wall family — have
 been joined by: the three-wall family's **completion** (2,733
-configurations, exhaustive, max 727, Postscript 49); pure corner-wall
-triples (245 systems, max 719, Postscript 50); the mixed family's rational
-half (2,856 candidates, max 725, Postscript 50); and 224,184 irrational
+configurations, exhaustive, max 727, Postscript [49](LEDGER.md#p49)); pure corner-wall
+triples (245 systems, max 719, Postscript [50](LEDGER.md#p50)); the mixed family's rational
+half (2,856 candidates, max 725, Postscript [50](LEDGER.md#p50)); and 224,184 irrational
 configurations across the fields the ℚ(√d) engine's traced
 per-configuration overflow budget reaches (max 727, in eight fields,
-Postscript 51 addendum 3 — an earlier figure of 82,458 across 56 fields
+Postscript [51](LEDGER.md#p51) addendum 3 — an earlier figure of 82,458 across 56 fields
 was an artifact of a narrower, d ≤ 100 guard). The core-and-
 clique construction is notable for reproducing both records cheaply from
 that same 183 core — 727 as an edge, 1217 as a triangle — at roughly a
@@ -1010,7 +1010,7 @@ tenth the cost of random menus, without finding anything new. What
 remains open, not exhausted: the 284,634 irrational solutions that
 genuinely exceed the traced budget, positive-dimensional systems,
 one- and two-wall strata, and coincidence types beyond edge-edge and
-corner-on-face altogether (Postscript 51 addendum 3).
+corner-on-face altogether (Postscript [51](LEDGER.md#p51) addendum 3).
 
 ---
 
@@ -1027,10 +1027,10 @@ corner-on-face altogether (Postscript 51 addendum 3).
    followed, and by a cheaper route than expected: A∖B is a union of at
    most six convex pieces, one per face of B, likewise B∖A, plus one
    core — so the bound holds for *any* two convex cells with at most six
-   faces, not merely cubes. Postscript 33. One correction travelled with
+   faces, not merely cubes. Postscript [33](LEDGER.md#p33). One correction travelled with
    it: the two-cube maximizer is not "45° about a face axis" but *any*
    angle about a body diagonal, a continuum rather than the isolated
-   point the project assumed for weeks (Postscript 44). (The deeper caps
+   point the project assumed for weeks (Postscript [44](LEDGER.md#p44)). (The deeper caps
    depth-3 ≤ 164 and depth-4 ≤ 102 at n=6 remain separate, harder
    counting statements, still open.)
 
@@ -1049,7 +1049,7 @@ corner-on-face altogether (Postscript 51 addendum 3).
    pre-existing pairwise-tangency degeneracy (two cells sharing a boundary
    tangentially), not a triple-point issue.
 3. **Beat 727 for six cubes, or prove it is the maximum.** (723 held
-   this position until Postscript 46 found 727 — Section 9.) In the
+   this position until Postscript [46](LEDGER.md#p46) found 727 — Section 9.) In the
    trade-off language of Section 5, this means finding the best point on
    the deep-sacrifice surface: since the deep layers are capped and the
    shallow layers are not, the question is exactly *how much* deep count
@@ -1067,13 +1067,13 @@ corner-on-face altogether (Postscript 51 addendum 3).
    proved: random menus, swap-completion, worst-subset climbing, and
    core-and-clique construction found nothing above 727; the three-wall
    family (edge-edge only) is now EXHAUSTED at 2,733 configurations, max
-   727 (Postscript 49); pure corner-wall triples top out at 719 and the
-   mixed family's rational half at 725 (Postscript 50); and a ℚ(√d) engine,
+   727 (Postscript [49](LEDGER.md#p49)); pure corner-wall triples top out at 719 and the
+   mixed family's rational half at 725 (Postscript [50](LEDGER.md#p50)); and a ℚ(√d) engine,
    its overflow guard now a traced per-configuration bound rather than a
    d ≤ 100 rectangle, has counted 224,184 irrational configurations
    (up from an earlier, guard-limited 82,458), finding nothing above 727
    — with 727 reached in eight fields, not the single field (ℚ(√13))
-   the narrower guard had made visible (Postscript 51 addendum 3). The
+   the narrower guard had made visible (Postscript [51](LEDGER.md#p51) addendum 3). The
    honest remaining gaps: the 284,634 irrational solutions that genuinely
    exceed the traced budget are uncounted, positive-dimensional systems
    and one- and two-wall strata are unexamined, and coincidence types
@@ -1087,7 +1087,7 @@ corner-on-face altogether (Postscript 51 addendum 3).
    is whether either is strictly larger. Two experiments (with a counter
    built for the purpose, validated to reproduce the concentric-equal
    counts exactly, both run against 723, the record at the time; neither
-   has been re-run against 727, Postscript 46's successor): **off-centring
+   has been re-run against 727, Postscript [46](LEDGER.md#p46)'s successor): **off-centring
    the record strictly hurts** — every translation lowers the total (best
    706, then monotonically worse), so concentric is at least a local
    optimum. **Unequal sizes are so far untested at the record**, because
@@ -1111,7 +1111,7 @@ corner-on-face altogether (Postscript 51 addendum 3).
    lower bound with a described obstruction, not a proven ceiling.
 6. **Special number-field walls:** whether any arrangement needing √2, √3,
    or a combination beats the best plain-fraction arrangement. (The golden
-   √5 wall reaches 681; the overall record 723, now 727 (Postscript 46),
+   √5 wall reaches 681; the overall record 723, now 727 (Postscript [46](LEDGER.md#p46)),
    is a plain-fraction arrangement.) Section 7 adds one more exactly-certified data point in
    this vein — the ℚ(√6) face-diagonal compound at 49 — well short of the
    record and, notably, a local *minimum* of its own family rather than a
@@ -1126,7 +1126,7 @@ corner-on-face altogether (Postscript 51 addendum 3).
    "constant-8 deficit" from an earlier, more restricted gluing search,
    but did not pass a record; it also proved the six-cube record a
    plateau (Section 9). Whether the reframed space contains anything
-   beating 723 (now 727, Postscript 46) remains open, but it now looks
+   beating 723 (now 727, Postscript [46](LEDGER.md#p46)) remains open, but it now looks
    like a landscape whose peaks are the known records rather than a
    space hiding a larger one.
 9. **The n=4 resonance, resolved negative.** The two n=3 maximizers sit at
@@ -1194,7 +1194,7 @@ same published URL:
   pieces, painter's-algorithm sorted) instead of a point cloud —
   concretely showing the region boundaries as surfaces, not dust.
 - **The dihedral-family slider**, which replaces the old, ghost-gapped
-  "67 ↔ 67 slide" of Postscript 9 with a slider along the family of
+  "67 ↔ 67 slide" of Postscript [9](LEDGER.md#p9) with a slider along the family of
   Section 7: a ψ readout and drag control from 0° to 90°, named tick
   marks (including the newly-added mirror-golden point), a live ghost
   (near-miss) counter, and a "maintain concurrences" lock that clamps

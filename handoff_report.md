@@ -56,7 +56,7 @@ re-scanned for new labels that only become interior/corner exactly at
 golden, so it was never in the business of reporting golden's total
 contact count. Golden has its **own** 12 new interior label-pairs (6 new
 distinct physical points) beyond the persisting core-6 — the golden-side
-analogue of the octahedral point's own 12 extra crossings (Postscript 25's
+analogue of the octahedral point's own 12 extra crossings (Postscript [25](LEDGER.md#p25)'s
 30 = 18 core + 12 extra at the octahedral point). The spec's "60 total (6
 interior + 54 corner)" mixes a per-pair interior figure with a
 triple-total corner figure — an apples-to-oranges sum, not a real count of
@@ -132,14 +132,14 @@ carries some weight.
 
 **Where the wall is.** The chain path's four cross-class extras
 `(4,10),(7,9),(9,6),(10,5)` (pair (0,1), sharing one curve Δ_c(ψ) per
-Postscript 25 addendum 2) die at **exactly ψ=45.000°, θ₂=109.4712°** — not
+Postscript [25](LEDGER.md#p25) addendum 2) die at **exactly ψ=45.000°, θ₂=109.4712°** — not
 an asymptotic approach, a genuine algebraic zero of `|t|−1`. Identifying
 the actual cube vertices: cube-A's vertex (−1,1,−1) is touching cube-B's
 vertex (1,−1,−1) *exactly* at this configuration — a real vertex-vertex
 coincidence, giving 3×3=9 candidate edge-pair relabelings at that single
 point (plus 2 more from a second, independent x-y-class vertex event
 coincident at the *same* (θ₂,ψ) — ψ=45° is itself a resonance point of the
-whole family, matching Postscript 25's "24 AT ψ=45 exactly").
+whole family, matching Postscript [25](LEDGER.md#p25)'s "24 AT ψ=45 exactly").
 
 **Wall-rescue result (9 candidates traced, both directions each):** *none*
 of the 9 vertex-adjacent relabelings — `(2,10),(4,0),(2,0),(2,6),(4,6),

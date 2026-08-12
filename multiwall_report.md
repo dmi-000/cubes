@@ -93,7 +93,7 @@ exactly 657** in all 40 cases, again by icosahedral transitivity. Below the
 **Conclusion**: neither in-family mechanism from M1 beats even the
 RATIONAL 635 record; the golden five's own within-field wall vocabulary is
 exhausted well below the golden5+1 plateau. This matches the established
-pattern (Postscript 2/7): rich wall values (13, 9, 657, 563) are real but
+pattern (Postscript [2](LEDGER.md#p2)/7): rich wall values (13, 9, 657, 563) are real but
 capped, and the 681 record's gain comes from elsewhere.
 
 ## M2 (mechanism B, snap-and-verify + re-mining) -- the real structure of 681
@@ -162,7 +162,7 @@ by_depth = {1:138, 2:214, 3:164, 4:102, 5:36, 6:1}   total 655
 vs matched-budget control best **615** (400 fully free configs). **The
 double-wall beats not just its matched control, but the entire previous
 unrestricted-search rational record of 635** (from ~360,000 seeds + deep
-hillclimbing, LEDGER.md Postscript 4-5) -- from a search
+hillclimbing, LEDGER.md Postscript [4](LEDGER.md#p4)-[5](LEDGER.md#p5)) -- from a search
 of only 2,476 configs. d3=164, d4=102, d5=36, d6=1 sit at the established
 ceilings; d2=214 ties the previous ceiling; **d1=138 exceeds the previously
 observed ceiling of 118** (a new high-water mark for depth-1, from a very

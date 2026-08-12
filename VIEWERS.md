@@ -72,19 +72,19 @@ the retracted claim that 13 holds on an open set.
 
 ### What has changed since it was published
 
-The page presents the n = 2 map as of Postscript 70 and has **not** been
+The page presents the n = 2 map as of Postscript [70](LEDGER.md#p70) and has **not** been
 regenerated since. Three later results refine it:
 
-* **Postscript 76** — the 13-locus is BIGGER than the page's summary card
+* **Postscript [76](LEDGER.md#p76)** — the 13-locus is BIGGER than the page's summary card
   suggests. "Body diagonal → 13" is the headline, but 13 also occurs on mirror
   planes and edge arcs; the page's own data table already shows this ((1,2,0)
   reaches 13 once, (1,1,0) six times), so the table is right and the summary
   card is incomplete.
-* **Postscript 83** — the 13-locus about a body diagonal is a punctured
+* **Postscript [83](LEDGER.md#p83)** — the 13-locus about a body diagonal is a punctured
   **circle**, not an arc: it wraps through the half-turn at t → ∞ and is
   punctured at the identity and the two 120° symmetries, where the count
   collapses to 1.
-* **Postscript 86** — the n = 2 maximiser's symmetry group is **D₆**, not merely
+* **Postscript [86](LEDGER.md#p86)** — the n = 2 maximiser's symmetry group is **D₆**, not merely
   "order 12", which is why that circle's three punctures form one C₃ orbit and
   collapse to a single arc in class space.
 * **2026-08-05** — the edge arc, which the page's data table hints at and its
@@ -137,7 +137,7 @@ all three of A, B and C.
 degree of rotation — the arcs' true extents are 3.99°, 7.04°, 8.43°, 5.91° and
 7.31°, a spread of only 2.1×. (An earlier version printed Cayley-chart lengths
 spanning 520× and claimed a faithful map was impossible; that was a chart
-artifact, see Postscript 97.) Station spacing within a line is even rather than
+artifact, see Postscript [97](LEDGER.md#p97).) Station spacing within a line is even rather than
 proportional to parameter, and that is the remaining distortion. The D1/D2 crossing angle is really 4.51° and is drawn wide
 to make the interchange legible. Each arc has 72 chart copies under the free
 cube's rotations and the base's C₃; one representative is shown.

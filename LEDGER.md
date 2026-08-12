@@ -17,147 +17,152 @@ lands when the report comes back, so e.g. 31 sits after 41 and the 29
 addendum after that. This index is the lookup by number; regenerate it
 with `index_ledger.py` after appending.
 
-- [Postscript 1](#postscript-exact-certification-overturns-the-ranking) — exact certification overturns the ranking
-- [Postscript 2](#postscript-2-subset-maximality-analysis-subset_analysispy-pair_checkspy) — subset-maximality analysis (subset_analysis.py, pair_checks.py)
-- [Postscript 3](#postscript-3-c-engine-per-subset-structure-and-a-corrected-law) — C++ engine, per-subset structure, and a corrected "law"
-- [Postscript 4](#postscript-4-mass-falsification-campaign--c1c2c3-fall-new-record-635) — mass falsification campaign — C1/C2/C3 fall, new record 635
-- [Postscript 5](#postscript-5-635-certified-locally-maximal-campaign-to-260k-exact-spherical-census-confirms-t1) — 635 certified locally maximal; campaign to 260k; exact spherical census confirms T1
-- [Postscript 6](#postscript-6-n--6-cubes--engine-generalized-n7-campaign-underway) — n > 6 cubes — engine generalized, n=7 campaign underway
-- [Postscript 7](#postscript-7-beyond-rational-rotations--the-ℚd-program) — beyond rational rotations — the ℚ(√d) program
-- [Postscript 8](#postscript-8-multi-constraint-search-pays--tower-verification-the-111-wall-explained-and-a-new-rational-record-655) — multi-constraint search pays — tower verification, the (1,1,1) wall explained, and a new…
-- [Postscript 9](#postscript-9-sliding-3-cube-triples--a-new-rational-and-overall-record-699-slide3_reportmd) — sliding 3-cube triples — a new RATIONAL AND OVERALL record 699 (slide3_report.md)
+- [Postscript 1](#p1) — exact certification overturns the ranking
+- [Postscript 2](#p2) — subset-maximality analysis (subset_analysis.py, pair_checks.py)
+- [Postscript 3](#p3) — C++ engine, per-subset structure, and a corrected "law"
+- [Postscript 4](#p4) — mass falsification campaign — C1/C2/C3 fall, new record 635
+- [Postscript 5](#p5) — 635 certified locally maximal; campaign to 260k; exact spherical census confirms T1
+- [Postscript 6](#p6) — n > 6 cubes — engine generalized, n=7 campaign underway
+- [Postscript 7](#p7) — beyond rational rotations — the ℚ(√d) program
+- [Postscript 8](#p8) — multi-constraint search pays — tower verification, the (1,1,1) wall explained, and a new…
+- [Postscript 9](#p9) — sliding 3-cube triples — a new RATIONAL AND OVERALL record 699 (slide3_report.md)
 - [Postscript 9 addendum](#postscript-9-addendum-2026-07-13-the-slide-axis-identified-exactly) — the slide axis identified exactly
 - [Postscript 9 addendum](#postscript-9-addendum-2-2026-07-13-edge-crossings-along-the-slide--near-persistence-quantified) — edge crossings along the slide — near-persistence quantified
-- [Postscript 10](#postscript-10-symmetry-stratified-sweep-of-the-walls--no-new-record-framework-validated-coverage-caveat) — symmetry-stratified sweep of the walls — no new record, framework validated, coverage caveat
-- [Postscript 11](#postscript-11-full-quaternion-symmetry-re-run--new-record-717-and-705-postscript-10s-negative-was-a-coverage-artifact) — full-quaternion symmetry re-run — NEW RECORD 717 (and 705); Postscript 10's negative was a…
+- [Postscript 10](#p10) — symmetry-stratified sweep of the walls — no new record, framework validated, coverage caveat
+- [Postscript 11](#p11) — full-quaternion symmetry re-run — NEW RECORD 717 (and 705); Postscript 10's negative was a…
 - [Postscript 11 addendum](#postscript-11-addendum-717-is-capped--the-shallow-tail-tradeoff-is-a-11-conservation) — 717 is capped — the shallow-tail tradeoff is a 1:1 conservation
-- [Postscript 12](#postscript-12-shared-axis-intersection-families--new-record-723) — shared-axis "intersection" families — NEW RECORD 723
-- [Postscript 13](#postscript-13-incidence-geometry--edge-vs-corner-concurrences-the-9-fold-sweet-spot-and-the-algebraic-search) — incidence geometry — edge vs corner concurrences, the 9-fold sweet spot, and the algebraic…
-- [Postscript 14](#postscript-14-the-depth-trade-off-structure--deep-layers-quantize-shallow-layers-grow-records-sacrifice-deep-for-shallow) — the depth trade-off structure — deep layers quantize, shallow layers grow, records sacrifice…
-- [Postscript 14](#postscript-14--results--a-correction-2026-07-12) — — results & a correction (2026-07-12)
-- [Postscript 15](#postscript-15-n4--golden-177-is-not-the-maximum-new-rational-record-183) — n=4 — golden 177 is NOT the maximum; new rational record 183
-- [Postscript 16](#postscript-16-records-nest--723s-subsets-contain-the-smaller-records-and-its-5-subset-beats-golden-351) — records NEST — 723's subsets contain the smaller records, and its 5-subset beats golden 351
+- [Postscript 12](#p12) — shared-axis "intersection" families — NEW RECORD 723
+- [Postscript 13](#p13) — incidence geometry — edge vs corner concurrences, the 9-fold sweet spot, and the algebraic…
+- [Postscript 14](#p14) — the depth trade-off structure — deep layers quantize, shallow layers grow, records sacrifice…
+- [Postscript 14](#p14) — — results & a correction (2026-07-12)
+- [Postscript 15](#p15) — n=4 — golden 177 is NOT the maximum; new rational record 183
+- [Postscript 16](#p16) — records NEST — 723's subsets contain the smaller records, and its 5-subset beats golden 351
 - [Postscript 16 addendum](#postscript-16-addendum-greedy-extension-validated--new-n7-record-1207) — greedy extension VALIDATED — new n=7 record 1207
 - [Postscript 16 addendum](#postscript-16-addendum-2-n2-and-n3-stress-tested--13-and-67-hold) — n=2 and n=3 stress-tested — 13 and 67 hold
 - [Postscript 16 addendum](#postscript-16-addendum-3-n5--393-is-robust-native-search-cant-reach-it) — n=5 = 393 is robust; native search can't reach it
-- [Postscript 17](#postscript-17-local-perfection-is-globally-frustrated-past-n3--the-middle-layer-mechanism) — local perfection is globally frustrated past n=3 — the "middle-layer" mechanism
+- [Postscript 17](#p17) — local perfection is globally frustrated past n=3 — the "middle-layer" mechanism
 - [Postscript 17 addendum](#postscript-17-addendum-the-dof-hierarchy--local-optima-are-rigid-flexibility-lives-in-suboptimal-but-structured-configs) — the DOF hierarchy — local optima are RIGID, flexibility lives in suboptimal-but-structured…
-- [Postscript 18](#postscript-18-shared-axis-cluster-construction--free-spoke-angles-recover-every-record-lockedcontrol-variants-fall-short) — shared-axis-cluster construction — free spoke angles recover every record; locked/control…
+- [Postscript 18](#p18) — shared-axis-cluster construction — free spoke angles recover every record; locked/control…
 - [Postscript 18 addendum](#postscript-18-addendum-shared-axis-campaign-complete-150k-evals) — shared-axis campaign complete (~150k evals)
-- [Postscript 19](#postscript-19-the-general-ceiling-law--depth-nl--12l6n--2l²1) — THE GENERAL CEILING LAW — depth-(n−l) ≤ (12l−6)n − 2(l²−1)
+- [Postscript 19](#p19) — THE GENERAL CEILING LAW — depth-(n−l) ≤ (12l−6)n − 2(l²−1)
 - [Postscript 19 addendum](#postscript-19-addendum-why-63-beats-67-as-a-building-block--deep-structure-persists-shallow-count-is-recut) — why 63 beats 67 as a building block — deep structure persists, shallow count is recut
-- [Postscript 20](#postscript-20-the-deficit-propagation-envelope--an-empirical-branch-and-bound-bound-and-723-nearly-cornered) — the deficit-propagation envelope — an empirical branch-and-bound bound, and 723 nearly cornered
-- [Postscript 21](#postscript-21-blueprint-branch-and-prune-complete--67-skeletons-exhausted-nothing-beats-723) — blueprint branch-and-prune complete — 67 skeletons exhausted, nothing beats 723
-- [Postscript 22](#postscript-22-the-n7-program--1207-certified-the-ceiling-law-passes-its-out-of-sample-test-first-n8-record-1879) — the n=7 program — 1207 certified, the ceiling law passes its out-of-sample test, first n=8…
-- [Postscript 23](#postscript-23-the-cap-sum-bound-is-tight-at-n2-and-n3--a-proof-of-13-and-67-reduces-to-two-lemmas) — the cap-sum bound is TIGHT at n=2 and n=3 — a proof of 13 and 67 reduces to two lemmas
+- [Postscript 20](#p20) — the deficit-propagation envelope — an empirical branch-and-bound bound, and 723 nearly cornered
+- [Postscript 21](#p21) — blueprint branch-and-prune complete — 67 skeletons exhausted, nothing beats 723
+- [Postscript 22](#p22) — the n=7 program — 1207 certified, the ceiling law passes its out-of-sample test, first n=8…
+- [Postscript 23](#p23) — the cap-sum bound is TIGHT at n=2 and n=3 — a proof of 13 and 67 reduces to two lemmas
 - [Postscript 23 addendum](#postscript-23-addendum-do-the-proofs-extend-to-n--3-chris-cole) — do the proofs extend to n > 3? (Chris Cole)
-- [Postscript 24](#postscript-24-first-theorem--the-anchor-lemma-is-proven-all-n-and-the-n2-cad-verdict) — FIRST THEOREM — the anchor lemma is proven (all n), and the n=2 CAD verdict
-- [Postscript 25](#postscript-25-the-dihedral-family--a-closed-form-1-parameter-family-with-exact-edge-coincidences-containing-both-67s-the-ghosts-explained-a-new-exactly-certified-compound-in-qsqrt6) — the DIHEDRAL FAMILY — a closed-form 1-parameter family with exact edge coincidences,…
+- [Postscript 24](#p24) — FIRST THEOREM — the anchor lemma is proven (all n), and the n=2 CAD verdict
+- [Postscript 25](#p25) — the DIHEDRAL FAMILY — a closed-form 1-parameter family with exact edge coincidences,…
 - [Postscript 25 addendum](#postscript-25-addendum-the-persistent-18-core--octahedral-to-golden-slides-without-breaking-a-single-concurrence-corner-docking-corrected-transition-locations) — the persistent 18-core — octahedral-to-golden slides WITHOUT breaking a single concurrence;…
 - [Postscript 25 addendum](#postscript-25-addendum-2-paths-preserving-more-than-18--the-pair-curve-identity-a-26-concurrence-chain-triple-and-why-18-is-still-the-end-to-end-record) — paths preserving MORE than 18 — the pair-curve identity, a 26-concurrence chain triple, and…
 - [Postscript 25 addendum](#postscript-25-addendum-3-exact-region-counts-along-the-dihedral-family-task-1-executed--a-symmetric-staircase-spikes-at-the-67s-and-a-local-minimum-at-the-face-diagonal-point) — EXACT region counts along the dihedral family (Task 1 executed) — a symmetric staircase,…
 - [Postscript 25 addendum](#postscript-25-addendum-4-the-handoff-chase--18-stands-the-obstruction-identified-and-a-correction-to-addendum-2s-golden-contact-count) — the handoff chase — 18 stands, the obstruction identified, and a CORRECTION to addendum 2's…
-- [Postscript 26](#postscript-26-the-records-are-built-from-family-pairs--the-n3-verdict-on-the-dihedral-family) — the records are BUILT FROM family pairs — the n>3 verdict on the dihedral family
+- [Postscript 26](#p26) — the records are BUILT FROM family pairs — the n>3 verdict on the dihedral family
 - [Postscript 26 addendum](#postscript-26-addendum-four-theorems-proved-c45_notesmd-section-12) — four theorems PROVED (C45_notes.md section 12)
-- [Postscript 27](#postscript-27-the-gluing-search--records-still-unbeaten-deficit-exactly-8-at-every-n-and-the-rational-tangent-discovery-with-a-correction-to-the-agents-clique-inventory) — the gluing search — records still unbeaten (deficit exactly 8 at every n), and the…
-- [Postscript 28](#postscript-28-the-n4-resonance-solve--cross-class-alignment-is-count-negative-at-n4-best-resonance-151-and-it-is-secretly-rational) — the n=4 resonance solve — cross-class alignment is count-NEGATIVE at n=4; best resonance…
-- [Postscript 29](#postscript-29-the-rational-tangent-sweep-interim--the-exactly-8-floor-is-broken-at-n5-deficit-now-6) — the rational-tangent sweep (interim) — the "exactly 8" floor is BROKEN at n=5: deficit now 6
+- [Postscript 27](#p27) — the gluing search — records still unbeaten (deficit exactly 8 at every n), and the…
+- [Postscript 28](#p28) — the n=4 resonance solve — cross-class alignment is count-NEGATIVE at n=4; best resonance…
+- [Postscript 29](#p29) — the rational-tangent sweep (interim) — the "exactly 8" floor is BROKEN at n=5: deficit now 6
 - [Postscript 29 addendum](#postscript-29-addendum-723-is-a-plateau-with-at-least-four-non-congruent-realizations--an-exact-three-layer-exchange-law-inside-the-summit) — 723 is a PLATEAU with (at least) four non-congruent realizations — an exact three-layer…
-- [Postscript 30](#postscript-30-the-event-catalogue--the--1-per-coincidence-law-dies-a-depth-conservation-law-survives-1212-and-a-correction-to-postscript-25-addendum-3) — the event catalogue — the "+-1 per coincidence" law dies, a depth-conservation law survives…
-- [Postscript 31](#postscript-31-the-census-extraction--the-92-budget-is-exact-at-both-67-witnesses-its-accounting-corrected-and-the-coincidences-are-top-diagram-vertices) — the census extraction — the 92 budget is EXACT at both 67 witnesses, its accounting…
-- [Postscript 32](#postscript-32-the-open-n4-resonance-candidates-counted-exactly--still-all-count-negative-best-169--175-the-sqrt13-chain--159) — the open n=4 resonance candidates counted exactly — still all count-negative; best 169 <…
-- [Postscript 33](#postscript-33-first-complete-maximum-theorem--max2--13-proved-all-r-and-d218--d_n-16n-proved-unconditionally) — FIRST COMPLETE MAXIMUM THEOREM — max(2) = 13 proved (all R), and d2<=18 / d_{n-1}<=6n proved…
-- [Postscript 34](#postscript-34-feasibility-verdict-on-the-last-gap-star-sumdeg-292--it-splits-3260-the-easy-half-reduces-to-a-clean-16-simultaneous-triples-lemma-the-hard-half-needs-targeted-not-random-search) — feasibility verdict on the last gap (star) Sum(deg-2)<=92 — it splits 32+60, the easy half…
-- [Postscript 35](#postscript-35-sub-lemma-1a-proved--triple-point-weight--32-via-d2--18-max367-now-hinges-on-one-inequality-contact-weight--60) — sub-lemma 1a PROVED — triple-point weight <= 32 (via d2 <= 18); max(3)=67 now hinges on ONE…
-- [Postscript 36](#postscript-36-region-count-is-affine-invariant--the-records-are-realized-by-a-whole-affine-family-of-parallelepiped-cells-congruent-rhombohedra-match-67-correcting-a-first-wrong-probe) — region count is AFFINE-INVARIANT — the records are realized by a whole affine family of…
-- [Postscript 37](#postscript-37--retracted-see-postscript-38---this-postscript-is-wrong-it-counted-cells-of-the-infinite-plane-arrangement-not-real-face-bounded-regions) — *** RETRACTED (see Postscript 38) *** — this postscript is WRONG; it counted cells of the…
-- [Postscript 38](#postscript-38-the-counting-error-corrected--regions-are-separated-by-faces-not-infinite-planes-and-a-trivial-proof-that-max2--13-for-all-convex-6-faced-cells) — the counting error corrected — regions are separated by FACES, not infinite planes; and a…
-- [Postscript 39](#postscript-39-the-correct-successor-to-p37--the-max367-proof-layers-generalize-to-all-convex-6-faced-cells-and-flex-does-not-beat-67) — the CORRECT successor to P37 — the max(3)=67 proof layers GENERALIZE to all convex 6-faced…
-- [Postscript 40](#postscript-40-the-remaining-gap-reduced-to-a-clean-incidence-bound-on-the-cells-edge-skeletons-verified-with-an-euler-on-intersection-handle-not-yet-closed) — the remaining gap reduced to a clean INCIDENCE bound on the cells' edge-skeletons…
-- [Postscript 41](#postscript-41-candidate-proof-of-max367-all-convex-6-faced-cells-via-euler-on-the-pairwise-intersection-polytopes--the-contact-bound-closes) — CANDIDATE PROOF of max(3)=67 (all convex 6-faced cells) via Euler on the PAIRWISE…
-- [Postscript 42](#postscript-42-step-t-is-not-routine--the-reduction-deg_top--deg_bot-at-triple-points-is-false-counterexample-realized-on-genuine-cells-max367-stands-on-the-generic-stratum--both-maximizers-degenerate-triple-points-remain-an-open-gap) — Step T is NOT routine — the reduction "deg_top ≤ deg_bot at triple points" is FALSE…
-- [Postscript 43](#postscript-43-step-t-closed--max367-proved-for-all-3-concentric-convex-6-facet-cells-meeting-pairwise-transversally-degenerate-triple-points-included-the-fix-is-a-two-budget-local-inequality-not-deg_topdeg_bot) — STEP T CLOSED — max(3)=67 proved for all 3 concentric convex ≤6-facet cells meeting pairwise…
-- [Postscript 44](#postscript-44-the-n3-anomaly-audit--its-maximum-is-the-only-one-that-is-finite-yet-multiple-irrational-and-non-nesting-the-three-are-one-phenomenon-and-13-is-not-rigid--corrects-postscript-17-addendum) — the n=3 anomaly audit — its maximum is the only one that is finite-yet-multiple, irrational,…
-- [Postscript 45](#postscript-45-new-records-n7--1211-and-n8--1889--found-top-down-then-bottom-up-in-one-afternoon-1211-is-a-plateau-reached-by-four-independent-routes) — NEW RECORDS n=7 = 1211 and n=8 = 1889 — found top-down-then-bottom-up in one afternoon; 1211…
-- [Postscript 46](#postscript-46-723-is-beaten--n6--727-and-it-lifts-the-tower-to-n7--1217-n8--1891-the-large-height-quaternion-stratum-was-never-sampled) — 723 IS BEATEN — n=6 = 727, and it lifts the tower to n=7 = 1217, n=8 = 1891; the…
+- [Postscript 30](#p30) — the event catalogue — the "+-1 per coincidence" law dies, a depth-conservation law survives…
+- [Postscript 31](#p31) — the census extraction — the 92 budget is EXACT at both 67 witnesses, its accounting…
+- [Postscript 32](#p32) — the open n=4 resonance candidates counted exactly — still all count-negative; best 169 <…
+- [Postscript 33](#p33) — FIRST COMPLETE MAXIMUM THEOREM — max(2) = 13 proved (all R), and d2<=18 / d_{n-1}<=6n proved…
+- [Postscript 34](#p34) — feasibility verdict on the last gap (star) Sum(deg-2)<=92 — it splits 32+60, the easy half…
+- [Postscript 35](#p35) — sub-lemma 1a PROVED — triple-point weight <= 32 (via d2 <= 18); max(3)=67 now hinges on ONE…
+- [Postscript 36](#p36) — region count is AFFINE-INVARIANT — the records are realized by a whole affine family of…
+- [Postscript 37](#p37) — *** RETRACTED (see Postscript 38) *** — this postscript is WRONG; it counted cells of the…
+- [Postscript 38](#p38) — the counting error corrected — regions are separated by FACES, not infinite planes; and a…
+- [Postscript 39](#p39) — the CORRECT successor to P37 — the max(3)=67 proof layers GENERALIZE to all convex 6-faced…
+- [Postscript 40](#p40) — the remaining gap reduced to a clean INCIDENCE bound on the cells' edge-skeletons…
+- [Postscript 41](#p41) — CANDIDATE PROOF of max(3)=67 (all convex 6-faced cells) via Euler on the PAIRWISE…
+- [Postscript 42](#p42) — Step T is NOT routine — the reduction "deg_top ≤ deg_bot at triple points" is FALSE…
+- [Postscript 43](#p43) — STEP T CLOSED — max(3)=67 proved for all 3 concentric convex ≤6-facet cells meeting pairwise…
+- [Postscript 44](#p44) — the n=3 anomaly audit — its maximum is the only one that is finite-yet-multiple, irrational,…
+- [Postscript 45](#p45) — NEW RECORDS n=7 = 1211 and n=8 = 1889 — found top-down-then-bottom-up in one afternoon; 1211…
+- [Postscript 46](#p46) — 723 IS BEATEN — n=6 = 727, and it lifts the tower to n=7 = 1217, n=8 = 1891; the…
 - [Postscript 46 addendum](#postscript-46-addendum-727-is-a-plateau-and-729-was-not-reached-80-000-sixth-cubes-on-the-393-base) — 727 is a plateau, and 729 was not reached (80 000 sixth cubes on the 393 base)
-- [Postscript 47](#postscript-47-727-is-proved-isolated-on-the-393-base-and-its-coincidence-pattern-is-unaugmentable-the-record-has-fewer-coincidences-than-723-and-every-condition-is-a-quadric) — 727 is PROVED isolated on the 393 base and its coincidence pattern is unaugmentable; the…
-- [Postscript 48](#postscript-48-the-locus-enumeration--9-loci-are-codimension-1-three-wall-intersection-is-a-30x-better-search-and-727-is-a-plateau-two-non-congruent-compounds) — the locus enumeration — 9-loci are codimension 1, three-wall intersection is a 30x better…
+- [Postscript 47](#p47) — 727 is PROVED isolated on the 393 base and its coincidence pattern is unaugmentable; the…
+- [Postscript 48](#p48) — the locus enumeration — 9-loci are codimension 1, three-wall intersection is a 30x better…
 - [Postscript 48 addendum](#postscript-48-addendum-the-enumerations-first-9-h--727-is-a-four-class-plateau-with-d1d2d3d4--690-conserved-nothing-above-727-in-256-000-configurations) — the enumeration's first 9 h — 727 is a FOUR-class plateau with d1+d2+d3+d4 = 690 conserved;…
-- [Postscript 49](#postscript-49-the-walls-are-pairs-of-planes--the-three-wall-family-is-2-733-configurations-exhausted-in-four-minutes-max-727-and-why-its-all-rational-solutions-are-an-artifact) — the walls are PAIRS OF PLANES — the three-wall family is 2 733 configurations, exhausted in…
+- [Postscript 49](#p49) — the walls are PAIRS OF PLANES — the three-wall family is 2 733 configurations, exhausted in…
 - [Postscript 49 addendum](#postscript-49-addendum-the-w--0-gap-was-illusory--the-chart-omits-quaternions-not-configurations) — the w = 0 "gap" was illusory — the chart omits quaternions, not configurations
-- [Postscript 50](#postscript-50-the-mixed-strata-are-2401-irrational-dominated-by-ℚ5--a-large-stratum-no-search-in-this-project-has-ever-counted) — the mixed strata are 240:1 IRRATIONAL, dominated by ℚ(√5) — a large stratum no search in…
-- [Postscript 51](#postscript-51-a-ℚd-c-engine-82-458-irrational-configurations-counted--nothing-above-727-but-a-fifth-727-class-that-is-irrational-in-ℚ13) — a ℚ(√d) C++ engine, 82 458 irrational configurations counted — nothing above 727, but a…
+- [Postscript 50](#p50) — the mixed strata are 240:1 IRRATIONAL, dominated by ℚ(√5) — a large stratum no search in…
+- [Postscript 51](#p51) — a ℚ(√d) C++ engine, 82 458 irrational configurations counted — nothing above 727, but a…
 - [Postscript 51 addendum](#postscript-51-addendum-the-d--100-gap-is-mostly-a-guard-shape-problem--a-joint-budget-unlocks-343-000-configurations-with-no-arithmetic-change) — the d > 100 gap is mostly a GUARD-SHAPE problem — a joint budget unlocks ~343 000…
 - [Postscript 51 addendum](#postscript-51-addendum-2-correction-dm²-is-not-the-overflow-invariant-and-the-joint-rule-proposed-above-would-have-been-unsafe) — d·m² is NOT the overflow invariant, and the joint rule proposed above would have been UNSAFE
 - [Postscript 51 addendum](#postscript-51-addendum-3-correction--completion-224-184-irrational-configurations-counted-still-nothing-above-727--but-727-has-at-least-twelve-congruence-classes-eight-of-them-irrational-across-eight-fields) — 224 184 irrational configurations counted, still nothing above 727 — but 727 has at least…
 - [Postscript 51 addendum](#postscript-51-addendum-4-the-region-count-is-not-galois-invariant--and-the-arithmetic-structure-reading-of-the-727-plateau-was-mostly-bookkeeping) — the region count is NOT Galois-invariant — and the "arithmetic structure" reading of the 727…
 - [Postscript 51 addendum](#postscript-51-addendum-5-n3-is-less-anomalous-than-postscript-44-claimed--two-of-its-three-anomalies-were-instrument-limited) — n=3 is less anomalous than Postscript 44 claimed — two of its three "anomalies" were…
-- [Postscript 52](#postscript-52-a-new-congruence-class-of-the-n5-record-393--and-a-correction-the-irrational-record-achievers-are-rationally-shadowed-so-irrationality-is-doing-no-work-at-n5-or-n6) — a NEW congruence class of the n=5 record 393 — and a correction: the irrational…
+- [Postscript 52](#p52) — a NEW congruence class of the n=5 record 393 — and a correction: the irrational…
 - [Postscript 52 addendum](#postscript-52-addendum-n5-run-complete--three-fields-144-configurations-one-profile-and-the--part-structure) — n=5 run complete — three fields, 144 configurations, one profile, and the √-part structure
 - [Postscript 52 addendum](#postscript-52-addendum-2-correction-the-μ-multiset-undercounts-classes--at-least-21-distinct-labelled-types-among-the-irrational-727s-not-8-and-the-irrational-727s-are-all-rationally-shadowed) — the μ-multiset UNDERCOUNTS classes — at least 21 distinct labelled types among the…
 - [Postscript 52 addendum](#postscript-52-addendum-3-n4s-shortfall-holds-across-all-four-bases-and-a-region-adjacency-invariant-now-exists) — n=4's shortfall holds across ALL FOUR bases; and a region-adjacency invariant now exists
 - [Postscript 52 addendum](#postscript-52-addendum-4-the-727-plateau-holds-at-least-600-configurations--every-earlier-class-count-measured-the-enumerator) — the 727 plateau holds at least 600 configurations — every earlier class count measured the…
 - [Postscript 52 addendum](#postscript-52-addendum-5-the-727-plateau-has-at-least-109-distinct-combinatorial-types--and-per-label-is-as-sharp-as-adjacency) — the 727 plateau has at least 109 distinct combinatorial types — and per-label is as sharp as…
 - [Postscript 52 addendum](#postscript-52-addendum-6-a-taxonomy-of-the-727-plateau--types-are-tight-clusters-with-fixed-pair-relations-and-the-c3-quotient-corrects-the-counts) — a taxonomy of the 727 plateau — types are tight clusters with fixed pair relations, and the…
-- [Postscript 53](#postscript-53-a-failed-attempt-at-proving-e1-with-the-error-located--each-piece-adds-one-region-is-false-for-non-disk-pieces) — a FAILED attempt at proving E1, with the error located — "each piece adds one region" is…
-- [Postscript 54](#postscript-54-the-727-plateau-is-a-nested-chamber-structure-and-adjacent-types-differ-by-an-elementary-2-exchange-within-one-depth) — the 727 plateau is a nested chamber structure, and adjacent types differ by an elementary ±2…
-- [Postscript 55](#postscript-55-the-9-plane-corner-concurrence-stratum-is-capped-at-723--records-do-not-concentrate-there-723-did) — the 9-plane corner-concurrence stratum is CAPPED AT 723 — records do not concentrate there,…
+- [Postscript 53](#p53) — a FAILED attempt at proving E1, with the error located — "each piece adds one region" is…
+- [Postscript 54](#p54) — the 727 plateau is a nested chamber structure, and adjacent types differ by an elementary ±2…
+- [Postscript 55](#p55) — the 9-plane corner-concurrence stratum is CAPPED AT 723 — records do not concentrate there,…
 - [Postscript 55 addendum](#postscript-55-addendum-the-ways-of-reaching-727--the-discovered-record-is-a-1-in-161-outlier-and-one-route-carries-a-13-pair) — the ways of reaching 727 — the discovered record is a 1-in-161 outlier, and one route…
-- [Postscript 56](#postscript-56-e1-is-now-a-theorem--the-one-cube-increment-is-bounded-by-an-euler-count-on-the-cubes-own-surface-and-postscript-53s-counterexample-was-itself-wrong) — E1 is now a THEOREM — the one-cube increment is bounded by an Euler count on the cube's own…
-- [Postscript 57](#postscript-57-the-complete-taxonomy-of-codimension-1-walls--two-types-were-never-enumerated-and-both-are-finite-catalogues-against-a-fixed-base) — the complete taxonomy of codimension-1 walls — two types were never enumerated, and both are…
-- [Postscript 58](#postscript-58-the-chamber-boundaries-of-the-plateau-are-wall-crossings--and-the-wall-type-that-governs-them-is-the-one-nobody-had-enumerated) — the chamber boundaries of the plateau are wall crossings — and the wall type that governs…
-- [Postscript 59](#postscript-59-a-256-bit-ℚd-engine--the-284-634-configurations-the-old-budget-rejected-are-now-countable-and-the-equivalence-gate-nearly-passed-vacuously) — a 256-bit ℚ(√d) engine — the 284 634 configurations the old budget REJECTED are now…
-- [Postscript 60](#postscript-60-the-irrational-configurations-are-the-seams-between-rational-continua--never-interior-to-one-and-the-split-is-total) — the irrational configurations are the SEAMS between rational continua — never interior to…
-- [Postscript 61](#postscript-61-correction-to-postscript-60-the-irrational-configurations-are-in-continua--k-counted-walls-not-chamber-boundaries-and-most-of-those-walls-are-combinatorially-inert) — the irrational configurations ARE in continua — k counted walls, not chamber boundaries, and…
+- [Postscript 56](#p56) — E1 is now a THEOREM — the one-cube increment is bounded by an Euler count on the cube's own…
+- [Postscript 57](#p57) — the complete taxonomy of codimension-1 walls — two types were never enumerated, and both are…
+- [Postscript 58](#p58) — the chamber boundaries of the plateau are wall crossings — and the wall type that governs…
+- [Postscript 59](#p59) — a 256-bit ℚ(√d) engine — the 284 634 configurations the old budget REJECTED are now…
+- [Postscript 60](#p60) — the irrational configurations are the SEAMS between rational continua — never interior to…
+- [Postscript 61](#p61) — the irrational configurations ARE in continua — k counted walls, not chamber boundaries, and…
 - [Postscript 61 addendum](#postscript-61-addendum-over-all-183-some-are-in-continua-and-some-are-not--and-in-a-continuum-irrationality-is-the-generic-case-so-its-presence-was-never-informative) — over all 183, SOME are in continua and some are not — and in a continuum irrationality is…
-- [Postscript 62](#postscript-62-what-happens-at-the-endpoint-of-a-727-continuum--the-interval-is-open-the-endpoint-has-its-own-count-and-region-counts-are-not-semicontinuous) — what happens at the endpoint of a 727 continuum — the interval is OPEN, the endpoint has its…
+- [Postscript 62](#p62) — what happens at the endpoint of a 727 continuum — the interval is OPEN, the endpoint has its…
 - [Postscript 62 addendum](#postscript-62-addendum-the-other-endpoint--w3-written-as-a-polynomial-at-last-and-both-ends-of-the-interval-are-725) — the OTHER endpoint — W3 written as a polynomial at last, and both ends of the interval are 725
-- [Postscript 63](#postscript-63-the-line-catalogue-was-never-symmetry-closed--the-richest-727-continuums-own-c3-images-were-missing-and-a-uniform-parameter-grid-is-not-equivariant) — the LINE catalogue was never symmetry-closed — the richest 727 continuum's own C3 images…
-- [Postscript 64](#postscript-64-the-n6-typology-applies-to-n3-but-the-wall-taxonomy-truncates-and-the-base-fixing-method-provably-cannot-reach-max3) — the n=6 typology applies to n=3, but the wall taxonomy TRUNCATES and the base-fixing method…
-- [Postscript 65](#postscript-65-max3-is-an-upward-spike-on-a-55-plateau--the-exact-inverse-of-n6-and-the-geometric-face-of-frustration) — max(3) is an upward SPIKE on a 55-plateau — the exact inverse of n=6, and the geometric face…
-- [Postscript 66](#postscript-66-correction-to-postscript-63-the-line-catalogue-was-symmetry-closed--the-test-compared-quaternion-representatives-instead-of-configurations) — the line catalogue WAS symmetry-closed — the test compared quaternion representatives…
-- [Postscript 67](#postscript-67-the-full-endpoint-census--every-continuum-end-counts-725-and-n6-also-has-isolated-727-spikes-the-n3-shape-appearing-rationally-at-n6) — the full endpoint census — every continuum end counts 725, and n=6 ALSO has isolated 727…
-- [Postscript 68](#postscript-68-epsilon-neighbourhoods-show-walls-are-not-equivalent--the-walls-carrying-727-are-worth-6-each-the-walls-that-end-it-cost-2) — epsilon-neighbourhoods show walls are NOT equivalent — the walls carrying 727 are worth +6…
-- [Postscript 69](#postscript-69-n2-mapped-completely--five-counts-generic-4-and-the-maximum-on-curves-the-same-codimension-as-n6s-727-lines) — n=2 mapped completely — five counts, generic 4, and the maximum on CURVES, the same…
+- [Postscript 63](#p63) — the LINE catalogue was never symmetry-closed — the richest 727 continuum's own C3 images…
+- [Postscript 64](#p64) — the n=6 typology applies to n=3, but the wall taxonomy TRUNCATES and the base-fixing method…
+- [Postscript 65](#p65) — max(3) is an upward SPIKE on a 55-plateau — the exact inverse of n=6, and the geometric face…
+- [Postscript 66](#p66) — the line catalogue WAS symmetry-closed — the test compared quaternion representatives…
+- [Postscript 67](#p67) — the full endpoint census — every continuum end counts 725, and n=6 ALSO has isolated 727…
+- [Postscript 68](#p68) — epsilon-neighbourhoods show walls are NOT equivalent — the walls carrying 727 are worth +6…
+- [Postscript 69](#p69) — n=2 mapped completely — five counts, generic 4, and the maximum on CURVES, the same…
 - [Postscript 69 addendum](#postscript-69-addendum-the-n2-stratification-from-epsilon-adjacency--the-count-is-determined-by-the-dimension-of-the-stratum) — the n=2 stratification, from epsilon-adjacency — the count is determined by the DIMENSION of…
-- [Postscript 70](#postscript-70-the-topology-of-the-n2-stratification--it-is-the-octahedral-mirror-arrangement-on-the-axis-sphere-fibred-by-the-rotation-angle) — the topology of the n=2 stratification — it is the OCTAHEDRAL MIRROR ARRANGEMENT on the axis…
-- [Postscript 71](#postscript-71-extending-the-n2-map-to-n3--every-triple-is-labelled-by-three-n2-strata-and-both-67s-live-in-the-single-cell-131313) — extending the n=2 map to n=3 — every triple is labelled by THREE n=2 strata, and both 67s…
-- [Postscript 72](#postscript-72-the-131313-cell-is-reducible--a-2-dimensional-shared-axis-component-at-55-and-isolated-points-where-67-lives) — the (13,13,13) cell is REDUCIBLE — a 2-dimensional shared-axis component at 55, and isolated…
-- [Postscript 73](#postscript-73-the-pair-label-of-every-record-and-what-extending-the-structure-graph-to-higher-n-would-cost) — the pair-label of every record, and what extending the structure graph to higher n would cost
-- [Postscript 74](#postscript-74-the-n4-cell-census-and-the-one-record-no-climb-can-reach) — the n=4 cell census, and the one record no climb can reach
+- [Postscript 70](#p70) — the topology of the n=2 stratification — it is the OCTAHEDRAL MIRROR ARRANGEMENT on the axis…
+- [Postscript 71](#p71) — extending the n=2 map to n=3 — every triple is labelled by THREE n=2 strata, and both 67s…
+- [Postscript 72](#p72) — the (13,13,13) cell is REDUCIBLE — a 2-dimensional shared-axis component at 55, and isolated…
+- [Postscript 73](#p73) — the pair-label of every record, and what extending the structure graph to higher n would cost
+- [Postscript 74](#p74) — the n=4 cell census, and the one record no climb can reach
 - [Postscript 74 addendum](#postscript-74-addendum-basins--the-n4-record-is-reachable-but-not-from-random-seeds-and-no-refinement-reaches-n3s-at-all) — basins — the n=4 record is reachable but NOT from random seeds, and no refinement reaches…
-- [Postscript 75](#postscript-75-zero-signal-means-a-uniform-region--and-characterising-it-separates-the-two-n3-maxima-for-the-first-time) — zero signal means a uniform REGION — and characterising it separates the two n=3 maxima for…
-- [Postscript 76](#postscript-76-correction-to-postscript-70-the-n2-13-locus-is-bigger-than-recorded--and-that-is-what-a-structural-proof-of-max3-would-have-to-be-built-on) — the n=2 13-locus is bigger than recorded — and that is what a structural proof of max(3)…
-- [Postscript 77](#postscript-77-step-a-complete--a-closed-form-exact-formula-for-the-two-cube-region-count-and-with-it-the-13-locus-as-a-criterion-rather-than-a-list) — STEP A COMPLETE — a closed-form exact formula for the two-cube region count, and with it the…
-- [Postscript 78](#postscript-78-step-b--the-three-cube-count-decomposed-exactly-and-max3--67-reduced-to-a-single-two-rotation-lemma) — STEP B — the three-cube count decomposed exactly, and max(3) = 67 reduced to a single…
-- [Postscript 79](#postscript-79-the-wide-engine-campaign-is-complete--727-survives-all-508818-previously-unreachable-configurations-and-two-new-727-compounds-fall-out-of-it) — the wide-engine campaign is COMPLETE — 727 survives all 508,818 previously-unreachable…
-- [Postscript 80](#postscript-80-the-727-classes-are-not-indexed-by-field--they-are-quadratic-points-inside-one-rational-interval-and-there-are-infinitely-many-of-them) — the 727 classes are not indexed by field — they are quadratic points inside one rational…
-- [Postscript 81](#postscript-81-a-tangent-finder-the-two-67-representatives-recovered-and-symmetry-measured-across-every-record) — a tangent finder, the two 67 representatives recovered, and symmetry measured across every…
-- [Postscript 82](#postscript-82-the-tangent-is-a-null-space-393-is-rigid-against-moving-one-cube-and-the-n7n8-extents) — the tangent is a null space, 393 is rigid against moving one cube, and the n=7/n=8 extents
-- [Postscript 83](#postscript-83-the-epsilon-neighbourhood-probe-is-one-recursion-and-the-n2-maximiser-locus-is-a-punctured-circle) — the epsilon-neighbourhood probe is one recursion, and the n=2 maximiser locus is a punctured…
-- [Postscript 84](#postscript-84-the-727-arcs-enumerated--1449-records-216-chart-lines-exactly-three-arcs-up-to-congruence) — the 727 arcs enumerated — 1,449 records, 216 chart lines, exactly THREE arcs up to congruence
-- [Postscript 85](#postscript-85-component-counts-at-727725723-and-723s-family-is-enormous--the-charted-interval-was-a-fragment-near-the-origin) — component counts at 727/725/723, and 723's family is enormous — the charted interval was a…
-- [Postscript 86](#postscript-86-symmetries-named-by-group-not-by-order--and-three-of-them-were-ambiguous) — symmetries named by group, not by order — and three of them were ambiguous
-- [Postscript 87](#postscript-87-a-vast-family-has-a-one-line-generator--but-the-maximiser-subset-of-it-does-not) — a vast family has a one-line generator — but the MAXIMISER subset of it does not
-- [Postscript 88](#postscript-88-rank-3-does-not-prove-isolation--and-the-n6-record-sits-at-a-crossing-of-two-727-arcs) — rank 3 does NOT prove isolation — and the n=6 record sits at a CROSSING of two 727 arcs
-- [Postscript 89](#postscript-89-arcs-b-and-c-measured--the-three-727-arcs-differ-in-extent-by-300x) — arcs B and C measured — the three 727 arcs differ in extent by 300x
-- [Postscript 90](#postscript-90-arc-bounds-are-analytic--one-linear-solve-where-the-wall-is-catalogued-and-blocked-on-w3w4-where-it-is-not) — arc bounds ARE analytic — one linear solve where the wall is catalogued, and blocked on…
-- [Postscript 91](#postscript-91-w4-enumerated-as-crossings-on-a-line--arc-as-ends-solved-exactly-and-its-recorded-extent-was-wrong-at-both-ends) — W4 enumerated as crossings on a line — arc A's ends solved exactly, and its recorded extent…
-- [Postscript 92](#postscript-92-w3-enumerated-too--and-w3w4-account-for-every-chamber-wall-on-arc-a-15-of-15) — W3 enumerated too — and W3+W4 account for EVERY chamber wall on arc A, 15 of 15
-- [Postscript 93](#postscript-93-all-three-727-arcs-bounded-analytically--five-of-six-ends-are-w4) — all three 727 arcs bounded analytically — five of six ends are W4
-- [Postscript 94](#postscript-94-the-arc-network-has-measurable-geometry--c-and-d1s-lines-intersect-at-a-725-point-outside-both-arcs) — the arc network has measurable geometry — C and D1's LINES intersect, at a 725 point outside…
-- [Postscript 95](#postscript-95-what-a-w4-wall-actually-is--a-circle-of-face-normals-a-one-sheeted-hyperboloid-doubly-ruled) — what a W4 wall actually is — a circle of face normals, a one-sheeted hyperboloid, doubly ruled
-- [Postscript 96](#postscript-96-what-happens-at-an-arc-terminus--a-corner-to-corner-contact-doubled) — what happens at an arc terminus — a corner-to-corner contact, doubled
-- [Postscript 97](#postscript-97-the-500-extent-spread-was-a-chart-artifact--measured-as-rotation-the-arcs-differ-by-21) — the 500× extent spread was a chart artifact — measured as rotation, the arcs differ by 2.1×
-- [Postscript 98](#postscript-98-one-figure-for-all-seven-levels--the-mark-carries-the-dimension) — one figure for all seven levels — the mark carries the dimension
-- [Postscript 99](#postscript-99-the-octahedral-67-is-built-from-mirror-plane-13s-not-body-diagonal-ones) — the octahedral 67 is built from MIRROR-PLANE 13s, not body-diagonal ones
-- [Postscript 100](#postscript-100-the-multi-cube-gap-closed-at-n3--solve-the-tight-step-a-conditions-not-the-concurrences) — the multi-cube gap CLOSED at n=3 — solve the tight Step-A conditions, not the concurrences
-- [Postscript 101](#postscript-101-n--8--1895--the-record-was-inside-a-window-an-earlier-sweep-had-already-covered-and-the-723-stratum-wraps) — n = 8 = 1895 — the record was inside a window an earlier sweep had already covered; and the…
-- [Postscript 102](#postscript-102-the-records-twelve--the-tight-set-failure-is-localised-to-slab-pair-conditions-one-base-cube-per-arc) — the record's twelve — the tight-set failure is localised to slab-PAIR conditions, one base…
-- [Postscript 103](#postscript-103-rulings-are-not-constant-count-lines--the-path-ranked-first-refutes-its-own-premise-and-every-wall-splits-over-ℚ) — rulings are NOT constant-count lines — the path ranked first refutes its own premise, and…
-- [Postscript 104](#postscript-104-every-wall-splits-over-ℚ-and-now-for-a-reason--detq-is-a-perfect-square-identically) — every wall splits over ℚ, and now for a reason — det(Q) is a perfect square identically
-- [Postscript 105](#postscript-105-hunt_v3-stopped-at-720-500-candidates--a-30-hour-search-returns-a-plateau-member-and-the-exchange-rate-is-the-point) — hunt_v3 stopped at 720 500 candidates — a 30-hour search returns a plateau member, and…
+- [Postscript 75](#p75) — zero signal means a uniform REGION — and characterising it separates the two n=3 maxima for…
+- [Postscript 76](#p76) — the n=2 13-locus is bigger than recorded — and that is what a structural proof of max(3)…
+- [Postscript 77](#p77) — STEP A COMPLETE — a closed-form exact formula for the two-cube region count, and with it the…
+- [Postscript 78](#p78) — STEP B — the three-cube count decomposed exactly, and max(3) = 67 reduced to a single…
+- [Postscript 79](#p79) — the wide-engine campaign is COMPLETE — 727 survives all 508,818 previously-unreachable…
+- [Postscript 80](#p80) — the 727 classes are not indexed by field — they are quadratic points inside one rational…
+- [Postscript 81](#p81) — a tangent finder, the two 67 representatives recovered, and symmetry measured across every…
+- [Postscript 82](#p82) — the tangent is a null space, 393 is rigid against moving one cube, and the n=7/n=8 extents
+- [Postscript 83](#p83) — the epsilon-neighbourhood probe is one recursion, and the n=2 maximiser locus is a punctured…
+- [Postscript 84](#p84) — the 727 arcs enumerated — 1,449 records, 216 chart lines, exactly THREE arcs up to congruence
+- [Postscript 85](#p85) — component counts at 727/725/723, and 723's family is enormous — the charted interval was a…
+- [Postscript 86](#p86) — symmetries named by group, not by order — and three of them were ambiguous
+- [Postscript 87](#p87) — a vast family has a one-line generator — but the MAXIMISER subset of it does not
+- [Postscript 88](#p88) — rank 3 does NOT prove isolation — and the n=6 record sits at a CROSSING of two 727 arcs
+- [Postscript 89](#p89) — arcs B and C measured — the three 727 arcs differ in extent by 300x
+- [Postscript 90](#p90) — arc bounds ARE analytic — one linear solve where the wall is catalogued, and blocked on…
+- [Postscript 91](#p91) — W4 enumerated as crossings on a line — arc A's ends solved exactly, and its recorded extent…
+- [Postscript 92](#p92) — W3 enumerated too — and W3+W4 account for EVERY chamber wall on arc A, 15 of 15
+- [Postscript 93](#p93) — all three 727 arcs bounded analytically — five of six ends are W4
+- [Postscript 94](#p94) — the arc network has measurable geometry — C and D1's LINES intersect, at a 725 point outside…
+- [Postscript 95](#p95) — what a W4 wall actually is — a circle of face normals, a one-sheeted hyperboloid, doubly ruled
+- [Postscript 96](#p96) — what happens at an arc terminus — a corner-to-corner contact, doubled
+- [Postscript 97](#p97) — the 500× extent spread was a chart artifact — measured as rotation, the arcs differ by 2.1×
+- [Postscript 98](#p98) — one figure for all seven levels — the mark carries the dimension
+- [Postscript 99](#p99) — the octahedral 67 is built from MIRROR-PLANE 13s, not body-diagonal ones
+- [Postscript 100](#p100) — the multi-cube gap CLOSED at n=3 — solve the tight Step-A conditions, not the concurrences
+- [Postscript 101](#p101) — n = 8 = 1895 — the record was inside a window an earlier sweep had already covered; and the…
+- [Postscript 102](#p102) — the record's twelve — the tight-set failure is localised to slab-PAIR conditions, one base…
+- [Postscript 103](#p103) — rulings are NOT constant-count lines — the path ranked first refutes its own premise, and…
+- [Postscript 104](#p104) — every wall splits over ℚ, and now for a reason — det(Q) is a perfect square identically
+- [Postscript 105](#p105) — hunt_v3 stopped at 720 500 candidates — a 30-hour search returns a plateau member, and…
+- [Postscript 106](#p106) — the singleton term is ADDITIVE in the two pair labels — and max(3) ≤ 67 reduces to one…
+- [Postscript 107](#p107) — the constant is the FACET COUNT — m = F exactly, and max(3) ≤ 12F − 5 with 67 at F = 6
+- [Postscript 108](#p108) — rulings DO beat generic directions — but only at the arc terminus, and multiplicity is not why
+- [Postscript 109](#p109) — the bound is Euler on the intersection graph plus Alexander duality — and the residual gap is one sign
+- [Postscript 110](#p110) — the bound is PROVED (Mayer–Vietoris + Alexander duality), and the theorem then caught two bugs in the code testing it
 
 <!-- INDEX:END -->
 
@@ -395,6 +400,7 @@ the five-cube compound's 351, without needing any randomness.
   rather than deliverables; the tables above are the complete distilled
   record.
 
+<a id="p1"></a>
 ## Postscript: exact certification overturns the ranking
 
 After the voxel search concluded, the winning configurations were
@@ -447,6 +453,7 @@ unknown. But every number in the table above is now an exact integer with
 machine-checked consistency invariants, at ~6 s per configuration — faster
 than the voxel counts it replaces.
 
+<a id="p2"></a>
 ## Postscript 2: subset-maximality analysis (subset_analysis.py, pair_checks.py)
 
 Exact counts of every k-subset of the 595 winner (seed 12) vs random baselines:
@@ -482,6 +489,7 @@ Key discoveries:
 
 Search record meanwhile: seed 119 = EXACT 603 (viewer artifact published).
 
+<a id="p3"></a>
 ## Postscript 3: C++ engine, per-subset structure, and a corrected "law"
 
 **Per-subset breakdowns** (`breakdown.py`, and now logged per-config): the
@@ -519,6 +527,7 @@ exact hill-climbing (Phase B) and full analysis (Phase C) pending — the
 implementing agent hit its session limit after delivering the validated
 engine.
 
+<a id="p4"></a>
 ## Postscript 4: mass falsification campaign — C1/C2/C3 fall, new record 635
 
 Full campaign delivered (Phases A-C of `specs/CPP_SPEC.md`), superseding the
@@ -598,7 +607,7 @@ totals: the 635/631 records have balanced profiles (cubes 16-24, pairs
   per-pair d2) = +0.58, monotone, no mid-peak — and richest-subset
   configs cluster at the TOP of the distribution. The true statement is
   not "richness trades against total" but "records combine HIGH richness
-  with balance": the 699 record (Postscript 9) has per-cube d1 = 30 for
+  with balance": the 699 record (Postscript [9](#p9)) has per-cube d1 = 30 for
   ALL six cubes — above this ensemble's max of 26 — and perfectly
   balanced. What random seeding cannot do is reach the measure-zero WALLS
   where a subset spikes to its field ceiling (pair 13, triple 67); it
@@ -628,6 +637,7 @@ grows). Logs: `campaign_results.jsonl` (106,525 configs with per_label),
 `hillclimb_log.jsonl` (7,937 configs). `exact_search_results.jsonl` was
 treated as read-only ground truth throughout.
 
+<a id="p5"></a>
 ## Postscript 5: 635 certified locally maximal; campaign to 260k; exact spherical census confirms T1
 
 Three workstreams (2026-07-10, agent-executed, results in `task_a.log` /
@@ -698,6 +708,7 @@ anchoring mechanism is now supported by the empty shoulder hunt.
 mode (paste 6 integer quats, exact counts snapshot + wireframe) —
 the 635 record is now displayable despite having no seed.
 
+<a id="p6"></a>
 ## Postscript 6: n > 6 cubes — engine generalized, n=7 campaign underway
 
 STATUS: IN PROGRESS (last updated 2026-07-11). This postscript records
@@ -747,9 +758,10 @@ trimmed n=8 campaign (~5k seeds), the depth-freeze structure per n
 (164,102,36,1) tail), and the T1(l,n) bottom-diagram census across n.
 This section will be extended with those results.
 
+<a id="p7"></a>
 ## Postscript 7: beyond rational rotations — the ℚ(√d) program
 
-(Numbering note: Postscript 6 is reserved for the cross-n report of the
+(Numbering note: Postscript [6](#p6) is reserved for the cross-n report of the
 n>6 agent, in flight; its gates already passed — `cube_regions_n --n 7
 --seed 777` = 973 matching the Python oracle, `--n 6` regression exact —
 and its first n=7 campaign row, seed 3000 = 997, already exceeds the
@@ -785,7 +797,7 @@ defining incidences need:
 Some number field always suffices (algebraic points are dense in every
 stratum), but no single quadratic field covers all walls.
 
-**Against walls** stands the census evidence (Postscript 5): degeneracy
+**Against walls** stands the census evidence (Postscript [5](#p5)): degeneracy
 only merges bottom-diagram cells (T2 direction), and observed walls
 trade small shallow gains (six6: d1 = 120 > 118) for large deep losses
 (total 355). Whether ANY exact-incidence wall can net-win the total at
@@ -860,9 +872,10 @@ random sixth cubes beat 635 (range 637–665); sub-635 occurs only when
 the sixth lands exactly on a golden cube (351). Full details:
 golden_wall_report.md.
 
+<a id="p8"></a>
 ## Postscript 8: multi-constraint search pays — tower verification, the (1,1,1) wall explained, and a new RATIONAL record 655
 
-(multiwall_report.md, multiwall_search.jsonl, qtower.py; Postscript 6
+(multiwall_report.md, multiwall_search.jsonl, qtower.py; Postscript [6](#p6)
 remains reserved for the parked n>6 cross-n report.)
 
 - **Tower engine**: qtower.py builds ℚ(√3,√5) as Q5(√3) over the
@@ -897,10 +910,11 @@ Record table: overall 681 (golden five + sixth on the (1,1,1) wall,
 238 (golden family B); deep ceilings d3 ≤ 164 / d4 ≤ 102 / d5 ≤ 36
 still never exceeded anywhere, including on every wall tested.
 
+<a id="p9"></a>
 ## Postscript 9: sliding 3-cube triples — a new RATIONAL AND OVERALL record 699 (slide3_report.md)
 
 (slide3_report.md, slide3_search.jsonl, slide3_q2.py, slide3_search.py,
-slide3_p1/p2/p3.py; specs/SLIDE3_SPEC.md + SLIDE3_SPEC_V2.md. Postscript 6 still
+slide3_p1/p2/p3.py; specs/SLIDE3_SPEC.md + SLIDE3_SPEC_V2.md. Postscript [6](#p6) still
 reserved for the parked n>6 cross-n report.)
 
 Prompted by the user's observation that a family of maximal 3-cube
@@ -968,6 +982,7 @@ triples on the shared (1,1,1) axis, ℚ); prior overall 681 (golden five +
 random+climb 635; d1 record 238 (golden family B), d2 high 216 (699); deep
 ceilings d3 ≤ 164 / d4 ≤ 102 / d5 ≤ 36 still never exceeded anywhere.
 
+<a id="p10"></a>
 ## Postscript 10: symmetry-stratified sweep of the walls — no new record, framework validated, coverage caveat
 
 (symmetry_search.py, symmetry_search.jsonl, symmetry_search_report.md,
@@ -1004,7 +1019,7 @@ needs (its second triple's seed is a full quaternion [41,28,22,14], not
 a coordinate-axis rotation). So the sweep does NOT independently
 re-derive 699, and every "best" above is a floor, not a proven family
 maximum. The true ceiling of the 699-holding family remains the slide3
-result (Postscript 9: 699, radius-2 local max, finer Farey sweep still
+result (Postscript [9](#p9): 699, radius-2 local max, finer Farey sweep still
 open).
 
 **What the sweep DOES establish**: (1) the framework and dispatch are
@@ -1014,7 +1029,7 @@ within ~40 of 699 even at coarse coverage — the maximum concentrates in
 those two families. Phase 3 (ℚ(√2)/ℚ(√3)/towers) was deferred with
 justification: no rational family came near enough to 699 to warrant a
 quadratic refinement, and the one concrete tower point (the ℚ(√3,√5)
-681 wall) was already shown non-special (Postscript 8).
+681 wall) was already shown non-special (Postscript [8](#p8)).
 
 **Next move if pursued**: re-run the top families (C₃:3+3 first, to
 independently confirm ≤699; then the core+free families T/D₃/C₂) with
@@ -1022,10 +1037,11 @@ full-quaternion seed grids + deeper hill-climb, since the current grids
 demonstrably under-cover. Until then, 699 stands and the symmetry map
 is a floor.
 
+<a id="p11"></a>
 ## Postscript 11: full-quaternion symmetry re-run — NEW RECORD 717 (and 705); Postscript 10's negative was a coverage artifact
 
 (symmetry_search2.py, symmetry_search2.jsonl, symmetry_search_report2.md,
-SYMMETRY_SEARCH_V2.md.) Postscript 10's sweep validated the framework
+SYMMETRY_SEARCH_V2.md.) Postscript [10](#p10)'s sweep validated the framework
 but under-searched: its per-family seed grids used thin axis-angle
 seeds, so C₃:3+3 (which provably contains 699) capped at 399. Re-run
 with FULL integer-quaternion seeds — same validated orbit construction,
@@ -1055,7 +1071,7 @@ Both are radius-4 local maxima. Notable structure:
   (like 681), whereas 699 was ≡ 3 (generic parity). The higher-symmetry
   records sit in the exception class.
 
-**Postscript 10 corrected.** Its "nothing beat 699" and its per-family
+**Postscript [10](#p10) corrected.** Its "nothing beat 699" and its per-family
 "bests" were floors from thin coverage, now superseded: C₃:3+3 399→705,
 D₂:4+free2 651→717, C₂:2+2+2 653→677. Families whose small orbits live
 on a 1-parameter alignment locus a uniform quaternion draw never hits
@@ -1073,6 +1089,7 @@ ceilings d3≤164/d4≤102/d5≤36 still never exceeded. Open: climb 717's D₂
 family deeper (radius 5+) and re-examine whether an even shallower-tail
 route (d3 < 158) buys more d1.
 
+<a id="p11a"></a>
 ## Postscript 11 addendum: 717 is capped — the shallow-tail tradeoff is a 1:1 conservation
 
 (d2_deepclimb.py, d2_deepclimb.jsonl, d2_deepclimb_report.md.) Deep-climb
@@ -1094,6 +1111,7 @@ exists WITH the deep tail at the ceiling (d3=164, quats
 below-ceiling tail is incidental, not the source of the record. 717
 stands as the capped maximum of this family.
 
+<a id="p12"></a>
 ## Postscript 12: shared-axis "intersection" families — NEW RECORD 723
 
 (symmetry_search3.py, symmetry_search3.jsonl, symmetry_search3_report.md,
@@ -1132,6 +1150,7 @@ C₃core3+free3 was only partly climbed — deeper climb of the 723 plateau,
 and the same core+free template with a C₃ core on other axes / larger
 cores.
 
+<a id="p13"></a>
 ## Postscript 13: incidence geometry — edge vs corner concurrences, the 9-fold sweet spot, and the algebraic search
 
 (algebraic_search.wl/algebraic_demo.wl/algebraic_groebner*.wl/algebraic_bridge.py,
@@ -1184,6 +1203,7 @@ exact points a numeric grid misses and map the incidence↔count tradeoff.
 The deep-layer caps (d3≤164/d4≤102/d5≤36), not depth-1, are the binding
 constraint on beating 723.
 
+<a id="p14"></a>
 ## Postscript 14: the depth trade-off structure — deep layers quantize, shallow layers grow, records sacrifice deep for shallow
 
 (Analysis over 456,922 exactly-counted configs pooled from every log with
@@ -1270,6 +1290,7 @@ Three experiments ran on the trade-off/extra-DOF questions:
   symmetry (unlike translation), so it is the gentler extra DOF and the
   more likely of the two to help, but it remains untested at n=6.
 
+<a id="p15"></a>
 ## Postscript 15: n=4 — golden 177 is NOT the maximum; new rational record 183
 
 (n4_search.py, n4_search.jsonl, n4_search_report.md, prompted by Chris
@@ -1311,6 +1332,7 @@ one structured seed; applying it to the other families' champions is the
 obvious next step. A naive additive bound from best-ever d1 (104, golden)
 + best d2 (66) + d3 cap 24 + 1 = 195 suggests real headroom remains.
 
+<a id="p16"></a>
 ## Postscript 16: records NEST — 723's subsets contain the smaller records, and its 5-subset beats golden 351
 
 (Analysis of the record configs' sub-compounds, prompted by questions on
@@ -1402,6 +1424,7 @@ principle: the n=5 optimum is INHERITED from the n=6 record, with no
 constructive five-cube route to comparable richness — the tower is
 top-down as much as bottom-up.
 
+<a id="p17"></a>
 ## Postscript 17: local perfection is globally frustrated past n=3 — the "middle-layer" mechanism
 
 (Prompted by the observation that golden N4 is built from optimal
@@ -1439,6 +1462,7 @@ GLOBALLY maximizes d1 is a stronger claim, still untested.) This unifies the gol
 symmetry of records, the incidence sweet spot, and why greedy extension
 (which inherits detuned subsets) beats assembling from optimal parts.
 
+<a id="p17a"></a>
 ## Postscript 17 addendum: the DOF hierarchy — local optima are RIGID, flexibility lives in suboptimal-but-structured configs
 
 (Corrects earlier loose claims about pair flexibility, incl. a mistaken
@@ -1449,15 +1473,15 @@ symmetry of records, the incidence sweet spot, and why greedy extension
 |---|---|---|
 | 4 (generic) | 94% | full 3-D open sea |
 | 9 (shared face-axis) | 2% | CONTINUOUS — exactly 9 at every angle about the shared axis (verified 8 angles) |
-| 13 (the MAXIMUM) | 0.1% | rigid, near-isolated high-codimension wall [WRONG — corrected in Postscript 44: measure-zero but CONTINUOUS, a 1-parameter family] |
+| 13 (the MAXIMUM) | 0.1% | rigid, near-isolated high-codimension wall [WRONG — corrected in Postscript [44](#p44): measure-zero but CONTINUOUS, a 1-parameter family] |
 
 The MAX pair (13) is the RAREST and most rigid; the suboptimal 9 sits on a
 fatter, continuously-parameterized locus. Same for triples: 67 is ISOLATED
-(Postscript 9 — octahedral ℚ√2 and golden ℚ√5 endpoints connected by a
+(Postscript [9](#p9) — octahedral ℚ√2 and golden ℚ√5 endpoints connected by a
 family whose INTERIOR drops to ~37; near-45° rational octahedral gives only
 55, exact 45° needed; a climbed 63-triple has 0% DOF openness). So **local
 optima (13, 67) are rigid points; they are NOT count-preserving-continuous.**
-[PARTLY WRONG — see Postscript 44 (2026-07-29). True for 67 (the two
+[PARTLY WRONG — see Postscript [44](#p44) (2026-07-29). True for 67 (the two
 triples really are isolated), FALSE for 13: the 13-pair is measure-zero but
 count-preserving-CONTINUOUS — every angle about a body diagonal gives 13.
 The rigidity that drives the frustration principle lives one level up, at
@@ -1468,7 +1492,7 @@ cubes), but the optima have no COUNT-PRESERVING DOF. The flexibility that a
 larger arrangement can exploit lives in the suboptimal-but-structured
 configs (the 9-pair's tunable shared-axis angle).
 
-**This SHARPENS the frustration principle (Postscript 17):** local optima
+**This SHARPENS the frustration principle (Postscript [17](#p17)):** local optima
 are rigid, so the globally optimal arrangement is FORCED to build from
 locally-suboptimal-but-flexible pieces. Golden fails precisely because it
 insists on the rigid optimal pieces (all pairs = 13); the true max uses
@@ -1477,6 +1501,7 @@ tunable 9-pieces. Structure of max₄ (183): an axis-aligned HUB cube paired
 (the C₃ orbit — a shared-axis cluster whose angles are the tunable freedom).
 The C₃core+free family that built 723 is the six-cube version of this.
 
+<a id="p18"></a>
 ## Postscript 18: shared-axis-cluster construction — free spoke angles recover every record; locked/control variants fall short
 
 (shared_axis_search.py/.jsonl, campaign partially complete — n=6 templates
@@ -1500,6 +1525,7 @@ is a VALIDATED construction principle — it recovers every record from the
 right variables where generic search and angle-locking fail; no template
 has (yet) beaten a record. Full report when the n=6 templates finish.
 
+<a id="p19"></a>
 ## Postscript 19: THE GENERAL CEILING LAW — depth-(n−l) ≤ (12l−6)n − 2(l²−1)
 
 (Discovered by fitting the bottom-l maxima across n and cross-checked two
@@ -1511,7 +1537,7 @@ independent ways. The single most consolidating result of the project.)
     depth-(n−l)  ≤  C(l, n),   attained (generically or by records/golden)
 
 Slopes 6, 18, 30, 42, … (arithmetic, step 12); intercepts −2(l²−1).
-Special cases: l=1 gives the 6n law (Postscript 14 era); l=n−1 gives the
+Special cases: l=1 gives the 6n law (Postscript [14](#p14) era); l=n−1 gives the
 TOP layer d1 ≤ 10n² − 14n.
 
 **Evidence 1 — attainment table** (max observed per layer over ~1M exact
@@ -1536,14 +1562,14 @@ deep-layer-ceiling configs; the middle is the contested ground.)
 
 **Evidence 3 — the spherical census matches.** All measured swap-curve
 censuses are TRIVALENT (E = 3V/2), so Euler gives cells = 2 + V/2, i.e.
-V_l(n) = 2·C(l,n) − 4 = (24l − 12)n − 4l². Measured at n=6 (Postscript 5):
+V_l(n) = 2·C(l,n) − 4 = (24l − 12)n − 4l². Measured at n=6 (Postscript [5](#p5)):
 V₁,V₂,V₃ = 68, 200, 324; formula: 68, 200, 324. Exact agreement from a
 completely independent measurement.
 
 **Corollary (max-total bound).** Total ≤ 1 + Σ_{l=1}^{n−1} C(l,n)
 = 1 + (n−1)(16n² − 17n + 6)/3. At n=6: ≤ 801 (record 723; the gap is the
 frustration cost). At n=4: ≤ 195 (record 183 — matches the "naive additive
-bound" of Postscript 15, now derived). At n=5: ≤ 429 (record 393).
+bound" of Postscript [15](#p15), now derived). At n=5: ≤ 429 (record 393).
 [445 was an arithmetic slip, corrected 2026-07-13.]
 
 **Proof target, now crisp (T1/T2 sharpened).** T1: show the swap-curve
@@ -1559,7 +1585,7 @@ the law — a standing falsification target.
 
 ### Postscript 19 addendum: why 63 beats 67 as a building block — deep structure persists, shallow count is recut
 
-(Closes the building-block thread of Postscripts 16-18 using the ceiling
+(Closes the building-block thread of Postscripts [16](#p16)-[18](#p18) using the ceiling
 law. Verified on all six 63-triples of the 723 record.)
 
     golden 67:      {1:48, 2:18, 3:1}   pairs [13,13,13]  isolated √5/√2 wall
@@ -1585,6 +1611,7 @@ recyclable and worthless to the tower. 63 is 67 with 4 depth-1 regions
 converted back into a tuning knob — which is why the record is built
 from deep-saturated, shallow-detuned, one-knob pieces.**
 
+<a id="p20"></a>
 ## Postscript 20: the deficit-propagation envelope — an empirical branch-and-bound bound, and 723 nearly cornered
 
 (envelope_mine.py/.jsonl: 532 configs stratified across the total
@@ -1601,7 +1628,7 @@ subsets; the records 723 and 717 sit at 330). Conjecture E1: every
 **Corollary (723 nearly cornered).** If E1 holds, any 6-config beating
 723 must CONTAIN a 5-subset with total ≥ 388. The known n=5 landscape:
 the record 393 (= 723's own subset family), 717's best subset 387, and
-every native n=5 search capped at 377 (Postscript 16 addendum 3, ~171k
+every native n=5 search capped at 377 (Postscript [16](#p16) addendum 3, ~171k
 configs). So beating 723 would require a 5-config in a class that only
 the 723 family is known to occupy — the search for >723 reduces to the
 search for new 5-configs ≥ 388, a far smaller frontier. (Empirical
@@ -1638,17 +1665,18 @@ angles contains and recovers every record (183/393/723) from ~10-15k
 evals per template, while angle-locking costs 15-45 and unstructured
 controls trail by 20-30. The flexible 9-DOF is confirmed as the right
 search variable; the blueprint level is now handed to the
-branch-and-prune program (Postscript 20 bounds E1/E2 as its pruning).
+branch-and-prune program (Postscript [20](#p20) bounds E1/E2 as its pruning).
 
+<a id="p21"></a>
 ## Postscript 21: blueprint branch-and-prune complete — 67 skeletons exhausted, nothing beats 723
 
 (blueprint_enum.py, blueprint_search.py/.jsonl, blueprint_search_report.md.
-The branch-and-prune program of Postscript 20, executed.)
+The branch-and-prune program of Postscript [20](#p20), executed.)
 
 **Catalog**: 391 raw blueprints (cluster partitions × axes × kinds) →
 67 canonical survivors after symmetry/specialization collapse, plus 2
 pruned with documented justification: P2 the golden/octahedral all-13
-wall (irrational, and its best extension 681 < 723 — Postscript 12), P3
+wall (irrational, and its best extension 681 < 723 — Postscript [12](#p12)), P3
 the multi-axis polyhedral-forcing family (tested at 613, dominated).
 
 **Gates**: the 723 blueprint (onaxis3+spoke3 on (1,1,1)) survives
@@ -1666,10 +1694,11 @@ blueprint/skeleton level within the rational shared-axis/free family at
 stated coverage, (ii) cornered at the subset level by envelope E1 (any
 beater must contain a 5-config ≥ 388; only the 723 family is known to
 reach that), and (iii) at the peak of the deep-sacrifice trade-off
-surface (Postscript 14). Three independent closures. Beating 723 now
+surface (Postscript [14](#p14)). Three independent closures. Beating 723 now
 requires either a fundamentally new 5-cube near-record, an irrational
 wall outside every family tested, or a violation of envelope E1.
 
+<a id="p22"></a>
 ## Postscript 22: the n=7 program — 1207 certified, the ceiling law passes its out-of-sample test, first n=8 record 1879
 
 (n7_program.py/.jsonl/n7_program_report.md — the full n≤6 apparatus
@@ -1707,6 +1736,7 @@ every size tested (n=2..8, ~1.2M exact configs, zero violations), a
 record tower built by single-cube extension whose every level is the
 best known, and the shallow caps as the standing open frontier.
 
+<a id="p23"></a>
 ## Postscript 23: the cap-sum bound is TIGHT at n=2 and n=3 — a proof of 13 and 67 reduces to two lemmas
 
 (Prompted by Chris Cole: "I wonder if there is a proof of 67 somewhere in
@@ -1772,6 +1802,7 @@ hand-checkable. L1(2) is the single easiest full theorem on the board.
   enabling case analysis on d1 — necessary but not yet sufficient
   (at n=4 it leaves max ≤ 193 vs true 183). Open.
 
+<a id="p24"></a>
 ## Postscript 24: FIRST THEOREM — the anchor lemma is proven (all n), and the n=2 CAD verdict
 
 Direct outcome of the fine-graining exchange with Chris Cole.
@@ -1824,6 +1855,7 @@ middle→corner marker). So the edge-concurrence structure persists as a
 sub-percent-gap GHOST through the whole family, exact only at the two
 walls. Viewer updated to render near-concurrences as fading ghost rings.
 
+<a id="p25"></a>
 ## Postscript 25: the DIHEDRAL FAMILY — a closed-form 1-parameter family with exact edge coincidences, containing both 67s; the ghosts explained; a new exactly-certified compound in Q(sqrt6)
 
 Prompted by the user viewing the slide midpoint (t=0.5) and asking whether a
@@ -1865,11 +1897,11 @@ Interior-of-segment crossing counts form plateaus in psi:
   phi^2 + phi^-2 = 3. Axis n proportional to (phi^2, 1, 0). Pair invariant
   = 3phi/2 = 2.4270509831... to 1e-16. At exactly this psi the 18 interior
   crossings hand over to 54 AT-CORNER contacts — the blue-ring -> gold-ring
-  morph of Postscript 9, now in closed form.
+  morph of Postscript [9](#p9), now in closed form.
 - The relative rotation is the classical golden matrix
   (1/2)[[phi,1,1/phi],[1,-1/phi,-phi],[-1/phi,phi,-1]] at the golden point.
 
-**Why the slide has ghosts.** The 67<->67 slide (Postscript 9) connects the
+**Why the slide has ghosts.** The 67<->67 slide (Postscript [9](#p9)) connects the
 two 67s but leaves this family (its interior seed has face-axis dot (1,1,1)
 approx 0.05, not 0). The dihedral family connects the same two endpoints
 THROUGH exact-coincidence configurations the whole way. The ghost gaps of the
@@ -1887,7 +1919,7 @@ validated slide3_q2.py, D: 2->6; identity-pair self-test passes; S certified
 orthonormal with S^3=I in exact arithmetic):
   TOTAL = 49, depth profile {d1: 30, d2: 18, d3: 1}.
 Same deep layers as both 67s (18, 1) — another instance of "deep structure
-conserved, d1 is what varies" (Postscript 17). SINGLE-ENGINE exact count
+conserved, d1 is what varies" (Postscript [17](#p17)). SINGLE-ENGINE exact count
 (not a record claim); a second engine pass is listed in the follow-ups.
 
 **Arithmetic density (open route).** With sin psi = p/r, cos psi = q/r
@@ -1905,7 +1937,7 @@ Prompted by the user asking for "another way to slide from octahedral sqrt2
 to golden sqrt5 while maintaining edge concurrences." Fine-grained pair-
 identity tracking (0.1-deg grid, persistence.py/docking.py in
 dihedral_scratch/) shows the dihedral family already does this, more
-literally than Postscript 25 realized:
+literally than Postscript [25](#p25) realized:
 
 1. **The 18-core.** The interior crossing SET is one and the same set of
    18 edge pairs (6 per cube pair) on the ENTIRE open interval
@@ -1918,7 +1950,7 @@ literally than Postscript 25 realized:
 2. **Corner docking.** At arrival at golden (either copy), nothing
    breaks: 6 of the core 18 remain interior at segment parameter
    t = +-0.23607 = 1/phi^3 (the golden section yet again; cf. the s=1/phi
-   crossing of Postscript 9), and the other 12 land EXACTLY on cube
+   crossing of Postscript [9](#p9)), and the other 12 land EXACTLY on cube
    corners (t = +-1, gap ~3e-16) — they BECOME the golden corner-
    coincidence structure. Verified identically at mirror-golden
    (20.905 deg): 6 interior + 12 docked, 0 broken.
@@ -2018,7 +2050,7 @@ Observations:
 1. **d3 = 1 always, d2 = 18 across the whole middle band** (dropping to 12
    only below ~10 deg and mirrored) — ALL action is in d1
    (12->18->24->36, spiking 48 at both 67s, 30 at 45 deg). The
-   "deep-structure-conserved, d1-varies" principle (Postscript 17) holds
+   "deep-structure-conserved, d1-varies" principle (Postscript [17](#p17)) holds
    pointwise along the entire family.
 2. **The family's maxima are exactly the two 67s** — the proven n=3
    global maximum is attained precisely at the two most special family
@@ -2092,6 +2124,7 @@ Scope: single-hop rescues at the identified walls + three cross-class
 families + coarse grid; multi-hop chains through second/third walls not
 exhausted.
 
+<a id="p26"></a>
 ## Postscript 26: the records are BUILT FROM family pairs — the n>3 verdict on the dihedral family
 
 specs/NFAMILY_SPEC.md executed (nfamily_report.md; two-engine gates G0/G1/G2 all
@@ -2168,8 +2201,9 @@ verified-numerics to proved today (full proofs in C45_notes.md sect. 12):
 Identified as provable-next with real work: certified staircase (Sturm),
 core-18 segment bounds with docking values +-1, +-1/phi^3, the
 pair-curve identity, and (the prize, unchanged) the two lemmas of
-Postscript 23 for max(3)=67.
+Postscript [23](#p23) for max(3)=67.
 
+<a id="p27"></a>
 ## Postscript 27: the gluing search — records still unbeaten (deficit exactly 8 at every n), and the RATIONAL-TANGENT discovery (with a correction to the agent's clique inventory)
 
 specs/GLUE_SPEC.md executed (glue_report.md; gates G1/G2/G3 all passed;
@@ -2187,7 +2221,7 @@ converging to a common floor of EXACTLY 8 below the record at every n.
 Nothing beat or tied a record; the record-claim protocol never fired.
 
 **Q0 verdict**: no record is a single-axis family member (full-record
-axis intersections exactly empty). Postscript 26 stands.
+axis intersections exactly empty). Postscript [26](#p26) stands.
 
 **CORRECTION to the agent's sub-clique inventory** (main session,
 exhaustive exact re-derivation over all subsets x all 3^k face-axis
@@ -2207,7 +2241,7 @@ integer axes — (2,-3,0) at tan 2/3 (sqrt13), (3,5,0) at tan 3/5
 structure lives at RATIONAL-TANGENT, IRRATIONAL-SINE tilts
 (tan psi = 2/3, 2/5, 3/5; hyp^2 = 13, 29, 34 non-square). A Pythagorean
 (rational-sine) sweep can NEVER land on these at any resolution — the
-Postscript 26 sweep searched the wrong rational locus. Yet these
+Postscript [26](#p26) sweep searched the wrong rational locus. Yet these
 configurations ARE integer-quaternion (the records prove it): a pair at
 rational tan psi = q/p has rational Rel iff cos Delta is rational and
 sin Delta is in sqrt(d)*Q with d = p^2+q^2 — rational points on the
@@ -2222,6 +2256,7 @@ should decide which.
 (Also: the n=4 resonance solve (specs/RESONANCE4_SPEC.md) hit its session
 limit mid-run; to be resumed.)
 
+<a id="p28"></a>
 ## Postscript 28: the n=4 resonance solve — cross-class alignment is count-NEGATIVE at n=4; best resonance 151, and it is secretly RATIONAL
 
 specs/RESONANCE4_SPEC.md executed (resonance4_report.md, resumed after a
@@ -2268,7 +2303,7 @@ cancels — and it reduces to tiny integer quaternions
 
     1,0,0,0; -1,2,1,0; 2,2,1,0; 7,-2,-1,0     (axis (2,1,0))
 
-i.e. it sits exactly on Postscript 27's rational-tangent conic
+i.e. it sits exactly on Postscript [27](#p27)'s rational-tangent conic
 (c^2 + 5 s'^2 = 1; cube 2's point is c=-2/3, s'=-1/3). Third-engine
 verification: the C++ engine on those quats gives 151 = {68,58,24,1},
 agreeing with both of the agent's engines. So the algebraically-found
@@ -2283,6 +2318,7 @@ degree-4 nested coordinates, needs a certified nested-radical sign
 oracle to count. The corner-contact (|t|=1) resonance sweep was not
 reached.
 
+<a id="p29"></a>
 ## Postscript 29: the rational-tangent sweep (interim) — the "exactly 8" floor is BROKEN at n=5: deficit now 6
 
 specs/RATTAN_SPEC.md in flight (rattan_report.md; rattan_sweep.py;
@@ -2319,7 +2355,7 @@ t5 = 3/14 (a plateau of t5 in [~8/39, ~3/14] gives the same count):
 Two-engine verified (C++ engine in the sweep; Python oracle re-run
 independently by the main session: exact agreement). 387 > 385 (the
 glue campaign's best): at n=5 the deficit to the record is now 6, so
-the "exactly 8 at every n" pattern of Postscript 27 was a coincidence
+the "exactly 8 at every n" pattern of Postscript [27](#p27) was a coincidence
 of the glue search space, not a structural constant. Note the winning
 config is FIVE cubes on ONE axis — a single-axis 5-chain-with-
 non-uniform-phases, something the glue campaign's 3+2 split could not
@@ -2334,6 +2370,7 @@ symmetry (0,1,-1,0) is exactly the ledger's (0,5,3,2). 723's 6th cube
 (5,2,2,2) is NOT in family position w.r.t. the 4-clique (off-axis,
 like 393's cube 0). Chains alone top out at 175 (n=4) / 671 (n=6).
 
+<a id="p30"></a>
 ## Postscript 30: the event catalogue — the "+-1 per coincidence" law dies, a depth-conservation law survives 12/12, and a correction to Postscript 25 addendum 3
 
 specs/EVENTS_SPEC.md executed (events_report.md, events_extract.py,
@@ -2365,10 +2402,10 @@ the face-diagonal -6 on +6. Everywhere else it bends or breaks:
 entire count delta of every event lands in d1 (occasionally d1+d2);
 every deeper layer is bit-for-bit unchanged — creates, merges,
 interior and corner mechanisms, no-coincidence walls, n=3/4/5 alike.
-Postscript 17's "deep structure conserved" is now a pointwise,
+Postscript [17](#p17)'s "deep structure conserved" is now a pointwise,
 per-event exact statement.
 
-**CORRECTION to Postscript 25 addendum 3** (verified independently by
+**CORRECTION to Postscript [25](#p25) addendum 3** (verified independently by
 the main session with q3_count at psi ~ 0.23/2.29/7.6 deg): the table
 row "psi in (0, ~9.6): 25 = {12,12,1}" is wrong as an interval. 25
 holds ONLY at the isolated point psi=0 (and 90 by mirror); generic
@@ -2389,11 +2426,12 @@ digging out. The exact algebraic location of the ~9.5 deg wall is
 still unpinned (bracketed (7.628, 9.527) deg; needs a resultant on
 the top-diagram cell-change condition — natural follow-up).
 
+<a id="p32"></a>
 ## Postscript 32: the open n=4 resonance candidates counted exactly — still all count-negative; best 169 < 175, the sqrt13 chain = 159
 
 specs/OPENCOUNT_SPEC.md executed (opencount_report.md, opencount.py,
 opencount_results.jsonl, opencount_wl_data.json). resonance4
-(Postscript 28) left ~160 n=4 resonance candidates uncounted because
+(Postscript [28](#p28)) left ~160 n=4 resonance candidates uncounted because
 their coordinates live in degree-4 (nested-radical) fields where the
 voxel triage is unreliable. This closes the countable ones exactly via
 two independent exact-sign engines: a primitive-element number field
@@ -2433,7 +2471,7 @@ count-negative vs 175. NOT covered: the uniform xy/yx systems (30) and
 the full non-triangle mixed-CLASS space (~19k systems) — so this
 extends but does not EXHAUST resonance4. Record protocol not triggered.
 
-Net: with Postscript 28's quadratic-field verdict, this makes "n=4
+Net: with Postscript [28](#p28)'s quadratic-field verdict, this makes "n=4
 family resonances are uniformly count-negative" hold across every field
 degree tested (2, 4, 6), the strongest computational support yet that
 n=3 is the only irrational rung of the tower — with the standing
@@ -2441,6 +2479,7 @@ caveats that the mixed-class space is unswept and that "3 is unique"
 remains conditional on the two 67s being the sole 3-cube maxima
 (Theorem R corollary).
 
+<a id="p33"></a>
 ## Postscript 33: FIRST COMPLETE MAXIMUM THEOREM — max(2) = 13 proved (all R), and d2<=18 / d_{n-1}<=6n proved unconditionally
 
 specs/MAX2_SPEC.md executed (max2_report.md, max2_verify.py,
@@ -2479,7 +2518,7 @@ never adds one.
 - **d2 <= 18 unconditionally at n=3** — Cluster 1 of max(3)=67 now
   complete (was: proved only off the shared-normal locus).
 - **d_{n-1} <= 6n for all n unconditionally** — the l=1 ceiling law of
-  Postscript 19, previously only empirical (~1M configs), now a theorem.
+  Postscript [19](#p19), previously only empirical (~1M configs), now a theorem.
 
 **Correction to PROOF_67 (mine):** I had written the n=2 maximizer as
 "45 deg about a face axis." Wrong — a face-axis rotation shares that
@@ -2502,6 +2541,7 @@ shallow half is the sole remaining gap, exactly the inequality
 Sum_v(deg_v-2) <= 92 on the top diagram (PROOF_67 sect.5,
 specs/CENSUS_BOUND_SPEC.md). 67 holds iff that holds.
 
+<a id="p34"></a>
 ## Postscript 34: feasibility verdict on the last gap (star) Sum(deg-2)<=92 — it splits 32+60, the easy half reduces to a clean "<=16 simultaneous triples" lemma, the hard half needs targeted (not random) search
 
 specs/CENSUS_BOUND_SPEC.md run in feasibility-first mode (census_bound_report.md,
@@ -2548,6 +2588,7 @@ weight <=32 via <=16-simultaneity) and the genuine crux (contact weight
 <=60, a coincidence-locus classification needing the dihedral family).
 max(3)=67 holds iff both hold; nothing found threatens it.
 
+<a id="p35"></a>
 ## Postscript 35: sub-lemma 1a PROVED — triple-point weight <= 32 (via d2 <= 18); max(3)=67 now hinges on ONE inequality (contact weight <= 60)
 
 Main session, 2026-07-20 (proof + exact numerical verification). The
@@ -2590,6 +2631,7 @@ PROVED. The SOLE remaining gap is contact-vertex weight <= 60 (sub-lemma
 the dihedral family (Theorem F), not random search. max(3)=67 holds iff
 contact weight <= 60. PROOF_67.md sect.5.3 has the proof.
 
+<a id="p36"></a>
 ## Postscript 36: region count is AFFINE-INVARIANT — the records are realized by a whole affine family of parallelepiped cells (congruent rhombohedra match 67), correcting a first wrong probe
 
 Exploratory (2026-07-21, main session), prompted by "could cuboids/other
@@ -2643,6 +2685,7 @@ Consequences and what stays open:
   The natural objects are parallelepiped compounds up to affine
   equivalence; "cube" is just a convenient representative.
 
+<a id="p37"></a>
 ## Postscript 37: *** RETRACTED (see Postscript 38) *** — this postscript is WRONG; it counted cells of the INFINITE-plane arrangement, not real face-bounded regions
 
 RETRACTION (2026-07-21): every "beats the record" number below (hexahedra
@@ -2655,7 +2698,7 @@ the trivial convex-cover bound forces (A\B is covered by 6 half-space
 intersections, one per face of B, so <= 6 components; d1 <= 12; total <=
 13 for ANY two convex 6-faced bodies). "Central symmetry is the cap" is
 FALSE - the cap is the generic convex-cover bound, holding for all convex
-cells. See Postscript 38 for the correct analysis. The original (wrong)
+cells. See Postscript [38](#p38) for the correct analysis. The original (wrong)
 text is kept below, struck, for the record.
 
 ~~Exploratory (2026-07-21, main session), answering "can anything with cube
@@ -2685,7 +2728,7 @@ counts; the qualitative "beats 13" is rock-solid.)
 - Cube/cuboid/rhombohedron/parallelepiped are all CENTRALLY SYMMETRIC
   (opposite faces parallel & equidistant); they are exactly the affine
   images of a cube; region count is affine-invariant, so they all MATCH
-  (Postscript 36) and are all CAPPED (13 at n=2).
+  (Postscript [36](#p36)) and are all CAPPED (13 at n=2).
 - A general cube-topology hexahedron is NOT centrally symmetric, and the
   cap vanishes. Mechanism: the proof that caps cubes (Theorem 1, d2<=18,
   the <=6 components-per-body anchor bound) rests on the equal-gradient-
@@ -2737,6 +2780,7 @@ depth-profile notion the records are stated in - so a fair off-center
 "record" search should keep O interior to all cells, or restate the
 target as raw bounded-cell count.~~ [END OF RETRACTED POSTSCRIPT 37]
 
+<a id="p38"></a>
 ## Postscript 38: the counting error corrected — regions are separated by FACES, not infinite planes; and a trivial proof that max(2) = 13 for ALL convex 6-faced cells
 
 Root cause (user caught it, looking at the off-center viewer): "some
@@ -2755,7 +2799,7 @@ over-splits - inflating the counts.
 CORRECTED COUNTS (exact overlap-graph method; validated: concentric
 maximizer = 13 = {12,1}, matching cube_regions_n):
 - off-center cube pair (quat 0,1,1,1 + offset .5,0,.25): **5 = {4,1}**
-  (Postscript 37 wrongly said 25).
+  (Postscript [37](#p37) wrongly said 25).
 - hexahedron (non-parallel-face) pairs: best **4** (wrongly said 40).
 - off-center random scan: best **7** (wrongly said 25).
 NONE beat 13.
@@ -2774,20 +2818,20 @@ n>=3, where B is replaced by a NON-convex union of others and the cover
 argument no longer applies.)
 
 RETRACTIONS/CORRECTIONS:
-- Postscript 37 is RETRACTED in full (hexahedra/off-center do NOT beat
+- Postscript [37](#p37) is RETRACTED in full (hexahedra/off-center do NOT beat
   records; "central symmetry is the cap" is false; the "rigidity ladder"
   and frustum/congruence numbers were all sign-vector artifacts).
 - The answer given to "could off-centering beat a record" (yes) is WRONG;
   correct answer: NO at n=2 (convex-cover), and the standing project
   belief "off-centering does not help" is VINDICATED, not overturned.
-- Postscript 36 SURVIVES: affine-invariance of the count is correct
+- Postscript [36](#p36) SURVIVES: affine-invariance of the count is correct
   (linear maps preserve containment), and "congruent rhombohedra match 67"
   was computed with certify_six (the correct engine) - matching, not
   beating, and true. Only 36's tentative "central symmetry" framing is
   superseded by the convex-cover picture here.
 - Whether any NON-cube convex cell ATTAINS 13 at n=2 (the bound) is a
   separate, still-fine question: parallelepipeds do, via affine images of
-  the cube-13 (Postscript 36); the bound is 13 for all 6-faced convex
+  the cube-13 (Postscript [36](#p36)); the bound is 13 for all 6-faced convex
   cells regardless.
 
 n=3 correct counts (overlap-graph method extended to 3 cells; validated:
@@ -2806,6 +2850,7 @@ LESSON: use the project's own engines (or the exact overlap-graph /
 containment method) for region counts; never the raw sign-vector cell
 count, which is a different (larger) quantity.
 
+<a id="p39"></a>
 ## Postscript 39: the CORRECT successor to P37 — the max(3)=67 proof layers GENERALIZE to all convex 6-faced cells, and flex does not beat 67
 
 Consolidation (2026-07-21, correct containment counter throughout). This
@@ -2817,7 +2862,7 @@ general hexahedra, off-center), NOT just cubes:
 - d2 <= 18: convex-cover — depth-2 region (X∩Y)\Z = union over Z's 6
   faces of a convex set, <= 6 comps, x3 pairs = 18.
 - triple-point weight <= 32: follows from d2<=18 via the shared top/bottom
-  vertex + bottom-Euler argument (Postscript 35), all radial, no cube
+  vertex + bottom-Euler argument (Postscript [35](#p35)), all radial, no cube
   specifics.
 So d1 = 2 + (1/2)(triple + contact) and the WHOLE remaining question is
 contact <= 60, equivalently d1 <= 48, equivalently #comp(cell\(others))
@@ -2844,6 +2889,7 @@ Note P37's "beats records / central symmetry is the cap" is fully dead;
 the correct statement is the opposite - cubes are (conjecturally) EXTREMAL
 among convex 6-faced cells, and the cap is generic to convexity + 6 faces.
 
+<a id="p40"></a>
 ## Postscript 40: the remaining gap reduced to a clean INCIDENCE bound on the cells' edge-skeletons (verified), with an Euler-on-intersection handle (not yet closed)
 
 Real run at contact-weight <= 60 (2026-07-21). Progress on FORMULATION,
@@ -2879,6 +2925,7 @@ folded into the Euler bound; (2) the edge/corner weight tradeoff (golden:
 incorporate "outside the third cell" into the P∩Q Euler bound - that is
 what stands between ~48 and 30.
 
+<a id="p41"></a>
 ## Postscript 41: CANDIDATE PROOF of max(3)=67 (all convex 6-faced cells) via Euler on the PAIRWISE intersection polytopes — the contact bound closes
 
 2026-07-21, main session. Grew directly out of the user's "if 67 is
@@ -2891,7 +2938,7 @@ THE PROOF CHAIN (3 convex cells, each <=6 faces, concentric):
 1. d1 = 2 + (1/2)(T + contact)   [Euler on the top diagram; T = # triple
    points, contact = weight of the deg>=4 top vertices]. So
    2(d1-2) = T + contact.
-2. T <= 32   [PROVEN, Postscript 35: T = triple-point weight, bounded via
+2. T <= 32   [PROVEN, Postscript [35](#p35): T = triple-point weight, bounded via
    the bottom-diagram Euler + d2<=18].
 3. **contact <= Sum over the 3 pairs of (2*F(cell_i ∩ cell_j) - 4).**
    For a convex polytope, Sum over ALL vertices of (deg-2) = 2E-2V =
@@ -2903,7 +2950,7 @@ THE PROOF CHAIN (3 convex cells, each <=6 faces, concentric):
    Each cell has <=6 faces => F(P_i∩P_j) <= 12 => 2F-4 <= 20 =>
    contact <= 3*20 = **60.**
 4. => 2(d1-2) <= 32 + 60 = 92 => **d1 <= 48.**
-5. d2 <= 18, d3 <= 1   [convex-cover / convexity; Postscript 38/39].
+5. d2 <= 18, d3 <= 1   [convex-cover / convexity; Postscript [38](#p38)/39].
 6. total <= 48 + 18 + 1 = **67**, attained by cubes/parallelepipeds. QED
    (modulo step-3 rigor).
 
@@ -2957,6 +3004,7 @@ polytopes (contact<=60). It is the shape-independent Euler constraint the
 user predicted. Also finally supersedes the whole retracted-P37 detour:
 the answer is that cubes are extremal and the cap is a triple Euler bound.
 
+<a id="p31"></a>
 ## Postscript 31: the census extraction — the 92 budget is EXACT at both 67 witnesses, its accounting corrected, and the coincidences ARE top-diagram vertices
 
 specs/CENSUS_SPEC.md executed (census_report.md, census_extract.py,
@@ -2993,11 +3041,11 @@ in TOTAL WEIGHT and wrong in attribution:
   F=18, zero degenerate vertices — exactly the V_1(3) = 12n-4 = 32
   census — despite the heavy top-side degeneracies.
 
-**Synthesis with Postscript 30** (the two campaigns interlock): edge
+**Synthesis with Postscript [30](#p30)** (the two campaigns interlock): edge
 and corner coincidences live as VERTICES OF THE TOP DIAGRAM ONLY —
 the bottom diagram of even the maximally-degenerate witnesses is
 untouched. That is WHY every event's count delta lands in d1 with
-deep layers conserved (Postscript 30's 12/12 law): coincidence
+deep layers conserved (Postscript [30](#p30)'s 12/12 law): coincidence
 events add/remove top-diagram vertex weight, and d1 = top faces =
 2 + weight/2, while d2/d3 read the bottom diagram, which the
 coincidences never touch. The create-vs-merge question becomes:
@@ -3042,6 +3090,7 @@ exactly like 393's cube 0 and 723's cube 5. Phase 2 (71,510 more
 configs: dense tilt menu + 387-completions + hill-climbs) has finished
 computing; bests unchanged so far (183/387/723); agent summary pending.
 
+<a id="p42"></a>
 ## Postscript 42: Step T is NOT routine — the reduction "deg_top ≤ deg_bot at triple points" is FALSE (counterexample realized on genuine cells); max(3)=67 stands on the generic stratum + both maximizers, degenerate triple points remain an open gap
 
 2026-07-21, main session, answering the user's "please write Step T
@@ -3101,6 +3150,7 @@ the gap is solely the |S|=3 degenerate stratum. Net honest status:
 max(3) = 67 is a theorem on the generic stratum and at both maximizers;
 universal over all convex 6-faced cells only up to Step T.
 
+<a id="p43"></a>
 ## Postscript 43: STEP T CLOSED — max(3)=67 proved for all 3 concentric convex ≤6-facet cells meeting pairwise transversally (degenerate triple points included); the fix is a two-budget local inequality, not deg_top≤deg_bot
 
 2026-07-21, main session, continuing "please try to close the gap." The
@@ -3157,6 +3207,7 @@ PROOF_67.md, PROOF_NARRATIVE.md updated. Verify scripts saved to project:
 stepT_proof_verify.py (main), stepT_local/realize/degcheck.py (the
 counterexample).
 
+<a id="p44"></a>
 ## Postscript 44: the n=3 anomaly audit — its maximum is the only one that is finite-yet-multiple, irrational, and non-nesting; the three are one phenomenon (and 13 is NOT rigid — corrects Postscript 17 addendum)
 
 2026-07-29, main session, answering the user's four questions: is n=3 the
@@ -3182,10 +3233,10 @@ the only level whose optimum set is FINITE. This CORRECTS the Postscript
   4 (392), 5 (5), 9 (3), never 13, and tilting the axis off a body diagonal
   or off the edge axis drops the count to 5 or 9 immediately.
 - n=3: exactly two maximizers, isolated (the connecting family's interior
-  drops to ~37, Postscript 9) and provably non-congruent (Theorem R,
+  drops to ~37, Postscript [9](#p9)) and provably non-congruent (Theorem R,
   C45_notes §12: μ = 1/2+√2 octahedral vs 3φ/2 golden).
 - n=6: the record VALUE 723 is a summit plateau with ≥4 non-congruent
-  realizations (Postscript 29 addendum).
+  realizations (Postscript [29](#p29) addendum).
 
 So the anomaly is not multiplicity but rigidity-with-multiplicity: n=3 is
 the only level whose optimum set is 0-dimensional and bigger than a point.
@@ -3204,7 +3255,7 @@ triple anywhere in the tower is 63 — four short of 67. n=3 is the sole
 break.
 
 **(c) THE THREE ANOMALIES ARE ONE PHENOMENON, and the switch is at n=4.**
-Postscript 23's cap-sum 1 + Σ_l C(l,n): 13 TIGHT, 67 TIGHT, 195 vs 183,
+Postscript [23](#p23)'s cap-sum 1 + Σ_l C(l,n): 13 TIGHT, 67 TIGHT, 195 vs 183,
 429 vs 393. For n ≤ 3 there is no middle depth layer, so all per-layer
 ceilings are simultaneously attainable. Saturating all of them at once is
 a rigid, symmetry-forced condition — it pins the optimum to isolated
@@ -3220,7 +3271,7 @@ plateau'd. Hence:
  irrationality → non-nesting: any subset of a rational compound is
  rational, so by Theorem R no rational record can contain either 67 —
  (b) follows from Theorem R as a one-liner.
-The arithmetic-free version of the same fact is Postscript 17's
+The arithmetic-free version of the same fact is Postscript [17](#p17)'s
 frustration: the golden four-compound has ALL subsets optimal (pairs 13,
 triples 67) and still totals 177 < 183, so carrying 67-triples actively
 costs at n=4.
@@ -3232,7 +3283,7 @@ locally-suboptimal-but-flexible pieces" is wrong at the PAIR level: max₄
 sit on the tunable body-diagonal curve — optimal AND flexible. The
 mechanism survives one level up, where the rigidity is real: 67-triples
 are isolated, so 183 must detune its triples (63/63/63/55). Read the
-Postscript 17 addendum table with the 13-row corrected to "measure-zero
+Postscript [17](#p17a) addendum table with the 13-row corrected to "measure-zero
 but continuous".
 
 **Other ways n=3 is anomalous** (all from existing ledger results): it is
@@ -3250,6 +3301,7 @@ RECORDS, and (a)/(b) for n≥4 are therefore conditional on those records
 being maximal. Theorem R's corollary is conditional on the two known 67s
 being the only n=3 maximizers.
 
+<a id="p45"></a>
 ## Postscript 45: NEW RECORDS n=7 = 1211 and n=8 = 1889 — found top-down-then-bottom-up in one afternoon; 1211 is a plateau reached by four independent routes
 
 2026-07-29, main session, on the user's request to hunt records at n=4..8
@@ -3257,7 +3309,7 @@ with the searches scheduled to feed each other. Tooling: record_hunt.py
 (new; extend / climb / subsets / campaign modes over cube_regions_n) and
 record_hunt_wave2.py. Both new records two-engine certified (cube_regions_n
 and certify_six.exact_count_config, identical totals AND histograms).
-[SUPERSEDED the same day by Postscript 46 — n=7 is now 1217, n=8 is 1891.
+[SUPERSEDED the same day by Postscript [46](#p46) — n=7 is now 1217, n=8 is 1891.
 The configs below were real, certified, and held for part of the day.]
 
 **n=7 = 1211** (was 1207, +4):
@@ -3292,7 +3344,7 @@ Round trip: n=7 record → n=8 record → better n=7 → better n=8.
 
 **1211 IS A PLATEAU, not a lucky seed.** Reached four independent ways:
 as a 7-subset of 1887; and by extending each of the three previously
-unextended 723 realizations of the Postscript 29 addendum plateau —
+unextended 723 realizations of the Postscript [29](#p29) addendum plateau —
 sixth cube (3,−4,−3,3) + (40,12,11,−8), and (5,−5,5,4) +
 (191,−174,417,−148), both landing on 1211. A ±2 climb with 4 wide
 restarts from 1211 moved nothing. Likewise 1889 is a ±2 local max
@@ -3301,7 +3353,7 @@ restarts from 1211 moved nothing. Likewise 1889 is a ±2 local max
 **NO MOVEMENT at n ≤ 6, as predicted.** The 6-subsets of 1211 top out at
 exactly 723 (then 721, 715, 709, …), and no n=6 candidate anywhere in the
 run beat 723. Consistent with 723 being cornered three independent ways
-(Postscript 18) and with E1: any >723 config must contain a 5-subset ≥ 388,
+(Postscript [18](#p18)) and with E1: any >723 config must contain a 5-subset ≥ 388,
 and no such 5-cube compound is known outside the 723 family. Native n=4/n=5
 campaigns were deliberately NOT re-run (n=4 has ~300k configs behind it;
 n=5's 171,600-config sweep plus 155 deep restarts found nothing over 393) —
@@ -3317,14 +3369,15 @@ before the kill but not logged). Two jobs were stopped mid-run: the n=6
 wide-menu campaign from 393 never executed, and wave 2's deeper n=8 climbs
 and subset pass were cut short. Both are cheap to resume.
 
+<a id="p46"></a>
 ## Postscript 46: 723 IS BEATEN — n=6 = 727, and it lifts the tower to n=7 = 1217, n=8 = 1891; the large-height quaternion stratum was never sampled
 
-2026-07-29, main session, same day as Postscript 45 and superseding its
+2026-07-29, main session, same day as Postscript [45](#p45) and superseding its
 n=7/n=8 numbers. All three counts two-engine certified (cube_regions_n and
 certify_six.exact_count_config, identical totals AND histograms).
 
-**n=6 = 727** (was 723, unbeaten since Postscript 12 and "cornered three
-independent ways" in Postscript 18):
+**n=6 = 727** (was 723, unbeaten since Postscript [12](#p12) and "cornered three
+independent ways" in Postscript [18](#p18)):
 
     quats = 4,1,1,-1; 3,3,7,3; 5,-1,-5,-5; 2,1,1,1; 1,1,1,1; 7,14,1,-5
     by_depth = {1:214, 2:220, 3:156, 4:100, 5:36, 6:1}      ≡ 3 mod 4
@@ -3355,14 +3408,14 @@ has ||q||^2 = 271, INSIDE the old tier-3 range — the old sweep simply drew
 only 4 000 candidates and missed it. So the gap was sampling density in a
 badly-shaped menu, not an unreachable region: a cheap, repeatable lesson.
 
-**E1 NOW NEARLY PINS n=6.** The envelope bound (Postscript 18) says
+**E1 NOW NEARLY PINS n=6.** The envelope bound (Postscript [18](#p18)) says
 T <= S_max + 336, and 727 sits on the 393 five-subset: 727 <= 393+336 = 729,
 so the bound held and only 729 remains available on this base. A further
 n=6 record therefore requires EITHER exactly 729 on a 393-containing config,
 OR a genuinely new 5-cube compound >= 390. The 5-subsets of 727 top out at
 393 (then 385), so no n=5 improvement came with it.
 
-**CORRECTION to Postscript 16 addendum 3.** It concluded 393 is "reachable
+**CORRECTION to Postscript [16](#p16) addendum 3.** It concluded 393 is "reachable
 only as a sub-compound of the 723 six-cube record, not by any independent
 five-cube search". That was a statement about SMALL-quaternion search: a
 wide-height extension menu on the 183 record reaches 393 bottom-up
@@ -3394,7 +3447,7 @@ identical histogram to the (7,14,1,-5) realization.
 
 [RE-ESTABLISHED 2026-07-30 (later): 727 IS a plateau, but not for the reason
 first given and not via the (15,-12,-2,-13) cube. The locus enumeration
-(Postscript 48) found two further sixth cubes, (3,-51,-93,29) and
+(Postscript [48](#p48)) found two further sixth cubes, (3,-51,-93,29) and
 (40,48,-11,45), giving 727 with a DIFFERENT depth profile
 {1:216, 2:216, 3:160, 4:98, 5:36, 6:1} and a different pair structure
 [9,5,4,9,4] — two-engine verified. A differing histogram proves
@@ -3421,6 +3474,7 @@ the open question: a further n=6 record needs either the exact 729 corner
 which no search has produced (the 5-subsets of both 727 realizations top out
 at 393). Log: record_hunt_n6b.jsonl.
 
+<a id="p47"></a>
 ## Postscript 47: 727 is PROVED isolated on the 393 base and its coincidence pattern is unaugmentable; the record has FEWER coincidences than 723, and every condition is a quadric
 
 2026-07-30, main session, following the user's programme: constraints that
@@ -3439,9 +3493,9 @@ while 723's sixth cube (5,2,2,2) realises
 
 **So the new record has FEWER coincidences than the old one and NO 13-pair at
 all** — it replaces two rigid maximal pairs with three tunable 9-pairs. That
-is Postscript 17's addendum thesis realised: the global optimum builds from
+is Postscript [17](#p17)'s addendum thesis realised: the global optimum builds from
 locally-suboptimal-but-flexible pieces. It also refutes "more coincidences ⇒
-higher count" on this base, consistent with Postscript 30's finding that the
+higher count" on this base, consistent with Postscript [30](#p30)'s finding that the
 ±1-per-coincidence law fails at n ≥ 4, and with the 9-fold-concurrence sweet
 spot (over-concentration merges regions away).
 
@@ -3514,9 +3568,10 @@ family probe, with the 13-pair continuum as its positive control),
 index_ledger.py (regenerates this file's postscript index — the ledger is
 append-only and ordered by write time, not by number).
 
+<a id="p48"></a>
 ## Postscript 48: the locus enumeration — 9-loci are codimension 1, three-wall intersection is a 30x better search, and 727 IS a plateau (two non-congruent compounds)
 
-2026-07-30, main session, executing the structural route Postscript 47 left
+2026-07-30, main session, executing the structural route Postscript [47](#p47) left
 open. Tooling: locus_probe.py, locus_enum.py (conditions cached in
 locus_polys.pkl).
 
@@ -3527,7 +3582,7 @@ element — a principal ideal, hence a surface — and all three tested cubes
 **codimension 1**, three walls in the sixth cube's 3-DOF space form a
 DETERMINED system, and Bézout caps it at 2³ = 8 points. That is why records
 sit at three-wall intersections: it is forced, not coincidental. (The earlier
-guess in Postscript 47 that the loci are codim-2 curves — which would make
+guess in Postscript [47](#p47) that the loci are codim-2 curves — which would make
 727's existence a codim-6 accident — is wrong. Codim 1 is the right picture.)
 
 **PAYOFF (B): a census of 500 sampled wall triples**, one wall against each
@@ -3541,7 +3596,7 @@ substitution), ~3 600 solution points:
 727 is reached 6 times per 500 trials — versus roughly one hit per 20 000
 random sixth cubes, a **~30x hit rate**. Every solution point came out
 RATIONAL with small components, so cube_regions_n counts them directly and no
-algebraic engine is needed for this family (reinforcing Postscript 47's
+algebraic engine is needed for this family (reinforcing Postscript [47](#p47)'s
 verdict against a C++ port).
 
 **727 IS A PLATEAU — two non-congruent compounds.** The census turned up two
@@ -3556,11 +3611,11 @@ against the known cube (7,14,1,-5):
 
 Both two-engine verified (cube_regions_n and certify_six, identical
 histograms). A DIFFERING depth profile proves non-congruence outright — the
-same criterion that established 723's plateau in the Postscript 29 addendum —
+same criterion that established 723's plateau in the Postscript [29](#p29) addendum —
 so there are at least two distinct 727 compounds, reached by different
 structures (three 9-pairs versus two 9-pairs and a 5-pair). The layers trade
 by (+2,−4,+4,−2) with d1+d2+d3+d4 = 690 conserved, echoing 723's (+2,−4,+2).
-This SUPERSEDES the withdrawal recorded in the Postscript 46 addendum: that
+This SUPERSEDES the withdrawal recorded in the Postscript [46](#p46) addendum: that
 withdrawal was correct for the (15,-12,-2,-13) cube, which is genuinely
 congruent to the original (identical histogram, identical 5-subset profile,
 identical O-reduced pair invariants), but wrong as a claim about 727 in
@@ -3572,7 +3627,7 @@ three-wall family is running in three shards (locus_enum.py, ~9 h budget
 each, symmetry-reduced by fixing the first wall's sixth-cube edge index,
 candidates deduplicated by the cube's own 24 rotations before counting).
 If it completes without exceeding 727, that is an EXHAUSTIVE negative over
-the family that contains both 723 and 727 — which, with Postscript 47's
+the family that contains both 723 and 727 — which, with Postscript [47](#p47)'s
 elimination (727 isolated, its pattern unaugmentable) and E1's cap of 729,
 boxes n=6 on three independent sides.
 
@@ -3603,7 +3658,7 @@ two-engine verified:
 
 Differing histograms prove non-congruence, so **727 is a plateau of at least
 four distinct compounds** — exactly the multiplicity 723's summit showed
-(Postscript 29 addendum). In every class
+(Postscript [29](#p29) addendum). In every class
 
     d1 + d2 + d3 + d4 = 690   with d5 = 36, d6 = 1 fixed,
 
@@ -3618,6 +3673,7 @@ the family, about 7 h more at the same rate. The coverage gaps of the parent
 postscript still apply (rational solution points only; positive-dimensional
 systems skipped).
 
+<a id="p49"></a>
 ## Postscript 49: the walls are PAIRS OF PLANES — the three-wall family is 2 733 configurations, exhausted in four minutes, max 727; and why its all-rational solutions are an ARTIFACT
 
 2026-07-31, main session. Prompted by the user asking whether the absence of
@@ -3644,7 +3700,7 @@ e.g. −4(3a−5b−2c)(a+b−c+4) and −4a(b−c). Consequences:
 
 The six 727 points split 3/3 between the two known depth profiles
 {214,220,156,100,36,1} and {216,216,160,98,36,1}. So the entire three-wall
-family is 2 733 configurations — the Gröbner enumeration of Postscript 48
+family is 2 733 configurations — the Gröbner enumeration of Postscript [48](#p48)
 ground through 1.3 million systems to sample part of that, because the 144
 walls per cube are only 24 planes and ~99% of its systems were re-deriving
 the same plane triples. The reformulation did not merely speed the search up;
@@ -3669,7 +3725,7 @@ than lucky — and it is a property of the construction, not of the problem:
     denominators — exactly where near-irrational configurations live.
 
 That irrational optima exist in this problem is not in doubt: max(3) = 67 is
-attained ONLY at irrational configurations (Theorem R, Postscript 44).
+attained ONLY at irrational configurations (Theorem R, Postscript [44](#p44)).
 
 **HONEST SCOPE of the exhaustion.** Complete over sixth cubes lying on three
 EDGE-EDGE walls against three distinct fixed cubes of the rational 393 base,
@@ -3687,7 +3743,7 @@ derived, not just a rerun.
 
 ### Postscript 49 addendum: the w = 0 "gap" was illusory — the chart omits quaternions, not configurations
 
-Gap (a) of Postscript 49 is closed, by argument rather than by search. The
+Gap (a) of Postscript [49](#p49) is closed, by argument rather than by search. The
 Cayley chart q = (1,a,b,c) cannot represent w = 0, so the 180° rotations
 looked unreachable. But right multiplication by a cube SELF-symmetry leaves
 the cube unchanged as a set, and
@@ -3707,14 +3763,15 @@ systems, the same distribution to the last entry (723×24, 725×12, 727×6),
 and the SAME SIX 727 compounds up to cube symmetry (verified by symmetry
 key). Scripts: locus_probe_chart2.py, locus_linear_chart2.py.
 
-Remaining gaps of Postscript 49 are now (b) the 8 199 singular
+Remaining gaps of Postscript [49](#p49) are now (b) the 8 199 singular
 (positive-dimensional) systems, (c) one- and two-wall strata, and (d) the
 other coincidence TYPES — corner coincidences, face-plane coincidences,
 edge-face incidences, multi-cube concurrences. (d) is the substantive one:
-Postscript 12 found records sit at high-multiplicity corner concurrences and
+Postscript [12](#p12) found records sit at high-multiplicity corner concurrences and
 723 is corner-dominated, so the stratum type most associated with records is
 exactly the one these conditions do not encode.
 
+<a id="p50"></a>
 ## Postscript 50: the mixed strata are 240:1 IRRATIONAL, dominated by ℚ(√5) — a large stratum no search in this project has ever counted
 
 2026-07-31, main session, following the user's challenge to the previous
@@ -3748,7 +3805,7 @@ discriminant. Exhaustive over 2-plane + 1-quadric (mixed_enum2.py):
 
 **ℚ(√5) is the most common field of all** — the golden field, in which the
 n=3 golden maximizer sits. ℚ(√13) in the top twelve is the 393 record's own
-tilt field (Postscript 27: the unique 4-clique axis (3,2,0), tan 2/3);
+tilt field (Postscript [27](#p27): the unique 4-clique axis (3,2,0), tan 2/3);
 ℚ(√6) is the dihedral ψ=45° field. These are the fields this problem's
 structure already produces, not arbitrary ones.
 
@@ -3760,7 +3817,7 @@ n=6 count in Python, enough to verify a known configuration and far too slow
 to search. This is a large, structurally natural stratum that has been
 invisible to the entire program.
 
-Consequence: **the C++ port verdict of Postscript 47 is REVERSED.** That
+Consequence: **the C++ port verdict of Postscript [47](#p47) is REVERSED.** That
 verdict rested on solution fields reaching degree 8 — true for edge-edge
 systems, which turn out to be all-rational anyway. The volume is here, in the
 mixed strata, and it is entirely DEGREE 2, which is the cheap case: elements
@@ -3776,6 +3833,7 @@ comes from it. Whether the irrational half contains anything above 727 is
 genuinely OPEN — the first such open question at n=6 in this program, as
 distinct from the many that were closed at 727.
 
+<a id="p51"></a>
 ## Postscript 51: a ℚ(√d) C++ engine, 82 458 irrational configurations counted — nothing above 727, but a FIFTH 727 class that is IRRATIONAL, in ℚ(√13)
 
 2026-08-01, main session, completing the arc the user opened by asking whether
@@ -3802,7 +3860,7 @@ silently aliases to run(5) through a list slice — so the "~20 s at n=6" figure
 used earlier in this project was an extrapolation, not a measurement.
 
 **THE COUNT.** Of the 688 806 degree-2 solutions of the mixed strata
-(Postscript 50), those in the engine's budget (squarefree d ≤ 100, components
+(Postscript [50](#p50)), those in the engine's budget (squarefree d ≤ 100, components
 ≤ 512) are **56 fields, 82 458 configurations** — every one of them counted.
 Result: **NOTHING ABOVE 727.** Best per field, largest classes first:
 
@@ -3812,7 +3870,7 @@ Result: **NOTHING ABOVE 727.** Best per field, largest classes first:
 
 **A FIFTH 727 CLASS, AND IT IS IRRATIONAL.** ℚ(√13) is the ONLY field reaching
 727, in 72 configurations, all with depth profile {1:214, 2:216, 3:162, 4:98,
-5:36, 6:1}. That profile also occurs rationally (once, in the Postscript 48
+5:36, 6:1}. That profile also occurs rationally (once, in the Postscript [48](#p48)
 run), but the two are NOT congruent: their O-reduced pair-invariant multisets
 differ (2.298618/2.394195/2.548272/2.986205 against
 2.277586/2.405405/2.540744/2.983337). Example sixth cube:
@@ -3826,7 +3884,7 @@ irrational configuration this project has found by SEARCH; the two n=3
 maximizers came from symmetry.
 
 ℚ(√13) is not an arbitrary field here: it is the 393 base's own tilt field
-(Postscript 27, the unique 4-clique axis (3,2,0), tan 2/3). The base's
+(Postscript [27](#p27), the unique 4-clique axis (3,2,0), tan 2/3). The base's
 arithmetic reappears as the only field whose strata reach the record, while
 the most populous field ℚ(√5) tops out at 721 and ℚ(√2) at 713.
 
@@ -3905,7 +3963,7 @@ Absolute ceiling of the engine: at m = 1, d may reach 30 319 844.
 ### Postscript 51 addendum 3 (CORRECTION + completion): 224 184 irrational configurations counted, still nothing above 727 — but 727 has at least TWELVE congruence classes, EIGHT of them irrational, across EIGHT fields
 
 The full recount under the corrected (traced, per-configuration) overflow
-budget is complete. It **supersedes two claims of Postscript 51**, both of
+budget is complete. It **supersedes two claims of Postscript [51](#p51)**, both of
 which were properties of the old narrow guard rather than of the problem.
 
 **WRONG:** "ℚ(√13) is the only field whose strata reach 727."
@@ -3987,7 +4045,7 @@ offered here.
 
 ### Postscript 51 addendum 5: n=3 is less anomalous than Postscript 44 claimed — two of its three "anomalies" were instrument-limited
 
-User's observation, 2026-08-01, and it is correct. Postscript 44's audit
+User's observation, 2026-08-01, and it is correct. Postscript [44](#p44)'s audit
 concluded that n=3 is (a) the only level whose optimum set is finite and larger
 than one point, (b) the unique IRRATIONAL rung of the tower, and (c) the only
 level that fails to embed in higher records. Today's results undercut the first
@@ -4004,7 +4062,7 @@ irrational configurations at other levels: every campaign in this project
 sampled integer quaternions, which are rational by construction. The limited
 exceptions — the quadratic-field and degree-4 resonance sweeps of Postscripts
 28 and 32 — swept specific families, not strata. This is the same
-instrument/problem conflation as the all-rational finding (Postscript 49) and
+instrument/problem conflation as the all-rational finding (Postscript [49](#p49)) and
 the "only field reaching 727" claim (addendum 3), now recurring a third time
 in a claim recorded a week earlier.
 
@@ -4013,7 +4071,7 @@ AVAILABILITY: no rational configuration attains 67 (Theorem R, conditional on
 the two known maximizers being the only ones), whereas rational configurations
 DO attain 727 — irrationality is optional at n=6 and mandatory at n=3. That,
 plus the nesting break (best triple in any higher record is 63, four short of
-67), is what Postscript 44 should have led with. The cap-sum tightness at
+67), is what Postscript [44](#p44) should have led with. The cap-sum tightness at
 n ≤ 3 is a statement about the bound, not about configurations.
 
 **TESTABLE, and now cheap.** Run the mixed-strata enumeration on an n=4 or n=5
@@ -4022,6 +4080,7 @@ If it does, n=3's distinction narrows to requirement alone, resting on a single
 conditional theorem. The ℚ(√d) engine makes this a few hours of compute; it was
 not possible before 2026-07-31.
 
+<a id="p52"></a>
 ## Postscript 52: a NEW congruence class of the n=5 record 393 — and a correction: the irrational record-achievers are RATIONALLY SHADOWED, so irrationality is doing no work at n=5 or n=6
 
 2026-08-01, main session, following the user's question about irrational
@@ -4071,7 +4130,7 @@ rationally shadowed too; the other seven are unresolved at the denominators
 tried, which is weak evidence either way.
 
 **WHAT THIS DOES TO THE n=3 QUESTION.** Addendum 5 concluded that n=3 is less
-anomalous than Postscript 44 claimed, since irrational configurations achieve
+anomalous than Postscript [44](#p44) claimed, since irrational configurations achieve
 the record at n=6. That conclusion now needs qualifying in the opposite
 direction: every irrational record-achiever CHECKED so far has a rational
 configuration nearby with the same count and profile, so irrationality is not
@@ -4138,7 +4197,7 @@ line cut by two rational planes. Sampling 34 385 RATIONAL points along those
 same lines: **every one of the eight fields is shadowed** — ℚ(√13), ℚ(√226),
 ℚ(√403), ℚ(√1093), ℚ(√1614), ℚ(√1785), ℚ(√1930), ℚ(√2741) each have rational
 points on their own 727-lines that also count 727. Combined with the n=5 result
-(Postscript 52), irrationality does NO work at either level: it is a property
+(Postscript [52](#p52)), irrationality does NO work at either level: it is a property
 of which points the enumerator finds, not of which configurations reach the
 record. n=3 remains the only level where irrationality is REQUIRED (Theorem R).
 
@@ -4207,7 +4266,7 @@ distinct per-label vectors 5, distinct adjacency profiles 5. **Adjacency
 strictly refines the depth profile but added nothing beyond per-label on this
 sample.** The one pair it could not separate — (7,14,1,-5) and (15,-12,-2,-13)
 — is the pair already shown congruent by the O-reduced pair invariants
-(Postscript 46 addendum's withdrawal), so agreement is the correct answer
+(Postscript [46](#p46) addendum's withdrawal), so agreement is the correct answer
 there. Sample of six is small; the test worth running is the 21 per-label
 classes among the irrational 727s, which needs ℤ[√d] arithmetic in the Python
 pipeline (not yet built).
@@ -4229,7 +4288,7 @@ configurations reach 727** on these lines alone — and the lines are only the
 three-wall strata this enumeration happens to cover.
 
 **This retires the class counts recorded earlier in this session.** The
-progression was 4 (Postscript 48, by depth profile), then 12 (addendum 3, by
+progression was 4 (Postscript [48](#p48), by depth profile), then 12 (addendum 3, by
 O-reduced pair invariant), then ≥21 (addendum 2, by per-label vector), now
 ≥600. Each figure was correct about what it measured and wrong as a statement
 about the plateau, because each measured the reach of the instrument in use:
@@ -4265,7 +4324,7 @@ invariants partition the 417 identically. A priori adjacency should be strictly
 finer — two arrangements can distribute regions identically across all 64
 containment classes and still glue them differently — but empirically, on this
 population, the containment-set distribution already determines the edge
-multiset. The earlier six-configuration test (Postscript 52 addendum 3) saw the
+multiset. The earlier six-configuration test (Postscript [52](#p52) addendum 3) saw the
 same agreement but was far too small to support it; 417 configurations is not.
 
 Practical consequence: classification can use `per_label`, which the counting
@@ -4338,9 +4397,10 @@ too), the pure-corner or one- and two-wall strata, the 8 199
 positive-dimensional systems, configurations not containing the 393 base, or
 any level other than n=6.
 
+<a id="p53"></a>
 ## Postscript 53: a FAILED attempt at proving E1, with the error located — "each piece adds one region" is false for non-disk pieces
 
-2026-08-02, main session. E1 (Postscript 18) bounds the one-cube increment by
+2026-08-02, main session. E1 (Postscript [18](#p18)) bounds the one-cube increment by
 a MEASURED constant, T <= S_max + 336 at n=6. This is an attempt to derive it
 instead, and it fails; recorded because the failure is instructive and the
 diagnosis points at the repair.
@@ -4387,6 +4447,7 @@ postscript as its documentation).
 
 E1 therefore remains an empirical envelope, and open problem 4 remains open.
 
+<a id="p54"></a>
 ## Postscript 54: the 727 plateau is a nested chamber structure, and adjacent types differ by an elementary ±2 exchange within one depth
 
 2026-08-02, main session, answering "how are members of a type related?" and
@@ -4431,11 +4492,11 @@ changing how many.
 The quantum of 2 is not mysterious: every compound here is centrally symmetric
 (all cubes share the centre), so regions occur in antipodal pairs and no count
 can change by an odd amount. Same mechanism as the parity law bounded = 2n-1
-(mod 4), Postscript 4.
+(mod 4), Postscript [4](#p4).
 
 **CONSEQUENCE.** The 54 types are not an unstructured list: they are vertices
 of a graph whose edges are these elementary exchanges, embedded along the wall
-lines. This also corrects the picture of Postscript 52 addendum 6, which
+lines. This also corrects the picture of Postscript [52](#p52) addendum 6, which
 described the 727 configurations as isolated points — true transverse to the
 walls, where perturbation collapses the count to 715-721, but false ALONG
 them, where the count persists on intervals. The earlier perturbation test
@@ -4445,9 +4506,10 @@ Scope: measured on one line of the 129, at n=6 on the 393 base. Whether the
 ±2-same-depth rule is universal is untested, though central symmetry makes the
 parity half of it structural.
 
+<a id="p55"></a>
 ## Postscript 55: the 9-plane corner-concurrence stratum is CAPPED AT 723 — records do not concentrate there, 723 did
 
-2026-08-02, main session. Postscript 12 concluded that records sit at
+2026-08-02, main session. Postscript [12](#p12) concluded that records sit at
 high-multiplicity corner concurrences (three cubes sharing a corner, nine face
 planes through a point) and that 723 is corner-dominated. That stratum had
 never been enumerated: every wall condition used in this project encodes
@@ -4476,7 +4538,7 @@ orbit on the (1,1,1) axis, built by placing cubes into that corner
 concurrence. The stratum is the 723 family and it caps at 723.
 
 **727 IS NOT IN IT.** Its free cube (7,14,1,-5) has no corner at (1,1,1). This
-matches the incidence census (Postscript 47): 727 carries 18 interior edge-edge
+matches the incidence census (Postscript [47](#p47)): 727 carries 18 interior edge-edge
 crossings to 723's 48, and no maximal (13) pair where 723 has two. **The new
 record beat the old one by LEAVING the stratum the old one occupied.**
 
@@ -4502,14 +4564,14 @@ Pair-count signatures of the free cube against the five base cubes, over all
     (9, 9, 9, 4, 4)     1   <- the originally discovered record (7,14,1,-5)
     (13, 5, 4, 4, 4)    1   <- reaches 727 WITH a maximal pair
 
-**CORRECTION.** Postscript 47 and its successors described 727 as "replacing
+**CORRECTION.** Postscript [47](#p47) and its successors described 727 as "replacing
 two rigid 13-pairs with three tunable 9-pairs" relative to 723, and read that
 as the frustration principle appearing in a record. That is a true statement
 about ONE configuration and false about the plateau: 159 of 161 reach 727 with
 only TWO 9-pairs, and one reaches it carrying a 13-pair — the rigid maximal
 pair the frustration story says optima avoid. The generalisation was drawn
 from the single configuration then in hand, the same error as "the √-parts are
-identical" and "these configurations are near-half-turns" (Postscript 52
+identical" and "these configurations are near-half-turns" (Postscript [52](#p52)
 addendum 4's caution).
 
 The discovered record is therefore structurally atypical of its own plateau —
@@ -4521,9 +4583,10 @@ all three profiles (124 / 27 / 8), while each singleton route has one. So
 neither invariant determines the other, and the earlier within-type constancy
 of signatures (416/416, addendum 6) is consistent — types are finer than both.
 
+<a id="p56"></a>
 ## Postscript 56: E1 is now a THEOREM — the one-cube increment is bounded by an Euler count on the cube's own surface, and Postscript 53's counterexample was itself wrong
 
-2026-08-02, main session, picking up open thread 1. Postscript 53 recorded a
+2026-08-02, main session, picking up open thread 1. Postscript [53](#p53) recorded a
 failed derivation of E1 and diagnosed it as "each piece adds at most one
 region is false for non-disk pieces", with the n=2 13-pair as counterexample.
 **Both the diagnosis and the counterexample were wrong**, and the correct
@@ -4591,9 +4654,10 @@ bound; what remains open is a good universal ceiling on B_j.
 
 Files: `specs/INCREMENT_BOUND_SPEC.md` (statement and gates), `increment_bound2.py`,
 `increment_bound2_report.md`, `increment_identity.py`. `increment_bound.py`
-stays as documentation of the failure, but Postscript 53's DIAGNOSIS is hereby
+stays as documentation of the failure, but Postscript [53](#p53)'s DIAGNOSIS is hereby
 superseded: the piece bound was not the error, the tangency blindness was.
 
+<a id="p57"></a>
 ## Postscript 57: the complete taxonomy of codimension-1 walls — two types were never enumerated, and both are finite catalogues against a fixed base
 
 2026-08-02, main session, open thread 3 ("corner-corner and edge-face
@@ -4652,10 +4716,10 @@ as it must — coincidence merges regions. Within the low range there is a mild
 positive signal (0 hits: mean 689, max 717; one antipodal pair: mean 696, max
 723), then collapse. The best configuration in the sample, 717, sits on ZERO
 W3 and ZERO W4 walls. Separately, W3 = 54 is the signature of the 723
-corner-concurrence family, already capped in Postscript 55.
+corner-concurrence family, already capped in Postscript [55](#p55).
 
 So the maximum lives at LOW but nonzero coincidence, not at high concurrence —
-which retires, quantitatively, the working heuristic of Postscript 12 that
+which retires, quantitatively, the working heuristic of Postscript [12](#p12) that
 records concentrate at high-multiplicity concurrences. That heuristic
 described 723, and 723 is exactly the W3 = 54 cluster.
 
@@ -4667,6 +4731,7 @@ cube's normal, then a rational circle of rotations about it) and is not done.
 
 Files: `base_points.py`, `incidence2.py`, `w34_correlate.py`.
 
+<a id="p58"></a>
 ## Postscript 58: the chamber boundaries of the plateau are wall crossings — and the wall type that governs them is the one nobody had enumerated
 
 2026-08-02, main session, open thread 4 ("do zero-width type-chambers coincide
@@ -4704,13 +4769,13 @@ holding. **Chamber boundaries ARE wall crossings.**
 
 **AND THE WALLS ARE MOSTLY THE UNENUMERATED KIND.** The project's own
 catalogue — 119 edge-edge planes and 480 corner-on-face quadrics — explains
-only 6 of the 46 boundaries. Adding Postscript 57's W4 walls (a free-cube face
+only 6 of the 46 boundaries. Adding Postscript [57](#p57)'s W4 walls (a free-cube face
 plane through one of the base's 424 real triple points, 2544 quadrics) takes
 it to 43. On line 11 the old catalogue explains NONE of the eleven.
 
 So the combinatorial structure of the 727 plateau is governed by the
 codimension-1 type that no search in this project ever enumerated. This does
-NOT contradict Postscript 57's statistical finding that W4 hits do not predict
+NOT contradict Postscript [57](#p57)'s statistical finding that W4 hits do not predict
 a high count: W4 walls control where the type CHANGES, not how large the count
 is. Both can hold, and both now do.
 
@@ -4727,6 +4792,7 @@ phantom, which for the irrational roots needs the ℚ(√d) engine.
 
 Files: `chamber_walls.py`.
 
+<a id="p59"></a>
 ## Postscript 59: a 256-bit ℚ(√d) engine — the 284 634 configurations the old budget REJECTED are now countable, and the equivalence gate nearly passed vacuously
 
 2026-08-02, main session, open thread 2. `mixed_q2_full.out` records that of
@@ -4787,6 +4853,7 @@ new result. Results to follow.
 Files: `cube_regions_q2w.cpp`, `wide_gate.py`, `wide_engine_report.md`,
 `wide_campaign.py`, `wide_campaign_launch.sh`.
 
+<a id="p60"></a>
 ## Postscript 60: the irrational configurations are the SEAMS between rational continua — never interior to one, and the split is total
 
 2026-08-02, main session, answering "are all the irrational configurations
@@ -4810,7 +4877,7 @@ two planes and one corner-on-face condition, which the catalogue counts twice
 as a ± pair.
 
 **AND IT HAS TO BE THIS WAY.** The wall lines of the enumerated strata are cut
-by pairs of RATIONAL planes (Postscript 49: edge-edge conditions factor into
+by pairs of RATIONAL planes (Postscript [49](#p49): edge-edge conditions factor into
 rational planes). A chamber interior is an open interval of such a line, and an
 open interval of a rational line contains rational points, on which the type is
 constant. So **any combinatorial type possessing a continuum is attained
@@ -4822,7 +4889,7 @@ irrational 727s, 11 also occur among the 161 rational representatives and
 **10 occur at none of them** — the zero-width types whose defining root
 happens to be irrational.
 
-**WHAT "RATIONALLY SHADOWED" ACTUALLY MEANT.** Postscript 52 established
+**WHAT "RATIONALLY SHADOWED" ACTUALLY MEANT.** Postscript [52](#p52) established
 shadowing at the level of the COUNT: 727 holds along the whole stretch of line
 through these points, so rationals are dense in the count-level set around
 them. That remains true and is why irrationality does no work for the RECORD
@@ -4841,6 +4908,7 @@ rational realisation elsewhere.
 
 Files: `shadow_type.py`, `shadow_dim.py`.
 
+<a id="p61"></a>
 ## Postscript 61 (CORRECTION to Postscript 60): the irrational configurations ARE in continua — k counted walls, not chamber boundaries, and most of those walls are combinatorially inert
 
 2026-08-02, main session, same day, answering "what is the relationship
@@ -4869,15 +4937,15 @@ tangency the combinatorics does not register.
 **WHICH REFUTES POSTSCRIPT 60'S HEADLINE.** That postscript inferred from
 k = 4 active walls that every irrational 727 is a chamber BOUNDARY and "not
 one is interior to anything". The inference used k as a proxy for "chamber
-boundary", and the proxy is wrong — Postscript 58 had already measured that
+boundary", and the proxy is wrong — Postscript [58](#p58) had already measured that
 k >= 3 points frequently pass with NO type change (8 of 19 crossings on line
 9 alone). Tested directly instead of by proxy, 14 of 16 irrational
 configurations are interior to their own type-chamber. **They are part of
-continua.** What survives from Postscript 60 is the wall count itself (161
+continua.** What survives from Postscript [60](#p60) is the wall count itself (161
 rational reps: 159 at k=2; 183 irrational: all at k=4) and the observation
 that irrationality enters only through a quadric root on a rational line.
 
-**AND THE SECOND CLAIM FALLS TOO.** Postscript 60 reported 10 of 21 irrational
+**AND THE SECOND CLAIM FALLS TOO.** Postscript [60](#p60) reported 10 of 21 irrational
 per-label types occurring at "no rational configuration", hedged as relative to
 the 161 known representatives. The hedge was right and the number was an
 artifact: of the sampled configurations whose type is absent from those 161,
@@ -4890,10 +4958,10 @@ nothing about attainability. No type is known to be irrational-only.
 claim has been made from a proxy invariant rather than the thing itself
 (after: rigidity by openness, μ-multiset for congruence, and describing a
 family from its first member). The proxy was reasonable and the direct test
-was cheap. Postscript 60 stood for about an hour.
+was cheap. Postscript [60](#p60) stood for about an hour.
 
 **WHAT IRRATIONALITY DOES AT n = 6, FINALLY.** Nothing. Not to the count
-(rationally shadowed, Postscript 52), and not to the combinatorial type
+(rationally shadowed, Postscript [52](#p52)), and not to the combinatorial type
 (shadowed as well, here). It is an accident of where a rational line happens to
 cross a rational quadric. Contrast n = 3, where the maximum cannot be attained
 rationally at all.
@@ -4940,7 +5008,7 @@ irrational points — and more than that, irrational points are the GENERIC ones
 in any interval they have full measure and the rationals have measure zero. So
 the moment the 727 set contains any interval at all, "727 is attained at
 irrational configurations" is guaranteed and carries **no information**. The
-project has repeatedly treated its irrational finds as exotic (Postscript 51's
+project has repeatedly treated its irrational finds as exotic (Postscript [51](#p51)'s
 "a fifth 727 class that is IRRATIONAL"); in a continuum, irrational is the
 default and it is the RATIONAL points that are special.
 
@@ -4957,6 +5025,7 @@ isolated-versus-continuum, and irrationality is downstream of it.
 
 Files: `shadow_all.py`.
 
+<a id="p62"></a>
 ## Postscript 62: what happens at the endpoint of a 727 continuum — the interval is OPEN, the endpoint has its own count, and region counts are NOT semicontinuous
 
 2026-08-03, main session, answering "when there are continua, what happens at
@@ -4964,7 +5033,7 @@ the end points?"
 
 **THE ENDPOINT, EXACTLY.** On wall line 9 of `typology_data.json`, 727 holds
 across sampled t in [2, 13.5]. Its upper end is a W4 wall — the type
-Postscript 57 catalogued and no search had enumerated — at the IRRATIONAL
+Postscript [57](#p57) catalogued and no search had enumerated — at the IRRATIONAL
 parameter
 
     t* = 18913/2736 + sqrt(4111761)/304 = 13.58286911126...
@@ -5004,7 +5073,7 @@ is neither upper nor lower semicontinuous.
 
 This also disposes of a tempting corollary — "records live in chamber
 interiors, never at boundaries". The endpoint here does lose the record, but
-the originally discovered 727 sits at k = 16 active walls (Postscript 60), a
+the originally discovered 727 sits at k = 16 active walls (Postscript [60](#p60)), a
 heavily degenerate point that attains the record. Both happen.
 
 **METHOD NOTE.** The first run of `endpoint.py` found ZERO roots at either end,
@@ -5062,6 +5131,7 @@ this morning's widened engine to count.
 
 Files: `w3_poly.py`, `endpoint.py`.
 
+<a id="p63"></a>
 ## Postscript 63: the LINE catalogue was never symmetry-closed — the richest 727 continuum's own C3 images were missing, and a uniform parameter grid is not equivariant
 
 2026-08-03, main session, answering "do lines fit into our TYPOLOGY?"
@@ -5087,7 +5157,7 @@ Cayley chart, which is a chart artifact rather than a geometric one.
 
 **AND THE MISSING ONES ARE NOT MARGINAL.** Line 9 — the richest continuum
 found, carrying 727 across t in [1.9317, 13.5829], width 11.65, the line whose
-two endpoints Postscript 62 analysed — has BOTH its C3 images absent from the
+two endpoints Postscript [62](#p62) analysed — has BOTH its C3 images absent from the
 recorded catalogue. By equivariance there are two further 11.65-wide 727
 intervals that no enumeration in this project ever recorded. **Every census
 over the 129 lines, including the one currently running, is incomplete by
@@ -5122,6 +5192,7 @@ assumed.
 
 Files: `line_typology.py`, `lines_c3_closed.json`, `continua.py`.
 
+<a id="p64"></a>
 ## Postscript 64: the n=6 typology applies to n=3, but the wall taxonomy TRUNCATES and the base-fixing method provably cannot reach max(3)
 
 2026-08-03, main session, answering "can the TYPOLOGY of n=6 apply to n=3
@@ -5176,6 +5247,7 @@ is a zero-dimensional stratum. That the base-fixing method works at n = 6 is a
 fact about where the n = 6 record happens to live (reachable from the rational
 393 base), not a property of the method.
 
+<a id="p65"></a>
 ## Postscript 65: max(3) is an upward SPIKE on a 55-plateau — the exact inverse of n=6, and the geometric face of frustration
 
 2026-08-03, main session, answering "could max(3) be thought of as a line where
@@ -5183,7 +5255,7 @@ the endpoints have more regions instead of less?" Nearly — and running the
 measurement settles the shape. This also closes Task 1 of
 `DIHEDRAL_FAMILY_NEXT.md`, open since 2026-07-16.
 
-**THE FAMILY.** The dihedral family (Postscript 25) is the one-parameter
+**THE FAMILY.** The dihedral family (Postscript [25](#p25)) is the one-parameter
 compound {I, S, S²} with S(ψ) the ±120° rotation about n(ψ) = (sin ψ, cos ψ, 0).
 At Pythagorean ψ the entries lie in ℚ(√3), so `q3_count.py` counts them
 exactly. Sweeping ψ across (0°, 90°) gives a symmetric staircase:
@@ -5212,7 +5284,7 @@ quantum central symmetry forces.)
             sits inside. It is not the endpoint of a 67-interval; there is no
             67-interval.
 
-**AND THE MECHANISM IS ALREADY IN HAND.** Postscript 62 found that region
+**AND THE MECHANISM IS ALREADY IN HAND.** Postscript [62](#p62) found that region
 counts are NOT semicontinuous, because a tangential contact PINCHES a region
 at a point: the contact point is excluded, so the two lobes count separately.
 That is exactly what lets a degenerate configuration carry MORE regions than
@@ -5230,6 +5302,7 @@ isolated point has no interval around it to carry rationals.
 
 Files: `q3_count.py` (existed, never run), `dihedral_family_counts.out`.
 
+<a id="p66"></a>
 ## Postscript 66 (CORRECTION to Postscript 63): the line catalogue WAS symmetry-closed — the test compared quaternion representatives instead of configurations
 
 2026-08-03, main session, after a chain script failed and forced a re-read of
@@ -5243,10 +5316,10 @@ element, which no cube can tell apart. Verified: both actions permute the five
 base solids identically, as (0,1,2)->(1,2,0).
 
 So the two differ only in WHICH of the 24 quaternion representatives they name,
-and the catalogue stores one representative per line. Postscript 63 therefore
+and the catalogue stores one representative per line. Postscript [63](#p63) therefore
 tested "is this particular representative in the list", not "is this
 configuration in the list". **This project had already recorded exactly this
-trap** — Postscript 49 addendum, "the Cayley chart omits quaternion
+trap** — Postscript [49](#p49) addendum, "the Cayley chart omits quaternion
 representatives, not compounds" — and it was repeated.
 
 **THE CORRECTED MEASUREMENT.** Under conjugation q -> g*q*g^-1:
@@ -5279,7 +5352,7 @@ t in [-20, 20] at step 1/2:
 
 Locations differ within an orbit only because each line carries its own
 (p0, dir) convention; the widths agree everywhere. That is the equivariance
-Postscript 63 claimed was absent.
+Postscript [63](#p63) claimed was absent.
 
 **HOW IT SURFACED.** A chain script died with "continua_shard_0.jsonl: No such
 file or directory" — because the file had been renamed while the census still
@@ -5291,6 +5364,7 @@ status. Both are now in `FAILURE_MODES.md`.
 Files: `line_typology.py` (uses the wrong action; superseded),
 `continua.py`, `continua_shard_0.jsonl` (rebuilt from the live run).
 
+<a id="p67"></a>
 ## Postscript 67: the full endpoint census — every continuum end counts 725, and n=6 ALSO has isolated 727 SPIKES, the n=3 shape appearing rationally at n=6
 
 2026-08-03, main session, completing the census the "check all endpoints"
@@ -5315,7 +5389,7 @@ take its exact root, count the configuration AT the root.
                       ---
                        39, and EVERY ONE COUNTS 725
 
-So the finding of Postscript 62 generalises: **a 727 continuum is open at both
+So the finding of Postscript [62](#p62) generalises: **a 727 continuum is open at both
 ends, and its endpoint sits exactly one +-2 step below the plateau.** The W3
 endpoints resolve only after the quartic is FACTORED over Q — unfactored they
 report degree 4 and cannot be counted at all.
@@ -5334,7 +5408,7 @@ quaternion **(4, -28, -44, -17)**, and
 **This is an ISOLATED 727 point** — a +4 spike with 723 on both sides — sitting
 on the same line as, but separate from, the continuum over [1.5, 2.0].
 
-**SO n = 6 HAS BOTH SHAPES.** Postscript 65 found max(3) = 67 to be an upward
+**SO n = 6 HAS BOTH SHAPES.** Postscript [65](#p65) found max(3) = 67 to be an upward
 spike on a 55-plateau, and contrasted it with n = 6's record being an interval.
 That contrast was too clean: n = 6 has continua AND isolated spikes, on the
 same line. The difference that survives is arithmetic, not shape — **n = 3's
@@ -5360,6 +5434,7 @@ crashed, because it never checked the exit status.
 Files: `continua.py`, `continua_endpoints.py`, `continua_phaseA.out`,
 `continua_phaseB2.out`.
 
+<a id="p68"></a>
 ## Postscript 68: epsilon-neighbourhoods show walls are NOT equivalent — the walls carrying 727 are worth +6 each, the walls that end it cost −2
 
 2026-08-03, main session, following "let's see what epsilon-neighbourhoods tell
@@ -5385,7 +5460,7 @@ identical picture:
 times.
 
 **BUT THE ENDPOINT WALLS GO THE OTHER WAY.** At an endpoint the configuration
-lies on a THIRD wall, and the count is 725 (Postscript 67, all 39 of them) —
+lies on a THIRD wall, and the count is 725 (Postscript [67](#p67), all 39 of them) —
 not 715 + 18 = 733. The third wall contributes **−2**.
 
 So the naive grading "count = 715 + 6·(walls you are on)" is FALSE, and its
@@ -5394,12 +5469,12 @@ remove them. The two edge-edge walls that carry a 727 line are +6 walls; the
 W3, W4 and edge-edge walls that terminate the line are −2 walls. The same wall
 TYPE appears on both sides of that divide — edge-edge walls both define lines
 (+6) and end them (−2) — so the sign is not a function of the taxonomy of
-Postscript 57. It is presumably the pinch/merge distinction of Postscript 62: a
+Postscript [57](#p57). It is presumably the pinch/merge distinction of Postscript [62](#p62): a
 coincidence that PINCHES a region into two adds regions, one that MERGES
 removes them.
 
 **WHICH REFRAMES WHAT A RECORD IS.** Not "a configuration with many
-coincidences" — Postscript 57 already measured that more coincidence means
+coincidences" — Postscript [57](#p57) already measured that more coincidence means
 fewer regions. It is a configuration sitting on as many +6 walls as possible
 while avoiding the −2 walls. The 727 lines are exactly the loci where two +6
 walls meet, and they end precisely where a −2 wall crosses.
@@ -5413,11 +5488,12 @@ invariant here — counts are constant, types are injective.
 
 Files: `eps_neighbourhood.py`, `word_typology.py`.
 
+<a id="p69"></a>
 ## Postscript 69: n=2 mapped completely — five counts, generic 4, and the maximum on CURVES, the same codimension as n=6's 727 lines
 
 2026-08-03, main session, answering "can we map the full structure of
 neighbourhoods for n=2?" Yes: two cubes have 3 degrees of freedom and, by
-Postscript 57's taxonomy, only two wall types can exist (W3 needs three cubes,
+Postscript [57](#p57)'s taxonomy, only two wall types can exist (W3 needs three cubes,
 W4 needs four), so n=2 is the one level where the whole space can be charted.
 
 **ONLY FIVE COUNTS OCCUR**, with depth profiles {d1, 1}:
@@ -5440,7 +5516,7 @@ SMALL INTEGER QUATERNIONS ARE THE SPECIAL CONFIGURATIONS — they satisfy many
 rational conditions at once — so sampling them oversamples walls by an
 enormous factor. At height 60, ZERO of 400 draws reach 13; at height 1000 the
 count is 4 in 98.8% of draws. The ledger's own earlier description, "13 is a
-continuum" (Postscript 44), was right; my gloss of continuum as "open set"
+continuum" (Postscript [44](#p44)), was right; my gloss of continuum as "open set"
 was the error.
 
 **THE 13-SET IS A CURVE.** Along the body-diagonal family (a,b,c) = (t,-t,t)
@@ -5509,6 +5585,7 @@ used for both at once without saying which.
 
 Files: `n2_adjacency.py`.
 
+<a id="p70"></a>
 ## Postscript 70: the topology of the n=2 stratification — it is the OCTAHEDRAL MIRROR ARRANGEMENT on the axis sphere, fibred by the rotation angle
 
 2026-08-03, main session, answering "if we fill the 3-DOF space with dimension
@@ -5539,7 +5616,7 @@ is that arrangement, fibred by the angle:
                                                    9/13 (edge), 13 (diagonal)
     the 24 cube-symmetry rotations     ->  dim 0   count 1
 
-which reproduces exactly the dimension/count table of the Postscript 69
+which reproduces exactly the dimension/count table of the Postscript [69](#p69)
 addendum, and explains it: the count is a function of the stratum because the
 stratum is a symmetry stratum.
 
@@ -5548,7 +5625,7 @@ circles (every angle) and on an arc of each of the 6 edge circles. Each circle
 passes through the identity, and the cube-symmetry rotations on it are its
 vertices. So **the 13-locus is a GRAPH embedded in SO(3)** — vertices at the 24
 cube symmetries (where the count collapses to 1), edges the arcs of 13. This
-is the derived form of Postscript 44's "every angle about a body diagonal, plus
+is the derived form of Postscript [44](#p44)'s "every angle about a body diagonal, plus
 a closed arc about an edge axis", which was observed rather than explained.
 
 **A REFINEMENT: the walls come in two families.** The generic axis (1,2,3) gave
@@ -5560,6 +5637,7 @@ direction; the angle direction carries its own walls.
 
 Files: `n2_map.py`, `n2_adjacency.py`.
 
+<a id="p71"></a>
 ## Postscript 71: extending the n=2 map to n=3 — every triple is labelled by THREE n=2 strata, and both 67s live in the single cell (13,13,13)
 
 2026-08-03, main session, answering "every 3-cube configuration will be built
@@ -5604,7 +5682,7 @@ points of that cell.
 
 **WHICH RESTATES THE n=3 IRRATIONALITY IN THE LANGUAGE OF THE MAP.** A 13-pair
 is a pair whose relative rotation lies on the n=2 maximum graph — the four
-body-diagonal circles and the six edge arcs (Postscript 70). So the n=3
+body-diagonal circles and the six edge arcs (Postscript [70](#p70)). So the n=3
 maximum is exactly a configuration whose three pairs ALL lie on the n=2
 maximum locus, and within that cell the maximum is attained only at points no
 rational configuration reaches. The user's reading is the right one: three-cube
@@ -5613,6 +5691,7 @@ are built from its best components.
 
 Files: `n2_adjacency.py`, and the pair-triple census in this postscript.
 
+<a id="p72"></a>
 ## Postscript 72: the (13,13,13) cell is REDUCIBLE — a 2-dimensional shared-axis component at 55, and isolated points where 67 lives
 
 2026-08-03, main session, answering "what is the dimension of the one cell
@@ -5642,7 +5721,7 @@ The 160 shared-axis cases returning 13 rather than 55 are the degenerate
 sublocus where a 120-degree turn makes one cube the same SOLID as another, so
 the compound is really two cubes.
 
-**WHICH EXPLAINS AN EARLIER OBSERVATION.** Postscript 71 reported that every
+**WHICH EXPLAINS AN EARLIER OBSERVATION.** Postscript [71](#p71) reported that every
 rational (13,13,13) configuration found totals 55, and treated that as a cap on
 the cell. It is not a cap — it is the value of the cell's 2-dimensional
 component, which is the only part a rational scan lands on with any frequency.
@@ -5662,6 +5741,7 @@ and only then does the count follow.
 
 Files: the body-diagonal scan in this postscript, on `cube_regions_n`.
 
+<a id="p73"></a>
 ## Postscript 73: the pair-label of every record, and what extending the structure graph to higher n would cost
 
 2026-08-03, main session, answering "with full n=2 and n=3 structure graphs,
@@ -5696,7 +5776,7 @@ So frustration, in the language of the graph, is a three-stage story:
  * n = 2: the record IS the all-maximal configuration.
  * n = 3: the record is still all-maximal, but on the ISOLATED component of the
    (13,13,13) cell — the 2-dimensional shared-axis component reaches only 55
-   against 67 (Postscript 72).
+   against 67 (Postscript [72](#p72)).
  * n >= 4: the record is NOT all-maximal. Trading maximal pairs for tunable
    ones beats keeping them, by a margin that grows with n.
 
@@ -5731,6 +5811,7 @@ walls, chambers, and the chamber words.
 
 Files: the record-label and shared-diagonal computations in this postscript.
 
+<a id="p74"></a>
 ## Postscript 74: the n=4 cell census, and the one record no climb can reach
 
 2026-08-03, main session. The n=4 structure program (`n4_program.py`,
@@ -5786,7 +5867,7 @@ So the n=3 exceptionality has one more face. It is the only level whose
 maximum needs irrational coordinates; the only level whose optimum set is
 finite and larger than one point; the only rung the record tower does not
 nest through; the only level where the base-fixing method is structurally
-excluded (Postscript 64); and now the only level whose record is unreachable
+excluded (Postscript [64](#p64)); and now the only level whose record is unreachable
 by the search method that found every other one.
 
 Files: `n4_program.py`, `n4_climb.py`, `n4_run_011b219ec3/`.
@@ -5854,13 +5935,14 @@ which region of the space is worth being in.
 
 Files: `climb_limit.py`, `n4_183_extent.py`.
 
+<a id="p75"></a>
 ## Postscript 75: zero signal means a uniform REGION — and characterising it separates the two n=3 maxima for the first time
 
 2026-08-03, main session, from the observation that zero signal indicates a
 uniform region, a region has boundaries, boundaries are more interesting than
 interior points, and the size and shape of the region are themselves features.
 
-Postscript 74's addendum reported the count staying at 55 through twelve orders
+Postscript [74](#p74)'s addendum reported the count staying at 55 through twelve orders
 of magnitude of rational approach to the octahedral 67 and treated that as a
 dead end — no gradient, therefore nothing to do. That was the wrong reading.
 The flat 55 is not an absence of information; it is a UNIFORM REGION, and the
@@ -5906,13 +5988,14 @@ at its centre is a different object from the same value attained on a sliver.
 
 Files: `climb_limit.py`, `region_shape.py`.
 
+<a id="p76"></a>
 ## Postscript 76 (CORRECTION to Postscript 70): the n=2 13-locus is bigger than recorded — and that is what a structural proof of max(3) would have to be built on
 
 2026-08-03, main session, from the question of whether the region/neighbourhood
 graphs could guide a simpler proof of max(3) = 67. Testing the first structural
 fact such a proof would need immediately found an error in the graph.
 
-**THE ERROR.** Postscript 70 described the 13-locus as "the four body-diagonal
+**THE ERROR.** Postscript [70](#p70) described the 13-locus as "the four body-diagonal
 circles (every angle) and an arc of each of the six edge circles" and
 summarised mirror-plane axes as giving "5 or 9". The sweeps behind it each
 showed a `13x1` in the mirror-plane rows, which the summary dropped.
@@ -5966,6 +6049,7 @@ It is a research programme, not a shortcut.
 
 Files: `region_shape.py`, and the mirror-plane sweeps in this postscript.
 
+<a id="p77"></a>
 ## Postscript 77: STEP A COMPLETE — a closed-form exact formula for the two-cube region count, and with it the 13-locus as a criterion rather than a list
 
 2026-08-03, main session, first step of the constructive-max(3) programme.
@@ -5999,9 +6083,9 @@ sampling, no floating point, no case enumeration.
                 pairwise disjoint }
 
 This is what Step A needed, and it is better than the enumerated description
-it replaces. That description was wrong twice in one afternoon — Postscript 70
+it replaces. That description was wrong twice in one afternoon — Postscript [70](#p70)
 listed only body-diagonal circles and edge arcs, missing the mirror-plane
-components where the OCTAHEDRAL 67's own pairs live (Postscript 76); and the
+components where the OCTAHEDRAL 67's own pairs live (Postscript [76](#p76)); and the
 follow-up conjecture that 13 forces the axis into a mirror plane was refuted
 within the hour by the axes (1,-9,4) and (-1,-4,-9), which reach 13 off every
 mirror plane. A criterion cannot be incomplete the way a list can.
@@ -6025,16 +6109,17 @@ the unique irrational level, and that its optimum set is exactly two points.
 
 A plausible attack on B now exists: the same slab decomposition applied to the
 third cube bounds the increment by how many slabs its faces can cut, which is
-the shape of argument Postscript 56 used for the one-cube increment.
+the shape of argument Postscript [56](#p56) used for the one-cube increment.
 
 Files: `step_a.py` (the refuted mirror-plane conjecture, kept as its record),
 `step_a2.py` (the criterion), `step_a3.py` (the validated formula).
 
 ---
 
+<a id="p78"></a>
 ## Postscript 78: STEP B — the three-cube count decomposed exactly, and max(3) = 67 reduced to a single two-rotation lemma
 
-Step A (Postscript 77) turned the two-cube count into a closed form. Step B was
+Step A (Postscript [77](#p77)) turned the two-cube count into a closed form. Step B was
 recorded as "the real gap — still 239k samples and a plausibility argument".
 It is no longer that. The three-cube count now has an exact decomposition of
 the same kind, and max(3) = 67 follows from it given ONE inequality about two
@@ -6100,7 +6185,7 @@ six half-spaces. A three-dimensional extremal problem has become a spherical
 one about two families of convex cells.
 
 **WHY 13 IS SPECIAL, GEOMETRICALLY.** A pair counts 13 exactly when its six
-cones are nonempty and pairwise disjoint (Postscript 77). Two disjoint families
+cones are nonempty and pairwise disjoint (Postscript [77](#p77)). Two disjoint families
 never merge cells: K_i ^ L_j and K_i' ^ L_j' are automatically disjoint unless
 i=i' and j=j'. So **at 13x13 the components ARE the cells**, and every merge
 elsewhere is a loss. Measured at the witnesses that maximise the cell count:
@@ -6131,7 +6216,7 @@ planar and bipartite, so it has at most 2(6+6) - 4 = 20 edges. **s <= 20 at
 Status: measured, not proved. g(13,13) = 16 survived 400 hill-climbing
 refinements at growing denominator (witness quaternions out to height 17314) —
 this is not a random census reading a cell's typical value, which is the error
-the n=4 census made in Postscript 74. The <= 14 half is so far the witness
+the n=4 census made in Postscript [74](#p74). The <= 14 half is so far the witness
 table above plus a systematic sweep still running.
 
 Given Lemma B the argument closes, and closes tightly:
@@ -6142,7 +6227,7 @@ Given Lemma B the argument closes, and closes tightly:
                      T <= 1 + 18 + 14 + 14 + 16 = 63 < 67.
 
 So **max(3) = 67**, with the maximum confined to the (13,13,13) cell — which is
-exactly what Postscript 72's structure graph found empirically, now with a
+exactly what Postscript [72](#p72)'s structure graph found empirically, now with a
 reason rather than a census behind it. The observed off-cell ceiling is 59, so
 the bound is loose by 4 and still decisive.
 
@@ -6167,9 +6252,10 @@ Files: `step_b.py` (the decomposition and its validation), `step_b2.py`
 
 ---
 
+<a id="p79"></a>
 ## Postscript 79: the wide-engine campaign is COMPLETE — 727 survives all 508,818 previously-unreachable configurations, and two new 727 compounds fall out of it
 
-The widened engine (Postscript 59) existed to answer one question: the narrow
+The widened engine (Postscript [59](#p59)) existed to answer one question: the narrow
 q2 engine's 2^112 budget REJECTED configurations rather than counting them, and
 a rejected configuration is not a counted one. Everything the project claimed
 about the six-cube ceiling was therefore conditional on nothing above 727
@@ -6196,7 +6282,7 @@ d, in three depth profiles:
 
 This postscript first claimed two of those profiles as new compounds. **That was
 wrong, and the user caught it by asking whether they were really new or part of
-an already logged region.** Postscript 61 already records exactly these three
+an already logged region.** Postscript [61](#p61) already records exactly these three
 profiles at 727, with these multiplicities' predecessors, and already records
 eight fields reaching 727: 13, 226, 403, 1093, 1614, 1785, 1930, 2741. Nothing
 about the profiles is new. The lesson is the ordinary one — check the ledger
@@ -6224,17 +6310,17 @@ fields cannot be congruent.
 So the count of congruence classes at 727 goes from **at least 12 (4 rational,
 8 irrational) to at least 19**.
 
-[SUPERSEDED IMMEDIATELY by Postscript 80: "at least 19" is an undercount by an
-infinite factor, and Postscript 61's "classes are INDEXED BY FIELD" is an
+[SUPERSEDED IMMEDIATELY by Postscript [80](#p80): "at least 19" is an undercount by an
+infinite factor, and Postscript [61](#p61)'s "classes are INDEXED BY FIELD" is an
 artifact of what the enumeration could produce. The classes lie on rational
 LINES along which 727 holds on an interval, and every quadratic field has points
-in that interval. Read Postscript 80 instead of this paragraph.]
+in that interval. Read Postscript [80](#p80) instead of this paragraph.]
 
 **THE INVARIANT HOLDS THROUGHOUT.** Every 727 in every class still satisfies
 
     d1 + d2 + d3 + d4 = 690,   d5 = 36,   d6 = 1
 
-Not new either -- Postscript 61 states it -- but it now has fifteen fields
+Not new either -- Postscript [61](#p61) states it -- but it now has fifteen fields
 behind it. d5 = 36 and d6 = 1 rigid across every maximiser says the deep layers
 are saturated and every degree of freedom is shallow.
 
@@ -6255,9 +6341,10 @@ distinguishes a field that reaches it is now the question.
 
 ---
 
+<a id="p80"></a>
 ## Postscript 80: the 727 classes are not indexed by field — they are quadratic points inside one rational interval, and there are infinitely many of them
 
-Postscript 79 reported seven new fields reaching 727 and concluded "at least 19
+Postscript [79](#p79) reported seven new fields reaching 727 and concluded "at least 19
 congruence classes". The user asked the obvious next question — **how are the
 classes related?** — and the answer dissolves the framing.
 
@@ -6296,7 +6383,7 @@ cube (300, 2650+3√d, -4350-9√d, -7800-18√d):
 None of those eight fields appears among the fifteen the enumeration found.
 The construction works for any squarefree d whatever, by shrinking the
 coefficient of √d until the point lies in the interval. Since the subfield
-generated by the relative rotations is a congruence invariant (Postscript 79),
+generated by the relative rotations is a congruence invariant (Postscript [79](#p79)),
 distinct d give non-congruent compounds, so:
 
 **THERE ARE INFINITELY MANY CONGRUENCE CLASSES AT 727 — at least one for every
@@ -6318,7 +6405,7 @@ configuration outright. So every congruence class meets the interval in at most
 putting it in the base's finite symmetry group. That is too strong — the cubes
 are UNORDERED, so a congruence may swap the sixth cube with a base cube. The
 finiteness survives, by the counting above, but not for the reason first given.) Stated plainly: once the plateau is positive-dimensional
-— which Postscripts 52-55 already recorded — infinitely many congruence classes
+— which Postscripts [52](#p52)-[55](#p55) already recorded — infinitely many congruence classes
 follows immediately and the arithmetic adds nothing to it. The field argument
 earns its place only for the OTHER claim, that infinitely many distinct FIELDS
 occur, which is what refutes the indexed-by-field reading. "At least 12", "at least 19" and "one class per field that
@@ -6327,10 +6414,10 @@ mixed family enumerates points where a quadric meets a line; each such point
 lands in whatever field the quadratic happens to generate; and the enumeration
 never looked anywhere else on the line.
 
-**WHAT WAS ALREADY KNOWN, AND WHAT THIS ADDS.** Postscripts 52-55 already
+**WHAT WAS ALREADY KNOWN, AND WHAT THIS ADDS.** Postscripts [52](#p52)-[55](#p55) already
 recorded that 727 holds on INTERVALS of wall lines, subdivided into
 type-chambers. That is exactly this phenomenon — the user's question, asked of
-Postscript 79's "new" compounds, was for the second time in one session the
+Postscript [79](#p79)'s "new" compounds, was for the second time in one session the
 correct one: they were part of an already logged region. What is added is the
 consequence for the arithmetic, which had been read backwards: the field is not
 an organising principle of the maximiser set, it is a by-product of where the
@@ -6348,7 +6435,7 @@ now over 508,818 counted configurations with none above it. What changes is the
 shape of the maximiser set. It is not a finite list of special compounds to be
 classified; it is a positive-dimensional plateau whose rational and irrational
 points are equally unremarkable, and the interesting objects are its BOUNDARIES —
-where 721, 723 and 715 take over — exactly the lesson of Postscript 75. A
+where 721, 723 and 715 take over — exactly the lesson of Postscript [75](#p75). A
 classification programme aimed at listing the 727s is aimed at the wrong object.
 
 **ADDENDUM — what kind of rotations these classes actually are.** Asked
@@ -6369,7 +6456,7 @@ Sampling per_label at 1/32 across the interval gives **9 distinct combinatorial
 types**, walls at s = 75/32, 19/8, 79/32, 5/2, 21/8, 85/32, 43/16, 89/32, with
 chambers of very unequal width (the widest runs from 89/32 past s = 3). The
 count is 727 in all of them: this is the type-chamber subdivision of
-Postscripts 52-55, measured on a plateau whose extent is now known.
+Postscripts [52](#p52)-[55](#p55), measured on a plateau whose extent is now known.
 
 **A NEGATIVE WORTH KEEPING.** The angle crosses exactly 45° between s = 23/8
 and 3 — a number with a pedigree here, since the octahedral three-cube maximiser
@@ -6437,7 +6524,7 @@ this locus at all — Addendum 2). At the interval's midpoint s = 5/2, all 14
 directions perpendicular to the tangent (1,−3,−6) drop off 727 at ε = 1/64,
 1/512 AND 1/4096, landing on 711/715/721; the tangent itself stays 727. So
 inside the pinned slice the locus is a CURVE, one-dimensional, which confirms
-Postscripts 52-55's "transverse to the line, isolated (perturbation → 715-721)"
+Postscripts [52](#p52)-[55](#p55)'s "transverse to the line, isolated (perturbation → 715-721)"
 with the tangent now identified explicitly.
 
 Applying the isometry group to that curve then gives
@@ -6477,11 +6564,12 @@ non-intersecting 727 loci, and at least four components conditional on a
 
 This is now the concrete form of the well-posed question that replaced "how many
 maximisers": ENUMERATE THE 727 WALL LINES. It is a finite problem, the locus
-enumeration of Postscript 48 is the machinery for it, and each line found comes
+enumeration of Postscript [48](#p48) is the machinery for it, and each line found comes
 with its own arc of classes, its own chamber subdivision, and its own endpoints.
 
 ---
 
+<a id="p81"></a>
 ## Postscript 81: a tangent finder, the two 67 representatives recovered, and symmetry measured across every record
 
 The method behind [`MAXIMISER_TAXONOMY.md`](MAXIMISER_TAXONOMY.md) and
@@ -6503,7 +6591,7 @@ finite scan. Active walls are found exactly, by substituting the point into the
 directions preserve 727 and they are ±(1,−3,−6), the tangent already known
 independently from two ℚ(√d) solutions. APPLIED to 723 at (5,2,2,2), tangent
 previously unknown: 2 of 96 give **(1,1,1)** — the sixth cube sliding along the
-shared C₃ axis, which is the family Postscript 12 built 723 from in the first
+shared C₃ axis, which is the family Postscript [12](#p12) built 723 from in the first
 place. The geometry rediscovered the construction. Limitation: it sees only
 catalogue walls, and arc A lies on just ONE of them, its second wall being of
 the unenumerated W3/W4 type.
@@ -6532,7 +6620,7 @@ maximiser's own rotation group:
 
 **It decays from the maximum possible.** The octahedral 67 has the FULL cube
 rotation group, order 24; nothing can exceed it. The collapse to 1 happens
-exactly at 723 → 727, which Postscripts 52-55 independently describe as the
+exactly at 723 → 727, which Postscripts [52](#p52)-[55](#p55) independently describe as the
 record beating 723 by LEAVING the corner-concurrence stratum — two vocabularies
 for one event. **183 is C₃-symmetric**, apparently unrecorded: it was found by
 wide-perturbation hill-climbing, so its symmetry was never the point of the
@@ -6564,12 +6652,13 @@ subgroups of SO(3) — the wrong table was otherwise entirely plausible.
 
 ---
 
+<a id="p82"></a>
 ## Postscript 82: the tangent is a null space, 393 is rigid against moving one cube, and the n=7/n=8 extents
 
 Continuing the live threads. Method here; results in
 [`MAXIMISER_TAXONOMY.md`](MAXIMISER_TAXONOMY.md).
 
-**THE TANGENT FINDER IS NOW EXACT.** Postscript 81 found tangents by scanning a
+**THE TANGENT FINDER IS NOW EXACT.** Postscript [81](#p81) found tangents by scanning a
 grid of directions inside one active wall and testing each with the engine. That
 is a sampling argument: it can say no sampled direction preserved the count,
 never that none exists. The right formulation is one line — a tangent must be
@@ -6583,7 +6672,7 @@ tangent space which IS the tangent; **rank 3 proves no tangent exists**. Both
 known tangents come back exactly — (−1/6,1/2,1) ∝ (1,−3,−6) at 727 arc A, and
 (1,1,1) at 723. `tangent_finder.py` rewritten; the scan is kept as a cross-check.
 
-**THE 393 BLOCKER WAS ILLUSORY.** Postscript 81 recorded that 393 was
+**THE 393 BLOCKER WAS ILLUSORY.** Postscript [81](#p81) recorded that 393 was
 unreachable because the tangent finder needed "a catalogue of wall planes for a
 fifth cube on a four-cube base, which has not been enumerated". Wrong: reading
 `locus_linear.extract_planes`, the catalogue is keyed per FIXED cube, and the
@@ -6627,6 +6716,7 @@ edge.
 
 ---
 
+<a id="p83"></a>
 ## Postscript 83: the epsilon-neighbourhood probe is one recursion, and the n=2 maximiser locus is a punctured CIRCLE
 
 From a user reframing: the epsilon-neighbourhood categorisation was not a
@@ -6640,7 +6730,7 @@ direction: it must reach a boundary **or wrap**. A boundary is a stratum of
 lower dimension — recurse into it. Terminate at point transitions, dimension 0.
 
 The tools built piecemeal are steps of exactly this: the aligned probe is step 2
-by sampling; the null space of the active wall normals (Postscript 82) is step 2
+by sampling; the null space of the active wall normals (Postscript [82](#p82)) is step 2
 done exactly, returning every agreeing direction at once and proving when none
 exists; the sweep is step 3. **Step 4 — descending into a boundary and
 stratifying it — has never been built**, which is why components and types have
@@ -6673,13 +6763,14 @@ apparent ends and watch for the value returning.
 
 ---
 
+<a id="p84"></a>
 ## Postscript 84: the 727 arcs enumerated — 1,449 records, 216 chart lines, exactly THREE arcs up to congruence
 
 A search rather than a measurement, run over data already on disk.
 
 **THE METHOD.** Every ℚ(√d) configuration at 727 has Cayley coordinates
 a + b√d with a, b RATIONAL, so it names a rational line P(t) = a + t·b and sits
-on it at t = √d. Postscript 80 used this on ONE witness per field and found
+on it at t = √d. Postscript [80](#p80) used this on ONE witness per field and found
 three lines. Running it over all **1,449** recorded 727s gives **216 distinct
 chart lines** — two orders of magnitude more, and the obvious reading was that
 the component count had been badly underestimated.
@@ -6705,7 +6796,7 @@ collect orbits.
 
 **216 = 3 × 72, uniformly.** So the campaign's 1,449 configurations at 727 lie
 on exactly **three arcs up to congruence** — which are precisely the A, B, C of
-Postscript 80, found there from one witness per field. The 216 was the same trio
+Postscript [80](#p80), found there from one witness per field. The 216 was the same trio
 seen 72 times each, and the uniform orbit size says no arc carries extra
 stabiliser. The 11 "isolated" lines are sweep-window artefacts, since the orbit
 structure places all 216 in those same three classes.
@@ -6715,7 +6806,7 @@ campaign, and verified skew with A, B and C — the count stands at **at least 4
 components**, and the campaign contributes exactly 3 of them. The earlier "≥4"
 was right, and is now right for a reason.
 
-**WRAPPING, TESTED.** Postscript 83 raised loop-versus-arc as a category.
+**WRAPPING, TESTED.** Postscript [83](#p83) raised loop-versus-arc as a category.
 Evaluating the point at infinity of a Cayley line — the half-turn about its
 direction vector:
 
@@ -6728,16 +6819,17 @@ direction vector:
 So 723 does not wrap either, but its family is **far larger than mapped**: it
 was recorded as a union of intervals inside [9/32, 35/32], and it still counts
 723 at |s| = 1000 — rotations approaching a half-turn about the shared C₃ axis.
-Its point at infinity counts **717**, itself a record value (Postscript 11);
+Its point at infinity counts **717**, itself a record value (Postscript [11](#p11));
 whether that is the 717 compound or merely its count is untested.
 
 Files: `arc_survey.py`.
 
 ---
 
+<a id="p85"></a>
 ## Postscript 85: component counts at 727/725/723, and 723's family is enormous — the charted interval was a fragment near the origin
 
-**COMPONENT COUNTS BY ORBIT DEDUP** (`orbit_count.py`, the Postscript 84 method
+**COMPONENT COUNTS BY ORBIT DEDUP** (`orbit_count.py`, the Postscript [84](#p84) method
 applied to every recorded total):
 
     total 727 :  216 chart lines ->  3 orbits   sizes {72:3}
@@ -6756,7 +6848,7 @@ the size-7 orbit at 723 means it saw seven. The orbit COUNT is unaffected —
 any two observed lines in one true orbit are related by a single group element,
 so the union-find merges them regardless of which images are missing.
 
-**723's FAMILY IS FAR LARGER THAN RECORDED.** Postscript 82 charted 723 along
+**723's FAMILY IS FAR LARGER THAN RECORDED.** Postscript [82](#p82) charted 723 along
 its tangent (1,1,1) as a union of intervals with the longest [9/32, 35/32].
 Sweeping the whole line instead of a window, s ∈ [−50, 50] at step 1/8:
 
@@ -6766,14 +6858,14 @@ Sweeping the whole line instead of a window, s ∈ [−50, 50] at step 1/8:
 
 **Both widest runs touch the sweep bounds**, and the wrap test already found 723
 at |s| = 1000, so they extend far beyond ±50 — plausibly to the point at
-infinity, where the count is 717. What Postscript 82 recorded as "a union of
+infinity, where the count is 717. What Postscript [82](#p82) recorded as "a union of
 intervals" is a small FRAGMENTED ZONE near the origin, which is simply where the
 base point (2/5,2/5,2/5) sits. The family is dominated by two huge intervals
 nobody had looked at. Highest count anywhere on the line: 723, so no 727 on it.
 
 **The methodological point, for the third time this session.** A sweep centred
 on the one configuration you already know, over a window sized by convenience,
-describes the window. Postscript 82 flagged exactly this trap — "a sweep that
+describes the window. Postscript [82](#p82) flagged exactly this trap — "a sweep that
 returns its own bounds is telling you the window was too small" — and the
 charted 723 interval was itself an instance of it, unnoticed for two
 postscripts. The fix is not a bigger default window; it is to sweep until the
@@ -6783,9 +6875,10 @@ Files: `orbit_count.py`, `arc_survey.py`.
 
 ---
 
+<a id="p86"></a>
 ## Postscript 86: symmetries named by group, not by order — and three of them were ambiguous
 
-The symmetry column of Postscript 81 reported orders: 24, 12, 6, 3, 1. Order
+The symmetry column of Postscript [81](#p81) reported orders: 24, 12, 6, 3, 1. Order
 does not determine a finite subgroup of SO(3), so three entries were ambiguous:
 12 could be C₁₂, D₆ or T; 24 could be C₂₄, D₁₂ or O; 6 could be C₆ or D₃.
 Classifying by element-order histogram instead:
@@ -6803,7 +6896,7 @@ Classifying by element-order histogram instead:
 **The chain is O → D₆ → D₃ → C₃ → trivial.** Two things the order-only version
 could not say. The n=2 maximiser is **D₆**, so it has a SIX-fold axis — a 60°
 rotation about the body diagonal exchanges the two cubes, which is exactly why
-the locus is the punctured circle of Postscript 83 and why its punctures are a
+the locus is the punctured circle of Postscript [83](#p83) and why its punctures are a
 C₃ orbit. And the two 67s differ in group TYPE, **O against D₃**, not merely in
 order 24 against 6: a far stronger separation than "different orders", and a
 sharper form of the congruence invariant that already separated them where
@@ -6811,6 +6904,7 @@ per_label could not.
 
 ---
 
+<a id="p87"></a>
 ## Postscript 87: a vast family has a one-line generator — but the MAXIMISER subset of it does not
 
 From the user's question: if a family is vast, is there a simple program that
@@ -6845,13 +6939,13 @@ any simple parameter tested. Rate of 723 by sampling window:
 
 non-monotonic in the denominator AND in |t|, so neither is the driver.
 
-**AND THE EARLIER "CONTINUOUS INTERVAL" WAS A GRID ARTEFACT.** Postscript 85
+**AND THE EARLIER "CONTINUOUS INTERVAL" WAS A GRID ARTEFACT.** Postscript [85](#p85)
 reported 723 unbroken on t ∈ [−49.6, −3.6] from a step-1/8 sweep, yet the dense
 test finds exceptions at t = −9, inside that range. Both are right: the sweep
 stepped in s with t = 2/5 + s, so it sampled t ≡ 2/5 (mod 1/8) and **never hit
 an integer or a simple fraction at all**. An offset base point made the grid
 systematically avoid exactly the special rationals it most needed to test.
-Related to the window trap of Postscript 82, but distinct and worse: the window
+Related to the window trap of Postscript [82](#p82), but distinct and worse: the window
 was right, the PHASE was wrong, and no amount of widening would have found it.
 
 **Where this leaves the question.** Generating the family is now free — one
@@ -6863,11 +6957,12 @@ is still an enormous reduction over searching Cayley space, and is exactly how
 
 ---
 
+<a id="p88"></a>
 ## Postscript 88: rank 3 does NOT prove isolation — and the n=6 record sits at a CROSSING of two 727 arcs
 
-**THE METHOD HAD A FALSE-NEGATIVE MODE.** Postscript 82 asserted that a rank-3
+**THE METHOD HAD A FALSE-NEGATIVE MODE.** Postscript [82](#p82) asserted that a rank-3
 active-wall set proves no tangent exists. It does not. A catalogue plane through
-a point is a COINCIDENCE locus, and Postscript 58 already established that most
+a point is a COINCIDENCE locus, and Postscript [58](#p58) already established that most
 coincidence crossings do not change the count. So requiring the tangent to be
 orthogonal to every active catalogue plane over-constrains: it can only find
 directions tangent to walls that may not constrain the maximiser locus at all.
@@ -6877,7 +6972,7 @@ directions tangent to walls that may not constrain the maximiser locus at all.
 
 **CAUGHT BY THE RECORD ITSELF.** At (7,14,1,-5), Cayley (2, 1/7, −5/7): five
 active walls, rank 3, apparently 0-dimensional — flatly contradicting
-Postscripts 52-55, which record the record as sitting on a 727 wall line. The
+Postscripts [52](#p52)-[55](#p55), which record the record as sitting on a 727 wall line. The
 repair is to take null spaces of rank-2 SUBSETS of the active normals and verify
 each against the engine (`subset_tangents` in `tangent_finder.py`).
 
@@ -6901,15 +6996,16 @@ maximisers become simultaneously reachable.
 
 **393 SURVIVES THE CORRECTION, ON BETTER GROUNDS.** Re-run with the repaired
 method: 12 active walls give **46** distinct rank-2 subset directions, and **not
-one** preserves 393 at either scale. The rigidity claim of Postscript 82 was
+one** preserves 393 at either scale. The rigidity claim of Postscript [82](#p82) was
 reached by an argument now known to be unsound, and happens to be right; it now
 rests on 46 verified directions instead.
 
 ---
 
+<a id="p89"></a>
 ## Postscript 89: arcs B and C measured — the three 727 arcs differ in extent by 300x
 
-Closing the gap left by Postscript 84, which settled that the ℚ(√d) campaign's
+Closing the gap left by Postscript [84](#p84), which settled that the ℚ(√d) campaign's
 727s lie on exactly three arcs but measured only arc A.
 
     arc   through                        along          727 extent      width
@@ -6932,7 +7028,7 @@ of parameter, arc C's twelve span 46.
 
 **Wrapping**: neither wraps. Arc B gives 691 at s = ±1000 and 693 at infinity;
 arc C gives 715 and 707 at ±1000 and 689 at infinity. So all three known arcs
-terminate, and the punctured-circle topology of Postscript 83 remains unique to
+terminate, and the punctured-circle topology of Postscript [83](#p83) remains unique to
 n = 2 so far.
 
 **TWO MEASUREMENT FAULTS, both caught and both worth recording.**
@@ -6940,7 +7036,7 @@ n = 2 so far.
 *Grid truncation, the fourth instance this session.* The step-1/16 sweep over
 s ∈ [−30, 30] reported arc C as "width 461/16, run [19/16, 30]" — the run ending
 exactly at the sweep bound. Extending to s = 300 found the real end at 47.75.
-Postscript 82 named this trap and Postscript 85 hit it again; it recurs because
+Postscript [82](#p82) named this trap and Postscript [85](#p85) hit it again; it recurs because
 the natural instinct is to sweep a window centred on the known point, and the
 diagnostic is always the same: **a run that terminates at the sweep bound has
 not terminated.**
@@ -6959,6 +7055,7 @@ Files: `arcs_bc.py`.
 
 ---
 
+<a id="p90"></a>
 ## Postscript 90: arc bounds ARE analytic — one linear solve where the wall is catalogued, and blocked on W3/W4 where it is not
 
 An arc ends where its line crosses a count-changing wall, so the bound is a root
@@ -6974,7 +7071,7 @@ crossings on arcs A, B and C respectively.
 
 **VERIFIED.** Arc B's lower end is **exactly s = 43/105**. The count is 723 at
 43/105 − 1/2000 and 727 at 43/105 + 1/2000. No sweep, no bisection, no engine
-overflow — the failure mode of Postscript 89, where refining past 2^-8 produced
+overflow — the failure mode of Postscript [89](#p89), where refining past 2^-8 produced
 denominators the integer engine rejects and the rejections read as count
 changes, simply does not arise.
 
@@ -6989,8 +7086,8 @@ runs to s ≈ 47.75.
 
 **So the analytic route is real and blocked on one long-standing gap.** The
 (2,1,1) and (1,1,1,1) wall types — W3 quartics and W4 quadrics — were never
-enumerated (Postscripts 57, 58), and they are precisely the walls that bound
-these arcs. Postscript 58 had already found that the unenumerated type governs
+enumerated (Postscripts [57](#p57), [58](#p58)), and they are precisely the walls that bound
+these arcs. Postscript [58](#p58) had already found that the unenumerated type governs
 the plateau's chamber structure while the catalogued type does not predict the
 count; this is the same fact reappearing as a boundary problem. With those
 equations in hand, every arc bound becomes root-finding on a line — degree 1 for
@@ -7003,9 +7100,10 @@ precision, and the missing constraints for `tangent_finder.py` in one go.
 
 ---
 
+<a id="p91"></a>
 ## Postscript 91: W4 enumerated as crossings on a line — arc A's ends solved exactly, and its recorded extent was wrong at both ends
 
-Postscript 90 identified enumerating W3/W4 against the 393 base as the highest-
+Postscript [90](#p90) identified enumerating W3/W4 against the 393 base as the highest-
 value outstanding computation. W4 is now done, in the form the arc-bound problem
 actually needs.
 
@@ -7029,7 +7127,7 @@ crossings**. `wall_params.py`.
 
 The upper end is rational and also happens to be a catalogue-plane crossing; the
 lower is a quadratic irrational, invisible to the plane catalogue. So the wall
-type Postscript 58 found to govern chamber structure is the same one that bounds
+type Postscript [58](#p58) found to govern chamber structure is the same one that bounds
 the arcs — now confirmed by solving rather than by sampling.
 
 **AND THE RECORDED EXTENT WAS WRONG AT BOTH ENDS.**
@@ -7054,6 +7152,7 @@ Files: `wall_params.py`.
 
 ---
 
+<a id="p92"></a>
 ## Postscript 92: W3 enumerated too — and W3+W4 account for EVERY chamber wall on arc A, 15 of 15
 
 **W3 AS CROSSINGS ON A LINE.** The (2,1,1) condition is that a free-cube EDGE
@@ -7071,13 +7170,13 @@ is degree 4 in s — the project's quartic, now derived rather than asserted.
 **W3+W4 EXPLAIN EVERY CHAMBER WALL.** Sampling arc A at 282 points of
 denominator 256 — all counting 727, so the arc is unbroken — gives 15 per-label
 transitions between consecutive samples, and **every one of the 15 brackets a
-W3 or W4 crossing**. Postscript 58 could explain only 6 of 46 transitions from
+W3 or W4 crossing**. Postscript [58](#p58) could explain only 6 of 46 transitions from
 the enumerated catalogue, and 43 after adding W4 heuristically; with both
 strata computed exactly the account is complete.
 
 **AND MOST CROSSINGS CHANGE NOTHING.** 48 W3/W4 crossings lie inside the arc but
 only 15 change the type — the walls are a strict superset of the chamber
-boundaries, exactly as Postscript 58 found. So a wall crossing is necessary for
+boundaries, exactly as Postscript [58](#p58) found. So a wall crossing is necessary for
 a type change, not sufficient.
 
 **CHAMBER COUNTS WERE RESOLUTION-LIMITED.** Arc A was recorded with 10 chambers
@@ -7090,7 +7189,7 @@ at this check sampled s = lo + (hi−lo)·k/300 with lo = 2064/1000 and hi = 19/
 Those parameters have large denominators, the quaternions reached 32 digits, and
 **133 of 301 samples came back as engine REJECTIONS** — which the signature
 logic read as type changes, reporting a spurious 187 transitions of which only
-35 matched a wall. Postscript 89 had already recorded that "a None is a
+35 matched a wall. Postscript [89](#p89) had already recorded that "a None is a
 REJECTION, not a count". The fix is not vigilance but parametrisation: sample at
 FIXED small denominator (k/256), never at an affine map of two awkward
 rationals. Diagnosis is one line — print the count histogram and look for None.
@@ -7099,9 +7198,10 @@ Files: `wall_params.py` (both strata).
 
 ---
 
+<a id="p93"></a>
 ## Postscript 93: all three 727 arcs bounded analytically — five of six ends are W4
 
-Applying the Postscript 91/92 solve to arcs B and C completes the programme.
+Applying the Postscript [91](#p91)/92 solve to arcs B and C completes the programme.
 
     arc   lower bound                     upper bound                    width
     B     43/105 = 0.409523810   W4       ≈ 0.579411080          W4      0.1699
@@ -7132,12 +7232,13 @@ majority are inert, so a bracket must be split, not merely reported.
 **39 of 39.** The two strata account for every chamber wall observed on every
 known 727 arc. Against interior crossing counts of 48, 62 and 77 respectively,
 so roughly a quarter of crossings are boundaries and the rest are inert — the
-same ratio Postscript 58 saw and could not then explain.
+same ratio Postscript [58](#p58) saw and could not then explain.
 
 Files: `wall_params.py`.
 
 ---
 
+<a id="p94"></a>
 ## Postscript 94: the arc network has measurable geometry — C and D1's LINES intersect, at a 725 point outside both arcs
 
 Asked whether sliders could be arranged to mirror the arcs' geometry in
@@ -7183,6 +7284,7 @@ needs angular exaggeration to be legible, and the 72 chart copies of every arc
 
 ---
 
+<a id="p95"></a>
 ## Postscript 95: what a W4 wall actually is — a circle of face normals, a one-sheeted hyperboloid, doubly ruled
 
 Asked whether the wall drawn on the arc map has a representative shape. The
@@ -7227,7 +7329,7 @@ are per-line even spacing. The lines are now deliberately staggered and the map
 says so in a caption. Choosing an idiom imports its conventions, including the
 ones that make false statements.
 
-**Addendum to Postscript 95 — the wall drawn straight.** The arc map's station
+**Addendum to Postscript [95](#p95) — the wall drawn straight.** The arc map's station
 columns were meaningless coincidences of even spacing, a hazard because the
 transit idiom reads a column as correspondence. Rather than only warn about it,
 the map now chooses each line's spacing so the shared W4 wall crosses all three
@@ -7243,6 +7345,7 @@ the mistake was letting the axes fall where the layout happened to put them.
 
 ---
 
+<a id="p96"></a>
 ## Postscript 96: what happens at an arc terminus — a corner-to-corner contact, doubled
 
 Asked whether there is a cube feature where an arc's count drops from 727 to
@@ -7270,7 +7373,7 @@ two corner-to-corner and two edge-through-crossing, each doubled by central
 symmetry — so several regions collapse at once. The arc does not end at an
 ordinary wall; it ends where the configuration becomes maximally degenerate.
 
-**Relation to the taxonomy.** Postscript 57 classified corner-corner contacts as
+**Relation to the taxonomy.** Postscript [57](#p57) classified corner-corner contacts as
 codimension 2 and therefore NOT walls, which is consistent: the arc is already
 codimension 2 in the pinned slice, and its endpoint is codimension 3. The
 endpoint is where the arc's own wall meets a further degeneracy, which is
@@ -7283,6 +7386,7 @@ engine rather than exact rationals.
 
 ---
 
+<a id="p97"></a>
 ## Postscript 97: the 500× extent spread was a chart artifact — measured as rotation, the arcs differ by 2.1×
 
 Asked what the units of "true length" were on the arc map. They were Euclidean
@@ -7321,7 +7425,7 @@ the taxonomy:
 
 **The general trap.** Every length, distance and angle quoted in this project's
 configuration-space work is a chart quantity unless stated otherwise, and the
-Cayley chart is badly non-uniform. The skew separations of Postscript 94, the
+Cayley chart is badly non-uniform. The skew separations of Postscript [94](#p94), the
 "300× spread", the segment lengths in the arc tables — all are chart numbers.
 They are fine for deciding incidence, which is chart-independent, and unreliable
 for anything metric. Ask what a length is measured in before drawing a
@@ -7329,6 +7433,7 @@ conclusion from its size.
 
 ---
 
+<a id="p98"></a>
 ## Postscript 98: one figure for all seven levels — the mark carries the dimension
 
 `shapes.svg` / `shapes.png`. The maximiser set at n = 2 through 8 in a single
@@ -7356,6 +7461,7 @@ qualify two of its seven panels.
 
 ---
 
+<a id="p99"></a>
 ## Postscript 99: the octahedral 67 is built from MIRROR-PLANE 13s, not body-diagonal ones
 
 Asked whether the 2-subsets of the octahedral 67 form another n=2 family. They
@@ -7369,8 +7475,8 @@ two-cube maximisers assembled. But the relative rotation R = (1, 1, √2, 0) is
 
 which lies in the mirror plane z = 0 and is NEITHER a body diagonal (0.5774,
 0.5774, 0.5774) NOR an edge axis (0.7071, 0.7071, 0). It sits on a
-mirror-plane component of the 13-locus — exactly what Postscript 70 missed,
-Postscript 76 corrected, and `n2map_standalone.html` still misstates on its
+mirror-plane component of the 13-locus — exactly what Postscript [70](#p70) missed,
+Postscript [76](#p76) corrected, and `n2map_standalone.html` still misstates on its
 summary card while its own data table contradicts it. Third independent route to
 the same correction.
 
@@ -7386,13 +7492,14 @@ to work on the mirror-plane component, which no rational sweep can reach.
 
 ---
 
+<a id="p100"></a>
 ## Postscript 100: the multi-cube gap CLOSED at n=3 — solve the tight Step-A conditions, not the concurrences
 
 **THE FAILURE FIRST.** `multicube2.py` ran all nine maximisers overnight (n=8
 took 7 946 s) building the exact Jacobian of the active 4-plane CONCURRENCES over
 all 3(n−1) coordinates. Every target returned 0 verified directions — and the
 run is void by its own control: the n=6 record and n=8 1891 both have tangents
-already verified, and it missed both. The cause is Postscript 88's, at scale:
+already verified, and it missed both. The cause is Postscript [88](#p88)'s, at scale:
 most concurrences do not change the count, so treating each as binding drove the
 rank to nearly full (17 of 18 at n=7, 20 of 21 at n=8, 6 of 6 at n=3) and
 rotated any surviving direction off the true tangent, so verification killed it
@@ -7424,7 +7531,7 @@ for 67. Tangent dimension 0 therefore proves the two 67s are isolated **against
 motion of several cubes at once**, not merely against moving one. The
 "exactly two 67s" claim that several headline results are conditional on no
 longer rests on the lattice probe FAILURE_MODES 11d disqualified, nor on the
-codimension heuristic of Postscript 78 — it rests on a solve that demonstrably
+codimension heuristic of Postscript [78](#p78) — it rests on a solve that demonstrably
 recovers a tangent when one exists.
 
 **REMAINING.** The tightness test is numerical at 1e-9; the exact version runs
@@ -7434,6 +7541,7 @@ pairs to Step B's full decomposition.
 
 ---
 
+<a id="p101"></a>
 ## Postscript 101: n = 8 = 1895 — the record was inside a window an earlier sweep had already covered; and the 723 stratum WRAPS
 
 **THE RECORD.**
@@ -7450,7 +7558,7 @@ two-component lattice perturbations, 10 556 replacement eighth cubes (exhaustive
 to |component| ≤ 4 plus log-uniform samples to 512), 3 000 replacement sevenths
 and 3 000 replacement sixths.
 
-**HOW IT WAS MISSED, WHICH IS THE PART WORTH KEEPING.** Postscript 82 reported
+**HOW IT WAS MISSED, WHICH IS THE PART WORTH KEEPING.** Postscript [82](#p82) reported
 the 1891 locus along its eighth cube's Cayley z as "1891 on [0, 3/32] and again
 on [15/64, 3/8]". 1895 occupies (0.1016, 0.2227) — **precisely the gap between
 those two intervals**, inside the window that sweep had already covered. The
@@ -7537,9 +7645,10 @@ unevaluated, not as a count change.
 
 ---
 
+<a id="p102"></a>
 ## Postscript 102: the record's twelve — the tight-set failure is localised to slab-PAIR conditions, one base cube per arc
 
-Postscript 101 left the multi-cube method broken at the n = 6 record: null
+Postscript [101](#p101) left the multi-cube method broken at the n = 6 record: null
 dimension 1 where D1 and D2 both verify. Decoding which rows of the tight
 Jacobian each tangent violates (`record_six.py`) localises it completely.
 
@@ -7554,7 +7663,7 @@ ONE base cube paired with the free cube: cube 1 for D1, cube 0 for D2.
 **That is what arc D's crossing IS.** The record is the configuration where the
 free cube can release its pair conditions with cube 1, giving one arc, or with
 cube 0, giving the other. A combination releases both at once, which is exactly
-why every combination of D1 and D2 fails (Postscript 101 measured 721 at ±1/64
+why every combination of D1 and D2 fails (Postscript [101](#p101) measured 721 at ±1/64
 along D1+D2 while each alone holds 727 out to ±1/16). The node is not a
 coincidence of two unrelated arcs; it is one free cube with two separable
 partners.
@@ -7571,7 +7680,7 @@ both the failure and the repair.
 
 **Scope.** This is the record only. Whether the same rule — pair conditions
 binding at some configurations and not others — accounts for the zeros at the two
-67s is untested, and until it is, Postscript 100's closure of the n = 3
+67s is untested, and until it is, Postscript [100](#p100)'s closure of the n = 3
 multi-cube gap stays reopened.
 
 **ADDENDUM, same day — the crossing count confirms all of it independently.**
@@ -7600,6 +7709,7 @@ crossings) while counting four fewer than the record.
 
 ---
 
+<a id="p103"></a>
 ## Postscript 103: rulings are NOT constant-count lines — the path ranked first refutes its own premise, and every wall splits over ℚ
 
 The 2026-08-10 session ranked "sweep the rulings" first of five paths, on the
@@ -7617,7 +7727,7 @@ chambers, i.e. crossed zero and one wall, so their constancy is vacuous. The
 
 **A candidate reason, and the experiment it implies.** That instance's base point
 is arc A's own terminus s = 19/6, where three W4 conditions vanish at once (the
-corner-to-corner contact of Postscript 96); every point sampled here is an
+corner-to-corner contact of Postscript [96](#p96)); every point sampled here is an
 arbitrary rational root, one per line. Rulings through STRUCTURED points versus
 generic ones is now the open question, and it was invisible before the campaign.
 
@@ -7677,9 +7787,10 @@ binding constraint on n = 6.
 
 ---
 
+<a id="p104"></a>
 ## Postscript 104: every wall splits over ℚ, and now for a reason — det(Q) is a perfect square identically
 
-Postscript 103 could only report a census: 63 432 rational rulings, 0 irrational.
+Postscript [103](#p103) could only report a census: 63 432 rational rulings, 0 irrational.
 The reason is an identity, and it is two lines of algebra (`detq_check.py`).
 
 The two ruling families of a nondegenerate quadric surface are defined over
@@ -7713,7 +7824,7 @@ signature-(2,2) quadrics, split over ℚ, exactly as MAXIMISER_TAXONOMY §1a
 records from sampling — now with the sampling replaced by an identity.
 
 **Method note.** This began as a cheap check proposed to turn an empirical 100%
-into a reason (Postscript 103's closing line), and the numeric run gave it away
+into a reason (Postscript [103](#p103)'s closing line), and the numeric run gave it away
 before the algebra did: 2 544 walls carried only **52 distinct determinants**,
 every one of the form (a/b²)². A determinant taking that few values across
 thousands of walls is a closed form asking to be computed. **When a census
@@ -7721,6 +7832,7 @@ returns far fewer distinct values than objects, stop counting and factor.**
 
 ---
 
+<a id="p105"></a>
 ## Postscript 105: hunt_v3 stopped at 720 500 candidates — a 30-hour search returns a plateau member, and the exchange rate is the point
 
 Stopped by the user 2026-08-11 after **30.2 hours and 720 500 sixth cubes** on the
@@ -7731,7 +7843,7 @@ and spent the remaining four fifths confirming it (2 322 log lines at 727).
 
 **Its best is a plateau member, not a result.** `(10, 85, -66, 73)` on the 393
 base, engine-verified at **727**, by_depth {214, 220, 156, 100, 36, 1} — the
-record's own depth profile. Postscript 80 established that 727's maximiser set is
+record's own depth profile. Postscript [80](#p80) established that 727's maximiser set is
 positive-dimensional with UNCOUNTABLY many congruence classes, so another member
 is a point on a known continuum. Recorded here so the run leaves something
 checkable, and deliberately NOT added to `MAXIMISERS.md`, which holds
@@ -7739,7 +7851,7 @@ representatives rather than plateau samples.
 
 **The ceiling was structural, and known in advance.** E1 bounds an n = 6 total by
 S_max + 336, so on a 393 base nothing above 729 is reachable at all; and
-Postscript 47 proved 727 isolated on that base with all 684 augmentations of its
+Postscript [47](#p47) proved 727 isolated on that base with all 684 augmentations of its
 pattern infeasible. A sixth-cube search there could only ever return 727, or a 729
 arriving by a pattern the elimination says the base does not support. This is
 `METHODS.md` §5 at scale: **searches produce lower bounds forever.**
@@ -7747,6 +7859,362 @@ arriving by a pattern the elimination says the base does not support. This is
 **THE EXCHANGE RATE, measured on one day.** Thirty hours of search on a core
 produced a point on a known plateau. Twenty minutes of factoring a determinant —
 prompted by noticing 2 544 walls carried only 52 distinct values — produced
-Postscript 104, a theorem holding at every n and every base. When a search's
+Postscript [104](#p104), a theorem holding at every n and every base. When a search's
 ceiling is already implied by a bound in this ledger, the search is not evidence;
 it is an expensive way to re-derive the bound.
+
+---
+<a id="p106"></a>
+## Postscript 106: the singleton term is ADDITIVE in the two pair labels — and max(3) ≤ 67 reduces to one global inequality
+
+Four shards of `step_b4.py` (seeds 11/22/33/44, 200 restarts × 5 000 climb steps
+each, all ten count-combinations) returned **identical values on all ten**, with
+DIFFERENT witnesses and different plateau dimensions — the shards land on
+different components of the same level set rather than re-finding one point:
+
+    g(13,13)=16  g(13,9)=14  g(13,5)=12  g(13,4)=12  g(9,9)=12
+    g(9,5)=10    g(9,4)=10   g(5,5)=8    g(5,4)=8    g(4,4)=8
+
+**THE LAW.** Those ten values are exactly additive:
+
+    g(P, P') = v(P) + v(P'),      v(P) = 2 + 2·⌈(P−1)/4⌉
+    v(13) = 8,  v(9) = 6,  v(5) = 4,  v(4) = 4
+
+Ten values, one two-parameter law, no residual. Substituted into Postscript [78](#p78)'s
+decomposition T = 1 + Σ_pairs comp(X_ij) + Σ_i s_i, with the pair terms ≤ 6 each
+unconditionally and each pair label appearing at two of the three cubes:
+
+    T  ≤  19 + 2·Σ_pairs v(P)
+
+**Verified on data not used in the fit.** The n = 4 record's four triples carry
+labels (13,13,9)×3 and (9,9,9), and the law predicts 63, 63, 63, 55 — which is
+exactly what Postscript [44](#p44) measured, and **TIGHT on all four**. At (13,13,13) it
+gives 67, tight at both maximisers. Over 220 random triples: **0 violations**,
+3 tight, 217 slack — tight where it matters, slack generically, which is the
+right shape for a bound. `lemma_b_law.py` runs all three checks.
+
+**AND THE BOUND NEEDS LESS THAN THE LAW.** T ≤ 1 + 18 + 3·max(g), so
+
+    max(3) ≤ 67  follows from the single global statement  s ≤ 16,
+
+with no case analysis over pair labels whatever. Lemma B's ten-value table is
+needed only for the sharper T ≤ 63 off the (13,13,13) cell — i.e. for UNIQUENESS
+of the maximising cell, not for the maximum. So the proof target collapses from
+"g(13,13) = 16 and g ≤ 14 elsewhere" to one inequality about a two-rotation,
+two-dimensional quantity: the components of an intersection of two families of at
+most six convex spherical cones number at most 16. Postscript [78](#p78)'s planarity
+argument already gives ≤ 20 in the disjoint (13,13) case.
+
+**And then max(3) = 67 is a COROLLARY OF max(2) = 13**, which is proved: v is
+monotone in P, max(2) = 13 caps every label, so T ≤ 19 + 2·24 = 67.
+
+**STATUS, stated precisely.** The ten g values are hill-climbed maxima, so each is
+a LOWER bound on g; four independent seeds stalling at the same value on every
+combination is strong evidence they are exact, and not a proof. The additive law
+is a fit to those ten points. Its consequences above are verified against
+independent data, which is why it is worth recording — but "measured, not proved"
+still stands, now on one inequality instead of ten.
+
+**ADDENDUM, same day — the law is an EULER COUNT, and the "+4" is the cube's six
+faces.** Asked whether there is a theoretical reason, and there is. Re-measured in
+the natural variables rather than the pair label: with
+
+    a = comp(Ci \ Cj),   b = comp(Ci \ Ck)      (`step_a3.components`)
+
+the eight shard witnesses give **s = a + b + 4 on all eight**, exactly. So v(P) is
+just a + 2, and the ⌈(P−1)/4⌉ was an artifact of compressing a into the pair label
+— which is lossy, since P = 1 + comp(A\B) + comp(B\A) and the two sides need not
+agree (a 4-pair is 2 and 1, which is why the labels can be even).
+
+Radially (Postscript [78](#p78)) the singleton term is a count on the sphere:
+K = {r_i > r_j} has a components, L = {r_i > r_k} has b, and s = comp(K ∩ L). For
+components that are disks and boundaries that meet transversally, inclusion–
+exclusion for Euler characteristics on S² gives
+
+    χ(K ∩ L) = χ(K) + χ(L) − χ(K ∪ L),   χ(K ∪ L) = 2 − m
+
+with m the number of components of the complement — the directions in which cube i
+is INNERMOST. Hence
+
+    s  =  a + b + m − 2,
+
+and the measured +4 says **m = 6: one innermost component per face of cube i.**
+That is exactly the content of Theorem A ([Postscript 24](#p24), C45 §10) — the radial envelope
+has local minima only at the 6n face-centre directions, value 1.
+
+**Why this matters more than the fit.** a ≤ 6 and b ≤ 6 are already PROVED — the
+six-slab convex cover, the same argument that gives max(2) = 13. So
+
+    s ≤ 6 + 6 + 4 = 16
+
+would follow from the Euler identity plus m = 6, with no case analysis and no
+hill-climbing, and max(3) ≤ 67 with it. The open steps are now structural rather
+than enumerative: the disk/transversality hypotheses, and m = 6 exactly.
+
+**A prediction that distinguishes it from a fit.** For concentric convex cells
+with F facets the same count reads s = a + b + F − 2, so the F = 6 in the "+4" is
+the cell's face count and not a constant. Testing that on non-cube 6-facet cells
+(rhombohedra, where the project already matches 67) and on cells with F ≠ 6 would
+confirm or kill the derivation directly.
+
+**ADDENDUM 2, same day — m MEASURED: the identity becomes an INEQUALITY, and the
+inequality is all the bound needs.** `innermost.py` computes m exactly. C is a
+cone, so cutting by which coordinate attains ‖u‖_∞ meets each of the six sectors
+in a CONVEX POLYGON (every condition |n·u| ≤ 1 is two linear inequalities once
+u_t = ±1 is fixed); m is then a union-find over six exact rational polygons —
+the same shape as Step A's six convex slabs, which is why **m ≤ 6 is immediate**
+rather than assumed.
+
+**At all eight shard witnesses, m = 6 exactly.** The fitted +4 is now measured,
+not inferred backwards.
+
+**Over 1 099 non-degenerate random pairs (a, b > 0):**
+
+    s > a + b + m − 2        0 violations
+    s = a + b + m − 2        866 (79%)
+    m values realised        1, 2, 3, 4, 6   (never 5)
+    max a = max b = max m = 6,  max s = 16
+
+So the Euler equality is NOT general, but **the inequality s ≤ a + b + m − 2 has
+no counterexample**, and the inequality is the entire content of the bound:
+
+    s ≤ a + b + m − 2,   a ≤ 6, b ≤ 6 (PROVED, six-slab cover),   m ≤ 6 (immediate)
+      ⟹  s ≤ 16  ⟹  T ≤ 1 + 18 + 3·16 = 67.
+
+**H1 is therefore not a hypothesis of the BOUND — only of the equality.** The
+remaining target is one semicontinuity statement in the right direction, not a
+disk hypothesis about four different sets.
+
+**AND THE EQUALITY FAILS BY PARITY, which names its own cause.** Identity rate by
+parity of m: **odd m — 0 of 109. Even m — 866 of 990 (87%).** Central symmetry
+(u → −u preserves C) pairs the components, so odd m forces a self-antipodal
+component; a connected antipodally-invariant set on S² is not a disk (an
+equatorial band has χ_c = 0), so H1 fails exactly there. The parity of m is a
+computable detector of the hypothesis's failure — no sampling of shapes required.
+The residual even-m failures (13%) are ordinary annular components and are the
+only part still undiagnosed.
+
+Degenerate a = 0 or b = 0 (cube i inside another, s = 0 forced) is the sole case
+where s can exceed a + b + m − 2, and only because the right side goes negative.
+Exclude it by hypothesis, as Step B already does.
+
+**ADDENDUM 3, same day — the equality's failures are entirely PARITY, and the
+corrected statement is exact.** Asked under what conditions the equality breaks.
+It breaks exactly when one of the four sets has a component that is not a disk,
+and central symmetry makes that readable off the COUNTS, with no inspection of
+shapes: u → −u preserves K, L, K ∩ L and C alike, so components come in antipodal
+pairs, and an ODD count forces one self-antipodal component — which on S² cannot
+be a disk (an antipodally-invariant connected set contains an equatorial band,
+χ_c = 0, not 1). Each odd count therefore costs exactly one unit of χ_c.
+
+Measured over 831 non-degenerate pairs, deficit = (a + b + m − 2) − s against the
+parity predictor [a odd] + [b odd] + [m odd] − [s odd]:
+
+    deficit 0, predictor 0     635      equality holds -- all four counts even
+    deficit 1, predictor 1     181      exactly one odd count, costs exactly 1
+    deficit 2, predictor 2       9      two odd counts, costs exactly 2
+    six exceptions             6/831    deficits 2, 3, 5 above predictor
+
+**825 of 831 = 99.3% explained by parity alone.** The six exceptions are deficits
+exceeding the predictor by 2 or 4 — antipodal PAIRS of annular components, each
+pair costing 2, which is the only other way to lose χ_c. So the exact statement is
+ordinary inclusion–exclusion once χ_c is used instead of component counts:
+
+    χ_c(K ∩ L) = χ_c(K) + χ_c(L) − χ_c(K ∪ L),
+    χ_c(X) = comp(X) − [comp(X) odd] − 2·(antipodal pairs of annuli in X)
+
+and s = a + b + m − 2 is its all-disks specialisation.
+
+**Two consequences that matter for the proof.** The deficit is never negative in
+1 930 pairs across both runs, so **s ≤ a + b + m − 2 stands** and the bound is
+untouched. And at the maximiser a = b = m = 6, s = 16 — **all four counts even**,
+so the maximising regime sits precisely inside the regime where the equality is
+valid. The failures live where the count is small and irrelevant to the maximum.
+
+---
+<a id="p107"></a>
+## Postscript 107: the constant is the FACET COUNT — m = F exactly, and max(3) ≤ 12F − 5 with 67 at F = 6
+
+[Postscript 106](#p106)'s derivation said the "+4" in s ≤ a + b + m − 2 is F − 2, the cell's facet
+count, and not a universal constant. Cubes cannot distinguish the two, so
+`cells.py` rebuilds all four quantities for ANY centrally symmetric convex cell:
+each is a component count of cones in R³, every piece an intersection of
+homogeneous half-spaces, nonemptiness by exact Fourier–Motzkin over ℚ. No LP
+solver, no floats.
+
+**GATE.** On cubes it reproduces three separate cube-specific implementations —
+`step_a3.components` (a, b), `step_b.singleton_comp` (s) and
+`innermost.comp_innermost` (m) — exactly, on five witnesses. PASS.
+
+**THE TEST, and it is clean:**
+
+    cube,        F = 6:   m = 6 in 6 of 6 configurations
+    hexagonal prism, F = 8:   m = 8 in 6 of 6 configurations
+
+**m = F exactly, every time, in both families.** The constant tracks the facet
+count; it is not 6 with a story attached. And the inequality survives leaving
+cubes entirely: **0 violations in both families**, on a shape none of the theory
+was built from.
+
+**THE GENERAL BOUND.** For three congruent centrally symmetric F-facet cells, the
+pair terms are ≤ F each by the same slab cover, so
+
+    T  ≤  1 + 3F + 3(F + F + F − 2)  =  12F − 5
+
+    F = 6  (cube)             T ≤ 67    ← attained, both maximisers
+    F = 8  (hexagonal prism)  T ≤ 91    ← untested, no climb run
+
+The cube's 67 is the F = 6 case of a one-parameter family of bounds, which is a
+much stronger statement than a fitted constant and explains why the number is 67
+rather than anything else: 12·6 − 5.
+
+**PROGRESS ON THE INEQUALITY ITSELF** (the remaining target). Since χ_c(X) ≤
+comp(X) for any open surface — each component has χ_c = 2 − k ≤ 1 with k its
+boundary circles — the other three sets need no hypothesis at all, and
+
+    every component of K ∩ L simply connected
+      ⟹  s = χ_c(K∩L) = χ_c(K) + χ_c(L) + χ_c(C) − 2  ≤  a + b + m − 2.
+
+So the whole bound rests on ONE topological statement about ONE set, not on disk
+hypotheses for four. That is the thing to prove.
+
+---
+<a id="p108"></a>
+## Postscript 108: rulings DO beat generic directions — but only at the arc terminus, and multiplicity is not why
+
+Two earlier passes asked "is the count constant over the window" and got a
+window-dependent answer ([Postscript 103](#p103), and the 2026-08-12 re-check). The scale-free
+statistic is the LONGEST CONSTANT RUN in wall-chambers, which `decompose` already
+returns; and the missing control is a GENERIC direction through the SAME point,
+which isolates what being a ruling contributes from whatever makes the point
+special. `rulings3.py` measures both.
+
+**AT THE ARC-A TERMINUS, RULINGS WIN BY 10×:**
+
+    rulings   n=4   mean longest run = 0.413 of the line's chambers   max 0.62
+    controls  n=3   mean longest run = 0.043                          max 0.045
+
+The best ruling holds **725 across 99 consecutive chambers**; the three generic
+directions through the identical point hold 703, 697 and 689 over runs of 52, 66
+and 58 chambers out of ~1 200–1 500. So the ruling carries both a longer run AND
+a higher value. This is the first CONTROLLED evidence in the project that a
+ruling is different from any other line through the same point.
+
+**AND THE EFFECT IS NOT ABOUT MULTIPLICITY.** At a second point with the same
+own-point multiplicity m_own = 3 (s = −68/15, triple point (−5/7, 11/7, 1/7)):
+
+    rulings   n=4   mean 0.016      controls  n=3   mean 0.024
+
+Rulings are no better than generic there — slightly worse. So [Postscript 106](#p106)'s
+working hypothesis, that coincidence multiplicity at the base point predicts
+constancy, is **not supported**: both points have m_own = 3 and only one shows
+the effect. The candidate discriminator is now that the terminus lies ON a
+maximiser locus (it is arc A's end, [Postscript 96](#p96)) while the other is an ordinary
+rational wall root — i.e. the property may belong to the ARC, not to the wall.
+
+**LIMITS, stated plainly.** Budget covered 2 of 7 selected points and 14
+measurements; the three m_own = 1 controls never ran, so the low end is untested.
+Lines through the second point cross 3 000+ chambers and cost 300–400 s per
+decomposition, which is where the budget went. Also worth recording: across all
+192 rational W4 roots on arc A's line, own-point multiplicity takes only the
+values 1, 2, 3 — the aggregate multiplicity that reaches 304 counts unrelated
+conditions vanishing at the same parameter, and conflating the two is what made
+the earlier selection choose the opposite of the known case.
+
+---
+<a id="p109"></a>
+## Postscript 109: the bound is Euler on the intersection graph plus Alexander duality — and the residual gap is one sign
+
+The target was stated as D(K∩L) ≤ D(K)+D(L)+D(C) ([Postscript 106](#p106) addenda). That form is
+a repackaging of the same inequality; the content is a graph statement.
+
+Let **G** be the bipartite INTERSECTION GRAPH: vertices the a components of
+K = {r_i > r_j} and the b of L = {r_i > r_k}, edges the s components of K ∩ L,
+each joining the two that contain it. Euler on a graph gives
+
+    s = a + b − c_G + cyc(G).
+
+If the NERVE theorem applies — components of K, L and K ∩ L contractible — then
+G ≃ K ∪ L, so c_G = c_U and cyc(G) = rank H₁(K ∪ L); and **Alexander duality on
+S² gives rank H₁(U) = m − 1 for free**, m being the components of the complement,
+i.e. of the innermost set C. Hence
+
+    s = a + b + m − 1 − c_U,        c_U = comp(K ∪ L),
+
+and since c_U ≥ 1 whenever U is nonempty, **s ≤ a + b + m − 2** follows at once.
+Equality iff K ∪ L is CONNECTED — a sharper and more geometric criterion than the
+all-even parity condition, which it should imply.
+
+**MEASURED (`cells.py`, adding comp(K ∪ L)):** the sharper identity holds in 7 of
+14 random cube triples, and every failure but one has **s BELOW** the prediction;
+the exception is the degenerate b = 0 case where the right side goes negative.
+The 7 that hold are exactly the m = 6 rows. So degeneracy of the nerve hypotheses
+only ever LOWERS s.
+
+**The residual gap is now one sign, not a hypothesis.** The bound needs only:
+non-contractible components cannot RAISE s above a + b + m − 1 − c_U. That is a
+statement about one direction of a degeneration, replacing "every component of
+K ∩ L is simply connected" — which the parity data had already falsified, since
+s odd forces a self-antipodal component and an open disk admits no
+fixed-point-free involution.
+
+---
+<a id="p110"></a>
+## Postscript 110: the bound is PROVED (Mayer–Vietoris + Alexander duality), and the theorem then caught two bugs in the code testing it
+
+**THE PROOF.** For K = {r_i > r_j}, L = {r_i > r_k}, U = K ∪ L, C = S²∖U, the
+Mayer–Vietoris sequence of the two open sets K, L gives
+
+    H₁(K)⊕H₁(L) → H₁(U) →∂ H₀(K∩L) →φ H₀(K)⊕H₀(L) →ψ H₀(U) → 0.
+
+ψ is onto, so rank im φ = (a+b) − c_U; rank-nullity gives s = rank ker φ +
+(a+b−c_U); exactness gives ker φ = im ∂ ⊆ H₁(U); and **Alexander duality on S²**
+(H̃₁(S²∖C) ≅ H̃⁰(C)) gives rank H₁(U) = m − 1. Hence
+
+    s ≤ a + b + m − 1 − c_U ≤ a + b + m − 2      (c_U ≥ 1),
+
+**with no contractibility hypothesis anywhere.** The nerve route of [Postscript 109](#p109)
+needed every component of K, L, K∩L to be a disk — which the parity data had
+already falsified — and that hypothesis turns out to be a detour: MV never asks
+for it. Equality iff ∂ is onto, i.e. iff H₁(K)⊕H₁(L) → H₁(U) is zero, which is
+exactly why a non-contractible component LOWERS s: its own 1-cycle already
+accounts for a hole of U, so no cycle of the intersection graph is needed for it.
+That is the sign the measurements kept showing and could not explain.
+
+With a, b ≤ F (six-slab convex cover, PROVED) and m ≤ F, this gives s ≤ 3F−2 and
+**T ≤ 12F − 5**, so max(3) ≤ 67 for cubes no longer rests on a measured
+inequality. Standing hypotheses: a, b ≥ 1, U ≠ ∅, C ≠ ∅ (the degenerate cases are
+one cell inside another); Alexander duality in Čech cohomology, fine for
+semialgebraic sets.
+
+**THEN THE THEOREM EARNED ITS KEEP AS AN ORACLE.** The unattended shape sweep
+reported two violations of s ≤ a+b+m−2 within 60 configurations — one prism
+triple, one CUBE triple. Both were bugs in `cells.py`'s m, and MV is what proved
+they had to be: with a=1, b=2, s=4, c_U=1 the sequence FORCES m ≥ 3, while the
+code said 2. Diagnosed by an independent route (345 602 exact integer grid
+directions on the sphere-as-cube-surface, BFS connectivity, no Fourier–Motzkin):
+**a, b, s agreed exactly in every case; only m was wrong.**
+
+    cube triple   cells.py m = 4   innermost.py = 6   grid = 6   → 14 = s, an EQUALITY
+    prism triple  cells.py m = 2   grid = 4                      → bound 5 ≥ s = 4
+
+**The bug:** C's conditions |n·u| ≤ tf·u are NON-strict, and were fed to a strict
+solver. When cell i's facet is parallel to a facet of j or k the row is
+identically zero — vacuous as ≤, read as 0 > 0 as < — and the whole sector was
+deleted, losing real components of C. K and L are genuinely strict and so were
+never affected, which is exactly the pattern the sweep showed (m < F in 4 of 60,
+violations only there). Fixed; the cube case now reads m = 6 by all three methods.
+
+**STILL OPEN: m for non-cube cells.** Three methods now give 8 (fixed piece
+gluing), 4 (grid) and 1 (closed-cone gluing), and the disagreement is principled,
+not arithmetic — whether components of C joined by a measure-zero sliver count
+once or twice. Topology wants the genuine component count; MV rules out 1 (it
+demands m ≥ 3 here); the grid cannot see slivers. **So `12F − 5` and "m = F"
+([Postscript 107](#p107)) rest on an unsettled computation and are downgraded pending it.** The
+cube results are unaffected: there m = 6 is confirmed by three independent
+implementations.
+
+**LESSON.** A theorem is a test oracle. The bound was derived to be proved, and
+before it was proved it located an error in the code that was measuring it — an
+inequality that "must" hold is a stronger check on an implementation than any
+amount of agreement between two variants of the same method.

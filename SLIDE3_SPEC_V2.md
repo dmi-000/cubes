@@ -92,7 +92,7 @@ monotone, or does it peak in the interior?
 Two such triples: X(t₁, t₂, R) = T(t₁) ∪ R·T(t₂), R ∈ SO(3). Search
 t₁, t₂, and the relative rotation R (integer-quat grid + climb) for the
 maximum 6-cube region count, beating 655 (rational) / 681 (overall).
-Constraint-first is the proven winner (Postscripts 7–8): preferentially
+Constraint-first is the proven winner (Postscripts [7](LEDGER.md#p7)–[8](LEDGER.md#p8)): preferentially
 place R so the two triples share alignment relations — a common 3-fold
 axis (built 681 at n=6), a 60° body-diagonal pair relation (built 655),
 or so that an edge-crossing of triple 1 meets one of triple 2. Gates

@@ -1,6 +1,6 @@
 # DIHEDRAL_FAMILY_NEXT — handoff for continuing Postscript 25 (Sonnet-ready)
 
-Context: read Postscript 25 in LEDGER.md first. This file
+Context: read Postscript [25](LEDGER.md#p25) in LEDGER.md first. This file
 lists the concrete next tasks, each self-contained. Ground rules as always:
 LEDGER.md is edited only by the main session (write your
 results to a separate report file); validated files (slide3_q2.py,
@@ -68,7 +68,7 @@ grouping; use C4 about the axis itself) consider n cubes in a C_n orbit
 about a common axis a, each with a face-axis perp to a. Do the u-edge
 coincidences persist for n=4, 6 (cube self-symmetry makes 90deg orbits
 trivial — check mod-90 spacing)? Any relation to the shared-axis 9-family
-(Postscript 17 DOF hierarchy)? Numeric first (adapt family_check.py),
+(Postscript [17](LEDGER.md#p17) DOF hierarchy)? Numeric first (adapt family_check.py),
 exact only if something interesting appears.
 
 ## Task 5 — viewer preset (main session only publishes)
@@ -88,6 +88,6 @@ histogram chips; crossing rings must show 30/24/18 per the plateau table).
   family_fine.py (plateaus, invariants, golden fit), golden_diag.py
   (tan psi = phi^2 exact checks, 54 corner contacts), perp_check.py,
   perp_curve.py, edge_close*.py (the numerical discovery path).
-- Ledger: Postscript 25 appended.
+- Ledger: Postscript [25](LEDGER.md#p25) appended.
 - Nothing yet in PROJECT.md / JOURNEY.md about this (candidate additions
   once Task 1-2 land).

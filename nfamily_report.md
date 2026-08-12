@@ -76,7 +76,7 @@ checked, zero mismatches** (`nfamily_q3_records.py`, `nfamily_q3_records.json`):
 
 **n=3 caveat, stated honestly.** README lists the 67 record's field as
 ℚ(√2)/ℚ(√5) — it has **no integer-quaternion representative** (unlike
-n=4/5/6). Postscript 9 identifies the octahedral witness as S_oct=Rx(45°)
+n=4/5/6). Postscript [9](LEDGER.md#p9) identifies the octahedral witness as S_oct=Rx(45°)
 C-orbited about (1,1,1); this is *literally* the family at ψ=arcsin(1/√3)
 (irrational, not Pythagorean), so the spec's "integer quats" framing
 doesn't apply verbatim. Rather than skip it, both tests were redone in
@@ -90,7 +90,7 @@ some free cubes" — **every single pair** is in family position (some
 common axis + equal tilt, not necessarily the literal (1,1,1) axis — the
 axis test is axis-agnostic). The 723 record is 12/15: cubes {0,1,2,3,4}
 form a fully-family-position 5-clique (this is exactly the 393 record,
-consistent with 723 ⊃ 393 from Postscript 16), and cube 5 is family-linked
+consistent with 723 ⊃ 393 from Postscript [16](LEDGER.md#p16)), and cube 5 is family-linked
 to cubes 3,4 only, generic (0 crossings) against 0,1,2. This sharpens the
 ledger's existing "723 contains a C₃ orbit about (1,1,1)" observation into
 an exact, exhaustive, pairwise fact: **the records are built almost
@@ -113,7 +113,7 @@ stalled).
 
 | n | family best (verified) | record | cap-sum bound | deficit vs record | vs cap-sum |
 |---|---|---|---|---|---|
-| 3 | 67 (=record, at the two irrational special points) | 67 | 67 | 0 | matches (Postscript 23: cap-sum tight at n=3) |
+| 3 | 67 (=record, at the two irrational special points) | 67 | 67 | 0 | matches (Postscript [23](LEDGER.md#p23): cap-sum tight at n=3) |
 | 4 | **175** | 183 | 195 | **−8** | −20 |
 | 5 | **335** | 393 | 429 | **−58** | −94 |
 | 6 | **615** | 723 | 801 | **−108** | −186 |
@@ -182,12 +182,12 @@ the family AND coincide exactly with the true record's own d_n, d_{n−1}
 layers (d1, d2), which is exactly where unconstrained (non-family)
 degrees of freedom pay off. This is the clearest generalization yet of
 the project's recurring "deep structure conserved, d1 is what varies"
-principle (ledger, Postscript 17).
+principle (ledger, Postscript [17](LEDGER.md#p17)).
 
 **Symmetry bonus (new)**: ψ and 90°−ψ give *identical* totals and depth
 profiles at every n tested (e.g. n=6: ψ=36.87° and ψ=53.13° both give
 615) — the ψ↔90−ψ mirror symmetry noted for the n=3 C₃ slice
-(Postscript 25 addendum 3, "symmetric about 45°") persists exactly at
+(Postscript [25](LEDGER.md#p25) addendum 3, "symmetric about 45°") persists exactly at
 n=4,5,6.
 
 ## Q4 — chain-path spikes
@@ -228,7 +228,7 @@ flagged as unexplored rather than resolved.
   countable by the fast integer-quaternion engine. n=3's own true maxima
   (both 67s) sit at **irrational** ψ (arcsin(1/√3), arctan(φ²)) — points
   a dense Pythagorean grid can get arbitrarily close to but never lands
-  on exactly, and Postscript 25 shows these are *isolated* spikes
+  on exactly, and Postscript [25](LEDGER.md#p25) shows these are *isolated* spikes
   (measure zero), not the edge of an open plateau, so a discrete grid,
   however fine, need not sample near one by chance. **The plateau ceilings
   reported for Q1 (175/335/615) are lower bounds on the true continuous

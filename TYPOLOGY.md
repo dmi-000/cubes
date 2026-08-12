@@ -33,7 +33,7 @@ cubes are exactly
 (R0 = identity for the corner (1,1,1); the others are 180-degree
 turns about the bisectors, e.g. (0,1,1,0) carries (1,1,-1) to (1,1,1).)
 124,892 such cubes were enumerated: **maximum 723**, occurring in 40%
-of them. 727 is NOT in this stratum. Postscript 55.
+of them. 727 is NOT in this stratum. Postscript [55](LEDGER.md#p55).
 
 ## Generator 2 — the wall lines carrying 727
 
@@ -97,10 +97,10 @@ d6 = 1: the deep tail is rigid, the shallow layers trade.
   type track width x sampling density and mean nothing intrinsic.
   **Chamber boundaries are wall crossings** — verified exactly, 43 of 46
   boundaries on four lines bracket a root of a catalogued condition, against
-  a 1.7% chance rate (Postscript 58). The walls doing the work are mostly the
+  a 1.7% chance rate (Postscript [58](LEDGER.md#p58)). The walls doing the work are mostly the
   ones no search had enumerated: the project's edge-edge and corner-on-face
   catalogue explains only 6 of the 46, and adding the W4 walls of
-  Postscript 57 (a free-cube face plane through a real triple point of the
+  Postscript [57](LEDGER.md#p57) (a free-cube face plane through a real triple point of the
   base) takes it to 43. A **zero-width type** is therefore a parameter value
   where two crossings coincide; the discovered record, satisfying 36
   conditions with a unique real solution, is such a multiple point.
@@ -113,4 +113,4 @@ three-wall (exhausted, max 727), corner-concurrence (exhausted, max
 (reaches 727, rationally shadowed). NOT covered: configurations not
 containing this base, one- and two-wall strata, positive-dimensional
 systems, corner-corner and edge-face conditions, and anything beyond
-the arithmetic budget. Ledger: Postscripts 52-55 and addenda.
+the arithmetic budget. Ledger: Postscripts [52](LEDGER.md#p52)-[55](LEDGER.md#p55) and addenda.

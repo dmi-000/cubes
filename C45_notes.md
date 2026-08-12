@@ -117,7 +117,7 @@ direction; B_2 cells containing no minimum of the 2nd-lowest envelope).
 
 ## 7. THE GENERAL LAW (2026-07-13) — supersedes the per-case ceilings
 
-All bottom-diagram cell counts obey one formula (Postscript 19 evidence):
+All bottom-diagram cell counts obey one formula (Postscript [19](LEDGER.md#p19) evidence):
 
     cells(B_l) = C(l,n) = (12l−6)n − 2(l²−1)      [conjecture, attained
     exactly for l ≤ 4 at n = 2..7 across ~1M configs; zero violations]
@@ -222,7 +222,7 @@ fix a family" — quantified.
 
 ## 12. Four theorems around the dihedral family (proved 2026-07-16)
 
-Notation. s_hat = (1,1,1)/sqrt3. Family gauge (Postscript 26): with the
+Notation. s_hat = (1,1,1)/sqrt3. Family gauge (Postscript [26](LEDGER.md#p26)): with the
 first cube's frame as reference, cube k of a family configuration is
 Rel(theta_k, psi) applied to [-1,1]^3, where Rel(theta, psi) is the
 rotation by angle theta about the axis n(psi) = (sin psi, cos psi, 0).
@@ -248,9 +248,9 @@ second; isometries preserve the region complex. QED.
 Corollaries. (a) For chains theta_k = k a, negating a is undone by the
 relabeling k -> n+1-k (a constant phase shift = global rotation), so
 chain(a, psi) ~ chain(a, 90-psi) — the psi<->90-psi degeneracy observed
-in every sweep (Postscript 26) is now proven for all n. (b) The C3 slice
+in every sweep (Postscript [26](LEDGER.md#p26)) is now proven for all n. (b) The C3 slice
 {0,120,240} is invariant under negation as a set, so the n=3 staircase
-(Postscript 25 addendum 3) is exactly symmetric about psi=45. All sweep
+(Postscript [25](LEDGER.md#p25) addendum 3) is exactly symmetric about psi=45. All sweep
 domains can be rigorously halved.
 
 ### Theorem P (90-degree periodicity).
@@ -302,7 +302,7 @@ already proven for all psi. QED.
 Remark. Segment-INTERIOR validity (|t|<=1) is what varies with
 (theta, psi) and produces the plateau/spike structure; Theorem F says the
 line coincidences never break. The core-18 persistence claim of
-Postscript 25 addendum 1 additionally needs |t(psi)| < 1 on the open
+Postscript [25](LEDGER.md#p25) addendum 1 additionally needs |t(psi)| < 1 on the open
 golden-to-golden interval — the t's are explicit algebraic functions, so
 this is provable by Sturm-sequence certification (listed below), not yet
 done.
@@ -317,11 +317,11 @@ compounds: a global isometry G cancels in R_i^T R_j (improper G reduces
 to proper since -I is a cube symmetry), and per-cube relabelings H_k
 permute the double coset over which the max is taken. The octahedral 67
 has mu = 1/2 + sqrt2 and the golden 67 has mu = 3 phi/2 (both exact,
-Postscript 25); both are irrational. Hence NO rational configuration is
+Postscript [25](LEDGER.md#p25)); both are irrational. Hence NO rational configuration is
 congruent to either known 67 compound.
 
 Corollary. If the two known compounds are the only maximizers of n=3 (up
-to congruence) — supported by their isolation (Postscript 17) and every
+to congruence) — supported by their isolation (Postscript [17](LEDGER.md#p17)) and every
 search to date, but unproven — then the n=3 maximum REQUIRES irrational
 coordinates, while n=2 (max 13, attained by integer pairs inside the 183
 record) and every current record at n>=4 are rational. n=3 would be the
@@ -339,7 +339,7 @@ unique irrational level of the tower.
    curve): the four conditions are exchanged by the pair's dihedral
    symmetries — reduce to one, then the curve is the regular zero set
    through the octahedral point (gradient nonvanishing verified).
-4. max(3) = 67 itself: still the two lemmas of Postscript 23 (trivalent
+4. max(3) = 67 itself: still the two lemmas of Postscript [23](LEDGER.md#p23) (trivalent
    census + parasite exclusion) — unchanged, the real prize.
 
 ## 13. PROOF PLAN: max(3) = 67 — the complete lemma tree
@@ -515,7 +515,7 @@ gradient-flow phrasing is tighter).
 
 Both PROOF_67 sect.3 degeneracies (multi-face kinks, shared normals) are
 CLOSED by Theorem 1 (max2_report.md sect.1, folded into PROOF_67
-sect.3.1; ledger Postscript 33). Mechanism: at the boundary inf of r_C,
+sect.3.1; ledger Postscript [33](LEDGER.md#p33)). Mechanism: at the boundary inf of r_C,
 all branch gradients have equal norm rho -> Cauchy-Schwarz makes
 v=e_{a1}/rho the unique steepest ascent; unmatched active face => into-U
 ascent (contradiction), all-matched => shared-normal self-exclusion
@@ -538,7 +538,7 @@ The one remaining gap of §§15–16, Cluster 2 = (star) Sum_v(deg−2) ≤ 92,
 is now proved, so **max(3) = 67 for all 3 concentric convex ≤6-facet cells
 meeting pairwise transversally** (both maximizers included; cubes among
 them). Full write-ups: [PROOF_STEP_T.md](PROOF_STEP_T.md) and
-[PROOF_67.md](PROOF_67.md) §5.3–5.4; ledger Postscripts 41–43.
+[PROOF_67.md](PROOF_67.md) §5.3–5.4; ledger Postscripts [41](LEDGER.md#p41)–[43](LEDGER.md#p43).
 
 The 92 splits as 32 (triple points) + 60 (contacts):
 - **contact ≤ 60** — Euler on the three PAIRWISE intersection polytopes:
