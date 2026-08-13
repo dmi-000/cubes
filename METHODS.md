@@ -690,6 +690,36 @@ failure for the n = 2 map's source — *"Artifact sources live nowhere durable
 unless copied"* — so this is the second occurrence in the project. A method is
 not written down until the code that performs it is in the repository.
 
+## Cache the expensive step — before the first run, not after the second
+
+Established 2026-08-13, at a cost of two hours.
+
+**Every campaign here has ONE expensive step and many cheap ones**, and the
+expensive one is almost always shared by analyses that have not been written yet.
+`census_dimension` spent ~5 minutes per class building tight conditions
+symbolically, used the gradients once for a dimension, and discarded them. When
+the boundary cone and the wall classification turned out to need the SAME
+gradients, 27 completed classes had to be recomputed from scratch. Cached on disk
+keyed by configuration, the repeat run costs **0.3 s**.
+
+    identify the one expensive step
+    cache it keyed by its input, on disk, in the repository
+    do this BEFORE launching, not when the second analysis wants it
+
+**The reason it is not premature optimisation:** the value is not speed, it is
+RESTARTABILITY. A campaign that caches can be killed, corrected and relaunched at
+the cost of the correction alone, which is what makes it safe to fix a method
+mid-run. This project has interrupted campaigns for a spec bug, a scale bug, a
+strictness bug and a wrong direction set — every one of those interruptions was
+cheap or expensive depending on nothing but whether the intermediate had been
+kept.
+
+It pairs with the two rules already here: **write results incrementally** so an
+interrupted run leaves data, and **write deliverables to the repository** so they
+survive the session. Incremental output protects what a run has produced; the
+cache protects what it had to compute to produce it. A spec that asks for a long
+campaign should require both.
+
 ## Where work is allowed to live
 
 Third occurrence, 2026-08-11, so it is now a rule rather than an anecdote.

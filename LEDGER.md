@@ -163,6 +163,10 @@ with `index_ledger.py` after appending.
 - [Postscript 108](#p108) — rulings DO beat generic directions — but only at the arc terminus, and multiplicity is not why
 - [Postscript 109](#p109) — the bound is Euler on the intersection graph plus Alexander duality — and the residual gap is one sign
 - [Postscript 110](#p110) — the bound is PROVED (Mayer–Vietoris + Alexander duality), and the theorem then caught two bugs in the code testing it
+- [Postscript 111](#p111) — every subset of every record, counted — the base layer for a topology of the record set
+- [Postscript 112](#p112) — ARC MEMBERSHIP is what makes a ruling special — and m = F in 3 443 of 3 443 once the bug is out
+- [Postscript 113](#p113) — dimension is SOLVED, not probed — and the multi-cube gap closes
+- [Postscript 114](#p114) — the count is bought with CODIMENSION — every level's best sits on a locus of dimension exactly 1
 
 <!-- INDEX:END -->
 
@@ -8218,3 +8222,195 @@ implementations.
 before it was proved it located an error in the code that was measuring it — an
 inequality that "must" hold is a stronger check on an implementation than any
 amount of agreement between two variants of the same method.
+
+---
+<a id="p111"></a>
+## Postscript 111: every subset of every record, counted — the base layer for a topology of the record set
+
+Characterising the topology of the records AND of their subsets needs an
+enumeration nobody had done: the project knew a handful of subset counts and the
+nesting chain, not the census. `subset_census.py` counts EVERY subset of every
+record n = 2..9 with the exact engine, batched.
+
+**NESTING FAILS AT k = 3, AND ONLY AT k = 3, UNIFORMLY.** For every record from
+n = 4 to n = 9 and every subset size k, the maximum k-subset equals the level-k
+record — 13, 183, 393, 727, 1217, 1895 — with the single exception k = 3, where
+the best triple is **63 against max(3) = 67, in every one of the six records**.
+[Postscript 44](#p44) found this by spot checks; it is now exhaustive. The reason is
+[Postscript 44](#p44)'s: 67 is irrational (Theorem R), every subset of a rational compound is
+rational, so no rational record can contain a 67.
+
+**RECORDS CONTAIN INCREASINGLY BAD SUBSETS.** The worst triple falls 55 → 47 →
+43 → 37 → 37 across n = 4…9, and the worst 4-subset 183 → 159 → 147 → 141 → 135.
+A record is not built from uniformly good parts; the spread widens with n, which
+is what frustration looks like from below.
+
+**SUBSET DIVERSITY, and two invariants compared.** At n = 9: 126 five-subsets in
+25 count classes, 84 six-subsets in 25. The DEPTH PROFILE is strictly finer than
+the count from n = 7 up — 25 counts but **57 (count, profile) classes** at
+n = 9, k = 6 — so subsets sharing a count routinely differ in profile.
+
+**AND THE PAIR-LABEL MULTISET DOES NOT DETERMINE THE COUNT.** At n = 9, k = 3
+there are 11 distinct counts across only 9 label types, so two triples with
+identical pair labels count differently. That matters for Step B, whose bound
+T ≤ 19 + 2Σv(P) is stated in the labels: it can only ever be an inequality, never
+an equality, and this is the measurement showing why.
+
+Data in `subset_census.json`. **What this is FOR:** every subset is a
+configuration with its own locus, and the five invariants that make up "topology"
+here — dimension, components, arc-or-loop, boundary wall type, count across the
+boundary — have been measured for a handful of records and for NO subset. The
+census reduces the hundreds of subsets to a few dozen (count, profile) classes
+per level, which is the tractable list to run those probes against.
+
+---
+<a id="p112"></a>
+## Postscript 112: ARC MEMBERSHIP is what makes a ruling special — and m = F in 3 443 of 3 443 once the bug is out
+
+Two campaigns finished together, each settling a question left open earlier the
+same day.
+
+**RULINGS: the discriminator is the ARC, not the coincidence.** [Postscript 108](#p108) found
+that rulings hold long constant runs at arc A's terminus and NOT at another point
+of equal own-point multiplicity, leaving one candidate explanation. `arc_rulings.py`
+tested it across all four catalogue lines, comparing at each point a ruling
+against GENERIC directions through the same point — the control that isolates the
+line from the point — and scoring by longest constant run in wall-chambers, the
+scale-free statistic:
+
+    terminus  ruling   n=12  mean 0.160   max 0.619
+    terminus  control  n= 6  mean 0.024   max 0.033
+    ordinary  ruling   n=13  mean 0.028   max 0.069
+    ordinary  control  n=10  mean 0.025   max 0.042
+
+**A ruling through an arc terminus beats a generic direction through the same
+point by ~7x. A ruling through an ORDINARY wall root beats nothing** — 0.028
+against 0.025, inside the noise, and equal to both control groups. Generic lines
+all behave alike; only terminus-rulings stand out. So being a ruling is not by
+itself a property worth anything; being a ruling OF A WALL A MAXIMISER ARC ENDS ON
+is. That also explains why the effect was found at all: arc A's terminus is the
+one point anyone had ever looked at.
+
+Termini for loop723, n=7 and n=8 were not documented and are RECOVERED by the
+run — decompose the line, take the run holding the record, its ends are the arc's
+ends. The method validated itself on arc A by returning exactly s = 19/6,
+matching [Postscript 96](#p96), and correctly skipping the irrational lower end as W3-only.
+
+**SHAPES: m = F, 3 443 of 3 443, and no violation anywhere.** Re-running the
+shape sweep with the [Postscript 110](#p110) fix in place (C's conditions are non-strict; feeding
+them to a strict solver deleted whole sectors) over cubes, hexagonal prisms,
+octagonal prisms and mixed triples:
+
+    3 443 configurations | 0 violations of s <= a + b + m - 2 | m = F in 3 443
+
+Before the fix the same sweep read m < F in 4 of 60 and produced two spurious
+violations. **[Postscript 107](#p107)'s "m = F" is restored on 3 443 configurations instead of
+6**, and with it T <= 12F - 5, which is no longer downgraded. The inequality now
+has no counterexample across three cell shapes and their mixtures, exactly as
+[Postscript 110](#p110)'s proof requires.
+
+---
+<a id="p113"></a>
+## Postscript 113: dimension is SOLVED, not probed — and the multi-cube gap closes
+
+Every dimension figure in this project came from probing, and `FAILURE_MODES.md`
+11d shows a zero reading then means "not aligned", never "isolated". Worse, every
+probe moved ONE cube, so a locus positive-dimensional only via multi-cube
+directions was invisible to all of them — **the largest standing gap in
+`MAXIMISER_TAXONOMY.md`**. `dimension.py` now solves for it instead, and passes
+its controls:
+
+    n2       dim 1, tangent (1,1,1)       the body-diagonal 13-family
+    n2edge   dim 1, tangent (1,1,0)       the edge-axis arc
+    arcA     dim 1, recovered as alpha=2  the 727 arc, in the FULL 15-dimensional
+                                          moduli space
+
+Arc A is the control [Postscript 100](#p100)/[102](#p102) record `tight_set.py` FAILING. Solving
+does not have the probe's problem for a structural reason: enumerating multi-cube
+directions is exponential, computing a null space is not.
+
+**THE METHOD.** Tight conditions (Step A's pair conditions AND Step B's singleton
+conditions, which were never in anyone's Jacobian) → exact rational Jacobian →
+null space, the first-order tangent space. Then every direction in that space is
+orthogonal to every gradient BY CONSTRUCTION, so nothing is crossed to first
+order and the count change is second order — CURVATURE. But **the walls are
+quadrics** ([Postscript 95](#p95), [104](#p104)), so f(x + t d) terminates and staying on the wall is
+the exact condition d'Hd = 0 — the RULING condition of [Postscript 104](#p104), reached from
+the other side. **Curvature here is a quadratic, not a differential equation.**
+Each condition then gives one polynomial in the direction parameter; their GCD's
+rational roots are the tangent directions; the engine verifies.
+
+**SEVEN APPARATUS FAULTS, ZERO MATHEMATICAL ONES.** Differentiation (discarding
+every condition whose minimiser sits at a breakpoint — where it always sits);
+gauge (conjugating to the identity is Moebius in Cayley coordinates, curving a
+straight arc); verification (unevaluable scored as changed — this file's own
+documented trap); candidate generation (four hand-picked combinations of an
+arbitrary basis, missing a direction inside the span); a stale variable; Hessians
+(43 200 symbolic second derivatives for 3 numbers per condition — the cost was
+the algorithm, not sympy); and root extraction (degrees 1 and 2 only, silently
+skipping the cubics that occur — all 132 vanished at the true root).
+
+**THE PROBE THAT ENDED IT, and the lesson.** Express the KNOWN tangent in the
+computed basis and evaluate the machinery's own intermediate objects at that
+point: residual 0, alpha* = 2, and 0 of 132 polynomials failing to vanish there.
+Two minutes to write, and it would have caught four of the seven faults. METHODS
+section 4 already says to choose a control that is hard for the method; the
+addition is that **when a known answer exists, test the INTERMEDIATE objects
+against it, not only the final output**. It was built seventh.
+
+**WHAT IT UNLOCKS.** Nothing in the method is specific to records, so the same
+code gives dimension for every (count, profile) class in [Postscript 111](#p111)'s subset
+census — which is the half of "characterise the topology of records and their
+subsets" that no existing tool could reach.
+
+---
+<a id="p114"></a>
+## Postscript 114: the count is bought with CODIMENSION — every level's best sits on a locus of dimension exactly 1
+
+`dimension.py` ([Postscript 113](#p113)) solved for local dimension in the full moduli space;
+`census_dimension.py` ran it over every (count, profile) class of the n = 6 and
+n = 7 records — 52 classes, k = 3..6. The invariant reported is the LINEALITY
+DIMENSION of the boundary cone: the directions preserving the count in BOTH
+senses, i.e. the dimension of the locus through the configuration.
+
+**THE BEST CONFIGURATION AT EVERY LEVEL HAS LINEALITY DIMENSION EXACTLY 1.**
+
+    n=6 k=3   top 63    lineality 1 of  6 ambient    codim  5
+    n=6 k=4   top 183   lineality 1 of  9            codim  8
+    n=6 k=5   top 393   lineality 1 of 12            codim 11
+    n=7 k=6   top 727   lineality 1 of 15            codim 14
+
+Seven blocks, four distinct top values — 63, 183, 393, 727, three of them level
+records — and every one is an ARC. Codimension is 3(k−1) − 1 throughout.
+
+**AND COUNT IS ANTI-CORRELATED WITH DIMENSION INSIDE EVERY BLOCK:**
+
+    n=6 k=3  rho = -0.89      n=7 k=4  rho = -0.96
+    n=6 k=4  rho = -0.90      n=7 k=5  rho = -0.95
+    n=6 k=5  rho = -0.94      n=7 k=6  rho = -0.97
+    n=7 k=3  rho = -0.96
+
+Dimension rises monotonically as the count falls — 1 at the top, 6 of 9 at count
+147, 6 of 12 at 359. **The count is bought with codimension, and the record is
+the configuration that pays the most.** That gives the project's long-standing
+"records are rigid" intuition a quantitative form, measured rather than probed,
+and in the FULL moduli space rather than one cube at a time.
+
+**Every class, 52 of 52, sits on the BOUNDARY of a full-dimensional region.** So
+the structure is not wall-versus-interior: it is a polyhedral cone with a
+lineality space, and the lineality dimension is the invariant. This retires the
+sampled "on-wall fraction" of the first topology tranche, which measured the
+direction list rather than the configuration.
+
+**A DISCRIMINATION NO PROBE COULD MAKE.** The 727 record configuration verifies
+ZERO count-preserving directions while the arc-A member of the same plateau,
+counting the same 727, verifies ONE. That is not an inconsistency:
+[Postscript 47](#p47) proved 727 isolated on the 393 base, while arc A lies on an arc. The
+solver separates an isolated maximiser from a plateau member of equal count.
+
+**COST NOTE.** `sp.simplify` was consuming 93% of the conditions build for no
+effect on any number produced — only values at rational points are ever used, and
+simplification cannot change a value. Removing it took a class from >20 minutes
+to 93 s, a ~14x speedup, and only a profile found it: two prior estimates of the
+runtime were wrong, one by extrapolating n = 6 timings to n = 7 classes with four
+times the condition groups.
