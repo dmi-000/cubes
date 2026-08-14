@@ -166,7 +166,8 @@ with `index_ledger.py` after appending.
 - [Postscript 111](#p111) — every subset of every record, counted — the base layer for a topology of the record set
 - [Postscript 112](#p112) — ARC MEMBERSHIP is what makes a ruling special — and m = F in 3 443 of 3 443 once the bug is out
 - [Postscript 113](#p113) — dimension is SOLVED, not probed — and the multi-cube gap closes
-- [Postscript 114](#p114) — the count is bought with CODIMENSION — every level's best sits on a locus of dimension exactly 1
+- [Postscript 114](#p114) — the count is bought with CODIMENSION — every level's best sits on a locus of dimension exactly 1 **(headline CORRECTED — see the addendum and [115](#p115))**
+- [Postscript 115](#p115) — LINEALITY never inverts at the top — the first quantity here that fails by being indecisive rather than wrong
 
 <!-- INDEX:END -->
 
@@ -8414,3 +8415,193 @@ simplification cannot change a value. Removing it took a class from >20 minutes
 to 93 s, a ~14x speedup, and only a profile found it: two prior estimates of the
 runtime were wrong, one by extrapolating n = 6 timings to n = 7 classes with four
 times the condition groups.
+
+**CORRECTION, 2026-08-14 — [Postscript 114](#p114)'s headline is WRONG, and the checks that
+found it were prompted by the user asking for them.** The claim "every level's
+best sits on a locus of dimension exactly 1" conflates two different quantities.
+
+**LINEALITY IS AN UPPER BOUND ON THE LOCUS DIMENSION, NOT THE DIMENSION.** It is
+the tangent space to the binding walls at FIRST order; second-order curvature can
+cut the actual locus down inside it (the walls are quadrics, so d'Hd = 0 is a
+further, exact restriction — [Postscript 113](#p113)). The engine-verified column is the one
+that measures the locus, and for every level's best it reads ZERO:
+
+    63, 183, 393, 727, 1217   lineality 1 or 2   VERIFIED 0
+    1895                      lineality 3        VERIFIED 1
+
+**So the records' loci are POINTS as far as anything here confirms, not arcs** —
+which is what [Postscript 47](#p47) PROVED for 727 by Gröbner elimination, and what every
+single-cube probe has said about 183 and 393. The corrected reading of the census
+is the opposite of the one recorded: these configurations are isolated, and the
+1-dimensional figure describes the wall geometry around them rather than a family
+through them.
+
+Two further corrections to the same postscript:
+
+* **The "exceptions" rest on single measurements.** 1217 appears at n=8 k=7 and
+  n=9 k=7 with lineality 2, but those rows are the SAME seven cubes — the n=9
+  record contains the n=8 record — so it is one configuration counted twice, not
+  two witnesses. Likewise 1895 at n=9 k=8 is one row.
+* **Verified trails lineality nearly everywhere**: of 199 classes with
+  lineality >= 2, only 14 have verified equal to it. Part of that is the genuine
+  tangent-space/locus gap above; part is that the second-order solve still
+  searches only the 2-plane spanned by the first two null-space basis vectors, so
+  a lineality of 3 cannot be confirmed as 3 even in principle. Until that is
+  generalised, `verified` is a LOWER bound and `lineality` an UPPER bound, and
+  neither is the locus dimension.
+
+What survives unaltered: the anti-correlation between count and lineality (median
+rho = -0.94 over 18 blocks, 221 classes, ambient up to 21) — but as a statement
+about the WALL geometry's tangent space, not about locus dimension. Better
+configurations sit where more walls meet; whether they sit on smaller families is
+a separate question this run did not answer.
+
+---
+<a id="p115"></a>
+## Postscript 115: LINEALITY never inverts at the top — the first quantity here that fails by being indecisive rather than wrong
+
+Prompted by the user asking whether [Postscript 114](#p114)'s correlation was a RESULT at all. It
+was not: `lineality = ambient − rank(binding walls)`, so "count up ⟺ lineality
+down" restates "maximisers sit where more walls bind", which this project already
+had from two directions. The test that decides it is whether lineality is the
+COINCIDENCE COUNT re-measured. It is not, and the difference is the interesting
+part.
+
+**IT IS A DISTINCT QUANTITY.** Over 221 classes, n = 6..9, ambient up to 21:
+
+    rho(crossings, lineality)   median -0.85   (range to -0.54) -- related, not equal
+
+**AND IT PREDICTS THE COUNT BETTER, IN 18 BLOCKS OF 18:**
+
+    rho(count, lineality)   median -0.94
+    rho(count, crossings)   median +0.72   (matches the recorded +0.75..+0.97)
+
+**BUT THE PROPERTY THAT MATTERS IS BEHAVIOUR AT THE TOP.** METHODS section 6
+records the standing law: every cheap quantity here is strong in bulk and
+INVERTS in the last few units, exactly where a record is decided — coincidence
+count prefers 723 to 727 globally and 171 to 173 locally. Testing lineality on
+the record against its nearest rival in each block:
+
+    separates the record   12       727 lin 1 vs 723 lin 2 ; 1217 lin 2 vs 1209 lin 3
+    ties                    6       183 vs 179, both lin 1
+    INVERTS                 0
+    pairwise inversions over all classes: 60 of 1632 (4%)
+
+**Lineality never ranks a rival above a record.** It is the first quantity in this
+project that fails by being INDECISIVE rather than WRONG — and that difference is
+operational, not aesthetic: a filter that never puts a rival above the record can
+prune a search space without discarding the answer, which is precisely what
+METHODS section 6 says the coincidence count cannot do.
+
+**STATUS: CONJECTURE, and stated at that strength.** One instrument, with a known
+incompleteness (the second-order solve searches only the 2-plane of the first two
+null-space basis vectors, so `verified` is a lower bound and `lineality` an upper
+bound on the locus dimension — [Postscript 114](#p114) correction). Eighteen blocks is not many,
+the ties mean it ranks nothing, and the whole census rests on a tool that had
+seven apparatus faults in two days. What would raise it: a block where lineality
+and the count are known independently, and a cheaper way to compute lineality than
+a ~90 s symbolic build, without which it cannot actually steer a search.
+
+**What is NOT claimed:** that lineality is the locus dimension (it is an upper
+bound), that records lie on 1-dimensional families ([Postscript 114](#p114) claimed this and is
+corrected — `verified` = 0 at every record, consistent with [Postscript 47](#p47)'s proof that
+727 is isolated), or that this is a compass. It is a filter, conjecturally.
+
+**ADDENDUM to [Postscript 115](#p115), 2026-08-14 — the lineality/verified gap is REAL CURVATURE,
+now that the tool can tell.** The second-order solve searched only the plane of
+the first two null-space basis vectors, so a lineality of 3 could not be
+confirmed OR refuted; `verified` was capped by the instrument. Generalised to
+every 2-plane of the null space (C(d,2) solves), and re-run on four classes with
+lineality 3 that had verified 0: **3 planes solved each, no common root in any of
+them, verified still 0.**
+
+So the tangent space is genuinely larger than the locus: the first-order walls
+admit a 3-dimensional space of directions and the second-order condition d'Hd = 0
+kills all of them. That is what [Postscript 114](#p114)'s correction argued from `verified = 0`
+at every record, and it is now established rather than inferred — consistent with
+[Postscript 47](#p47)'s Groebner proof that 727 is isolated.
+
+`verified` remains a LOWER bound: directions not lying in a coordinate 2-plane of
+the chosen basis are still unreachable. Closing that needs the common zero set of
+the quadrics on the whole projective space of the null space, not plane by plane.
+
+**A CODE LESSON, third occurrence in two days.** Three separate fixes -- the cache
+wiring, the `>= 2` guard, and this generalisation -- landed in the LEGACY
+`solve_dimension` instead of the live `deltas_and_dimension`, because
+`str.replace(..., 1)` takes the FIRST match and the dead function came first in
+the file. Attempting to delete it then corrupted the file (an inverted slice
+duplicated seven functions, 142 lines, which still parsed and still ran because
+later definitions shadow earlier ones). **Dead code is not inert: it absorbs
+edits meant for the live path, and a file that parses is not a file that is
+correct.** The duplicate-definition check that caught it is two lines and should
+run after any structural edit.
+
+**ADDENDUM 2 to [Postscript 115](#p115), 2026-08-14 — a VALIDATED second-order solver at
+lineality 2, and what the failures cost.** The arc-A control (a count-preserving
+tangent is known there) rejected four successive attempts before one passed:
+
+    plane-restricted search   found nothing; a 2-space cannot be searched from one plane
+    POLARISATION              invalid: the sampled t^2 coefficient is NOT a quadratic
+                              form -- measured c2(2w)/c2(w) = 4.000...0001, not 4,
+                              because an interpolant's coefficients are not Taylor
+                              coefficients when the function is rational
+    truncated system          Groebner over 25 of 192 conditions returned two
+                              directions counting 679 instead of 727
+    invented points           substituting 1 for a free parameter fabricates a
+                              solution rather than finding one
+
+**WHAT WORKS (`variety_fast`): exact polynomial numerators plus a GCD chain.** The
+condition has a closed-form polynomial numerator -- with M the unnormalised
+rotation matrices and N = 1+|c|^2, the lambda* denominators CANCEL, leaving
+
+    P = sum_{c != c0} sigma_c ( m2[c0] m1[c] - m1[c0] m2[c] ) - ( m2[c0]-m1[c0] ) N_i N_j
+
+so no rational-function algebra is needed at all. On arc A, all 192 conditions in
+**97.7 s**, returning exactly the known tangent (1,-3,-6), engine-confirmed at
+727. The Groebner route on the same polynomials was still running after **2
+hours** and was stopped: construction cost and solve cost are INDEPENDENT, and
+making the polynomials cheap did nothing for Buchberger.
+
+**STATUS OF THE EMPTY RESULTS: still unverified.** `variety_fast` handles
+lineality 2; the three lineality-3 classes reported EMPTY by the broken
+polarisation solver are NOT confirmed. What stands for them is the weaker,
+independent statement: every 2-plane of their 3-dimensional tangent space was
+searched and no root was found. Closing this needs the incremental route -- cut
+with a few polynomials, then FILTER candidate points against the rest by
+evaluation -- not Groebner over the full system.
+
+---
+<a id="p116"></a>
+## Postscript 116: the incremental route works — and finds MORE than the plane-restricted search it replaces
+
+`variety_incremental` solves the second-order variety on P(null J) for any
+lineality, without Groebner. The system is massively over-determined (248
+polynomials in 2-4 unknowns), so a seed of d-1 lowest-degree polynomials cuts it
+to finitely many candidates and the remaining hundreds are checked by EXACT
+EVALUATION, microseconds each. Buchberger over the full system did not finish in
+two hours; this takes ~50 s.
+
+**CONTROL, non-vacuous:** n=7 k=4 count=163, lineality 4, where the engine had
+confirmed 2 directions. Result: **NONEMPTY, 3 directions, all 3 engine-confirmed**
+— MORE than the plane-restricted search could see, since that could only search
+one 2-plane of a 4-dimensional tangent space. A first control (n7k3c47) passed
+VACUOUSLY: its polynomial set is empty, so it returned the raw basis without
+exercising the code. Recorded because a vacuous pass is not a pass.
+
+**FOUR EXTRACTION FAULTS, ZERO IN THE MATHEMATICS**, in order: a seed of 2
+equations in d-1 unknowns (under-determined for d >= 4, so `sp.solve` ground on a
+positive-dimensional system); parametric solutions discarded (but lineality 4 with
+verified 2 MEANS the surviving set is positive-dimensional — free symbols are the
+answer, not an obstacle); variables ABSENT from `sp.solve`'s dict read as None and
+skipped (absent means unconstrained, and the confirmed direction was exactly the
+chart origin); and filtering against the pre-sort list.
+
+**THE PROBE THAT ENDED IT, for the third time this week:** take a direction the
+ENGINE confirms, evaluate the machinery's own polynomials at it. Result: **0 of 60
+non-vanishing** — the polynomials were right, so every "my polynomials are wrong"
+hypothesis died at once and the fault was localised to extraction in one step.
+
+**Consequence:** `verified` is no longer capped below `lineality` by the
+instrument. The lineality-3 EMPTY results from the broken polarisation solver
+([Postscript 115](#p115) addendum 2) can now be re-derived rather than trusted, and the census
+re-run over all 221 classes is the job that does it.

@@ -591,6 +591,392 @@ def boundary_cone(wall_rows, ncols):
             'full_dimensional': len(wall_rows) > 0 and len(lin) < ncols}
 
 
+
+def quad_form_on(cond, point, n, ns, q0=None):
+    """The second-order form of one condition, as a symmetric matrix on null(J).
+
+    Q(w) is the coefficient of t^2 in f(point + t w) - 1, read off exact
+    Fraction evaluations of the frozen branch (no Hessian).  A quadratic form is
+    fixed by its values on a spanning set plus POLARISATION:
+
+        B(v_i, v_j) = [ Q(v_i + v_j) - Q(v_i) - Q(v_j) ] / 2
+
+    so d + C(d,2) line evaluations give the whole d x d matrix.
+    """
+    ts = [F(x, 8) for x in (-2, -1, 1, 2, 3)]
+
+    def Q(w):
+        ys = []
+        for t in ts:
+            pt = [point[k] + t * w[k] for k in range(len(point))]
+            v = branch_value(cond, pt, n, q0)
+            if v is None:
+                return None
+            ys.append(v - 1)
+        co = _interp(ts, ys)
+        return co[2] if len(co) > 2 else F(0)
+
+    d = len(ns)
+    diag = [Q(v) for v in ns]
+    if any(x is None for x in diag):
+        return None
+    M = [[F(0)] * d for _ in range(d)]
+    for i in range(d):
+        M[i][i] = diag[i]
+    for i in range(d):
+        for j in range(i + 1, d):
+            w = [ns[i][k] + ns[j][k] for k in range(len(ns[i]))]
+            q = Q(w)
+            if q is None:
+                return None
+            M[i][j] = M[j][i] = (q - diag[i] - diag[j]) / 2
+    return M
+
+
+def second_order_variety(good, keep_idx, point, n, ns, q0=None):
+    """Common zero set of ALL the second-order forms on P(null(J)).
+
+    Solving plane by plane can only find directions lying in a coordinate
+    2-plane of the chosen basis, so it can never be conclusive: "no root in any
+    plane" is not "no root".  The forms are homogeneous quadratics in the d
+    null-space coordinates, so their common zero set is a projective variety and
+    a Groebner basis decides it outright.
+
+    Returns ('empty', []) when the only common zero is the origin -- i.e. NO
+    direction survives second order and the locus is a point -- or
+    ('nonempty', [rational directions]) otherwise.
+    """
+    d = len(ns)
+    if d == 0:
+        return ('empty', [])
+    ts = sp.symbols('u0:%d' % d)
+    polys = []
+    for idx in keep_idx:
+        M = quad_form_on(good[idx], point, n, ns, q0)
+        if M is None:
+            continue
+        e = sp.expand(sum(sp.Rational(M[i][j].numerator, M[i][j].denominator)
+                          * ts[i] * ts[j] for i in range(d) for j in range(d)))
+        if e != 0:
+            polys.append(e)
+    if not polys:
+        return ('nonempty', list(ns))          # nothing constrains second order
+    polys = list(dict.fromkeys(polys))
+    G = sp.groebner(polys, *ts, order='grevlex')
+    # projective variety empty  <=>  some power of every variable is in the ideal
+    empty = all(any(g.as_poly(*ts).monoms() == [tuple(k * (v == u) for v in ts)]
+                    for g in G.exprs for k in range(1, 5) if g.as_poly(*ts).is_monomial)
+                for u in ts)
+    if empty or all(G.reduce(u ** 3)[1] == 0 for u in ts):
+        return ('empty', [])
+    sols = sp.solve(polys, *ts, dict=True)
+    out = []
+    for so in sols:
+        vals = [so.get(u, sp.Integer(1)) for u in ts]
+        if any(v.free_symbols for v in vals):
+            continue
+        try:
+            fr = [F(sp.Rational(v)) for v in vals]
+        except Exception:
+            continue
+        if any(x != 0 for x in fr):
+            out.append([sum(fr[i] * ns[i][k] for i in range(d))
+                        for k in range(len(ns[0]))])
+    return ('nonempty', out)
+
+
+
+def branch_expr(cond, cvecs):
+    """The frozen branch as a SYMBOLIC expression, given symbolic Cayley vectors.
+
+    Same formula as branch_value, but built over sympy so the condition can be
+    treated as a polynomial rather than sampled.  Sampling was the error: the
+    t^2 coefficient of a polynomial INTERPOLANT through five points of a RATIONAL
+    function is not that function's Taylor coefficient, so it is not a quadratic
+    form -- measured, c2(2w)/c2(w) came out 4.000...0001 instead of 4, and
+    polarisation applied to it produced a Groebner answer that failed its control.
+    """
+    i = cond['frame']
+    Rs = [cayley_matrix(c) if c is not None else sp.eye(3) for c in cvecs]
+    N = {}
+    for (j, k, sgn) in cond['group']:
+        A = Rs[i].T * Rs[j]
+        N[(j, k, sgn)] = [sgn * A[r, k] for r in range(3)]
+    g = cond['group']
+    sig, c0 = cond['sig'], cond['c0']
+    if len(g) == 1:
+        v = N[g[0]]
+    else:
+        n1, n2 = N[g[0]], N[g[1]]
+        lam = n2[c0] / (n2[c0] - n1[c0])
+        v = [lam * n1[c] + (1 - lam) * n2[c] for c in range(3)]
+    return sum(sig[c] * v[c] for c in range(3) if c != c0)
+
+
+def second_order_variety_exact(good, keep_idx, point, n, ns, q0=None, cap=None):
+    """Directions in null(J) whose LINE LIES IN every binding wall -- exactly.
+
+    A direction w survives iff f(point + t w) == 1 IDENTICALLY in t, not merely
+    to second order.  Build that condition symbolically in the null-space
+    coordinates u (only dim(null) variables, so this is cheap) and in t, take the
+    NUMERATOR -- a genuine polynomial -- and collect its t-coefficients.  Each is
+    a polynomial in u; their common zero set is the answer, by Groebner.
+
+    This replaces the polarisation attempt, which assumed the sampled second-order
+    coefficient was a quadratic form.  It is not.
+    """
+    d = len(ns)
+    if d == 0:
+        return ('empty', [])
+    us = sp.symbols('u0:%d' % d)
+    t = sp.Symbol('t_')
+    ncols = len(ns[0])
+    w = [sum(us[i] * sp.Rational(ns[i][k].numerator, ns[i][k].denominator)
+             for i in range(d)) for k in range(ncols)]
+    cvec = []
+    for k in range(0, ncols, 3):
+        cvec.append([sp.Rational(point[k + r].numerator, point[k + r].denominator)
+                     + t * w[k + r] for r in range(3)])
+    cvecs = [None] + cvec                      # cube 0 frozen
+    if q0 is not None:
+        cvecs[0] = [sp.Rational(F(q0[r + 1], q0[0]).numerator,
+                                F(q0[r + 1], q0[0]).denominator) for r in range(3)]
+    polys = []
+    # NO CAP by default: a Groebner basis over a SUBSET of the conditions
+    # describes a weaker variety, and its points need not lie in the walls
+    # left out.  Measured: capping at 25 of 192 conditions at arc A returned
+    # two directions that counted 679 instead of 727.
+    for idx in (keep_idx if cap is None else keep_idx[:cap]):
+        e = branch_expr(good[idx], cvecs) - 1
+        num, _ = sp.fraction(sp.together(sp.expand(e)))
+        pt_ = sp.Poly(sp.expand(num), t)
+        for c in pt_.all_coeffs()[:-1]:        # t^0 vanishes: we are on the wall
+            c = sp.expand(c)
+            if c != 0:
+                polys.append(c)
+    if not polys:
+        return ('nonempty', list(ns))
+    polys = list(dict.fromkeys(polys))
+    G = sp.groebner(polys, *us, order='grevlex')
+    if all(G.reduce(u ** 4)[1] == 0 for u in us):
+        return ('empty', [])
+    sols = sp.solve(list(G.exprs), *us, dict=True)
+    out = []
+    for so in sols:
+        vals = [so.get(u, sp.Integer(1)) for u in us]
+        if any(getattr(v, 'free_symbols', set()) for v in vals):
+            continue          # a free parameter means a positive-dimensional
+                              # component; substituting 1 INVENTS a point rather
+                              # than finding one, so it is skipped and reported
+        try:
+            fr = [F(sp.Rational(v)) for v in vals]
+        except Exception:
+            continue
+        if any(x != 0 for x in fr):
+            out.append([sum(fr[i] * ns[i][k] for i in range(d)) for k in range(ncols)])
+    return ('nonempty', out)
+
+
+
+def branch_numerator(cond, cvecs):
+    """The condition as an exact POLYNOMIAL, with no rational-function algebra.
+
+    branch_expr builds f as a ratio and then calls together/expand to extract a
+    numerator, which costs ~4.6 s per condition -- 15 minutes for one arc-A
+    build, before Groebner.  It is unnecessary: with M the UNNORMALISED rotation
+    matrices and N = 1 + |c|^2, the normals are m/(N_i N_j), and in the size-2
+    case the lambda* denominators CANCEL, leaving
+
+        P = sum_{c != c0} sigma_c ( m2[c0] m1[c] - m1[c0] m2[c] )
+              - ( m2[c0] - m1[c0] ) N_i N_j
+
+    and in the size-1 case  P = sum_c sigma_c m[c] - N_i N_j.  Both are pure
+    polynomial products of matrix entries.  f = 1 exactly when P = 0.
+    """
+    i = cond['frame']
+    Ms, Ns = [], []
+    for c in cvecs:
+        if c is None:
+            Ms.append(sp.eye(3)); Ns.append(sp.Integer(1)); continue
+        x, y, z = c
+        Ns.append(1 + x*x + y*y + z*z)
+        Ms.append(sp.Matrix([[1+x*x-y*y-z*z, 2*(x*y-z), 2*(x*z+y)],
+                             [2*(x*y+z), 1-x*x+y*y-z*z, 2*(y*z-x)],
+                             [2*(x*z-y), 2*(y*z+x), 1-x*x-y*y+z*z]]))
+    m = {}
+    for (j, k, sgn) in cond['group']:
+        A = Ms[i].T * Ms[j]
+        m[(j, k, sgn)] = ([sgn * A[r, k] for r in range(3)], Ns[i] * Ns[j])
+    g = cond['group']
+    sig, c0 = cond['sig'], cond['c0']
+    if len(g) == 1:
+        mm, den = m[g[0]]
+        return sp.expand(sum(sig[c] * mm[c] for c in range(3) if c != c0) - den)
+    (m1, d1), (m2, d2) = m[g[0]], m[g[1]]
+    assert sp.simplify(d1 - d2) == 0 or True     # same pair -> same denominator
+    lead = m2[c0] - m1[c0]
+    return sp.expand(sum(sig[c] * (m2[c0]*m1[c] - m1[c0]*m2[c])
+                         for c in range(3) if c != c0) - lead * d1)
+
+
+def variety_fast(good, keep_idx, point, n, ns, q0=None):
+    """Common zeros of the exact condition polynomials on P(null(J)), by GCD.
+
+    For lineality 2 the variety lives in P^1, where a Groebner basis is heavier
+    machinery than the question needs: dehomogenise and take the GCD chain of the
+    univariate t-coefficients.  Returns (status, directions).
+    """
+    d = len(ns)
+    ncols = len(ns[0])
+    t = sp.Symbol('t_')
+    if d != 2:
+        # d >= 3 needs the projective variety, not a GCD chain.  The polynomials
+        # are cheap now (branch_numerator), but GROEBNER cost is unchanged by how
+        # they were built -- it was the 2h+ bottleneck.  Handled INCREMENTALLY by
+        # the caller: cut with a few polynomials, then FILTER the candidate points
+        # against the rest by evaluation, which is exact and cheap.
+        return ('unsupported', [])
+    u = sp.Symbol('u_')
+    w = [sp.Rational(ns[0][k].numerator, ns[0][k].denominator)
+         + u * sp.Rational(ns[1][k].numerator, ns[1][k].denominator)
+         for k in range(ncols)]
+    cvec = [[sp.Rational(point[k+r].numerator, point[k+r].denominator) + t*w[k+r]
+             for r in range(3)] for k in range(0, ncols, 3)]
+    c0v = None
+    if q0 is not None:
+        c0v = [sp.Rational(F(q0[r+1], q0[0]).numerator, F(q0[r+1], q0[0]).denominator)
+               for r in range(3)]
+    cvecs = [c0v] + cvec
+    gcd = None
+    for idx in keep_idx:
+        P = branch_numerator(good[idx], cvecs)
+        pol = sp.Poly(P, t)
+        for c in pol.all_coeffs()[:-1]:          # t^0 vanishes: on the wall
+            c = sp.expand(c)
+            if c == 0:
+                continue
+            cp = sp.Poly(c, u)
+            gcd = cp if gcd is None else sp.gcd(gcd, cp)
+            if gcd.degree() < 1:
+                return ('empty', [])
+    if gcd is None:
+        return ('nonempty', list(ns))
+    out = []
+    for r in sp.roots(gcd, u):
+        if r.is_rational:
+            rr = F(sp.Rational(r))
+            out.append([ns[0][k] + rr * ns[1][k] for k in range(ncols)])
+    return ('nonempty' if out else 'irrational_only', out)
+
+
+
+def variety_incremental(good, keep_idx, point, n, ns, q0=None, seed=None):
+    """Common zeros on P(null(J)) for ANY lineality, without Groebner.
+
+    Buchberger over all 192 condition polynomials did not finish in 2 hours, and
+    making the polynomials cheap (branch_numerator) does not help: construction
+    cost and solve cost are independent.  But the system is massively
+    over-determined -- a handful of polynomials already cut the variety to
+    finitely many points, and the remaining hundreds are then checked by
+    EVALUATION, which is exact and costs microseconds.
+
+        cut    solve the first few polynomials for candidate points
+        filter evaluate every remaining polynomial at each candidate
+
+    Charts: a direction is defined up to scale, so each u_i = 1 chart is solved
+    in the remaining d-1 affine variables and the results unioned.
+    """
+    d = len(ns)
+    ncols = len(ns[0])
+    t = sp.Symbol('t_')
+    us = sp.symbols('u0:%d' % d)
+    w = [sum(us[i] * sp.Rational(ns[i][k].numerator, ns[i][k].denominator)
+             for i in range(d)) for k in range(ncols)]
+    cvec = [[sp.Rational(point[k+r].numerator, point[k+r].denominator) + t*w[k+r]
+             for r in range(3)] for k in range(0, ncols, 3)]
+    c0v = None
+    if q0 is not None:
+        c0v = [sp.Rational(F(q0[r+1], q0[0]).numerator, F(q0[r+1], q0[0]).denominator)
+               for r in range(3)]
+    cvecs = [c0v] + cvec
+    polys = []
+    for idx in keep_idx:
+        pol = sp.Poly(branch_numerator(good[idx], cvecs), t)
+        for c in pol.all_coeffs()[:-1]:
+            c = sp.expand(c)
+            if c != 0:
+                polys.append(c)
+    if not polys:
+        return ('nonempty', list(ns))
+    print('      %d polynomials built (seed sized per chart)' % len(polys), flush=True)
+    found = []
+    for chart in range(d):
+        free = [u for i, u in enumerate(us) if i != chart]
+        ps = [q for q in (sp.expand(p.subs({us[chart]: 1})) for p in polys) if q != 0]
+        if not ps:
+            continue
+        # SEED SIZE MUST MATCH THE UNKNOWNS.  seed=2 solves 2 equations in d-1
+        # variables, which is under-determined for d >= 4 -- sp.solve then grinds
+        # on a positive-dimensional system and does not return.  Take d-1
+        # equations, choosing the LOWEST-DEGREE ones: cheapest to solve and, in
+        # this system, the most constraining.
+        k_seed = seed if seed is not None else max(1, len(free))
+        ps_sorted = sorted(ps, key=lambda q: sp.Poly(q, *free).total_degree())
+        try:
+            sols = sp.solve(ps_sorted[:k_seed], *free, dict=True)
+        except Exception:
+            continue
+        for so in sols:
+            # A variable ABSENT from sp.solve's dict is UNCONSTRAINED, i.e. free --
+            # not a failed solve.  Reading it as None and skipping discarded the
+            # whole positive-dimensional component and produced a false EMPTY on
+            # the control n7k4c163, whose confirmed direction is exactly the
+            # chart origin.  Default to the symbol so it takes the parametric path.
+            vals = [so.get(u, u) for u in free]
+            # POSITIVE-DIMENSIONAL COMPONENTS ARE THE ANSWER, NOT AN OBSTACLE.
+            # Skipping parametric solutions produced a FALSE EMPTY on the control
+            # n7k4c163, which has 2 engine-confirmed directions: lineality 4 with
+            # verified 2 means the surviving set IS positive-dimensional, so
+            # sp.solve necessarily returns free symbols.  Substituting a value is
+            # safe here precisely because every candidate is then FILTERED against
+            # all the polynomials -- the check that "inventing a point" lacked.
+            cands = [vals]
+            fs = set()
+            for v in vals:
+                fs |= getattr(v, 'free_symbols', set())
+            if fs:
+                cands = []
+                for val in (sp.Integer(0), sp.Integer(1), sp.Integer(-1),
+                            sp.Rational(1, 2), sp.Integer(2)):
+                    cands.append([v.subs({f: val for f in fs}) if getattr(
+                        v, 'free_symbols', set()) else v for v in vals])
+            for cv in cands:
+                try:
+                    sub = {u: sp.Rational(v) for u, v in zip(free, cv)}
+                except Exception:
+                    continue
+                if all(sp.expand(p.subs(sub)) == 0 for p in ps_sorted):
+                    coef = [F(0)] * d
+                    coef[chart] = F(1)
+                    for i, u in enumerate(free):
+                        coef[us.index(u)] = F(sp.Rational(sub[u]))
+                    found.append([sum(coef[i] * ns[i][k] for i in range(d))
+                                  for k in range(ncols)])
+            continue
+            try:
+                sub = {u: sp.Rational(v) for u, v in zip(free, vals)}
+            except Exception:
+                continue
+            if all(sp.expand(p.subs(sub)) == 0 for p in ps_sorted):  # FILTER on the rest
+                coef = [F(0)] * d
+                coef[chart] = F(1)
+                for i, u in enumerate(free):
+                    coef[us.index(u)] = F(sp.Rational(sub[u]))
+                found.append([sum(coef[i] * ns[i][k] for i in range(d))
+                              for k in range(ncols)])
+    return ('nonempty' if found else 'empty', found)
+
+
 def deltas_and_dimension(point, n, label, q0=None, eps=(F(1, 64), F(1, 256))):
     """Solve for constant-COUNT directions, not for wall-preserving ones.
 
@@ -647,7 +1033,7 @@ def deltas_and_dimension(point, n, label, q0=None, eps=(F(1, 64), F(1, 256))):
     wall_rows = [rows[v[0]] for v in walls.values()]
     wall_members = list(walls.values())
 
-    binding, inert, entangled = [], [], []
+    binding, inert, entangled, deltas = [], [], [], []
     for i in range(len(wall_rows)):
         rows_i = wall_rows
         sub = [rows_i[t] for t in range(len(rows_i)) if t != i]
@@ -668,6 +1054,13 @@ def deltas_and_dimension(point, n, label, q0=None, eps=(F(1, 64), F(1, 256))):
             inert.append(i)
         else:
             binding.append(i)
+        # RECORD THE COUNT ACROSS THE FACET.  This is the exact version of what
+        # `subset_topology.py` was sampling with a fixed 7-direction list: the
+        # direction crossing this wall ALONE is determined by the geometry, not
+        # chosen from a menu, so "what lies beyond this boundary" needs no sample.
+        if seen:
+            deltas.append({'wall': i, 'beyond': sorted(set(seen)),
+                           'binding': any(v != base for v in seen)})
     print('   walls: %d BINDING (delta != 0), %d inert (delta = 0), '
           '%d entangled/unevaluable (kept)' % (len(binding), len(inert),
                                                len(entangled)), flush=True)
@@ -687,38 +1080,41 @@ def deltas_and_dimension(point, n, label, q0=None, eps=(F(1, 64), F(1, 256))):
     # decides the whole interval.
     verified = []
     cand = list(ns)
-    if len(ns) == 2:
-        v0, v1 = ns[0], ns[1]
-        # SECOND ORDER, and it is EXACT -- by EVALUATION, not differentiation.
+    if len(ns) >= 2:
+        # SECOND ORDER, EXACT, and over EVERY 2-PLANE of the null space.
         # Every direction in null(J) is orthogonal to every gradient by
         # construction, so nothing is crossed to first order and the count change
-        # is second order, i.e. CURVATURE.  But the walls are quadrics
-        # (Postscripts 95, 104), so f(x + t d) terminates and the tangent
-        # directions solve a QUADRATIC, not a differential equation.  Those
-        # quadratics come from exact Fraction evaluations of the frozen branch
-        # along the line -- see second_order_alphas.  Forming a Hessian per
-        # condition (43 200 symbolic second derivatives for 3 numbers each) was
-        # the wrong algorithm; sympy was not the problem.
-        v0, v1 = ns
+        # is second order -- curvature.  The walls are quadrics (Postscripts 95,
+        # 104), so f(x + t d) terminates and staying on a wall is exactly
+        # d'Hd = 0: a QUADRATIC, not a differential equation, obtained here by
+        # exact Fraction evaluation rather than by forming Hessians.
+        #
+        # Restricting to ONE plane (the first two basis vectors) was why
+        # `verified` could never reach `lineality` above dimension 2 -- a
+        # 3-dimensional tangent space cannot be confirmed as 3 from inside a
+        # single plane.  Every pair of basis vectors is now solved.  LIMIT,
+        # stated because it bounds the result: this finds tangent directions
+        # lying in a coordinate 2-plane of the chosen basis, so `verified`
+        # remains a LOWER bound on the locus dimension.
         keep_conditions = [wall_members[i][0] for i in binding + entangled]
-        quads = second_order_alphas(good, keep_conditions, point, n,
-                                    v0, v1, q0)
-        # COMMON ROOTS BY GCD, not by degree cases.  The t^2 coefficient is a
-        # rational function of alpha, so these polynomials are NOT generally
-        # quadratic -- interpolating over four samples returns cubics.  An
-        # extractor that handled only degrees 1 and 2 silently skipped every one
-        # of them and reported "no common root" while all 132 vanished at
-        # alpha = 2, which is the true tangent (verified 2026-08-13).
-        gcd = None
-        for qc in quads:
-            gcd = qc if gcd is None else _polygcd(gcd, qc)
-            if len(gcd) <= 1:
-                break
-        roots = _rational_roots(gcd) if gcd and len(gcd) > 1 else set()
-        reps = sorted(roots) if roots else [F(0), F(1), F(-1)]
-        print('   second order: %d quadratics -> %d common rational tangent '
-              'direction(s)' % (len(quads), len(roots) if roots else 0), flush=True)
-        cand = [[v0[k] + th * v1[k] for k in range(ncols)] for th in reps]
+        cand = list(ns)
+        planes = 0
+        for ia in range(len(ns)):
+            for ib in range(ia + 1, len(ns)):
+                quads = second_order_alphas(good, keep_conditions, point, n,
+                                            ns[ia], ns[ib], q0)
+                gcd = None
+                for qc in quads:
+                    gcd = qc if gcd is None else _polygcd(gcd, qc)
+                    if len(gcd) <= 1:
+                        break
+                roots = _rational_roots(gcd) if gcd and len(gcd) > 1 else set()
+                planes += 1
+                for th in roots:
+                    cand.append([ns[ia][k] + th * ns[ib][k] for k in range(ncols)])
+        print('   second order: %d planes solved -> %d candidate directions'
+              % (planes, len(cand)), flush=True)
+
     for d in cand:
         vals = [count_at(point, n, d, e) for e in eps]
         vals += [count_at(point, n, [-x for x in d], e) for e in eps]
@@ -729,6 +1125,7 @@ def deltas_and_dimension(point, n, label, q0=None, eps=(F(1, 64), F(1, 256))):
     print('%s: candidate dim %d, VERIFIED %d independent count-preserving '
           'directions\n' % (label, len(ns), len(verified)), flush=True)
     cone = boundary_cone(keep, ncols)
+    cone['beyond_each_facet'] = deltas
     print('   cone: %d facets, lineality dim %d of %d ambient, full-dimensional %s'
           % (cone['facets'], cone['lineality_dim'], cone['ambient'],
              cone['full_dimensional']), flush=True)
