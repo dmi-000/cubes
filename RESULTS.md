@@ -176,6 +176,13 @@ unchanged — so the increment is entirely shallow, the same signature by which
   two known maximizers being the only ones. The O-reduced invariant μ is
   rational for any rational configuration, and equals ½+√2 and 3φ/2 at the two
   maximizers. n = 3 is the only irrational rung of the tower.
+  *Annotated 2026-08-17 (`doc_audit.py`: this claim cited NO source of any kind).
+  Its stated condition is now known to be unproved rather than merely
+  unexamined. Postscript [118](LEDGER.md#p118) verified that both maximizers are
+  ISOLATED — exactly, by enumerating all 728 and 2 196 faces of their local wall
+  arrangements — but isolation is LOCAL: it rules out a third 67 near either of
+  these two, not a third elsewhere in moduli space. So "the only ones" remains
+  open, and every consequence drawn from it, including this one, inherits that.*
 - **n = 3 is the only level whose optimum set is finite and larger than one
   point.** At n = 2 the maximizers form a continuum (every angle about a body
   diagonal, plus a closed arc about an edge axis); at n = 6 the record value is
@@ -252,6 +259,17 @@ unchanged — so the increment is entirely shallow, the same signature by which
   1 377 612 degree-2 solutions against 2 856 rational ones.
 
 - **The walls are ruled over ℚ, and their rulings are NOT constant-count lines.**
+  *Updated 2026-08-17 (found by `doc_audit.py`): the headline stands, but the
+  evidence quoted for it below — "of eight solved at matched Cayley extent, all
+  six whose window crosses a wall vary" — is the WINDOW-BASED statistic that
+  Postscript [108](LEDGER.md#p108) retired for giving window-dependent answers,
+  replacing it with the longest constant run in wall-chambers plus a
+  generic-direction control through the same point. Under that statistic the
+  finding is sharper and partly the opposite: rulings DO beat generic
+  directions, but only at the arc terminus, and Postscript
+  [112](LEDGER.md#p112) localises the cause to ARC MEMBERSHIP rather than
+  multiplicity. Read the two together; the blunt "NOT constant-count lines"
+  understates what is now known.*
   Every wall is a signature-(2,2) quadric, hence doubly ruled — confirmed on
   **10 250 walls with zero exceptions**, against the 360 W4 / 30 W3 originally
   sampled. Both rulings through a rational point are rational or a
@@ -345,7 +363,7 @@ current.
 | More coincidences imply a higher count | **REFUTED** — 727 has 18 interior crossings to 723's 48, and counts more | Postscript [47](LEDGER.md#p47) |
 | The E1 derivation fails because "each connected piece adds at most one region" is false for non-disk pieces | **REFUTED** — the piece bound was never needed; the real error was scoring twelve TANGENT vertices as zero, and the stated counterexample (∂B ∩ int A connected with six boundary circles) is geometrically false — it has six components | Postscripts [53](LEDGER.md#p53), [56](LEDGER.md#p56) |
 | Records concentrate at high-multiplicity concurrences | **REVERSED** — the sweet-spot caveat was noted early (Act III: "more alignment is not better"), but the heuristic still drove the searches. Measured, the correlation is negative. Over 1200 unselected draws, configurations counting ≥ 700 average 1.6 hits on the base's triple-point walls; those counting < 650 average 92.6. The heuristic described 723, which is exactly the 54-crossing corner family | Postscripts [55](LEDGER.md#p55), [57](LEDGER.md#p57) |
-| Corner-corner and edge-in-face are unmodelled wall types | **RECLASSIFIED** — both are codimension 2, so neither is a wall. The genuinely unenumerated codimension-1 types are (2,1,1) and (1,1,1,1) | Postscript [57](LEDGER.md#p57) |
+| Corner-corner and edge-in-face are unmodelled wall types | **RECLASSIFIED** — both are codimension 2, so neither is a wall. *Updated 2026-08-17: this row went on to say (2,1,1) and (1,1,1,1) are "genuinely unenumerated". They were enumerated the same week — 2 544 W4 and 4 320 W3 walls against the 393 base, all verified. This row is where the stale claim survived longest, which is worth noting: the superseded-claims table is the mechanism meant to STOP stale claims propagating, and it propagated one.* | Postscripts [57](LEDGER.md#p57), [62](LEDGER.md#p62) |
 | Rulings are constant-count lines, so they are the walls' own coordinate lines | **REFUTED** — true of the one instance it was drawn from, false in six of six non-vacuous cases solved systematically. That instance's base point is an arc terminus with three W4 conditions vanishing; the generic case varies | Postscript [103](LEDGER.md#p103) |
 | A doubly-ruled wall has one rational ruling and one irrational, so half its ruled structure is invisible to rational search | **REFUTED, and impossible as stated** — a rational binary quadratic cannot have exactly one rational root. Measured, all 63 432 rulings found were rational | Postscript [103](LEDGER.md#p103) |
 
