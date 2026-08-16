@@ -231,7 +231,17 @@ unchanged — so the increment is entirely shallow, the same signature by which
 - **The codimension-1 walls are exactly "four face planes concurrent"**, and
   classify by how the four distribute over cubes: (3,1) corner-on-face, (2,2)
   edge-edge, (2,1,1) edge meets a two-cube crossing line, (1,1,1,1) four planes
-  from four cubes. The first two are enumerated; the last two never were.
+  from four cubes. *Corrected 2026-08-17: this line said "the last two never
+  were", which was true when Postscript [57](LEDGER.md#p57) drew up the taxonomy
+  on 2026-08-02 but stopped being true the same week. Both ARE enumerated
+  against the 393 base — Postscript [62](LEDGER.md#p62) first reached one of
+  each, and `base_points.py` + `detq_check.py` now build and verify the full
+  catalogues: 424 real triple points → **2 544 W4 walls**, 360 crossing lines →
+  **4 320 W3 walls**, all nondegenerate and all split over ℚ, with det(Q) proved
+  symbolically for all 6 W4 branches and all 12 W3 edges. What remains open is
+  narrower and should not be stated as "never enumerated": the catalogue is
+  finite only RELATIVE TO A FIXED BASE, so the taxonomy is complete for the 393
+  base and for one free cube, not for a general base or general n.*
   Corner-corner coincidence and edge-inside-a-face are codimension 2, so
   neither is a wall — though both occur in the 393 base. Postscript [57](LEDGER.md#p57).
 - **Edge-edge conditions factor into PAIRS OF RATIONAL PLANES**; corner-on-face

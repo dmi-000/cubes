@@ -171,6 +171,7 @@ with `index_ledger.py` after appending.
 - [Postscript 116](#p116) — the incremental route works — and finds MORE than the plane-restricted search it replaces
 - [Postscript 117](#p117) — EVERY record is an isolated point — the census completed, and 114 definitively refuted
 - [Postscript 118](#p118) — the two 67s enter the machinery at last — both are ISOLATED, by enumerating every face rather than probing directions
+- [Postscript 119](#p119) — an ordered field containing an infinitesimal — the step size is gone, and it immediately falsified 36 faces measured by halving
 
 <!-- INDEX:END -->
 
@@ -8719,6 +8720,26 @@ is retained. Stabilisation cost — octahedral {2 steps: 728}, golden {2: 1896,
 3: 209, 4: 77, 5: 12, 6: 2}. Run 1's data is preserved at
 `isolation67_run1_fixed_eps.json`.
 
+> **CORRECTED 2026-08-17 ([Postscript 119](#p119)).** The sentence above
+> beginning "Both fixed" is FALSE and is the claim being corrected: the
+> adaptive rule did NOT fix it. "Shrink until two consecutive steps agree"
+> is unsound -- two steps can both lie outside the face in the SAME wrong
+> cell, and agreement then certifies only that they share a cell -- and it
+> misassigned 36 of golden's 2196 faces, reporting counts 33, 34 and 35
+> that do not occur. Re-measured with an infinitesimal eps ([Postscript
+> 119](#p119)), which has no step size to be wrong about.
+>
+> The stabilisation histogram above remains a true record of that run, but
+> it is a record of an unsound procedure and is not evidence of
+> convergence: its "{2 steps: 1896}" entries are exactly the cases where
+> the unsound rule fired immediately. This postscript states no golden
+> face-count distribution, so none is superseded -- the corrected
+> distribution appears in [Postscript 119](#p119).
+>
+> The VERDICT is unaffected: both 67s isolated, 0 faces reaching 67, 0
+> unresolved, best neighbour 63 at each, octahedral identical in every
+> entry under both methods.
+
 **WHAT THIS DOES NOT ESTABLISH, stated because the claim it is nearest to is
 stronger than it.**
 
@@ -8750,3 +8771,83 @@ stronger than it.**
    across 2 924 faces the arrangement's structure and the engine's counts never
    disagreed. A missing wall type would be expected to show as a face whose count
    contradicts its neighbours. Two points is not a proof.
+
+<a id="p119"></a>
+## Postscript 119: an ordered field containing an infinitesimal — the step size is gone, and it immediately falsified 36 faces measured by halving
+
+Every displaced count this project has ever taken is count(base + ε·d) for a
+finite ε. A finite ε is a SAMPLE, and [Postscript 118](#p118) showed it failing in
+the open: 333 of 2196 faces at the golden 67 disagreed across three fixed step
+sizes, always with the coarsest step dissenting, because the step left the face
+across one of the loose walls sitting at positive distance from the vertex.
+
+**THE FIX IS ARITHMETIC, NOT A SMALLER NUMBER.** ℚ(√D)(ε), elements truncated
+polynomials ordered by the sign of the lowest-degree nonzero coefficient, is a
+genuine ordered field — non-Archimedean, so 0 < ε < every positive rational.
+Every predicate the counting engine performs is a sign test, so all of them stay
+exactly decidable, and the count returned IS the ε → 0 limit. There is no step
+size to choose and none to defend.
+
+`cube_regions_eps.cpp`, generated from the validated `cube_regions_q2.cpp` by
+`make_eps_engine.py` — a generator rather than a hand-edited copy, so the
+derivation from the validated engine stays re-runnable. The scalar becomes
+Z[√d][ε]/(ε⁹); everything algorithmic is untouched.
+
+**DEGREE 8 IS EXACT, NOT A TRUNCATION**, which is the whole safety argument:
+
+    quaternion component        deg <= 1   (base + eps*direction, cleared)
+    matrix / plane coefficient  deg <= 2
+    det3 2x2 minor              deg <= 4
+    det3 result / vertex coord  deg <= 6
+    side-of-plane predicate     deg <= 8
+
+Nothing multiplies beyond that chain, so no product is ever truncated and "all
+coefficients zero" means genuinely zero. Had truncation been possible, `feSign`
+would return 0 for a nonzero quantity — a wrong COUNT, not a crash. Inputs of
+degree > 1 are refused rather than truncated, for the same reason. The overflow
+budget picks up the ε convolution length at each stage (2, then 3, 3, 3),
+compounding to ~2592 = 2^11.3 and costing a factor ~2.2 in admissible component
+magnitude; the factors are inserted at the stages they arise so the base engine's
+derivation stays valid.
+
+**GATED FIRST** (`eps_gate.py`), with the controls chosen to be hard:
+
+  - zero ε reproduces `cube_regions_q2` at both 67s (67 = 67, a known answer);
+  - a chamber INTERIOR keeps its count in all 6 infinitesimal directions;
+  - the octahedral 67's six measured facet counts — 59, 53, 59, 53, 57, 63 —
+    are reproduced infinitesimally, none unevaluable. This is the control that
+    fails if ε is being handled as zero rather than as an infinitesimal, and it
+    is exactly the one a "does it run" check would pass;
+  - scaling a direction by 97 and by 1/1000 leaves the count unchanged — the
+    count depends on the RAY. **No finite-ε implementation can pass this.**
+
+**RESULT, AND A CORRECTION TO [Postscript 118](#p118).** Re-running both face
+enumerations with no step size:
+
+    octahedral   728 faces   IDENTICAL histogram to halving   44s (was 226s)
+    golden      2196 faces   36 FACES DISAGREE                383s (was 641s)
+
+At golden the halving run reported 7 faces at 33, 1 at 34 and 19 at 35 — **counts
+that do not occur at all** — and correspondingly undercounted 37, 39, 43, 45 and
+49. The cause is that P118's stopping rule, "shrink until two consecutive steps
+agree", is UNSOUND: two steps can both lie outside the face in the SAME wrong
+cell, and agreement then certifies only that they share a cell, not that the cell
+is the right one. Same shape as the failure this ledger already records for gates
+whose two sides are identical strings.
+
+**What is corrected:** P118's golden face-count distribution is superseded by the
+one above. **What is not:** the verdict. Both 67s remain ISOLATED under both
+methods — 0 faces reaching 67, 0 unresolved, 0 budget rejects, best neighbour 63
+at each. The octahedral histogram is unchanged in every entry.
+
+**Why the octahedral case was immune** — worth stating, because it is the reason
+one control passed while the other did not. Its 6 walls are linearly independent,
+so its faces are the 3⁶−1 orthant-like cells of a simplicial arrangement, and a
+step along a witness direction has no nearby loose wall to cross. Golden's 9
+dependent walls of rank 6 cut narrow faces, and narrow faces are exactly where a
+finite step leaves before it stabilises. **The convenient control passed; only the
+awkward one carried information.**
+
+**Standing consequence.** The ε-collapse caveat on the 828 census "changed"
+directions is the same defect in a different place, and is now fixable rather than
+merely documented.
