@@ -87,10 +87,44 @@ import sympy as sp
 
 sys.path.insert(0, '/Users/dmi/cube-compounds')
 from solve_ends import q_of
+from qfield import (Q as QF, to_sp as qf_to_sp, from_sp as qf_from_sp,
+                    clear_denoms as qf_clear_denoms, rot as qf_rot)
 
 ENG = '/Users/dmi/cube-compounds/cube_regions_n'
 ENGW = '/Users/dmi/cube-compounds/cube_regions_q2w'
 QZERO = []   # cube 0's frozen quaternion, set per case
+BUDGET = [0]  # engine inputs rejected by the overflow budget -- reported, not hidden
+
+# ------------------------------------------------------------------ the field
+# Every scalar here lives in Q(sqrt DFIELD); DFIELD = 0 means plain Q and MUST
+# reproduce the Fraction path bit-for-bit, since every rational result already
+# in the ledger was produced by it -- `dimension_gate.py` checks exactly that.
+# The two n = 3 maximisers are the only records outside Q (they sit in Q(sqrt2)
+# and Q(sqrt5)), which is why no crossing-based census has ever included them.
+#
+# INVARIANT to maintain when editing below: nothing may construct a scalar as a
+# bare F(0)/F(1) inside the numeric routines.  Derive zero and one from an
+# element already in play (`x*0`, `x*0 + 1`) or from `_num`, so the routine is
+# field-agnostic.  A literal Fraction silently demotes the arithmetic to Q and
+# the failure looks like a wrong ANSWER, not like a type error.
+DFIELD = 0
+
+
+def set_field(d):
+    global DFIELD
+    DFIELD = int(d)
+
+
+def _num(a, b=0):
+    return F(a) if DFIELD == 0 else QF(F(a), F(b), DFIELD)
+
+
+def _sp(x):
+    return qf_to_sp(x)
+
+
+def _unsp(e):
+    return qf_from_sp(e, DFIELD)
 
 
 def cayley_matrix(c):
@@ -113,8 +147,7 @@ def frames(vars_, q0=None):
     where it is selects one representative per global-rotation orbit just as
     well, and keeps the world-frame straightness that line-solving relies on."""
     R0 = sp.eye(3) if q0 is None else sp.Matrix(
-        [[sp.Rational(x.numerator, x.denominator) for x in row]
-         for row in _mat0(q0)])
+        [[_sp(x) for x in row] for row in _mat0(q0)])
     Rs = [R0]
     for k in range(0, len(vars_), 3):
         Rs.append(cayley_matrix(vars_[k:k + 3]))
@@ -122,6 +155,9 @@ def frames(vars_, q0=None):
 
 
 def _mat0(q):
+    if DFIELD:
+        return qf_rot([x if isinstance(x, QF) else QF(F(x), 0, DFIELD)
+                       for x in q])
     from step_a2 import mat
     return mat(q)
 
@@ -141,12 +177,14 @@ def min_l1_argmin(N):
     step_b.min_l1_hull, which returns only the value)."""
     r = len(N)
     best = None
+    zero = N[0][0] * 0                      # field zero and one, not F(0)/F(1):
+    one = zero + 1                          # see the DFIELD invariant note
     for size in range(1, r + 1):
         for S in itertools.combinations(range(r), size):
             for A in itertools.combinations(range(3), size - 1):
-                rows = [[F(1)] * size + [F(1)]]
+                rows = [[one] * size + [one]]
                 for k in A:
-                    rows.append([N[i][k] for i in S] + [F(0)])
+                    rows.append([N[i][k] for i in S] + [zero])
                 lam = _solve(rows)
                 if lam is None or any(x < 0 for x in lam):
                     continue
@@ -154,7 +192,7 @@ def min_l1_argmin(N):
                      for k in range(3)]
                 val = sum(abs(t) for t in v)
                 if best is None or val < best[0]:
-                    full = [F(0)] * r
+                    full = [zero] * r
                     for t, idx in enumerate(S):
                         full[idx] = lam[t]
                     best = (val, full, v)
@@ -168,6 +206,7 @@ def _solve(rows):
     nvar = len(A[0]) - 1
     if len(A) < nvar:
         return None
+    zero = A[0][0] * 0
     piv = []
     r = 0
     for c in range(nvar):
@@ -175,7 +214,7 @@ def _solve(rows):
         if p is None:
             continue
         A[r], A[p] = A[p], A[r]
-        inv = F(1) / A[r][c]
+        inv = 1 / A[r][c]
         A[r] = [x * inv for x in A[r]]
         for k in range(len(A)):
             if k != r and A[k][c] != 0:
@@ -188,7 +227,7 @@ def _solve(rows):
     for k in range(r, len(A)):
         if all(x == 0 for x in A[k][:nvar]) and A[k][nvar] != 0:
             return None
-    out = [F(0)] * nvar
+    out = [zero] * nvar
     for idx, c in enumerate(piv):
         out[c] = A[idx][nvar]
     return out
@@ -208,8 +247,54 @@ def regauge(quats):
     return [qmul(c, q) for q in quats]
 
 
+def q_of_field(c):
+    """primitive Z[sqrt d] quaternion from Cayley coordinates in Q(sqrt d)"""
+    from math import gcd
+    d = DFIELD
+    cs = [x if isinstance(x, QF) else QF(F(x), 0, d) for x in c]
+    _, ints = qf_clear_denoms([QF(1, 0, d)] + cs)
+    g = 0
+    for p, q in ints:
+        g = gcd(gcd(g, abs(p)), abs(q))
+    if g > 1:
+        ints = [(p // g, q // g) for p, q in ints]
+    return tuple(QF(F(p), F(q), d) for p, q in ints)
+
+
+def normalize_dir(v):
+    """scale a direction to primitive integer (pairs of) coordinates.
+
+    Scaling does not move the tangent LINE, but it does set how far a fixed eps
+    steps, and the engine's budget is on component magnitude -- an unscaled null
+    space vector routinely lands outside it, and an out-of-budget input is an
+    UNEVALUABLE direction, not a count-changing one."""
+    from math import gcd
+    if DFIELD == 0:
+        L = 1
+        for x in v:
+            L = L * F(x).denominator // gcd(L, F(x).denominator)
+        ints = [int(F(x) * L) for x in v]
+        g = 0
+        for t in ints:
+            g = gcd(g, abs(t))
+        return [F(t // g) for t in ints] if g else [F(0)] * len(v)
+    _, ints = qf_clear_denoms(list(v))
+    g = 0
+    for p, q in ints:
+        g = gcd(gcd(g, abs(p)), abs(q))
+    if not g:
+        return [QF(0, 0, DFIELD) for _ in v]
+    return [QF(F(p // g), F(q // g), DFIELD) for p, q in ints]
+
+
 def quats_of(point, q0=None):
     """the configuration's quaternions; cube 0 frozen at q0 (identity if None)"""
+    if DFIELD:
+        qs = [tuple(x if isinstance(x, QF) else QF(F(x), 0, DFIELD) for x in
+                    (q0 if q0 is not None else (1, 0, 0, 0)))]
+        for k in range(0, len(point), 3):
+            qs.append(q_of_field(point[k:k + 3]))
+        return qs
     qs = [q0 if q0 is not None else (1, 0, 0, 0)]
     for k in range(0, len(point), 3):
         qs.append(q_of(point[k:k + 3]))
@@ -217,16 +302,15 @@ def quats_of(point, q0=None):
 
 
 def mat_num(qi, qj):
-    """R_i^T R_j exactly, as Fractions"""
-    from step_a2 import mat
-    Mi, Mj = mat(qi), mat(qj)
+    """R_i^T R_j exactly, in the field (Fractions when DFIELD = 0)"""
+    Mi, Mj = _mat0(qi), _mat0(qj)
     return [[sum(Mi[t][r] * Mj[t][c] for t in range(3)) for c in range(3)]
             for r in range(3)]
 
 
 def conditions(Rs, n, vars_, point, quats):
     """All Step A and Step B conditions, with the tight ones' exact gradients."""
-    subs = {v: sp.Rational(p.numerator, p.denominator) for v, p in zip(vars_, point)}
+    subs = {v: _sp(p) for v, p in zip(vars_, point)}
     tight, loose = [], 0
     for i in range(n):
         others = [j for j in range(n) if j != i]
@@ -283,8 +367,8 @@ def conditions(Rs, n, vars_, point, quats):
                       for c in range(3)]
                 expr = sum(sig[c] * vv[c] for c in range(3) if c != c0)
             elif not Z:
-                expr = sum(sig[c] * sum(sp.Rational(lam[t].numerator, lam[t].denominator)
-                                        * Nsym[g[t]][c] for t in range(len(g)))
+                expr = sum(sig[c] * sum(_sp(lam[t]) * Nsym[g[t]][c]
+                                        for t in range(len(g)))
                            for c in range(3))
             else:
                 tight.append({'frame': i, 'group': g, 'degenerate': True})
@@ -292,18 +376,17 @@ def conditions(Rs, n, vars_, point, quats):
             grad = [sp.diff(expr, v_).subs(subs) for v_ in vars_]
             tight.append({'frame': i, 'group': g, 'degenerate': False,
                           'expr': expr, 'sig': sig, 'c0': (Z[0] if Z else None),
-                          'grad': [F(sp.Rational(x)) for x in grad]})
+                          'grad': [_unsp(x) for x in grad]})
     return tight, loose
 
 
 def nullspace(rows, ncols):
     """Exact null space basis of the matrix with the given rows."""
     if not rows:
-        return [[F(1) if t == c else F(0) for t in range(ncols)]
+        return [[_num(1) if t == c else _num(0) for t in range(ncols)]
                 for c in range(ncols)]
-    M = sp.Matrix([[sp.Rational(x.numerator, x.denominator) for x in r]
-                   for r in rows])
-    return [[F(sp.Rational(x)) for x in list(b)] for b in M.nullspace()]
+    M = sp.Matrix([[_sp(x) for x in r] for r in rows])
+    return [[_unsp(x) for x in list(b)] for b in M.nullspace()]
 
 
 def count_at(point, n, eps_dir=None, eps=F(1, 64)):
@@ -311,6 +394,20 @@ def count_at(point, n, eps_dir=None, eps=F(1, 64)):
     c = list(point)
     if eps_dir is not None:
         c = [c[t] + eps * eps_dir[t] for t in range(len(c))]
+    if DFIELD:
+        quats = quats_of(c, QZERO[0] if QZERO else None)
+        groups = []
+        for q in quats:
+            _, ints = qf_clear_denoms(list(q))
+            groups.append(ints)
+        s = ';'.join(','.join('%d:%d' % t for t in g) for g in groups)
+        p = subprocess.run([ENGW, '--d', str(DFIELD), '--quats', s],
+                           capture_output=True, text=True)
+        try:
+            return json.loads(p.stdout.strip().splitlines()[-1])['bounded']
+        except Exception:
+            BUDGET[0] += 1                    # counted, never scored as "no change"
+            return None
     quats = [QZERO[0] if QZERO else (1, 0, 0, 0)]
     for k in range(0, len(c), 3):
         quats.append(q_of(c[k:k + 3]))
@@ -542,7 +639,13 @@ CACHE = '/Users/dmi/cube-compounds/dimension_cache'
 
 def _cache_key(point, n, q0):
     import hashlib
-    raw = repr((n, [str(x) for x in point], q0)).encode()
+    # DFIELD is part of the key: the same Cayley tuple means different numbers
+    # over Q and over Q(sqrt d), and a collision would serve rational gradients
+    # for a field configuration without any error.  The DFIELD = 0 key is left
+    # BYTE-IDENTICAL to the pre-port one so the existing cache -- the census's
+    # restartability -- survives the port.
+    raw = (repr((n, [str(x) for x in point], q0)) if DFIELD == 0
+           else repr((n, [str(x) for x in point], str(q0), DFIELD))).encode()
     return hashlib.sha1(raw).hexdigest()[:16]
 
 
@@ -914,6 +1017,16 @@ def variety_incremental(good, keep_idx, point, n, ns, q0=None, seed=None):
         free = [u for i, u in enumerate(us) if i != chart]
         ps = [q for q in (sp.expand(p.subs({us[chart]: 1})) for p in polys) if q != 0]
         if not ps:
+            # every polynomial vanishes identically in this chart: nothing
+            # constrains second order here, so the chart's directions all survive.
+            found.append(list(ns[chart]))
+            continue
+        if not free:
+            # LINEALITY 1: one chart, no free variables, nothing to solve -- the
+            # direction is unique up to scale and the test is pure evaluation.
+            # Previously `sp.Poly(q, *free)` got no generators and raised
+            # GeneratorsNeeded, crashing all 23 lineality-1 classes INCLUDING the
+            # records 63, 183, 393, 727.
             continue
         # SEED SIZE MUST MATCH THE UNKNOWNS.  seed=2 solves 2 equations in d-1
         # variables, which is under-determined for d >= 4 -- sp.solve then grinds
@@ -1080,7 +1193,19 @@ def deltas_and_dimension(point, n, label, q0=None, eps=(F(1, 64), F(1, 256))):
     # decides the whole interval.
     verified = []
     cand = list(ns)
-    if len(ns) >= 2:
+    second_order = None
+    if len(ns) >= 2 and DFIELD:
+        # NOT PORTED, and said so rather than skipped silently.  The second-order
+        # layer (branch_numerator, the GCD chain, _rational_roots) extracts roots
+        # in Q; over Q(sqrt d) the roots it would need may lie in the field and
+        # not in Q, so running it unchanged would return FEWER directions and the
+        # shortfall would read as "the locus is smaller", which is exactly the
+        # unevaluable-scored-as-a-negative-result trap.  `verified` below is
+        # therefore a lower bound that only sees the null-space BASIS directions.
+        second_order = 'not ported to Q(sqrt %d)' % DFIELD
+        print('   second order: NOT EVALUATED over Q(sqrt %d) -- verified is a '
+              'basis-only lower bound' % DFIELD, flush=True)
+    elif len(ns) >= 2:
         # SECOND ORDER, EXACT, and over EVERY 2-PLANE of the null space.
         # Every direction in null(J) is orthogonal to every gradient by
         # construction, so nothing is crossed to first order and the count change
@@ -1132,14 +1257,14 @@ def deltas_and_dimension(point, n, label, q0=None, eps=(F(1, 64), F(1, 256))):
     return {'label': label, 'count': base, 'tight': len(good), 'cone': cone,
             'walls': len(walls), 'binding': len(binding), 'inert': len(inert),
             'entangled': len(entangled), 'candidate_dim': len(ns),
-            'verified': len(verified)}
+            'verified': len(verified), 'second_order': second_order,
+            'field': DFIELD, 'budget_rejects': BUDGET[0]}
 
 
 def _dependent(v, d, have):
     if not have:
         return False
-    M = sp.Matrix([[sp.Rational(x.numerator, x.denominator) for x in r]
-                   for r in have + [d]])
+    M = sp.Matrix([[_sp(x) for x in r] for r in have + [d]])
     return M.rank() <= len(have)
 
 
@@ -1156,6 +1281,10 @@ CASES = {
 
 def cayley_of(q):
     w, x, y, z = q
+    if DFIELD:
+        w, x, y, z = (t if isinstance(t, QF) else QF(F(t), 0, DFIELD)
+                      for t in (w, x, y, z))
+        return None if w.is_zero() else [x / w, y / w, z / w]
     return None if w == 0 else [F(x, w), F(y, w), F(z, w)]
 
 

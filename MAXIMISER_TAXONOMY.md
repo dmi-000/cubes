@@ -859,8 +859,10 @@ that reports 0 must first recover a known tangent, or its zeros are void.
 * **Multi-cube directions at n = 4,5,6,7,8 — still open**, and now without a
   method believed at n = 3 either. Candidate null dimensions are in §4; none of
   their directions survives an engine walk.
-* **Multi-cube directions are untested at every n.** All dimension figures come
-  from moving ONE cube. A locus can be positive-dimensional via directions that
+* ~~**Multi-cube directions are untested at every n.**~~ **CLOSED 2026-08-17, §8** —
+  solved in the full moduli space; 541 of 1 009 confirmed directions turn out to be
+  multi-cube, so this gap was hiding over half the structure. All dimension figures
+  BELOW this line still come from moving ONE cube. A locus can be positive-dimensional via directions that
   move several cubes together, and nothing here excludes that — including at
   n = 3, where "exactly two 67s" would be affected. **This is the largest
   standing gap in the table.** Path: extend the null-space method to the full
@@ -1038,3 +1040,44 @@ nothing above it: `LEDGER.md` (appended as Postscript [101](LEDGER.md#p101), not
 chronological record), `MAXIMISERS.md`, `RESULTS.md`, `OVERVIEW.md`, `README.md`
 and `shapes.svg`. What still says 1891 by design: `README.md`'s summary of
 Postscripts [22](LEDGER.md#p22)–[52](LEDGER.md#p52), which describes what those postscripts said at the time.
+
+## 8. Dimension, SOLVED (2026-08-14..17) — and the multi-cube gap closed
+
+Every dimension figure above this section came from PROBING, and every probe moved
+ONE cube; §5 recorded "multi-cube directions are untested at every n" as **the
+largest standing gap in the table**. It is closed. `dimension.py` solves for local
+dimension in the FULL moduli space (tight Step-A+B conditions → exact rational
+Jacobian → null space for first order → and because every wall is a quadric,
+d′Hd = 0 exactly for second order, whose common zero set is computed on the
+projective space of the null space). Controls: n = 2 both arcs, arc A recovering
+(1,−3,−6), and n7k4c163 where it finds MORE than the previous method
+(Postscripts [113](LEDGER.md#p113), [116](LEDGER.md#p116)).
+
+**THE DIMENSION COLUMN, CORRECTED:**
+
+| record | locus |
+|---|---|
+| 13 (n=2) | **continuum** — the body-diagonal family, dimension 1, engine-confirmed |
+| 67 (n=3) | **UNKNOWN** — irrational (ℚ(√2), ℚ(√5)), outside the rational Cayley chart. Neighbourhood characterised only along the dihedral family: the octahedral 67 is a zero-width spike inside a uniform 55-region, the golden 67 sits ON that region's boundary |
+| 183, 393, 727, 1217, 1895, **2785** | **isolated points** — second-order variety EMPTY at every one |
+
+So "records are rigid" is now a computation rather than a heuristic, for the
+rational records n = 4..9. [Postscript 114](LEDGER.md#p114)'s claim that they lie on 1-dimensional
+loci was the first-order tangent space mistaken for the locus, and is refuted.
+
+**SUBSET LOCI (221 classes, n = 6..9):** 148 nonempty, 73 empty. The
+positive-dimensional loci belong to the LOWER-count classes; a record never has
+one. 1 861 directions found: 1 009 count-preserving, 828 count-changing, 24
+unevaluable.
+
+**ARC-OR-LOOP, and a limit on the question itself.** Of 1 009 confirmed
+directions, **541 are MULTI-CUBE**, and METHODS §3's test — the half-turn at the
+line's point at infinity — is defined only for a line in ONE cube's Cayley space.
+So over half the structure cannot be classified as arc or loop by any construction
+currently in the repository. Of the 468 that are testable: **12 loops, 456 arcs**.
+
+**CAVEAT on the 828 "changed".** The verdict collapses three step sizes
+(ε = 1/64, 1/256, 1/1024) into one boolean, so a direction preserving the count at
+1/1024 but not 1/64 — a finite-step artefact, since strict inequalities are
+violated at finite ε — is recorded identically to one wrong at every scale. That
+number is not interpretable until the per-ε counts are kept.

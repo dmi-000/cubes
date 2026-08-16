@@ -10,17 +10,25 @@ import json, sys, time, glob
 sys.path.insert(0, '/Users/dmi/cube-compounds')
 import sympy as sp, dimension as D
 from fractions import Fraction as F
-from subset_topology import classes
+import itertools
 BASE=[(4,1,1,-1),(3,3,7,3),(5,-1,-5,-5),(2,1,1,1),(1,1,1,1)]
 R={6:BASE+[(7,14,1,-5)]}
 R[7]=R[6]+[(4,-3,-4,-4)]; R[8]=R[7]+[(24,-24,24,-61)]; R[9]=R[8]+[(56,56,55,56)]
 SH=int(sys.argv[1]); NS=int(sys.argv[2]); BUD=float(sys.argv[3]) if len(sys.argv)>3 else 200000
-OUT='/Users/dmi/cube-compounds/census_variety4_%d.json'%SH
-LOG=open('/Users/dmi/cube-compounds/census_variety4_%d.log'%SH,'w')
+OUT='/Users/dmi/cube-compounds/members_%d.json'%SH
+LOG=open('/Users/dmi/cube-compounds/members_%d.log'%SH,'w')
 T0=time.time()
 def log(m):
     LOG.write('[%7.1fs] %s\n'%(time.time()-T0,m)); LOG.flush()
-todo=[(n,rep) for n in sorted(R) for rep in classes(R[n],n)]
+# ALL MEMBERS, not one representative per (count, profile) class.  That class is
+# an equivalence by INVARIANT, not by congruence -- necessary, not sufficient --
+# so a result at one member does not transfer to another.  Only CONGRUENT members
+# share a locus, and congruence is not what was being deduped.
+todo=[]
+for n in sorted(R):
+    for k in range(3, n+1):
+        for idxs in itertools.combinations(range(n), k):
+            todo.append((n, {'k':k,'count':None,'idxs':idxs,'cfg':[R[n][i] for i in idxs]}))
 out=[]
 for idx,(n,rep) in enumerate(todo):
     if idx%NS!=SH: continue
@@ -79,10 +87,10 @@ for idx,(n,rep) in enumerate(todo):
                 changed+=1
     except Exception as e:
         log('n=%d k=%d c=%d CRASH %s'%(n,rep['k'],rep['count'],type(e).__name__)); continue
-    rec=dict(n=n,k=rep['k'],count=rep['count'],lineality=len(ns),status=st,
+    rec=dict(n=n,k=rep['k'],count=base,lineality=len(ns),status=st,
              dirs=len(dirs),confirmed=ok,unevaluable=uneval,changed=changed,
              wraps=wraps,idxs=list(rep['idxs']))
     out.append(rec); json.dump(out,open(OUT,'w'),indent=1)
-    log('n=%d k=%d c=%-5d lin %d -> %-9s %d dirs: %d confirmed, %d unevaluable, %d changed; wraps %s'
-        %(n,rep['k'],rep['count'],len(ns),st,len(dirs),ok,uneval,changed,wraps[:4]))
+    log('n=%d k=%d c=%-5s lin %d -> %-9s %d dirs: %d confirmed, %d unevaluable, %d changed; wraps %s'
+        %(n,rep['k'],base,len(ns),st,len(dirs),ok,uneval,changed,wraps[:6]))
 json.dump(out,open(OUT,'w'),indent=1); log('done: %d classes'%len(out))

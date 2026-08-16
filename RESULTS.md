@@ -132,6 +132,26 @@ unchanged — so the increment is entirely shallow, the same signature by which
   longer rests on any measured quantity. The general form T ≤ 12F − 5 for F-facet
   cells needs m ≤ F, which is proved for cubes and UNSETTLED in general (the
   computation disagrees across three methods; Postscript [110](LEDGER.md#p110)).
+- **Every record is an ISOLATED POINT in the full moduli space.** VERIFIED
+  (Postscript [117](LEDGER.md#p117)), for 63, 183, 393, 727, 1217 and 1895 — and
+  since 2026-08-17 for **both n = 3 maximizers as well** (Postscript
+  [118](LEDGER.md#p118)), which every crossing-based census had skipped because
+  they live in ℚ(√2) and ℚ(√5) rather than ℚ. Those two were settled by a
+  different and stronger route: not "no direction survives second order" but an
+  exact enumeration of every face of the local wall arrangement (728 and 2196
+  faces, all evaluated, best neighbour 63 at each), which needs no model of how
+  wall crossings compose. Dimension is now
+  SOLVED rather than probed: tight conditions → exact rational Jacobian → null
+  space (first order) → and since every wall is a quadric, staying on it is the
+  exact condition d′Hd = 0, whose common zero set over all conditions is computed
+  on the projective space of the null space. At every record that set is EMPTY —
+  no direction survives second order. This closes the project's largest standing
+  methodological gap: all previous dimension figures came from moving ONE cube and
+  could not see multi-cube directions, whereas a null space is computed in all
+  3(n−1) coordinates at once. Over 221 subset classes of the n = 6..9 records, 152
+  have positive-dimensional loci and 49 do not; **the positive-dimensional loci
+  belong to the LOWER-count classes, never to a record.**
+
 - **d_{n−1} ≤ 6n for every n.** PROVED (the l = 1 ceiling law, via the anchor
   lemma: the radial envelope of any n-cube configuration has local minima only
   at the 6n face centres).
@@ -159,8 +179,15 @@ unchanged — so the increment is entirely shallow, the same signature by which
 - **n = 3 is the only level whose optimum set is finite and larger than one
   point.** At n = 2 the maximizers form a continuum (every angle about a body
   diagonal, plus a closed arc about an edge axis); at n = 6 the record value is
-  attained by non-congruent compounds. Only at n = 3 is it exactly two isolated
-  points.
+  attained by non-congruent compounds. Only at n = 3 is it two isolated points.
+  *Corrected 2026-08-17 (Postscript [118](LEDGER.md#p118)): "exactly two" was
+  asserted here on the strength of the lattice probe, which
+  [FAILURE_MODES](FAILURE_MODES.md) 11d shows cannot tell an isolated point from
+  a locus that misses the lattice. Both 67s are now VERIFIED isolated by exact
+  face enumeration — 728 and 2196 faces, none reaching 67, none unresolved. But
+  isolation is LOCAL: it rules out a third 67 near either of these two, not a
+  third elsewhere in moduli space. The word "exactly" is therefore still
+  unproved and has been dropped.*
 - **The record tower nests at every level except n = 3.** The best triple
   inside any higher record is 63, four short of 67 — a consequence of the
   irrationality above, since every subset of a rational compound is rational.

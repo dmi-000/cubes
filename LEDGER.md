@@ -168,6 +168,9 @@ with `index_ledger.py` after appending.
 - [Postscript 113](#p113) — dimension is SOLVED, not probed — and the multi-cube gap closes
 - [Postscript 114](#p114) — the count is bought with CODIMENSION — every level's best sits on a locus of dimension exactly 1 **(headline CORRECTED — see the addendum and [115](#p115))**
 - [Postscript 115](#p115) — LINEALITY never inverts at the top — the first quantity here that fails by being indecisive rather than wrong
+- [Postscript 116](#p116) — the incremental route works — and finds MORE than the plane-restricted search it replaces
+- [Postscript 117](#p117) — EVERY record is an isolated point — the census completed, and 114 definitively refuted
+- [Postscript 118](#p118) — the two 67s enter the machinery at last — both are ISOLATED, by enumerating every face rather than probing directions
 
 <!-- INDEX:END -->
 
@@ -8605,3 +8608,145 @@ hypothesis died at once and the fault was localised to extraction in one step.
 instrument. The lineality-3 EMPTY results from the broken polarisation solver
 ([Postscript 115](#p115) addendum 2) can now be re-derived rather than trusted, and the census
 re-run over all 221 classes is the job that does it.
+
+---
+<a id="p117"></a>
+## Postscript 117: EVERY record is an isolated point — the census completed, and [Postscript 114](#p114) definitively refuted
+
+`census_variety.py` over all 221 (count, profile) classes of the n = 6..9 records,
+using the validated incremental solver ([Postscript 116](#p116)) and engine-verifying every
+direction returned.
+
+**ALL SIX RECORDS COME BACK EMPTY:**
+
+    63, 183, 393, 727, 1217, 1895   ->   second-order variety EMPTY
+
+No direction survives second order at any of them, so each is an ISOLATED POINT.
+This is now established by a method with a working non-vacuous control, not
+inferred from `verified = 0`. It agrees with [Postscript 47](#p47)'s Groebner proof that 727 is
+isolated on the 393 base, and with every single-cube probe ever run at n = 4, 5.
+
+**[Postscript 114](#p114) is therefore refuted outright, not merely qualified.** Its claim -- that
+every level's best sits on a locus of dimension exactly 1 -- confused the
+FIRST-ORDER tangent space (lineality) with the locus. The corrected picture is
+the opposite: **records are points; the positive-dimensional loci belong to the
+LOWER-count classes** (152 of 221 nonempty, up to 1 735 directions found, 1 024
+engine-confirmed).
+
+**A REPORTING FAILURE WORTH RECORDING.** The first aggregate said "201 classes,
+records among EMPTY: 1217, 1895". In fact 23 classes had CRASHED with
+`GeneratorsNeeded` -- every one of them lineality 1, which is to say every one of
+the records -- and 63, 183, 393, 727 had not been evaluated at all. I read an
+ABSENCE as a result. Same error as scoring an unevaluable configuration as a
+count change, which this ledger already records twice; the third instance was in
+reading a summary rather than in a measurement.
+
+Cause: at lineality 1 the chart leaves ZERO free variables, so `sp.Poly(q, *free)`
+gets no generators. There is nothing to solve at d = 1 -- one direction up to
+scale, so the test is evaluation, not a solve. Fixed; the 23 reran and every one
+returned EMPTY.
+
+<a id="p118"></a>
+## Postscript 118: the two 67s enter the machinery at last — both are ISOLATED, by enumerating every face rather than probing directions
+
+The n = 3 maximisers are the only records every crossing-based result has
+skipped, because both live outside ℚ — octahedral in ℚ(√2), golden in ℚ(√5) —
+and `crossing_set` was rational-only. `dimension.py` is field-agnostic in
+structure; only its scalar type was hard-wired to `Fraction`. Ported to ℚ(√d)
+on the existing `qfield.py`, with the engine side already available
+(`cube_regions_q2w --d D`, component syntax `p:q`).
+
+**GATED BEFORE USE, in the order that would catch things earliest.**
+`qfield_gate.py` checks the scalar layer against independently known values:
+exact sign against 400-digit mpmath on 3 200 elements including adversarial ones
+where a² is within a hair of b²d; `to_sp`/`from_sp` round trips on literals AND
+on expressions carrying division, since the gradients never arrive as literals;
+symbolic-diff → field-substitution → read-back against a derivative taken by
+hand; and both records counted at 67 through the field engine. `dimension_gate.py`
+then embeds rational configurations in ℚ(√2) with zero √-part: same geometry,
+same answer, but reached through Q elements, exact-sign comparisons, sqrt-carrying
+sympy and a different binary. Both agree exactly. The control is `n2edge`
+deliberately — it sits on a genuine 13-continuum, so its lineality is nonzero and
+the field path has to reproduce a positive-dimensional answer, not the trivial
+isolated point that a broken Jacobian also returns.
+
+**FIRST-ORDER RESULT** (`dimension67.py`, ambient 6 = 3·(n−1)):
+
+    octahedral  60 tight conditions -> 6 distinct walls   6 binding, 0 entangled   rank 6/6
+    golden      72 tight conditions -> 9 distinct walls   0 binding, 9 entangled   rank 6/6
+
+Both give candidate dim 0. **That is not isolation**, and the two cases are not
+equally strong. Candidate dim 0 says no direction preserves every wall; isolation
+is a statement about the COUNT. At golden, all nine walls came back entangled —
+no direction crosses one alone — so not a single delta was ever measured there.
+
+**WHAT THE DELTA SIGNS SETTLE, AND WHAT THEY DO NOT.** Beyond octahedral's six
+facets: 59, 53, 59, 53, 57, 63, i.e. deltas −8, −14, −8, −14, −10, −4. All the
+same sign, and half of that is forced rather than measured: max(3) = 67 is proved,
+so no delta at a 67 can be positive — maximality forbids sign mixing at a
+maximiser. The measurement adds that none is ZERO. So cancellation was never the
+live risk here; an INERT wall was, since a direction crossing only zero-delta
+walls preserves the count with no cancellation needed. Octahedral has none. At
+golden nothing was measured either way.
+
+**THE SOLVE.** The count is constant on each face of the wall arrangement, so
+"is there another 67 nearby" is a question about finitely many faces, each needing
+one evaluation — a solve, where choosing directions and stepping is a sample.
+`isolation67.py` enumerates every face as a sign vector in {−1,0,+1}^m, deciding
+realizability exactly by homogeneous strict Fourier–Motzkin over ℚ(√d) with a
+witness, prefix-pruned. `isolation_gate.py` checks the enumerator against closed
+forms rather than against a second implementation: the coordinate arrangement in
+ℝⁿ gives exactly 3ⁿ−1 faces (which also catches a pruner that wrongly rejects),
+m distinct lines in ℝ² give exactly 4m — the dependent-wall case golden actually
+is — and repeated or rescaled walls must not change the count.
+
+    octahedral   6 walls, independent    728 faces (= 3^6 − 1)   0 reaching 67   0 unresolved
+    golden       9 walls, rank 6        2196 faces               0 reaching 67   0 unresolved
+
+Zero engine-budget rejections in both. **Both 67s are isolated points.** The best
+neighbouring count is 63 at each — the same four-short-of-67 figure that is the
+best triple inside any higher record.
+
+**A FIXED ε IS A SAMPLER, AND IT SHOWED.** The first golden pass used ε ∈ {1/64,
+1/256, 1/1024} and left **333 of 2196 faces unresolved**; in every retained case
+the LARGEST step dissented while the two smaller agreed — the coarse step leaving
+the face across one of the 162 loose walls, which sit at positive distance from
+the vertex. Recorded as unresolved, never scored as "< 67". Compounding it, the
+run kept only 10 of the 333 detail records, a truncation in the reporting and not
+in the data. Both fixed: ε now halves from 1/64 until two consecutive steps agree,
+stopping at the engine's budget rather than guessing past it, and every sequence
+is retained. Stabilisation cost — octahedral {2 steps: 728}, golden {2: 1896,
+3: 209, 4: 77, 5: 12, 6: 2}. Run 1's data is preserved at
+`isolation67_run1_fixed_eps.json`.
+
+**WHAT THIS DOES NOT ESTABLISH, stated because the claim it is nearest to is
+stronger than it.**
+
+1. **ε is still sampled.** Adaptive halving is a better sampler, not a solve. Two
+   exits exist. (a) Certified ε: along a ray every condition is a low-degree
+   polynomial in t, and Cauchy's bound |t| ≥ |a₀|/(|a₀| + max|a_k|) — after
+   factoring out t^m for the conditions vanishing at the vertex — gives a rational
+   ε* with a proof that no wall is crossed on (0, ε*]. Needs only exact abs and
+   comparison, both already in `qfield`. (b) An ordered field CONTAINING an
+   infinitesimal: ℚ(√d)(ε) as truncated polynomials ordered by the sign of the
+   lowest-degree nonzero coefficient is a genuine non-Archimedean ordered field,
+   every engine predicate is a sign test, and degrees stay bounded (quaternion 1,
+   plane 2, det3 6, side-of-plane 8), so an 8-term truncation is exact. The count
+   is then the ε → 0 limit with no step size at all. Cost: the engine's scalar
+   becomes a convolution algebra and the overflow budget must be re-derived.
+2. **(a) is exact only RELATIVE TO THE CONDITION LIST**; (b) is not, because the
+   engine does the geometry itself. Since the completeness of that list is exactly
+   what is unproven — the (2,1,1) and (1,1,1,1) wall types have never been
+   enumerated ([Postscript 57](#p57)) — choosing between (a) and (b) and closing
+   the wall taxonomy are the same decision.
+3. **Isolation is LOCAL. It is not "exactly two 67s".** Both maximisers having no
+   67 in a neighbourhood says nothing about a third elsewhere in moduli space.
+   What it does do is remove the alternative branch of [Postscript 80a](#p80a)'s
+   dichotomy at these two points: a maximiser set is finite or uncountable and
+   never countably infinite, so had either 67 sat on a positive-dimensional locus
+   there would have been uncountably many. There are not. The global statement
+   still needs a derivation, and search would only ever lower-bound it.
+4. **Weak evidence toward the condition list being complete**, offered as such:
+   across 2 924 faces the arrangement's structure and the engine's counts never
+   disagreed. A missing wall type would be expected to show as a face whose count
+   contradicts its neighbours. Two points is not a proof.

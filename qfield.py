@@ -53,6 +53,59 @@ class Q:
     def __ge__(s, o): return (s - s._w(o)).sign() >= 0
     def __float__(s): return float(s.a) + float(s.b)*(s.d ** 0.5)
     def __hash__(s): return hash((s.a, s.b, s.d))
+    def __abs__(s): return s if s.sign() >= 0 else -s
+    def __bool__(s): return not s.is_zero()
+
+
+# ---------------------------------------------------------------- sympy bridge
+# The dimension machinery differentiates symbolically and takes null spaces in
+# sympy, but every VALUE it keeps must come back exact.  Round-tripping through
+# these two functions is what lets the same code run over Q and over Q(sqrt d);
+# from_sp is checked against to_sp in `qfield_gate.py` before any use, because a
+# silent failure here would be a wrong number wearing a right one's clothes.
+
+def to_sp(x, d=None):
+    """exact sympy image of a Fraction or a Q"""
+    import sympy as sp
+    if isinstance(x, Q):
+        return (sp.Rational(x.a.numerator, x.a.denominator)
+                + sp.Rational(x.b.numerator, x.b.denominator) * sp.sqrt(x.d))
+    x = F(x)
+    return sp.Rational(x.numerator, x.denominator)
+
+
+def from_sp(e, d):
+    """exact Fraction (d = 0) or Q element of a sympy expression in Q(sqrt d).
+
+    Raises rather than rounds: an expression that is not in the field is a bug
+    upstream, and returning a nearby element would hide it.
+    """
+    import sympy as sp
+    e = sp.expand(sp.radsimp(sp.expand(e)))
+    if d == 0:
+        return F(sp.Rational(e))
+    r = sp.sqrt(d)
+    b = sp.expand(e.coeff(r))
+    a = sp.expand(e - b * r)
+    if not (a.is_rational and b.is_rational):
+        raise ValueError('not in Q(sqrt %d): %s' % (d, e))
+    return Q(F(sp.Rational(a)), F(sp.Rational(b)), d)
+
+
+def clear_denoms(vals):
+    """(L, [L*v as integer pairs]) for v in Q(sqrt d): the common denominator."""
+    from math import gcd
+    L = 1
+    for v in vals:
+        for part in ((v.a, v.b) if isinstance(v, Q) else (F(v),)):
+            L = L * part.denominator // gcd(L, part.denominator)
+    out = []
+    for v in vals:
+        if isinstance(v, Q):
+            out.append((int(v.a * L), int(v.b * L)))
+        else:
+            out.append((int(F(v) * L), 0))
+    return L, out
 
 def rot(q):
     """rotation matrix over Q(sqrt d) from a quaternion of Q elements"""
