@@ -663,6 +663,37 @@ result, not just the text.
 
 ---
 
+## 14. Displace by an INFINITESIMAL, not by a small number
+
+Every displaced count in this project was `count(base + eps*d)` for a finite eps
+chosen by hand or by halving. A finite eps is a SAMPLE of the cell you meant to
+measure, and it can miss: the walls through the vertex are the tight conditions,
+but the LOOSE conditions are walls too, sitting at positive distance, and a step
+large enough to cross one measures the wrong cell. Halving until two steps agree
+does not fix it (FAILURE_MODES 14).
+
+The fix is arithmetic, not a smaller number. Q(sqrt D)(eps), elements truncated
+polynomials ordered by the sign of the lowest-degree nonzero coefficient, is a
+genuine ordered field -- non-Archimedean, so 0 < eps < every positive rational.
+The count returned IS the eps -> 0 limit. There is no step size to choose and
+none to defend.
+
+**When this transfers.** Any predicate-based geometric computation qualifies if
+(a) every decision is a SIGN TEST, and (b) the multiply chain has a BOUNDED
+degree, so the truncation is exact rather than approximate. Here the chain is
+quaternion 1 -> plane 2 -> minor 4 -> det3/vertex 6 -> predicate 8, hence degree
+8 and no product is ever truncated. Check (b) before trusting it: if a truncation
+could discard a nonzero leading term, the sign predicate returns 0 for a nonzero
+quantity and you get a wrong ANSWER rather than a crash.
+
+Cost: the overflow budget picks up the convolution length at each stage, ~2592
+overall, costing a factor ~2.2 in admissible component magnitude. Cheap.
+Implementation: `make_eps_engine.py` generates `cube_regions_eps.cpp` from the
+validated q2 engine -- a generator, not a hand-edited copy, so the derivation
+from the validated engine stays re-runnable. Gate: `eps_gate.py`, whose decisive
+control is that scaling a direction by 97 and by 1/1000 must not change the
+count. No finite-eps implementation can pass that.
+
 ## The tools
 
 All in this directory, copied out of a session scratchpad on 2026-08-06 and
@@ -790,6 +821,33 @@ from the repo breaks this, and 15 of 29 currently do.
 
 Every standing document opens by saying what it is and who should read it. If a
 new one cannot, it does not yet know what it is.
+
+## Corrections propagate INSIDE the record and not out of it
+
+Measured 2026-08-17: `LEDGER.md` holds 118 postscripts with **389
+cross-references between them and 1 link back out to `RESULTS.md`**. Supersession
+therefore propagates perfectly within the ledger and not at all into the summary
+that actually gets read. A correction arrives as a new postscript, which is a
+complete act in the ledger's own terms, while the current-beliefs document keeps
+the superseded claim.
+
+Two claims were stale for two weeks: "(2,1,1) and (1,1,1,1) wall types never
+enumerated" (they were enumerated the same week -- 2 544 W4 and 4 320 W3 walls
+against the 393 base, all verified), and "rulings are NOT constant-count lines",
+whose headline stands but whose quoted evidence is the window-based statistic
+[Postscript 108](LEDGER.md#p108) retired. The first survived longest in the
+SUPERSEDED-CLAIMS TABLE -- the mechanism built to stop stale claims propagating
+propagated one.
+
+**The check, and its limits.** `doc_audit.py` flags every RESULTS claim whose
+cited postscript a LATER postscript revisits, and separately lists claims citing
+nothing. It is TRIAGE: a later reference is usually an ordinary citation, not a
+refutation, so it produces candidates and not verdicts, and a claim it does not
+flag is one it has said nothing about. Of 64 claim blocks it flagged 30; review
+found 2 genuinely stale and 7 substantive claims resting on no traceable source
+at all. Before asserting a "we have / have not done X" claim from a summary
+document, check the ledger for later postscripts AND check whether the code
+already exists -- `detq_check.py` answered the wall question in one command.
 
 ## The paths worth taking next (re-ranked 2026-08-12)
 

@@ -390,3 +390,44 @@ project that ordering is:
     the n=6 record          two tangents at a node, neither in any null space yet
 
 A method that only passes the first line has been tested against nothing.
+
+## 14. Agreement between samples certifies a SHARED CELL, not a correct one
+
+A face's count is the count just outside the vertex. Measured by stepping, the
+rule "shrink the step until two consecutive values agree, then take that value"
+looks like convergence and is not: **both steps can land outside the intended
+cell, in the SAME wrong cell**, and their agreement then certifies only that
+they share a cell.
+
+Cost of learning it: 2026-08-17, the golden 67. The rule misassigned **36 of
+2 196 faces** and reported counts 33, 34 and 35 that do not occur anywhere in
+the true face set. It was caught only by rebuilding the measurement with an
+infinitesimal step (`cube_regions_eps`, [Postscript 119](LEDGER.md#p119)), which
+has no step size to be wrong about.
+
+Same family as [mode 2](#2-a-gate-that-cannot-fail): two things agreeing is
+evidence they share assumptions, not evidence either is right. The tell is that
+the agreeing quantities are both OUTPUTS of the same possibly-wrong procedure,
+with nothing external anchoring either.
+
+Note which case exposed it. The octahedral 67 — 6 independent walls, a simplicial
+arrangement, wide faces — agreed perfectly under both methods. Only the golden
+67 — 9 dependent walls of rank 6, narrow faces — disagreed. **The convenient
+control passed and carried no information; only the awkward one did.**
+See [METHODS §4](METHODS.md).
+
+## 15. A caveat field you designed, and then did not read
+
+`isolation67.py` was deliberately built with a three-valued verdict — isolated /
+not isolated / **isolated on evaluated faces** — precisely so unevaluated faces
+could not be silently scored as "< 67". It printed `ISOLATED on evaluated faces`.
+The run summary then reported "both 67s isolated", and the 333 unevaluated faces
+of 2 196 reached the user only because they read the log line and asked.
+
+The mechanism worked. It was not consulted. Building the caveat is the easy half;
+the failure is in reading your own output charitably instead of adversarially.
+
+**Standing rule.** An unevaluated count belongs in the HEADLINE of a result, not
+in its detail. If a field was designed to carry a caveat, read that field first,
+before the verdict — and quote it verbatim rather than summarising it, since
+summarising is exactly where "on evaluated faces" was lost.
