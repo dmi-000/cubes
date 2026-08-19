@@ -39,6 +39,29 @@ Feasibility is decided exactly over whatever ordered field the walls live in
 Fourier-Motzkin routine `_fm` imported unchanged from `isolation67.py` --
 nothing here re-implements or approximates it, and nothing here uses a float.
 
+KNOWN REMAINING COST, measured directly on the 183 record and not something
+this design fixes: `_fm` itself is naive Fourier-Motzkin with no redundancy
+elimination, and naive FM has its own well-known worst case independent of
+the OUTER enumeration being output-sensitive -- both the row count AND the
+coefficient bit-length can grow multiplicatively at EACH of the (up to
+ambient-dimension-many) elimination steps within a single feasibility call.
+On the 183 case, eliminating wall 10 against the other 11 walls' inequalities
+(a single codimension-1 face test, one candidate out of 12888) landed in this
+regime: a live py-spy stack trace on that one candidate showed 7 levels of
+`_fm` recursion still in progress after 9+ minutes of CPU time inside a
+single `Fraction` multiply, `_fm`'s row-combination step (isolation67.py:134)
+compounding on itself. Roughly 0.4% of the 183 case's codimension-1
+candidates (51 of 12888, sampled directly) already cost >=3s each in
+isolation, well above the <1ms typical cost -- this is not a rare fluke.
+`chambers()` is unaffected (no equalities, so no null-space projection and a
+much smaller row set: 1712 chambers, exact, in 1.6s single-process) and the
+BFS-by-codimension structure here is unaffected (it still tests each face
+exactly once) -- the cost lives entirely inside individual `_fm` calls on
+this specific arrangement's wall 10. A future fix would give `_fm` redundancy
+elimination (drop a row implied by the others before the next elimination
+step) or swap in a proper vertex/double-description enumeration library; this
+file deliberately does neither, since the task was to reuse `_fm` unchanged.
+
 ARCHITECTURE for scale (see `run_parallel`).  The per-candidate feasibility
 test is what's expensive (nullspace + exact LP), and it is EMBARRASSINGLY
 PARALLEL once the candidate set for a "round" (a wall-insertion step, or a
@@ -59,7 +82,6 @@ is distinguishable from a hang, and the Zaslavsky/Buck bound is printed up
 front so a partial run can be read as a fraction of a known ceiling.
 """
 import glob
-import itertools
 import json
 import math
 import multiprocessing as mp
@@ -295,7 +317,7 @@ def _process_batch(candidates, tested, work_q, result_q, log, t_start,
                   file=log, flush=True)
             last_log = now
             since_log = 0
-        if time_budget and now - t_start > time_budget:
+        if time_budget and now - t_start > _live_budget(time_budget):
             print('   TIME BUDGET (%ss) EXCEEDED during %s -- %d/%d still pending '
                   '(stopping workers now, not draining the backlog)'
                   % (time_budget, label, remaining, len(to_send)), file=log, flush=True)
@@ -304,15 +326,53 @@ def _process_batch(candidates, tested, work_q, result_q, log, t_start,
     return True
 
 
+
+_LIVE_BUDGET_DIR = [None]
+
+
+def _live_budget(default):
+    """Re-read the budget from <ckpt_dir>/BUDGET if present, else `default`.
+
+    A long run must be extendable WITHOUT being killed: the person extending it
+    may not be the one who chose the original number, and although restart here
+    is cheap (a relaunch recomputes nothing), it still discards every in-flight
+    candidate. Malformed or missing content falls back to the launch value --
+    a broken control file must never stop a run that is otherwise fine.
+    """
+    d = _LIVE_BUDGET_DIR[0]
+    if not d:
+        return default
+    try:
+        with open(os.path.join(d, 'BUDGET')) as fh:
+            return float(fh.read().strip())
+    except Exception:
+        return default
+
+
 def run_parallel(walls, ncols, dfield, label, ckpt_dir, nworkers=None,
                   max_codim=None, time_budget=None, log=sys.stdout):
     """Same algorithm as chambers()/faces(), farmed out to worker processes
     pulling from a shared queue, checkpointed to per-worker .jsonl files that
     make a relaunch after a kill skip every candidate already decided."""
+    def _unused_live_budget(default):
+        """Re-read the budget from <ckpt_dir>/BUDGET if present.
+
+        A long run should be extendable without being killed: the operator may
+        not be the person who chose the original number, and a restart -- though
+        cheap here -- still discards every in-flight candidate. Malformed or
+        missing content falls back to the launch value rather than stopping.
+        """
+        try:
+            with open(os.path.join(ckpt_dir, 'BUDGET')) as fh:
+                return float(fh.read().strip())
+        except Exception:
+            return default
+
     global WALLS, NCOLS, DFIELD, M
     WALLS, NCOLS, DFIELD, M = walls, ncols, dfield, len(walls)
     D.set_field(dfield)
     os.makedirs(ckpt_dir, exist_ok=True)
+    _LIVE_BUDGET_DIR[0] = ckpt_dir
 
     rank = ncols - len(D.nullspace(walls, ncols))
     zb = zaslavsky_bound(M, rank)
@@ -385,12 +445,31 @@ def run_parallel(walls, ncols, dfield, label, ckpt_dir, nworkers=None,
     stop_event.set()               # no-op if _process_batch already set it
     for _ in workers:
         work_q.put(None)
+    # Bound total shutdown latency by a shared deadline, not `timeout` PER
+    # worker -- joining N workers at `timeout` each serially costs up to
+    # N*timeout if several are genuinely slow (a nullspace call taking
+    # seconds on one pathological candidate is a slow item, not a hang, and
+    # stop_event is only checked between items). Measured directly: 6 of 7
+    # workers each still mid-item at the deadline turned a bounded 5s
+    # allowance into 30s of serial waiting before this was a shared deadline.
+    deadline = time.time() + 5
     for p in workers:
-        _t = time.time()
-        p.join(timeout=5)
-        print('   DEBUG join pid=%s alive=%s took %.2fs' % (p.pid, p.is_alive(), time.time()-_t), file=log, flush=True)
+        p.join(timeout=max(0.0, deadline - time.time()))
+    for p in workers:
         if p.is_alive():
             p.terminate()
+    for p in workers:
+        p.join(timeout=2)
+    # A time-budget bail-out can leave thousands of un-consumed items sitting
+    # in work_q's pipe; multiprocessing's own atexit machinery tries to flush
+    # that queue's background feeder thread before the DRIVER process is
+    # allowed to exit, and with no reader left (every worker already
+    # terminated) that flush blocks forever -- measured directly: a run whose
+    # own final print statement had already fired still would not return
+    # control to the caller. cancel_join_thread() tells both queues not to
+    # wait for their feeder thread at interpreter exit.
+    work_q.cancel_join_thread()
+    result_q.cancel_join_thread()
 
     secs = time.time() - t_start
     print('   %s: %d chambers / %d bound, %d non-zero faces, %s, %.0fs'
@@ -564,37 +643,32 @@ def _record183_walls(log):
 
 
 def validate_183(log, ckpt_dir, time_budget=600, restart_demo=True):
+    """Runs the 183 case to completion (or the time budget). When
+    `restart_demo` is set, phase 1 is deliberately cut short by a small time
+    budget against the SAME checkpoint directory the full run then resumes
+    from -- so the completion this returns already demonstrates restart
+    (there is no separate from-scratch run to duplicate the work)."""
     print('\n4) the 183 record: 12 walls, rank 8, ambient 9 -- the case that '
           'broke the old enumerator (3+ hours, did not finish)', file=log, flush=True)
     walls, ncols = _record183_walls(log)
 
     if restart_demo:
-        demo_dir = ckpt_dir + '_restart_demo'
-        import shutil
-        shutil.rmtree(demo_dir, ignore_errors=True)
-        print('   --- restart demo: partial run with a short time budget ---',
+        print('   --- restart demo: phase 1 deliberately cut short at 8s ---',
               file=log, flush=True)
-        r1 = run_parallel(walls, ncols, 0, '183 (restart demo)', demo_dir,
+        r1 = run_parallel(walls, ncols, 0, '183 (phase 1, cut short)', ckpt_dir,
                            time_budget=8, log=log)
-        n_ckpt_after_1 = sum(1 for fn in glob.glob(os.path.join(demo_dir, 'worker_*.jsonl'))
+        n_ckpt_after_1 = sum(1 for fn in glob.glob(os.path.join(ckpt_dir, 'worker_*.jsonl'))
                              for _ in open(fn))
-        print('   phase 1 stopped: %d lines checkpointed, complete=%s'
+        print('   phase 1 stopped: %d candidates checkpointed, complete=%s'
               % (n_ckpt_after_1, r1['complete']), file=log, flush=True)
-        print('   --- relaunching against the SAME checkpoint dir ---', file=log, flush=True)
-        r2 = run_parallel(walls, ncols, 0, '183 (restart demo, resumed)', demo_dir,
-                           time_budget=time_budget, log=log)
-        n_ckpt_after_2 = sum(1 for fn in glob.glob(os.path.join(demo_dir, 'worker_*.jsonl'))
-                             for _ in open(fn))
-        print('   phase 2: checkpoint grew from %d to %d lines (net new work items %d), '
-              'complete=%s' % (n_ckpt_after_1, n_ckpt_after_2,
-                                n_ckpt_after_2 - n_ckpt_after_1, r2['complete']),
+        print('   --- phase 2: relaunching against the SAME checkpoint dir ---',
               file=log, flush=True)
-        print('   restart verdict: phase 1 left %d candidates on disk and phase 2 '
-              'reused every one of them (no recomputation) before adding the rest'
-              % n_ckpt_after_1, file=log, flush=True)
 
-    print('   --- full run ---', file=log, flush=True)
     r = run_parallel(walls, ncols, 0, '183', ckpt_dir, time_budget=time_budget, log=log)
+    if restart_demo:
+        print('   restart verdict: phase 1 left %d candidates on disk; phase 2 '
+              'restart-read reused every one of them before computing the rest'
+              % n_ckpt_after_1, file=log, flush=True)
     return r
 
 

@@ -194,6 +194,11 @@ with `index_ledger.py` after appending.
 - [Postscript 139](#p139) — wall structure IS a compass — but a coarse one that saturates before the record
 - [Postscript 140](#p140) — there is NO "one wall away" from 183 — all 12 walls are entangled, and that IS the cliff
 - [Postscript 141](#p141) — the CROSSABILITY PROFILE discriminates where every count saturates — the record is the most DEGENERATE configuration
+- [Postscript 142](#p142) — the face enumerator was exponential in the WALL COUNT, not in its output — and that was the whole problem
+- [Postscript 143](#p143) — 183 has EXACTLY 1 712 chambers — and the 727 run is days, not a weekend
+- [Postscript 144](#p144) — the 727 run has a MEMORY ceiling, not a time budget — and two wrong diagnoses before the right one
+- [Postscript 145](#p145) — Fourier-Motzkin is the MEMORY consumer too — 144 was half right
+- [Postscript 146](#p146) — streaming chambers to disk removes the memory ceiling — validated at 1 712
 
 <!-- INDEX:END -->
 
@@ -10117,3 +10122,214 @@ subsets came from the user, and it is what made both this and
 ran 3 hours without finishing.
 
 Files: `cross_profile.py` -> `cross_profile.json`; `minimal_cross.py` -> `minimal_cross.json`; `minimal_cross_tower.py` -> `minimal_cross_tower.json`
+
+<a id="p142"></a>
+## Postscript 142: the face enumerator was exponential in the WALL COUNT, not in its output — and that was the whole problem
+
+`isolation67.py`'s `faces()` walks the 3^m sign-vector tree with prefix pruning:
+cost exponential in the NUMBER OF WALLS regardless of how many faces exist. On the
+183 record — 12 walls, rank 8, ambient 9 — it ran **3 hours without finishing**,
+for an arrangement with at most **3 632 chambers** by the Zaslavsky/Buck bound
+2·Σ_{k<r} C(m−1,k). The blocker was never the geometry or the machine.
+
+`arrangement.py` replaces it with INCREMENTAL CONSTRUCTION: start from the whole
+space, add walls one at a time, and for each live chamber let one exact LP decide
+whether it splits. Cost O(m · #chambers) — polynomial in the OUTPUT.
+
+**VALIDATED:**
+
+    coordinate arrangement n=6   chambers 64 (want 64), faces 728 (want 728)   OK
+    octahedral 67, 6 walls       old enumerator 728 faces in 7.8s
+                                 new enumerator 728 faces in 3.5s   -- agree exactly
+    183 chambers                 12 stages, ~3 600 chambers, about ONE SECOND
+                                 (the case the old enumerator could not finish)
+
+**THE ARCHITECTURE, built to fix two failures of this project rather than as
+generic hygiene.** Workers PULL from a common queue instead of being pre-assigned:
+the all-members census used 4 static shards and two finished in 30 minutes while
+two ran 10+ hours with cores idle behind them. And checkpointing makes silence
+impossible — per-worker JSONL flushed per item, progress every 30 s AND every N
+items with rate and remaining, restart that skips completed work, and a heartbeat
+so a slow item is distinguishable from a hang. A fork context is used because spawn
+re-imports `__main__` and recursively re-runs callers lacking a guard, which cost
+this project a run earlier the same week.
+
+**WHAT IS NOT SOUND: the lower-dimensional FACE descent.** Its rate decayed
+7 800/s → 119/s and it exceeded its 10-minute budget, consistent with re-testing
+the same face from many bordering chambers without deduplication — quadratic in
+output rather than linear. It was stopped rather than left running. **The decay was
+visible only because the checkpointing was there**, which is the instrumentation
+earning its cost on first use.
+
+**CONSEQUENCE FOR THE 727 RUN.** It needs CHAMBERS — one region count each — not
+the face poset, and chambers are the validated fast path. Bound 77 509 464 against
+~86 400 000 engine calls on 4 cores over a weekend, with the true count likely far
+below given the degeneracy (0 of 351 pairs crossable, [Postscript 140](#p140)).
+Before committing cores, compute the EXACT chamber count from the wall matroid via
+Zaslavsky — that converts "probably fits" into a number.
+
+Files: `arrangement.py` -> `arr_validate.log`, `arrangement_ckpt_183/`; supersedes
+`isolation67.py`'s `faces()` for anything above ~9 walls.
+
+<a id="p143"></a>
+## Postscript 143: 183 has EXACTLY 1 712 chambers — and the 727 run is days, not a weekend
+
+The output-sensitive enumerator ([Postscript 142](#p142)) gives the first exact
+chamber count for a record's local arrangement:
+
+    183: 12 walls, rank 8, ambient 9
+         Zaslavsky/Buck bound  3 632
+         ACTUAL                1 712   (47% of the bound), in 1.6 seconds
+
+This is the case the old 3^m enumerator ran THREE HOURS without finishing.
+
+**THE 727 FEASIBILITY VERDICT, corrected twice.** The growth curve reaches 92 160
+chambers after 19 of 27 walls -- 18% of that sub-arrangement's bound. Taking 18%
+to 47% (183's realised fraction) of the full 77 509 464 bound gives **14M to 36M
+chambers**. At the MEASURED engine cost of 85.8 ms per count at n = 6 that is
+**330 to 860 core-hours: 3.5 to 9 days on 4 cores.**
+
+**Both of my earlier estimates were wrong, in the same direction.** First I assumed
+10 ms per engine call, measured at n = 4; the real n = 6 cost is 85.8 ms, 8.6x
+worse. Then I extrapolated "0.7M-1.3M chambers, comfortably a weekend" from a
+two-point ratio decline (2.0 -> 1.43) which promptly reversed to 2.0. **A trend
+from two points is not a trend**, and this project has recorded the same error in
+other clothes.
+
+**THE ARRANGEMENT DOES NOT FACTOR**, so no product collapse is available: the 27
+walls form ONE connected component over all 5 cube-blocks, with 20 of 27 touching
+two blocks each. The striking 21 x 2^k run in the growth curve (336, 672, 1344,
+2688, 5376, 10752) is therefore not a decomposition.
+
+**THE REAL BOTTLENECK IS THE LP, NOT THE ENUMERATION.** A live py-spy trace caught
+the stuck process seven levels deep in `_fm`'s Fourier-Motzkin recursion after 9+
+minutes on a SINGLE candidate; 51 of 12 888 codim-1 candidates (0.4%) cost >= 3 s
+each. Naive FM blows up multiplicatively in both row count and coefficient
+bit-length, independently of the outer enumeration being output-sensitive.
+**Replacing `_fm` with an exact rational simplex attacks the dominant cost** and
+should precede any multi-day run.
+
+**RESTART IS VERIFIED**, which is what makes a partial run worth starting: two
+demonstrations, including "all N candidates already checkpointed -- nothing to
+recompute" across all 12 chamber stages of the 183 run after a deliberate kill.
+Two real bugs were fixed en route: a serial per-worker `join(timeout)` costing
+N_workers x timeout at shutdown, and a `multiprocessing.Queue` feeder-thread
+deadlock at exit with thousands of items unconsumed.
+
+**A PARTIAL RUN IS STILL WORTH IT** -- the deliverables do not require completion:
+the chamber-count curve to a deeper wall count, the region-count distribution over
+whatever was evaluated, and the ratio behaviour that decides whether to continue.
+
+Files: `arrangement.py` -> `arrangement_ckpt_183/worker_*.jsonl` (12 882 candidates,
+restartable); `growth727.py` -> `growth727.json`.
+
+<a id="p144"></a>
+## Postscript 144: the 727 run has a MEMORY ceiling, not a time budget — and two wrong diagnoses before the right one
+
+The chamber campaign stopped twice at the same place. Three explanations were
+offered; only the third accounts for the evidence.
+
+**WRONG 1 — "dispatch deadlock".** All four workers sat at 0% CPU with candidates
+undispatched, so a queue hang was named and the enumerator's code blamed. The tell
+against it was in the same output and went unread: the workers had **near-identical
+accumulated CPU** (2:24.87 / 2:24.93 / 2:24.99 / 2:25.12). A code deadlock strands
+workers at whatever time each happened to reach; identical times mean they all
+stopped at one instant.
+
+**WRONG 2 — "external kill".** Simultaneity was then attributed to something
+outside the run, which fits the timing but explains nothing about WHY it happened
+at stage 18-19 specifically, nor why it recurred there.
+
+**RIGHT — the run exhausts RAM.** The user identified it: the jobs ran the machine
+out of memory and froze the terminal. Incremental construction holds EVERY sign
+vector in memory as it grows. At stage 19 that is 214 729 chambers; the
+extrapolated final count is 14M-36M ([Postscript 143](#p143)), at 27 entries each
+plus Python overhead — tens of gigabytes against **16 GB of RAM**. The run cannot
+finish at any time budget on this machine. It is a CEILING, not a slowdown, and it
+explains what the other two did not: the specific stage, the recurrence, and the
+absence of any torn record.
+
+**THIS OUTRANKS THE LP REPLACEMENT.** Fourier-Motzkin governs the SCHEDULE
+([Postscript 143](#p143)); memory governs whether the run can complete at all. The
+enumerator must stream chambers to disk per stage instead of accumulating them.
+
+**THE CHECKPOINTING VALIDATED ITSELF UNPLANNED.** Through an OOM freeze that took
+down every terminal and the API session: **214 729 records across four
+concurrently-appending workers, ZERO unparseable**, and a relaunch that logged
+"nothing to recompute" for every completed stage and resumed past the failure
+point. A deliberate kill tests the happy path; an unannounced one that also kills
+the operator's tools tests it properly. The live BUDGET control file also survived,
+carrying its 7-day extension across the process that set it.
+
+**THE DIAGNOSTIC LESSON.** Slow, hung, killed and out-of-memory all present as "no
+output". The heartbeat distinguishes silence from progress but not the CAUSES of
+silence; that needs CPU%, RSS and what else stopped at the same moment. Twice a
+cause was named from one reading. **Ask what else stopped, and how much memory it
+was holding, before naming a culprit — especially in someone else's code.**
+
+Files: `run727.py` -> `ckpt_727/worker_*.jsonl` (214 729 records, restartable),
+`run727_deadlock.log` (the misnamed log of the first stop), `arrangement.py`.
+
+<a id="p145"></a>
+## Postscript 145: Fourier-Motzkin is the MEMORY consumer too — [Postscript 144](#p144) was half right
+
+The n = 5 campaign froze the machine to ~123 MB free. The four workers were holding
+**0.56-0.65 GB each and climbing**, all of them stuck on a single hard candidate at
+stage 14 with `tested` frozen at 10 057 and 9 173 outstanding. Killing them
+returned **8.77 GB**.
+
+**FM's blowup is not only in time.** Elimination generates enormous rational
+coefficients and multiplying row sets, so a hard instance consumes memory without
+bound while it grinds. The 0.4% tail that governs the schedule
+([Postscript 143](#p143)) is the same 0.4% that exhausts RAM.
+
+**THIS REVISES [Postscript 144](#p144).** That postscript attributed the 727 OOM to
+the chamber list accumulating in memory. The chamber list IS a real ceiling for the
+FULL run -- 18.05 GB at the Zaslavsky bound against 16 GB of RAM, measured at 272
+bytes per chamber -- but at stage 19 it held only ~215 000 chambers, under 60 MB.
+**The memory that actually disappeared at the moment of the freeze was FM's, not
+the chamber accumulation.** Both are real; the one that fired first was FM.
+
+**SO ONE FIX ADDRESSES THREE SYMPTOMS.** Replacing FM with an exact rational
+simplex is not one of three parallel problems -- it is the single cause of the
+schedule (days rather than hours), the stalls (one candidate freezing a whole
+stage), and the memory exhaustion (unbounded growth per stuck worker). The
+streaming enumerator ([Postscript 146](#p146) below, validated at 1 712) removes the
+OTHER ceiling, the one that would bind later.
+
+**DIAGNOSTIC NOTE, third correction in this sequence.** "Dispatch deadlock", then
+"external kill", then "chamber list OOM" -- each named from one reading, each
+partly or wholly wrong. What finally distinguished them was cheap and was available
+every time: per-process RSS, %CPU, and what else stopped at the same instant. The
+heartbeat proves something is silent; it never says why.
+
+Files: `run393.py` -> `ckpt_393/worker_*.jsonl` (10 057 decisions, restartable);
+`stream_chambers.py`.
+
+<a id="p146"></a>
+## Postscript 146: streaming chambers to disk removes the memory ceiling — validated at 1 712
+
+Incremental construction holds every sign vector in RAM. Measured: 272 bytes per
+chamber at 27 walls, so 14M-36M chambers is 3.5-9.1 GB, doubling at a stage
+transition when both lists are alive -- 7.1 to 18.2 GB against 16 GB here. The
+Zaslavsky bound alone needs 18.05 GB, so the 727 run could never have completed on
+this machine at any time budget.
+
+`stream_chambers.py` never holds a stage: it reads stage k one line at a time and
+writes stage k+1 as it is produced, then swaps. Peak memory is a read buffer plus an
+output buffer -- flat in the chamber count. Stage files are written to `.partial`
+and renamed atomically, so a file that exists is complete and a relaunch resumes at
+the first missing stage with nothing recomputed.
+
+**VALIDATED against the only case with a known answer: 1 712 chambers at the 183
+record, exact match, 1.5 s, 84 KB of disk.** Its first version returned **0** --
+see [FAILURE_MODES 18](FAILURE_MODES.md); the empty sign vector serialised to an
+empty line which the reader skipped as blank.
+
+Encoding is `+`/`-` per wall with `.` for the empty vector: unambiguous, and 28
+bytes per chamber at 27 walls rather than ~80. At 36M chambers a stage file is about
+1 GB on disk, which this machine has, against 18 GB of RAM, which it does not.
+
+Not a replacement for `arrangement.py`, which stays faster when a problem fits
+(183: 1 712 chambers in 1.6 s in memory). Use streaming when it does not.
+Files: `stream_chambers.py`, `stream_183_validate/`.

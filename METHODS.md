@@ -845,6 +845,27 @@ What `census_variety.py` actually lost was not the edits but the PARAMETERS: no
 argv was recorded, so there is nothing to re-run generations 1-3 with. Record the
 command and the output; then in-place edits stay harmless and checkable.
 
+**Hash the LOGIC, not the bytes.** `provenance.semantic_sha1` hashes the AST with
+docstrings stripped, so comments, whitespace and reformatting do not trigger a
+flag -- and adding a comment that records WHY an invariant holds is routine here,
+so a byte hash would fire constantly and then be ignored, which is worse than no
+check at all. Verified: comment/format/docstring edits leave the logic hash
+unchanged; `x+1 -> x+2` changes it.
+
+**Renaming is NOT canonicalised away, deliberately.** Alpha-renaming could be
+hashed around, but the fallback is already cheap and correct: a flag means "run
+`reproduce()`", not "this is broken", so a rename costs one re-run rather than a
+false verdict. Engineering the hash to ignore renames buys nothing the fallback
+does not already give.
+
+**Prefer names you will not want to change; where one turns out badly, add a
+comment rather than rename.** A rename is a semantic act -- it changes what a
+reader believes the name means, and it silently invalidates every log line,
+postscript and transcript using the old one. Draw the line by AUDIENCE: names in
+the record (output keys, cited functions, data fields) are interface and should
+not move; purely local variables are private and may be renamed freely, at the
+cost of one re-run.
+
 Citing `two_plus_quadric.json` gives the exact command AND a check on whether the
 script has changed since. Citing `two_plus_quadric.py` gives today's file, which
 may not be what ran.

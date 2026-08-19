@@ -515,3 +515,28 @@ sentence cannot satisfy it.
 **Recovery, when it happens:** the scripts are usually correct and already
 gate-passed. Running them yourself is cheaper than resuming the agent, which
 re-derives context to reach the same place.
+
+## 18. A wrong answer that raises nothing, in a tool built for a case with no known answer
+
+`stream_chambers.py` was written to remove a memory ceiling, and validated against
+the one case with a known answer: 183, which has exactly 1 712 chambers. It
+returned **0**.
+
+The cause was in the first line of the first stage. The whole space is the EMPTY
+sign vector; it was serialised as an empty line; and the reader skipped empty lines
+as blank padding. So stage 0 yielded nothing, every subsequent stage was empty, and
+the function returned a number without raising anything.
+
+**The point is where this tool was headed.** It exists for 727, where the chamber
+count is unknown — that is the entire reason to build it. A silent 0, or worse a
+plausible non-zero undercount from the same class of bug, would have been accepted
+there because nothing existed to contradict it. The known-answer case is the ONLY
+place the bug was visible, and it was visible instantly.
+
+**Standing rule.** A tool built for a case with no known answer must be validated on
+a case with one, BEFORE it is pointed at the unknown. If no such case exists,
+construct one small enough to check by hand. "It ran and produced a number" is not
+a result; it is the failure mode.
+
+Related: [mode 2](#2-a-gate-that-cannot-fail) — there the test could not fail; here
+the tool could not report failing.
