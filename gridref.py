@@ -32,8 +32,10 @@ import sys
 from math import gcd
 
 import numpy as np
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+sys.path.insert(0, HERE)
 
 
 def counts_grid(Ni, Nj, Nk, R=110):

@@ -24,12 +24,14 @@ import sys
 import time
 from fractions import Fraction as F
 
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+sys.path.insert(0, HERE)
 from cells import counts, cube_normals, prism_normals, rotate
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
 SEED = int(sys.argv[1]) if len(sys.argv) > 1 else 1
 BUDGET = float(sys.argv[2]) if len(sys.argv) > 2 else 20000.0
-OUT = '/Users/dmi/cube-compounds/shape_sweep_%d.json' % SEED
+OUT = HERE + '/shape_sweep_%d.json' % SEED
 
 SHAPES = {'cube': (cube_normals(), 6),
           'hex_prism': (prism_normals(3), 8),

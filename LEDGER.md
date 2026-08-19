@@ -172,6 +172,26 @@ with `index_ledger.py` after appending.
 - [Postscript 117](#p117) — EVERY record is an isolated point — the census completed, and 114 definitively refuted
 - [Postscript 118](#p118) — the two 67s enter the machinery at last — both are ISOLATED, by enumerating every face rather than probing directions
 - [Postscript 119](#p119) — an ordered field containing an infinitesimal — the step size is gone, and it immediately falsified 36 faces measured by halving
+- [Postscript 120](#p120) — the all-members census completes — 826 of 826 — and a positive-dimensional chart origin, not the solver, was the 10-hour wall
+- [Postscript 121](#p121) — region counts are ODD, by central symmetry — and the rare even ones detect a SHELL
+- [Postscript 122](#p122) — isolated points come in TWO KINDS — the 67s are pinned at first order, every rational record only at second
+- [Postscript 123](#p123) — the Jacobian cannot see (1,1,1,1) walls — and 12 of them pass through the records
+- [Postscript 124](#p124) — δ = 0 — the (1,1,1,1) walls add no rank, and 122 is REINSTATED
+- [Postscript 125](#p125) — extension is a THREE-dimensional problem, and only 12 of 6 864 walls are local — the climb is enumerable after all
+- [Postscript 126](#p126) — the subset spectrum of every record — the tower breaks ONCE, at n=3, and for an arithmetic reason
+- [Postscript 127](#p127) — shells are STABLE — they occupy open chambers, not degenerate strata — and three explanations for them are eliminated
+- [Postscript 128](#p128) — irrationality does NOT force rigidity — the n=2 arc supplies the third data point that was thought not to exist
+- [Postscript 129](#p129) — shells are ORDINARY — counting well suppresses them — and the octahedral 67, not the golden, is the anomaly
+- [Postscript 130](#p130) — the shell detector is one-sided — TWO shells restore odd parity, and the octahedral anomaly was never measured
+- [Postscript 131](#p131) — the "two 67 triples" family is EXHAUSTED and caps at 177 — the sharpest irrational lead at n = 4 is closed
+- [Postscript 132](#p132) — the 2026-08-18 campaigns sampled where they should have SOLVED — records live on measure-zero sets
+- [Postscript 133](#p133) — 183 is a PLATEAU — the wide climb found a non-congruent second 183, identical on every invariant
+- [Postscript 134](#p134) — three independent methods all cap at 177 for irrational n = 4
+- [Postscript 135](#p135) — the MAXIMAL subset spectrum is not the maximum — perfect subsets cost 6 regions
+- [Postscript 136](#p136) — the two 183s lie on 88 COMMON walls, cutting a 1-dimensional locus through both
+- [Postscript 137](#p137) — the octahedral 67's walls are CONTAINED in the golden's — and the 12 extra ones single out an axis pair
+- [Postscript 138](#p138) — two walls plus a quadric — the RIGHT construction, validated — and irrational n = 4 tops out at 173
+- [Postscript 139](#p139) — wall structure IS a compass — but a coarse one that saturates before the record
 
 <!-- INDEX:END -->
 
@@ -8762,7 +8782,7 @@ stronger than it.**
    the wall taxonomy are the same decision.
 3. **Isolation is LOCAL. It is not "exactly two 67s".** Both maximisers having no
    67 in a neighbourhood says nothing about a third elsewhere in moduli space.
-   What it does do is remove the alternative branch of [Postscript 80a](#p80a)'s
+   What it does do is remove the alternative branch of [Postscript 80](#p80), Addendum 2,'s
    dichotomy at these two points: a maximiser set is finite or uncountable and
    never countably infinite, so had either 67 sat on a positive-dimensional locus
    there would have been uncountably many. There are not. The global statement
@@ -8851,3 +8871,1143 @@ awkward one carried information.**
 **Standing consequence.** The ε-collapse caveat on the 828 census "changed"
 directions is the same defect in a different place, and is now fixable rather than
 merely documented.
+
+<a id="p120"></a>
+## Postscript 120: the all-members census completes — 826 of 826 — and a positive-dimensional chart origin, not the solver, was the 10-hour wall
+
+**THE CENSUS.** Every subset of the n = 6..9 records at every k = 3..n, as
+MEMBERS rather than one representative per (count, profile) class — that class is
+an equivalence by INVARIANT, not by congruence, so it is necessary and not
+sufficient, and a result at one member does not transfer to another.
+
+    826 classes    163 second-order variety EMPTY    663 nonempty
+    7 043 directions -> 4 870 confirmed, 2 116 changed, 57 UNEVALUABLE
+
+**THE RECORDS ARE EMPTY AT EVERY LEVEL**, now at member granularity:
+
+    n=6 c=727 lin 1 | n=7 c=1217 lin 2 | n=8 c=1895 lin 3 | n=9 c=2785 lin 4
+
+confirming [Postscript 117](#p117) without relying on class representatives. Note
+the pattern: the records' LINEALITY rises 1, 2, 3, 4 with n while the locus stays
+a point every time — first-order tangent space and locus dimension diverging
+exactly as [Postscript 117](#p117) says they must.
+
+**THE 57 UNEVALUABLE ARE IN THIS HEADLINE ON PURPOSE**, and the 2 116 "changed"
+carry the [Postscript 119](#p119) caveat: they come from stepping at fixed
+ε ∈ {1/64, 1/256, 1/1024}, which is exactly the sampler the infinitesimal engine
+showed can leave the intended cell. `status` and `lineality` are unaffected —
+those come from `nullspace` + `variety_incremental`, algebra with no stepping.
+
+**THE 10-HOUR WALL, DIAGNOSED FROM A STACK SAMPLE.** Two n = 9 classes ran
+10+ hours each with no output. The user sampled the live process; 2 078 of 2 287
+samples sat in `k_mul` — CPython's Karatsuba big-integer multiply — with a 4.2 GB
+peak. So the cost was COEFFICIENT EXPLOSION, not algorithmic shape, and the
+obvious cause was then excluded by measurement: the nullspace basis entries are
+≤ 5 digits, so the growth is generated during the solve rather than inherited
+from the input.
+
+Instrumenting the same class: 252 polynomials of degrees 2–8, lineality 8, so
+each of 8 charts hands `sp.solve` 7 coupled polynomials in 7 unknowns. Six of the
+eight charts have NO CONSTANT TERM, which means the chart ORIGIN — the basis
+direction ns[chart] itself — satisfies every polynomial. Verified by direct
+evaluation: 0 of 252 nonzero at chart 1, and 250 of 252 nonzero at chart 3, so
+the test discriminates. Those six charts are POSITIVE-DIMENSIONAL through the
+origin, and `sp.solve` on a positive-dimensional system grinds without returning
+— a failure this file already records for a different cause (an under-determined
+seed at d ≥ 4).
+
+`variety_incremental` had a fast path only for IDENTICALLY ZERO polynomials. A
+nonzero polynomial with no constant term is a different case and fell straight
+through to the solver. Testing the origin by evaluation first:
+
+    n=9 k=5 (2,3,5,7,8):  10+ hours, never finished   ->   64s, 6 directions
+    n=9 k=6 (1,3,5,6,7,8): 10+ hours, never finished   ->  123s, 6 directions
+
+**This is a SPEED fix and not a correctness one** — when `sp.solve` terminates it
+finds the origin among its solutions, so none of the 824 classes computed the
+slow way is invalidated. Stated explicitly because the opposite would have forced
+a full recomputation.
+
+**FOUR APPARATUS FAULTS ON THE WAY, all mine, all caught by measurement.**
+(1) "construction is the bottleneck" — inferred from 90 s of silence; it is ~2
+minutes. (2) "all 252 polynomials are degree 2" — read off the 36 lowest entries
+of a list sorted BY DEGREE. (3) A linearisation test labelled "no constant
+monomial column" as EMPTY when it means the exact opposite, NONEMPTY; caught by
+evaluating the origin before the label reached a result. (4) A subprocess budget
+helper using the spawn start method, which re-imports the caller's `__main__` and
+so made any caller without a guard re-run itself recursively. Fixed in the HELPER
+(fork context, which never touches `__main__`) rather than in the caller, since
+fixing the caller leaves the trap armed for the next one.
+
+**WHAT MADE IT SOLVABLE.** The bottleneck was invisible from the outside: 10
+hours of genuine work and a wedged process are indistinguishable when neither
+prints. That indistinguishability, not the runtime, was the defect —
+`variety_incremental` now reports per chart. Files: `dimension.py`,
+`census_members.py` (`CENSUS_ONLY` explicit work-lists, resume, output
+namespacing), `diag_stuck.py`, `members_all.json`.
+
+<a id="p121"></a>
+## Postscript 121: region counts are ODD, by central symmetry — and the rare even ones detect a SHELL
+
+Noticed while answering "what surrounds the isolated points": of the 826
+all-members census counts, **820 are odd**; of the 2 331 neighbouring-chamber
+counts recorded alongside them, **2 315 are odd**. That is a law with exceptions,
+not a tendency, and the law has a one-line proof.
+
+**THE PROOF.** Every cube here is centrally symmetric and all are concentric, so
+the whole arrangement is invariant under x -> -x. The antipodal map therefore
+permutes the bounded regions, and it is an involution, so its orbits have size 1
+or 2:
+
+    count  =  #{self-antipodal regions}  +  2 * #{antipodal pairs}
+           ==  #{self-antipodal regions}   (mod 2)
+
+The innermost region contains the origin and is always self-antipodal, so
+**the count is ODD unless a SECOND self-antipodal region exists** — a region with
+R = -R that does NOT contain the origin, i.e. a SHELL wrapping around it. Nothing
+in the argument mentions n, the rotations, or the cell shape: it holds for any
+compound of centrally symmetric concentric cells.
+
+> **CORRECTED 2026-08-18 ([Postscript 130](#p130)): the CONVERSE FAILS.**
+> Parity detects an ODD NUMBER of shells, not the presence of shells. Two
+> shells restore odd parity and are invisible to it — measured, 3 of 3 000
+> random configurations have exactly that. "Even ⇒ a shell exists" (below)
+> stands; "odd ⇒ shell-free" was never proved and is FALSE.
+
+**SO AN EVEN COUNT IS A DETECTOR, not an anomaly.** It says the configuration
+carries a shell, and shells are rare:
+
+    census base counts        6 even of 826    (9,3,44) (9,3,38) (8,3,44)
+                                               (9,3,38) (9,3,40) (9,4,138)
+    census wrap counts       16 even of 2 331   values 4, 28, 40
+    golden 67 neighbourhood 148 even of 2 196   values 38, 40, 44, 48
+    octahedral 67 nbhd        0 even of 728
+
+**The even values repeat across independent data sets** — {38, 40, 44} appears
+both in the census and around the golden 67 — which is a stronger hint than the
+counts alone: the same small set arising twice suggests shells occur in a few
+specific combinatorial types rather than sporadically.
+
+**AN ASYMMETRY BETWEEN THE TWO MAXIMISERS.** The octahedral 67 (symmetry order
+24, 6 independent walls) has NO shell in any of its 728 faces; the golden 67
+(symmetry order 6, 9 dependent walls) has one in 148 of 2 196. Whether higher
+symmetry forbids shells is not established here and is a clean question to ask.
+
+**WHAT SURROUNDS THE 67s**, since this is where the observation came from — every
+face of the local arrangement, not a sample:
+
+    octahedral  728 faces  best neighbour 63 (2 faces)  mode 43 (38.5%)  min 37
+    golden     2196 faces  best neighbour 63 (1 face)   mode 43 (20.1%)  min 37
+
+**Both sit atop a cliff of exactly 4**: no configuration adjacent to either 67
+counts 64, 65 or 66. The first step down lands on 63 — exactly the best triple
+contained in any higher record ([RESULTS](RESULTS.md) §5). The octahedral
+neighbourhood is tight and concentrated, the golden one broad and ragged, which
+matches their wall structure (independent vs dependent).
+
+**NOT CHARACTERISED, stated because the contrast invites the assumption.** The
+higher records' neighbourhoods are UNMEASURED. For 727, 1217, 1895 and 2785 the
+census returns `empty, dirs = 0`, so no neighbouring count was ever computed. The
+67s are the only maximisers whose surroundings have been enumerated, because they
+are the only ones the face enumeration was pointed at. The machinery is
+n-agnostic; it has simply not been run.
+
+<a id="p122"></a>
+## Postscript 122: isolated points come in TWO KINDS — the 67s are pinned at first order, every rational record only at second
+
+Asked "how many walls do isolated points lie on?", and the answer separates the
+maximisers into two mechanisms that had been conflated under one word.
+
+    configuration    count  tight  walls  ambient  rank  lineality
+    octahedral 67       67     60      6        6     6          0
+    golden 67           67     72      9        6     6          0
+    n=5  393           393    168     18       12    11          1
+    n=6  727           727    216     27       15    14          1
+    n=7  1217         1217    300     51       18    16          2
+    n=8  1895         1895    384     75       21    18          3
+    n=9  2785         2785    468     99       24    20          4
+
+> **CORRECTED 2026-08-18, same day, by the check the finding itself
+> prompted ([Postscript 123](#p123)).** Every rank and lineality figure
+> below is computed from a wall list that is STRUCTURALLY INCOMPLETE:
+> `dimension.py` builds conditions from Step A pairs and Step B triples,
+> so a condition names at most THREE cubes and the (1,1,1,1) wall type is
+> invisible to it. Direct enumeration of concurrent face planes finds
+> **12 real four-plane/four-cube points at both 393 and 727**, so the
+> records DO lie on walls not in these counts.
+>
+> **RESOLVED 2026-08-18 by [Postscript 124](#p124): delta = 0 at every
+> record, so the counts below are CORRECT and P122 is reinstated.** The
+> reasoning below stood while the measurement was outstanding.
+>
+> Consequence, in both directions. The measured rank is a LOWER bound and
+> the measured lineality an UPPER bound, so **the claim below that no
+> rational record has full rank is NOT ESTABLISHED** -- 727 has lineality
+> 1 against the incomplete list, and a single independent (1,1,1,1)
+> gradient would take it to 0. The two-mechanism split may be an artefact
+> of the instrument. What IS unaffected: the isolation results. A missing
+> wall enlarges the search space, and a second-order variety that is EMPTY
+> in the larger space is empty in the smaller.
+
+**BOTH 67s HAVE FULL RANK.** Rank = ambient = 6, lineality 0: they lie on enough
+INDEPENDENT walls to pin them completely, so nothing survives even to first order.
+**No rational record does.** Every one has a positive-dimensional tangent space —
+lineality 1, 2, 3, 4 rising with n — and is isolated only because the second-order
+variety comes back empty ([Postscript 117](#p117), [120](#p120)).
+
+More walls is NOT more constrained: 2785 lies on 99 walls and keeps a
+4-dimensional tangent space, while the octahedral 67 needs 6 walls and has none.
+What matters is INDEPENDENCE, not count.
+
+This also explains the neighbourhood asymmetry recorded in [Postscript 121](#p121).
+The 67s' faces were enumerable (728 and 2 196, complete) because their walls are
+independent; 727's 27 walls have rank 14, so 26 of them cannot be crossed alone
+and the codimension-1 layer is degenerate.
+
+**AN ARITHMETIC REGIME, AND ITS BOUNDARY.** For n = 6..9 every column is linear:
+
+    walls = 24n - 117    tight = 84n - 288    rank = 2(n+1)    lineality = n - 5
+
+consistent since ambient - rank = 3(n-1) - 2(n+1) = n - 5, and each added cube
+contributes exactly **24 walls and 84 tight conditions** — 24 being the order of
+the cube's rotation group, one wall per self-symmetry of the added cube.
+
+**The fit FAILS at n = 5, and was tested there precisely because four points on a
+line is a fit and not a theorem.** Predicted walls 3, tight 132, rank 12,
+lineality 0; measured 18, 168, 11, 1. So 393 -> 727 adds +9 walls and +48 tight,
+not +24 and +84: the constant-increment regime BEGINS at n = 6 and describes the
+tower's growth from 727 upward, not a law of the family. Reported as a regime.
+
+**A FAILED MEASUREMENT, recorded so the next attempt does not repeat it.** The
+face enumeration that settled the two 67s does not reach the rational records:
+
+  * 27 walls in ambient 15 is a nominal 3^27 = 7.6e12 sign vectors; the run died
+    on memory with no output. A partial histogram from it would have read as
+    complete and was not produced.
+  * The codimension-1 fallback is degenerate for the reason above: only **1 of 27**
+    walls at 727 can be crossed alone (50 of 51 entangled at 1217).
+  * That single crossable direction is REFUSED by the engine — component
+    magnitude 5460 against the budget, needing ~124 bits where the pipeline
+    allows 112. A refusal, scored unevaluable, never as "no change".
+
+So the records' neighbourhoods remain UNCHARACTERISED. The one datum that
+survived is at 1217: a facet neighbour of **1211, a drop of 6**, against the 67s'
+drop of exactly 4. One measurement, not a pattern. What is needed is a different
+construction — directions crossing a MINIMAL SET of walls rather than one — plus
+either shorter directions or a wider engine.
+
+**n = 4 (183) COULD NOT BE MEASURED AT ALL:** it contains a half-turn (w = 0),
+which is at Cayley infinity in this gauge, so `point_of` returns None. Unevaluated,
+not absent. Files: `wallcount.py`, `record_neighbours.py`, `wallcount.json`.
+
+<a id="p123"></a>
+## Postscript 123: the Jacobian cannot see (1,1,1,1) walls — and 12 of them pass through the records
+
+[Postscript 122](#p122) reported that every wall at n = 5..9 involves 2 or 3
+cubes and none involves 4. **That is a fact about the instrument, not the
+geometry**, and asking whether it was one was the whole value of the check.
+
+`dimension.py` builds its conditions from Step A (pairs of normals) and Step B
+(triples), so a group names at most THREE cubes BY CONSTRUCTION. The fourth
+codimension-1 type in [Postscript 57](#p57)'s taxonomy — **(1,1,1,1), four face
+planes from four different cubes concurrent** — cannot appear in any Jacobian
+this project has ever built.
+
+**IT IS NOT HYPOTHETICAL.** Enumerating concurrent face-plane triples directly,
+with no reference to the condition machinery, and keeping only REAL points (lying
+in the closed cube of every incident plane, not on an infinite extension):
+
+    n = 5 (393):  424 real points   24/1cube  48/2  272/3  60(4pl,2cu)  12(4pl,4cu)  8(6pl,2cu)
+    n = 6 (727):  822 real points   32/1cube 112/2  584/3  72(4pl,2cu)  12(4pl,4cu)  8(6pl,2cu) 2(6pl,3cu)
+
+The 393 row reproduces [Postscript 57](#p57)'s figures exactly, from a script
+written independently of `base_points.py` — an agreement between two
+implementations that do not share code, which is worth more than a re-run.
+
+**12 four-plane/four-cube points exist at BOTH 393 and 727**, on cubes {0,2,3,4},
+in antipodal pairs (e.g. (1, -11/19, -1/19) and its negative). So the records lie
+on (1,1,1,1) walls that the measured wall counts omit.
+
+**WHAT THIS INVALIDATES.** Rank is a LOWER bound, lineality an UPPER bound.
+[Postscript 122](#p122)'s headline — that the 67s are pinned at first order and no
+rational record is — **is not established**: 727 has lineality 1 on the incomplete
+list, and one independent (1,1,1,1) gradient would take it to 0, collapsing the
+claimed two-mechanism split. `walls = 24n - 117` and `lineality = n - 5` describe
+the <=3-cube wall system only.
+
+**WHAT IT DOES NOT INVALIDATE**, stated because the reflex is to assume the worst:
+every isolation result. Omitting walls ENLARGES the space the second-order
+variety is searched in, and EMPTY in a larger space implies empty in a smaller
+one. [Postscript 117](#p117), [120](#p120) and both 67s stand — the 67s doubly so,
+being at full rank already with n = 3, where a 4-cube wall cannot exist.
+
+**WHAT IS NEEDED.** A gradient for the (1,1,1,1) condition. The condition is
+"four planes concurrent", i.e. the 4x4 determinant of the four plane equations
+vanishes — a single polynomial in the Cayley coordinates of up to four cubes,
+differentiable by the same route the existing conditions use. Until it exists,
+every rank and lineality figure in this project should be read as bounds.
+Files: `check_4cube_walls.py`, `wall_support.py`, `check_4cube_walls.json`.
+
+<a id="p124"></a>
+## Postscript 124: δ = 0 — the (1,1,1,1) walls add no rank, and [Postscript 122](#p122) is REINSTATED
+
+[Postscript 123](#p123) withdrew P122's two-mechanism claim because every rank in
+this project is computed from a wall list that structurally omits the (1,1,1,1)
+type, and 12 real four-plane/four-cube points pass through every record. The gap
+was bounded but not measured: rank was a lower bound, lineality an upper bound,
+and δ (the rank those walls add) was proved to lie in {0, 1} — one bit deciding
+whether 727 is pinned at first order like the two 67s.
+
+**MEASURED. δ = 0 at every record.**
+
+    n   ambient   rank old -> new   lineality old -> new   delta
+    6      15         14 -> 14           1 -> 1              0
+    7      18         16 -> 16           2 -> 2              0
+    8      21         18 -> 18           3 -> 3              0
+    9      24         20 -> 20           4 -> 4              0
+
+The (1,1,1,1) gradients are inexpressible as pair/triple conditions but LIE IN
+THE SPAN the existing ≤3-cube conditions already produce. The wall type is
+invisible to the Jacobian's construction; at these points it adds nothing.
+
+**So [Postscript 122](#p122) stands, and now on firmer ground than when written:**
+both 67s are pinned at FIRST order (rank = ambient = 6, lineality 0), and no
+rational record is (lineality 1, 2, 3, 4), and that difference is a fact about the
+configurations rather than an artefact of the condition list. `walls = 24n - 117`
+and `lineality = n - 5` are restored as descriptions of the n ≥ 6 regime.
+
+**THE GATES THAT MAKE THIS BELIEVABLE**, since the computation was delegated:
+the concurrency determinant was required to evaluate to EXACTLY 0 at the
+configuration before any gradient was taken — passed at all 48 conditions
+(12 points × 4 levels) — and all 48 gradients were nonzero, ruling out the
+"gate passed but the gradient is vacuous" failure. The proved bound δ ≤ 1 was
+given as an oracle with instructions to treat δ ≥ 2 as a code fault rather than a
+result; it was never triggered. Monotonicity δ(6) ≥ δ(7) ≥ δ(8) ≥ δ(9) holds.
+
+Gradients were taken by JACOBI'S FORMULA, d(det M) = tr(adj(M) dM), rather than by
+term-wise symbolic differentiation, which did not finish in 120 s on a single
+n = 7 gradient. An exact algebraic identity, cross-validated against independent
+single-variable differentiation at one point (both gave -300/2527).
+
+**A DATA-LOSS BUG OF MY OWN, found by the delegation.** `check_4cube_walls.py`
+rebuilt its output dict per invocation, so running it for n = 7,8,9 after n = 5,6
+REPLACED the file and destroyed the earlier entries — the same failure as a shard
+output opened with 'w', which this project caught once already the previous day.
+The agent detected the missing keys, substituted the n = 7 point list for n = 6,
+and said so explicitly rather than silently. The substitution was then verified
+independently: the 12 points and their three cube 4-subsets {0,1,3,4}, {0,2,3,4},
+{1,2,3,4} are IDENTICAL at n = 6 and n = 7, so δ(6) = 0 stands on its own data.
+Fixed to merge rather than overwrite. Files: `quad_walls.py`, `quad_walls.json`.
+
+<a id="p125"></a>
+## Postscript 125: extension is a THREE-dimensional problem, and only 12 of 6 864 walls are local — the climb is enumerable after all
+
+Asked whether the relation between (n-1)-cube walls and n-cube walls helps
+climbing. It does, by a route that rescues the enumeration that failed in
+[Postscript 122](#p122).
+
+> **CORRECTED 2026-08-18, same day.** The general claim below — that adding a
+> cube is a 3-dimensional problem — is right. But the MEASUREMENT attached to
+> it (12 incident walls, 24 chambers, best 715) is the neighbourhood of the
+> EXISTING sixth cube of 727, i.e. PERTURBATION, not the placement of a NEW
+> cube. "Incident walls at the position" is undefined for extension until a
+> position is chosen; globally the free cube meets the whole 6 864-wall
+> catalogue, not 12. What the 24 chambers DO establish is a clean and
+> non-trivial result: **727 is exactly locally maximal under perturbation of
+> its sixth cube** — all 24 combinatorially distinct moves evaluated, best
+> 715, none reaching 727. That is a certificate, not a search result.
+
+**THE STRUCTURAL FACT.** Subset walls LIFT: all 27 walls of the n = 6 record
+reappear, zero-padded, among the n = 7 record's 51 (verified, `wall_support.py`).
+A lifted wall constrains only the old cubes' coordinates — it is a cylinder over
+the new cube's 3-space. **So extending a base by one cube is a 3-DIMENSIONAL
+problem, not a 3(n-1)-dimensional one.** Where the new cube may go is decided
+entirely by the walls involving the new cube.
+
+**THOSE WALLS ARE ALREADY CATALOGUED** ([Postscript 57](#p57)): against the fixed
+393 base, 424 real triple points give 2 544 W4 walls and 360 crossing lines give
+4 320 W3 walls — 6 864 in the free cube's R^3. Enumerating all of them is
+hopeless. But climbing is LOCAL, and locally almost none of them matter:
+
+    WALLS INCIDENT AT THE 727 SIXTH CUBE (7,14,1,-5):
+        W4  free face plane through a base triple point     4
+        W3  free edge coplanar with a base crossing line    8
+        TOTAL                                              12   of 6 864
+
+Twelve surfaces through a point in R^3 bound the local chambers at k(k-1)+2 = 134
+were they planes; they are quadrics, so somewhat more, but the same order.
+
+**THE CONTRAST WITH WHAT FAILED IS THE POINT.**
+
+    full neighbourhood of 727     ambient 15   3^27 = 7.6e12 sign vectors   died on memory
+    extension neighbourhood       ambient  3   ~10^2 chambers               seconds
+
+Two independent reductions compound: extension moves one cube, so ambient falls
+15 -> 3; and only 12 of 6 864 catalogue walls pass through the point, so the
+arrangement is tiny rather than global. `size_local.py` reproduces P57's 424 and
+360 exactly, confirming the catalogue construction.
+
+**THE TRAP, WHICH THIS PROJECT HAS ALREADY DOCUMENTED.** Chambers must be
+EVALUATED BY THE ENGINE, one count each, never ranked by how many walls they
+touch. [METHODS](METHODS.md) section 6 — coincidence count is a certificate, not a
+compass — and "more coincidences imply a higher count" sits in the REFUTED table
+(727 has 18 interior crossings to 723's 48 and counts more). The wall structure
+says where the distinct possibilities ARE; it says nothing about which is best.
+
+**LIMITS, stated because the result invites over-reading.** This covers one-cube
+EXTENSION moves only: a better record reachable only by moving two cubes together
+is invisible to it. It sizes the neighbourhood of ONE point; a climb visits many,
+though at seconds per step that is affordable. And the premise that climbing
+should extend at all rests on "extension beats native search", which the 2026-08-18
+citation audit found supported (P45/P46) but with one sub-claim unattested.
+Files: `size_local.py`, `size_local.json`, `wall_support.py`.
+
+<a id="p126"></a>
+## Postscript 126: the subset spectrum of every record — the tower breaks ONCE, at n=3, and for an arithmetic reason
+
+**EVERY RECORD'S BEST (n-1)-SUBSET IS THE (n-1) RECORD**, measured over all 826
+members ([Postscript 120](#p120)):
+
+    727  ->  393, 385, 385, 385, 383, 377
+    1217 ->  727, 723, 717, 715, 715, 713, 709
+    1895 -> 1217, 1217, 1209, 1205, 1203, 1201, 1201, 1197
+    2785 -> 1895, 1887, 1887, 1883, 1875, 1873, 1873, 1869, 1867
+
+**1895 HAS TWO 1217-SUBSETS, AND THEY ARE NOT CONGRUENT.** Removing either of two
+different cubes from 1895 leaves a 1217: the tower's (727 + `4,-3,-4,-4`) and an
+alternative (727 + `24,-24,24,-61`). Their depth profiles are IDENTICAL, and so
+are their pair-count multisets [4,4,4,4,13,13] — so neither separates them. The
+TRIPLE-count multisets do:
+
+    tower  {43:6, 53:3, 57:3, 47:2, 55:1}
+    alt    {43:5, 53:4, 57:3, 37:1, 47:1, 55:1}
+
+The alternative has a triple counting 37 that the tower has nowhere. A congruence
+preserves triple counts, so none exists. **1895 is therefore reachable by
+extending two non-congruent 1217s** — a genuine confluence, and the only level
+where one occurs; 727, 1217 and 2785 each have a single top subset. It is also a
+worked instance of SIMULTANEOUS EXTENSION: one base, two different added cubes,
+each individually reaching 1217.
+
+Yet another case of (count, profile) being necessary and not sufficient for
+congruence — here it took a third-order invariant to separate two configurations
+that agree on everything cheaper.
+
+**THE TOWER BREAKS EXACTLY ONCE, AND ARITHMETIC IS WHY.** The n = 4 record 183:
+
+    183's 2-subsets: 13, 13, 13, 9, 9, 9      n=2 max is 13  -> CONTAINS IT, three ways
+    183's 3-subsets: 63, 63, 63, 55           n=3 max is 67  -> SHORT BY 4
+
+One-cube extension from the n = 3 record CANNOT reach 183, because 183 contains no
+67 — 67 needs irrational coordinates and every subset of a rational compound is
+rational. `extend67.py` confirms it empirically from the other side: 11 927
+configurations extending the two 67s, best 177, which is merely the golden
+four-cube compound. **But 13 is achieved by a rational continuum, so a rational
+record may contain it — and 183 does, three times.** Two-cube extension from n = 2
+steps over the irrational rung entirely.
+
+Containment holds two levels deep everywhere else too: 727 contains 183, 1217
+contains 393, 1895 contains 727, 2785 contains 1217. So the rule is **extend from
+the deepest level whose optimum is arithmetically compatible with the target.**
+
+**A CORRECTION: 183 IS MEASURABLE.** [Postscript 122](#p122) recorded n = 4 as
+unmeasurable because 183 contains (0,5,3,2), a half-turn at Cayley infinity. That
+was an artefact of cube ORDER, not an obstruction: only the PARAMETERISED cubes
+need finite Cayley coordinates, since the gauge cube is frozen and never inverted.
+Reordering to freeze the half-turn:
+
+    183: count 183 | 108 tight | 12 walls | ambient 9 | rank 8 | LINEALITY 1
+
+183 joins the pattern rather than breaking it — like every rational record it is
+not pinned at first order.
+
+**PRIOR ART ON GLUING, and the number worth explaining.** Gluing as a SEARCH ran
+319 141 configurations (`glue_report.md`) and reached 175 / 385 / 715 against
+records 183 / 393 / 723 — every deficit **exactly -8**, at three different levels.
+The 1895 instance shows simultaneous extension is satisfiable, so -8 is a property
+of that glue construction rather than of the idea. Explaining it is a sharper
+question than "does gluing work" and is answerable from data already on disk.
+
+<a id="p127"></a>
+## Postscript 127: shells are STABLE — they occupy open chambers, not degenerate strata — and three explanations for them are eliminated
+
+[Postscript 121](#p121) made an even region count a detector for a SHELL (a
+self-antipodal region wrapping the origin without containing it). The
+distribution was the puzzle: the octahedral 67 has 0 even faces of 728, the
+golden 67 has 148 of 2 196, and 6 of 826 census members are even.
+
+**HYPOTHESIS 1, SYMMETRY: UNTESTABLE HERE, not refuted.** "High symmetry forbids
+shells" cannot be tested on the census because **all 826 configurations have
+symmetry order 1** — even-count and odd-count alike, so there is no variation to
+correlate with. The symmetry code was validated against known answers first
+(single cube 24, two identical cubes 24, and the 393 base's documented C3 giving
+exactly 3), which is what makes the null result meaningful rather than a silent
+failure. A bug was caught by that check: counting candidate (j,P) pairs rather
+than DISTINCT rotations returned 48 for two identical cubes.
+
+**HYPOTHESIS 2, SIZE: partially supported but insufficient.** Of the 6 even
+census counts, five are k = 3 and one k = 4; none at k >= 5. Plausible mechanism —
+each added cube brings six more planes to cut a shell with. But both 67s are
+3-cube configurations, so size cannot explain the difference between them.
+
+**HYPOTHESIS 3, CODIMENSION: REFUTED, and the refutation is the result.** The
+prediction was that golden's shells hide in the narrow high-codimension faces its
+9 dependent walls create. Retaining (codimension, count) per face and re-running:
+
+    octahedral   0 even at EVERY codimension 0-5
+    golden      codim 0: 216 faces  36 even  16.7%   <- HIGHEST
+                codim 1: 648 faces  62 even   9.6%
+                codim 2: 648 faces  21 even   3.2%   <- lowest
+                codim 3: 324 faces  14 even   4.3%
+                codim 4: 216 faces  14 even   6.5%
+
+Exactly backwards. Shells favour the WIDE faces.
+
+**SO SHELLS ARE STABLE.** A codimension-0 chamber is an OPEN SET of
+configurations, and about one in six of those around the golden 67 contains a
+shell. A shell is therefore not a fine-tuned degeneracy but a robust feature with
+positive measure: perturb such a configuration and the shell survives. That makes
+it findable by generic search, which no coincidence-hunting method would suggest.
+
+**WHAT REMAINS.** The octahedral/golden difference is unexplained, with symmetry,
+size and codimension eliminated. The untested candidate is the FIELD itself --
+Q(sqrt2) against Q(sqrt5) -- which would tie shells to the irrationality thread
+rather than to geometry.
+
+**A RECORDING FAILURE, third instance this week.** The earlier run computed the
+per-face data this question needed and kept only the histogram, forcing a re-run.
+Same shape as `census_members.py` computing facet counts and storing only `wraps`,
+and as the first isolation run retaining 10 of 333 unresolved records. **Standing
+rule: when a run evaluates N objects individually, record the per-object result,
+not only the summary.** The storage is trivial beside the compute that made it.
+Files: `shells.py`, `isolation67.py` (per-face retention).
+
+<a id="p128"></a>
+## Postscript 128: irrationality does NOT force rigidity — the n=2 arc supplies the third data point that was thought not to exist
+
+[Postscript 122](#p122) noted that both 67s have walls of FULL RANK while no
+rational record does, and that the 67s are also the only irrational rung. Three
+facts about irrationality that might have been one fact — and the question looked
+unanswerable, because "a third irrational configuration" seemed not to exist.
+
+It does. **The n = 2 maximiser is a CONTINUUM** ([Postscript 44](#p44)): 13 holds
+at every angle about a body diagonal, so the arc is full of IRRATIONAL points, and
+each is an irrational MAXIMISER. Evaluated with the Q(sqrt d) port
+([Postscript 118](#p118)), Cayley point (t,t,t):
+
+    t = sqrt2 - 1           d=2   count 13   3 walls   rank 2 of 3   LINEALITY 1
+    t = 1/2 + sqrt2/4       d=2   count 13   3 walls   rank 2 of 3   LINEALITY 1
+    t = (sqrt5-1)/2 = 1/phi d=5   count 13   3 walls   rank 2 of 3   LINEALITY 1
+    t = 1/3 + sqrt5/6       d=5   count 13   3 walls   rank 2 of 3   LINEALITY 1
+
+**Irrational maximisers, in both fields, NONE at full rank. The hypothesis is
+REFUTED**, not merely unsupported.
+
+**What the pattern actually is.** The 67s are rigid because they are ISOLATED, and
+first-order rigidity is what isolation means at first order — very nearly a
+tautology. The 13s are irrational maximisers lying on a CONTINUUM, so they must
+have lineality >= 1. Irrationality was riding along as a coincidence of n = 3, and
+the correlation in [Postscript 122](#p122) was between rigidity and isolation, not
+between rigidity and arithmetic.
+
+**A blocker dissolved.** Two open questions were stalled on "only two irrational
+configurations exist, so any binary property of the pair explains any difference".
+There are now INFINITELY many available irrational maximisers, cheap to generate
+in either field, usable as controls wherever an irrational configuration is
+needed — including the shell question, where Q(sqrt2) vs Q(sqrt5) remains the last
+untested explanation and can now be tested against configurations that are not the
+67s.
+
+The lesson is the cheaper one: the missing data point existed the whole time, in a
+result the project had already proved. [Postscript 44](#p44) established the
+continuum on 2026-07-29; it took until now to notice it was also a supply of
+irrational examples. **Before concluding that data cannot exist, check what the
+existing theorems already guarantee.**
+
+<a id="p129"></a>
+## Postscript 129: shells are ORDINARY — counting well suppresses them — and the octahedral 67, not the golden, is the anomaly
+
+**THE FIELD HYPOTHESIS IS REFUTED.** 7 871 random 3-cube configurations, exact
+counts: even rate **13.20% in Q(sqrt2), 12.90% in Q(sqrt5)** — ratio 0.98 where
+the hypothesis needed much greater than 1. The two fields are indistinguishable.
+That is the fourth explanation eliminated for the shell distribution, after
+symmetry (untestable on the census), size (insufficient) and codimension
+(refuted, [Postscript 127](#p127)).
+
+**AND THE QUESTION WAS BACKWARDS.** Shells are not rare. About one random
+configuration in EIGHT has one. What is unusual is their ABSENCE among
+record-related configurations:
+
+    random 3-cube, either field          ~13%
+    all-members census (record subsets)  6 of 826 = 0.7%
+    golden 67's 2 196 faces              6.7%
+    octahedral 67's 728 faces            0%
+
+**THE DOMINANT EFFECT, MEASURED.** Shell rate falls monotonically with count:
+
+    count 20-29   1 081 configs   19.6% have a shell
+    count 30-39   4 043           13.5%
+    count 40-49     770            6.2%
+    top decile      592            1.7%
+
+Mechanism: a shell must wrap the origin WITHOUT BEING CUT, and high-count
+configurations are exactly those whose planes cut space most finely. Counting well
+and hosting a shell are in direct tension. This accounts for the census's 0.7% and
+for golden's 6.7%, which is close to what its neighbours' counts predict.
+
+**THE ANOMALY IS THE OCTAHEDRAL 67, NOT THE GOLDEN ONE.** Its faces span the same
+count range as golden's, so the trend predicts about **70 shells among 728 faces**.
+It has ZERO. Golden sits at expectation; octahedral does not.
+
+**SYMMETRY RETURNS, in a form the census could not test.** [Postscript 127](#p127)
+found symmetry untestable because all 826 census configurations have order 1 —
+no variation. The octahedral 67 has order 24 and SIX INDEPENDENT walls, so its
+faces form a simplicial 3^6 - 1 arrangement on which the group acts in orbits. An
+orbit-invariant property is all-or-nothing rather than intermediate, which is the
+signature of an exact zero. Testable by decomposing the 728 faces into orbits.
+
+**METHODOLOGICAL NOTE.** Every explanation tried was about what makes shells
+APPEAR. The measurement that worked asked what makes them DISAPPEAR, and only
+became visible once a random population was compared against the record-derived
+one. The census was never a sample of configuration space — every member is a
+subset of a record — and reading it as one is what kept the question inverted.
+Files: `shell_field.py`, `shell_field.json`.
+
+<a id="p130"></a>
+## Postscript 130: the shell detector is one-sided — TWO shells restore odd parity, and the octahedral anomaly was never measured
+
+Splitting 3 000 random 3-cube configurations by the parity of each DEPTH, not
+just of the total (count = d1 + d2 + d3, with d3 = 1 always):
+
+    odd  count, (d1,d2,d3) parities (0,0,1)   2 562   only the innermost is self-antipodal
+    even count,                     (1,0,1)     302   ONE shell, at depth 1
+    even count,                     (0,1,1)      55   ONE shell, at depth 2
+    odd  count,                     (1,1,1)       3   TWO shells -- and the count is ODD
+
+**THE DETECTOR IS ONE-SIDED.** [Postscript 121](#p121) proved count ==
+#{self-antipodal regions} (mod 2), so an EVEN count implies a shell. The converse
+— odd implies shell-free — was never proved, and those 3 configurations show it is
+FALSE: an even number of shells is invisible to parity.
+
+**WHAT THIS COSTS.** [Postscript 129](#p129) sharpened the shell question to "the
+octahedral 67 has ZERO shells where ~70 are predicted". That anomaly is NOT
+ESTABLISHED. Its 728 faces have zero EVEN counts, which means an even number of
+shells in each — zero, or two, or four. Shell-freedom was inferred from parity and
+never measured. The comparison with golden (6.7% even) is likewise a comparison of
+odd-shell-count rates, not of shell rates.
+
+**WHAT SURVIVES.** [Postscript 129](#p129)'s main findings do not depend on the
+converse: shells are ORDINARY (~13% of random configurations show odd shell
+parity), the field is refuted (13.20% vs 12.90%), and counting well suppresses
+odd-shell-parity monotonically (19.6% -> 1.7%). Each is a statement about the
+measured quantity itself.
+
+**AND SOMETHING NEW.** Shells localise by depth and favour the OUTSIDE: 302 at
+depth 1 against 55 at depth 2, roughly 5 to 1. A shell is a shallow feature, which
+fits the suppression mechanism — the deep layers are the finely cut ones.
+
+**TO MEASURE SHELLS PROPERLY** needs region-level output, not counts: the engine
+would have to report, per region, whether it equals its own antipodal image. That
+is a change to `cube_regions*.cpp`, not another statistical pass, and it would
+turn every parity result here into a direct count.
+
+**THE PATTERN, THIRD TIME TODAY.** A tool was trusted slightly past what it proves.
+The eps step, the vacuous divisor test, and now the parity detector: each was
+sound within its stated scope and each was used one inch beyond it. The check that
+catches this is cheap — ask what the tool returns for the case you believe is
+absent, before treating its silence as evidence.
+
+<a id="p131"></a>
+## Postscript 131: the "two 67 triples" family is EXHAUSTED and caps at 177 — the sharpest irrational lead at n = 4 is closed
+
+**WHERE THE CONSTRAINTS SAID TO LOOK.** A record's subsets are all high: 183's
+triples are [63,63,63,55], its pairs [13,13,13,9,9,9]. The maximum possible triple
+is 67, and 183 CANNOT contain one — 67 needs irrational coordinates and every
+subset of a rational compound is rational ([Postscript 126](#p126)). An irrational
+4-cube compound can. That is the one region a rational search structurally cannot
+reach, and the subset-spectrum constraint points straight at it.
+
+**WHY IT BECAME A SOLVE.** The 67s are ISOLATED — full rank, lineality 0
+([Postscript 122](#p122), [124](#p124)). So with two cubes fixed, the third cube
+making that triple a 67 is determined up to FINITELY MANY completions. Enumerating
+them is exact, where `extend67.py` had been sampling the same object blindly
+(11 927 random tries, best 177).
+
+**RESULT — a complete enumeration, 960 candidates, ZERO engine refusals:**
+
+    d=2 (octahedral)  576 candidates   counts {149: 384, 67: 192}
+    d=5 (golden)      384 candidates   counts {177: 96, 169: 96, 159: 96, 67: 96}
+
+The `67` entries are degenerate — the fourth cube duplicates an existing one.
+**Best over the whole family: 177, six short of 183.** The family is EXHAUSTED, not
+sampled.
+
+**A CONTROL THAT ARRIVED UNPROMPTED.** 177 is exactly the golden four-cube
+sub-compound the project already knew ([Postscript 15](#p15)). A construction
+built from congruence completions reproducing a known object, without being aimed
+at it, is evidence the enumeration is sound.
+
+**THE THREE SAMPLING CAMPAIGNS RUN ALONGSIDE, for contrast:**
+
+    irrational random, n=4, d in {2,3,5,6,7,10,13}   best 137-151
+    irrational random, n=5                            best 319   (record 393)
+    two-cube extension from 13-pairs, 3 600 configs   best 167   (both engines agree)
+    wide-perturbation climb, 32 restarts              best 183, reached 3 times
+
+**THE WIDE-CLIMB HISTOGRAM IS THE MOST USEFUL NUMBER.** *(Figures below are the
+FINAL ones; this postscript first recorded a partial 32-restart snapshot while the
+campaign was still running.)* 55 restarts, 264 794 engine calls, 365 engine
+refusals counted separately. Final peaks:
+
+    159 x1   165 x6   167 x4   169 x2   171 x8   173 x10
+    175 x10  177 x1   179 x9   183 x4
+
+    escape-chain lengths: 0 x9, 1 x18, 2 x18, 3 x9, 5 x1
+    183 reached 4 times; EXCEEDED 0 times; best 183
+
+**183 is reached by 7.3% of restarts.** The chain distribution shows the technique
+genuinely escapes basins — only 9 of 55 restarts never improved, 46 improved at
+least once, one chained five escapes — which is why plain climbing stalls where
+this does not. An independent
+reimplementation finding it three times says it is not an artefact of one lucky
+chain. But a record reached one restart in eleven means a better basin reached one
+in a hundred would have been missed by every campaign ever run here, including
+this one. The evidence that 183 is findable is also the evidence that something
+above it might not have been found.
+
+**WHAT IS NOW CLOSED, AND WHAT IS NOT.** Closed: the two-67-triple family at n = 4,
+exhaustively, at 177. Not closed: irrational n = 4 generally — random sampling
+reaches only ~150 in any field, which shows sampling cannot probe that space
+rather than that the space is empty. The next exact construction would be
+compounds carrying ONE 67 triple and optimising the fourth cube over the wall
+chambers, which is the extension-chamber machinery ([Postscript 125](#p125))
+applied against an irrational base.
+
+<a id="p132"></a>
+## Postscript 132: the 2026-08-18 campaigns sampled where they should have SOLVED — records live on measure-zero sets
+
+Asked whether the four campaigns of [Postscript 131](#p131) used wall structure.
+They did not. Grep for wall/coincidence/chamber references:
+
+    irrational_n45.py    1 (incidental)
+    wideclimb_n4.py      0
+    twocube_n4.py        0
+    sixtyseven_glue.py   0
+
+**AND THE PROJECT'S OWN BEST METHOD WAS UNUSED.** [RESULTS](RESULTS.md) records
+that THREE-WALL INTERSECTION reaches 727 at ~30x the hit rate of random menus and
+"found 727 compounds that eight prior campaigns missed" — 134 784 linear systems,
+2 733 distinct configurations, EXHAUSTED in four minutes.
+
+**THE MEASURE-THEORETIC POINT, which makes this worse than a hit-rate mistake.**
+Walls are codimension 1, so a randomly drawn configuration lies on NO WALL with
+probability 1. Records sit at THREE-WALL INTERSECTIONS — codimension 3, and the
+reason this project already knew "three walls meet in at most 8 points by Bezout,
+which is why records sit at three-wall intersections". **A sampler drawing from an
+open set cannot hit a measure-zero target.** It can only land in an adjacent
+chamber.
+
+So "irrational random search reaches only 137-151 at n = 4" measures the SAMPLER,
+not the space — knowable before the run. The one campaign that reached 183, the
+wide-perturbation climb, works because integer-quaternion climbing lands on
+RATIONAL points, which is where walls actually meet.
+
+**THE DEEPER MISS: IRRATIONALITY IS AN OUTPUT, NOT AN INPUT.** [RESULTS](RESULTS.md)
+records that edge-edge conditions factor into rational plane pairs while
+corner-on-face conditions are irreducible quadrics, so "two planes and a quadric
+give a quadratic in one parameter — rational or Q(sqrt d)". **Irrational
+configurations ARE the solutions of wall systems**; that is how the 67s arise.
+Drawing random p + q*sqrt(d) components searches a vastly larger space in the hope
+of landing on the tiny image of that construction. The right move is to SOLVE the
+wall systems and read off whichever roots are irrational.
+
+**WHAT SURVIVES FROM [Postscript 131](#p131).** The exhausted two-67-triple family
+(960 candidates, cap 177) stands — it was a construction, not a sample. The
+wide-climb histogram stands as a statement about that technique's basin structure.
+The three sampling results should be read as characterising the SAMPLER.
+
+**CORRECTION TO THIS POSTSCRIPT'S OWN RECOMMENDATION, within the hour.**
+The prescription above — "solve the wall systems and read off whichever roots
+are irrational" — is WRONG for a rational base, and the ledger already said
+why. [Postscript 49](#p49): *"The five fixed cubes are rational, so every wall
+has rational coefficients, so every three-plane intersection is rational.
+Irrational solutions CANNOT arise in this family."* `irrational_probe.py`
+measured exactly that — **0 irrational roots out of 2 451** across 400 systems —
+and it is a property of the construction, not luck.
+
+The corollary is the useful part, and it is nearly a theorem: **a cube lying on
+>= 3 independent walls against a rational base is necessarily RATIONAL, so
+irrational candidates carry AT MOST TWO coincidences.**
+
+So the construction that reaches irrational configurations is TWO walls plus a
+QUADRIC, not three walls: two rational planes leave a rational line, and a
+quadric along that line gives a quadratic in one parameter whose roots are
+rational or Q(sqrt d). [Postscript 60](#p60) records exactly this — *"every
+irrational 727 arose as a root of a quadratic on a rational line"* — and it is
+how the 67s arise too.
+
+Twice in one hour, then: a method was proposed without checking what the record
+already established about it. The first cost four campaigns; the second was
+caught before anything ran. **The check is one grep, and it belongs BEFORE the
+proposal, not after.**
+
+**THE STANDING LESSON, which this project has recorded before in other clothes:**
+solve, do not sample — and check what the repository already says is the best
+method before writing a new one. Four campaigns were launched on a premise that
+one grep of `RESULTS.md` would have corrected.
+
+<a id="p133"></a>
+## Postscript 133: 183 is a PLATEAU — the wide climb found a non-congruent second 183, identical on every invariant
+
+Asked whether the four restarts that reached 183 found the SAME 183. Only one
+configuration had been retained (see the recording failure below), but that one is
+already decisive:
+
+    canonical    1,0,0,0 ; 0,5,3,2   ; 1,-4,-1,1  ; 1,1,-1,-4
+    wide climb   1,0,0,0 ; -2,-2,5,-2; 3,11,-3,-3 ; 0,-7,4,-3
+
+**They agree on EVERY invariant computable here:**
+
+    count           183         =  183
+    by_depth        {92,66,24,1} = {92,66,24,1}
+    pair spectrum   [13,13,13,9,9,9] = same
+    triple spectrum [63,63,63,55]    = same
+    symmetry order  3           =  3
+
+Identical to third order — and the triple spectrum is precisely the invariant that
+separated the two 1217s ([Postscript 126](#p126)), so this is a strictly harder
+case than that one.
+
+**AND THEY ARE NOT CONGRUENT.** An exact test — does a rotation g exist with
+{canon(g R_i)} = {canon(S_j)}, each cube taken up to its own 24 self-symmetries —
+returns FALSE. **Validated on five controls before the verdict was believed:**
+three distinct global rotations of the canonical 183 (all True), a relabelling of
+its cubes (True), and the two 1217s already known non-congruent by triple spectrum
+(False). A test that could not distinguish these would have failed the rotation
+controls.
+
+**SO 183 IS A PLATEAU, NOT A POINT.** The structure was known at n = 6 — 727 is a
+plateau of uncountably many non-congruent compounds ([Postscript 80](#p80)) — and
+was not known at n = 4.
+
+**MEASURED, on a rerun with per-restart configurations retained (70 restarts):**
+six distinct quaternion tuples reached 183, partitioning into **exactly 2
+congruence classes** — the canonical one found 4 ways, a second found 2 ways. The
+test correctly merged different coordinate representations of the same object,
+which is a check that it is not simply declaring everything distinct. So the
+plateau has **at least two members**, counted rather than inferred.
+
+Two non-congruent maximisers is also the n = 3 situation — but for a different
+reason: the 67s sit in different FIELDS, whereas both 183s are rational.
+
+**IT ALSO REINTERPRETS THE 7.3% HIT RATE** ([Postscript 131](#p131)). The four
+restarts reaching 183 need not be re-finding one narrow basin; they may be finding
+DIFFERENT MEMBERS of a plateau, which makes the basin structure richer rather than
+luckier. Whether all four are mutually non-congruent is unmeasured.
+
+**THE RECORDING FAILURE, FOURTH INSTANCE TODAY.** The campaign evaluated four
+configurations reaching 183 and stored ONE. Had it kept them, the plateau's size
+at this sample would be known now instead of inferred from a single pair. The
+standing rule from [Postscript 127](#p127) — *when a run evaluates N objects
+individually, record the per-object result, not only the summary* — was written
+this same day and not applied to a script written after it.
+
+**WHAT THIS CHANGES ABOUT THE MAXIMALITY QUESTION.** "Is 183 maximal" was already
+the weakest link ([Postscript 131](#p131)). The better question is now the one that
+727 forced at n = 6: **how large is the 183 plateau, is it finite or uncountable
+([Postscript 80](#p80), Addendum 2,'s dichotomy), and does it have a boundary?** A plateau
+with many members is also more likely to abut something higher than an isolated
+point would be. Files: `wideclimb_n4.json`, `shells.py` (congruence machinery).
+
+<a id="p134"></a>
+## Postscript 134: three independent methods all cap at 177 for irrational n = 4
+
+Convergent ceilings, from methods with different biases:
+
+    extend67.py                    11 927 configurations          best 177
+    two-67-triple family           960 candidates, EXHAUSTED      best 177
+    irrational_n45 (7 fields)      15 663 counted, 183 refused    best 177
+
+The third campaign covered d ∈ {2,3,5,6,7,10,13}, random-from-scratch AND seeded
+from both 67s, with hill-climbing and wide perturbation on the best candidates.
+Its 177 came from d = 5 seeded at the golden 67 — and 177 is exactly the golden
+four-cube compound ([Postscript 15](#p15)).
+
+**Three methods hitting the same number is much stronger than any one of them**,
+and suggests 177 is a structural barrier for irrational 4-cube compounds near the
+67s rather than a search artefact. It is not a proof: all three sample or
+enumerate around the 67s, so they share a bias toward that neighbourhood, and
+[Postscript 132](#p132) applies — none of them SOLVES wall systems.
+
+**n = 5 for the same campaign: best 371 against the record 393**, from d = 2 seeded
+at the octahedral 67.
+
+**A REFUSAL FINDING THAT CORRECTS AN ASSUMPTION.** All 183 engine refusals were
+DEGENERATE configurations — "phantom facet label mismatch" (144), "real facet flip
+mismatch" (39) — and NOT overflow-budget rejections; component magnitudes stayed
+far below the ceiling. Elsewhere today refusals were budget rejections
+([Postscript 122](#p122)), so "refused" does not mean one thing and the reason
+must be read, not assumed.
+
+**AN OPERATIONAL LESSON, arrived at independently.** The campaign's first full run
+completed ~27 minutes of engine work and then crashed on its first hill-climb
+candidate, discarding everything, because the report was written only at the end.
+The fix was per-phase checkpointing. That is the same failure as this session's
+four instances of keeping an aggregate and dropping per-item data, in its most
+expensive form: keeping NOTHING until the end.
+
+<a id="p135"></a>
+## Postscript 135: the MAXIMAL subset spectrum is not the maximum — perfect subsets cost 6 regions
+
+Asked whether the three 177s of [Postscript 134](#p134) are the same configuration.
+They are not, and the difference is the result:
+
+    irrational campaign 177   pairs [13,13,13,9,9,4]     triples [67,59,53,53]
+    glue solve 177            pairs [13,13,13,13,13,13]  triples [67,67,67,67]
+
+**The glue 177 has the theoretically MAXIMAL subset spectrum at n = 4**: every one
+of its four triples is a 67 (the proved n=3 maximum) and every one of its six
+pairs is a 13 (the proved n=2 maximum). Nothing can do better at either level.
+
+**It counts 177. The record 183 counts six MORE with a strictly worse spectrum** —
+triples [63,63,63,55], pairs [13,13,13,9,9,9], not a single 67 among them.
+
+**SO THE SUBSET SPECTRUM IS A CERTIFICATE, NOT A COMPASS.** This refutes the
+reasoning that chose the search region in [Postscript 131](#p131): the argument
+was that since a record's subsets are all high, one should look where the subsets
+are HIGHEST. The configuration maximising every subset simultaneously exists, is
+exhibited above, and LOSES by 6.
+
+Same shape as [METHODS](METHODS.md) section 6 — *coincidence count is a
+certificate, not a compass* — and as the refuted "more coincidences imply a higher
+count". The subset spectrum now joins that list.
+
+**IT ALSO EXPLAINS [Postscript 131](#p131)'s CEILING STRUCTURALLY.** The
+two-67-triple family caps at 177 not because the search was inadequate but because
+**stacking 67s is the wrong move**: each 67 is a locally optimal 3-cube packing,
+and four of them packed together conflict rather than compose. The record instead
+trades away subset quality — three 63s and a 55 — for total count, exactly the
+"grow the shallow layers" trade [Postscript 15](#p15) recorded at both n = 4 and
+n = 6.
+
+**WHAT THIS COSTS THE SEARCH PROGRAMME.** [Postscript 132](#p132) already found the
+campaigns sampled where they should have solved. This is worse: the region they
+were AIMED at is provably suboptimal. The subset spectrum can still PRUNE (a
+configuration whose subsets are poor is unlikely to be a record) but it cannot
+POINT — and it was used to point.
+
+<a id="p136"></a>
+## Postscript 136: the two 183s lie on 88 COMMON walls, cutting a 1-dimensional locus through both
+
+[Postscript 133](#p133) found 183 is a plateau with two non-congruent isolated
+members. Asked whether isolated points share walls:
+
+    183 class 1   108 non-degenerate conditions, 108 distinct labels
+    183 class 2   108 non-degenerate conditions, 108 distinct labels
+    SHARED         88  (81.5%), spread over all four frames (36/16/16/20),
+                       every one of them a PAIR condition, none singleton
+
+**A SHARED LABEL IS A SHARED HYPERSURFACE.** The label (frame, group) names ONE
+function on moduli space — min ℓ₁ over those normals = 1 — so the same label being
+tight at two points means both points satisfy the SAME equation. The two 183s
+therefore lie on 88 common walls, not merely on walls of the same kind.
+
+**AND THOSE 88 CUT A CURVE.** Their gradients have rank 8 of 9 at each point, so
+the common locus is **1-dimensional at both**. Two isolated, non-congruent
+maximisers sitting on the intersection of the same 88 quadrics, and that
+intersection is a curve. The count is NOT constant along it — both points are
+isolated, so it drops immediately — making this a curve in the WALL SYSTEM rather
+than a constant-count locus.
+
+**THE SINGLETON ASYMMETRY.** Every shared condition is a pair condition; not one
+singleton is shared. A singleton tight condition is ‖n‖₁ = 1 for a single face
+normal, i.e. a face direction of one cube lying along an axis of another — cube
+ALIGNMENT. So the two 183s agree on their pairwise structure and differ entirely
+in how their cubes align.
+
+**A TEST OF MINE THAT WAS WRONG, recorded because it looked reasonable.** I also
+compared the shared conditions' GRADIENT DIRECTIONS at the two points, expecting
+agreement to mean "same hypersurface": 6 of 88 agreed. That test cannot
+distinguish anything — **walls are quadrics** ([Postscript 95](#p95),
+[104](#p104)), and a quadric has different tangent planes at different points, so
+disagreement is forced by the geometry and carries no information. The label
+sharing had already answered the question; the gradient comparison was both
+unnecessary and unable to fail informatively. Third time this session a test was
+run whose outcome could not have discriminated ([FAILURE_MODES 16a](FAILURE_MODES.md)).
+
+**WHAT THIS OPENS.** If a plateau's members lie on a common wall system, that
+system is where the rest of the plateau lives. The 88 shared conditions define a
+curve; enumerating what else sits on it is a SOLVE, and would turn "at least two
+members" into a count. Files: `shared_walls.py`, `shared_locus.py`.
+
+<a id="p137"></a>
+## Postscript 137: the octahedral 67's walls are CONTAINED in the golden's — and the 12 extra ones single out an axis pair
+
+Wall membership compared across configurations by combinatorial LABEL
+([Postscript 136](#p136)):
+
+                    67 oct   67 gold   183 c1   183 c2   393      727
+    67 octahedral   60/60    60/60     48/60    48/60    36/60    36/60
+    67 golden       60/72    72/72     60/72    60/72    36/72    36/72
+    183 class 1     48/108   60/108    108/108  88/108   56/108   56/108
+    183 class 2     48/108   60/108    88/108   108/108  48/108   48/108
+    393             36/168   36/168    56/168   48/168   168/168  168/168
+    727             36/216   36/216    56/216   48/216   168/216  216/216
+
+**THE OCTAHEDRAL 67'S ENTIRE WALL SET LIES INSIDE THE GOLDEN'S** — 60 of 60,
+`octahedral \ golden` is EMPTY, with 12 left over. Two maximisers in different
+fields, Q(sqrt2) and Q(sqrt5), and one satisfies every coincidence condition the
+other does.
+
+**393's 168 walls are all among 727's 216**, confirming the lifting property
+exactly, with 48 new walls contributed by the sixth cube.
+
+**THE 12 EXTRA WALLS ARE HIGHLY STRUCTURED**, not scattered:
+
+    all 12 are PAIR conditions -- no singletons
+    4 per frame (0,1,2) and 4 per cube-pair (0,1),(0,2),(1,2) -- perfectly even
+    EVERY ONE involves normals n1 and n2 only, NEVER n0
+    signs in matched pairs: "same signs" or "opposite signs" per (frame,cube)
+
+So the difference is exactly **2 extra conditions per (frame, other-cube) pair,
+all on a DISTINGUISHED PAIR OF AXES** — octahedral has 10 per pair, golden 12.
+This is the first structural quantity this session to separate the two
+maximisers; symmetry, size, codimension and field all failed to
+([Postscript 127](#p127), [129](#p129)).
+
+**NEITHER 67 HAS ANY SINGLETON CONDITION.** A singleton is a face direction of one
+cube lying along an axis of another — cube ALIGNMENT. Both 67s have none, while
+the two 183s differ from each other precisely in their singletons
+([Postscript 136](#p136)). Alignment coincidences are absent at n = 3 and
+discriminating at n = 4.
+
+**A LIMIT OF THE METHOD, stated because the matrix invites over-reading.** Labels
+are INDEX-DEPENDENT. 393 and 727 share 168/168 because 727 is literally 393 plus a
+cube in the same order; 183 shares only 56/108 with 393 despite the tower nesting,
+because the 183 measured is a different representative with its own cube numbering
+rather than the 4-subset sitting inside 393. Off-diagonal entries between
+differently indexed configurations therefore UNDERSTATE sharing. The index-invariant
+version maximises shared labels over relabellings and **has now been computed**
+(`wall_embed.py`), confirming the artifact:
+
+    183 class 1 -> 393      100/108  (93%)  under cube map (4,3,1,0)
+    183 class 2 -> 393      100/108  (93%)  under cube map (4,0,2,1)
+    183 class 1 -> class 2   92/108         (index-aligned reading gave 88)
+
+The naive 56/108 and 48/108 were numbering artifacts entirely. **The tower's
+nesting IS reflected in wall systems, not only in counts** — both 183s embed into
+393 at 93%, and notably by DIFFERENT cube correspondences, so they relate to 393
+equally well through different routes. The two 183s share 92 of 108 walls once
+relabelling is allowed. A remaining limit: per-cube AXIS relabelling (each cube's
+24 self-symmetries) is still not quotiented, so even 93% is a lower bound. The
+67 comparison is the trustworthy off-diagonal: both are 3-cube with cube 0 the
+identity, so their label spaces coincide.
+
+<a id="p138"></a>
+## Postscript 138: two walls plus a quadric — the RIGHT construction, validated — and irrational n = 4 tops out at 173
+
+[Postscript 132](#p132) established that irrationality is an OUTPUT of wall
+solving, not an input to sample over: two rational planes leave a rational line,
+and a quadric along it gives a quadratic whose roots are rational or in Q(sqrt d).
+That is how the 67s and every irrational 727 arose. It had never been run at
+n = 4 or n = 5.
+
+**IT IS VALIDATED.** The control reproduced the known 183 from planes (cubes 0,1)
+plus a quadric (cube 0, #13), root rational, engine total 183. And the rational
+half of the sweep REACHES BOTH RECORDS — best 183 at n = 4, best 393 at n = 5 —
+so the construction demonstrably finds records rather than merely producing
+candidates.
+
+**IT PRODUCES IRRATIONAL CONFIGURATIONS AT SCALE**, which is what sampling could
+not do:
+
+    n=4  357 840 (line,quadric) systems -> 259 140 rational roots, 92 868 IRRATIONAL
+         orbit-deduped: 898 rational candidates, 27 716 irrational across 249 fields
+    n=5  875 520 systems -> 449 949 rational, 245 778 IRRATIONAL
+         orbit-deduped: 1 501 rational, 89 076 irrational across 993 fields
+
+Against this, the 2026-08-18 sampling campaigns drew 15 663 random configurations
+across 7 hand-picked fields and reached 137-177. The construction generates
+irrational candidates in 993 distinct fields without any field being chosen.
+
+**AND THE IRRATIONAL CANDIDATES LOSE, AT BOTH LEVELS.** Final figures:
+
+    n=4  control PASS | rational best 183 (898 cands, 0 refusals)
+                      | IRRATIONAL best 173 at d=7      (27 716 cands, 249 fields)
+    n=5  control PASS | rational best 393 (1 501 cands, 0 refusals)
+                      | IRRATIONAL best 377 at d=2199   (89 076 cands, 993 fields)
+
+Gaps of 10 and 16. When irrational configurations are constructed CORRECTLY, as
+outputs of the wall system rather than drawn from a distribution, they still fall
+short of the rational record at both levels.
+
+The n = 5 best sits in Q(sqrt2199) — a field no one would think to sample. That is
+the construction doing what sampling structurally cannot: **the field is an OUTPUT
+of the discriminant, not an input.** 993 distinct fields arose at n = 5 without a
+single one being chosen.
+
+**This is much stronger evidence than the sampling campaigns**, because it is the
+method that can actually reach the irrational stratum. **But the scope is one
+RATIONAL BASE PER TARGET** — the 183 record's first three cubes and the 393
+record's first four — so it is a negative result for those two bases and not for
+irrational n = 4 / n = 5 in general. Other rational bases are untouched, and the
+quadric catalogue is the enumerated one.
+
+The winning irrational configurations, for the record:
+
+    n=4, d=7      [12, 65+35√7, 11-7√7, 12]     on base 1,0,0,0;0,5,3,2;1,-4,-1,1
+    n=5, d=2199   [165, -171-2√2199, 15, 105]   on base 4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1
+
+**RESTARTABILITY, VINDICATED.** The run was killed once mid-sweep by a harness
+background-task limit and resumed from its JSONL checkpoint with ZERO
+recomputation — 28 614 and 90 577 per-candidate result lines retained. This is the
+practice this session learned expensively three times over (a 27-minute run lost to
+a crash, four campaigns keeping aggregates and dropping per-item data) finally
+applied before it was needed rather than after.
+
+**A THIRD 183 THAT ISN'T.** The rational sweep returned 183 at
+`1,0,0,0;0,5,3,2;1,-4,-1,1;5,-5,-1,5` — a different fourth cube from the canonical
+`1,1,-1,-4`. The congruence test says CONGRUENT to class 1: the same configuration
+in different coordinates, not a new plateau member. The plateau stands at 2 known
+classes ([Postscript 133](#p133)), and the test correctly identified an unfamiliar
+coordinate representation, which is a further control on it.
+
+<a id="p139"></a>
+## Postscript 139: wall structure IS a compass — but a coarse one that saturates before the record
+
+Two candidate compasses are refuted: "more coincidences implies a higher count"
+(in the REFUTED table) and the SUBSET SPECTRUM, which is worse than useless as a
+pointer since the configuration with the maximal possible spectrum at n = 4 counts
+177, six BELOW the record ([Postscript 135](#p135)). The wall system was what
+remained.
+
+Tested on the 36 distinct configurations the wide-perturbation campaign retained
+at peaks >= 175, measuring each one's tight wall labels and its index-invariant
+overlap with the canonical 183's wall set (maximised over cube relabellings, since
+labels are index-dependent — [Postscript 137](#p137)):
+
+    peak | configs | mean wall labels | mean overlap with the 183 wall set
+     175 |   17    |      96.2        |   86.2  (79.8%)
+     177 |    2    |      96.0        |   84.0  (77.8%)
+     179 |   11    |     106.9        |   95.6  (88.6%)
+     183 |    6    |     108.0        |   95.3  (88.3%)
+
+**IT CORRELATES, WHICH THE OTHER TWO DID NOT.** 175/177 separate cleanly from
+179/183 — 96 labels against 107. A configuration low in wall count is not a record.
+
+**AND IT SATURATES.** 179 and 183 are indistinguishable by either measure: 106.9
+vs 108.0 labels, 95.6 vs 95.3 overlap. **The wall system cannot tell the
+near-record from the record**, which is exactly where a search needs it.
+
+So wall structure is a NECESSARY condition that plateaus around 108 labels at
+n = 4, not a sufficient one. It narrows the field and then goes flat. Useful as a
+FILTER — discard candidates below ~100 labels — and useless as a final
+discriminator, which is the same shape as [METHODS](METHODS.md) section 6's
+"certificate, not a compass", refined: a coarse compass that stops pointing near
+the target.
+
+**LIMITS.** 36 configurations, with only 2 at peak 177, all from ONE technique
+(wide-perturbation climbing) on ONE record's basin structure. The overlap is
+measured against the canonical 183 specifically, so it partly measures proximity
+to that configuration rather than record-ness in general. Whether the saturation
+value 108 is the n = 4 maximum is unmeasured.

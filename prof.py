@@ -1,7 +1,9 @@
 import sys, cProfile, pstats, io, signal
-sys.path.insert(0,'/Users/dmi/cube-compounds')
+sys.path.insert(0,HERE)
 import sympy as sp, dimension as D
 from subset_topology import RECORDS
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 Q = RECORDS[7]
 cfg = [Q[i] for i in (0,2,4,6)]          # the n=7 k=4 class shard 3 is on
 D.QZERO[:] = [cfg[0]]

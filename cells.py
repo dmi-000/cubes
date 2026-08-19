@@ -35,8 +35,10 @@ witnesses of Postscript 106.
 import itertools
 import sys
 from fractions import Fraction as F
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+sys.path.insert(0, HERE)
 
 
 # ---------------------------------------------------------------- exact solver

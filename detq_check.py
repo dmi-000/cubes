@@ -28,8 +28,10 @@ Run: python3 detq_check.py   (symbolic identity, then verification on the 393 ba
 import sys
 from fractions import Fraction as F
 import sympy as sp
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+sys.path.insert(0, HERE)
 from solve_ends import catalogue, BASE
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
 x, y, z = sp.symbols('x y z')
 M = sp.Matrix([[1+x**2-y**2-z**2, 2*(x*y-z),        2*(x*z+y)],

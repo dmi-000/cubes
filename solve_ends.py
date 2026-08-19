@@ -14,6 +14,8 @@ from fractions import Fraction as F
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from base_points import mat, planes, solve3
 import wall_params as W
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
 def catalogue(cubes, bound=4):
     """(real triple points, crossing lines) for an arbitrary base."""
@@ -71,8 +73,8 @@ def q_of(c):
 def count(cfg):
     s = ";".join(",".join(map(str, q)) for q in cfg)
     m = max(abs(v) for q in cfg for v in q)
-    cmd = (["/Users/dmi/cube-compounds/cube_regions_n", "--quats", s] if m <= 512
-           else ["/Users/dmi/cube-compounds/cube_regions_q2w", "--d", "0", "--quats", s])
+    cmd = ([HERE + "/cube_regions_n", "--quats", s] if m <= 512
+           else [HERE + "/cube_regions_q2w", "--d", "0", "--quats", s])
     try:
         return json.loads(subprocess.run(cmd, capture_output=True, text=True).stdout)["bounded"]
     except Exception:

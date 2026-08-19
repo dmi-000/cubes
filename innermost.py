@@ -37,10 +37,12 @@ import random
 import sys
 from fractions import Fraction as F
 
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+sys.path.insert(0, HERE)
 from step_a2 import normals
 from step_a3 import components
 from step_b import singleton_comp, UF
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
 SQUARE = [(F(-1), F(-1)), (F(1), F(-1)), (F(1), F(1)), (F(-1), F(1))]
 

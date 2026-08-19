@@ -7,16 +7,18 @@ verifying every direction it returns.  Writes incrementally; conditions come fro
 the shared cache.   python3 census_variety.py <shard> <nshards> [seconds]
 """
 import json, sys, time, glob
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+sys.path.insert(0, HERE)
 import sympy as sp, dimension as D
 from fractions import Fraction as F
 from subset_topology import classes
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 BASE=[(4,1,1,-1),(3,3,7,3),(5,-1,-5,-5),(2,1,1,1),(1,1,1,1)]
 R={6:BASE+[(7,14,1,-5)]}
 R[7]=R[6]+[(4,-3,-4,-4)]; R[8]=R[7]+[(24,-24,24,-61)]; R[9]=R[8]+[(56,56,55,56)]
 SH=int(sys.argv[1]); NS=int(sys.argv[2]); BUD=float(sys.argv[3]) if len(sys.argv)>3 else 200000
-OUT='/Users/dmi/cube-compounds/census_variety4_%d.json'%SH
-LOG=open('/Users/dmi/cube-compounds/census_variety4_%d.log'%SH,'w')
+OUT=HERE + '/census_variety4_%d.json'%SH
+LOG=open(HERE + '/census_variety4_%d.log'%SH,'w')
 T0=time.time()
 def log(m):
     LOG.write('[%7.1fs] %s\n'%(time.time()-T0,m)); LOG.flush()

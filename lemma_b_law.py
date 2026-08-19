@@ -31,8 +31,10 @@ verification of consequences that were NOT used in the fit.
 Run: python3 lemma_b_law.py
 """
 import itertools, json, math, random, subprocess
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
+ENG = HERE + "/cube_regions_n"
 MEASURED = {(13,13):16,(13,9):14,(13,5):12,(13,4):12,(9,9):12,
             (9,5):10,(9,4):10,(5,5):8,(5,4):8,(4,4):8}
 

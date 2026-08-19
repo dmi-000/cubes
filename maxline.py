@@ -14,9 +14,11 @@ from fractions import Fraction as F
 from math import gcd
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import incidence2 as I, wall_params as W
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = HERE + "/cube_regions_n"
+ENGW = HERE + "/cube_regions_q2w"
 BASE = [(4,1,1,-1),(3,3,7,3),(5,-1,-5,-5),(2,1,1,1),(1,1,1,1)]
 
 def q_of(c):

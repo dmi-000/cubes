@@ -19,6 +19,7 @@ Prerequisites, both of which must have passed:
     python3 dimension_gate.py 2  (the port, against the rational path)
 """
 import json, os, sys, time
+import provenance
 from fractions import Fraction as F
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -76,6 +77,10 @@ def main():
         out.append(r)
         json.dump(out, open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                          'dimension67.json'), 'w'), indent=1)
+
+    provenance.stamp(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                  'dimension67.json'),
+                     note='first-order wall data for both 67s over Q(sqrt d)')
     print('=' * 70)
     for r in out:
         if 'ABORT' in r:

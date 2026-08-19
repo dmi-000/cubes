@@ -28,16 +28,18 @@ import sys
 import time
 from fractions import Fraction as F
 
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+sys.path.insert(0, HERE)
 from exact_chambers import decompose
 from solve_ends import catalogue, BASE
 import wall_params as W
 from rulings import build_w4_wall, rulings_of, normalize_dir
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
 A0 = [F(19, 3), F(-7), F(-11)]
 D = [F(1), F(-3), F(-6)]
 TERMINUS = F(19, 6)
-LOG = open('/Users/dmi/cube-compounds/rulings3.log', 'w')
+LOG = open(HERE + '/rulings3.log', 'w')
 T0 = time.time()
 
 
@@ -155,7 +157,7 @@ def main():
             if r:
                 r.update(kind=kind, s=str(s), m_own=k, is_ruling=False)
                 out.append(r)
-        json.dump(out, open('/Users/dmi/cube-compounds/rulings3.json', 'w'), indent=1)
+        json.dump(out, open(HERE + '/rulings3.json', 'w'), indent=1)
 
     log('=== SUMMARY: longest constant run as a fraction of chambers ===')
     for grp in (True, False):
@@ -173,7 +175,7 @@ def main():
                 log('    %-9s %-9s n=%-3d mean=%.3f'
                     % (kind, 'ruling' if grp else 'control', len(sub),
                        sum(r['fraction'] for r in sub) / len(sub)))
-    json.dump(out, open('/Users/dmi/cube-compounds/rulings3.json', 'w'), indent=1)
+    json.dump(out, open(HERE + '/rulings3.json', 'w'), indent=1)
     log('done, %d measurements' % len(out))
 
 

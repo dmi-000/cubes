@@ -14,9 +14,11 @@ from math import gcd
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
 from tight_set import quantities
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = HERE + "/cube_regions_n"
+ENGW = HERE + "/cube_regions_q2w"
 
 def qmul(p, q):
     w,x,y,z = p; e,f,g,h = q

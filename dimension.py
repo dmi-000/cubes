@@ -78,20 +78,23 @@ against it, not only the final output.
     python3 dimension.py <case>      cases: n2, n2edge, all
 """
 import itertools
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 import json
 import subprocess
+import time
 import sys
 from fractions import Fraction as F
 
 import sympy as sp
 
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+sys.path.insert(0, HERE)
 from solve_ends import q_of
 from qfield import (Q as QF, to_sp as qf_to_sp, from_sp as qf_from_sp,
                     clear_denoms as qf_clear_denoms, rot as qf_rot)
 
-ENG = '/Users/dmi/cube-compounds/cube_regions_n'
-ENGW = '/Users/dmi/cube-compounds/cube_regions_q2w'
+ENG = HERE + '/cube_regions_n'
+ENGW = HERE + '/cube_regions_q2w'
 QZERO = []   # cube 0's frozen quaternion, set per case
 BUDGET = [0]  # engine inputs rejected by the overflow budget -- reported, not hidden
 
@@ -634,7 +637,7 @@ def second_order_alphas(good, keep_idx, point, n, v0, v1, q0=None):
 
 
 
-CACHE = '/Users/dmi/cube-compounds/dimension_cache'
+CACHE = HERE + '/dimension_cache'
 
 
 def _cache_key(point, n, q0):
@@ -763,7 +766,8 @@ def second_order_variety(good, keep_idx, point, n, ns, q0=None):
         if e != 0:
             polys.append(e)
     if not polys:
-        return ('nonempty', list(ns))          # nothing constrains second order
+        return ('nonempty', list(ns))
+    import time          # nothing constrains second order
     polys = list(dict.fromkeys(polys))
     G = sp.groebner(polys, *ts, order='grevlex')
     # projective variety empty  <=>  some power of every variable is in the ideal
@@ -973,7 +977,59 @@ def variety_fast(good, keep_idx, point, n, ns, q0=None):
 
 
 
-def variety_incremental(good, keep_idx, point, n, ns, q0=None, seed=None):
+_BUDGET = object()
+
+
+def _budget_worker(q, eqs_s, free_s):
+    """Module-level so it can be PICKLED: macOS defaults to the spawn start
+    method, and a nested function fails with PicklingError at p.start()."""
+    try:
+        import sympy as _sp
+        e = [_sp.sympify(x) for x in eqs_s]
+        f = [_sp.Symbol(x) for x in free_s]
+        q.put([{str(k): str(v) for k, v in so.items()}
+               for so in _sp.solve(e, *f, dict=True)])
+    except Exception:
+        q.put([])
+
+
+def _solve_with_budget(eqs, free, seconds):
+    """sp.solve in a subprocess with a wall-clock cap.
+
+    Returns _BUDGET on timeout -- a distinct value from [], because "no solutions"
+    and "did not finish" are different facts and collapsing them loses the one
+    that matters.  A subprocess is used because sympy does not check signals
+    reliably inside its accelerated paths, so SIGALRM cannot be trusted to
+    interrupt it.
+    """
+    import multiprocessing as mp
+    # FORK, NOT SPAWN.  Python 3.14 defaults to spawn on macOS, and spawn
+    # re-imports the parent's __main__ module in the child -- so a caller script
+    # without an `if __name__ == '__main__'` guard RE-RUNS ITSELF, calls this
+    # again, and spawns recursively.  Observed 2026-08-18 on diag_stuck.py.
+    # Fixing it in the caller would leave the trap set for the next one; fork
+    # does not touch __main__ at all, so the helper is safe for ANY caller.
+    try:
+        ctx = mp.get_context('fork')
+    except ValueError:                      # platform without fork
+        ctx = mp.get_context('spawn')
+    q = ctx.Queue()
+    p = ctx.Process(target=_budget_worker,
+                    args=(q, [str(x) for x in eqs], [str(x) for x in free]))
+    p.start()
+    p.join(seconds)
+    if p.is_alive():
+        p.terminate(); p.join()
+        return _BUDGET
+    try:
+        raw = q.get_nowait()
+    except Exception:
+        return []
+    return [{sp.Symbol(k): sp.sympify(v) for k, v in so.items()} for so in raw]
+
+
+def variety_incremental(good, keep_idx, point, n, ns, q0=None, seed=None,
+                        chart_budget=None, progress=True):
     """Common zeros on P(null(J)) for ANY lineality, without Groebner.
 
     Buchberger over all 192 condition polynomials did not finish in 2 hours, and
@@ -1013,12 +1069,41 @@ def variety_incremental(good, keep_idx, point, n, ns, q0=None, seed=None):
         return ('nonempty', list(ns))
     print('      %d polynomials built (seed sized per chart)' % len(polys), flush=True)
     found = []
+    # PER-CHART PROGRESS AND BUDGET.  Two n=9 classes ran 10+ HOURS with no
+    # output at all, and a wedged process is indistinguishable from a working one
+    # when neither prints -- that indistinguishability, not the runtime, is the
+    # defect.  The cost is concentrated in sp.solve on d-1 coupled polynomials in
+    # d-1 unknowns (7x7 at lineality 8), which is tractable for most classes and
+    # occasionally explodes.  A chart that exceeds its budget is reported
+    # UNEVALUATED, never as "no solutions": scoring a timeout as EMPTY would be
+    # the unevaluable-as-negative-result trap in its most expensive form.
+    timed_out = []
     for chart in range(d):
+        _t0 = time.time()
+        if progress:
+            print('      chart %d/%d (%d unknowns)' % (chart + 1, d, d - 1),
+                  flush=True)
         free = [u for i, u in enumerate(us) if i != chart]
         ps = [q for q in (sp.expand(p.subs({us[chart]: 1})) for p in polys) if q != 0]
         if not ps:
             # every polynomial vanishes identically in this chart: nothing
             # constrains second order here, so the chart's directions all survive.
+            found.append(list(ns[chart]))
+            continue
+        # THE CHART ORIGIN IS A SOLUTION WHENEVER NO POLYNOMIAL HAS A CONSTANT
+        # TERM, and that is cheap to test by evaluation.  The existing fast path
+        # above catches only IDENTICALLY ZERO polynomials; a nonzero polynomial
+        # with no constant term is a different case and fell through to the
+        # 7-unknown sp.solve -- which ran 10+ HOURS on n=9 k=5 (2,3,5,7,8) while
+        # ns[chart] itself satisfied all 252 conditions exactly (verified 2026-08-18
+        # by direct evaluation: 0 of 252 nonzero).  This is a SPEED fix, not a
+        # correctness one: sp.solve does find the origin among its solutions when
+        # it terminates, so completed classes are unaffected.
+        if all(sp.expand(q.subs({u: 0 for u in free})) == 0 for q in ps):
+            if progress:
+                print('      chart %d: ORIGIN SOLVES ALL %d polynomials -- '
+                      'ns[%d] is a candidate, no solve needed'
+                      % (chart + 1, len(ps), chart), flush=True)
             found.append(list(ns[chart]))
             continue
         if not free:
@@ -1035,10 +1120,22 @@ def variety_incremental(good, keep_idx, point, n, ns, q0=None, seed=None):
         # this system, the most constraining.
         k_seed = seed if seed is not None else max(1, len(free))
         ps_sorted = sorted(ps, key=lambda q: sp.Poly(q, *free).total_degree())
-        try:
-            sols = sp.solve(ps_sorted[:k_seed], *free, dict=True)
-        except Exception:
-            continue
+        if chart_budget is not None:
+            sols = _solve_with_budget(ps_sorted[:k_seed], free, chart_budget)
+            if sols is _BUDGET:
+                timed_out.append(chart)
+                if progress:
+                    print('      chart %d TIMED OUT after %ss -- UNEVALUATED, '
+                          'not empty' % (chart + 1, chart_budget), flush=True)
+                continue
+        else:
+            try:
+                sols = sp.solve(ps_sorted[:k_seed], *free, dict=True)
+            except Exception:
+                continue
+        if progress:
+            print('      chart %d: %d seed solutions in %.0fs'
+                  % (chart + 1, len(sols), time.time() - _t0), flush=True)
         for so in sols:
             # A variable ABSENT from sp.solve's dict is UNCONSTRAINED, i.e. free --
             # not a failed solve.  Reading it as None and skipping discarded the
@@ -1325,7 +1422,7 @@ def main():
                 continue
             QZERO[:] = [quats[0]]
             out.append(deltas_and_dimension(pt, len(quats), k, q0=quats[0]))
-    json.dump(out, open('/Users/dmi/cube-compounds/dimension_%s.json' % which, 'w'),
+    json.dump(out, open(HERE + '/dimension_%s.json' % which, 'w'),
               indent=1)
 
 

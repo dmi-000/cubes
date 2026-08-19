@@ -431,3 +431,87 @@ the failure is in reading your own output charitably instead of adversarially.
 in its detail. If a field was designed to carry a caveat, read that field first,
 before the verdict — and quote it verbatim rather than summarising it, since
 summarising is exactly where "on evaluated faces" was lost.
+
+## 16. A refusal caused by the REPRESENTATIVE, misread as a limit of the tool
+
+When a computation is refused — overflow budget, precision limit, timeout — the
+reflex is to reach for a bigger instrument. Ask first whether the INPUT had to be
+that expensive.
+
+Cost of learning it, 2026-08-18. Enumerating the 24 local chambers around the
+727 record's sixth cube, **10 of 24 came back unevaluable**: the engine rejected
+them for exceeding its joint overflow budget (component magnitude up to 13 528
+against a limit near 512). The obvious reading was that the neighbourhood needed
+a wider engine, and the result was written up as 42% unmeasurable.
+
+The split by witness height gave it away — no overlap at all:
+
+    evaluated   (14)   max |component|  1 … 178
+    UNEVALUABLE (10)   max |component|  2 865 … 13 528
+
+A chamber is a CONE, represented by ANY interior point. Fourier–Motzkin's
+back-substitution took the midpoint of each bound pair, and midpoints of
+rationals with unrelated denominators compound through the recursion. Replacing
+the midpoint with the SIMPLEST RATIONAL in the interval (continued-fraction
+descent) dropped the maximum height to 178 and **all 24 chambers evaluated, 0
+unevaluable**. The counts confirmed the partial result rather than revising it —
+{715: 4, 711: 10} became {715: 8, 711: 16}, each value exactly doubled as the
+antipodal partners filled in.
+
+The geometry was never the obstacle; the representative was. Same family as
+[mode 14](#14-agreement-between-samples-certifies-a-shared-cell-not-a-correct-one)
+and the ε-step problem: in both, an arbitrary choice inside the method was
+mistaken for a property of the object.
+
+**Standing check.** Whenever an object is defined only up to an equivalence — a
+cone's interior point, a direction's scale, a class representative, a basis — the
+cost of the representative is a FREE CHOICE. A refusal traceable to that cost
+bounds the choice, not the question. Before widening a tool, measure the input's
+height and ask whether a cheaper representative exists.
+
+### 16a. Addendum, same day: mode 2 reproduced within hours of writing mode 16
+
+Testing whether the octahedral 67's face counts respect its order-24 symmetry, the
+check written was "is every count multiplicity a SUM OF DIVISORS of 24?" It passed
+on both 67s, at every codimension, on every count — **because 1 divides 24, so
+every positive integer qualifies.** A 100% pass rate on a predicate with no
+discriminating power.
+
+The opposite check is no better: not one multiplicity is divisible by 24, which
+looks damning until 728 = 3^6 - 1 = 24*30 + 8 is noticed. A group of order 24
+acting on 728 objects MUST have small orbits, so non-divisibility is forced by
+arithmetic and carries no information either.
+
+**Both directions of the cheap test are worthless, and the expensive one is
+required**: compute how each symmetry permutes the walls, decompose the faces into
+genuine orbits, and check whether the count is constant on each.
+
+The lesson is not new — it is [mode 2](#2-a-gate-that-cannot-fail), written up in
+this same file. Writing a failure mode down does not immunise against it. Before
+believing a pass, ask what input would have produced a FAIL; if none exists, the
+test is decoration.
+
+## 17. A delegated agent that parks on its own background job
+
+Three agents launched the same afternoon (2026-08-18) each returned, as their
+FINAL ANSWER, a sentence of the form "waiting for the calibration run to complete
+before proceeding". None reported a number. Each had written a correct, gated
+script and then backgrounded it, set up a monitor, and stopped.
+
+The specs said "budget roughly 40 minutes", which was read as permission to set up
+long-running infrastructure rather than as an instruction to finish. One agent ran
+its own campaign for 90 seconds against a specified 40 and called that a
+calibration.
+
+This is [mode 12](#12-delegation-specific-premature-parking) with a new trigger:
+not stopping early on difficulty, but stopping early on ITS OWN asynchrony. The
+agent's work was fine; the handoff was empty.
+
+**Fix, in the spec:** *run it to completion in the FOREGROUND and report the
+numbers. Do not background the work and wait for it.* Say what the deliverable is
+in the reply -- "report back the histogram and the best count" -- so a status
+sentence cannot satisfy it.
+
+**Recovery, when it happens:** the scripts are usually correct and already
+gate-passed. Running them yourself is cheaper than resuming the agent, which
+re-derives context to reach the same place.

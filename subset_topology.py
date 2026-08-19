@@ -36,19 +36,21 @@ import sys
 import time
 from fractions import Fraction as F
 
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+sys.path.insert(0, HERE)
 from exact_chambers import decompose
 from solve_ends import q_of
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
-ENG = '/Users/dmi/cube-compounds/cube_regions_n'
+ENG = HERE + '/cube_regions_n'
 BASE = [(4, 1, 1, -1), (3, 3, 7, 3), (5, -1, -5, -5), (2, 1, 1, 1), (1, 1, 1, 1)]
 RECORDS = {6: BASE + [(7, 14, 1, -5)],
            7: BASE + [(7, 14, 1, -5), (4, -3, -4, -4)]}
 DIRS = [(1, 0, 0), (0, 1, 0), (0, 0, 1), (1, 1, 1), (1, -3, -6), (1, 1, -4), (1, 1, 0)]
 
 T0 = time.time()
-LOG = open('/Users/dmi/cube-compounds/subset_topology.log', 'w')
-OUT = '/Users/dmi/cube-compounds/subset_topology.json'
+LOG = open(HERE + '/subset_topology.log', 'w')
+OUT = HERE + '/subset_topology.json'
 
 
 def log(m):

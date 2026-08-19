@@ -694,6 +694,32 @@ from the validated engine stays re-runnable. Gate: `eps_gate.py`, whose decisive
 control is that scaling a direction by 97 and by 1/1000 must not change the
 count. No finite-eps implementation can pass that.
 
+## 15. Choose the CHEAPEST valid representative, not the obvious one
+
+An object defined up to an equivalence has no canonical representative, so the
+one you pick is a free variable — and picking badly can cost you the measurement
+outright.
+
+Concretely, for Fourier-Motzkin witnesses: back-substitution naturally takes the
+MIDPOINT between the induced bounds, and midpoints of rationals with unrelated
+denominators compound through the recursion. Take the SIMPLEST RATIONAL in the
+interval instead (continued-fraction descent: if an integer lies strictly inside
+it is simplest; otherwise both ends share a floor, and the answer is that floor
+plus the reciprocal of the simplest point of the reciprocal interval). Measured
+on the 727 extension chambers: witness heights fell from 13 528 to 178, and the
+count of chambers the engine could evaluate went from 14 of 24 to 24 of 24.
+
+Verify such a routine against BRUTE FORCE, not against itself: 300 random
+intervals, each result checked to be strictly inside AND minimal in denominator
+over all smaller denominators. The property is cheap to check exhaustively at
+small size, which makes it a real oracle rather than an agreement between two
+spellings of one idea.
+
+Where else the same free choice appears here: a direction's scale (`normalize_dir`
+exists for exactly this reason -- an unscaled null-space vector routinely lands
+outside the engine's budget), a cone's interior point, a class representative, a
+chart. See [FAILURE_MODES](FAILURE_MODES.md) 16.
+
 ## The tools
 
 All in this directory, copied out of a session scratchpad on 2026-08-06 and

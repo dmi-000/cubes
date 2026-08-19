@@ -13,9 +13,11 @@ tangent.  Controls with known tangents run first.
 import itertools, json, subprocess, sys
 from fractions import Fraction as F
 from math import gcd
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = HERE + "/cube_regions_n"
+ENGW = HERE + "/cube_regions_q2w"
 
 def qmul(p, q):
     w,x,y,z = p; e,f,g,h = q

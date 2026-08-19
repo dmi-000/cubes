@@ -12,9 +12,11 @@ walls the configuration sits on, and how many of them BIND.
     python3 census_dimension.py [seconds]
 """
 import itertools, json, sys, time
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+sys.path.insert(0, HERE)
 import dimension as D
 from subset_topology import RECORDS as _R6_7, classes
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
 BASE = [(4, 1, 1, -1), (3, 3, 7, 3), (5, -1, -5, -5), (2, 1, 1, 1), (1, 1, 1, 1)]
 RECORDS = dict(_R6_7)
@@ -29,8 +31,8 @@ T0 = time.time()
 SHARD = int(sys.argv[2]) if len(sys.argv) > 2 else 0
 NSHARD = int(sys.argv[3]) if len(sys.argv) > 3 else 1
 SUF = '' if NSHARD == 1 else '_%d' % SHARD
-OUT = '/Users/dmi/cube-compounds/census_dimension%s.json' % SUF
-LOG = open('/Users/dmi/cube-compounds/census_dimension%s.log' % SUF, 'w')
+OUT = HERE + '/census_dimension%s.json' % SUF
+LOG = open(HERE + '/census_dimension%s.log' % SUF, 'w')
 
 
 def log(m):

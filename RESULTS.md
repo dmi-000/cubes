@@ -21,7 +21,7 @@ Status tags:
 | **EXHAUSTED** | a search that was complete over a stated family, not a sample |
 | **CONJECTURE** | consistent with all evidence, not proved |
 
-Last updated 2026-08-11.
+Last updated 2026-08-11.  Open questions and what has been RULED OUT: [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md).  Run data: see [DATA_MANIFEST.md](DATA_MANIFEST.md) for which .json files are current, superseded, or wrong.
 
 ---
 
@@ -41,12 +41,14 @@ enters any decision.
 |---|---|---|---|
 | 2 | **13** | PROVED maximum | any angle about a shared body diagonal |
 | 3 | **67** | PROVED maximum | octahedral ℚ(√2), and golden ℚ(√5) — two non-congruent maximizers |
-| 4 | 183 | VERIFIED | wide-perturbation climb |
+| 4 | 183 | VERIFIED | wide-perturbation climb — a **PLATEAU**, see below |
 | 5 | 393 | VERIFIED | 5-subset of the n=6 record |
 | 6 | **727** | VERIFIED | 393's five cubes + `7,14,1,-5` |
 | 7 | **1217** | VERIFIED | the 727 six + `4,-3,-4,-4` |
 | 8 | **1895** | VERIFIED | the 1217 seven + `24,-24,24,-61` |
-| 9 | **2785** | VERIFIED | the 1895 eight + `56,56,55,56` — a CONTINUUM, see below |
+| 9 | **2785** | VERIFIED | the 1895 eight + `56,56,55,56` — a CONTINUUM, see below **[no establishing Postscript: see note]** |
+
+**GAP IN THE RECORD, found 2026-08-18.** Every other row of this table traces to a Postscript — n=4 to [15](LEDGER.md#p15), n=5 to [16](LEDGER.md#p16), n=6 and n=7 to [46](LEDGER.md#p46), n=8 to [101](LEDGER.md#p101) — but **n=9 = 2785 has no establishing entry in `LEDGER.md` at all.** It is documented only in `MAXIMISER_TAXONOMY.md` and `METHODS.md` §9, outside the append-only record. The result itself is not in doubt (both engines agree on the representative); what is missing is its provenance in the ledger. No entry has been written retroactively, because a dated record of what was known when cannot be honestly backfilled.
 
 The tower nests: 183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1895 ⊂ 2785, adjacent levels differing
 by one cube — verified at the top by taking every 8-, 7-, 6- and 5-cube subset of
@@ -132,6 +134,38 @@ unchanged — so the increment is entirely shallow, the same signature by which
   longer rests on any measured quantity. The general form T ≤ 12F − 5 for F-facet
   cells needs m ≤ F, which is proved for cubes and UNSETTLED in general (the
   computation disagrees across three methods; Postscript [110](LEDGER.md#p110)).
+- **The all-members census is COMPLETE: 826 of 826** (2026-08-18, Postscript
+  [120](LEDGER.md#p120)). Every subset of the n = 6..9 records at every k = 3..n,
+  run as MEMBERS rather than class representatives, because a (count, profile)
+  class is an equivalence by invariant and not by congruence. 163 empty, 663
+  nonempty; **all four records come back EMPTY at member granularity**, and their
+  lineality rises 1, 2, 3, 4 with n while the locus stays a point every time.
+  Of 7 043 directions: 4 870 confirmed, 2 116 changed, **57 unevaluable**. The
+  changed and confirmed counters step at fixed ε and carry the Postscript
+  [119](LEDGER.md#p119) caveat; `status` and `lineality` do not, being pure
+  algebra.
+- **Isolation has TWO mechanisms** (2026-08-18, Postscripts
+  [122](LEDGER.md#p122), [123](LEDGER.md#p123), [124](LEDGER.md#p124)). Both 67s
+  lie on walls of FULL RANK — 6 and 9 walls, rank 6 = ambient, lineality 0 — so
+  they are pinned at FIRST order. No rational record is: 727, 1217, 1895, 2785
+  lie on 27, 51, 75, 99 walls of rank 14, 16, 18, 20 in ambient 15, 18, 21, 24,
+  keeping tangent spaces of dimension 1, 2, 3, 4, and are isolated only because
+  the second-order variety is empty. More walls is not more constrained;
+  independence is what pins a point. For n = 6..9 the counts are linear —
+  `walls = 24n − 117`, `lineality = n − 5`, one wall per self-symmetry of each
+  added cube — but the fit FAILS at n = 5 (predicted 3 walls, measured 18), so it
+  is a regime beginning at n = 6, not a law. *This claim was withdrawn and then
+  restored the same day: the wall list omits the (1,1,1,1) type by construction,
+  and 12 such walls pass through every record, so the ranks were bounds until
+  δ — the rank they add — was measured at **0** for all four levels.* Both 67s lie on walls of FULL RANK — 6 and 9 walls,
+  rank 6 = ambient, lineality 0 — so they are pinned at FIRST order. No rational
+  record is: 727, 1217, 1895, 2785 lie on 27, 51, 75, 99 walls of rank 14, 16,
+  18, 20 in ambient 15, 18, 21, 24, keeping tangent spaces of dimension 1, 2, 3,
+  4, and are isolated only because the second-order variety is empty. More walls
+  is not more constrained; independence is what pins a point. For n = 6..9 the
+  counts are linear — `walls = 24n − 117`, `tight = 84n − 288`, one wall per
+  self-symmetry of each added cube — but the fit FAILS at n = 5 (predicted 3
+  walls, measured 18), so it is a regime beginning at n = 6, not a law.
 - **Every record is an ISOLATED POINT in the full moduli space.** VERIFIED
   (Postscript [117](LEDGER.md#p117)), for 63, 183, 393, 727, 1217 and 1895 — and
   since 2026-08-17 for **both n = 3 maximizers as well** (Postscript
@@ -152,7 +186,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
   have positive-dimensional loci and 49 do not; **the positive-dimensional loci
   belong to the LOWER-count classes, never to a record.**
 
-- **d_{n−1} ≤ 6n for every n.** PROVED (the l = 1 ceiling law, via the anchor
+- **d_{n−1} ≤ 6n for every n.** PROVED (the l = 1 ceiling law, Postscripts [24](LEDGER.md#p24) anchor lemma and [33](LEDGER.md#p33) unconditional, via the anchor
   lemma: the radial envelope of any n-cube configuration has local minima only
   at the 6n face centres).
 - **The one-cube increment is bounded by an Euler count on the added cube's own
@@ -164,7 +198,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
   cases where it was computed, making the first inequality an equality too.
   Postscript [56](LEDGER.md#p56).
 - **727 is isolated on the 393 base, and its coincidence pattern is
-  unaugmentable.** PROVED by elimination. Holding the five cubes of 393 fixed,
+  unaugmentable.** PROVED by elimination (Postscript [47](LEDGER.md#p47), `eliminate729.py`: Gröbner basis {1} on 684 infeasible augmentations). Holding the five cubes of 393 fixed,
   a sixth has 3 degrees of freedom; its 36 active coincidence conditions cut
   that space to exactly one real point, and all 684 remaining conditions are
   inconsistent with them (Gröbner basis {1} in each case). Caveat: the Cayley
@@ -175,7 +209,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
 - **The maximum at n = 3 requires irrational coordinates**, conditional on the
   two known maximizers being the only ones. The O-reduced invariant μ is
   rational for any rational configuration, and equals ½+√2 and 3φ/2 at the two
-  maximizers. n = 3 is the only irrational rung of the tower.
+  maximizers (Theorem R, Postscript [26](LEDGER.md#p26); reaffirmed at [44](LEDGER.md#p44), [64](LEDGER.md#p64)). n = 3 is the only irrational rung of the tower.
   *Annotated 2026-08-17 (`doc_audit.py`: this claim cited NO source of any kind).
   Its stated condition is now known to be unproved rather than merely
   unexamined. Postscript [118](LEDGER.md#p118) verified that both maximizers are
@@ -195,23 +229,92 @@ unchanged — so the increment is entirely shallow, the same signature by which
   isolation is LOCAL: it rules out a third 67 near either of these two, not a
   third elsewhere in moduli space. The word "exactly" is therefore still
   unproved and has been dropped.*
-- **The record tower nests at every level except n = 3.** The best triple
+- **Irrational configurations, constructed correctly, do NOT beat the rational
+  records at n = 4 or n = 5** (2026-08-19, Postscript [138](LEDGER.md#p138)). Two
+  rational planes leave a rational line; a quadric along it gives a quadratic whose
+  roots are rational or in ℚ(√d) — this is how the 67s and every irrational 727
+  arise, and irrationality is an OUTPUT of wall solving, not an input to sample
+  over. Validated (its control reproduces 183; its rational half reaches 183 and
+  393 exactly). It generated **27 716 irrational candidates across 249 fields** at
+  n = 4 and **89 076 across 993 fields** at n = 5, with no field ever chosen — and
+  the best irrational results are **173** (ℚ(√7)) and **377** (ℚ(√2199)), short by
+  10 and 16. This is far stronger than the sampling campaigns, which measured only
+  their own sampler. **SCOPE, which the headline must not outrun: one rational base
+  per target** — the 183 record's first three cubes, and the 393 record's first four.
+  So this is a negative result for those two bases, not for irrational n = 4 or
+  n = 5 in general; other rational bases are untouched.
+- **The "two 67 triples" family at n = 4 is EXHAUSTED and caps at 177**
+  (2026-08-18, Postscript [131](LEDGER.md#p131)). The subset-spectrum constraint
+  points at irrational 4-cube compounds containing a 67 — the one region a
+  rational search structurally cannot reach. Because the 67s are ISOLATED, fixing
+  two cubes leaves finitely many completions, so this is a SOLVE: 960 candidates,
+  zero engine refusals, best **177**, six short of 183. The construction
+  independently reproduces the known golden four-cube compound (177), which is a
+  control it was not aimed at. Contrast the sampling campaigns run alongside —
+  irrational random reaches only 137–151 at n = 4 and 319 at n = 5, and two-cube
+  extension from 13-pairs reaches 167. **Sampling cannot probe irrational space;
+  the constraint-guided enumeration can.**
+- **183 is a PLATEAU, not a point** (2026-08-18, Postscript
+  [133](LEDGER.md#p133)). A wide-perturbation restart found
+  `1,0,0,0;-2,-2,5,-2;3,11,-3,-3;0,-7,4,-3` counting 183 and **not congruent** to
+  the canonical `1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4`, despite agreeing on every
+  invariant available: depth {92,66,24,1}, pairs [13,13,13,9,9,9], triples
+  [63,63,63,55], symmetry order 3. The congruence test was validated on five
+  controls first (three global rotations, a relabelling, and the two 1217s known
+  non-congruent). A rerun retaining every configuration found six distinct quaternion tuples at 183
+  falling into **exactly 2 congruence classes** (4 + 2), so the plateau has at least
+  two members — the same count as n = 3, though those differ by FIELD while these
+  are both rational. Plateau structure was known at n = 6 (727) but not at n = 4. The
+  open question becomes 727's: how large is the plateau, and is it finite or
+  uncountable by Postscript [80](LEDGER.md#p80), Addendum 2,'s dichotomy?
+- **183 is reached by 7.3% of wide-perturbation restarts** (Postscript
+  [131](LEDGER.md#p131)): 55 independent restarts, 264 794 engine calls, final
+  peaks 173×10, 175×10, 179×9, 171×8, 165×6, 167×4, **183×4**, 169×2, 159×1,
+  177×1 — never exceeded. That an independent reimplementation finds it three
+  times says it is no fluke; that it needs ~11 restarts says a basin at 1-in-100
+  would have been missed by every campaign this project has run. This is the
+  quantified basis for low confidence in n = 4 maximality.
+- **The tower breaks exactly once, at n = 3, and arithmetic is why** (Postscript
+  [126](LEDGER.md#p126)). 183 contains three 13-pairs (13 = the n = 2 maximum) but
+  its best triple is 63, four short of 67 — because 67 needs irrational
+  coordinates and every subset of a rational compound is rational. So one-cube
+  extension from the n = 3 record cannot reach 183, while **two-cube extension
+  from n = 2 can**, three ways. Every record contains its (n−2) record as well as
+  its (n−1) record, so the rule is: extend from the deepest level whose optimum is
+  arithmetically compatible with the target.
+- **1895 has TWO non-congruent 1217-subsets** (Postscript [126](LEDGER.md#p126)) —
+  identical depth profiles AND identical pair-count multisets, separated only by
+  their triple-count multisets. It is the only level with such a confluence, and a
+  worked instance of simultaneous extension: one base, two different added cubes,
+  each individually reaching 1217.
+- **The record tower nests at every level except n = 3** (Postscript [44](LEDGER.md#p44), made exhaustive on the current records by [111](LEDGER.md#p111))**.** The best triple
   inside any higher record is 63, four short of 67 — a consequence of the
   irrationality above, since every subset of a rational compound is rational.
-- **727 is usually reached without a maximal pair, but not always.** Across the
+- **727 is usually reached without a maximal pair, but not always** (Postscript [55](LEDGER.md#p55) addendum)**.** Across the
   161 configurations the sixth cube's pair signature is (9,9,4,4,4) in 159
   cases, (9,9,9,4,4) once — the originally discovered record — and (13,5,4,4,4)
   once, which reaches 727 while *carrying* a 13-pair. The discovered record
   (18 interior crossings against 723's 48) is therefore atypical of its own
   plateau, and the "records avoid rigid maximal pairs" reading drawn from it
   holds for 160 of 161 configurations but is not a law.
-- **727 is a plateau of at least 161 non-congruent compounds in 54
-  combinatorial types**, after quotienting by each cube's 24 rotations AND by
-  the base's own C₃ symmetry about (1,1,1) — which triple-counts if forgotten.
+- **727 is a plateau of UNCOUNTABLY MANY non-congruent compounds.** *Corrected
+  2026-08-18 (`doc_audit.py` follow-up; this block cited no source and its
+  content traced to Postscript [52](LEDGER.md#p52), which Postscripts
+  [79](LEDGER.md#p79) and [80](LEDGER.md#p80) superseded). It previously read
+  "at least 161 non-congruent compounds in 54 combinatorial types" with "eight"
+  irrational fields. Both figures are counts of a SEARCH, not of the object:
+  Postscript 79 found fifteen fields, and Postscript 80 showed the 727s are
+  quadratic points inside one rational interval and that there are infinitely
+  many — "a classification programme aimed at listing the 727s is aimed at the
+  wrong object". The enumeration below is retained as what that search found,
+  not as a census.* At least 161 compounds in 54 combinatorial types were
+  enumerated, after quotienting by each cube's 24 rotations AND by the base's own
+  C₃ symmetry about (1,1,1) — which triple-counts if forgotten.
   They fall into only three depth profiles, all of which also occur rationally:
   {214,216,162,98,36,1}, {214,220,156,100,36,1}, {214,218,160,98,36,1}. Every
   class satisfies d₁+d₂+d₃+d₄ = 690 with d₅ = 36 and d₆ = 1 fixed. Eight of the
-  fields reached are irrational — ℚ(√13), ℚ(√226), ℚ(√403), ℚ(√1093), ℚ(√1614),
+  fields reached BY THAT SEARCH are irrational (Postscript
+  [79](LEDGER.md#p79) later reached fifteen) — ℚ(√13), ℚ(√226), ℚ(√403), ℚ(√1093), ℚ(√1614),
   ℚ(√1785), ℚ(√1930), ℚ(√2741) — but every one is rationally shadowed, so
   irrationality does no work at n = 6, and the classes are NOT indexed by field
   (the O-reduced pair invariant that suggested that is only necessary for
@@ -230,7 +333,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
   active-wall count as a proxy, and most such walls turn out to be
   combinatorially inert).
 - **The irrational classes are the first configurations this project found by
-  SEARCH rather than by symmetry.** The two n=3 maximizers came from the
+  SEARCH rather than by symmetry** (Postscript [51](LEDGER.md#p51))**.** The two n=3 maximizers came from the
   octahedron and the icosahedron; these came from enumerating strata.
 - **Coincidence conditions are quadrics** in the Cayley coordinates of the free
   cube, and a 9-pair locus is codimension 1. So three walls meet in at most 8
@@ -300,7 +403,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
   theorem.
 
 
-- **The frustration deficit is 6(n−3)(n−2)** — the gap between the cap-sum
+- **The frustration deficit is 6(n−3)(n−2)** *[UNSOURCED, flagged 2026-08-18: the frustration PRINCIPLE is Postscript [17](LEDGER.md#p17) and is well attested, but this exact formula and its predictions appear nowhere in the ledger. Treat as CONJECTURE until derived or recomputed.]*** — the gap between the cap-sum
   1 + Σ C(l,n) and the true maximum. Exact at n = 3, 4, 5 (0, 12, 36); predicts
   max(6) = 729, max(7) = 1223, max(8) = 1907. A three-point fit, two of whose
   points are records rather than proved maxima. Its n = 6 prediction agrees
@@ -327,7 +430,7 @@ unchanged — so the increment is entirely shallow, the same signature by which
   re-deriving identical plane triples.
 - **Irrational configurations are now countable at scale.** `cube_regions_q2`
   generalises the integer engine's scalar type to ℤ[√d] and runs ~100× faster
-  than the Python algebraic path. 224,184 irrational configurations have been counted: nothing above 727. Every earlier campaign in this
+  than the Python algebraic path. *Corrected 2026-08-18: this read "224,184 irrational configurations", a PARTIAL count from Postscript [51](LEDGER.md#p51) addendum 3 which itself listed 284,634 as still uncounted. The campaign completed: Postscripts [59](LEDGER.md#p59) and [79](LEDGER.md#p79) counted **508,818 configurations, 0 rejected**, best still 727.* Every earlier campaign in this
   project sampled integer quaternions, so this stratum was structurally
   invisible to all of them.
 - **Nothing above 727 has been found at n = 6** by: random menus (100k sixth

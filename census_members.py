@@ -6,17 +6,25 @@ This applies it to all (count, profile) classes of the n=6..9 records, engine-
 verifying every direction it returns.  Writes incrementally; conditions come from
 the shared cache.   python3 census_variety.py <shard> <nshards> [seconds]
 """
-import json, sys, time, glob
-sys.path.insert(0, '/Users/dmi/cube-compounds')
+import glob, json, os, sys, time
+import provenance
+sys.path.insert(0, HERE)
 import sympy as sp, dimension as D
 from fractions import Fraction as F
 import itertools
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 BASE=[(4,1,1,-1),(3,3,7,3),(5,-1,-5,-5),(2,1,1,1),(1,1,1,1)]
 R={6:BASE+[(7,14,1,-5)]}
 R[7]=R[6]+[(4,-3,-4,-4)]; R[8]=R[7]+[(24,-24,24,-61)]; R[9]=R[8]+[(56,56,55,56)]
 SH=int(sys.argv[1]); NS=int(sys.argv[2]); BUD=float(sys.argv[3]) if len(sys.argv)>3 else 200000
-OUT='/Users/dmi/cube-compounds/members_%d.json'%SH
-LOG=open('/Users/dmi/cube-compounds/members_%d.log'%SH,'w')
+# Optional argv[4] TAG namespaces this run's output.  Without it a relaunch at a
+# different NS reuses a shard number that a PREVIOUS run already wrote, and both
+# OUT and LOG open with 'w' -- so the earlier run's records are destroyed, not
+# merged.  The 2026-08-17 re-shard would have wiped 170 completed classes.
+TAG=sys.argv[4] if len(sys.argv)>4 else ''
+OUT=HERE + '/members_%s%d.json'%(TAG,SH)
+LOG=open(HERE + '/members_%s%d.log'%(TAG,SH),'w')
 T0=time.time()
 def log(m):
     LOG.write('[%7.1fs] %s\n'%(time.time()-T0,m)); LOG.flush()
@@ -30,8 +38,27 @@ for n in sorted(R):
         for idxs in itertools.combinations(range(n), k):
             todo.append((n, {'k':k,'count':None,'idxs':idxs,'cfg':[R[n][i] for i in idxs]}))
 out=[]
+# RESUME.  `variety_incremental` is the expensive step here and is NOT cached
+# (only the symbolic conditions are), so re-running a completed class costs the
+# whole class.  Every record any previous shard already wrote is skipped.
+DONE=set()
+for _f in glob.glob(HERE + '/census_run1/members_*.json')+\
+          glob.glob(HERE + '/members_*.json'):
+    if _f==OUT: continue
+    try:
+        for _r in json.load(open(_f)): DONE.add((_r['n'],_r['k'],tuple(_r['idxs'])))
+    except Exception: pass
+log('%d classes already completed by earlier shards -- skipping those'%len(DONE))
+# CENSUS_ONLY: an explicit todo-index list, so a queue stuck behind a
+# pathological class can be worked by other cores WITHOUT duplicating whatever
+# a running worker currently holds.  NS/SH still partitions within it.
+_only=os.environ.get('CENSUS_ONLY','').strip()
+ONLY=set(int(x) for x in _only.split(',') if x) if _only else None
+if ONLY is not None: log('restricted to %d explicit todo indices'%len(ONLY))
 for idx,(n,rep) in enumerate(todo):
+    if ONLY is not None and idx not in ONLY: continue
     if idx%NS!=SH: continue
+    if (n,rep['k'],tuple(rep['idxs'])) in DONE: continue
     if time.time()-T0>BUD: log('budget reached'); break
     cfg=rep['cfg']
     pt=D.point_of(cfg)
@@ -93,4 +120,7 @@ for idx,(n,rep) in enumerate(todo):
     out.append(rec); json.dump(out,open(OUT,'w'),indent=1)
     log('n=%d k=%d c=%-5s lin %d -> %-9s %d dirs: %d confirmed, %d unevaluable, %d changed; wraps %s'
         %(n,rep['k'],base,len(ns),st,len(dirs),ok,uneval,changed,wraps[:6]))
-json.dump(out,open(OUT,'w'),indent=1); log('done: %d classes'%len(out))
+json.dump(out,open(OUT,'w'),indent=1)
+provenance.stamp(OUT, started=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(T0)),
+                 note='all-members census; (count,profile) class is an equivalence by INVARIANT not by congruence, so every member is run')
+log('done: %d classes'%len(out))

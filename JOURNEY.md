@@ -874,6 +874,103 @@ there either. But the record's fifth face, sitting in the base's own
 number field, is the first thing in this project's history that a search
 found rather than recognized.
 
+## Act XII: the coordinates were the problem
+
+*2026-08-17/18.*
+
+The two n = 3 maximisers had been sitting outside every census for weeks, for a
+reason that sounds like bookkeeping: they live in Q(sqrt2) and Q(sqrt5), and the
+crossing machinery took Fractions. Porting it was a day's work, and the day
+turned into something stranger — five separate failures, each looking unrelated,
+each turning out to be the same mistake wearing different clothes.
+
+**A step size is a representative.** The face enumeration around the golden 67
+displaced each candidate direction by eps = 1/64, 1/256, 1/1024 and asked the
+engine for a count. 333 of 2 196 faces disagreed across the three. The obvious
+fix — halve until two consecutive values agree — resolved all 333 and was WRONG
+on 36, inventing counts of 33, 34 and 35 that do not occur anywhere in the true
+face set. Two steps can both land outside the intended cell, in the SAME wrong
+one, and agree perfectly. Convergence and co-location are indistinguishable from
+inside.
+
+The real fix was not a smaller number but a different kind of number. Q(sqrt d)(eps),
+elements ordered by the sign of the lowest-degree nonzero coefficient, is a
+genuine ordered field in which eps is smaller than every positive rational. Every
+predicate the counting engine performs is a sign test, so all of them stay exactly
+decidable, and the answer returned IS the eps -> 0 limit. `cube_regions_eps.cpp`
+was generated from the validated engine rather than hand-edited, its degree bound
+of 8 traced through the multiply chain so that no product is ever truncated. The
+gate that decides it is beautiful in its simplicity: scale a direction by 97 and
+by 1/1000 and the count must not change. No finite-eps implementation can pass it.
+
+**A point in a cone is a representative.** With the step size gone, the 727
+neighbourhood enumeration still refused 10 of its 24 chambers — the engine's
+overflow budget rejecting inputs with components up to 13 528. The reading was
+obvious and wrong: we need a wider engine, 42% unmeasurable. Then the split by
+input size turned out to be perfectly clean, 1-178 accepted against 2 865-13 528
+refused, no overlap. A chamber is a CONE; any interior point represents it; and
+Fourier-Motzkin had been taking the MIDPOINT of each bound pair, whose
+denominators compound through the recursion. Replacing it with the simplest
+rational in the interval dropped the maximum to 178 and every chamber evaluated.
+The geometry was never the obstacle.
+
+**A gauge is a representative.** The n = 4 record 183 contains a half-turn, which
+sits at Cayley infinity, and was written up as unmeasurable. It is not: only the
+PARAMETERISED cubes need finite coordinates, because the gauge cube is frozen and
+never inverted. Reorder so the half-turn is the frozen one and 183 measures fine —
+12 walls, rank 8, lineality 1, joining the pattern rather than breaking it.
+
+**A class is a representative.** `census_variety_redo.json` held 26 records where
+the ledger described 23 reruns. The three extra were not errors: three
+`(n,k,count)` keys name TWO classes each. The same ambiguity, at a different
+scale, is why the all-members census had to run 826 members instead of 221 class
+representatives — a (count, profile) class is an equivalence by INVARIANT, not by
+congruence. And when 1895 turned out to have two 1217-subsets, neither depth
+profiles nor pair-count multisets could separate them; it took the TRIPLE-count
+multisets, where the alternative carries a 37 the tower has nowhere.
+
+**A chart origin is a representative.** Two n = 9 classes ran ten hours each with
+no output. A stack sample put 2 078 of 2 287 samples inside Karatsuba
+multiplication, 4.2 GB peak: coefficient explosion, not algorithmic shape. Six of
+the eight charts had NO constant term, which means the chart origin — the basis
+vector itself — already satisfies every polynomial. `sp.solve` was grinding
+through a positive-dimensional system to find a solution sitting at the point it
+started from. One evaluation replaced ten hours; 64 seconds and 123 seconds.
+
+Five failures, one shape. In each, an object defined only up to an equivalence
+was handed an arbitrary representative, and the arbitrary choice was mistaken for
+a property of the object. None of the underlying mathematics was ever wrong.
+
+---
+
+What the week actually established, once the coordinates stopped lying:
+
+**Both 67s are isolated points**, by enumerating every face of their local wall
+arrangements — 728 and 2 196, none reaching 67, none unevaluated. Both sit atop a
+cliff of exactly 4: nothing adjacent counts 64, 65 or 66, and the first step down
+lands on 63, which is precisely the best triple inside any higher record.
+
+**Region counts are odd**, and the proof is one line: every cube is centrally
+symmetric and concentric, so the antipodal map permutes bounded regions as an
+involution, and count = #self-antipodal (mod 2). The innermost region is always
+self-antipodal. An EVEN count therefore detects a SHELL — a region wrapping the
+origin without containing it. They are rare (6 of 826 census counts) and cluster
+on the same few values.
+
+**Isolation has two mechanisms.** Both 67s have walls of full rank: pinned at
+first order, nothing survives even linearly. No rational record does — 727, 1217,
+1895, 2785 keep tangent spaces of dimension 1, 2, 3, 4 and are isolated only
+because the second-order variety is empty. That claim was made, withdrawn when it
+emerged that the wall list structurally omits the (1,1,1,1) type, and reinstated
+when the omitted walls were finally differentiated and added exactly zero rank.
+
+**The tower breaks exactly once**, and arithmetic is the reason. 183 contains
+three 13-pairs but no 67, because 67 needs irrational coordinates and every subset
+of a rational compound is rational. One-cube extension from n = 3 cannot reach
+183; two-cube extension from n = 2 can, three ways. Every record contains its
+(n-2) record as well as its (n-1) record, so the rule is to extend from the
+deepest arithmetically compatible level.
+
 ## The collaboration, honestly described
 
 This project was a four-layer collaboration, and the layering was not

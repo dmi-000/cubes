@@ -15,9 +15,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from solve_ends import catalogue, q_of, BASE
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import wall_params as W
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = HERE + "/cube_regions_n"
+ENGW = HERE + "/cube_regions_q2w"
 
 def evaluate(cfgs):
     small = [c for c in cfgs if max(abs(v) for q in c for v in q) <= 512]

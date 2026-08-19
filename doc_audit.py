@@ -28,6 +28,7 @@ import os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 LEDGER = os.path.join(HERE, 'LEDGER.md')
 RESULTS = os.path.join(HERE, 'RESULTS.md')
+OPENQ = os.path.join(HERE, 'OPEN_QUESTIONS.md')
 
 
 def ledger_graph():
@@ -50,9 +51,9 @@ def ledger_graph():
     return order, refs
 
 
-def results_claims():
+def results_claims(path=None):
     """(claim text, [cited postscripts], line number) for each claim block"""
-    lines = open(RESULTS).read().split('\n')
+    lines = open(path or RESULTS).read().split('\n')
     out, cur, start = [], None, 0
     for i, ln in enumerate(lines):
         if ln.startswith('- **') or (ln.startswith('| ') and ln.count('|') >= 3):
@@ -69,7 +70,13 @@ def results_claims():
     claims = []
     for text, ln in out:
         cited = re.findall(r'LEDGER\.md#p(\d+[a-z]?)', text)
-        claims.append((text.strip(), sorted(set(cited), key=lambda x: int(re.sub(r'\D', '', x))), ln))
+        # A claim may cite a PROOF or METHODS file instead of a postscript.  That
+        # is a source, and counting it as "cites nothing" overstated the backlog:
+        # max(2) = 13 cites METHODS.md, max(3) = 67 cites PROOF_67.md.  Tracked
+        # separately, because only a postscript citation can be staleness-checked
+        # against the ledger's own cross-reference graph.
+        other = re.findall(r'\b([A-Z_0-9]+\.md|`[a-z_0-9]+\.py`)', text)
+        claims.append((text.strip(), sorted(set(cited), key=lambda x: int(re.sub(r'\D', '', x))), ln, sorted(set(other))))
     return claims
 
 
@@ -77,9 +84,9 @@ def main():
     order, refs = ledger_graph()
     claims = results_claims()
     flagged, uncited = [], []
-    for text, cited, ln in claims:
+    for text, cited, ln, other in claims:
         if not cited:
-            uncited.append((ln, text))
+            uncited.append((ln, text, other))
             continue
         later = set()
         for k in cited:
@@ -98,11 +105,54 @@ def main():
               % (ln, ','.join(cited), nlater, latest[-1]))
         print('   %s' % text[:150].replace('**', ''))
         print()
+    # OPEN_QUESTIONS.md carries ELIMINATIONS -- the expensive, rarely-recorded
+    # kind of knowledge.  An elimination whose evidence a later postscript
+    # revisited may no longer hold, and a ruled-out explanation wrongly believed
+    # dead is worse than an untested one: nobody looks at it again.
+    if os.path.exists(OPENQ):
+        # SECTION-level parse.  OPEN_QUESTIONS.md is prose under '## ' headings,
+        # and the claim-block parser used for RESULTS.md caught only its one
+        # table -- 3 of 15 citations.  A question is the natural unit here.
+        raw = open(OPENQ).read().split('\n')
+        oq, cur, start = [], None, 0
+        for i, ln_ in enumerate(raw):
+            if ln_.startswith('## '):
+                if cur is not None:
+                    oq.append((cur, sorted(set(re.findall(r'LEDGER\.md#p(\d+[a-z]?)', cur)),
+                                           key=lambda x: int(re.sub(r'\D','',x))), start, []))
+                cur, start = ln_, i + 1
+            elif cur is not None:
+                cur += ' ' + ln_.strip()
+        if cur is not None:
+            oq.append((cur, sorted(set(re.findall(r'LEDGER\.md#p(\d+[a-z]?)', cur)),
+                                   key=lambda x: int(re.sub(r'\D','',x))), start, []))
+        flag = []
+        for text, cited, ln, other in oq:
+            later = set()
+            for k in cited:
+                later.update(refs.get(k, []))
+            if later:
+                flag.append((ln, cited, sorted(later, key=lambda n: order[n])[-1], text))
+        print('-' * 70)
+        print('OPEN_QUESTIONS.md: %d questions, %d citing a postscript, %d citing '
+              'one a LATER postscript revisits'
+              % (len(oq), sum(1 for _, c, _, _ in oq if c), len(flag)))
+        for ln, cited, newest, text in flag:
+            print('   OPEN_QUESTIONS.md:%-4d cites P%s, revisited by P%s | %s'
+                  % (ln, ','.join(cited), newest, text[:70].replace('**', '')))
+
     print('-' * 70)
-    print('%d claim blocks cite NOTHING -- this tool can say nothing about them, '
-          'which is worse than being flagged, not better:' % len(uncited))
-    for ln, text in uncited[:40]:
-        print('   RESULTS.md:%-4d %s' % (ln, text[:110].replace('**', '')))
+    hard = [u for u in uncited if not u[2]]
+    soft = [u for u in uncited if u[2]]
+    print('%d claim blocks cite NO POSTSCRIPT. Of those, %d cite another source '
+          '(a proof or methods file) and %d cite NOTHING AT ALL -- the latter '
+          'cannot be checked against anything:' % (len(uncited), len(soft), len(hard)))
+    print('\n-- no source of any kind (%d):' % len(hard))
+    for ln, text, _ in hard[:40]:
+        print('   RESULTS.md:%-4d %s' % (ln, text[:108].replace('**', '')))
+    print('\n-- cites a file but no postscript (%d):' % len(soft))
+    for ln, text, oth in soft[:20]:
+        print('   RESULTS.md:%-4d %-70s -> %s' % (ln, text[:70].replace('**', ''), ','.join(oth[:2])))
     return 0
 
 

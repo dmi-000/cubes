@@ -43,6 +43,8 @@ sys.path.insert(0, SCRIPT_DIR)
 import wall_params as W
 from solve_ends import catalogue, BASE
 from exact_chambers import decompose
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
 LOG_PATH = os.path.join(SCRIPT_DIR, 'rulings.log')
 DATA_PATH = os.path.join(SCRIPT_DIR, 'rulings_data.json')
@@ -728,8 +730,8 @@ def verify_both_engines(cfg):
     s = ';'.join(','.join(map(str, q)) for q in cfg)
     out = {}
     for name, cmd in (
-        ('cube_regions_n', ['/Users/dmi/cube-compounds/cube_regions_n', '--quats', s]),
-        ('cube_regions_q2w', ['/Users/dmi/cube-compounds/cube_regions_q2w', '--d', '0', '--quats', s]),
+        ('cube_regions_n', [HERE + '/cube_regions_n', '--quats', s]),
+        ('cube_regions_q2w', [HERE + '/cube_regions_q2w', '--d', '0', '--quats', s]),
     ):
         try:
             p = subprocess.run(cmd, capture_output=True, text=True, timeout=60)

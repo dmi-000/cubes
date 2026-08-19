@@ -27,9 +27,11 @@ import json
 import subprocess
 import sys
 from collections import Counter
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
-ENG = '/Users/dmi/cube-compounds/cube_regions_n'
-ENGW = '/Users/dmi/cube-compounds/cube_regions_q2w'
+ENG = HERE + '/cube_regions_n'
+ENGW = HERE + '/cube_regions_q2w'
 
 BASE = [(4, 1, 1, -1), (3, 3, 7, 3), (5, -1, -5, -5), (2, 1, 1, 1), (1, 1, 1, 1)]
 
@@ -112,7 +114,7 @@ def main():
                      '(= record)' if nests else '(record %s)' % LEVEL_RECORD.get(k),
                      min(vals), len(set(vals)), len(set(labels))))
         result[n] = rec
-    json.dump(result, open('/Users/dmi/cube-compounds/subset_census.json', 'w'),
+    json.dump(result, open(HERE + '/subset_census.json', 'w'),
               indent=1)
     print('\nwritten to subset_census.json')
 

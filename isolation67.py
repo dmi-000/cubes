@@ -29,6 +29,7 @@ VERDICT semantics, kept deliberately three-valued:
                   separately; an unevaluated face is NOT scored as "< 67".
 """
 import json, os, sys, time
+import provenance
 from fractions import Fraction as F
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -58,6 +59,61 @@ EPS_CHAIN = tuple(F(1, 1 << k) for k in range(6, 22))
 
 
 # ------------------------------------------------------- exact strict feasibility
+def _simplest_between(lo, hi):
+    """The rational of SMALLEST DENOMINATOR strictly inside (lo, hi).
+
+    Fourier-Motzkin only needs SOME interior point of a cone, and the midpoint --
+    the obvious choice -- is a bad one: midpoints of rationals with unrelated
+    denominators compound through the recursion, and the witness direction that
+    comes out then has huge integer coordinates.  Measured 2026-08-18 on the 727
+    extension chambers: 10 of 24 witnesses had max |component| between 2 865 and
+    13 528 and were REFUSED by the counting engine's overflow budget, while all 14
+    that fit had max |component| <= 178.  The chambers were fine; the witnesses
+    were not.  A cone is represented by any interior point, so choose the cheapest.
+
+    Classic continued-fraction descent: if an integer lies strictly inside, it is
+    simplest; otherwise both ends share a floor, and the simplest point is that
+    floor plus the reciprocal of the simplest point of the reciprocal interval.
+    """
+    import math
+    if lo > hi:
+        lo, hi = hi, lo
+    n = math.floor(lo) + 1
+    if n < hi:
+        return F(n)                      # an integer is inside: simplest possible
+    fl = math.floor(lo)
+    # No integer inside, so both ends share the floor.  Write x = fl + 1/y; the
+    # y-interval is (1/(hi-fl), 1/(lo-fl)), and when lo is EXACTLY the floor that
+    # upper bound is infinite -- the case that divided by zero on first write.
+    a = F(1) / (hi - fl)
+    if lo == fl:
+        return fl + F(1) / F(math.floor(a) + 1)
+    return fl + F(1) / _simplest_between(a, F(1) / (lo - fl))
+
+
+def _pick(lo, hi):
+    """an interior point of (lo, hi), preferring small height.
+
+    Only the pure-rational case is optimised; over Q(sqrt d) "simplest
+    denominator" is not defined and the midpoint is kept, so the two 67 runs are
+    bit-for-bit unchanged.
+    """
+    rational = all(isinstance(v, (int, F)) or v is None for v in (lo, hi))
+    if not rational:
+        if lo is None and hi is None: return 0
+        if lo is None: return hi - 1
+        if hi is None: return lo + 1
+        return (lo + hi) / 2
+    if lo is None and hi is None:
+        return F(0)
+    import math
+    if lo is None:
+        return F(math.floor(hi) - 1)          # integer, strictly below hi
+    if hi is None:
+        return F(math.floor(lo) + 1)          # integer, strictly above lo
+    return _simplest_between(F(lo), F(hi))
+
+
 def _fm(rows, nv):
     """Witness y with c.y > 0 for every row c (length nv), or None.
 
@@ -86,15 +142,7 @@ def _fm(rows, nv):
     for n in neg:
         v = -sum(n[t] * sub[t] for t in range(k)) / n[k]
         hi = v if hi is None or v < hi else hi
-    if lo is None and hi is None:
-        y = lo_default = sub[0] * 0 if sub else None
-        y = y if y is not None else 0
-    elif lo is None:
-        y = hi - 1
-    elif hi is None:
-        y = lo + 1
-    else:
-        y = (lo + hi) / 2
+    y = _pick(lo, hi)
     return sub + [y]
 
 
@@ -183,6 +231,7 @@ def run(d, name, quats, log):
     fs = faces(walls, ncols, zero, log)
     hits, unresolved, by_count = [], [], {}
     steps_used = {}
+    per_face = []          # (codimension, count) for EVERY face
     for sigma, dvec in fs:
         dv = D.normalize_dir(dvec)
         if USE_EPS:
@@ -196,6 +245,7 @@ def run(d, name, quats, log):
                 continue
             steps_used[1] = steps_used.get(1, 0) + 1
             by_count[c] = by_count.get(c, 0) + 1
+            per_face.append({'codim': sum(1 for x in sigma if x == 0), 'count': c})
             if c >= base:
                 hits.append({'sigma': list(sigma), 'count': c,
                              'dir': [str(x) for x in dv]})
@@ -228,6 +278,7 @@ def run(d, name, quats, log):
     print('   steps to stabilise (eps halvings from 1/64): %s'
           % dict(sorted(steps_used.items())), file=log, flush=True)
     return {'name': name, 'd': d, 'count': base, 'walls': len(walls),
+            'per_face': per_face,
             'faces': len(fs), 'verdict': verdict, 'hits': hits,
             'n_hits': len(hits), 'unresolved': len(unresolved),
             'steps_to_stabilise': {str(k): v for k, v in sorted(steps_used.items())},
@@ -244,6 +295,11 @@ def main():
     for d, (name, quats) in sorted(RECORDS.items()):
         out.append(run(d, name, quats, log))
         json.dump(out, open(os.path.join(here, 'isolation67%s.json' % ('_eps' if USE_EPS else '')), 'w'), indent=1)
+    provenance.stamp(os.path.join(here, 'isolation67%s.json' % ('_eps' if USE_EPS else '')),
+                     inputs=[os.path.join(here, 'cube_regions_eps' if USE_EPS
+                                          else 'cube_regions_q2w')],
+                     note='face enumeration of both 67s; --eps uses the '
+                          'infinitesimal engine and has no step size')
     for r in out:
         print('%-12s %s' % (r['name'], r.get('verdict', r.get('ABORT'))),
               file=log, flush=True)

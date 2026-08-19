@@ -23,9 +23,11 @@ import itertools, json, subprocess, sys
 from fractions import Fraction as F
 from math import gcd
 import numpy as np
+import os as _os
+HERE = _os.path.dirname(_os.path.abspath(__file__))
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = HERE + "/cube_regions_n"
+ENGW = HERE + "/cube_regions_q2w"
 
 # ---------- rotations ----------
 
