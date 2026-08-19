@@ -192,6 +192,8 @@ with `index_ledger.py` after appending.
 - [Postscript 137](#p137) — the octahedral 67's walls are CONTAINED in the golden's — and the 12 extra ones single out an axis pair
 - [Postscript 138](#p138) — two walls plus a quadric — the RIGHT construction, validated — and irrational n = 4 tops out at 173
 - [Postscript 139](#p139) — wall structure IS a compass — but a coarse one that saturates before the record
+- [Postscript 140](#p140) — there is NO "one wall away" from 183 — all 12 walls are entangled, and that IS the cliff
+- [Postscript 141](#p141) — the CROSSABILITY PROFILE discriminates where every count saturates — the record is the most DEGENERATE configuration
 
 <!-- INDEX:END -->
 
@@ -9013,6 +9015,8 @@ are the only ones the face enumeration was pointed at. The machinery is
 n-agnostic; it has simply not been run.
 
 <a id="p122"></a>
+
+Files: `shells.py`, `isolation67_eps.json` (per-face data), `members_all.json`
 ## Postscript 122: isolated points come in TWO KINDS — the 67s are pinned at first order, every rational record only at second
 
 Asked "how many walls do isolated points lie on?", and the answer separates the
@@ -9425,6 +9429,8 @@ irrational examples. **Before concluding that data cannot exist, check what the
 existing theorems already guarantee.**
 
 <a id="p129"></a>
+
+Files: `dimension.py` (the Q(sqrt d) port), `qfield.py`; computed inline — no output file retained
 ## Postscript 129: shells are ORDINARY — counting well suppresses them — and the octahedral 67, not the golden, is the anomaly
 
 **THE FIELD HYPOTHESIS IS REFUTED.** 7 871 random 3-cube configurations, exact
@@ -9518,6 +9524,8 @@ catches this is cheap — ask what the tool returns for the case you believe is
 absent, before treating its silence as evidence.
 
 <a id="p131"></a>
+
+Files: `epscount.py`, `cube_regions_q2w`; the depth-parity split was computed inline from random configurations
 ## Postscript 131: the "two 67 triples" family is EXHAUSTED and caps at 177 — the sharpest irrational lead at n = 4 is closed
 
 **WHERE THE CONSTRAINTS SAID TO LOOK.** A record's subsets are all high: 183's
@@ -9797,6 +9805,8 @@ configuration whose subsets are poor is unlikely to be a record) but it cannot
 POINT — and it was used to point.
 
 <a id="p136"></a>
+
+Files: `sixtyseven_glue.py` -> `sixtyseven_glue.json`; `irrational_n45.py` -> `irrational_n45.json`
 ## Postscript 136: the two 183s lie on 88 COMMON walls, cutting a 1-dimensional locus through both
 
 [Postscript 133](#p133) found 183 is a plateau with two non-congruent isolated
@@ -9973,6 +9983,8 @@ classes ([Postscript 133](#p133)), and the test correctly identified an unfamili
 coordinate representation, which is a further control on it.
 
 <a id="p139"></a>
+
+Files: `two_plus_quadric.py` -> `two_plus_quadric.json`, `tpq_results_n=4_target183.jsonl` (28 614 lines), `tpq_results_n=5_target393.jsonl` (90 577 lines)
 ## Postscript 139: wall structure IS a compass — but a coarse one that saturates before the record
 
 Two candidate compasses are refuted: "more coincidences implies a higher count"
@@ -10011,3 +10023,97 @@ the target.
 measured against the canonical 183 specifically, so it partly measures proximity
 to that configuration rather than record-ness in general. Whether the saturation
 value 108 is the n = 4 maximum is unmeasured.
+
+<a id="p140"></a>
+
+Files: `wall_compass.py` -> `wall_compass.log`; `wall_rank.py` -> `wall_rank.log`; inputs from `wideclimb_n4.log`
+## Postscript 140: there is NO "one wall away" from 183 — all 12 walls are entangled, and that IS the cliff
+
+Asked whether configurations one wall from a maximiser are recognisable, so a
+search could head toward them and jump. Computed directly: for each of the 183
+record's 12 distinct walls, the direction crossing THAT WALL ALONE lies in the null
+space of the other eleven and is not orthogonal to this one.
+
+**All 12 are ENTANGLED. No direction crosses any single wall alone.**
+
+Forced by the arithmetic: 12 walls of RANK 8 in ambient 9, so only 8 are
+independent and 4 are combinations of the rest. Crossing one necessarily drags
+companions. Same at 727 (26 of 27 entangled, [Postscript 122](#p122)) and at the
+golden 67 (all 9 entangled, [Postscript 118](#p118)). **The octahedral 67 is the
+exception**, with 6 INDEPENDENT walls where single crossings exist at all.
+
+**THIS EXPLAINS THE CLIFF.** The neighbourhood of a maximiser drops 4 to 12 regions
+with nothing in between — 63 from 67, 715 from 727, 1211 from 1217. Now the reason
+is structural rather than empirical: **you cannot take a single-wall step, so every
+move crosses several walls at once and pays for each.** A maximiser sits where many
+DEPENDENT walls meet, and dependency is exactly what makes the neighbourhood a
+cliff instead of a slope.
+
+**IT ALSO RETROSPECTIVELY EXPLAINS THREE RECORDED FACTS:** why `record_neighbours.py`
+returned all-unevaluable at 727 and 1217 (it looked for single-wall crossings that
+do not exist); why the drop is never 1 or 2; and why the wide-perturbation climb
+stalls at 179 ([Postscript 139](#p139)) — reaching a record needs a COORDINATED
+multi-wall move, not a sequence of single steps, and single-component climbing
+cannot make one.
+
+**CONSEQUENCE FOR SEARCH, inverting the obvious strategy.** Do not look for
+single-wall approaches to a maximiser; there are none. The tractable object is the
+one that already worked: enumerate the chambers of the whole local arrangement and
+jump, accepting that every jump is a multi-wall move ([Postscript 125](#p125),
+[131](#p131)). That is why chamber enumeration succeeded at 727 where the facet
+approach returned nothing.
+
+**A METHOD NOTE.** The full face enumeration at 183 was attempted first and did NOT
+finish — 12 walls in ambient 9 is a nominal 3^12 tree against the 67s' 3^6 and 3^9,
+and it ran 3 hours without reporting. The targeted question needed 12 exact solves,
+not half a million sign vectors. Ask the narrow question when the narrow question
+is what was asked.
+
+<a id="p141"></a>
+## Postscript 141: the CROSSABILITY PROFILE discriminates where every count saturates — the record is the most DEGENERATE configuration
+
+[Postscript 139](#p139) and [140](#p140) left the search question stuck: wall
+count, wall rank and lineality all rise with the region count and then SATURATE.
+179 and 183 are identical on all of them — 12 walls, rank 8, lineality 1, ~108
+tight conditions — so nothing measured separated a record from a near-record.
+
+Those are counts of the wall SET. The crossability profile counts the wall
+SYSTEM'S DEGENERACY: how many k-subsets admit a direction crossing exactly those k
+walls and no others. Measured over 37 configurations retained by the
+wide-perturbation campaign:
+
+    peak | n  | mean walls | mean CROSSABLE PAIRS | mean drop to best neighbour
+     175 | 17 |   11.00    |        8.53          |       4.00
+     177 |  2 |   10.00    |        8.00          |       4.00
+     179 | 11 |   11.82    |        6.55          |       2.73
+     183 |  7 |   12.00    |        3.00          |      12.00
+
+**IT DISCRIMINATES.** Crossable pairs fall monotonically as the count rises —
+8.53, 8.00, 6.55, **3.00** — and 183 is less than HALF of 179. All seven 183s have
+exactly 3 crossable pairs of 66. **The record is the most degenerate configuration
+present: the one whose wall system blocks the most directions.**
+
+**AND THE DROP INVERTS.** Near-records sit on gentle ground — 179's best neighbour
+is 2.73 below on average, 175's is 4 — while 183 drops **12**. A record is not
+merely higher; it is higher AND surrounded by a cliff, where near-records have
+neighbours barely beneath them.
+
+**WHY THE COUNTS SATURATED.** 179 and 183 have the SAME 12 walls of rank 8, but
+179's admit 6.55 crossable pairs and 183's admit 3. Same wall set, more degenerate
+arrangement. **Degeneracy is the invariant; size is not.**
+
+**IT EXPLAINS THE BASIN FREQUENCY WITHOUT LUCK.** [Postscript 131](#p131) measured
+183 as reached by 7.3% of wide-perturbation restarts. A climb at 179 sits where
+several cheap exits exist, mostly downhill by 2, so it wanders; 183 has three
+exits, each costing 12. The record is a smaller, harder target BECAUSE it is more
+constrained — and the constraint is measurable in 66 exact solves per candidate.
+
+**USABLE AS A COMPASS**, unlike everything previously tried: coincidence count is
+refuted, subset spectrum ANTI-points ([Postscript 135](#p135)), wall count
+saturates. Crossable-pair count is cheap, monotone, and does not saturate at the
+top. **Credit where due: the reformulation from 3^m faces to C(m,k) crossable
+subsets came from the user, and it is what made both this and
+[Postscript 140](#p140) computable at all** — 66 solves where the full enumeration
+ran 3 hours without finishing.
+
+Files: `cross_profile.py` -> `cross_profile.json`; `minimal_cross.py` -> `minimal_cross.json`; `minimal_cross_tower.py` -> `minimal_cross_tower.json`

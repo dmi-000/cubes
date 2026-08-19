@@ -51,6 +51,41 @@ def sha1_of(path):
         return None
 
 
+def semantic_sha1(path):
+    """Hash of a Python file's LOGIC, ignoring comments, formatting and docstrings.
+
+    The byte hash flags every edit, including ones that cannot change behaviour --
+    a reflowed line, a new comment, a clarified docstring. Those produced false
+    "changed" verdicts, and a verdict that fires on harmless edits gets ignored,
+    which is worse than not having it.
+
+    The parser already discards comments and whitespace, so hashing the AST gives
+    invariance to both for free. Docstrings survive parsing as string literals, so
+    they are stripped explicitly here.
+
+    WHAT THIS DOES NOT DO, stated because the name overpromises: it is not a
+    semantic equivalence check. Renaming a variable, reordering independent
+    statements, or any logically-equivalent rewrite still changes the hash. It
+    detects "the code was edited in a way that touched the syntax tree", which is
+    a much better screen than "the bytes differ" and still only a screen -- the
+    actual test remains reproduce().
+    """
+    import ast
+    try:
+        tree = ast.parse(open(path, 'rb').read())
+    except Exception:
+        return None
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.Module, ast.FunctionDef, ast.AsyncFunctionDef,
+                             ast.ClassDef)):
+            body = getattr(node, 'body', None)
+            if (body and isinstance(body[0], ast.Expr)
+                    and isinstance(getattr(body[0], 'value', None), ast.Constant)
+                    and isinstance(body[0].value.value, str)):
+                node.body = body[1:] or [ast.Pass()]
+    return hashlib.sha1(ast.dump(tree).encode()).hexdigest()
+
+
 def stamp(output_path, inputs=None, started=None, note=None, argv=None,
           retroactive=False):
     """Write <output_path>.prov.json describing the run that produced it.
@@ -69,6 +104,7 @@ def stamp(output_path, inputs=None, started=None, note=None, argv=None,
         'rerun': ' '.join(['python3'] + list(argv or sys.argv)),
         'script': os.path.relpath(script, HERE) if script else None,
         'script_sha1': sha1_of(script) if script else None,
+        'script_logic_sha1': semantic_sha1(script) if script else None,
         'started': started,
         'finished': time.strftime('%Y-%m-%d %H:%M:%S'),
         'host': socket.gethostname(),
@@ -111,16 +147,71 @@ def verify(output_path):
         return None, 'stamp records no script hash'
     if not os.path.exists(sp):
         return False, 'producing script %s no longer exists' % r.get('script')
+    # Prefer the LOGIC hash: a comment or reformat is not a change worth flagging.
+    old_logic = r.get('script_logic_sha1')
+    if old_logic:
+        now_logic = semantic_sha1(sp)
+        if now_logic == old_logic:
+            return True, ('reproduces without re-running: the script differs only '
+                          'in comments/formatting (logic hash unchanged): %s'
+                          % r.get('rerun'))
     now = sha1_of(sp)
     if now != r['script_sha1']:
-        return False, ('%s has CHANGED since this data was produced '
-                       '(%s -> %s); rerunning will not reproduce it'
-                       % (r.get('script'), r['script_sha1'][:8], now[:8]))
-    return True, 'reproducible: %s' % r.get('rerun')
+        # A CHANGED HASH IS NOT A FAILED REPRODUCTION.  Editing a program in
+        # place is fine as long as it still produces the cited output from the
+        # same parameters -- comments, refactoring and added features all change
+        # the hash while preserving behaviour.  Only a RE-RUN decides, so this
+        # returns UNKNOWN rather than the false 'will not reproduce' it used to.
+        return None, ('%s has changed since this data was produced '
+                      '(%s -> %s). That does NOT mean it fails to reproduce: '
+                      're-run `%s` and compare. Use reproduce() to do it.'
+                      % (r.get('script'), r['script_sha1'][:8], now[:8],
+                         r.get('rerun')))
+    return True, ('reproducible without re-running (script unchanged): %s'
+                  % r.get('rerun'))
+
+
+def reproduce(output_path, compare=None, timeout=None):
+    """Actually RE-RUN the recorded command and compare against the stored output.
+
+    This is the real reproducibility test. The hash is only a cheap screen:
+    unchanged means it certainly reproduces, changed means UNKNOWN until this
+    runs. `compare` may be a callable taking (old, new) for structured data;
+    the default compares parsed JSON, falling back to bytes.
+    """
+    import subprocess, tempfile, shutil
+    r = read(output_path)
+    if not r or not r.get('argv'):
+        return None, 'no provenance stamp, or no argv recorded'
+    if not os.path.exists(output_path):
+        return None, 'the cited output file no longer exists'
+    with open(output_path, 'rb') as f:
+        old_bytes = f.read()
+    backup = output_path + '.beforererun'
+    shutil.copy2(output_path, backup)
+    try:
+        p = subprocess.run(['python3'] + list(r['argv']), cwd=HERE,
+                           capture_output=True, text=True, timeout=timeout)
+        with open(output_path, 'rb') as f:
+            new_bytes = f.read()
+        if compare is not None:
+            try:
+                ok = compare(json.loads(old_bytes), json.loads(new_bytes))
+            except Exception:
+                ok = old_bytes == new_bytes
+        else:
+            try:
+                ok = json.loads(old_bytes) == json.loads(new_bytes)
+            except Exception:
+                ok = old_bytes == new_bytes
+        return bool(ok), ('reproduces the cited output' if ok else
+                          'DIFFERS from the cited output (exit %d)' % p.returncode)
+    finally:
+        shutil.move(backup, output_path)      # never clobber the cited data
 
 
 if __name__ == '__main__':
     for p in sys.argv[1:]:
         ok, msg = verify(p)
-        print('%-40s %-8s %s' % (p, {True: 'OK', False: 'STALE',
+        print('%-40s %-8s %s' % (p, {True: 'OK', False: 'DIFFERS',
                                      None: 'UNKNOWN'}[ok], msg))

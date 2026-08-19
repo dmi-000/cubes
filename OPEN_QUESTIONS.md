@@ -195,7 +195,14 @@ overlap with the 183 wall set rises 86 → 96. So it correlates — but it
 95.3 overlap). A necessary condition, not a sufficient one; a filter, not a
 discriminator.
 
-**Still open:** what separates a record from a near-record. Nothing measured so far
+**ANSWERED 2026-08-19** ([P141](LEDGER.md#p141)): the **CROSSABILITY PROFILE**.
+Crossable pairs per configuration fall monotonically with rising count — 8.53
+(175), 8.00 (177), 6.55 (179), **3.00** (183) — and do NOT saturate, while the
+drop to the best neighbour inverts (2.73 at 179 against 12 at 183). The record is
+the MOST DEGENERATE configuration: same wall set as a near-record, but a wall
+system blocking more directions. Cheap: 66 exact solves per candidate at n = 4.
+
+*Superseded framing:* what separates a record from a near-record. Nothing measured so far
 does. Candidates untested: the wall system's RANK or dependency structure rather
 than its size; the shared-wall locus ([P136](LEDGER.md#p136)); the depth-profile
 trade ("grow the shallow layers, deep layers pinned", [P15](LEDGER.md#p15)).

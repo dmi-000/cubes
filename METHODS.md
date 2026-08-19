@@ -806,6 +806,53 @@ same-stem script and four more name their producers under other names; the only
 artifacts genuinely absent anywhere on disk are `handoff_witness.jsonl` and
 `clip.html`.
 
+## Every postscript names its program AND its output data
+
+A postscript is a claim; the reproduction path has to be findable from it. Measured
+2026-08-19: of 142 postscripts, 70% named a program somewhere in the prose and only
+28% carried a structured reference — and seven of this session's postscripts,
+including the ones establishing the crossability discriminator and the validated
+irrational construction, named no program at all.
+
+**Nothing else closes that gap.** `data_inventory.py` maps data -> producer,
+`.prov.json` stamps map data -> script + content hash, `DATA_MANIFEST.md` judges
+which data is current. All of them run from the DATA. Nothing ran from the CLAIM.
+
+**A bare filename is not enough**, and this project has the scar: `census_variety.py`
+was edited in place across four generations, so a postscript naming it would now
+point at code producing different numbers. The ledger is append-only; programs are
+living; a filename in an immutable record rots silently.
+
+**So cite the chain, preferring the OUTPUT DATA as the authoritative reference:**
+
+    postscript  ->  names its output data file (immutable)
+    data file   ->  .prov.json carries argv and the script's CONTENT HASH at run time
+    hash        ->  a cheap SCREEN, not a verdict
+    re-run      ->  the actual test
+
+**EDITING A PROGRAM IN PLACE IS FINE**, as long as it still reproduces the cited
+output from the same parameters. Comments, refactoring and added features all
+change the hash while preserving behaviour, so a changed hash means UNKNOWN, not
+broken. `provenance.verify()` said "rerunning will not reproduce it" on any hash
+change -- an overclaim, corrected 2026-08-19. It now reports:
+
+    hash unchanged  ->  reproduces, no re-run needed
+    hash changed    ->  UNKNOWN; re-run and compare
+    `provenance.reproduce(path)` re-runs the recorded argv and compares, restoring
+    the cited data afterwards so the record is never clobbered by its own check
+
+What `census_variety.py` actually lost was not the edits but the PARAMETERS: no
+argv was recorded, so there is nothing to re-run generations 1-3 with. Record the
+command and the output; then in-place edits stay harmless and checkable.
+
+Citing `two_plus_quadric.json` gives the exact command AND a check on whether the
+script has changed since. Citing `two_plus_quadric.py` gives today's file, which
+may not be what ran.
+
+Form: a final line `Files: <programs> -> <outputs>`. Where a result was computed
+inline with no file retained, SAY SO — "computed inline, no output file retained"
+is a fact about reproducibility, not an omission.
+
 ## The documents, and which kind each one is
 
 The old rule — UPPERCASE = hand-authored, lowercase = named after its script,
