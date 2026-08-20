@@ -116,7 +116,13 @@ A gate that passes in implausibly little time, or whose two sides are identical
 strings, is a bug, not a pass — check the timing and the actual values
 (FAILURE_MODES.md §13a; this project has shipped a vacuously-passing gate before).
 
-## 6. Budget and logging
+## 6. Budget, caching and logging
+
+**Cache the expensive step before launching** (METHODS, *Cache the expensive step*).
+Every campaign here has one costly intermediate and several analyses that will
+want it; keep it on disk keyed by its input so the run can be killed, corrected
+and relaunched for the price of the correction. Incremental output protects what
+a run produced, the cache protects what it computed to get there.
 
 Time one `decompose` call first, then choose how many rulings per line fit in
 **40 minutes total**, spread across the four lines rather than exhausting the

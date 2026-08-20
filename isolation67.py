@@ -114,13 +114,28 @@ def _pick(lo, hi):
     return _simplest_between(F(lo), F(hi))
 
 
-def _fm(rows, nv):
+def _fm_fourier_motzkin(rows, nv):
     """Witness y with c.y > 0 for every row c (length nv), or None.
 
-    Homogeneous strict Fourier-Motzkin.  The combination rule is the usual one:
-    from c_p[k] y_k > -r_p.y' and c_n[k] y_k > -r_n.y' with c_p[k] > 0 > c_n[k],
-    a y_k exists iff  c_p[k]*r_n + |c_n[k]|*r_p  > 0.
+    THE ORIGINAL IMPLEMENTATION, KEPT DELIBERATELY.  `_fm` below now dispatches
+    to the exact rational LP, which is faster and vastly lighter (P147). This
+    function is retained, and MUST be retained, for two reasons:
+
+      1. It is the independent second implementation that the LP is validated
+         against. `exactlp.py` calls THIS NAME explicitly, never `_fm`. If it
+         called `_fm` after the swap, the comparison would run the LP against
+         itself and agree perfectly on everything forever -- a gate whose two
+         sides are identical strings (FAILURE_MODES 2). The rename is what makes
+         the gate keep meaning.
+      2. Its recursion is the reference definition of the decision being made.
+
+    Do not delete it because it is unused by the campaign; being unused by the
+    campaign is the point.
     """
+
+    # Homogeneous strict Fourier-Motzkin.  The combination rule is the usual one:
+    # from c_p[k] y_k > -r_p.y' and c_n[k] y_k > -r_n.y' with c_p[k] > 0 > c_n[k],
+    # a y_k exists iff  c_p[k]*r_n + |c_n[k]|*r_p  > 0.
     if nv == 0:
         return [] if not rows else None          # any surviving row reads 0 > 0
     k = nv - 1
@@ -131,7 +146,7 @@ def _fm(rows, nv):
     for p in pos:
         for n in neg:
             nxt.append([p[k] * n[t] + (-n[k]) * p[t] for t in range(k)])
-    sub = _fm(nxt, k)
+    sub = _fm_fourier_motzkin(nxt, k)
     if sub is None:
         return None
     # back-substitute: strictly between the induced bounds
@@ -144,6 +159,61 @@ def _fm(rows, nv):
         hi = v if hi is None or v < hi else hi
     y = _pick(lo, hi)
     return sub + [y]
+
+
+# ---------------------------------------------------------------------------
+# The decision procedure every caller uses.
+#
+# Swapped from Fourier-Motzkin to the exact rational LP on 2026-08-20, per
+# Postscript 147 and `specs/EXACTLP_SPEC.md`. Both return an exact rational
+# witness or None, so this is a pure substitution at every call site
+# (`arrangement.py`, `growth727.py`, `isolation_gate.py`, `faces` below).
+#
+# WHY, in one line each, all measured rather than assumed:
+#   correctness  237 668 real decided candidates, zero disagreements with FM
+#                across ckpt183 / ckpt393 / ckpt727.
+#   memory       FM's tail peaked at 7 449 MB and exhausted this machine; the
+#                LP held <= 70 MB over the same instances. This, not speed, is
+#                what made the 727 campaign impossible here.
+#   stalls       one hard instance no longer freezes a whole stage.
+#
+# NO FLOATING POINT enters the decision on either path -- the project-wide
+# invariant, and the reason a simplex was written rather than a library called.
+#
+# To fall back, set USE_EXACT_LP = False; the reference implementation above is
+# retained permanently and must not be deleted (see its docstring).
+USE_EXACT_LP = True
+
+
+def _rows_are_rational(rows):
+    """True when every coefficient is an ordinary rational.
+
+    THE LP IS RATIONAL-ONLY.  `feasible_strict` converts each coefficient with
+    `Fraction(...)`; Fourier-Motzkin never converts anything, using only the
+    arithmetic and ordering the elements themselves provide. That is why FM
+    works unchanged over Q(sqrt d) and the LP does not.
+
+    Found on 2026-08-20 by `isolation_gate.py` immediately after the swap: the
+    gate raised TypeError from `F(c[j])` on the golden (Q(sqrt 5)) case. The
+    validation behind P147 -- 237 668 instances from ckpt_183 / ckpt_393 /
+    ckpt_727 -- is entirely RATIONAL data, so it certified the LP only on the
+    field it was tested on. The irrational records were never in that sample.
+    """
+    from numbers import Rational
+    return all(isinstance(x, Rational) for r in rows for x in r)
+
+
+def _fm(rows, nv):
+    """Witness y with c.y > 0 for every row c (length nv), or None.
+
+    Dispatches to the exact rational LP where it applies (P147) and to
+    Fourier-Motzkin otherwise. The fallback is not a performance compromise: over
+    Q(sqrt d) the LP is not merely slower, it is inapplicable.
+    """
+    if USE_EXACT_LP and _rows_are_rational(rows):
+        from exactlp import feasible_strict
+        return feasible_strict(rows, nv)
+    return _fm_fourier_motzkin(rows, nv)
 
 
 def faces(walls, ncols, zero, log):

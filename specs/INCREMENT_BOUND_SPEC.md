@@ -1,6 +1,6 @@
 # INCREMENT_BOUND_SPEC — the repaired one-cube increment bound
 
-Supersedes the failed attempt of Postscript 53 (`increment_bound.py`, kept as
+Supersedes the failed attempt of Postscript [53](../LEDGER.md#p53) (`increment_bound.py`, kept as
 documentation of that failure). Deliverable: `increment_bound2.py`.
 
 ## 0. What is being proved
@@ -9,7 +9,7 @@ The increment identity is exact: for a compound S of n cubes and any cube j,
 
     T = count(S \ {j}) + Delta_j.
 
-E1 (Postscript 18) bounds Delta_j by a MEASURED constant (336 at n=6). The
+E1 (Postscript [18](../LEDGER.md#p18)) bounds Delta_j by a MEASURED constant (336 at n=6). The
 goal is a bound DERIVED from the geometry of the configuration.
 
 ### The chain

@@ -1,7 +1,7 @@
 # EVENTS_SPEC — the create-vs-merge event catalogue
 
 Task for the implementing agent (Sonnet). Background: ledger
-Postscripts 25 (+addenda 2–4), 28, 29; q3_count.py / q6_count.py /
+Postscripts [25](../LEDGER.md#p25) (+addenda 2–4), 28, 29; q3_count.py / q6_count.py /
 slide3_q2.py (validated field engines, read-only); nfamily_common.py
 (exact pair-crossing counter — REUSE); rattan_results.jsonl,
 resonance4_results.jsonl (existing exact counts). Ledger and validated
@@ -27,7 +27,7 @@ law and classify the sign mechanism.
 ## Tasks
 
 1. **Dihedral family events (n=3), exact.** For each wall/spike of the
-   staircase (Postscript 25 addendum 3): ψ = 20.905°, 35.264°, 45°,
+   staircase (Postscript [25](../LEDGER.md#p25) addendum 3): ψ = 20.905°, 35.264°, 45°,
    54.736°, 69.095°, plus the band-edge walls near 9.6°/80.4° and any
    others in the q3 sweep data. For each event tabulate EXACTLY:
    count and depth profile on both sides (staircase data / q3_count at
@@ -40,7 +40,7 @@ law and classify the sign mechanism.
    |t|<1 vs corner |t|=1; class x/y/z; label pair) via the exact
    crossing counter on the exact matrices. Band-edge walls at
    non-quadratic ψ: sides only, plus a statement of what (if any)
-   coincidence structure changes there — Postscript 25 found NONE
+   coincidence structure changes there — Postscript [25](../LEDGER.md#p25) found NONE
    (walls not tied to crossing-set changes); confirm and flag those
    events as law-EXCEPTIONS or as a different event type (they may be
    pure top/bottom-diagram combinatorial events with zero coincidence

@@ -1,7 +1,7 @@
 # Spec: generalize the exact search to n > 6 intersecting cubes
 
 Hand to an implementation agent ONLY after the current agent finishes
-(both touch cube_regions.cpp). Read specs/CPP_SPEC.md and Postscripts 3-5 of
+(both touch cube_regions.cpp). Read specs/CPP_SPEC.md and Postscripts [3](../LEDGER.md#p3)-[5](../LEDGER.md#p5) of
 LEDGER.md first; this spec extends them.
 
 ## 1. Engine generalization (cube_regions.cpp)
@@ -62,7 +62,7 @@ LEDGER.md first; this spec extends them.
 - cube_regions.cpp with --n + gates output; updated run_campaign.py;
   campaign_n7.jsonl (target ~50k seeds) and campaign_n8.jsonl (~10k);
   hill-climbs at n=7 from its top-20; a per-n census table (records,
-  frozen depths, mod-4 exceptions, T1 numbers); Postscript 6 in
+  frozen depths, mod-4 exceptions, T1 numbers); Postscript [6](../LEDGER.md#p6) in
   LEDGER.md with the cross-n picture.
 - Do not modify validated Python files; exact_search_results.jsonl
   read-only. Honest negatives welcome.

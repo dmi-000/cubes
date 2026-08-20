@@ -8,9 +8,9 @@ validated files READ-ONLY. Light compute; exact arithmetic in decisions.
 
 ## The question, now sharp
 
-Postscript 30 killed the "±1 region per coincidence" guess but proved
+Postscript [30](../LEDGER.md#p30) killed the "±1 region per coincidence" guess but proved
 that every event's entire count change lands in depth-1 (deep layers
-conserved). Postscript 31 explained why: coincidences are exactly
+conserved). Postscript [31](../LEDGER.md#p31) explained why: coincidences are exactly
 vertices of the TOP diagram, and d1 = F(top) = 2 + ½Σ_v(deg_v − 2). So
 when a coincidence appears or disappears as a parameter crosses a wall,
 Δd1 = ½·Δ[Σ_v(deg_v − 2)] = the change in total top-diagram vertex
@@ -30,7 +30,7 @@ reduced to but did not write down.
      contact vertex, as in the octahedral 30),
    - a corner/vertex-vertex contact (degree-6, as in golden's 6),
    - an active-face change (kink) crossing a swap arc,
-   - the no-coincidence combinatorial wall (Postscript 30 event #2:
+   - the no-coincidence combinatorial wall (Postscript [30](../LEDGER.md#p30) event #2:
      weight changes with the coincidence census frozen — the top
      diagram re-triangulates with no vertex added; this is the third
      class and MUST be included).

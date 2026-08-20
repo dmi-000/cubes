@@ -1,7 +1,7 @@
 # Plan: multi-constraint (stacked-wall) search with ℚ(√a,√b,…) verification
 
 For a Sonnet implementation agent. Read first: LEDGER.md
-Postscripts 4–5 and 7 (with update), specs/QFIELD_SPEC.md (single-field
+Postscripts [4](../LEDGER.md#p4)–[5](../LEDGER.md#p5) and [7](../LEDGER.md#p7) (with update), specs/QFIELD_SPEC.md (single-field
 program; this spec supersedes its priorities), golden_six.py +
 golden_search.jsonl (the ℚ(√5) pilot that found 681), certify_six.py,
 cube_compound_exact.py (Q5). PRIORITY: this outranks the n>6 program.

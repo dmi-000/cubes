@@ -4,12 +4,28 @@ What was handed to subagents, what they were required to prove, what came back,
 and what the main session re-verified independently.
 
 **Why this file exists.** The specifications given to subagents are not stored
-anywhere by default — not in the conversation exports (they are tool
-parameters, not messages), not in the per-agent transcript files (metadata
-only). They vanish with the session. But they contain the *gates*: the
+anywhere *in the repository* by default. But they contain the *gates*: the
 pre-existing known values each agent had to reproduce. Those gates are the
 whole reason a delegated result can be trusted, so they belong in the record
 alongside the result.
+
+> **Correction, 2026-08-20.** This paragraph used to add that the specs are
+> recoverable from nowhere — *"not in the conversation exports (they are tool
+> parameters, not messages), not in the per-agent transcript files (metadata
+> only). They vanish with the session."* The first clause is right and was
+> re-checked today: grepping a distinctive prompt sentence across the `/export`
+> `.txt` files in this directory returns nothing. **The second clause is
+> wrong.** Each agent's own transcript, at
+> `~/.claude/projects/-Users-dmi-cube-compounds/<session>/subagents/agent-<id>.jsonl`,
+> carries the FULL prompt as its first user message; the main session's
+> `<session>.jsonl` carries the same text as the `Agent` tool-use input. All 65
+> delegations made in this project were recoverable on the day this correction
+> was written.
+>
+> The error mattered in one specific way: it told a reader there was nothing to
+> look for, which turns a backfill script into an impossibility and licenses
+> not writing the spec down. Recorded as
+> [FAILURE_MODES 19](FAILURE_MODES.md#19-the-specification-is-the-one-artifact-not-kept).
 
 **Standing rules applied to every delegation.** Agents never edit the ledger
 `LEDGER.md` — the main session does. Agents do not modify
@@ -17,6 +33,27 @@ alongside the result.
 sources, never self-consistency checks. An agent that cannot pass a gate must
 say so rather than adjust the expected value. Every substantive claim is
 re-verified by the main session before it enters the ledger.
+
+**Spec-first, added 2026-08-20.** Write the specification to `specs/X_SPEC.md`
+*before* spawning, and spawn with "build to `specs/X_SPEC.md`". Do not carry the
+specification only in the prompt.
+
+Two reasons, both measured rather than assumed:
+
+1. **A spec in the prompt cannot be diffed against the result.** `growth727.py`
+   was specified with a `__main__` guard and delivered without one; importing it
+   re-ran the whole campaign. Against a spec on disk that is a one-line check.
+   Against a prompt it is a transcript search nobody performs.
+2. **A spec in the prompt drifts silently between attempts.** `exactlp.py` was
+   commissioned three times on 2026-08-20 with prompts of 4 046, 3 789 and 4 070
+   characters. The differences were deliberate — the third added "run in the
+   FOREGROUND", per [mode 17](FAILURE_MODES.md#17-a-delegated-agent-that-parks-on-its-own-background-job)
+   — but nothing on disk records which version the surviving code was built to.
+
+The practice already existed here and lapsed: `specs/` holds 27 files, the newest
+dated 2026-08-13, while 13 agents were spawned on 2026-08-18 and 08-19 with no
+spec written for any of them. 2026-08-18 was the heaviest delegation day of the
+project (9 spawns). Delegation rose as the recording of it went to zero.
 
 ---
 

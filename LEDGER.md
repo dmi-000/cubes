@@ -10333,3 +10333,93 @@ bytes per chamber at 27 walls rather than ~80. At 36M chambers a stage file is a
 Not a replacement for `arrangement.py`, which stays faster when a problem fits
 (183: 1 712 chambers in 1.6 s in memory). Use streaming when it does not.
 Files: `stream_chambers.py`, `stream_183_validate/`.
+
+## Postscript 147: exact rational LP replaces Fourier–Motzkin — 237 668 real instances, zero disagreements
+
+`exactlp.py`, built to [`specs/EXACTLP_SPEC.md`](specs/EXACTLP_SPEC.md), provides
+`feasible_strict(rows, nv)` returning an exact rational witness or `None`. It is a
+drop-in decision replacement for `isolation67._fm`, which
+[P145](#p145) identified as the cause of the schedule, the stalls and the memory
+exhaustion alike.
+
+**Validated against the real workload, which needs no sampling distribution.**
+Every candidate `_fm` had already decided in the two live campaigns plus the
+known-answer case:
+
+| phase | checked | agree | disagree | peak RSS |
+|---|---|---|---|---|
+| `ckpt183` (known answer) | 12 882 | 12 882 | **0** | 70 MB |
+| `ckpt393` | 10 057 | 10 057 | **0** | 63 MB |
+| `ckpt727` | 214 729 | 214 729 | **0** | 64 MB |
+
+**237 668 agreements, no disagreement, no invalid witness.** Witnesses are checked
+by substitution in exact arithmetic, not merely returned.
+
+**Memory is the headline.** The `hard` phase, aimed at the tail on purpose, peaked
+at **7 449 MB** — FM. `feasible_strict` held **≤ 70 MB** across all phases,
+including the full 214 729-candidate 727 sweep. That is a 116× ratio, and it is
+measurement rather than inference: it independently confirms [P145](#p145) and
+retires [P144](#p144)'s attribution of the growth to the chamber list.
+
+**What is NOT claimed.** `phase_random` (2 500 synthetic trials, 0 mismatches) is a
+broad agreement check and not a workload model. Its distribution is weighted toward
+instances `_fm` can finish so the sweep stays tractable, which excludes the tail
+this module exists for; the weighting is now a run-time parameter echoed into every
+report rather than a literal in the loop. Its denominator is `n_compared`, not
+`n_trials`: a timed-out `_fm` yields no comparison, and 978 of 2 500 trials timed
+out at 0.3 s. The honest statement is **0 mismatches in 1 522 comparisons**. The
+delivering agent's own summary said "2500/2500 trials, zero mismatches", crediting
+978 non-comparisons to agreement — corrected here.
+
+**Two apparatus failures during this work**, both recorded rather than smoothed
+over: a smoke test of the new parameter CLI overwrote the completed 2 500-trial
+report, which had no copy ([FAILURE_MODES 20](FAILURE_MODES.md#20-a-test-run-writing-to-the-production-output-path);
+recovered by re-running under the fixed seed 20260820, with timing fields
+necessarily different); and the specifications for this module existed only in
+session transcripts until the day it was delivered
+([FAILURE_MODES 19](FAILURE_MODES.md#19-the-specification-is-the-one-artifact-not-kept)).
+Three prompts were sent, of 4 046 / 3 789 / 4 070 characters, all now recovered to
+`specs/backfill/`; which one the surviving code was built to is not recorded.
+
+Files: `exactlp.py`, `specs/EXACTLP_SPEC.md`, `exactlp_report_{ckpt183,ckpt393,ckpt727,hard,random}.json`.
+
+### Postscript 147, Addendum 1 (2026-08-20, same day): the swap is NOT a clean drop-in — two limits found by gates
+
+P147 above described `feasible_strict` as "a drop-in decision replacement" and
+`specs/EXACTLP_SPEC.md` said "a pure substitution at every call site". **Both
+overstated it.** Two limits appeared within minutes of the swap, each caught by an
+existing gate rather than by inspection.
+
+**1. The LP is rational-only.** `isolation_gate.py` raised `TypeError` from
+`F(c[j])` on the golden ℚ(√5) case. `_fm_fourier_motzkin` never converts anything —
+it uses only the arithmetic and ordering the coefficients themselves provide, which
+is exactly why it works unchanged over ℚ(√d). `feasible_strict` converts every
+coefficient with `Fraction(...)` and cannot.
+
+The audit question this forces: **the 237 668 instances behind P147 are all
+rational.** `ckpt_183`, `ckpt_393` and `ckpt_727` are rational configurations, so
+the validation certified the LP only over the field it was sampled on, and the
+irrational records — the two 67s, the golden case, every ℚ(√d) result — were never
+in that sample. The count is not wrong; its scope was stated too broadly.
+`isolation67._fm` now dispatches on `_rows_are_rational(rows)` and falls back to FM
+otherwise. That fallback is not a performance compromise: over ℚ(√d) the LP is
+inapplicable, not merely slower.
+
+**2. The LP is SLOWER on small instances.** End-to-end known-answer check through
+the swapped path: the 183 record streams to **1 712 chambers — correct — in 14.2 s**,
+against **1.5 s** for the same computation under FM ([P146](#p146)). About 9×
+slower. This is consistent with, and was predictable from, the measurement already
+recorded in `SAMPLING_DEFAULT`: FM finishes small instances quickly and blows up
+only in the tail.
+
+So the LP's win is **not** speed in general. It is the tail — 7 449 MB → ≤ 70 MB,
+and no single instance freezing a stage. On problems that fit, FM is the faster
+choice, exactly as `arrangement.py` remains the faster choice over
+`stream_chambers.py` when a problem fits.
+
+**Not yet done, and stated rather than left implicit:** the dispatch currently
+sends every rational instance to the LP, which makes small rational work ~9×
+slower than it needs to be. A size threshold would fix it and would itself be a
+tunable magic number, so it belongs in `SAMPLING_DEFAULT`'s category — a
+documented run-time parameter, measured before it is chosen, not a constant picked
+by intuition. Unmeasured, therefore unset.

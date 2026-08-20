@@ -1,7 +1,7 @@
 # RESONANCE4_SPEC — solve the coincidence-alignment conditions for non-uniform 4-cube family resonances, algebraically
 
 Task for the implementing agent (Sonnet). Background: LEDGER.md
-Postscripts 25 (+addenda) and 26 (+addendum), C45_notes.md §12 (the four
+Postscripts [25](../LEDGER.md#p25) (+addenda) and 26 (+addendum), C45_notes.md §12 (the four
 theorems — Rel gauge, mirror, periodicity, coincidence identity),
 nfamily_report.md and nfamily_common.py (exact machinery — REUSE it),
 q3_count.py / q6_count.py (field-engine clone recipe). All ledger/validated
@@ -16,7 +16,7 @@ top of Theorem F's identical same-class ones: the octahedral 67 at
 ψ=arcsin(1/√3) (y-z class extras), the golden 67 at ψ=arctan(φ²) (x-z
 class). At n=4 the rational family plateau is 175 and the record is 183 —
 a gap of 8, SMALLER than the n=3 resonance boost. The uniform n=4 chain
-(90° spacing) is degenerate (Postscript 26: collapses to 93), so any n=4
+(90° spacing) is degenerate (Postscript [26](../LEDGER.md#p26): collapses to 93), so any n=4
 resonance must be non-uniform. Nobody has looked. Goal: find ALL n=4 family
 resonances algebraically and exactly count the candidates. Anything ≥183
 is a headline; anything >175 already interesting.

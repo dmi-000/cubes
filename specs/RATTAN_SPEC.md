@@ -1,6 +1,6 @@
 # RATTAN_SPEC — the rational-tangent sweep (the slice the records actually live in)
 
-Task for the implementing agent (Sonnet). Background: Postscript 27 in
+Task for the implementing agent (Sonnet). Background: Postscript [27](../LEDGER.md#p27) in
 LEDGER.md (READ-ONLY), glue_report.md, nfamily_report.md,
 nfamily_common.py (reuse). Validated files and the ledger: never edit.
 ≤4 cores; detached runs; interim results into the report as you go.

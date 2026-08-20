@@ -4,7 +4,7 @@ PRIORITY: this program outranks the n>6 campaigns for compute and agent
 attention (user directive 2026-07-10). Hand to an implementation agent
 after the current golden-wall agent finishes (it owns golden_six.py /
 golden_search.jsonl / golden_wall_report.md until then). Read first:
-LEDGER.md Postscripts 4-5 and 7, golden_wall_report.md
+LEDGER.md Postscripts [4](../LEDGER.md#p4)-[5](../LEDGER.md#p5) and [7](../LEDGER.md#p7), golden_wall_report.md
 (the ℚ(√5) pilot), cube_compound_exact.py (Q5), certify_six.py.
 
 ## 1. Why fields, and which (get this right — it is easy to overclaim)
@@ -31,7 +31,7 @@ the winning stratum. Field taxonomy of known wall families:
 - Degree ≥ 4: k ≥ 4 cubes equally spaced about one axis (cos(90°/k),
   k=4 → ℚ(√(2+√2)), k=5 → cos 18°); towers ℚ(√2,√3) etc. for mixed
   relations. Mostly documented-only — EXCEPT the tower ℚ(√3,√5),
-  which the golden pilot made CONCRETELY NECESSARY (see Postscript 7
+  which the golden pilot made CONCRETELY NECESSARY (see Postscript [7](../LEDGER.md#p7)
   update): the 681-record climb converges to the sixth cube at exactly
   90° about (1,1,1) (a ℚ(√3) incidence) on top of the ℚ(√5) golden
   five. Implementing degree-4 tower arithmetic (basis 1,√3,√5,√15;
@@ -41,7 +41,7 @@ the winning stratum. Field taxonomy of known wall families:
   worse: interval-filtered exact sign on minimal polynomials (the CN
   design anticipates it).
 
-The scientific question, sharpened by the census work (Postscript 5):
+The scientific question, sharpened by the census work (Postscript [5](../LEDGER.md#p5)):
 walls MERGE deep cells (T2 direction) but can ADD shallow ones (six6:
 d1=120 > record 118). Can any exact-incidence wall net-win the total?
 √5 is the strongest candidate (only known wall that leads its n: 351 vs
@@ -120,7 +120,7 @@ never overwrite ./cube_regions or ./cube_regions_n.
 
 qfield.py, count_qd.py (or extended golden_six.py core), gate log,
 qfield_*.jsonl, and a report in qfield_report.md (do NOT edit
-LEDGER.md — the main session merges; Postscripts 6
+LEDGER.md — the main session merges; Postscripts [6](../LEDGER.md#p6)
 and 7 are taken). Report the F1/F2 deltas even if zero — a clean
 null ("exact quadratic incidences never change the count vs in-family
 rational angles") would itself justify closing the quadratic program

@@ -1,0 +1,43 @@
+{
+ "n_trials": 120,
+ "seed": 20260820,
+ "fm_timeout_s": 0.3,
+ "sampling": {
+  "mags": [
+   1,
+   3,
+   20
+  ],
+  "small_frac": 0.5,
+  "small_nv": [
+   2,
+   8
+  ],
+  "small_rows": [
+   1,
+   15
+  ],
+  "large_nv": [
+   9,
+   15
+  ],
+  "large_rows": [
+   16,
+   40
+  ]
+ },
+ "n_feasible": 52,
+ "n_infeasible": 68,
+ "old_timeouts": 75,
+ "n_compared": 45,
+ "n_mismatches": 0,
+ "mismatches": [],
+ "n_bad_witnesses": 0,
+ "bad_witnesses": [],
+ "median_ratio_new_over_old": 4.6521739130434785,
+ "p99_ratio_new_over_old": 57.16460330578513,
+ "median_new_time_s": 0.03640151023864746,
+ "p99_new_time_s": 0.35892280817031863,
+ "wall_s": 33.818310022354126,
+ "peak_rss_mb": 267.21875
+}

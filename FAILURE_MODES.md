@@ -540,3 +540,106 @@ a result; it is the failure mode.
 
 Related: [mode 2](#2-a-gate-that-cannot-fail) — there the test could not fail; here
 the tool could not report failing.
+
+## 19. The specification is the one artifact not kept
+
+**Symptom.** A delegated program is in the repository, its report is in the
+repository, its numbers are cited in the ledger — and what the agent was actually
+asked to do exists only in a session transcript.
+
+**The measurement, 2026-08-20.** Across all sessions of this project: 65
+delegations. `DELEGATION_LOG.md` describes 8 of them (12%). `specs/` holds 27
+specification files, the newest dated 2026-08-13 — while 13 agents were spawned on
+08-18 and 08-19 with no spec written for any. 08-18 was the heaviest delegation day
+of the project at 9 spawns. **The rate of delegating went up as the recording of it
+went to zero.**
+
+The asymmetry is the tell. Agent *output* was already being made durable and it
+worked: 30 `*_report.md` files are in the repository and 24 of them are cited in
+`LEDGER.md` or `RESULTS.md`. Only the input side lapsed. Nobody decided to stop —
+which is why nothing announced it.
+
+**Why the defect hides.** A spec can be wrong in ways the delivered code cannot
+reveal, so the spec is the only place the defect is visible, and it is the one
+thing not kept:
+
+- **The gate was vacuous.** Three times here, most sharply in
+  [16a](#16a-addendum-same-day-mode-2-reproduced-within-hours-of-writing-mode-16):
+  the specified check was "is every multiplicity a sum of divisors of 24?", which
+  every positive integer passes. The agent complied exactly. The delivered code was
+  correct. The *specification* was the error, and reading the code will never say so.
+- **A budget read as permission.** "Budget roughly 40 minutes" produced three agents
+  that built infrastructure and reported status instead of numbers
+  ([mode 17](#17-a-delegated-agent-that-parks-on-its-own-background-job)). That is a
+  wording defect, diagnosable only against the wording.
+- **A requirement silently dropped.** `growth727.py` was specified with a `__main__`
+  guard and delivered without one, so importing it re-ran the campaign. Against a
+  spec on disk: a one-line diff. Against a prompt: a transcript search nobody runs.
+- **The spec drifted between attempts.** `exactlp.py` was commissioned three times in
+  one day with prompts of 4 046, 3 789 and 4 070 characters. Nothing on disk records
+  which version the surviving code was built to.
+
+**The compounding error.** `DELEGATION_LOG.md` — the file created to fix exactly
+this — asserted in its own opening paragraph that specs are recoverable from
+neither the exports nor the per-agent transcripts. Half of that was false: every
+agent transcript carries the full prompt as its first user message. A document
+whose purpose was to preserve specifications contained the sentence that made
+preserving them look impossible. Same shape as the superseded claim that survived
+longest inside the SUPERSEDED-CLAIMS TABLE: **the mechanism built to prevent a
+failure is where that failure lives longest**, because nobody audits the auditor.
+
+**Standing rule.** Write `specs/X_SPEC.md` before spawning and spawn with "build to
+`specs/X_SPEC.md`". The spec is then a repository file both sides cite, so the
+instruction and the record cannot drift apart, and the spec can be reviewed as an
+experimental design *before* an agent spends an hour satisfying it. Apply
+[mode 2](#2-a-gate-that-cannot-fail) to the spec itself while writing it: name the
+input that would make each gate FAIL. If no such input exists, the gate is
+decoration and the delegation will confirm nothing, however well it is executed.
+
+**Recovery.** Prompts are recoverable from
+`~/.claude/projects/<project>/<session>/subagents/agent-<id>.jsonl` (first user
+message) and from the main session's `.jsonl` as the `Agent` tool-use input. They
+are NOT in `/export` output. Backfill by the criterion already used for reports: a
+spec is worth saving when its output is cited.
+
+## 20. A test run writing to the production output path
+
+**What happened, 2026-08-20.** `exactlp.py` had just been changed to take its
+sampling distribution as run-time parameters. A 120-trial smoke test confirming
+the new `key=value` overrides worked wrote its report to
+`exactlp_report_random.json` — **the path holding the completed 2 500-trial
+validation**, which had no other copy. The smoke test passed. The data it landed
+on was gone.
+
+**The defect was not carelessness, it was an unparameterised path.** The output
+location was computed as `exactlp_report_%s.json % phase` with no way to
+redirect it, so *every* invocation of the program — a real campaign, a
+three-trial syntax check, a demonstration in a reply — aimed at the same file.
+Under that design a test run cannot be made safe by intending it to be safe.
+Note the irony precisely: the edit being tested was the promotion of magic
+numbers to parameters, and the magic value that did the damage was the one not
+promoted.
+
+**Why the usual guard did not apply.** `provenance.py` protects against this
+where it runs — `reproduce()` copies the cited output aside and restores it in a
+`finally` — but that guard lives in the reproducing harness, not in the
+producing program. Any program that writes a result is one careless argument away
+from this unless the destination is an argument too.
+
+**Standing rule.** A program that writes a result takes its output path as a
+parameter, and any exploratory, smoke, calibration or demonstration run passes an
+explicit throwaway destination. Never let the convenient invocation be the
+destructive one. Corollary for this project's own habit: *documents are living,
+data is immutable* is a rule about intent, and intent does not defend a file — an
+argument does.
+
+**Recovery, and why it existed.** The run was reproducible because the seed was
+fixed (`seed=20260820`) and the edits had not touched the RNG call sequence or the
+sampled defaults, so re-running regenerated the same trials. That is the whole
+value of a recorded seed, and it is the second time on this project that a fixed
+seed converted a loss into an inconvenience. Timing fields (`wall_s`, the ratio
+and duration percentiles) do not reproduce exactly and are honestly different
+numbers from a different machine state.
+
+Related: [mode 7](#7-reporting-before-persisting) — there the result never reached
+disk; here it reached disk and was then overwritten by a test of the writer.

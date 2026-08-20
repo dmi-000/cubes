@@ -1,6 +1,6 @@
 # GLUE_SPEC — two-clique gluing search (does gluing family cliques beat 723?)
 
-Task for the implementing agent (Sonnet). Background: Postscript 26 in
+Task for the implementing agent (Sonnet). Background: Postscript [26](../LEDGER.md#p26) in
 LEDGER.md (READ-ONLY) + nfamily_report.md + the exact
 machinery in nfamily_common.py (reuse it; read-only reference engines
 q3_count.py, certify_six.py, C++ binary ./cube_regions_n — never edit
@@ -30,7 +30,7 @@ component along the local third coordinate, i.e. lies in the (sinψ,cosψ,0)
 form) and check whether one global axis + per-cube face-axis assignment
 makes ALL pairs' axes coincide. If 393 IS single-axis, extract its exact
 (ψ, θ_k) — rational sines by construction — and report why the
-Postscript 26 sweep menu missed them (angle not in the 33-point menu?).
+Postscript [26](../LEDGER.md#p26) sweep menu missed them (angle not in the 33-point menu?).
 This changes the story from "family can't reach records" to "the sweep
 menu was too coarse" — flag prominently if so.
 
@@ -43,7 +43,7 @@ Config = clique A ∪ G·(clique B):
 - Clique B: {Rel(θ_j, ψ_B)} rotated wholesale by G (any integer
   quaternion — G rational keeps everything integer-quaternion).
 - Sizes: n=6: (5,1), (4,2), (3,3); n=5: (4,1), (3,2); n=4: (3,1), (2,2).
-  (a,0) singles are Postscript 26 territory — skip.
+  (a,0) singles are Postscript [26](../LEDGER.md#p26) territory — skip.
 
 ## Gates
 

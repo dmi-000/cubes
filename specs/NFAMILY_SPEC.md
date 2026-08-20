@@ -1,7 +1,7 @@
 # NFAMILY_SPEC — does the dihedral/big family help at n > 3?
 
 Task for the implementing agent (Sonnet). Self-contained. Background:
-LEDGER.md Postscript 25 + addenda 1–4 (READ-ONLY — never
+LEDGER.md Postscript [25](../LEDGER.md#p25) + addenda 1–4 (READ-ONLY — never
 edit it or any validated file; write results to new files). Constructions
 and working code: dihedral_scratch/bigfamily.py (the
 family), q3_count.py + q6_count.py (exact engines,

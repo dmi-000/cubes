@@ -1,7 +1,7 @@
 # HANDOFF_SPEC — chase the corner-handoff network (can >18 concurrences travel octahedral → golden?)
 
 Task for the implementing agent (Sonnet). Self-contained; background in
-LEDGER.md Postscript 25 + addenda 1–2, working scripts in
+LEDGER.md Postscript [25](../LEDGER.md#p25) + addenda 1–2, working scripts in
 dihedral_scratch/ (bigfamily.py, pairmap.py, loopholes.py,
 trace10.py, window26.py — read these, they define every construction used
 below). Ground rules: never edit LEDGER.md or validated

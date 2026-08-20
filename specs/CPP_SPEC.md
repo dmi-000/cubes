@@ -161,7 +161,7 @@ A second engine extends the scalar type from plain integers to elements
 of ℤ[√d] (p + q√d, p and q both `__int128`, d a runtime-fixed nonnegative
 squarefree integer), so it can count compounds whose rotations carry
 irrational quaternion components -- exactly the mixed edge-plane /
-corner-quadric strata of the algebraic search (ledger Postscripts 50-51),
+corner-quadric strata of the algebraic search (ledger Postscripts [50](../LEDGER.md#p50)-[51](../LEDGER.md#p51)),
 which turn out to hold 1,377,612 degree-2 irrational solutions against
 2,856 rational ones for every configuration these strata produce.
 

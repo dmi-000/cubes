@@ -1,7 +1,7 @@
 # DIHEDRAL_SLIDER_SPEC — replace the 67↔67 slide with the dihedral-family slider
 
 Task for the implementing agent (Sonnet). Self-contained. Background (only if
-needed): Postscript 25 in LEDGER.md, DIHEDRAL_FAMILY_NEXT.md.
+needed): Postscript [25](../LEDGER.md#p25) in LEDGER.md, DIHEDRAL_FAMILY_NEXT.md.
 
 ## Files
 
