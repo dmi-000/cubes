@@ -225,6 +225,38 @@ rather than of the encoding. This project had already recorded the identical
 trap once — "the chart omits quaternion representatives, not compounds" — and
 repeated it a month later, which is the argument for this file existing.
 
+### 11e. A monitoring command that fabricates the number it reports
+
+`ps -o rss= -ax -p 54542,54543,54544,54545 | awk '{s+=$1}'` reported the four
+393 workers holding **16.18 GB** on a 16 GB machine. They were holding 0.24 GB.
+
+`-ax` overrides the `-p` filter, so the sum ran over EVERY process on the
+machine. The number was not wrong by a little; it was a different quantity
+wearing the right units, and it landed on a plausible value for the failure
+already feared. Both facts made it convincing.
+
+The near-miss: this was one sentence away from being reported as a second
+out-of-memory event, which would have been the FOURTH wrong diagnosis of a
+stoppage on this project (dispatch deadlock, external kill, chamber list, and
+this) -- each named from a single reading.
+
+**Two checks, both cheap.** Cross-measure with a different command shape before
+believing an alarming aggregate: `for p in $pids; do ps -o rss= -p $p; done`
+disagreed instantly. And sanity-check the total against its parts -- 16.18 GB
+across four processes is 4 GB each, which no other reading supported.
+
+**The general form.** A measurement that CONFIRMS the thing you are already
+watching for deserves more scrutiny than one that contradicts it, not less. Same
+family as [mode 2](#2-a-gate-that-cannot-fail): there a test could not fail; here
+a monitor could not report calm.
+
+Companion observation from the same minute: the run's log had not advanced in
+90 seconds while CPU sat at 98%. That was print granularity -- progress prints
+every 200 candidates and 192 remained. **Slow, hung, killed and out-of-memory all
+present as silence.** Check RSS, %CPU, and whether the OUTPUT FILES are still
+growing before naming a cause; `wc -l` on the checkpoints settled it in one
+command.
+
 ## 12. Delegation-specific: premature parking
 
 **Symptom.** A subagent burns a large budget and returns having built the

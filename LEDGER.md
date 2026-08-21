@@ -10356,7 +10356,10 @@ known-answer case:
 by substitution in exact arithmetic, not merely returned.
 
 **Memory is the headline.** The `hard` phase, aimed at the tail on purpose, peaked
-at **7 449 MB** — FM. `feasible_strict` held **≤ 70 MB** across all phases,
+at **7 449 MB** — FM. *(Correction, same day: that 7 449 MB figure comes from
+SYNTHETIC `dense-random-nv15-rows40` instances, not from this campaign's data. The
+real-workload figure is 1 391 MB for a single instance — see Addendum 3, which
+replaces this number and reaches the same conclusion for better reasons.)* `feasible_strict` held **≤ 70 MB** across all phases,
 including the full 214 729-candidate 727 sweep. That is a 116× ratio, and it is
 measurement rather than inference: it independently confirms [P145](#p145) and
 retires [P144](#p144)'s attribution of the growth to the chamber list.
@@ -10366,10 +10369,11 @@ broad agreement check and not a workload model. Its distribution is weighted tow
 instances `_fm` can finish so the sweep stays tractable, which excludes the tail
 this module exists for; the weighting is now a run-time parameter echoed into every
 report rather than a literal in the loop. Its denominator is `n_compared`, not
-`n_trials`: a timed-out `_fm` yields no comparison, and 978 of 2 500 trials timed
-out at 0.3 s. The honest statement is **0 mismatches in 1 522 comparisons**. The
+`n_trials`: a timed-out `_fm` yields no comparison, and 976 of 2 500 trials timed
+out at 0.3 s. The honest statement is **0 mismatches in 1 524 comparisons**. The
 delivering agent's own summary said "2500/2500 trials, zero mismatches", crediting
-978 non-comparisons to agreement — corrected here.
+its 978 timed-out trials to agreement — corrected here. (That 978 is the
+original run's figure; the restored run gives 976, see Addendum 2 below.)
 
 **Two apparatus failures during this work**, both recorded rather than smoothed
 over: a smoke test of the new parameter CLI overwrote the completed 2 500-trial
@@ -10423,3 +10427,241 @@ slower than it needs to be. A size threshold would fix it and would itself be a
 tunable magic number, so it belongs in `SAMPLING_DEFAULT`'s category — a
 documented run-time parameter, measured before it is chosen, not a constant picked
 by intuition. Unmeasured, therefore unset.
+
+
+### Postscript 147, Addendum 2 (2026-08-20): the destroyed sweep, re-run — what reproduced and what did not
+
+The 2 500-trial `phase_random` report was overwritten by a smoke test
+([FAILURE_MODES 20](FAILURE_MODES.md#20-a-test-run-writing-to-the-production-output-path))
+and regenerated under the recorded seed. The split between what came back
+identical and what did not is a clean read on where determinism actually lives:
+
+| field | destroyed run | restored run | |
+|---|---|---|---|
+| `n_feasible` | 1 346 | 1 346 | identical |
+| `n_infeasible` | 1 154 | 1 154 | identical |
+| `n_mismatches` | 0 | 0 | identical |
+| `old_timeouts` | 978 | **976** | differs by 2 |
+| `n_compared` | 1 522 | **1 524** | differs by 2 |
+
+**Every decision reproduced exactly.** All 2 500 LP verdicts are a deterministic
+function of the seed, and the sampled instances were identical because the edits
+did not touch the RNG call sequence or the defaults.
+
+**The timeout count did not, and could not.** `old_timeouts` is a wall-clock
+predicate: two instances that fell just outside the 0.3 s budget on the first run
+fell just inside it on the second. Those two are not noise in the measurement —
+they are FM instances that were previously *unevaluated* and are now compared, and
+both agree. The claim moved in the direction of more evidence, not less.
+
+The figures cited in P147 above have been updated to the restored run, since it is
+the one whose data file exists. The destroyed run's numbers are preserved here and
+nowhere else.
+
+**The general point.** A run is reproducible exactly to the extent its outputs are
+functions of recorded inputs. Here the mathematics was, and the resource
+accounting was not — which is the correct division, but it means a wall-clock
+figure can never be restored by re-running, only re-measured. Fix the seed, and a
+destroyed run costs an afternoon; leave it unfixed and it costs the result.
+
+
+### Postscript 147, Addendum 3 (2026-08-20): the swap is right for 393, for the opposite reason to the one given
+
+**Two of my own claims fall here.** `probe393.py` measured Fourier-Motzkin against
+the LP on **400 candidates drawn from the 9 173 the live ckpt_393 run has not
+decided** — the actual blocked workload, not a synthetic proxy — each FM call in a
+forked child under an RSS cap.
+
+| | Fourier-Motzkin | exact LP |
+|---|---|---|
+| median | **1.36 ms** | 7.67 ms |
+| p99 | 4.39 s | **13.2 ms** |
+| max | 17.2 s | — |
+| exceeded 20 s | **4 / 400 (1%)** | 0 |
+| peak RSS, one call | **1 391 MB** | — |
+
+**Claim 1 falsified: the LP is not faster here.** FM beats it **5.5× at the
+median** and the LP is slower on 396 of 400 instances. P147 above presented the
+swap as a straightforward improvement; on typical instances it is a regression.
+
+**Claim 2 falsified: the 7 449 MB was synthetic.** Reading
+`exactlp_report_hard.json` shows every 45-second, multi-gigabyte blowup came from
+`dense-random-nv15-rows40`, and the 8 *real* candidates it sampled were solved by
+FM in 0.4–1.6 ms. I imported that figure into P147 as though it described this
+campaign. It did not.
+
+**The conclusion survives, on the right evidence.** FM's distribution on real data
+is not slow, it is **unbounded**: 1% of instances exceed 20 s and a single one
+resides at **1 391 MB**. Extrapolated over the outstanding set that is roughly **92
+instances FM cannot finish**, and four concurrent workers holding such instances is
+≈ 5.5 GB — which is the 2026-08-19 out-of-memory event, now explained by measured
+real instances rather than by inference. [P145](#p145) is confirmed, and confirmed
+on data it did not have.
+
+The LP's value is **variance, not speed**: a p99 of 13.2 ms against 4.39 s, and a
+hard ceiling where FM has none. That is exactly what a campaign needs, because one
+unbounded instance freezes a stage and holds a gigabyte while it does.
+
+**The size-threshold question, closed.** P147 Addendum 1 left open whether small
+instances should route back to FM, calling it an unmeasured parameter. Measured: the
+LP costs 7.67 ms × 9 173 ≈ **71 seconds for the entire outstanding set**. A
+threshold would save under a minute and add a tunable constant with two code paths.
+**Not worth it — route everything to the LP.** The honest reason to reject the
+optimisation is that the quantity it optimises is negligible, which is only visible
+once measured.
+
+**An apparatus failure worth keeping.** The probe's first version capped child
+memory with `RLIMIT_AS` and scored all 25 smoke samples `error`. `setrlimit` to
+2 GB raises `ValueError: current limit exceeds maximum limit` on macOS even with an
+unlimited hard limit, because the cap may not fall below already-mapped address
+space and CPython on arm64 reserves far more than 2 GB virtually. Unexamined, a
+uniform `error` would have read as *"FM cannot solve these"* — a tool inventing a
+result and reporting it as measurement. Replaced by polling child RSS, which is
+also the quantity that actually exhausted the machine.
+
+Files: `probe393.py`, `probe393_report.json`.
+
+## Postscript 148: the 393 neighbourhood, COMPLETE — 74 544 chambers, the first for a rational record
+
+`run393.py`, carried through three `multiprocessing` deadlocks by
+`supervise393.py`, enumerated the five-cube 393 record's chamber complex to
+completion: **74 544 chambers**, 18 walls, rank 11 of ambient 12, from 218 814
+distinct exact decisions.
+
+[P122](#p122) recorded the rational records' neighbourhoods as uncharacterised —
+the face enumeration is 3^27 at 727 and died, and single-wall crossings do not
+exist because all walls are entangled ([P140](#p140)). This is the first one
+closed.
+
+| | |
+|---|---|
+| chambers | **74 544** |
+| Zaslavsky/Buck bound | 218 588 |
+| ratio to bound | **0.341** |
+| distinct decisions | 218 814 |
+
+**The count is structurally checked, not merely produced.** Incremental
+construction requires that stage *k*'s candidate count equal exactly twice stage
+*k−1*'s feasible count. That identity holds at **all 18 stages** — see
+`result393_chambers.json`. It is a real check rather than a tautology: a candidate
+lost, duplicated, or double-counted across the three kill-and-resume cycles breaks
+it immediately. It held, which is also the evidence that append-only per-worker
+checkpointing survived the restarts intact (zero duplicates, verified separately).
+
+**Every decision was made by the exact rational LP**, not Fourier–Motzkin
+([P147](#p147)), and the campaign's memory stayed at **0.26 GB across four
+workers** against 0.56–0.65 GB *per worker* before the swap. FM would have met
+roughly 92 instances it cannot finish (P147 Addendum 3); it met none, because it
+was not used.
+
+**The apparatus failed three times and cost nothing**, which is the whole argument
+for checkpointing before the first run. Each deadlock was killed and resumed with
+zero recomputation of completed stages; the restarts contributed 32 771, 19 540 and
+15 910 new distinct stage-18 decisions respectively.
+
+**Not yet fixed:** the deadlock itself. `arrangement.py:293` pushes an entire
+stage into `work_q` before draining a single result from `result_q`, so at stage 18
+both pipes saturate and parent, workers and every `QueueFeederThread` block in
+`sem_wait` — confirmed with `/usr/bin/sample` on both parent and worker. The fix is
+to interleave put and get with a bounded number of candidates in flight, and to
+stop shipping witnesses through `result_q` at all, since workers already write and
+flush every record to their own JSONL before enqueueing it. Deferred only because
+`arrangement.py` is shared with the 727 campaign. Until then `supervise393.py` is a
+workaround and is documented as one.
+
+Files: `result393_chambers.json` (+ `.prov.json`), `supervise393.py`,
+`supervise393.log`, `ckpt_393/`.
+
+## Postscript 149: the queue deadlock fixed structurally — bounded in-flight dispatch
+
+`arrangement.py:_process_batch` pushed an ENTIRE stage into `work_q` before
+draining one result. At 727-scale stages this saturates both OS pipes at once:
+the parent's QueueFeederThread blocks writing tasks, the workers' feeder threads
+block writing results nobody is draining, and the workers' main threads then block
+in `work_q.get`. Confirmed with `/usr/bin/sample` on parent and worker — every
+thread in `sem_wait`. It stopped the 393 campaign three times at stage 18/18
+([P148](#p148)).
+
+Fixed by keeping at most `IN_FLIGHT_MAX` (256, overridable via
+`ARRANGEMENT_IN_FLIGHT`) candidates outstanding and draining results in the same
+loop. Neither pipe can saturate because the parent never stops reading, so the
+deadlock is structurally impossible rather than merely unlikely.
+
+**Deliberately NOT done: shrinking the payload.** Workers already write and flush
+every record to their own JSONL immediately before `result_q.put`, so the witness
+crosses the queue redundantly and sending a bool would cut queue bytes ~20×. That
+would have made saturation rarer and *hidden* this bug rather than removed it.
+Payload size is a mitigation; bounded in-flight is the fix. (`run_parallel` also
+returns `tested[c]` by value, so the witness is genuinely needed.)
+
+**Validated on the known answer**: 1 712 chambers at the 183 record, three
+independent runs, `res['chambers'] == 1712`, COMPLETE in 4 s. Note 4 s against
+1.6 s under FM ([P146](#p146)) — the LP's ~5× median penalty on easy instances,
+exactly as P147 Addendum 3 measured.
+
+`supervise393.py` is now redundant for future runs and is retained only as the
+record of how P148 was obtained.
+
+## Postscript 150: 727's stages are EXACTLY 20× 393's — and the 14M–36M estimate is refuted by a hard bound
+
+Two results from the 727 stage sequence at stage 24 of 27 (`stream_727/`,
+`pstream_chambers.py`, 4 workers, 82 060 s).
+
+### 1. An exact integer correspondence, eight stages long
+
+727 stage *i* = **20 × 393 stage (i−6)**, for *i* = 17 … 24 — exact, not
+approximate:
+
+| 727 stage | count | 393 stage | count | ratio |
+|---|---|---|---|---|
+| 17 | 23 040 | 11 | 1 152 | **20** |
+| 18 | 46 080 | 12 | 2 304 | **20** |
+| 19 | 92 160 | 13 | 4 608 | **20** |
+| 20 | 183 040 | 14 | 9 152 | **20** |
+| 21 | 273 920 | 15 | 13 696 | **20** |
+| 22 | 528 960 | 16 | 26 448 | **20** |
+| 23 | 1 009 920 | 17 | 50 496 | **20** |
+| 24 | 1 490 880 | 18 | 74 544 | **20** |
+
+The tell that led here: 727's last five stage ratios are 1.98611, 1.49650,
+1.93107, 1.90926, 1.47624 and 393's last five are the *same to five decimals*.
+Two sequences do not share ratios like that by accident — they share them because
+one is a scalar multiple of the other. The ratio is exactly 20 at every one of
+eight consecutive stages, and breaks immediately before (21 at stage 16, 28 at
+stages 12–15).
+
+727 is the 393 configuration plus one cube. In the tail, that cube contributes a
+**constant factor of 20** rather than interacting. The mechanism is not yet
+identified and is the open question here: if the sub-arrangement factors as a
+product, the remaining stages are computable on a far smaller object instead of on
+1.5M chambers — which is the difference between a derivation and another two days
+of enumeration.
+
+Stages 25, 26 and 27 have no 393 counterpart: 393 is exhausted at 18 walls. **The
+correspondence runs out exactly where the remaining uncertainty lives.**
+
+### 2. The 14M–36M estimate is refuted
+
+[P143](#p143) scaled the Zaslavsky bound of 77 509 464 by 183's realised 47% to
+estimate **14M–36M** chambers. In incremental construction each wall at most
+doubles the count, so with 1 490 880 chambers at stage 24 and three walls left:
+
+**chambers(727) ≤ 1 490 880 × 2³ = 11 927 040.**
+
+That is a *derived* ceiling, not an extrapolation, and it is below the bottom of
+P143's range. The realised fraction is therefore **at most 15.4%** of the
+Zaslavsky bound, not 47%. Transferring 183's realised fraction to 727 was
+unsound — the two arrangements do not fill their bounds comparably.
+
+Lower bound 1 490 880 (the count is non-decreasing). Taking 727's own
+non-aligned stages as the guide — ratios 1.50, 1.75, 1.43, 1.40, geometric mean
+1.514 — the expected value is **≈ 5.2M**.
+
+**Method note, against myself.** Earlier the same day I read three declining
+ratios as a taper and guessed the total would fall well under P143's range; then,
+shown 393's completed sequence recovering from 1.50 back to 2.00 three times, I
+retracted that and said P143 looked sound. The retraction was right on method —
+that prefix genuinely did not justify the conclusion — and the original guess is
+now vindicated by an argument that has nothing to do with tapering. **A guess that
+turns out true was still unjustified when made.** The bound above is worth
+something because it cannot be wrong; neither reading of the ratios was.

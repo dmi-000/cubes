@@ -265,6 +265,17 @@ def _test_sigma(cand):
     return _project_and_test(zeros, nz_signs, WALLS, NCOLS)
 
 
+# Candidates queued but not yet returned, at most.  A RUN-TIME PARAMETER with a
+# documented default rather than a literal: it trades dispatch overhead against
+# queue pressure, and any value that changes a run's behaviour belongs somewhere
+# a reader can find it (see FAILURE_MODES 20).
+#
+# 256 is comfortably above 4 workers x the longest observed per-candidate time,
+# so workers never starve, and far below the ~64 KB OS pipe capacity that the
+# unbounded version overflowed.  Override with ARRANGEMENT_IN_FLIGHT.
+IN_FLIGHT_MAX = int(os.environ.get('ARRANGEMENT_IN_FLIGHT', '256'))
+
+
 def _worker_loop(wid, work_q, result_q, ckpt_path, stop_event):
     # Polls `stop_event` between items (not a blocking work_q.get()) so a
     # time-budget bail-out in the driver stops every worker within about a
@@ -295,16 +306,53 @@ def _process_batch(candidates, tested, work_q, result_q, log, t_start,
         print('   [%s] all %d candidates already checkpointed -- nothing to recompute'
               % (label, len(candidates)), file=log, flush=True)
         return True
-    for c in to_send:
-        work_q.put(c)
+    # BOUNDED IN-FLIGHT DISPATCH.  This loop used to be
+    #
+    #     for c in to_send: work_q.put(c)        # ALL of them
+    #     while remaining: result_q.get(...)     # only then drain
+    #
+    # which deadlocked the 393 campaign three times at chamber-stage 18/18 on
+    # 2026-08-20.  The mechanism, confirmed with `/usr/bin/sample` on both the
+    # parent and a worker: the parent pushes an entire stage (100 992 candidates)
+    # before reading one result, so `work_q`'s OS pipe fills and the parent's
+    # QueueFeederThread blocks in sem_wait; meanwhile the workers fill `result_q`,
+    # which nobody is draining because the parent is still inside the put loop, so
+    # THEIR feeder threads block too; and their main threads then block in
+    # `work_q.get`.  Parent, four workers and every feeder thread all sat in
+    # sem_wait.  It surfaced at stage 18 because that stage has both the most
+    # candidates and the largest witnesses, so it is the first to saturate both
+    # pipes at once -- earlier stages drained before filling.
+    #
+    # Keeping at most IN_FLIGHT_MAX candidates outstanding and draining results in
+    # the same loop makes the deadlock STRUCTURALLY impossible rather than
+    # unlikely: neither pipe can saturate, because the parent never stops reading.
+    #
+    # Note what is deliberately NOT done: the witness could be kept out of
+    # `result_q` entirely (workers already write and flush every record to their
+    # own JSONL at the line above `result_q.put`), which would cut queue bytes
+    # ~20x.  That would have HIDDEN this bug by making saturation rarer, not
+    # removed it -- and line 420 returns `tested[c]` by value, so the witness is
+    # genuinely needed here.  Payload size is a mitigation; bounded in-flight is
+    # the fix.
+    src = iter(to_send)
     remaining = len(to_send)
+    inflight = 0
+    exhausted = False
     since_log = 0
     last_log = time.time()
     while remaining > 0:
+        while not exhausted and inflight < IN_FLIGHT_MAX:
+            try:
+                work_q.put(next(src))
+            except StopIteration:
+                exhausted = True
+                break
+            inflight += 1
         try:
             cand, w = result_q.get(timeout=5)
             tested[cand] = w
             remaining -= 1
+            inflight -= 1
             since_log += 1
         except _queue.Empty:
             pass
