@@ -10249,6 +10249,15 @@ finish at any time budget on this machine. It is a CEILING, not a slowdown, and 
 explains what the other two did not: the specific stage, the recurrence, and the
 absence of any torn record.
 
+> **Correction, 2026-08-22 — this paragraph is wrong twice over.** (a) The memory
+> was consumed by Fourier-Motzkin, not by the chamber list: a single real instance
+> was later measured at 1 391 MB ([P145](#p145), [P147](#p147) Addendum 3). (b) The
+> magnitude rested on P143's 14M-36M estimate, now superseded: at the measured
+> ≈4 676 000 chambers ([P151](#p151)) the sign-vector list is **1.18 GB, or 2.37 GB
+> at a stage transition** — comfortably inside 16 GB. **"The run cannot finish at
+> any time budget on this machine" is false; in-memory enumeration would have
+> fitted.** The out-of-memory event itself was real, and its cause was FM.
+
 **THIS OUTRANKS THE LP REPLACEMENT.** Fourier-Motzkin governs the SCHEDULE
 ([Postscript 143](#p143)); memory governs whether the run can complete at all. The
 enumerator must stream chambers to disk per stage instead of accumulating them.
@@ -10314,6 +10323,19 @@ chamber at 27 walls, so 14M-36M chambers is 3.5-9.1 GB, doubling at a stage
 transition when both lists are alive -- 7.1 to 18.2 GB against 16 GB here. The
 Zaslavsky bound alone needs 18.05 GB, so the 727 run could never have completed on
 this machine at any time budget.
+
+> **Correction, 2026-08-22.** The sizing above used P143's 14M-36M, superseded by
+> the measured ≈4 676 000 ([P151](#p151)): **1.18 GB, or 2.37 GB at a stage
+> transition.** The final clause is therefore false — `arrangement.py` would have
+> fitted in 16 GB. Sizing against the *Zaslavsky bound* rather than the arrangement
+> is the specific error: that bound is realised at 47% by 183 and at only ~6% by
+> 727, so it is not a proxy for the object.
+>
+> The streaming enumerator remains worth having, for reasons that do not depend on
+> the wrong number: memory flat in the chamber count, per-stage atomic checkpoints
+> that survived three kills, and a parallel form ([P149](#p149)) that the in-memory
+> version does not have. **A decision can be right while its stated justification
+> is void, and saying so is not the same as retracting the tool.**
 
 `stream_chambers.py` never holds a stage: it reads stage k one line at a time and
 writes stage k+1 as it is produced, then swaps. Peak memory is a read buffer plus an
@@ -10665,3 +10687,774 @@ that prefix genuinely did not justify the conclusion — and the original guess 
 now vindicated by an argument that has nothing to do with tapering. **A guess that
 turns out true was still unjustified when made.** The bound above is worth
 something because it cannot be wrong; neither reading of the ratios was.
+
+## Postscript 151: 727 estimated at 4.68M chambers — and the realised fraction COLLAPSES with size
+
+At stage 25 of 27 the enumeration holds 2 981 760 chambers (stage 25 doubled
+exactly, so wall 25 splits every chamber). The two remaining walls decide
+everything, and their effect is a *proportion*, which sampling estimates honestly.
+
+`predict727.py` sampled 600 stage-25 chambers uniformly and decided each with the
+**exact** Farkas predicate — two `feasible_strict` calls, the same test the
+enumerator uses. Nothing is approximated except which chambers were looked at.
+
+| wall | split fraction | 95% CI | implied stage count |
+|---|---|---|---|
+| 26 | 154/600 = 0.2567 | [0.2233, 0.2931] | ≈ 3 747 000 |
+| 27 | 187/754 = 0.2480 | [0.2185, 0.2801] | ≈ 4 676 000 |
+
+**ESTIMATE: 4 676 394 chambers, 95% CI [4 444 785, 4 935 509].** Hard bounds from
+[P150](#p150) remain [2 981 760, 11 927 040].
+
+**Cross-checked against the live run.** Worker 0 of the real stage-26 pass had
+produced 45 599 children from 36 431 parents — a split fraction of **0.2517**,
+against the sampled 0.2567 [0.2233, 0.2931]. The live figure lands inside the
+interval on 60× more data. Stated honestly: worker 0's parents are a PREFIX of the
+file, not a random spread, and the file's order is structured by construction, so
+this is two differently-biased views agreeing rather than independent
+confirmation.
+
+Caveat on the interval: the wall-27 sample is drawn from the children of the
+wall-26 sample, so the two proportions are correlated and the combined CI, which
+multiplies them as if independent, is approximate.
+
+### The realised fraction is not transferable — it collapses
+
+| record | walls | chambers | Zaslavsky bound | realised |
+|---|---|---|---|---|
+| 183 | 12 | 1 712 | 3 632 | **47.1%** |
+| 393 | 18 | 74 544 | 218 588 | **34.1%** |
+| 727 | 27 | ≈4 676 000 | 77 509 464 | **≈6.0%** |
+
+[P143](#p143) estimated 727 at 14M–36M by transferring 183's realised 47% to it.
+That is the error, now visible with three points: **the realised fraction falls
+sharply with the number of walls** — 47% → 34% → 6%. More walls means more
+dependencies among the normals, so a rapidly shrinking share of sign vectors is
+realizable. Transferring a fill fraction between arrangements of different size
+assumes exactly the thing that is false.
+
+The lesson generalises past this project: a ratio measured on a small case is a
+property of that case, not a constant of the family, unless something forces it to
+be. Nothing here did.
+
+Files: `predict727.py`, `predict727_report.json`.
+
+## Postscript 152: chamber counts DERIVED, not enumerated — 393 in 39.5 seconds instead of three days
+
+`zaslavsky.py` computes the exact chamber count of a real central arrangement
+without constructing a single chamber, by Zaslavsky's theorem combined with
+Whitney's: **chambers = the number of NBC subsets** (independent sets containing
+no broken circuit). Scanning walls from the last index downward, a wall may be
+either taken or skipped exactly when it does NOT lie in the closure of the
+already-taken set; if it does lie there, both branches die — skipping it completes
+a broken circuit, taking it makes a dependent set. So
+
+```
+N(i, F) = 0                                if wall i lies in flat F
+N(i, F) = N(i-1, F) + N(i-1, cl(F + i))    otherwise
+N(-1, F) = 1
+```
+
+**Memoisation is the whole method.** The recursion depends on the taken set only
+through its closure, so states are (index, flat) pairs, at most `m x |L(A)|` of
+them. Unmemoised this visits one node per NBC set — 74 544 for 393, the chamber
+count itself — and saves nothing. Memoised, the cost is the size of the
+intersection lattice, and P151's central observation is that these arrangements
+are extremely degenerate. **The property that made enumeration expensive is the
+property that makes this cheap.**
+
+### Gates
+
+| | chambers | states | flats | time | source of the expected value |
+|---|---|---|---|---|---|
+| 183 | **1 712** | 1 732 | 988 | **0.8 s** | [P146](#p146) streaming enumeration |
+| 393 | **74 544** | 39 528 | 33 158 | **39.5 s** | [P148](#p148) full campaign |
+
+Both exact, both first try. **393 required a multi-day parallel campaign that
+deadlocked three times and needed `supervise393.py` to survive; the derivation
+reproduces its number in under a minute on one core.**
+
+### The route not taken, abandoned on measurement
+
+`charpoly.py` was written first and enumerates the lattice of flats, then recovers
+the Möbius function directly: chambers = Σ|μ(0̂,x)|. It is correct — 183 gives
+1 712 from 988 flats in 4.4 s — but μ(F) needs Σ over all G < F, which is
+O(|L|²) containment tests. 393 reached 23 699 flats before the Möbius step was
+even entered, ≈5.6×10⁸ tests, and 727 is far worse. Kept, because it independently
+confirms 183 by a different route.
+
+### Standing significance
+
+For three days this project has treated the chamber count as something to be
+searched for. It is something to be derived. The enumeration retains one role the
+derivation cannot fill — it produces the chambers themselves, which the
+crossability and congruence analyses consume — but for the COUNT, enumeration is
+now the slow path and its results are checks on the fast one, not the source.
+
+727 is running by this method; the streaming enumeration continues independently,
+which makes the two mutually falsifying.
+
+Files: `zaslavsky.py`, `charpoly.py`.
+
+## Postscript 153: 727 = 4 621 728 chambers — EXACT, and exactly 62 × 393
+
+`zaslavsky.py` returned the 727 neighbourhood's chamber count by derivation:
+**4 621 728**, from 1 192 678 flats and 3 390 547 memo states, in 7 572 s
+(2 h 06 m of one core). No chamber was constructed.
+
+### Every independent line agrees
+
+| check | result |
+|---|---|
+| [P150](#p150) hard bounds [2 981 760, 11 927 040] | **inside** |
+| [P151](#p151) sampled estimate 4 676 394, 95% CI [4 444 785, 4 935 509] | **inside**; point estimate high by **1.18%** |
+| [P151](#p151) predicted realised fraction ≈6.0% | actual **5.96%** |
+| implied wall-27 split 0.2383 vs sampled CI [0.2185, 0.2801] | **inside** |
+| [P143](#p143) estimate 14M–36M | **refuted**, as P150 had already derived |
+
+The sampled proportion did its job: 600 chambers decided by an exact predicate put
+the answer within 1.2% of a number that took two hours to derive and days to
+enumerate. A sampled PROPORTION with a stated interval is a measurement; a sampled
+count would have been a lower bound.
+
+### The 20× correspondence, explained
+
+```
+393 =    74 544 = 2^4 · 3 ·      1553
+727 = 4 621 728 = 2^5 · 3 · 31 · 1553
+
+727 / 393 = 62      exactly
+```
+
+[P150](#p150) recorded that 727's stages 17–24 were exactly 20× 393's stages
+11–18 and called the mechanism unidentified. Here it is: **the two arrangements
+share an arithmetic core, and 393's entire chamber count divides 727's.** The
+stagewise multiplier against 393's total runs 20 → 40 → 62 at stages 24, 25, 27.
+The shared prime 1553 is the fingerprint — the same factor that made 393's count
+non-smooth after stage 13.
+
+183 does not join the family: 1 712 = 2^4 · 107, and 727/183 is not an integer.
+The n=5 and n=6 records share their core; the n=4 record does not.
+
+### What this does to the method question
+
+- **Enumeration**: three days, three deadlocks, a supervisor, ~168 MB of stage
+  files, and still unfinished at stage 26 of 27.
+- **Derivation**: 2 h 06 m, one core, 0.15 GB, exact.
+
+The streaming enumeration is deliberately still running. It is now a
+falsification test with a stated target — it must reach 4 621 728 — rather than
+the source of the number. Two methods that can contradict each other are worth
+more than one that finishes first.
+
+The remaining open question is no longer the count but the STRUCTURE: what makes
+1553 common to both, and whether the factor 62 for "add one cube to the 393
+configuration" is predictable. That would give n=7 without any campaign at all.
+
+Files: `zaslavsky.py`, `zaslavsky_727.json`.
+
+## Postscript 154: where the common factors live — the 20 is in the splits, the 1553 is not, and it is NOT a product
+
+Answering the structural question P153 left open, by examining the INCREMENTS
+b_i (= chambers split by wall i = chamber count of the arrangement induced on
+wall i) rather than the totals.
+
+### The 20 is a property of the splitting
+
+727's walls 18–24 split exactly **20×** as many chambers as 393's walls 12–18,
+seven consecutive walls, exact integer:
+
+| wall (727) | b_i | wall (393) | b_j | ratio |
+|---|---|---|---|---|
+| 18 | 23 040 | 12 | 1 152 | 20 |
+| 20 | 90 880 | 14 | 4 544 | 20 |
+| 22 | 255 040 | 16 | 12 752 | 20 |
+| 24 | 480 960 | 18 | 24 048 | 20 |
+
+So the correspondence is geometric, not an artefact of accumulation.
+
+### The 1553 is NOT
+
+**No increment carries 1553.** The split counts factor with entirely different
+large primes: b_14 = b_15 = 2^6·**71**, b_16 = 2^4·**797**, b_17 = b_18 =
+2^4·3^2·**167**. The prime 1553 that 393 and 727 share appears only in the SUM.
+Any explanation of the shared core must therefore be a property of the
+accumulation, not of any single wall's restriction — which rules out the most
+natural guess, that some individual restriction carries it.
+
+### It is not a coordinate product either
+
+727 adds one cube: ambient 12 → 15, walls 18 → 27. If the new degrees of freedom
+were independent the arrangement would be a product and the factorisation would be
+trivial bookkeeping. Measured directly:
+
+- **18 walls are old-only** — and they project onto 393's 18 walls **exactly**,
+  so 393's arrangement sits inside 727's verbatim;
+- **1 wall** lives purely in the 3 new dimensions;
+- **8 walls couple the two blocks.**
+
+**There is no product structure, yet the count still factors as exactly 62 ×
+74 544.** That makes the divisibility a genuine structural fact rather than an
+artefact of separable coordinates.
+
+### The remaining, well-posed question
+
+Does χ_393(t) divide χ_727(t)? Both are degree 15 (393's arrangement inflates by
+t^3), so the quotient would be a cubic g with |g(-1)| = 62. The characteristic
+polynomials are now computable (`zaslavsky.charpoly`):
+
+```
+chi_183(t) = t (t-1) (t^7 - 11t^6 + 52t^5 - 138t^4 + 225t^3 - 231t^2 + 146t - 52)
+chi_393(t) = t (t-1) (t^10 - 17t^9 + 132t^8 - 620t^7 + 1966t^6 - 4443t^5
+                      + 7344t^4 - 8922t^3 + 7807t^2 - 4588t + 1432)
+```
+
+with |q(-1)| = 2^3·**107** for 183 and 2^3·3·**1553** for 393 — the large primes
+live in the reduced factor q, not in t(t-1). χ_727 has not been computed; it is a
+~2 h single-core run and the machine was at 8.65 GB of 10 GB swap when this was
+written, so it is deferred rather than attempted.
+
+**Prediction on record, pending:** c_26 = 3 727 200 = 50 × 74 544, giving
+s_26 = 1/4 and s_27 = 6/25 exactly. This follows from c_25 = 40 × 74 544 and
+c_27 = 62 × 74 544 IF b_26 is an integer multiple of 74 544 — motivated but
+unproven. The live enumeration measured s_26 ≈ 0.2517 against the predicted 0.25.
+`prefix727.py 26` settles it by derivation.
+
+Incidental gate: `prefix727.py 10` returns 480, matching the enumeration's stage
+10 exactly.
+
+Files: `prefix727.py`, `zaslavsky.py` (`charpoly`).
+
+## Postscript 155: THE STRUCTURE — χ₃₉₃ divides χ₇₂₇, and adding a cube multiplies by (t−1)(t²−8t+22)
+
+The characteristic polynomial of the 727 arrangement, computed on the 64 GB
+machine (`cp727.py`, 9 735.9 s, Whitney numbers
+`[1, 27, 341, 2655, 14220, 55521, 163592, 371511, 657731, 910250, 977297,
+795500, 466178, 175400, 31504]`), reproduces chambers = **4 621 728** — matching
+[P153](#p153)'s value derived independently on a different machine and a different
+CPU architecture.
+
+### The result
+
+```
+chi_727(t) = t (t-1)^2 (t^2 - 8t + 22) . q(t)
+chi_393(t) = t (t-1)            .        q(t)
+
+q(t) = t^10 - 17t^9 + 132t^8 - 620t^7 + 1966t^6 - 4443t^5
+       + 7344t^4 - 8922t^3 + 7807t^2 - 4588t + 1432     (irreducible over Q)
+```
+
+**χ₃₉₃ divides χ₇₂₇ exactly**, with quotient
+
+```
+g(t) = (t - 1)(t^2 - 8t + 22),      g(-1) = -62
+```
+
+and the chamber counts follow: 74 544 × 62 = 4 621 728.
+
+### What this explains
+
+Three facts recorded as unexplained are now one fact.
+
+- **The shared prime 1553** ([P153](#p153)). It lives in the shared degree-10
+  factor: q(−1) = 37 272 = 2³·3·**1553**. Adding a cube leaves q entirely
+  untouched, so both arrangements carry it. 183's reduced factor is a different
+  degree-7 polynomial with |value| 856 = 2³·**107**, which is why 183 does not
+  join the family.
+- **The factor 62** ([P153](#p153)). It is g(−1), and it splits exactly as the
+  two new factors: (t−1) contributes **−2** and (t²−8t+22) contributes **31**.
+- **The 20× stagewise correspondence** ([P150](#p150), [P154](#p154)). A
+  consequence of q being shared: the sub-arrangement's contribution is common to
+  both, so the stage sequences differ by a constant.
+
+### Why it is not a product, and why that matters
+
+[P154](#p154) measured that 8 of 27 walls COUPLE the old and new coordinate
+blocks — there is no product structure, and χ was not obliged to factor. It
+factors anyway. Further, t²−8t+22 has discriminant −24 and is irreducible over ℚ,
+so it is **not** the characteristic polynomial of a rank-2 sub-arrangement (those
+have the form (t−1)(t−m) and split over ℚ). The quotient is not a sub-arrangement
+of the walls; it is a genuine arithmetic factor of the whole.
+
+### The prediction this licenses, and its limit
+
+If adding a cube always multiplies χ by a cubic of the form (t−1)(t²−at+b), then
+**n = 7 is arithmetic, not a campaign**: chambers(n=7) = 4 621 728 × |g'(−1)|.
+That is a CONJECTURE from ONE instance. Two things must be checked before it is
+used:
+
+1. Whether 183 → 393 shows the same shape. It does **not** divide — 183's reduced
+   factor is degree 7, 393's is degree 10, and neither divides the other. So the
+   pattern already fails at the previous rung, and the shared core is specific to
+   the 393 ⊂ 727 nesting rather than a law of the tower.
+2. Whether the n=7 record's configuration actually contains 727's the way 727
+   contains 393's — verbatim, 18 walls projecting exactly ([P154](#p154)).
+
+**Stated plainly against the temptation: one exact factorisation is a fact, not a
+law.** The honest claim is that 393 ⊂ 727 is a nested pair whose arrangements
+share their core, and that where such nesting occurs the count is predictable
+without enumeration.
+
+Files: `cp727.py`, `charpoly_727.json`, `zaslavsky.py` (`charpoly`).
+
+## Postscript 156: the geometric explanation — modular factorisation, and a falsifiable uniformity test
+
+[P155](#p155) found χ_727 = χ_393·(t−1)(t²−8t+22) with no product structure to
+explain it ([P154](#p154): 8 of 27 walls couple the coordinate blocks). The
+geometric mechanism is **Stanley's modular factorisation theorem**: if the flat
+X = ∩(the 18 old walls) is MODULAR in L(A_727), then χ_{A_X} divides χ_A — and
+A_X is exactly 393's arrangement. Modularity is what stands in for the product
+structure that is absent: the new cube's walls create no coincidences with the old
+ones beyond the forced ones.
+
+**The falsifiable content.** The quotient expands as g(t) = t³ − 9t² + 30t − 22,
+whose coefficients have absolute values summing to 1+9+30+22 = **62**. Modularity
+forces the subdivision to be UNIFORM: every chamber of the 393 arrangement must be
+cut into exactly 62 by the 9 new walls — not 62 on average, 62 every time. One
+chamber cut into any other number refutes the modular explanation while leaving
+the polynomial identity of P155 untouched. A test that can fail without
+contradicting anything already established is worth more than one that cannot.
+
+`modular62.py` samples completed 393 chambers from `ckpt_393` and enumerates
+feasible sign extensions over the 9 new walls with the exact LP.
+
+**RESULT (2026-08-23): CONFIRMED. 25 of 25 sampled chambers cut into exactly 62.**
+Distinct subdivision counts across the sample: `[62]` — no variation whatever, 651 s.
+The uniformity the modular explanation demands is present, and the test had every
+opportunity to fail: a single chamber cut into 61 or 63 would have refuted the
+mechanism while leaving P155's polynomial identity untouched.
+
+**What is and is not established.** The factorisation χ_727 = χ_393·(t−1)(t²−8t+22)
+is exact and computed, not sampled. The uniform-62 subdivision is verified on **25
+of 74 544 chambers** — a sampled check of a consequence, so it is strong evidence
+for modularity rather than a proof of it. Proving the mechanism means verifying
+that X is a modular flat directly, i.e. that rank(X)+rank(Y) = rank(X∨Y)+rank(X∧Y)
+for every flat Y of L(A_727) — 1 192 678 flats, and the machinery to enumerate them
+already exists in `zaslavsky.Flats`. **PROVED, 2026-08-24.** `modular_proof.py` ran that check on cube64 and
+verified the modularity identity for **all 1 192 678 flats, with 0 violations** —
+exhaustive, not sampled. The run first reproduced the chamber count 4 621 728 as
+a gate before checking anything, so the lattice it swept is the validated one.
+
+So the chain is complete and is now a proof rather than a coincidence with
+supporting evidence:
+
+> X = ∩(the 18 old walls) is a **modular flat** of L(A_727)
+> ⟹ (Stanley) χ_{A_X} divides χ_A, i.e. **χ_393 | χ_727**
+> ⟹ the shared irreducible degree-10 factor, hence the shared prime **1553**
+> ⟹ the quotient (t−1)(t²−8t+22), hence **62** at t = −1
+> ⟹ the exact **20×** stagewise correspondence of [P150](#p150)
+> ⟹ every 393 chamber cut into exactly **62**, as [P156](#p156) measured
+
+Five facts recorded separately as unexplained across P150–P155 are one theorem
+with one hypothesis, and the hypothesis is now verified.
+
+## Postscript 157: both standing predictions confirmed — c₂₆ = 3 727 200, and the split fractions are exact rationals
+
+[P154](#p154) put a prediction on record: c_26 = 3 727 200 = 50 × 74 544, resting
+on the unproven assumption that b_26 is an integer multiple of 393's total.
+`prefix727.py 26` settled it by derivation: **3 727 200**, from 1 021 812 flats and
+2 745 181 states in 5 869.9 s. `n / 74544 = 50.0` exactly.
+
+The stagewise multipliers against 393's total are therefore
+
+| stage | 24 | 25 | 26 | 27 |
+|---|---|---|---|---|
+| c_k / 74 544 | 20 | 40 | **50** | 62 |
+
+and the last two split fractions are exact rationals, not approximations:
+
+```
+s_26 = b_26 / c_25 = 745 440 / 2 981 760 = 1/4
+s_27 = b_27 / c_26 = 894 528 / 3 727 200 = 6/25
+```
+
+Against the live enumeration's measured 0.2517 and the P151 sample's 0.2567
+[0.2233, 0.2931]: the true value 1/4 sits inside both. **The exact predicate on a
+sampled population was right to within 0.7 percentage points at n=600, and the
+prefix-of-a-file cross-check to within 0.2 — both honest, both now superseded by
+a derivation.**
+
+Every quantity in the 727 neighbourhood is now derived rather than searched:
+chambers 4 621 728 ([P153](#p153)), the characteristic polynomial and its
+factorisation ([P155](#p155)), the geometric mechanism ([P156](#p156)), and the
+stage sequence ([here](#p157)). The streaming enumeration continues at stage 26
+with 3 727 200 as its target — an independent check with a stated value, which is
+the only role left for it.
+
+### Postscript 157, Addendum 1 (2026-08-24): the enumeration reaches stage 26 and confirms the derivation
+
+The streaming enumeration completed chamber-stage 26/27: **3 727 200 chambers**,
+counted directly from `stream_727/stage_26.part0*` rather than taken from its own
+log. This is the value [P157](#p157) derived and put on record as its target.
+
+| method | c_26 | wall-clock |
+|---|---|---|
+| memoised NBC recursion on the intersection lattice ([P152](#p152)) | 3 727 200 | 5 870 s |
+| streaming incremental construction, exact LP per chamber ([P146](#p146), [P149](#p149)) | 3 727 200 | 405 714 s |
+
+**69x apart in cost, identical in answer.** The two share no algorithm and no
+theory — one counts NBC subsets of a matroid, the other decides strict feasibility
+of sign vectors — so the agreement is not two variants of one method agreeing on
+their shared assumptions (FAILURE_MODES 2). It also confirms, on the way, that
+s_26 = 1/4 exactly.
+
+One stage remains, with **4 621 728** as its stated target ([P153](#p153)).
+
+## Postscript 158: n=7 predicted at 1 289 462 112 chambers — by quotient alone, and conditionally
+
+### The method: never build the big lattice
+
+Stanley's theorem gives the quotient as a sum over flats COMPLEMENTARY to X
+(those with Y ∧ X = 0̂, i.e. whose closed wall-set contains no inner wall). Such
+flats have rank at most rA − rX, so the search is over small subsets of the NEW
+walls rather than over the whole lattice. Möbius is exact there rather than an
+approximation, because every flat below a complementary flat is itself
+complementary — the set is an order ideal, so the interval [0̂, Y] lies wholly
+inside it.
+
+The saving is the difference between possible and impossible:
+
+| rung | full lattice | complementary flats needed |
+|---|---|---|
+| 393 ⊂ 727 | 1 192 678 | **54** |
+| 727 ⊂ 1217 | far beyond reach (51 walls) | **264** |
+
+**Gated first:** `quotient.py gate` recovers g(t) = t³ − 9t² + 30t − 22 and
+|g(−1)| = 62 for 393 ⊂ 727 from those 54 flats — reproducing [P155](#p155)'s
+quotient by a route that never divides two polynomials.
+
+### The result
+
+The embedding holds: all 27 of 727's walls appear verbatim in 1217's arrangement
+(51 walls, ambient 18, rank 16), with **24 coupling walls** — three times the
+entanglement of the previous rung, where there were 8.
+
+```
+g(t) = t^2 - 24t + 254        |g(-1)| = 279 = 3^2 x 31
+chambers(1217) = 4 621 728 x 279 = 1 289 462 112
+```
+
+**31 divides both quotients** — 62 = 2·31 at the previous rung, 279 = 3²·31 at
+this one. Unexplained, and not something the theory predicts; recorded because it
+is the kind of repeated integer that turned out to matter last time
+([P150](#p150) → [P155](#p155)).
+
+### What is assumed, stated plainly
+
+**This is CONDITIONAL on X_727 being modular in L(A_1217), and that is not
+verified.** At the previous rung modularity was proved exhaustively over
+1 192 678 flats ([P156](#p156)); here the lattice is out of reach, so the same
+proof is unavailable. The count is a prediction, not a derivation, and must not
+be quoted as one.
+
+`uniform_test.py` runs the falsifiable consequence: modularity forces every 727
+chamber to be cut into exactly 279 — every time, not on average. One chamber cut
+into any other number refutes the hypothesis and the count with it, while leaving
+untouched everything that was computed rather than assumed. RUNNING on cube64.
+
+### Why enumeration is now permanently excluded
+
+1.29 billion chambers against 727's 4 621 728, which took days and 178 MB of
+stage files. At the same rate this is roughly 280x that — years. **Derivation is
+not a faster route to n=7; it is the only route.** Which is exactly why the
+conditional assumption above matters more here than it did at 727, where an
+independent enumeration was available to check the answer.
+
+> ## RETRACTED, 2026-08-24 — the predicted count is contradicted by measurement
+>
+> `uniform_test.py`, run on a real 727 chamber with the exact LP (the same
+> predicate the enumerator uses, independent of `quotient.py` entirely), returned
+> **666 leaves** over a 26-wall prefix. A 26-prefix splits into one or two
+> 727-chambers, so uniform-279 predicts 279 or 558. It predicts neither 666 nor
+> its half. 666 = 2·3²·37; if the prefix split in two, the per-chamber figure is
+> **333 = 3²·37**. Neither is divisible by 279 or by 31.
+>
+> **Therefore `quotient.py` is unsound and the count 1 289 462 112 is withdrawn.**
+> The prediction was already labelled conditional on modularity, but the fault is
+> not the hypothesis — it is the code: the computation returned bit-identical
+> intermediate counts (24 rank-1 and 239 rank-2 complementary flats) and the same
+> polynomial for BOTH 727 ⊂ 1217 and 1217 ⊂ 1895, arrangements of 51 and 75 walls.
+> Two different inputs producing identical intermediates was visible before the
+> refutation arrived and should have blocked the claim then
+> ([FAILURE_MODES 2](FAILURE_MODES.md#2-a-gate-that-cannot-fail): a gate whose two
+> sides are identical strings).
+>
+> **The control that would have caught it was launched and died** before reaching
+> the non-record added cubes — the case designed to make the method fail. It is
+> the second time in two days that a check meant to arbitrate a disputed number
+> contributed nothing while being cited as pending (FAILURE_MODES 11e).
+>
+> **What survives.** Everything at the previous rung: χ_727 = χ_393·(t−1)(t²−8t+22)
+> is an exact polynomial division ([P155](#p155)); modularity there is proved over
+> all 1 192 678 flats ([P156](#p156)); uniform-62 is measured on 25 of 25 chambers.
+> The gate `quotient.py gate` reproducing 62 also passes — so the method is right
+> on the case with a known answer and wrong on the case without one, which is the
+> exact profile [FAILURE_MODES 18](FAILURE_MODES.md#18) warns about.
+>
+> **What dies with it.** The observation that 31 divides successive quotients. It
+> rested on 279 appearing twice; 279 is withdrawn, and the measured values carry
+> 37, not 31. 62 = 2·31 at the first rung stands, verified two independent ways,
+> but one instance is not a pattern.
+
+Files: `quotient.py` (UNSOUND, see retraction above), `quotient_1217.json`
+(withdrawn), `uniform_test.py`.
+
+## Postscript 159: where the modular structure stops, and why — a rank deficit of exactly 1
+
+Following the retraction of [P158](#p158), the question is no longer what n=7's
+count is but where the factorisation of [P155](#p155) applies at all.
+
+| rung | walls | new | new-only | rank rX → rA | ambient gain | deg | comp flats | violations |
+|---|---|---|---|---|---|---|---|---|
+| 393 ⊂ 727 | 27 | 9 | **1** | 11 → 14 (**+3**) | +3 | 3 | 53 | **0** |
+| 727 ⊂ 1217 | 51 | 24 | 0 | 14 → 16 (**+2**) | +3 | 2 | 263 | **11** |
+| 1217 ⊂ 1895 | 75 | 24 | 0 | 16 → 18 (**+2**) | +3 | 2 | 263 | **11** |
+
+**WHERE.** Modularity holds at 393 ⊂ 727 and nowhere above it. The next two rungs
+fail identically — 11 violations, every one at rank 2 with deficiency exactly 1,
+out of 263 complementary flats. So χ_393 | χ_727 is the end of the phenomenon, not
+the start of a pattern, and [P155](#p155)'s refusal to promote one instance to a
+law was the right call.
+
+**WHY.** Each added cube brings 3 new degrees of freedom, but its walls stop
+spanning them: rank rises +3, then +2, then +2 against ambient +3 every time.
+At the first rung the 9 new walls span all three new dimensions and rank
+additivity holds for every complementary flat. From the second rung on there is a
+**rank deficit of exactly 1** — and every modularity violation has deficiency
+exactly 1. The deficit is not correlated with the failure; it is the failure.
+
+Two structural details separate the working rung from the broken ones: it is the
+only one with a **new-only wall** (a wall living purely in the added cube's
+coordinates), and the only one whose new walls are not rank-deficient. From n=7
+the added cube contributes 24 walls, none of them new-only, spanning one dimension
+less than it gained.
+
+**A hypothesis, flagged as unverified.** Ambient − rank runs **1, 1, 2, 3** for
+n = 5, 6, 7, 8. A rank deficit is a direction in configuration space along which
+NO wall changes — a family of rotations altering no coincidence, which is what a
+continuum of equal-count configurations is. `RESULTS.md` already records n=9 =
+2785 as a CONTINUUM. So the property that breaks the factorisation may be the same
+property that makes the high rungs continua. **Not verified:** that the deficit
+directions ARE the continuum directions. It is a specific checkable claim — compute
+the null space of the wall matrix and test whether moving along it changes any
+count — and should be tested before it is used.
+
+**Method note.** The check that produced this table is the precondition gate now
+built into `quotient.py`: rank additivity over the already-enumerated complementary
+flats, 263 of them, seconds to run. Modularity at the working rung was originally
+established by sweeping all 1 192 678 flats ([P156](#p156)) — a proof, and worth
+having — but the cheap necessary condition agrees with it (0 violations) and
+refutes the other two. **A cheap necessary condition that agrees with an expensive
+proof where both are available is the one to run everywhere else.**
+
+Files: `quotient.py` (gate), `whystops.log`.
+
+### Postscript 159, Addendum 1 (2026-08-25): the direct measurement completes — subdivision is NOT uniform
+
+`uniform_test.py` finished all four sampled chambers (38 666 s). Leaf counts over
+26-wall prefixes:
+
+```
+[666, 1332, 1474, 1474]      666 = 2·3²·37   1332 = 2²·3²·37   1474 = 2·11·67
+```
+
+A 26-prefix splits into one or two full 727-chambers, so per-chamber values are
+666 or 333, 1332 or 666, 1474 or 737. **Under no reading are they uniform**, and
+they share no common factor pattern — 37 in two, 11·67 in the others.
+
+Modularity forces uniform subdivision. This is therefore a fourth independent
+refutation of it at this rung, alongside the 11 rank-additivity violations
+([P159](#p159)), the withdrawn 279 ([P158](#p158) retraction), and the identical
+rung-2/rung-3 quotients that first raised suspicion.
+
+**Worth recording about the order these arrived in.** The cheap combinatorial
+check — rank additivity over 263 already-enumerated flats, seconds — reached the
+same verdict as this 10.7-hour LP measurement, and reached it first. The expensive
+test was still worth finishing: it is the only one that reports what the
+subdivision actually IS rather than that it fails to be constant, and 1474 = 2·11·67
+is a fact no combinatorial check would have produced. But for the *decision* —
+whether the factorisation applies — the seconds-long gate was sufficient, and it
+is the one now built into `quotient.py`.
+
+Contrast [P156](#p156), where the same test on the working rung returned 62 on
+25 of 25 chambers with no variation whatsoever.
+
+## Postscript 160: evaluating every chamber — what it will and will not certify
+
+`evaluate727.py` computes the exact region count on all 4 621 728 chambers of the
+727 neighbourhood (chamber list triple-confirmed: derivation on two
+architectures, enumeration on two machines, all 4 621 728). One point per chamber
+suffices because the count is constant on a chamber.
+
+### The pilot found the claim is weaker than intended
+
+Shard 0 of 960: 4 815 chambers, **max = 657**. Below the record.
+
+That is not a defect, it is the geometry: **727 is attained at a maximally
+coincident configuration, which lies ON walls, not in the interior of any open
+chamber.** Chamber interiors are exactly where coincidences have been broken. So
+no chamber evaluation can ever reach 727, and this campaign cannot certify local
+maximality.
+
+**What it does certify, stated precisely:** *no open chamber of the 727
+neighbourhood contains a configuration with region count exceeding 727* — hence
+any configuration beating the record in this neighbourhood must lie on a wall, on
+a lower-dimensional face. That is a genuine and previously unavailable statement,
+and it converts the search for a better neighbour from a 15-dimensional problem
+into a stratified one. It is not the certificate P159's discussion implied, and
+the difference is recorded here rather than discovered later.
+
+Completing it to a real local maximality certificate needs the FACES, not just the
+chambers — and `arrangement.faces()` is unsound ([P142](#p142), rate decayed
+7 800/s → 119/s and never repaired). That is the next obstacle, now precisely
+located.
+
+### An apparatus fault, caught by the pilot
+
+The first version scored **16.7% of the shard unevaluable**. Cause: the narrow
+engine caps quaternion components at 512, and the batch path treated exceeding
+that as unevaluable — while `dimension.count_at` has always routed such cases to
+the WIDE engine. The fallback was lost when the batch path was written.
+[FAILURE_MODES 16](FAILURE_MODES.md#16-a-refusal-caused-by-the-representative-misread-as-a-limit-of-the-tool)
+reproduced by omission, one day after 16b was written about the same trap. Fixed;
+overflow configurations now go to `cube_regions_q2w`.
+
+Design carried forward from the reboot that destroyed a 25-hour stage: 960 shards,
+atomic rename, resumable; unevaluable chambers written with `count: null` and
+tallied, never scored as a result.
+
+Files: `evaluate727.py`, `witness.py`, `eval727/`.
+
+## Postscript 161: faces() is repairable — but deriving the face COUNT first says not to bother
+
+[P160](#p160) located the obstacle to a local maximality certificate: chamber
+evaluation cannot reach 727, which sits on walls, so the FACES are needed and
+`arrangement.py`'s face descent was recorded as unsound.
+
+**Re-reading [P142](#p142) corrects that.** Its words: *"consistent with re-testing
+the same face from many bordering chambers without deduplication — quadratic in
+output rather than linear."* The defect is **complexity, not correctness** — a face
+re-tested once per bordering chamber. Deduplicating on the face's sign vector, which
+the enumerator already produces, converts quadratic to linear. `run393.py` and
+`run727.py` both carry the shorter claim "faces() is unsound", which overstates it,
+and this postscript is the correction; the distinction decides whether repair is
+worth attempting.
+
+**But P142's own advice applies before repairing: derive the count first.** It told
+the 727 chamber run to get the exact count from the matroid rather than guess, which
+turned "probably fits" into a number. The same is available for faces. Every face is
+a relatively open cell whose affine hull is a flat X, and the faces with hull X are
+exactly the chambers of the restriction A^X:
+
+    total faces = sum over X in L(A) of chambers(A^X)
+
+each term being the same NBC recursion as [P152](#p152). `facecount.py`, gated on
+the coordinate arrangement where the answer is 3^n exactly:
+
+| case | flats | faces | expected | time |
+|---|---|---|---|---|
+| coordinate R^4 | 16 | **81** | 3^4 = 81 | 0.0 s |
+| coordinate R^6 | 64 | **729** | 3^6 = 729 | 0.0 s |
+| 183 record | 988 | **55 865** | — | 9.6 s |
+
+**The sizing verdict.** 183 has 55 865 faces against 1 712 chambers — **32.6 faces
+per chamber**. At that ratio 727 has of order **150 million** faces, and evaluating
+each at the measured ~0.5 s is ~20 000 core-hours. **Repairing the face enumerator
+would produce an intractable certificate, not an unavailable one becoming
+available.** The exact 727 face count is running (3.2 core-hours by the 183 rate).
+
+**What this leaves open, and it is more promising than the exhaustive route.** The
+record sits at a MAXIMALLY coincident configuration — very high codimension, where
+faces are FEW. A stratified search from the top of the codimension ladder downward
+visits the strata where records live first, and the per-stratum counts fall out of
+the same sum above. That is a search whose size is known in advance per stratum,
+which is what neither the chamber nor the face enumeration offered.
+
+Files: `facecount.py`, `facecount727.log`.
+
+## Postscript 162: no record above n=3 is an isolated point — the rank deficit IS the plateau dimension
+
+[P159](#p159) noted that ambient − rank runs 1, 1, 2, 3 across the tower and
+hypothesised, explicitly unverified, that these deficits are the continuum
+directions. Measured directly:
+
+| record | walls | ambient | rank | **deficit** | independently recorded as |
+|---|---|---|---|---|---|
+| 183 (n=4) | 12 | 9 | 8 | **1** | **PLATEAU** (`RESULTS.md`) |
+| 393 (n=5) | 18 | 12 | 11 | **1** | — |
+| 727 (n=6) | 27 | 15 | 14 | **1** | — |
+| 1217 (n=7) | 51 | 18 | 16 | **2** | — |
+| 1895 (n=8) | 75 | 21 | 18 | **3** | — |
+| 2785 (n=9) | — | — | — | — | **CONTINUUM** (`RESULTS.md`) |
+
+Each arrangement is CENTRAL — every wall passes through the record, because the
+space is parameterised by perturbations from it. So the record lies in every wall
+and "maximal codimension" is automatic and says nothing. What matters is the
+deficit: a direction crossing no wall is one along which the region count CANNOT
+change, so the deficit is the dimension of the plateau through the record.
+
+**Consequences.**
+
+1. **No record from n=4 up is isolated.** Every one sits on a plateau of dimension
+   at least 1, growing with n. The qualitative labels already in `RESULTS.md` —
+   183 a PLATEAU, 2785 a CONTINUUM — are the same phenomenon at different
+   dimensions, and they were recorded before any of this was computed, so they are
+   independent corroboration rather than restatement.
+
+2. **n = 3 is the exception**, and it is the only one. Both 67 maximisers were
+   PROVED isolated by exact face enumeration. n=3 is therefore the only rung whose
+   maximiser is a genuine point — alongside its two other known peculiarities: the
+   only irrational rung, and the only place the tower fails to nest.
+
+3. **It corrects the framing of [P161](#p161).** A stratified search "from the top
+   of the codimension ladder" is not searching for isolated highly-coincident
+   points, because the records are not such points. The record's own face is the
+   deficit subspace, and the search question is which neighbouring strata could
+   carry a higher count — a different question, with a different shape.
+
+4. **It bears on [P159](#p159)'s modularity failure.** The rungs where modularity
+   holds and fails split exactly on the deficit: deficit 1 at 393 ⊂ 727 where X is
+   modular, deficit 2 and 3 above it where modularity is refuted. One shared cause
+   for two phenomena that were recorded separately.
+
+## Postscript 163: the chamber evaluation, stopped early — what 1.25% already says
+
+[P160](#p160)'s campaign was halted after 12 of 960 shards. Reason: measured ETA
+187 h on all 12 cores of cube64, for a result that by P160's own argument cannot
+reach 727. Days of a whole machine is the wrong price for the weaker of two
+available questions.
+
+**The 12 shards are a usable sample, not waste** — sharding is by index mod 960,
+so they are spread evenly through the chamber list rather than clustered.
+
+| | |
+|---|---|
+| chambers evaluated | 57 780 (**1.25%** of 4 621 728) |
+| evaluable | 57 626 (**99.7%**) |
+| **max over sample** | **659** (record 727) |
+| range | 83 – 659 |
+| distinct values | 321 |
+| most common | 551, 549, 541, 539, 545 |
+
+**No chamber in the sample approaches 727**, the nearest being 659 — consistent
+with P160: the record sits at the origin where all 27 walls meet, and chamber
+interiors are where those coincidences have been broken.
+
+**Parity.** 57 424 of 57 626 counts are ODD (99.65%), 202 even. This does not
+contradict the parity law (count ≡ #self-antipodal mod 2) — it is what that law
+predicts when self-antipodal regions are usually odd in number and occasionally
+even. A blanket "all counts are odd" would have been the wrong reading, and the
+202 exceptions are the evidence against it.
+
+**Distinct values.** 321 over 57 626 chambers is a 180-fold compression, and 57 of
+the 289 odd values in range are never attained. That is the shape this project's
+census principle points at — but 1.25% of the space cannot establish which values
+are truly unattainable, only which were not seen.
+
+**The engine fix that made this readable.** Evaluability rose 83.3% → 99.7% when
+the wide engine was given `--quats-stdin` instead of one process per overflow
+config. That same defect was the gap between the estimated 39 h and the measured
+187 h: roughly one config in six overflows, so the narrow path was batched while
+the wide path launched a process every few chambers.
+
+Files: `eval727/` (12 shards, retained), `evaluate727.py`.

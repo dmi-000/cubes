@@ -720,6 +720,109 @@ exists for exactly this reason -- an unscaled null-space vector routinely lands
 outside the engine's budget), a cone's interior point, a class representative, a
 chart. See [FAILURE_MODES](FAILURE_MODES.md) 16.
 
+## 16. Compute the POLYNOMIAL, not the number it specialises to
+
+If the quantity you want is a value of a generating function, compute the
+function. Evaluating it answers the question and explains nothing.
+
+The chamber count is chi(-1). Two days were spent obtaining 4 621 728 for the 727
+neighbourhood; it explained none of the structure sitting in plain sight -- the
+exact 20x stagewise correspondence with 393 (P150), the shared prime 1553 (P153),
+the factor 62. Computing the whole characteristic polynomial instead of its value
+at -1 was ONE extra pass over the same recursion, and it collapsed all three into
+a single fact:
+
+    chi_727(t) = chi_393(t) . (t-1)(t^2 - 8t + 22)
+
+with the degree-10 factor identical in both. 1553 lives in that shared factor; 62
+is the quotient at -1; the 20x is a consequence of the factor being shared.
+
+**Cost of learning it:** the correspondence was recorded as unexplained in two
+successive postscripts while the object explaining it was one function call away.
+When you find yourself writing "mechanism not identified", ask whether the number
+you computed is a specialisation of something.
+
+## 17. Degeneracy is a RESOURCE for the dual method
+
+When an object is hard because it is degenerate, ask what the degeneracy makes
+SMALL. It is usually a dual or quotient object, and that is where to compute.
+
+These arrangements realise only 47%, 34% and 6% of their Zaslavsky bounds
+(P151). Degeneracy is why the bound is useless as an estimate -- and it is
+exactly why the intersection lattice is far smaller than the generic
+sum-of-binomials, because many subsets of walls collapse onto the same flat.
+**The property that made enumeration expensive is the property that made the
+lattice method cheap.**
+
+Measured: 393 by enumeration was a multi-day parallel campaign that deadlocked
+three times and needed a supervisor; 393 from its lattice took **39.5 seconds**.
+727 was unfinished after three days of enumeration; from its lattice, 2 h 06 m.
+
+## 18. Memoise on the COARSEST invariant the recursion depends on
+
+Identify what the recursive state actually depends on, not what it carries.
+
+The NBC recursion counting chambers takes a set of chosen walls, but depends on
+that set only through its CLOSURE. Keyed by the set, it visits one node per NBC
+set -- which equals the chamber count, so it saves nothing over enumerating
+chambers. Keyed by the closure, the state count is bounded by the size of the
+intersection lattice. Same recursion, same code, different dictionary key: days
+becomes hours.
+
+The general move: after writing a memoised recursion, ask which arguments could be
+replaced by a coarser function of themselves without changing the answer.
+
+## 19. Sample WHICH, not WHAT: an exact predicate on a sampled population is a measurement
+
+A sampled COUNT is a lower bound (method 1). A sampled PROPORTION, where every
+sampled item is decided EXACTLY, is a measurement -- report it as an interval.
+
+600 chambers drawn uniformly and decided by exact rational LP put the 727 count at
+4 676 394 with 95% CI [4 444 785, 4 935 509]. The derived answer was 4 621 728:
+**inside the interval, 1.18% from the point estimate**, obtained in six minutes
+against two hours. Nothing was approximated except which chambers were looked at.
+
+The discipline that makes it honest: state the denominator. A timed-out or
+undecided item yields NO comparison and must not be counted as agreement -- 978 of
+2 500 trials timed out in one sweep, and "0 mismatches in 2 500" would have
+credited every one of them to success (FAILURE_MODES 19).
+
+## 20. A ratio measured at one size is not a constant of the family
+
+Before transferring any dimensionless ratio between problem sizes, measure it at a
+third size.
+
+The realised fraction of the Zaslavsky bound was 47.1% at 12 walls, 34.1% at 18,
+and **5.96%** at 27. An estimate for 727 built by transferring 183's 47% gave
+14M-36M against a true 4.6M -- wrong by 3x to 8x, and it drove two further
+decisions (a claimed hard memory ceiling, and the justification for building a
+streaming enumerator) before the arithmetic was checked (P143, corrected at
+P150/P151).
+
+Related and cheap: **two sequences that share ratios are scalar multiples of each
+other -- divide them.** 727's last five stage ratios matched 393's to five
+decimal places. Dividing the sequences gave an exact integer 20 at eight
+consecutive stages, which led to 62, which led to the factorisation in method 16.
+The whole chain started with noticing that two lists of decimals looked alike.
+
+## 21. Prefer a test that can FAIL without contradicting what you already believe
+
+The best test is one whose failure would be informative rather than
+self-contradictory.
+
+Modular factorisation predicts that every chamber of the 393 arrangement is cut
+into exactly 62 by the added cube's walls -- not 62 on average, 62 every time. A
+single chamber cut into 61 or 63 would have refuted the proposed MECHANISM while
+leaving the polynomial identity of method 16 completely intact, because that
+identity was computed, not inferred. The test therefore had something to say in
+both directions.
+
+Contrast with a test that can only confirm: agreement between two runs of the same
+method, or a gate whose expected value was derived from the thing being tested
+(FAILURE_MODES 2). Ask of any planned check: what outcome would make me change my
+mind, and would that outcome contradict something I already know to be true? If
+the second answer is yes, the test is not testing what you think.
+
 ## The tools
 
 All in this directory, copied out of a session scratchpad on 2026-08-06 and

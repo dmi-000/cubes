@@ -206,6 +206,30 @@ unchanged — so the increment is entirely shallow, the same signature by which
 
 ## 4. Structure
 
+- **The chamber counts of the record neighbourhoods are known exactly, and 393's
+  divides 727's.** 183 = **1 712**; 393 = **74 544**; 727 = **4 621 728**
+  (Postscripts [148](LEDGER.md#p148), [152](LEDGER.md#p152), [153](LEDGER.md#p153);
+  `zaslavsky.py`). Derived by Zaslavsky's theorem via a memoised NBC recursion —
+  no chamber is constructed — and gated against 183 and 393, which had been
+  obtained independently by enumeration.
+
+  ```
+  393 =    74 544 = 2^4 · 3 ·      1553
+  727 = 4 621 728 = 2^5 · 3 · 31 · 1553      727 / 393 = 62 exactly
+  ```
+
+  183 = 2^4 · 107 does not join them: 727/183 is not an integer. The n=5 and n=6
+  records share an arithmetic core; the n=4 record does not. This is the mechanism
+  behind the stagewise 20× correspondence noted at [150](LEDGER.md#p150).
+
+- **The realised fraction of the Zaslavsky/Buck bound collapses with wall count**
+  — 47.1% (183, 12 walls), 34.1% (393, 18), **5.96%** (727, 27)
+  (Postscript [151](LEDGER.md#p151)). A fill fraction measured on a small case is
+  a property of that case, not a constant of the family; transferring 183's 47% to
+  727 produced an estimate of 14M–36M against a true value of 4.6M
+  ([143](LEDGER.md#p143), corrected at [150](LEDGER.md#p150)).
+
+
 - **The maximum at n = 3 requires irrational coordinates**, conditional on the
   two known maximizers being the only ones. The O-reduced invariant μ is
   rational for any rational configuration, and equals ½+√2 and 3φ/2 at the two

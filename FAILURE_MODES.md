@@ -250,6 +250,39 @@ watching for deserves more scrutiny than one that contradicts it, not less. Same
 family as [mode 2](#2-a-gate-that-cannot-fail): there a test could not fail; here
 a monitor could not report calm.
 
+**Second instance, 2026-08-22, opposite direction.** `pgrep -fl python3` and
+`ps -ax | grep python3` both returned NOTHING while five processes were running,
+including a 99.9%-CPU derivation. Cause: the Homebrew framework binary is named
+**`Python`**, capital P -- `python3` is only a symlink used to launch it, and
+never appears in the process table. Reading the empty result as "the jobs died", a
+memory-pressure explanation was then constructed around swap usage that had
+nothing to do with it, and reported to the user as fact. The user corrected it
+with "5 python processes running".
+
+So the same command lied in BOTH directions within two days: over-reporting 16 GB
+when the true figure was 0.24 GB, and under-reporting five live processes as zero.
+
+**Third instance, 2026-08-24, and the cheapest of the three to have avoided.**
+`uniform_test.py` was launched on the remote box and reported to the user as
+running, twice, across two separate turns. It had crashed **at startup**: the code
+sync carried `*.py` and `*.md` but not `stream_727/`, so the input files it reads
+were absent and it died on `paths[0]` with IndexError before printing anything past
+its banner. The launch command had printed a PID, and that PID was taken as
+evidence of work. A PID means a process STARTED, not that it is running or doing
+anything.
+
+The independent check that was supposed to arbitrate a disputed number therefore
+contributed nothing for hours, while being cited as pending.
+
+**Standing check.** A process monitor must be validated against a process you KNOW
+is running before its silence is believed. And a launched job is not a running job:
+read its OUTPUT once, a few seconds after launch, before telling anyone it is
+under way. When work is moved to another machine, the inputs move too -- verify by
+reading the first lines of output, not by observing that a command returned. `ps -ax -o command | grep -i` (case
+insensitive, full command, no assumption about the executable's name) is the
+version that works here. An empty result from a monitor is a claim like any other
+and needs the same evidence as a non-empty one -- ABSENCE IS A MEASUREMENT.
+
 Companion observation from the same minute: the run's log had not advanced in
 90 seconds while CPU sat at 98%. That was print granularity -- progress prints
 every 200 candidates and 192 remained. **Slow, hung, killed and out-of-memory all
@@ -494,6 +527,29 @@ The geometry was never the obstacle; the representative was. Same family as
 [mode 14](#14-agreement-between-samples-certifies-a-shared-cell-not-a-correct-one)
 and the ε-step problem: in both, an arbitrary choice inside the method was
 mistaken for a property of the object.
+
+### 16b. Addendum, 2026-08-24: "scale to integers" is denominator COMPOUNDING, not simplification
+
+Evaluating region counts on 727's chambers found **47% unevaluable** — the engine
+refusing witnesses produced by the LP. The tell was mode 16's exactly: evaluable
+witnesses had median height 1.1e7, unevaluable ones 3.1e9, a 276x separation by
+SIZE rather than by anything about the chamber.
+
+A chamber is an open CONE, so any positive multiple of a witness is equally valid.
+That looked like a free fix: clear denominators, divide by the gcd, get an integer
+point. Measured, it made things **worse** — evaluable fell from 50% to 18%, and
+median height ROSE from 1.4e8 to 3.0e10.
+
+Clearing denominators multiplies by the LCM over 15 coordinates whose denominators
+are unrelated, and those compound exactly as midpoints did in mode 16. A
+Fraction's height is max(|num|,|den|); the integer obtained by clearing every
+denominator at once is far larger than any single coordinate's height.
+
+**The lesson is narrow and worth stating exactly:** "make it an integer" and "make
+it simple" are different operations, and on a vector of unrelated rationals they
+point in opposite directions. The documented remedy still stands — choose the
+SIMPLEST rational in the admissible range per coordinate (`_simplest_between`),
+verifying the sign conditions exactly — and it is real work, not a one-liner.
 
 **Standing check.** Whenever an object is defined only up to an equivalence — a
 cone's interior point, a direction's scale, a class representative, a basis — the

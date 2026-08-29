@@ -37,6 +37,8 @@ sys.path.insert(0, HERE)
 from isolation67 import _fm
 from stream_chambers import EMPTY, _sv_encode
 
+SHARD_MULT = int(os.environ.get('PSTREAM_SHARD_MULT', '8'))
+
 DEFAULTS = {
     'nworkers': 4,        # processes per stage; set to the core count
     'time_budget': 0,     # seconds; 0 means no limit
@@ -111,23 +113,47 @@ def pstream_chambers(walls, ncols, workdir, nworkers=4, log=sys.stdout,
         if prev is None:
             raise SystemExit('stage %d is incomplete; cannot build stage %d' % (i, i + 1))
 
-        names = ['stage_%02d.part%02d' % (i + 1, w) for w in range(nworkers)]
-        pids = []
-        for w in range(nworkers):
-            pid = os.fork()
-            if pid == 0:
-                try:
-                    _extend(w, nworkers, prev, os.path.join(workdir, names[w]),
-                            walls, ncols, i)
-                    os._exit(0)
-                except BaseException:
-                    os._exit(1)
-            pids.append(pid)
+        # SHARDS ARE DECOUPLED FROM PROCESSES.  A part file is written atomically
+        # only when its shard finishes, so shard size sets how much work an
+        # interruption destroys.  With shards == processes, stage 27 of the 727
+        # run is a single ~25-hour unit: cube64 rebooted mid-stage on 2026-08-25
+        # and every one of its 12 parts was still .partial, so the whole stage was
+        # lost while stages 1-26 survived untouched.
+        #
+        # Running SHARD_MULT x nworkers shards through a pool of nworkers
+        # processes keeps CPU usage identical and cuts the loss window by that
+        # factor. Completed shards persist across a kill, a reboot, or a
+        # relaunch with a different worker count -- the .done marker lists the
+        # part files by name, so the layout is self-describing.
+        nsh = nworkers * SHARD_MULT
+        names = ['stage_%02d.sh%03d' % (i + 1, k) for k in range(nsh)]
+        todo = [k for k in range(nsh)
+                if not os.path.exists(os.path.join(workdir, names[k]))]
+        if len(todo) < nsh:
+            print('   stage %2d: resuming, %d of %d shards already on disk'
+                  % (i + 1, nsh - len(todo), nsh), file=log, flush=True)
         bad = 0
-        for pid in pids:
-            _, st = os.waitpid(pid, 0)
-            if st != 0:
-                bad += 1
+        for base in range(0, len(todo), nworkers):
+            batch = todo[base:base + nworkers]
+            pids = []
+            for k in batch:
+                pid = os.fork()
+                if pid == 0:
+                    try:
+                        _extend(k, nsh, prev, os.path.join(workdir, names[k]),
+                                walls, ncols, i)
+                        os._exit(0)
+                    except BaseException:
+                        os._exit(1)
+                pids.append(pid)
+            for pid in pids:
+                _, st = os.waitpid(pid, 0)
+                if st != 0:
+                    bad += 1
+            if len(todo) > nworkers:
+                print('   stage %2d: %d/%d shards done (%.0fs)'
+                      % (i + 1, min(base + nworkers, len(todo)), len(todo),
+                         time.time() - t0), file=log, flush=True)
         if bad:
             raise SystemExit('stage %d: %d of %d workers failed; refusing to '
                              'write a .done marker for an incomplete stage'
