@@ -1,0 +1,17 @@
+{
+ "output": "charpoly_727.json",
+ "argv": [
+  "cp727.py"
+ ],
+ "rerun": "python3 cp727.py",
+ "script": "cp727.py",
+ "script_sha1": "dac875786a43c5230728e5e86a7cd04f62b827a6",
+ "script_logic_sha1": "44451add7fd70756db4eb6eb7edc88f470028ca1",
+ "started": null,
+ "finished": "2026-08-29 02:24:55",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "retroactive": true,
+ "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
+ "note": "Produced on cube64 (Intel x86_64, 12 cores) 2026-08-24, 9735.9s, under its .venv. Recovered to the repository 2026-08-29. Backs P155 (the factorisation chi_727 = chi_393 (t-1)(t^2-8t+22))."
+}

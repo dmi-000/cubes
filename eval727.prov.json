@@ -1,0 +1,18 @@
+{
+ "output": "eval727",
+ "argv": [
+  "evaluate727.py",
+  "12"
+ ],
+ "rerun": "python3 evaluate727.py 12",
+ "script": "evaluate727.py",
+ "script_sha1": "9c6057270268f247d731b136f8dca380bcf4f3ab",
+ "script_logic_sha1": "a443edd22c542e64ae937eb959f36e3dae6e7c8f",
+ "started": null,
+ "finished": "2026-08-29 02:24:55",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "retroactive": true,
+ "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
+ "note": "12 of 960 shards, 57 780 chambers, produced on cube64 2026-08-28/29 and recovered 2026-08-29. Backs P163."
+}

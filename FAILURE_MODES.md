@@ -731,3 +731,41 @@ numbers from a different machine state.
 
 Related: [mode 7](#7-reporting-before-persisting) — there the result never reached
 disk; here it reached disk and was then overwritten by a test of the writer.
+
+
+## 21. The point-to-object MAP was never gated, only the engine
+
+`evaluate727.py` and `walk13.py` produced tens of thousands of region counts that
+were all wrong, because a chamber witness `y` is a DISPLACEMENT from the record
+point `pt`, and both scripts evaluated `count_at(y)` instead of `count_at(pt + y)`.
+P163 is retracted in full.
+
+**What was gated, and what was not.** The engine was gated properly: `--n 7 --seed
+777` returns 973, the documented value, on both machines. The witness simplifier
+was gated: evaluability 50% -> 100%. The arrangement was gated: 4 621 728 chambers
+by two independent methods. **The map from a point of the arrangement to a cube
+configuration was never gated at all** — and it is the one component that sits
+between all the others.
+
+**The check costs one line and would have caught it instantly:**
+
+    count_at(point_of(record)) == 727      # the record, by definition
+    count_at(origin)           == 13       # what the broken path was measuring
+
+**How it hid.** The wrong counts were plausible: in range, mostly odd (matching a
+real parity law), varying smoothly, with a maximum below the record — exactly what
+correct output would look like. Two REAL findings were then built on them: "no
+chamber approaches 727" and "99.65% of counts are odd". Both are artifacts.
+
+**The tell that was visible and mis-read for an hour.** The count was not constant
+within a face — three points of one face gave three different values, 0 of 24 faces
+agreeing. That is impossible if the walls are the coincidence conditions, so it was
+proof of an apparatus fault. It was first blamed on the gauge quaternion (a real
+but secondary bug), then on the arrangement being a tangent cone (a plausible and
+wrong theory). Only the origin check settled it.
+
+**Standing rule.** Gate every ADAPTER, not just every engine. Wherever one
+representation is converted to another — arrangement coordinates to configuration,
+sign vector to witness, flat to subspace — there is a known value on both sides of
+the conversion. Evaluate it. A pipeline of individually gated components is not a
+gated pipeline.

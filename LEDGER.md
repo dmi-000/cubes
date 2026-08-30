@@ -11457,4 +11457,278 @@ config. That same defect was the gap between the estimated 39 h and the measured
 187 h: roughly one config in six overflows, so the narrow path was batched while
 the wide path launched a process every few chambers.
 
-Files: `eval727/` (12 shards, retained), `evaluate727.py`.
+> ## RETRACTED IN FULL, 2026-08-30 — every count in this postscript is wrong
+>
+> The arrangement lives in DISPLACEMENT coordinates. `walls_of` takes gradients at
+> `pt = D.point_of(config)`, so a chamber witness `y` denotes the configuration
+> `pt + y`. `evaluate727.py` evaluated `count_at(y)` — the displacement treated as
+> an absolute configuration, whose origin is the all-identity compound.
+>
+> **The check that settles it, and that was never run:** `count_at(pt) = 727`,
+> the record. `count_at(0) = 13`. Every number in the table above was computed
+> about a configuration family unrelated to the walls that generated the chambers.
+>
+> **Withdrawn:** max 659, the 83–659 range, the 321 distinct values, the parity
+> observation (99.65% odd), and the claim that no chamber approaches 727. None of
+> them mean anything. The 12 shards are retained only as a record of what was
+> computed, not as data.
+>
+> A second, independent defect in the same scripts: the gauge quaternion was
+> hardcoded as `(1,0,0,0)` where `D.QZERO[0] = (4,1,1,-1)`. Fixing it alone does
+> not repair anything, since the coordinate error dominates.
+>
+> **What survives untouched:** everything derived from the ARRANGEMENT rather than
+> from evaluating points in it — the chamber count 4 621 728 ([P152](#p152),
+> [P153](#p153)), the factorisation ([P155](#p155)), modularity ([P156](#p156)),
+> the lattice census ([P165](#p165)). Those never call `count_at`.
+
+Files: `eval727/` (12 shards, retained as a record of the error, not as data),
+`evaluate727.py` (BROKEN, see retraction).
+
+## Postscript 164: three cited results existed only on a borrowed machine
+
+Audit prompted by the question "are there files needed to reproduce results that
+exist only on cube64?" — asked before anything was lost, which is the only useful
+time to ask it.
+
+**Answer: yes, seven artifacts, three of them backing cited postscripts.**
+
+| file | backs | cost to recompute |
+|---|---|---|
+| `modular_proof.json` | [P156](#p156) — modularity over all 1 192 678 flats | 7.8 h |
+| `charpoly_727.json` | [P155](#p155) — Whitney numbers, the entire factorisation | 2.7 h |
+| `eval727/` (12 shards) | [P163](#p163) — 57 780 chamber counts | ~24 core-hours |
+
+Plus `cp727.log`, `modular_proof.log`, `p727_remote.log`, `pilot_shard.log`.
+
+**This is the project's own rule broken.** METHODS: *deliverables, including
+controls, go where they survive — write them to the repository directly, never to
+scratch space, and never scratch-then-copy: the copy step is the one that gets
+skipped.* cube64 is scratch by that definition: a borrowed machine, already
+rebooted once mid-run on 2026-08-25, destroying a 25-hour stage. Had it been
+reclaimed or wiped, three postscripts would have cited numbers with no recoverable
+evidence.
+
+**The failure was specific and worth naming, because it is new to this project.**
+The rule was written for *scratch directories* on the working machine. Remote
+execution reproduces the same hazard with none of the same cues: the work is
+invisible in `ls`, absent from every local audit, and the tools that would flag it
+(`data_inventory.py`, `provenance.py`) only ever look at the local tree. Moving
+compute to a second machine silently moved deliverables outside everything built
+to protect them.
+
+**Fixed.** All seven recovered and provenance-stamped `retroactive=True`, each
+naming the machine, the wall time, and the postscript it backs — retroactive
+because the hash is taken now, not at run time, and so cannot certify the producer.
+
+**Standing rule, added to the delegation discipline.** A remote run is not finished
+when it prints its answer; it is finished when its outputs are in the repository.
+Pull artifacts back in the same step that reads the result, not later — later is
+where the copy step gets skipped.
+
+## Postscript 165: the intersection lattice of 727, by rank — and the stratum walk is now sized
+
+`flat_ranks_par.py` (parallel rank-synchronous BFS, cube64, 4 cores, 23 241 s)
+enumerated all 1 192 678 flats and SAVED the high-rank ones.
+
+| rank | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| flats | 1 | 27 | 331 | 2 430 | 11 910 | 41 214 | 103 884 | 193 688 |
+
+| rank | 8 | 9 | 10 | 11 | **12** | **13** | **14** |
+|---|---|---|---|---|---|---|---|
+| flats | 267 550 | 269 779 | 190 768 | 87 157 | **21 894** | **2 044** | **1** |
+
+Total 1 192 678, matching the chamber derivation's independent count
+([P152](#p152)) and the 11.3 h serial run's per-rank figures exactly. The rank-14
+mask has all 27 bits set — it is the record's own stratum, the point every wall
+contains.
+
+**The shape is the result.** A hump peaking at rank 9, then collapsing: 87 157 →
+21 894 → 2 044 → 1. **Everything at rank ≥ 12 is 23 939 flats, 2.0% of the
+lattice**, against 4 621 728 chambers. Records live at high coincidence, so the
+strata that matter are the cheap ones — the expensive middle of the lattice is
+where nothing sits.
+
+This inverts [P163](#p163)'s campaign, which evaluated chambers that by
+[P160](#p160) cannot reach 727 at all. Rank-13 flats have dimension 2 and carry
+about 2 faces each — roughly **4 100 evaluations, ~25 minutes** at the measured
+0.35 s. Unlike chambers, these CAN match or beat the record, because they are
+where walls meet.
+
+**Parallel speedup, honestly:** 1.63x on 4 cores, not the 3-3.5x projected. The
+cause is a deliberate trade under-costed at design time — the per-flat basis cache
+was removed for fork safety (a worker's cache additions never reach the parent, so
+a later rank would find it empty for flats a worker discovered), so every frontier
+flat rebuilds its basis. Correctness was bought, and half the parallel gain paid
+for it. The revised estimate of 6.6 h was accurate to 2%; the difference between
+that and the five preceding misses is that it extrapolated a measured rate toward
+a known endpoint.
+
+Files: `flats_727_rank{12,13,14}.txt`, `flat_ranks_727_par.json`,
+`flat_ranks_par.py` (all provenance-stamped, in the repository).
+
+## Postscript 166: the arrangement is TANGENT — what 4 621 728 chambers actually counts
+
+Chasing the retraction of [P163](#p163) turned up a second, larger error: not in a
+script, in the interpretation the last two weeks of work rested on.
+
+### The measurement
+
+With the coordinate adapter fixed and gated (`evalpoint.py`, `count_at(pt) = 727`),
+the region count is STILL not constant on a face — 0 of 20 faces agreed across
+three interior points. But scaling the displacement toward the record makes it
+settle:
+
+```
+t:      1     1/4    1/16   1/64   1/256  1/1024  1/4096
+      599    587     603    619     651     667     667
+      589    585     605    633     657     673     673
+      601    589     605    625     657     673     673
+```
+
+### The interpretation, corrected
+
+`walls_of` takes the conditions TIGHT at the record and uses their GRADIENTS. The
+arrangement is therefore the linearisation at `pt` — the tangent structure. Its
+chambers are **infinitesimal directions out of the record**, not regions of
+configuration space. At finite displacement one crosses LOOSE conditions the
+linearisation does not model, which is exactly why the count drifts and then
+settles as t → 0.
+
+**So 4 621 728 is the number of distinct infinitesimal directions from the 727
+record, not a count of nearby configurations.** [P152](#p152), [P153](#p153),
+[P155](#p155), [P156](#p156) and [P165](#p165) are unaffected — they are facts
+about the arrangement and never evaluate a point in it — but every sentence
+elsewhere reading "chambers are cells on which the count is constant" is wrong at
+finite distance and right only infinitesimally.
+
+### The right instrument already exists, and cannot reach these faces
+
+METHODS 14 solved this: `cube_regions_eps` computes over Q(sqrt d)(eps), an
+ordered field with 0 < eps < every positive rational, returning the eps → 0 limit
+exactly. `eps_gate.py` passes, including the control that scaling a direction by
+97 cannot change the count — which no finite-eps method can satisfy, and which is
+the same test that exposed this whole problem.
+
+`count_eps(pt, None) = 727`. But **every one of 20 rank-13 face directions was
+REFUSED.** The eps arithmetic pays ~2.2x in admissible component magnitude against
+q2's 512 cap, so roughly 230; rank-13 directions have height ~3.5e5, intrinsic to
+a 2-plane cut out by 13 large-coefficient equations. Taking the primitive integer
+representative of the ray — legitimate here, since the count depends on the ray and
+not its scale — makes it worse (3.5e5 -> 1.9e7), denominator clearing compounding
+again (FAILURE_MODES 16b).
+
+**Unevaluable, and counted as such**: 20 of 20, not scored as "no result".
+
+### The concrete next step
+
+`make_eps_engine.py` generates `cube_regions_eps.cpp` from `cube_regions_q2.cpp`
+by source transformation, with `SRC` hardcoded on line 47. The wide sibling
+`cube_regions_q2w.cpp` (256-bit scalars) already exists and is validated. Pointing
+the generator at it would give a WIDE eps engine with the magnitude headroom these
+directions need. Whether the transformations survive the different source is
+unknown and is the thing to find out.
+
+Files: `evalpoint.py` (gated adapter), `walk13.py`, `epscount.py`, `eps_gate.py`.
+
+### Postscript 166, Addendum 1 (2026-08-30): chambers ARE within the eps budget; the deep strata are not
+
+Measured after the tangent-structure correction, with `count_eps(pt, None) = 727`
+as the gate:
+
+| stratum | eps-evaluable | median direction height |
+|---|---|---|
+| chambers (rank 0, full-dimensional) | **17 of 25 (68%)** | **215** |
+| rank-13 faces | **0 of 20** | 3.5e5 |
+
+The split has a cause rather than being luck. A chamber direction is constrained
+only by sign conditions, so `witness.simplify` is free to move it anywhere in an
+open cone and finds a cheap representative. A rank-13 direction must satisfy 13
+EQUATIONS exactly; its 2-plane contains no short rational vector, so there is no
+cheap representative to find. **Simplification helps exactly where the constraints
+leave room.**
+
+Counts seen on the sampled chambers: 647 and 651 — infinitesimally off the record
+and below 727, which is the expected direction.
+
+**Consequence.** The corrected chamber evaluation is now meaningful and runnable:
+it answers *what region counts occur in the infinitesimal neighbourhood of the
+record*, which is the question the arrangement was always about. At ~0.3 s per
+chamber and 4 621 728 chambers it is still days of machine time, so it wants the
+stratified approach rather than brute force — but the top strata are precisely the
+ones the eps engine currently refuses.
+
+**Both are unblocked by the same thing:** a WIDE eps engine.
+`make_eps_engine_wide.py` (SRC -> `cube_regions_q2w.cpp`, DST -> `cube_regions_epsw.cpp`)
+now generates cleanly past the scalar substitution and aborts on **7 remaining
+anchors**, named by the generator itself: `struct PKey`, `planeKey`, the
+`gcdOfList({X.p,...})` line, the `FieldElem(X.p/g, ...)` normalisation, the
+`iabs128` magnitude scan, `feToStr`, and the usage string. Each needs both sides
+of its replacement adapted from i128 to i256.
+
+**Deliberately not attempted at the end of a long session.** METHODS 14 is explicit
+that a truncation error here makes `feSign()` return 0 for a nonzero quantity —
+**a wrong count, not a crash**. The gates that must pass before the generated
+engine is believed: `--selftest`; zero-eps reproducing `cube_regions_q2w` exactly;
+`eps_gate.py` including its x97 / x1/1000 scale-invariance control; and
+`count_eps(pt, None) = 727`.
+
+## Postscript 167: a WIDE infinitesimal engine — the deep strata are reachable, and rank 13 tops out at 675
+
+`cube_regions_epsw`, generated by `make_eps_engine_wide.py` from the validated
+`cube_regions_q2w.cpp`, built to [`specs/EPSW_ENGINE_SPEC.md`](specs/EPSW_ENGINE_SPEC.md).
+
+### All five gates
+
+| gate | result |
+|---|---|
+| `--selftest` | **ALL PASS** |
+| zero-eps reproduces `cube_regions_q2w` on the 727 record | **727 = 727** |
+| ray-invariance: direction x1 / x97 / x1/1000 | **705 / 705 / 705** |
+| `count_eps(pt, None)` at the record | **727** |
+| rank-13 directions the narrow engine refused | **20 of 20 evaluated, 0 refused** |
+
+The third gate carries extra weight: the NARROW engine **refused** the x1/1000
+case ([P166](#p166) Addendum 1), so this is not merely agreement, it is a
+capability the previous engine did not have. No finite-eps method can pass it at
+all.
+
+### The generation strategy, which is the reason to trust it
+
+The narrow generator replaces q2's scalar with a hand-written eps scalar built on
+i128. Repeating that at 256 bits would have put freshly-typed bignum arithmetic
+underneath a sign predicate — where an error is a WRONG COUNT, not a crash
+(METHODS 14). Instead the wide generator **reuses q2w's validated 256-bit
+ℤ[√d] scalar verbatim**, renamed `FieldElem -> Coef` (with
+`feSign/feIsZero -> coefSign/coefIsZero`), and layers only the eps polynomial on
+top. The 256-bit arithmetic under the predicate is the arithmetic that was already
+validated.
+
+Anchors were EXTRACTED from `cube_regions_q2w.cpp` programmatically rather than
+transcribed, so no anchor can silently drift from its source, and the generator
+still aborts writing nothing if any is missing.
+
+**One mistake, caught by the compiler.** The first wired REPL dropped the four
+narrow replacements whose anchors are identical in q2w — including `PKeyHash` —
+leaving it referring to the old `PKey` fields. It failed to compile, loudly, which
+is the right way for that error to surface.
+
+### The result
+
+The 20 rank-13 face directions previously unreachable now evaluate:
+
+```
+counts: 663, 667, 669, 673, 675      max 675      record 727
+```
+
+**Nothing in the sampled rank-13 stratum reaches the record.** That is the first
+measurement of the strata where records actually live — [P160](#p160) established
+chambers cannot reach 727 even in principle, and [P163](#p163)'s chamber campaign
+was retracted outright.
+
+The full rank-13 walk (2 044 flats, ~4 100 faces) and rank 12 (21 894 flats) are
+now runnable. `walk13.py` needs `epscount.ENG` pointed at the wide engine.
+
+Files: `make_eps_engine_wide.py`, `cube_regions_epsw.cpp`, `cube_regions_epsw`,
+`specs/EPSW_ENGINE_SPEC.md`.

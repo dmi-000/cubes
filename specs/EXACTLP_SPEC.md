@@ -57,10 +57,11 @@ It samples synthetic instances and is a broad agreement check only. Two
 constraints on how its numbers may be used:
 
 1. **The denominator is `n_compared`, never `n_trials`.** A timed-out `_fm` call
-   returns no verdict, so that trial yields no comparison. On 2026-08-20, 978 of
+   returns no verdict, so that trial yields no comparison. On 2026-08-20, 976 of
    2 500 trials timed out at `fm_timeout=0.3 s`; the honest statement is *0
-   mismatches in 1 522 comparisons*. The agent's own summary said "2500/2500",
-   which credited 978 non-comparisons to agreement.
+   mismatches in 1 524 comparisons*. The agent's own summary said "2500/2500",
+   which credited every timed-out trial to agreement (978 of them in the
+   original run, before it was destroyed and re-run — see P147 Addendum 2).
 2. **No speed claim rests on it.** Its distribution is deliberately weighted
    toward instances `_fm` can finish, purely so a thousands-of-trials sweep is
    tractable. That excludes exactly the tail this module exists for. Speed

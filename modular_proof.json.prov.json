@@ -1,0 +1,17 @@
+{
+ "output": "modular_proof.json",
+ "argv": [
+  "modular_proof.py"
+ ],
+ "rerun": "python3 modular_proof.py",
+ "script": "modular_proof.py",
+ "script_sha1": "b84672106a6adb03de79387136c63739d1b18bc2",
+ "script_logic_sha1": "63179423f1e3cdb5473b37ba1e118ff19ee9d530",
+ "started": null,
+ "finished": "2026-08-29 02:24:55",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "retroactive": true,
+ "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
+ "note": "Produced on cube64 2026-08-24, 28105.8s: modularity of X verified over ALL 1 192 678 flats, 0 violations, gated on reproducing 4 621 728 chambers first. Recovered to the repository 2026-08-29. Backs P156."
+}
