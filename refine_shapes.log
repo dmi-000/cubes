@@ -1,0 +1,10 @@
+1217  dir (0, 1, 0, 0)  t in [-60,-45] step 1/12 : 181 pts, 0 unevaluable
+        holds on [-60, -677/12]  width 43/12  (44 pts)
+        holds on [-45, -45]  width 0  (1 pts)
+1895  dir (0, 0, 0, 1)  t in [0,4] step 1/12 : 49 pts, 0 unevaluable
+        holds on [0, 11/12]  width 11/12  (12 pts)
+        holds on [13/12, 29/12]  width 4/3  (17 pts)
+1895  dir (1, -1, 1, 1)  t in [-59,-53] step 1/12 : 73 pts, 0 unevaluable
+        holds on [-229/4, -164/3]  width 31/12  (32 pts)
+2785  dir (0, 0, 1, 0)  t in [-5,-1] step 1/12 : 49 pts, 0 unevaluable
+        holds on [-3, -3]  width 0  (1 pts)

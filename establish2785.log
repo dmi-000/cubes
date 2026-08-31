@@ -1,0 +1,16 @@
+GATE: stabiliser orders (P101 states 3/3/1/1/1)
+   {'393': 3, '723': 3, '727': 1, '1217': 1, '1891': 1}
+   PASS
+
+THE RECORD
+   cube_regions_n  -> 2785
+   cube_regions_q2w-> 2785
+   both engines agree: True
+   symmetry order of 2785: 1
+   lattice perturbations              cumulative    360 evaluations, best 2785 (93s)
+   replacement 9th, |component| <= 4  cumulative   6920 evaluations, best 2785 (1691s)
+   replacement 9th, log-uniform       cumulative  14920 evaluations, best 2785 (3675s)
+   replacement 8th                    cumulative  17920 evaluations, best 2785 (4527s)
+   replacement 7th                    cumulative  20920 evaluations, best 2785 (5437s)
+
+RESULT: 20920 exact evaluations, best found 2785

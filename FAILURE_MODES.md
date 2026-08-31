@@ -579,6 +579,46 @@ this same file. Writing a failure mode down does not immunise against it. Before
 believing a pass, ask what input would have produced a FAIL; if none exists, the
 test is decoration.
 
+### 16c. Addendum, 2026-08-31: a refinement sweep whose refusals turned a plateau into a point
+
+Asking whether the n=6 rung 1217 sits on a plateau or a single point, the first sweep
+along its solved 13-pair curve stepped by 4/63 and found the count 1217 at **1 of 19
+offsets** — the recorded one. That reads as an isolated maximum, and it was reported
+as one.
+
+The refinement built to check it stepped by 1/5000 and 1/50000 around the recorded
+t. It returned **"1 offset within budget, count==1217 at 1"**. Those two numbers are
+the whole failure: 60 of 61 offsets were never evaluated, because a t with a large
+denominator canonicalises to a quaternion whose components exceed the narrow
+engine's 512 cap. The sweep confirmed nothing and looked like confirmation, because
+the surviving point was the one already known.
+
+On the wide engine the same line reads:
+
+    step 1/630     17 offsets   1217 holds at  9
+    step 1/6300    13 offsets   1217 holds at 11
+    step 1/63000    9 offsets   1217 holds at  9
+
+**1217 is a continuum**, extending over t in [-59/315, -11/63] at minimum. The
+original step of 4/63 is 40x the plateau's width, so it could not have landed inside
+twice; the "isolated point" was the step size, not the geometry.
+
+Three modes composing, all of them already in this file:
+
+- [mode 16](#16-a-refusal-caused-by-the-representative-misread-as-a-limit-of-the-tool):
+  the refusals were caused by the REPRESENTATIVE — offsets chosen with denominators
+  5000 and 50000 rather than multiples of the recorded 1/63 — not by the object.
+  The tell was mode 16's own: the split was perfectly clean by input height.
+- "unevaluable is not a negative result" (investigation-principles): 60 unevaluable offsets were scored as agreement with the coarse sweep.
+- [METHODS 1](METHODS.md#1-solve-the-line-do-not-sample-it) / solve don't sample: the curve
+  was SOLVED and the extent was SAMPLED, and only the sampled half was wrong.
+
+**The rule this adds.** A refinement sweep must report its evaluated count in the
+same breath as its result, and a refinement that evaluates FEWER points than the
+sweep it refines has failed, whatever it returns. Choose offsets in the recorded
+point's own denominator (here 1/630, 1/6300 = multiples of 1/63), not in round
+decimal denominators, which compound against every cap in the pipeline.
+
 ## 17. A delegated agent that parks on its own background job
 
 Three agents launched the same afternoon (2026-08-18) each returned, as their
@@ -689,6 +729,33 @@ decoration and the delegation will confirm nothing, however well it is executed.
 message) and from the main session's `.jsonl` as the `Agent` tool-use input. They
 are NOT in `/export` output. Backfill by the criterion already used for reports: a
 spec is worth saving when its output is cited.
+
+### 19a. Addendum, 2026-08-31: the RUN was not kept either
+
+[Mode 19](#19-the-specification-is-the-one-artifact-not-kept) is about specifications.
+The same gap swallowed a 3 216-second measurement.
+
+The n=10 arrangement job — the one testing [P172](LEDGER.md#p172)'s linear wall law —
+was launched from an inline heredoc. It wrote `n10_arr.log` and exited 0, leaving:
+
+    n=10: walls 101  ambient 27  rank 22  DEFICIT 5   (3216s)
+    P172 predicted: walls 123 ... PREDICTION: REFUTED
+
+and **no file in the repository that could produce those numbers again**. Worse than
+irreproducible: the log does not record its own INPUT, and at n=10 the input is
+exactly the thing in question — `R[9]` ends in (56,56,55,56) while P181's n=10 is
+built on (57,57,56,57), a different member of the same continuum. A reader cannot
+tell from the log whether the law was refuted or never tested.
+
+An hour of compute produced a headline ("PREDICTION: REFUTED") that could not be
+checked, defended, or corrected. `arr_tower.py` now does the measurement from a saved
+file, gated on reproducing P172's n=9 row, and computes the k=57 row that decides
+which of the two readings is right.
+
+**The rule.** A run long enough to be worth reporting is long enough to be worth
+saving first, and its output must name its own input. "Deliverables go where they
+survive" covers the script; this adds that the LOG must carry the configuration, not
+just the result — otherwise the artifact that survives cannot be interpreted.
 
 ## 20. A test run writing to the production output path
 

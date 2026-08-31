@@ -1,0 +1,21 @@
+gate: 2785 reproduces METHODS 12 (t = -227/889)  OK
+
+727   last cube (7, 14, 1, -5)    0 13-pair curve(s)
+        locus of this type: NONE.  Other types unevaluated.
+
+1217  last cube (4, -3, -4, -4)   1 13-pair curve(s)
+        base cube 2, axis (1, 1, -1), t = -11/63
+          holds on [-59/315, -11/63]  width 4/315   <- contains recorded t
+          121 offsets, 0 unevaluable, max on line 1217
+
+1895  last cube (24, -24, 24, -61)  0 13-pair curve(s)
+        locus of this type: NONE.  Other types unevaluated.
+
+2785  last cube (56, 56, 55, 56)  2 13-pair curve(s)
+        base cube 1, axis (1, 1, -1), t = -227/889
+          holds on [-227/889, -3278/13335]  width 1/105   <- contains recorded t
+          121 offsets, 0 unevaluable, max on line 2785
+        base cube 4, axis (1, 1, -1), t = -1/223
+          holds on [-1/223, 97/28098]  width 1/126   <- contains recorded t
+          121 offsets, 0 unevaluable, max on line 2785
+

@@ -1,0 +1,15 @@
+{
+ "output": "establish2785.json",
+ "argv": [
+  "establish2785.py"
+ ],
+ "rerun": "python3 establish2785.py",
+ "script": "establish2785.py",
+ "script_sha1": "d37c27b0241832689467cccc8911c0b764e6aab4",
+ "script_logic_sha1": "0991005e78de55cd4622f7ed7e15cc0b34ceea37",
+ "started": null,
+ "finished": "2026-08-30 16:35:22",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "note": "n=9 establishment campaign, 20 920 exact evaluations, 5437s, 2026-08-30. Stabiliser gate reproduced P101's stated 3/3/1/1/1 before any symmetry order was computed."
+}

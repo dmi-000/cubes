@@ -1,0 +1,26 @@
+   cube 1 axis 0: 241 narrow + 192 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 1 axis 1: 236 narrow + 197 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 1 axis 2: 241 narrow + 192 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 2 axis 0: 241 narrow + 192 WIDE = 433 pts, 1 unevaluable, MAX 2785 at s=0
+   cube 2 axis 1: 241 narrow + 192 WIDE = 433 pts, 1 unevaluable, MAX 2785 at s=0
+   cube 2 axis 2: 241 narrow + 192 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 3 axis 0: 433 narrow +   0 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 3 axis 1: 433 narrow +   0 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 3 axis 2: 433 narrow +   0 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 4 axis 0: 433 narrow +   0 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 4 axis 1: 433 narrow +   0 WIDE = 433 pts, 1 unevaluable, MAX 2785 at s=0
+   cube 4 axis 2: 433 narrow +   0 WIDE = 433 pts, 1 unevaluable, MAX 2785 at s=0
+   cube 5 axis 0: 206 narrow + 227 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 5 axis 1: 209 narrow + 224 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 5 axis 2: 209 narrow + 224 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 6 axis 0: 433 narrow +   0 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 6 axis 1: 433 narrow +   0 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 6 axis 2: 433 narrow +   0 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 7 axis 0: 148 narrow + 285 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 7 axis 1: 148 narrow + 285 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 7 axis 2: 134 narrow + 299 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=1/10
+   cube 8 axis 0: 122 narrow + 311 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+   cube 8 axis 1: 122 narrow + 311 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=1/32
+   cube 8 axis 2: 122 narrow + 311 WIDE = 433 pts, 0 unevaluable, MAX 2785 at s=0
+
+10392 evaluations (3634 via the wide engine), 4 unevaluable, best 2785 (3051s)

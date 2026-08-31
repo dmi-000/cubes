@@ -1,0 +1,170 @@
+<title>Zero-Volume Cells</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#EEF2F3; --surface:#FFFFFF; --line:#C9D6DA; --ink:#0F171B; --dim:#5A6B72;
+  --c0:#2F7183; --c1:#6B5B95; --c2:#8A6A2F; --c3:#4E7A4A; --alert:#C6432F; --alertsoft:#C6432F33;
+  --box:#9BAEB4;
+}
+:root:not([data-theme="light"]){ @media (prefers-color-scheme:dark){
+  --ground:#0D1417; --surface:#151E22; --line:#2A3A40; --ink:#DFE9EC; --dim:#8FA3AB;
+  --c0:#5FB3C7; --c1:#A492D8; --c2:#C9A05A; --c3:#7FB878; --alert:#F0705A; --alertsoft:#F0705A2E;
+  --box:#3A4C53;
+}}
+:root[data-theme="dark"]{
+  --ground:#0D1417; --surface:#151E22; --line:#2A3A40; --ink:#DFE9EC; --dim:#8FA3AB;
+  --c0:#5FB3C7; --c1:#A492D8; --c2:#C9A05A; --c3:#7FB878; --alert:#F0705A; --alertsoft:#F0705A2E;
+  --box:#3A4C53;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.55}
+.wrap{display:grid;grid-template-columns:minmax(0,1fr) 21rem;gap:1.5rem;
+  max-width:76rem;margin:0 auto;padding:2rem 1.5rem 3rem}
+@media(max-width:880px){.wrap{grid-template-columns:1fr}}
+header{grid-column:1/-1;border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:.5rem}
+h1{font-size:1.5rem;font-weight:600;margin:0 0 .3rem;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--dim);font-size:.95rem;margin:0;max-width:62ch}
+.stage{background:var(--surface);border:1px solid var(--line);border-radius:4px;
+  position:relative;overflow:hidden}
+canvas{display:block;width:100%;height:auto;touch-action:none;cursor:grab}
+canvas:active{cursor:grabbing}
+.hint{position:absolute;left:.7rem;bottom:.6rem;font-family:"IBM Plex Mono",monospace;
+  font-size:.7rem;color:var(--dim);letter-spacing:.03em;pointer-events:none}
+aside{display:flex;flex-direction:column;gap:1.1rem}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:.95rem 1rem}
+h2{font-size:.7rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--dim);margin:0 0 .6rem}
+.legend{display:flex;flex-direction:column;gap:.4rem;font-family:"IBM Plex Mono",monospace;font-size:.78rem}
+.legend div{display:flex;align-items:center;gap:.55rem}
+.sw{width:.85rem;height:.85rem;border-radius:2px;flex:none}
+.k{display:flex;justify-content:space-between;gap:1rem;font-family:"IBM Plex Mono",monospace;
+  font-size:.8rem;padding:.22rem 0;border-bottom:1px dotted var(--line)}
+.k:last-child{border-bottom:0}
+.k span:last-child{font-variant-numeric:tabular-nums;color:var(--ink)}
+.k span:first-child{color:var(--dim)}
+label.tog{display:flex;align-items:center;gap:.5rem;font-size:.82rem;padding:.16rem 0;cursor:pointer}
+p.note{font-size:.83rem;color:var(--dim);margin:.5rem 0 0}
+code{font-family:"IBM Plex Mono",monospace;font-size:.86em;color:var(--ink)}
+.flag{color:var(--alert);font-weight:500}
+</style>
+<div class="wrap">
+<header>
+  <h1>Four cubes, and the cells that aren&rsquo;t there</h1>
+  <p class="sub">The exact region counter refuses this configuration with
+  <code>outside must be a single region</code>. It is right that its bookkeeping is broken and
+  wrong about why: the clipper emitted <span class="flag">102 zero-volume cells</span> &mdash; some
+  with only three distinct vertices, flat triangles enclosing nothing. Drag to orbit.</p>
+</header>
+
+<div class="stage">
+  <canvas id="c" width="1000" height="720"></canvas>
+  <div class="hint">drag to orbit &middot; scroll to zoom</div>
+</div>
+
+<aside>
+  <div class="panel">
+    <h2>Configuration</h2>
+    <div class="legend" id="leg"></div>
+    <p class="note">Four concentric unit cubes, quaternion-rotated, inside the engine&rsquo;s
+    fixed <code>[-4,4]&sup3;</code> box.</p>
+  </div>
+  <div class="panel">
+    <h2>Show</h2>
+    <label class="tog"><input type="checkbox" id="tCubes" checked> Cubes</label>
+    <label class="tog"><input type="checkbox" id="tCells" checked> Degenerate cells</label>
+    <label class="tog"><input type="checkbox" id="tBox" checked> Bounding box</label>
+    <label class="tog"><input type="checkbox" id="tSpin"> Rotate</label>
+  </div>
+  <div class="panel">
+    <h2>Counts</h2>
+    <div class="k"><span>cells total</span><span>1543</span></div>
+    <div class="k"><span>degenerate</span><span class="flag">102</span></div>
+    <div class="k"><span>depth-0 cells</span><span>1296</span></div>
+    <div class="k"><span>depth-0 components</span><span class="flag">5</span></div>
+    <div class="k"><span>&mdash; the real outside</span><span>1290</span></div>
+    <div class="k"><span>&mdash; slivers</span><span>1, 2, 2, 1</span></div>
+    <div class="k"><span>correct count</span><span>145</span></div>
+  </div>
+  <div class="panel">
+    <h2>Why it fails</h2>
+    <p class="note">A cell needs four faces to enclose volume. These have one or two &mdash; two
+    planes of the <em>same</em> cube, meeting in a line. With no internal facet to merge across,
+    and box facets excluded from merging by design, each survives as its own depth-0 component.
+    Five components where geometry allows exactly one.</p>
+  </div>
+</aside>
+</div>
+<script>
+const S={"cubes":[{"quat":[1,0,-1,-1],"verts":[[0.16666666666666666,-0.16666666666666666,-0.8333333333333333],[-0.5,0.5,-0.5],[0.8333333333333333,0.16666666666666666,-0.16666666666666666],[0.16666666666666666,0.8333333333333333,0.16666666666666666],[-0.16666666666666666,-0.8333333333333333,-0.16666666666666666],[-0.8333333333333333,-0.16666666666666666,0.16666666666666666],[0.5,-0.5,0.5],[-0.16666666666666666,0.16666666666666666,0.8333333333333333]]},{"quat":[2,1,1,1],"verts":[[-0.5,-0.5,-0.5],[0.3571428571428571,-0.7857142857142857,-0.07142857142857142],[-0.7857142857142857,-0.07142857142857142,0.3571428571428571],[0.07142857142857142,-0.3571428571428571,0.7857142857142857],[-0.07142857142857142,0.3571428571428571,-0.7857142857142857],[0.7857142857142857,0.07142857142857142,-0.3571428571428571],[-0.3571428571428571,0.7857142857142857,0.07142857142857142],[0.5,0.5,0.5]]},{"quat":[24,-24,24,-61],"verts":[[-0.24876124059460447,0.8259313635529455,-0.07717012295834103],[0.5,0.5,0.5],[0.07717012295834103,0.24876124059460447,-0.8259313635529455],[0.8259313635529455,-0.07717012295834103,-0.24876124059460447],[-0.8259313635529455,0.07717012295834103,0.24876124059460447],[-0.07717012295834103,-0.24876124059460447,0.8259313635529455],[-0.5,-0.5,-0.5],[0.24876124059460447,-0.8259313635529455,0.07717012295834103]]},{"quat":[56,56,55,56],"verts":[[-0.4999195688892464,-0.4909917155955924,-0.508927853293654],[0.5,-0.5,-0.5],[-0.508927853293654,-0.4999195688892464,0.4909917155955924],[0.4909917155955924,-0.508927853293654,0.4999195688892464],[-0.4909917155955924,0.508927853293654,-0.4999195688892464],[0.508927853293654,0.4999195688892464,-0.4909917155955924],[-0.5,0.5,0.5],[0.4999195688892464,0.4909917155955924,0.508927853293654]]}],"cells":[{"id":452,"depth":0,"pts":[[0.989465,-2.437601,-1.270665],[0.894452,-2.519041,-1.134931],[0.98711,-2.610823,-1.181699]],"n":3},{"id":476,"depth":0,"pts":[[-1.000158,-1.000061,-1.000419],[-1.006815,-1.002627,-1.018103],[-1.000054,-1.005997,-1.018072]],"n":3},{"id":524,"depth":0,"pts":[[-1.03574,-0.981634,-1.021096],[-1.030755,-0.984195,-1.018154],[-1.026901,-0.98174,-1.018097]],"n":3},{"id":529,"depth":0,"pts":[[-1.026901,-0.98174,-1.018097],[-0.999919,-0.982063,-1.008942],[-0.999682,-0.964394,-1.017697]],"n":3},{"id":533,"depth":0,"pts":[[-1.000158,-1.000061,-1.000419],[-1.006815,-1.002627,-1.018103],[-1.000054,-1.005997,-1.018072]],"n":3},{"id":440,"depth":0,"pts":[[-1.208451,-2.43662,-1.540845],[-1.25,-2.125,-1.25],[-1.280259,-2.140129,-1.280259],[-1.139098,-1.958647,-1.360902]],"n":4},{"id":450,"depth":0,"pts":[[-1.009129,-2.004565,-1.009129],[-1.027315,-2.013657,-1.027315],[-1.009131,-2.022666,-1.027231],[-1.008887,-1.995395,-1.026986]],"n":4},{"id":461,"depth":0,"pts":[[1.035709,-3.035709,-1.017854],[0.982063,-2.982063,-0.991032],[0.982061,-3.009131,-1.0181],[0.982761,-2.930735,-1.017394]],"n":4},{"id":463,"depth":0,"pts":[[-0.982382,-0.991191,-2.982382],[-2.0,-1.5,-4.0],[-0.982463,-2.008768,-4.0],[-0.993154,-1.399315,-2.187677]],"n":4},{"id":465,"depth":0,"pts":[[-0.25,-0.625,-2.25],[-0.930735,-0.965367,-2.930735],[-0.203326,-0.975051,-2.576715],[-0.485065,-0.977597,-2.014935]],"n":4},{"id":525,"depth":0,"pts":[[-1.030755,-0.984195,-1.018154],[-1.000159,-0.999918,-1.000094],[-0.999919,-0.982063,-1.008942],[-1.026901,-0.98174,-1.018097]],"n":4},{"id":449,"depth":0,"pts":[[1.197774,-4.0,-4.0],[0.999759,-4.0,-4.0],[0.984603,-4.0,-2.302539],[1.534866,-4.0,-3.403066],[1.001124,-3.848416,-4.0]],"n":5},{"id":477,"depth":0,"pts":[[-0.993985,-1.009022,-1.018044],[-1.0,-1.0,-1.0],[-1.000158,-1.000061,-1.000419],[-1.000054,-1.005997,-1.018072],[-0.994896,-1.011803,-1.018077]],"n":5},{"id":483,"depth":0,"pts":[[-0.994891,-1.465136,-2.05951],[-0.803279,-1.454918,-1.696721],[-1.00251,-1.753765,-1.49749],[-0.994896,-1.011803,-1.018077],[-1.000251,-1.028162,-1.018272]],"n":5},{"id":526,"depth":0,"pts":[[-1.000159,-0.999918,-1.000094],[-1.0,-1.0,-1.0],[-0.991084,-0.982169,-1.005944],[-0.999919,-0.982063,-1.008942],[-0.989466,-0.982154,-1.009171]],"n":5},{"id":436,"depth":0,"pts":[[-2.019792,-1.519792,-4.0],[-2.0,-1.5,-4.0],[-0.982463,-2.008768,-4.0],[-0.985242,-2.317258,-4.0],[-0.993154,-1.399315,-2.187677],[-0.994891,-1.465136,-2.05951]],"n":6},{"id":444,"depth":0,"pts":[[0.351859,-1.6799,-1.01191],[-0.157895,-1.315789,-0.684211],[-0.211685,-1.423369,-0.576631],[0.655952,-2.282798,-1.014553],[-0.341706,-1.334171,-1.015071],[-0.444221,-1.43577,-1.016902]],"n":6},{"id":445,"depth":0,"pts":[[-1.00923,-3.259187,-2.263802],[-1.208451,-2.43662,-1.540845],[-1.009284,-3.930372,-2.935014],[-1.139098,-1.958647,-1.360902],[-1.00251,-1.753765,-1.49749],[-1.00331,-1.784071,-1.438476]],"n":6},{"id":457,"depth":0,"pts":[[0.841317,-2.939404,-1.018746],[0.809968,-2.809968,-0.904984],[0.692308,-2.692308,-0.846154],[0.717045,-2.877838,-1.019316],[0.908037,-2.782585,-1.016744],[0.811131,-2.590459,-1.015902]],"n":6},{"id":458,"depth":0,"pts":[[0.982061,-3.009131,-1.0181],[0.841317,-2.939404,-1.018746],[0.98202,-3.520358,-1.529348],[0.985068,-2.761076,-1.10453],[0.908037,-2.782585,-1.016744],[0.982761,-2.930735,-1.017394]],"n":6},{"id":460,"depth":0,"pts":[[0.982063,-2.982063,-0.991032],[0.809968,-2.809968,-0.904984],[0.841317,-2.939404,-1.018746],[0.982061,-3.009131,-1.0181],[0.982761,-2.930735,-1.017394],[0.908037,-2.782585,-1.016744]],"n":6},{"id":467,"depth":0,"pts":[[-0.007417,-0.503708,-2.007417],[-0.25,-0.625,-2.25],[-0.203326,-0.975051,-2.576715],[0.107743,-0.979193,-2.425321],[-0.378296,-0.980527,-1.795538],[-0.485065,-0.977597,-2.014935]],"n":6},{"id":469,"depth":0,"pts":[[1.769231,-1.769231,-2.384615],[1.008888,-1.008888,-2.004444],[1.008728,-3.004364,-4.0],[2.0,-3.5,-4.0],[0.993535,-2.138239,-1.424415],[1.181818,-2.272727,-1.545455]],"n":6},{"id":471,"depth":0,"pts":[[0.990951,-0.990951,-1.995475],[0.333333,-0.333333,-1.666667],[-0.007417,-0.503708,-2.007417],[0.107743,-0.979193,-2.425321],[0.004485,-0.991031,-1.008969],[-0.378296,-0.980527,-1.795538]],"n":6}]};
+const CUBE_COL=['--c0','--c1','--c2','--c3'];
+const E=[[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+const cv=document.getElementById('c'),cx=cv.getContext('2d');
+let yaw=0.7,pitch=-0.42,zoom=1,drag=null,spin=false;
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function proj(p){
+  const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+  let x=p[0]*cy-p[2]*sy, z=p[0]*sy+p[2]*cy, y=p[1]*cp-z*sp; z=p[1]*sp+z*cp;
+  const s=cv.width*0.115*zoom;
+  return [cv.width/2+x*s, cv.height/2-y*s, z];
+}
+function draw(){
+  const dpr=Math.min(2,window.devicePixelRatio||1);
+  if(cv.width!==cv.clientWidth*dpr){cv.width=cv.clientWidth*dpr;cv.height=Math.round(cv.clientWidth*0.72)*dpr;}
+  cx.clearRect(0,0,cv.width,cv.height);
+  cx.lineWidth=Math.max(1,dpr);
+  if(document.getElementById('tBox').checked){
+    const b=4,bv=[];
+    for(const sx of[-b,b])for(const sy of[-b,b])for(const sz of[-b,b])bv.push([sx,sy,sz]);
+    cx.strokeStyle=css('--box');cx.globalAlpha=.5;
+    for(const[a,d]of E){const A=proj(bv[a]),B=proj(bv[d]);
+      cx.beginPath();cx.moveTo(A[0],A[1]);cx.lineTo(B[0],B[1]);cx.stroke();}
+    cx.globalAlpha=1;
+  }
+  if(document.getElementById('tCubes').checked){
+    S.cubes.forEach((c,i)=>{
+      cx.strokeStyle=css(CUBE_COL[i]);cx.globalAlpha=.9;cx.lineWidth=Math.max(1.4,dpr*1.1);
+      const v=c.verts.map(proj);
+      for(const[a,d]of E){cx.beginPath();cx.moveTo(v[a][0],v[a][1]);cx.lineTo(v[d][0],v[d][1]);cx.stroke();}
+    });
+    cx.globalAlpha=1;
+  }
+  if(document.getElementById('tCells').checked){
+    const polys=S.cells.map(c=>{const p=c.pts.map(proj);
+      return {p:p,z:p.reduce((s,q)=>s+q[2],0)/p.length,n:c.n};});
+    polys.sort((a,b)=>a.z-b.z);
+    for(const q of polys){
+      cx.beginPath();cx.moveTo(q.p[0][0],q.p[0][1]);
+      for(let i=1;i<q.p.length;i++)cx.lineTo(q.p[i][0],q.p[i][1]);
+      cx.closePath();
+      cx.fillStyle=css('--alertsoft');cx.fill();
+      cx.strokeStyle=css('--alert');cx.lineWidth=Math.max(1.6,dpr*1.3);cx.stroke();
+      for(const pt of q.p){cx.beginPath();cx.arc(pt[0],pt[1],dpr*2.1,0,7);cx.fillStyle=css('--alert');cx.fill();}
+    }
+  }
+}
+cv.addEventListener('pointerdown',e=>{drag=[e.clientX,e.clientY];cv.setPointerCapture(e.pointerId);});
+cv.addEventListener('pointermove',e=>{if(!drag)return;
+  yaw+=(e.clientX-drag[0])*0.008;pitch+=(e.clientY-drag[1])*0.008;
+  pitch=Math.max(-1.5,Math.min(1.5,pitch));drag=[e.clientX,e.clientY];draw();});
+addEventListener('pointerup',()=>drag=null);
+cv.addEventListener('wheel',e=>{e.preventDefault();zoom*=e.deltaY<0?1.08:0.93;
+  zoom=Math.max(.35,Math.min(4,zoom));draw();},{passive:false});
+for(const id of['tCubes','tCells','tBox'])document.getElementById(id).addEventListener('change',draw);
+document.getElementById('tSpin').addEventListener('change',e=>{spin=e.target.checked;if(spin)tick();});
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function tick(){if(!spin)return;yaw+=0.004;draw();requestAnimationFrame(tick);}
+const leg=document.getElementById('leg');
+S.cubes.forEach((c,i)=>{const d=document.createElement('div');
+  d.innerHTML='<span class="sw" style="background:'+css(CUBE_COL[i])+'"></span>('+c.quat.join(',')+')';
+  leg.appendChild(d);});
+const d=document.createElement('div');
+d.innerHTML='<span class="sw" style="background:'+css('--alert')+'"></span>zero-volume cells';
+leg.appendChild(d);
+addEventListener('resize',draw);
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{leg.innerHTML='';
+  S.cubes.forEach((c,i)=>{const x=document.createElement('div');
+    x.innerHTML='<span class="sw" style="background:'+css(CUBE_COL[i])+'"></span>('+c.quat.join(',')+')';
+    leg.appendChild(x);});draw();});
+draw(); if(!reduce){}
+</script>

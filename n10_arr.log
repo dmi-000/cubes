@@ -1,0 +1,9 @@
+n=10: walls 101  ambient 27  rawalls_of done: 101 walls, ambient 27 (3568s)
+rank 22  DEFICIT 5
+P172 predicted: walls 123, ambient 27, rank 22, deficit 5
+PREDICTION: REFUTED
+   null direction on cube(s): [6]
+   null direction on cube(s): [7]
+   null direction on cube(s): [8]
+   null direction on cube(s): ALL (global gauge)
+   null direction on cube(s): ALL (global gauge)

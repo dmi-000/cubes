@@ -973,6 +973,11 @@ deepest arithmetically compatible level.
 
 ## The collaboration, honestly described
 
+*A running register of specific interventions — what a human sentence changed,
+what was caught without one, and the surface tells that exposed each — is kept
+separately in [`INTERVENTIONS.md`](INTERVENTIONS.md), added 2026-08-31. This
+section is the narrative; that file is the evidence.*
+
 This project was a four-layer collaboration, and the layering was not
 decorative — each layer did something the others couldn't. It is also
 worth being explicit about this document's own place in that layering:

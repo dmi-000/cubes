@@ -1,0 +1,15 @@
+[
+ {
+  "tight": 468,
+  "loose": 10116,
+  "walls": 99,
+  "ambient": 24,
+  "rank": 20,
+  "lineality": 4,
+  "count": 2785,
+  "name": "n=9 recorded k=56",
+  "secs": 0.4414677619934082,
+  "n": 9,
+  "deficit": 4
+ }
+]

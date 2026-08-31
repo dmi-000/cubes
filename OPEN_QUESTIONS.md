@@ -207,3 +207,138 @@ does. Candidates untested: the wall system's RANK or dependency structure rather
 than its size; the shared-wall locus ([P136](LEDGER.md#p136)); the depth-profile
 trade ("grow the shallow layers, deep layers pinned", [P15](LEDGER.md#p15)).
 
+
+## 9. Which member of a continuum extends best? — every rung is a continuum, and every recorded member is at its EDGE
+
+**Measured twice, same answer, same size.** A plateau is one object by count and
+many objects by extension:
+
+- 723 continuum at n=7 ([`member723.log`](member723.log)): 8 members → four
+  distinct maxima 1203/1205/1209/1211, **spread 8**, not monotone in the parameter.
+- 2785 continuum at n=10 ([P181](LEDGER.md#p181)): 9 members → 3905…3913,
+  **spread 8**, and the RECORDED member k=56 is the WORST tested, 8 below best.
+
+**Why it matters beyond n=10.** Every rung of the tower was built by extending its
+predecessor's *recorded* representative. If those predecessors are continua too,
+each rung may be the best extension of an arbitrarily chosen base rather than the
+best available — and the gap is 8 at both rungs where it has been measured.
+
+**No longer untried — [P182](LEDGER.md#p182) measured the shapes.** 1217, 1895 and
+2785 are ALL continua, and so is 727 — on its four documented arcs A-D, with the
+record at arc D's node ([P183](LEDGER.md#p183) corrects P182, which had claimed 727
+showed no locus; that claim contradicted `RESULTS.md` and `METHODS.md` and was made
+without reading them). **Every rung from 6 to 9 is a continuum.** More importantly,
+in every interval containing a recorded configuration the recorded configuration is
+an **ENDPOINT**, never interior:
+
+    1217   [-59/315, -11/63]           recorded at the RIGHT end
+    1895   [0, 11/12] along (0,0,0,1)  recorded at the LEFT end
+    2785   [-227/889, -3278/13335]     recorded at the LEFT end
+    2785   [-1/223, 97/28098]          recorded at the LEFT end
+
+There is a mechanism, not a coincidence: a search reports the plateau member with the
+smallest primitive representative, and height is smallest where the parametrisation is
+simplest, which is at the boundary. [P178](LEDGER.md#p178) had already noticed 2785's
+recorded member was "the last value giving 2785" and read it as luck.
+
+**So the bias is systematic.** Every rung of the tower was built by extending a
+BOUNDARY member of its predecessor's plateau, and the one rung where members were
+compared (n=9 -> n=10) put the boundary member 8 below the best. Every rung above 727
+may be low for the same reason.
+
+**Being tested now**, at the cheapest rung that can answer it: `extend_1217.py` runs
+the `extend_n10.py` search from seven members of the 1217 plateau — both endpoints and
+five interior points. If an interior member beats 1895, n=8 has a new record and the
+tower is provisional from n=7 up.
+
+**Solved, not sampled, would be better.** `twoparam.py` solves for continuum
+members admitting a degenerate extension locus, and its answer at both 723 and 2785
+was that degeneracy does NOT discriminate — universal along 723, and only cube
+duplications at 2785 ([P177](LEDGER.md#p177)). So the selection criterion is
+something else: higher-order coincidences, or coincidence types other than 13-pairs.
+
+## 10. Why are the two n=3 maximisers isolated? — explanation WITHDRAWN
+
+[P169](LEDGER.md#p169) offered: free arrangement ⇒ no entanglement ⇒ deficit 0 ⇒
+isolated. [P175](LEDGER.md#p175) refuted the chain — the rational 63 is free WITH
+deficit 1 — and [P171](LEDGER.md#p171) showed freeness belongs to n ≤ 3 generally,
+not to maximality. So the observation stands and the mechanism does not.
+
+What survives as fact: both 67s have deficit 0 and every record n ≥ 4 has deficit
+≥ 1; χ splits for 13, 63 and both 67s and never above; n=3 is the only irrational
+rung and the only one the rational tower cannot reach (63 < 67).
+
+**A version of the chain is back, with the threshold moved one (2026-08-31,
+[P184](LEDGER.md#p184)).** Measured with ε a positive infinitesimal, the count-
+preserving null directions form a hyperplane in the null space, of dimension
+**max(0, deficit − 1)** — not `deficit`, as [P162](LEDGER.md#p162) had it, and not
+`0`, as [P175](LEDGER.md#p175) had it. So the link P169 wanted is not "deficit 0 ⇒
+isolated" but **deficit ≤ 1 ⇒ no infinitesimal freedom in the null space**, which
+covers both 67s (deficit 0) AND the rational 63 (deficit 1) — the very case that
+refuted the original chain. It first becomes nonzero at n = 7.
+
+Note this does not conflict with 727 (deficit 1) being a plateau on arcs A–D: those
+arcs LIE IN walls — `MAXIMISER_TAXONOMY.md` describes a maximiser arc as lying along
+a ruling of the quadric wall it sits in — whereas the null space is the directions
+crossing no wall. Two different ways for a count to survive, and only the second is
+what deficit measures.
+
+## 11. Does irrationality ever win above n = 3?
+
+Never tested at n ≥ 6. [P138](LEDGER.md#p138) constructed irrational candidates
+properly at n=4 and n=5 — 27 716 candidates across 249 fields, and 89 076 across
+993 — and found 173 and 377, short by 10 and 16. But its stated scope is "one
+rational base per target… other rational bases are untouched", and n ≥ 6 was never
+attempted. n=3 proves irrationality can be the whole story (67 needs ℚ(√2) or
+ℚ(√5); the rational ceiling is 63), so "never run above n=5" is a real gap — with
+two data points already pointing the wrong way.
+
+## 12. What geometric condition makes the clipper emit zero-volume cells?
+
+[P180](LEDGER.md#p180) narrowed it hard and did not close it. Established: the
+cells are 1- and 2-face slivers on the `[-4,4]³` box boundary; the trigger is a
+property of a PAIR of cubes together with the box, since a rigid rotation of that
+pair destroys it while replacing the other cubes entirely does not; the degenerate
+set is locally ≥ 6-dimensional. Eliminated: complement disconnection (impossible),
+shared face planes, common-line triples, vertex multiplicity — all intrinsic
+measures, and the trigger is not intrinsic.
+
+**Now low priority**: [P180 Addendum 5](LEDGER.md#p180) shows the engine's counts
+are correct throughout and the guard refuses rather than miscounting, and a global
+rotation recovers any refused count exactly. It is a tidiness question, not a
+correctness one.
+
+## 13. Where does each continuum actually END? — one rung is solved, the rest are sampled
+
+[P183](LEDGER.md#p183) audited every continuum in the project against the standard
+727 set: through-point, direction, and extent SOLVED as roots of the wall equation
+restricted to the arc's line. **Only 727 meets it** — six ends, two exactly rational
+(19/6, 43/105) and four algebraic irrationals no grid could land on.
+
+    continuum        path                                  endpoints
+    n=2  13          body-diagonal family                  n/a, closed, no ends
+    n=4  183         NONE - 2 congruence classes only      none
+    n=6  727         arcs A-D, tangents given (D a node)   SOLVED, all six
+    n=7  723         u*(1,1,1)                             valid range u>=55, u<=-7/2
+    n=7  1217        SOLVED curve (P182)                   grid-sampled only
+    n=8  1895        sampled direction, NOT solved         grid-sampled only
+    n=9  2785        k-family + 2 solved 13-pair curves    upper measured, lower a WINDOW EDGE
+    n=10 3913        none                                  none
+
+**Why it is not bookkeeping.** A grid endpoint is the last sampled point that held,
+so it is simultaneously a LOWER bound on the plateau's extent and an UPPER bound on
+where the wall is — and the gap between them is never zero. [P183](LEDGER.md#p183)
+found one such artifact already: 2785's recorded lower end 220/889 is a window edge,
+not a boundary, and the continuum runs past it. Endpoints also carry the structural
+result — [OQ 9](#9) turns on recorded members being AT endpoints, and that is
+measured against sampled ends everywhere except 727.
+
+**The obstacle above n = 8, already on record.** [METHODS 7](METHODS.md) shows the
+edge-edge crossing detector that bracketed 727's ends is incomplete at n = 9: the
+count steps 2781 -> 2785 between k = 439/8 and k = 55 with the crossing count 294 on
+BOTH sides, the wall being a face-plane/triple-point event it cannot see. So ends
+above n = 8 need the wall equation itself.
+
+**What it takes.** Nothing new — the computation that produced 727's six ends,
+applied to 1217's curve, 1895's two directions, 2785's two 13-pair curves and its
+k-family lower end. Establishing a path at all is the open part for 183 and 3913.

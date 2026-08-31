@@ -1,0 +1,15 @@
+{
+ "output": "axissweep9.json",
+ "argv": [
+  "axissweep9.py"
+ ],
+ "rerun": "python3 axissweep9.py",
+ "script": "axissweep9.py",
+ "script_sha1": "76ac154cd8e0519d190eabb65a312d7efcfa56d6",
+ "script_logic_sha1": "50641bafa1c9d58e499b7a5f45c7b89525e89824",
+ "started": null,
+ "finished": "2026-08-30 17:08:32",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "note": "n=9 Cayley-axis re-sweep, 24 lines, 6758 evaluations, 2026-08-30. The procedure P101 ran at n=5..8 and omitted at n=9."
+}

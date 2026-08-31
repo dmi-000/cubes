@@ -1,0 +1,16 @@
+
+727  (last cube ((7, 14, 1, -5),))
+
+1217  (last cube ((4, -3, -4, -4),))
+   dir (0, 1, 0, 0)   record holds at   5 of 120 offsets (t in -60..-45)
+
+1895  (last cube ((24, -24, 24, -61),))
+   dir (0, 0, 0, 1)   record holds at   1 of 120 offsets (t in 2..2)
+   dir (1, -1, 1, 1)  record holds at   3 of 120 offsets (t in -57..-55)
+
+2785  (last cube ((56, 56, 55, 56),))
+   dir (0, 0, 1, 0)   record holds at   1 of 120 offsets (t in -3..-3)
+   dir (1, 1, 1, 1)   record holds at  61 of 120 offsets (t in -42..60)
+   dir (0, 1, 1, 0)   record holds at   1 of 120 offsets (t in 1..1)
+
+1588s

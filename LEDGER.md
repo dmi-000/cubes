@@ -10356,6 +10356,8 @@ Not a replacement for `arrangement.py`, which stays faster when a problem fits
 (183: 1 712 chambers in 1.6 s in memory). Use streaming when it does not.
 Files: `stream_chambers.py`, `stream_183_validate/`.
 
+<a id="p147"></a>
+
 ## Postscript 147: exact rational LP replaces Fourier–Motzkin — 237 668 real instances, zero disagreements
 
 `exactlp.py`, built to [`specs/EXACTLP_SPEC.md`](specs/EXACTLP_SPEC.md), provides
@@ -10543,6 +10545,8 @@ also the quantity that actually exhausted the machine.
 
 Files: `probe393.py`, `probe393_report.json`.
 
+<a id="p148"></a>
+
 ## Postscript 148: the 393 neighbourhood, COMPLETE — 74 544 chambers, the first for a rational record
 
 `run393.py`, carried through three `multiprocessing` deadlocks by
@@ -10594,6 +10598,8 @@ workaround and is documented as one.
 Files: `result393_chambers.json` (+ `.prov.json`), `supervise393.py`,
 `supervise393.log`, `ckpt_393/`.
 
+<a id="p149"></a>
+
 ## Postscript 149: the queue deadlock fixed structurally — bounded in-flight dispatch
 
 `arrangement.py:_process_batch` pushed an ENTIRE stage into `work_q` before
@@ -10623,6 +10629,8 @@ exactly as P147 Addendum 3 measured.
 
 `supervise393.py` is now redundant for future runs and is retained only as the
 record of how P148 was obtained.
+
+<a id="p150"></a>
 
 ## Postscript 150: 727's stages are EXACTLY 20× 393's — and the 14M–36M estimate is refuted by a hard bound
 
@@ -10688,6 +10696,8 @@ now vindicated by an argument that has nothing to do with tapering. **A guess th
 turns out true was still unjustified when made.** The bound above is worth
 something because it cannot be wrong; neither reading of the ratios was.
 
+<a id="p151"></a>
+
 ## Postscript 151: 727 estimated at 4.68M chambers — and the realised fraction COLLAPSES with size
 
 At stage 25 of 27 the enumeration holds 2 981 760 chambers (stage 25 doubled
@@ -10738,6 +10748,8 @@ property of that case, not a constant of the family, unless something forces it 
 be. Nothing here did.
 
 Files: `predict727.py`, `predict727_report.json`.
+
+<a id="p152"></a>
 
 ## Postscript 152: chamber counts DERIVED, not enumerated — 393 in 39.5 seconds instead of three days
 
@@ -10796,6 +10808,8 @@ which makes the two mutually falsifying.
 
 Files: `zaslavsky.py`, `charpoly.py`.
 
+<a id="p153"></a>
+
 ## Postscript 153: 727 = 4 621 728 chambers — EXACT, and exactly 62 × 393
 
 `zaslavsky.py` returned the 727 neighbourhood's chamber count by derivation:
@@ -10852,6 +10866,8 @@ The remaining open question is no longer the count but the STRUCTURE: what makes
 configuration" is predictable. That would give n=7 without any campaign at all.
 
 Files: `zaslavsky.py`, `zaslavsky_727.json`.
+
+<a id="p154"></a>
 
 ## Postscript 154: where the common factors live — the 20 is in the splits, the 1553 is not, and it is NOT a product
 
@@ -10925,6 +10941,8 @@ Incidental gate: `prefix727.py 10` returns 480, matching the enumeration's stage
 
 Files: `prefix727.py`, `zaslavsky.py` (`charpoly`).
 
+<a id="p155"></a>
+
 ## Postscript 155: THE STRUCTURE — χ₃₉₃ divides χ₇₂₇, and adding a cube multiplies by (t−1)(t²−8t+22)
 
 The characteristic polynomial of the 727 arrangement, computed on the 64 GB
@@ -10997,6 +11015,8 @@ without enumeration.
 
 Files: `cp727.py`, `charpoly_727.json`, `zaslavsky.py` (`charpoly`).
 
+<a id="p156"></a>
+
 ## Postscript 156: the geometric explanation — modular factorisation, and a falsifiable uniformity test
 
 [P155](#p155) found χ_727 = χ_393·(t−1)(t²−8t+22) with no product structure to
@@ -11047,6 +11067,8 @@ supporting evidence:
 
 Five facts recorded separately as unexplained across P150–P155 are one theorem
 with one hypothesis, and the hypothesis is now verified.
+
+<a id="p157"></a>
 
 ## Postscript 157: both standing predictions confirmed — c₂₆ = 3 727 200, and the split fractions are exact rationals
 
@@ -11099,6 +11121,8 @@ their shared assumptions (FAILURE_MODES 2). It also confirms, on the way, that
 s_26 = 1/4 exactly.
 
 One stage remains, with **4 621 728** as its stated target ([P153](#p153)).
+
+<a id="p158"></a>
 
 ## Postscript 158: n=7 predicted at 1 289 462 112 chambers — by quotient alone, and conditionally
 
@@ -11199,6 +11223,8 @@ independent enumeration was available to check the answer.
 Files: `quotient.py` (UNSOUND, see retraction above), `quotient_1217.json`
 (withdrawn), `uniform_test.py`.
 
+<a id="p159"></a>
+
 ## Postscript 159: where the modular structure stops, and why — a rank deficit of exactly 1
 
 Following the retraction of [P158](#p158), the question is no longer what n=7's
@@ -11279,6 +11305,8 @@ is the one now built into `quotient.py`.
 Contrast [P156](#p156), where the same test on the working rung returned 62 on
 25 of 25 chambers with no variation whatsoever.
 
+<a id="p160"></a>
+
 ## Postscript 160: evaluating every chamber — what it will and will not certify
 
 `evaluate727.py` computes the exact region count on all 4 621 728 chambers of the
@@ -11324,6 +11352,8 @@ atomic rename, resumable; unevaluable chambers written with `count: null` and
 tallied, never scored as a result.
 
 Files: `evaluate727.py`, `witness.py`, `eval727/`.
+
+<a id="p161"></a>
 
 ## Postscript 161: faces() is repairable — but deriving the face COUNT first says not to bother
 
@@ -11372,6 +11402,8 @@ which is what neither the chamber nor the face enumeration offered.
 
 Files: `facecount.py`, `facecount727.log`.
 
+<a id="p162"></a>
+
 ## Postscript 162: no record above n=3 is an isolated point — the rank deficit IS the plateau dimension
 
 [P159](#p159) noted that ambient − rank runs 1, 1, 2, 3 across the tower and
@@ -11416,6 +11448,8 @@ change, so the deficit is the dimension of the plateau through the record.
    holds and fails split exactly on the deficit: deficit 1 at 393 ⊂ 727 where X is
    modular, deficit 2 and 3 above it where modularity is refuted. One shared cause
    for two phenomena that were recorded separately.
+
+<a id="p163"></a>
 
 ## Postscript 163: the chamber evaluation, stopped early — what 1.25% already says
 
@@ -11485,6 +11519,8 @@ the wide path launched a process every few chambers.
 Files: `eval727/` (12 shards, retained as a record of the error, not as data),
 `evaluate727.py` (BROKEN, see retraction).
 
+<a id="p164"></a>
+
 ## Postscript 164: three cited results existed only on a borrowed machine
 
 Audit prompted by the question "are there files needed to reproduce results that
@@ -11525,6 +11561,8 @@ because the hash is taken now, not at run time, and so cannot certify the produc
 when it prints its answer; it is finished when its outputs are in the repository.
 Pull artifacts back in the same step that reads the result, not later — later is
 where the copy step gets skipped.
+
+<a id="p165"></a>
 
 ## Postscript 165: the intersection lattice of 727, by rank — and the stratum walk is now sized
 
@@ -11567,6 +11605,8 @@ a known endpoint.
 
 Files: `flats_727_rank{12,13,14}.txt`, `flat_ranks_727_par.json`,
 `flat_ranks_par.py` (all provenance-stamped, in the repository).
+
+<a id="p166"></a>
 
 ## Postscript 166: the arrangement is TANGENT — what 4 621 728 chambers actually counts
 
@@ -11674,6 +11714,8 @@ engine is believed: `--selftest`; zero-eps reproducing `cube_regions_q2w` exactl
 `eps_gate.py` including its x97 / x1/1000 scale-invariance control; and
 `count_eps(pt, None) = 727`.
 
+<a id="p167"></a>
+
 ## Postscript 167: a WIDE infinitesimal engine — the deep strata are reachable, and rank 13 tops out at 675
 
 `cube_regions_epsw`, generated by `make_eps_engine_wide.py` from the validated
@@ -11732,3 +11774,1568 @@ now runnable. `walk13.py` needs `epscount.ENG` pointed at the wide engine.
 
 Files: `make_eps_engine_wide.py`, `cube_regions_epsw.cpp`, `cube_regions_epsw`,
 `specs/EPSW_ENGINE_SPEC.md`.
+
+<a id="p168"></a>
+
+## Postscript 168: the rank-13 stratum walked — max 719, and a gap at the top
+
+`walk13.py` on the wide eps engine ([P167](#p167)), through the gated coordinate
+adapter (`count_at(pt) = 727`), over all 2 044 rank-13 flats of [P165](#p165)'s
+lattice.
+
+| | |
+|---|---|
+| faces | **4 088** — exactly 2 per flat, as the geometry requires |
+| evaluated | 2 947 |
+| **unevaluable** | **1 141 (27.9%)** |
+| **max** | **719** (record 727) |
+| distinct values | **17** |
+
+Every one of the 17 values is ODD:
+
+```
+655 657 659 661 663 665 667 669 671 673 675 677 679 681 685 | 715 719
+                                                            ^ gap
+```
+
+### Three things worth separating
+
+**1. The maximum is a LOWER BOUND on the stratum, not the stratum's maximum.**
+1 141 faces were refused even by the 256-bit eps engine — a rank-13 flat is a
+2-plane cut by 13 equations and can contain no rational vector small enough. The
+honest statement is: *no evaluated rank-13 face reaches 727, and the largest found
+is 719*. Whether the unmeasured 27.9% contains something at or above the record is
+open, and at a gap of 8 that is not a pedantic distinction.
+
+**2. The gap 685 → 715 is the interesting structure.** Fifteen values run
+consecutively in steps of 2 from 655 to 681, then 685, then nothing until 715 and
+719. The bulk of the stratum sits in a tight band and two values sit far above it,
+close to the record. Those two are where a search should look next, and they are
+identifiable — the flats carrying them are known by mask.
+
+**3. Seventeen distinct values over 2 947 faces is a 173-fold compression.** This
+project's own census principle says that is a closed form asking to be computed,
+not a distribution to be summarised. Contrast the retracted [P163](#p163), which
+reported 321 distinct values over 57 626 chambers — those numbers were artifacts
+of the coordinate bug and this one supersedes them as the first real distribution
+measured on this arrangement.
+
+Parity: all odd, consistent with the parity law (count ≡ #self-antipodal mod 2)
+without being the blanket "always odd" that the retracted postscript wrongly
+suggested.
+
+### Next
+
+Rank 12 (21 894 flats, 3-dimensional, more faces each) is the same machinery. The
+two faces at 715 and 719 deserve attention first: they are 8 and 12 below the
+record, in a stratum with one fewer coincidence than the record itself.
+
+Files: `walk13.py`, `walk13_report.json`, `cube_regions_epsw`.
+
+### Postscript 168, Addendum 1 (2026-08-30): wall multiplicity orders the stratum, and the refusals miss nothing
+
+Re-run with per-face recording (`walk13_faces.jsonl`, 4 088 lines) — identical
+totals to the first run, which is a determinism check. The per-face data answers
+what the histogram could not.
+
+**Wall multiplicity predicts the count.** Rank-13 flats are all rank 13 but differ
+in how many walls CONTAIN them, from 14 to 26. Grouped by that:
+
+| walls | faces | median | max |
+|---|---|---|---|
+| 14–18 | 2 103 | 669–671 | 679 |
+| 19–22 | 776 | 677–679 | 685 |
+| **23–24** | 66 | 679–682 | **719** |
+| 26 | 2 | 685 | 685 |
+
+Pearson r = **0.526** over 2 947 faces, and the MAXIMUM is monotone in wall count.
+All 8 faces at ≥700 sit on flats with 23 or 24 walls, against a median of 16.
+
+**This is a search ordering that costs a popcount** — no evaluation at all. It must
+be used as [METHODS 6](METHODS.md) allows and no further: *coincidence count is a
+certificate, not a compass*. There the counterexample is decisive (723 carries 180
+crossings and loses to 727's 150) and it holds ACROSS configurations. Within one
+arrangement's stratum the maximum does track wall multiplicity, so the honest use
+is to PRIORITISE which flats to evaluate, never to infer a value.
+
+**The 27.9% refusals miss nothing that matters**, and this was the open caveat of
+[P168](#p168):
+
+```
+walls <= 18 : coverage 42-81%, ALL 1 141 refusals, max observed 679
+walls >= 19 : coverage 100%,   0 refusals,          max observed 719
+```
+
+Every refused face lies in a band whose several hundred evaluated members top out
+at 679. **The high-multiplicity region where the maximum lives is completely
+evaluated.** So max = 719 is far stronger than "a maximum over 72% of the stratum"
+— though still not a proof: an unevaluated face could in principle exceed its
+band's observed maximum by 48, which nothing in 2 103 evaluated neighbours does.
+
+Files: `walk13_faces.jsonl` (per-face: flat mask, sign vector, count).
+
+<a id="p169"></a>
+
+## Postscript 169: the n=3 maximisers sit at COMPLETELY DECOMPOSABLE arrangements — and that is what makes n=3 special
+
+First application of the derivation machinery to the two 67s, the only records the
+project has PROVED isolated. Required making `zaslavsky.Flats` field-agnostic: it
+coerced walls to `Fraction`, which shut out every irrational case. The reduction
+uses only +, -, *, / and a zero test, so it runs over Q(sqrt d) unchanged — the
+same rational-only assumption that limited `exactlp` (P147 Addendum 1).
+
+### The measurement
+
+| | walls | distinct hyperplanes | ambient | rank | **deficit** | flats | **chambers** |
+|---|---|---|---|---|---|---|---|
+| octahedral, Q(√2) | 12 | **6** (each ×2) | 6 | 6 | **0** | 64 | **64** = 2⁶ |
+| golden, Q(√5) | 36 | **9** (each ×4) | 6 | 6 | **0** | 125 | **216** = 6³ |
+| 727 (n=6) | 27 | 27 | 15 | 14 | 1 | 1 192 678 | 4 621 728 |
+
+**Deficit 0 for both**, confirming [P162](#p162)'s prediction from the opposite
+direction: every record n ≥ 4 sits on a plateau of dimension ≥ 1, and only the
+n=3 maximisers are points. Predicted from the rank table, measured here.
+
+### Both arrangements factor completely
+
+- **Octahedral is BOOLEAN.** Its 6 distinct hyperplanes are linearly independent —
+  no rank-2 flat contains more than two — so every one of the 2⁶ sign vectors is
+  realizable. The simplest arrangement of rank 6 that exists.
+- **Golden is a PRODUCT of three rank-2 arrangements.** Its 9 hyperplanes partition
+  exactly into (0,1,2), (3,4,5), (6,7,8), each triple spanning a common rank-2
+  flat and covering all 9. Three lines in a plane give 6 chambers and 5 flats;
+  cubed, 6³ = 216 and 5³ = 125. Both were predicted from the counts before the
+  partition was tested.
+
+**Contrast 727**, where [P154](#p154) measured 8 of 27 walls COUPLING the coordinate
+blocks and established there is no product structure at all.
+
+### Why this is the answer to "why is n=3 special"
+
+n=3 is anomalous three ways: the only irrational rung, the only place the tower
+fails to nest (183 does not embed in 393, [P162](#p162)), and the only rung with
+isolated maximisers. All three are consistent with one arrangement-level fact:
+**at n=3 the tangent arrangement decomposes completely; from n=4 up it does not.**
+A decomposable arrangement has no entanglement to carry a plateau, which is
+deficit 0, which is isolation.
+
+### And the two 67s are NOT the same object
+
+Same count, 67. Different arrangements: 6 hyperplanes against 9, 64 chambers
+against 216. This is [METHODS 6](METHODS.md)'s observation — the two maximisers
+carry 30 and 72 crossings and both count 67 — now measured at the level of the
+arrangement rather than the crossing tally.
+
+Files: `walls67.py`, `zaslavsky.py` (field-agnostic `Flats`, zero-wall guard).
+
+
+### Postscript 169, Addendum 1 (2026-08-30): the sharp statement is FREENESS, and the dividing line is exactly n=3
+
+The characteristic polynomials settle what P169 described as decomposability:
+
+```
+chi_octahedral = (t-1)^6                exponents (1,1,1,1,1,1)   BOOLEAN
+chi_golden     = (t-1)^3 (t-2)^3        exponents (1,1,1,2,2,2)   = [(t-1)(t-2)]^3
+```
+
+Both **split completely into linear factors over Z** — the signature of a FREE
+(supersolvable) arrangement. The golden's is exactly the product of three 3-line
+rank-2 arrangements, confirming P169's block partition by a second route.
+
+Against the records above n=3:
+
+```
+chi_183 = t (t-1) (t^7 - 11t^6 + ... - 52)          degree-7 factor, irreducible
+chi_393 = t (t-1) (t^10 - 17t^9 + ... + 1432)       degree-10 factor, irreducible
+chi_727 = t (t-1)^2 (t^2-8t+22) q(t)                q irreducible of degree 10
+```
+
+**None of them splits.** So the dividing line is exact and it is exactly at n=3:
+
+| rung | chi splits? | free? | deficit | maximiser |
+|---|---|---|---|---|
+| n=3 octahedral | **yes**, (t-1)^6 | **yes** | **0** | **isolated** |
+| n=3 golden | **yes**, (t-1)^3(t-2)^3 | **yes** | **0** | **isolated** |
+| n=4 183 | no | no | 1 | plateau |
+| n=5 393 | no | no | 1 | — |
+| n=6 727 | no | no | 1 | — |
+
+**One property accounts for all three of n=3's anomalies.** A free arrangement has
+no irreducible factor to carry entanglement; its lattice is a product, hence
+deficit 0, hence an isolated maximiser rather than a plateau — and hence nothing
+for the tower's nesting to hook onto, which is why 183 does not embed in 393
+([P162](#p162)) while 393 embeds in 727 verbatim ([P154](#p154)).
+
+**Correction to method.** `decompose.py`'s merge rule ("merge blocks when a normal
+outside them lies in their joint span") OVER-MERGES: it reported the golden as one
+irreducible block of 9, contradicting the block partition verified in P169 and the
+polynomial here. The characteristic-polynomial test supersedes it — exact, cheap,
+and it answers the question that matters (does chi split) rather than a proxy for
+it. `decompose.py` should not be used until repaired.
+
+
+<a id="p170"></a>
+
+## Postscript 170: correcting "183 does not embed in 393" — it does, and modularity is unique to ONE rung
+
+Prompted by asking whether higher n says anything about lower n. It does, and the
+first thing it says is that I was wrong.
+
+### The correction
+
+[P162](#p162) claimed 183's arrangement does not embed in 393's, and
+[P169](#p169) Addendum 1 built on it. **Both are wrong.** The test assumed the
+4-cube subset was the FIRST four cubes, hence contiguous coordinates. It is not:
+the unique 4-subset of 393 reaching 183 is cubes **{0,1,2,4}**, skipping cube 3,
+so the coordinate blocks never lined up and the comparison was vacuous.
+
+Re-tested on the right blocks, and coordinate-free because the two gauges differ:
+
+```
+183 (own gauge)             Whitney [1,12,63,190,363,456,377,198,52]  1 712 chambers
+393 restricted to {0,1,2,4} Whitney [1,12,63,190,363,456,377,198,52]  1 712 chambers
+   identical chi = t(t-1)(t^7 - 11t^6 + 52t^5 - 138t^4 + 225t^3 - 231t^2 + 146t - 52)
+```
+
+**183's arrangement IS 393's sub-arrangement on that block.** The tower nests at
+the arrangement level at every rung from n=4 up.
+
+### What the conclusion becomes
+
+The old claim "chi_183 does not divide chi_393" SURVIVES — 74 544 / 1 712 = 43.54
+— but for a different reason. The embedding is real; the flat is not modular:
+**3 rank-additivity violations among 32 complementary flats.**
+
+| rung | arrangement embeds | modular | chi divides |
+|---|---|---|---|
+| 183 ⊂ 393 | **yes** | **no** (3 of 32 violate) | no |
+| **393 ⊂ 727** | **yes** | **YES** (proved, 1 192 678 flats) | **yes, x62** |
+| 727 ⊂ 1217 | yes | no (11 of 263 violate) | no |
+| 1217 ⊂ 1895 | yes | no (11 of 263 violate) | no |
+
+**Modularity occurs at exactly one rung of the tower.** That is a sharper and
+stranger fact than [P159](#p159)'s "the structure stops above n=6": it does not
+start below it either. 727 = 62 x 393 is a one-off, not the surviving end of a
+pattern.
+
+### And the tower's own subsets confirm n=3 is the only break
+
+Every k-subset maximum of the higher records equals the record — 13, 183, 393,
+727, 1217 — with ONE exception: 3-subsets reach only **63** against the record 67.
+That is the known rational ceiling (`RESULTS.md`: "its best triple is 63, four
+short of 67 — because 67 needs irrational" coordinates), reproduced here as a
+check on the machinery rather than as a new result. It is consistent with
+[P169](#p169) Addendum 1: n=3 is the only free rung, the only isolated maximiser,
+the only irrational one — and the only rung the rational tower cannot reach.
+
+
+<a id="p171"></a>
+
+## Postscript 171: the embedding chain extended to n=2 — freeness belongs to n<=3, NOT to maximality
+
+Extending the nesting downward. The tower's own best subsets form a strictly
+nested chain, each contained in the next:
+
+```
+{0,4} -> 13    {0,1,4} -> 63    {0,1,2,4} -> 183    {0..4} -> 393    {0..5} -> 727
+```
+
+Their arrangements, computed the same way:
+
+| member | walls | ambient | rank | deficit | chi | free? |
+|---|---|---|---|---|---|---|
+| 13 (n=2) | 3 | 3 | 2 | 1 | t(t-1)(t-2) | **yes** |
+| 63 (n=3, rational) | 7 | 6 | 5 | **1** | t(t-1)^3(t-2)^2 | **yes** |
+| octahedral 67 | 6 | 6 | 6 | **0** | (t-1)^6 | **yes** |
+| golden 67 | 9 | 6 | 6 | **0** | (t-1)^3(t-2)^3 | **yes** |
+| 183 (n=4) | 12 | 9 | 8 | 1 | t(t-1)(irreducible deg 7) | **no** |
+| 393, 727 | — | — | — | 1 | irreducible factors | **no** |
+
+### Two corrections to [P169](#p169) Addendum 1
+
+**1. Freeness is about n, not about maximality.** The rational 63 — a tower member,
+not a maximiser — is free, with chi splitting as t(t-1)^3(t-2)^2. So the dividing
+line is n <= 3 free / n >= 4 not free, and it has nothing to do with being a
+record. P169 Addendum 1 presented freeness as a property of the n=3 MAXIMISERS.
+
+**2. Freeness does NOT imply deficit 0.** P169 Addendum 1 argued: free => no
+irreducible factor to carry entanglement => deficit 0 => isolated maximiser. The
+63 refutes the chain directly: **free, deficit 1**. Freeness and isolation are
+independent properties that happen to coincide at the two 67s and nowhere else.
+
+What survives: n=3 is still the only rung with isolated maximisers (deficit 0),
+and still the only irrational one. But the explanation offered for WHY was wrong,
+and the honest position is that isolation at the 67s is not yet explained.
+
+### What the chain now shows
+
+Arrangement-level embedding holds at **every** rung from n=2 to n=8, verified
+coordinate-free by characteristic polynomial where gauges differ ([P170](#p170)).
+Modularity still holds at exactly one rung, 393 subset 727. So the tower is a
+nested filtration of arrangements whose combinatorics changes qualitatively once
+between n=3 and n=4 (freeness lost) and whose only modular step is the fifth.
+
+
+<a id="p172"></a>
+
+## Postscript 172: the tower's arrangement table, n = 2..9 — what persists and what breaks, with a sharp regime change at n=7
+
+| n | count | walls | ambient | rank | deficit | free? | modular into next? |
+|---|---|---|---|---|---|---|---|
+| 2 | 13 | 3 | 3 | 2 | 1 | yes | no |
+| 3 | 63 | 7 | 6 | 5 | 1 | **yes** | no |
+| 4 | 183 | 12 | 9 | 8 | 1 | no | no |
+| 5 | 393 | 18 | 12 | 11 | 1 | no | **YES** |
+| 6 | 727 | 27 | 15 | 14 | 1 | no | no |
+| 7 | 1217 | 51 | 18 | 16 | **2** | no | no |
+| 8 | 1895 | 75 | 21 | 18 | **3** | no | — |
+| 9 | 2785 | 99 | 24 | 20 | **4** | no | — |
+
+### What CONTINUES to hold as n increases
+
+- **ambient = 3(n-1)**, by construction (gauge fixes cube 0).
+- **Arrangement-level nesting.** Each member's arrangement embeds in the next,
+  verified n=2 through n=8 and coordinate-free where gauges differ ([P170](#p170)).
+- **Deficit >= 1**, i.e. every tower member sits on a plateau. Only the two n=3
+  MAXIMISERS (67) have deficit 0 and are isolated — and they are outside this
+  chain, since the tower's own n=3 member is the rational 63 ([P171](#p171)).
+- **From n=7 the growth is exactly linear**: +24 walls, +3 ambient, +2 rank,
+  +1 deficit per added cube. Three consecutive rungs, no exceptions.
+
+### What STOPS
+
+- **Freeness**: n <= 3 only. chi splits for 13, 63 and both 67s; from 183 up it
+  carries an irreducible factor ([P171](#p171)).
+- **Full rank gain**: each cube contributes all 3 of its degrees of freedom to the
+  rank only up to n=6. From n=7 it contributes 2.
+- **Deficit = 1**: n <= 6 only.
+- **Modularity**: exactly one rung, 393 subset 727 ([P170](#p170)).
+
+### The regime change is a single event visible in three quantities
+
+```
+walls added per cube:  4, 5, 6, 9 | 24, 24, 24
+rank gained per cube:  3, 3, 3, 3 |  2,  2,  2
+deficit:            1, 1, 1, 1, 1 |  2,  3,  4
+```
+
+Everything changes between n=6 and n=7 at once, and **that is exactly where
+modularity fails** ([P159](#p159) measured 11 rank-additivity violations at
+727 subset 1217 and 0 at 393 subset 727). So the deficit growth and the modularity
+failure are the same event seen twice, as P159 suspected but could not then show
+across the whole tower.
+
+**Prediction, on record**: n=10 should have 123 walls, ambient 27, rank 22,
+deficit 5. It follows from three consecutive rungs of an exactly linear regime and
+nothing more, so it is a conjecture, not a derivation — and it is cheap to test
+the moment an n=10 configuration exists.
+
+
+<a id="p173"></a>
+
+## Postscript 173: the regimes EXPLAINED — each cube past the sixth is loose in one direction
+
+[P172](#p172) recorded a regime change at n=6->7 visible in three quantities at
+once and did not explain it. Computing the null space of the wall matrix and
+asking WHICH cubes its directions involve settles it.
+
+```
+n=5, n=6 : deficit 1 -- one direction, supported on ALL cubes   (the global gauge)
+n=7      : deficit 2 -- global  +  one supported on cube 6 ALONE
+n=8      : deficit 3 -- global  +  cube 6  +  cube 7
+n=9      : deficit 4 -- global  +  cube 6  +  cube 7  +  cube 8
+```
+
+A null direction is a motion changing NO wall, hence preserving every coincidence.
+The single direction at n <= 6 is supported on every cube: it is the global gauge
+freedom, a simultaneous rotation. **From the seventh cube onward each added cube
+contributes its OWN private null direction, supported on that cube alone** — a
+one-parameter family of rotations of that cube that changes nothing.
+
+So the deficit is not an empirical sequence but a formula:
+
+    deficit(n) = 1 + max(0, n - 6)
+
+one global gauge direction plus one per under-constrained cube. It reproduces
+1,1,1,1,1,2,3,4 exactly and gives 5 at n=10 — [P172](#p172) predicted that by
+extrapolating three linear rungs; it is now derived.
+
+### What this explains
+
+- **The rank regime.** rank = 3(n-1) - deficit. Cubes 1-5 are rigid, each
+  contributing all 3 rotational degrees of freedom to the span; cubes 6, 7, 8
+  contribute only 2, because one rotation of each changes no coincidence.
+- **The modularity failure.** [P159](#p159) found modularity holding at
+  393 subset 727 (deficit 1 on both sides) and failing at 727 subset 1217 and
+  1217 subset 1895 (deficit rising), and called the deficit "not correlated with
+  the failure but the failure itself". This says why: the added cube's walls fail
+  to span its own 3 new dimensions, so Stanley's rank additivity cannot hold on
+  the flats that involve it.
+- **Why n=6 is the last good rung.** 727 is the largest member whose every cube is
+  locked by its contacts. From n=7 the tower is building on cubes that are
+  partially free, and everything structural degrades from there together.
+
+### The open question this sharpens
+
+**Which rotation is free?** Each loose cube has a distinguished axis about which it
+can turn without changing any coincidence. If that axis is a symmetry axis of the
+cube, or a shared axis with a neighbour, that is a geometric statement about why
+the tower's later members are under-constrained — and possibly about how to choose
+BETTER later cubes, ones that are locked. Cheap to test: the null direction is
+already computed; convert it to a rotation and identify its axis.
+
+
+<a id="p174"></a>
+
+## Postscript 174: the free axis is a BODY DIAGONAL — the n=2 continuum reappears inside every rung above n=6
+
+[P173](#p173) showed each cube past the sixth carries a private one-parameter
+family of rotations changing no coincidence, and asked which rotation. Converting
+each null direction to its instantaneous axis (omega ~ cdot + c x cdot, since a
+Cayley tangent is not itself the axis):
+
+| rung | loose cube | Cayley tangent | **instantaneous axis** |
+|---|---|---|---|
+| n=7 | cube 6 | (1,0,0) | **[ 1, -1,  1]** |
+| n=8 | cube 7 | (0,0,1) | **[ 1,  1,  1]** |
+| n=9 | cube 8 | (0,1,0) | **[-1,  1,  1]** |
+
+**Every one is a body diagonal**, (+-1,+-1,+-1). The tangents differ and look
+unrelated in Cayley coordinates; the axes do not.
+
+### The connection this makes
+
+`RESULTS.md` records the n=2 maximum as **13, "any angle about a shared body
+diagonal"** — a CONTINUUM, and one of only two rungs proved maximal. So the free
+motion of each late cube is exactly the n=2 continuum mechanism, embedded inside
+a larger compound: **rotation about a shared body diagonal preserves the
+coincidence structure.**
+
+That unifies four things previously recorded separately:
+
+- the deficit formula 1 + max(0, n-6) ([P173](#p173)) — each late cube contributes
+  one body-diagonal freedom;
+- the modularity failure from n=7 ([P159](#p159)) — those cubes' walls cannot span
+  their own 3 dimensions because one rotation is free;
+- the regime change in rank and wall growth at n=6->7 ([P172](#p172));
+- and the n=2 continuum, which is where the same freedom is the whole story.
+
+**727 is the largest compound in this tower with no such freedom** — every one of
+its cubes is locked by its contacts. That is a sharper reason for n=6 being the
+last good rung than "everything degrades together".
+
+### What it suggests, and does not yet establish
+
+A cube free to spin about a shared body diagonal is making fewer constraining
+contacts than one that is locked. If a 7th cube could be placed LOCKED — no body
+diagonal shared with the rest — it would have deficit 1 rather than 2, might
+restore modularity, and being more constrained is plausibly correlated with a
+higher count. **That is a design criterion for building better towers, not a
+result.** It predicts nothing until tested, and METHODS 6 is the standing warning
+that structural proxies rank candidates wrongly.
+
+Files: null directions from `walls_of` + `walk13.nullspace`; axes computed in this
+postscript.
+
+
+<a id="p175"></a>
+
+## Postscript 175: CORRECTION — the rank deficit is not a plateau, and the "loose cube" reading of P173/P174 is wrong
+
+Prompted by the question "do all points on a plateau generate the same tower?",
+which required first establishing that the deficit directions ARE plateaus. They
+are not.
+
+### The measurement
+
+Moving from a record along a null direction of its wall matrix — a direction
+crossing no wall — and counting:
+
+```
+727,  null direction (all cubes):   t=0: 727   1/1000: 685   1/100: 685   1: 593
+1217, null on CUBE 6 ALONE:         t=0: 1217  1/100: 1213  1/10: 1209   1: 1177
+1217, null on all cubes:            t=0: 1217  1/100: 1133  1/10: 1021   1: 1013
+```
+
+**Every one drops immediately.** A direction crossing no wall still changes the
+count.
+
+> **CORRECTED 2026-08-31 — [P184](#p184).** This conclusion is false for n >= 7, and
+> the reason is in the table above: 1/1000, 1/100 and 1 are STEP SIZES, and two of
+> them agree, which certifies a shared cell rather than a limit. Redone with eps a
+> positive infinitesimal, exactly one null direction changes the count at each rung
+> and all the others HOLD: 0 of 1 at n=6, 1 of 2 at n=7, 2 of 3 at n=8, 3 of 4 at
+> n=9. The claim is right AT 727 — the rung measured here — and wrong as a general
+> statement. The retractions of P162/P173/P174 below therefore rest on a false
+> premise; see P184 for what that does and does not restore.
+
+### Why, and what it invalidates
+
+[P166](#p166) established that the walls are GRADIENTS of the conditions tight at
+the record — the arrangement is the tangent structure, and the count is constant
+only infinitesimally. A null direction therefore preserves the tight coincidences
+**to first order only**. It is not a direction of genuine freedom, and the
+configuration is not free to move along it.
+
+I recorded P166 and then wrote three postscripts assuming the opposite:
+
+- **[P162](#p162)**: "the rank deficit IS the plateau dimension" — **wrong**.
+- **[P173](#p173)**: "each cube past the sixth is loose in one direction",
+  "a one-parameter family of rotations of that cube that changes nothing" —
+  **wrong**; the count changes.
+- **[P174](#p174)**: "the free axis is a body diagonal", "the n=2 continuum
+  reappears inside every rung above n=6" — the AXES are correctly computed, but
+  calling them free is wrong, and the n=2 connection is unsupported.
+
+The claimed unification in P174 — deficit, modularity failure, regime change and
+the n=2 continuum as one phenomenon — **does not stand**. The first three are
+facts about ranks and lattices and survive; the continuum was imported.
+
+### What survives
+
+- **deficit(n) = 1 + max(0, n-6)** — a fact about the rank of the wall matrix,
+  unaffected.
+- **The null-direction axes are body diagonals** (+-1,+-1,+-1) — computed
+  correctly; what they mean is now open.
+- **The n=6 -> n=7 regime change** in walls, rank and deficit ([P172](#p172)).
+- **All modularity and freeness results**, which concern the lattice and never
+  evaluate a point.
+
+### What the question actually needs
+
+`RESULTS.md`'s plateaus are real and were found by other means: 183 by
+wide-perturbation climb, 2785 as a continuum, and 723 as a genuine half-line
+(`member723.py`: "723 for u >= 55 and u <= -7/2"). Those are the objects on which
+"do all points generate the same tower?" can be asked — and `member723.py` exists
+precisely to ask it of the 723 continuum. The deficit directions are not among
+them.
+
+**Pattern worth naming.** This is the second time in this session that a correct
+structural computation (chamber counts in P163; null directions here) was given a
+geometric interpretation the tangent-arrangement caveat forbids. Both times the
+numbers were right and the sentence about them was wrong. The check is the same
+one line each time: move along the thing and see whether the count actually holds.
+
+
+<a id="p176"></a>
+
+## Postscript 176: what an n=10 extension could actually settle — and a cubic that fails its own control
+
+Prompted by: "if we extend n=9 to n=10 it's part of the tower by construction, so
+could we learn anything new?"
+
+### The premise is not quite right: the extension is NOT determined
+
+`RESULTS.md` records n=9 = 2785 as a **CONTINUUM**. And `member723.log` shows what
+that means for extension: eight members of the 723 continuum — all counting
+exactly 723, all indistinguishable at n=6 — extend to **four different** n=7
+maxima, 1203 / 1205 / 1209 / 1211, a spread of 8, and NOT monotone in the
+continuum parameter.
+
+So "extend n=9" is a family of operations with a free parameter, not one operation.
+Which member of 2785 is extended is a real choice with a measurable consequence,
+and nothing in the tower's construction fixes it.
+
+### A pattern in the counts, and why it does not support a prediction
+
+```
+n:      2    3    4    5     6     7     8     9
+count: 13   67  183  393   727  1217  1895  2785
+d1:      54  116  210   334   490   678   890
+d2:        62   94  124   156   188   212
+d3:           32   30    32    32    24
+```
+
+**n = 4..8 is exactly cubic**: third difference 32, twice, no rounding. Continuing
+it gives d2 = 220, d1 = 898, and **n=9 = 2793 — eight above the recorded 2785.**
+That is tempting, because n=9 is precisely the rung `RESULTS.md` flags as having
+**no establishing Postscript**.
+
+**The control refutes it.** Extrapolate the same cubic BACKWARD: it predicts
+n=3 = 65, against an actual 67 (record) or 63 (tower member). It misses both.
+
+A cubic that fits five consecutive points exactly and is wrong about both of its
+neighbours is a local description, not a law. Its failure at n=9 is therefore
+just as likely to be genuine as its failure at n=3, and **2793 is not evidence of
+a missing record.** Recorded here so the observation is not rediscovered and
+believed without its control.
+
+### What an n=10 run WOULD settle
+
+1. **The deficit formula.** deficit(n) = 1 + max(0, n-6) predicts 5 at n=10, with
+   123 walls, ambient 27, rank 22 ([P172](#p172), [P173](#p173)). That is a
+   genuine falsifiable prediction from a derived formula, not an extrapolated
+   sequence, and it costs one `walls_of` call.
+2. **Whether the continuum choice compounds.** If different members of 2785 extend
+   to different n=10 maxima with a spread larger than 723's 8, the tower's late
+   rungs are increasingly under-determined by their predecessors — which bears
+   directly on whether the recorded values are maxima at all.
+3. **Nothing about the n=9 count itself**, which is the thing most worth
+   establishing and which extension cannot address.
+
+
+<a id="p177"></a>
+
+## Postscript 177: solving the two-parameter problem — the 723 continuum's degeneracy is UNIVERSAL, so it cannot select members
+
+`member723.py` samples the 723 continuum (8 members, four distinct n=7 maxima
+1203-1211) and its docstring names the open problem: *"different members may
+extend differently -- that is the two-parameter problem."* `twoparam.py` solves it
+instead of sampling.
+
+### The formulation
+
+[METHODS 12](METHODS.md): a 13-pair between a new cube and base cube b is a CURVE,
+q = b.(1, t*a) for a a body diagonal — so the locus is the line through b with
+direction b*(0,a), spanning the 2-plane <b, b*(0,a)>. Two conditions meet
+transversally in general (isolated points, measured WORSE than random search), and
+the prize is the degenerate case where the curves coincide and a one-parameter
+family survives — which is exactly how the 2785 ninth cube was found.
+
+With the base member free at (1,u,u,u), coincidence is
+
+    rank [ b_i | b_i*(0,a1) | b6(u) | b6(u)*(0,a2) ] <= 2
+
+whose 3x3 minors are polynomials in u. Finitely many roots, exact, no sweep.
+
+### The result: it does not discriminate
+
+| outcome | where |
+|---|---|
+| **IDENTICALLY coincident, for every u** | base cube 3 with axis (1,1,1); base cube 4 with axis (1,1,1) |
+| coincident at isolated u | u = 0, 1, -1, 1/2 |
+
+**The isolated roots all lie OUTSIDE the continuum's valid range** (u >= 55 or
+u <= -7/2), so none is a 723 member. And the identically-coincident cases hold for
+EVERY member, so they cannot distinguish one from another.
+
+**Conclusion: this criterion is satisfied uniformly along the 723 continuum and
+therefore cannot explain the 1203-1211 spread.** Whatever selects the good members
+is not degeneracy of the 13-pair loci. An honest negative, and it narrows the
+search rather than ending it.
+
+### What it did explain: WHY 723 is a continuum
+
+The identically-coincident cases have a cause. Listing the rotation axes:
+
+```
+cube 0 (4,1,1,-1)   axis (1,1,-1)
+cube 1 (3,3,7,3)    axis (3,7,3)
+cube 2 (5,-1,-5,-5) axis (-1,-5,-5)
+cube 3 (2,1,1,1)    axis (1,1,1)   <-+
+cube 4 (1,1,1,1)    axis (1,1,1)   <-+  three cubes on ONE body diagonal
+cube 5 (1,u,u,u)    axis (1,1,1)   <-+
+```
+
+**Three of 723's six cubes rotate about the same body diagonal (1,1,1)**, and the
+continuum parameter slides the sixth along that shared axis. `RESULTS.md` records
+the n=2 maximum as "any angle about a shared body diagonal"; 723's continuum is
+that same freedom surviving inside a six-cube compound. Derived here, not observed.
+
+Contrast 727, whose sixth cube (7,14,1,-5) has axis (14,1,-5) — no shared diagonal,
+no continuum, and a count 4 higher.
+
+Files: `twoparam.py`.
+
+
+### Postscript 177, Addendum 1 (2026-08-30): pointed at 2785 — 2 seconds, and the degeneracies are punctures
+
+`twoparam.py` generalised (base list + continuum parameterisation) and run on the
+2785 continuum. **Gated first**: the recorded ninth cube (56,56,55,56) is
+reproduced exactly as q(227/889) on q(t) = (3,3,7,3).(1, t*(-1,-1,1)), confirming
+METHODS 12's parameterisation before any solving.
+
+**Cost: 2 seconds, single core.** The 128 systems are embarrassingly parallel but
+each is trivial, so parallelism would be pure overhead. Answering the question
+asked ("can it benefit from >4 cores?"): no, and measuring beat guessing again.
+
+### What it found, and why it is not useful
+
+```
+base 1, axis (1,1,-1) : IDENTICALLY coincident   (trivial: the member lies on this locus by construction)
+base 4, axis (1,1,-1) : IDENTICALLY coincident
+finite roots          : t = 0, t = 1/4
+```
+
+Counting them:
+
+```
+t = 0    -> ninth cube (3,3,7,3) = base cube 1  -> 1895
+t = 1/4  -> ninth cube (1,1,1,1) = base cube 4  -> 1895
+```
+
+**Both degenerate roots are cube DUPLICATIONS**, exactly the artifact METHODS 12
+already names ("7 of them the ninth cube duplicating one already present"). The
+criterion rediscovers the degenerate-but-useless case and offers no extension
+candidate. Combined with [P177](#p177)'s finding on 723 — degeneracy universal
+along the continuum, hence non-discriminating — **the coincident-locus criterion
+does not select continuum members at either rung.**
+
+### What came out instead: the shape of the 2785 continuum
+
+```
+t = 220/889 .. 227/889  ->  2785        the continuum
+t = 228/889 onward      ->  2781        boundary
+t = 1/4                 ->  1895        PUNCTURE (ninth cube collapses onto cube 4)
+```
+
+So the continuum is real, is bounded, and is PUNCTURED at t = 1/4 where the new
+cube degenerates. **The recorded configuration sits at the upper endpoint**:
+227/889 is the last value giving 2785. It is also the member with by far the
+smallest primitive representative — (56,56,55,56) against neighbours in the
+thousands — so it is both the boundary member and the cheapest one, which is
+presumably why it is the recorded one.
+
+Files: `twoparam.py` (generalised).
+
+
+<a id="p178"></a>
+
+## Postscript 178: the SHAPE of the n=9 continuum — two rays, k >= 56 and k <= -69, with the recorded member at the boundary
+
+`RESULTS.md` records n=9 = 2785 as "a CONTINUUM" and flags that it has **no
+establishing Postscript** — documented only outside the append-only record. This
+does not backfill that gap (a dated record of what was known when cannot honestly
+be reconstructed); it records what was measured TODAY about the continuum's extent.
+
+### The family
+
+The ninth cube runs along **(k, k, k-1, k)**, which is the same line as
+q(t) = (3,3,7,3).(1, t*(-1,-1,1)) in [P177](#p177)'s parameterisation — verified
+by solving: (55,55,54,55) is t = 223/873 and (57,57,56,57) is t = 231/905. The
+recorded cube (56,56,55,56) is k = 56, equivalently t = 227/889 (METHODS 12).
+
+### The shape, measured by exact engine counts
+
+```
+   k >=  56 :  2785      <-- the recorded member is k = 56, the FIRST integer of this ray
+   51..55   :  2781
+   -50,-49  :  2777
+   -48..-46 :  2773
+   -68..-51 :  2781
+   k <= -69 :  2785
+```
+
+**The 2785 locus is TWO rays, not one interval**: k >= 56 and k <= -69, verified
+out to k = +-1000. Between them lies a band of 2781 with a 2777/2773 dip near
+k = -47..-50.
+
+**The recorded configuration sits exactly at a boundary.** k = 56 is the first
+integer of the positive ray; k = 55 gives 2781. It is also by far the cheapest
+representative — (56,56,55,56) against neighbours in the thousands under the
+projective normalisation — so it is both the boundary member and the simplest,
+which is presumably why it is the one on record.
+
+**A puncture.** In the t-parameterisation the two rays meet at t = 1/4, where the
+ninth cube degenerates to (1,1,1,1) — a DUPLICATE of base cube 4 — and the count
+collapses to 1895. k -> +-infinity is that point; the two rays are the two
+approaches to a puncture, not two separate features.
+
+### Relation to what was already known
+
+METHODS 8 records that at the lower end "the count steps 2781 -> 2785 between
+k = 439/8 and k = 55", and uses it as the example where edge-edge crossings are
+NOT a complete boundary detector (294 crossings on both sides). That concerns a
+boundary near k = 55 in whatever parameterisation §8 uses; the integer family
+measured here steps between k = 55 and k = 56. The two are not obviously the same
+statement and **the parameterisations were not reconciled** — flagged rather than
+assumed, because assuming a shared parameterisation is exactly what made
+[P170](#p170)'s embedding test vacuous.
+
+Files: counts by `cube_regions_n --quats-stdin`; family and parameterisation
+cross-check in `twoparam.py`.
+
+
+<a id="p179"></a>
+
+## Postscript 179: n = 9 = 2785 established — closing the provenance gap, dated today rather than backfilled
+
+`RESULTS.md` has flagged since 2026-08-18 that **n=9 = 2785 has no establishing
+entry in LEDGER.md**, documented only outside the append-only record, and
+explicitly declined to backfill one: *"a dated record of what was known when
+cannot be honestly backfilled."* This does not reconstruct 2026-08-07. It redoes
+the work on **2026-08-30** to the standard [P101](#p101) set for n = 8, so the
+entry can carry an honest date.
+
+### THE RECORD
+
+    ./cube_regions_n --quats "4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1;1,1,1,1;\
+    7,14,1,-5;4,-3,-4,-4;24,-24,24,-61;56,56,55,56"        -> 2785
+
+`by_depth` {1:426, 2:594, 3:524, 4:434, 5:346, 6:250, 7:156, 8:54, 9:1}.
+**Both engines agree**: `cube_regions_n` and `cube_regions_q2w` each return 2785.
+**Symmetry order 1**, by the stabiliser computation gated below.
+
+Its 8-, 7-, 6- and 5-cube subsets give exactly **1895, 1217, 727, 393**, so it
+extends the tower rather than sitting beside it. (Its 3-subsets reach only 63
+against the record 67 — the known rational ceiling at n=3, not a defect here.)
+
+### The stabiliser gate, which caught a wrong group action
+
+P101 states its computation "reproduces 3/3/1/1/1 for 393/723/727/1217/1891".
+Run as a gate, the first implementation returned **1/1/1/1/1** and the campaign
+refused to start. The fault was the group: a compound symmetry is a GLOBAL
+rotation applied on the LEFT, permuting the cubes, with each cube identified only
+up to its own 24 self-symmetries — not a single element right-multiplied into
+every cube. Corrected, it reproduces 3/3/1/1/1 exactly.
+
+**Without P101 recording those five numbers, a symmetry order computed by the
+wrong action would have entered the record as a fact.** An argument for
+postscripts carrying their check values and not only their conclusions; this one
+paid off eleven weeks later.
+
+### The search: beaten by nothing in 20 920 exact evaluations
+
+| stage | evaluations |
+|---|---|
+| one- and two-component lattice perturbations, all nine cubes | 360 |
+| replacement ninth cube, exhaustive to \|component\| <= 4 | 6 560 |
+| replacement ninth cube, log-uniform samples to 512 | 8 000 |
+| replacement eighth cube | 3 000 |
+| replacement seventh cube | 3 000 |
+| **total** | **20 920**, 5 437 s |
+
+Best found: **2785**. Nothing beat it.
+
+### The plateau, solved
+
+[P178](#p178): the 2785 locus along the ninth-cube family (k,k,k-1,k) is **two
+rays**, k >= 56 and k <= -69, with 2781 between them, a 2777/2773 dip near
+k = -47..-50, and a **puncture** where the ninth cube degenerates to a duplicate
+of base cube 4. The recorded member is k = 56 — the first integer of the positive
+ray, hence a boundary member, and also by far the cheapest representative.
+
+### What this claims, and what it does not
+
+Exactly P101's claim, no stronger: **beaten by nothing we tried.** VERIFIED, not
+proved. And one specific gap is known and named: P101 re-swept every Cayley axis
+of every free cube at n = 5, 6, 7, 8 reporting the maximum over each line — the
+procedure that caught 1895 — and **n = 9 was not included**. That sweep remains
+the highest-prior untried check against this record.
+
+Files: `establish2785.py`, `establish2785.log`, `establish2785.json` (+ `.prov.json`).
+
+
+### Postscript 179, Addendum 1 (2026-08-30): the omitted sweep, run — no omission of the 1895 kind at n=9
+
+[P179](#p179) named its own most likely refutation: [P101](#p101) re-swept every
+Cayley axis of every free cube at n = 5, 6, 7, 8 reporting the MAXIMUM over each
+line — the procedure that caught 1895 sitting inside an already-covered window —
+and **n = 9 was not included**. `axissweep9.py` runs it.
+
+**Result: 24 lines, 6 758 evaluations, 4 unevaluable, best over all lines 2785.**
+No line carries anything above the record. The n=8 failure mode does not recur at
+n=9.
+
+Two resolutions were combined, because a coarse step can bridge a thin chamber
+(METHODS 8): a uniform grid at 1/256 plus every fraction of denominator <= 24 —
+small-denominator rationals being where records actually sit, the ninth cube
+itself being Cayley (1, 55/56, 1).
+
+**Two lines attain their maximum away from s = 0** — cube 7 axis 2 at s = 1/10,
+cube 8 axis 1 at s = 1/32 — both still 2785. That is the plateau ([P178](#p178))
+seen from another direction, not a second record.
+
+### The coverage caveat, which the headline must not outrun
+
+Points per line vary from **122 to 433**, because a displacement whose cleared
+denominator pushes any quaternion component past the narrow engine's 512 cap is
+skipped. Coverage is therefore UNEVEN, and it is thinnest exactly where the
+components are largest:
+
+```
+cubes 3, 4, 6 : 433 points per line   (full)
+cubes 1, 2    : 236-241
+cubes 5       : 206-209
+cube  7       : 134-148
+cube  8       : 122               <-- the ninth cube (56,56,55,56), least covered
+```
+
+So the sweep is strongest on the older cubes and weakest on the two most recently
+added — arguably where a new record would most plausibly hide. Re-running cubes 7
+and 8 through the WIDE engine would lift their coverage to the 433 the others got.
+Recorded as a known limit of this check rather than left implicit.
+
+**The 4 unevaluable points are a DIFFERENT category, and no wider engine reaches
+them.** Chased down: cube 2, axis 0, s = 1/5, where cube 2 becomes (1,0,-1,-1).
+Both `cube_regions_n` AND `cube_regions_q2w` return
+`{"error":"outside must be a single region"}`. Reading the source, the check is
+narrow and specific: `per_label[0] != 1` — the cells at DEPTH 0 (inside no cube),
+after merging across phantom facets by union-find, must form exactly ONE connected
+component.
+
+**The cause is not identified.** Two natural explanations were tested and both
+fail: the complement of a union of concentric cubes is star-shaped about the
+common centre and so ought to be connected; and the configuration shares NO face
+normals with any other cube (0 shared pairs, same as the record itself), so it is
+not coincident face planes breaking the facet bookkeeping. What the engine detects
+is a degeneracy in its cell/facet accounting that has not been pinned down.
+
+An earlier draft of this entry asserted "the compound's complement disconnects
+there". That was a gloss on the error string, not a finding, and it is withdrawn.
+What is established: both engines refuse, the refusal is not an arithmetic budget,
+and 4 of 6 758 points are affected.
+
+The distinction matters for reading this sweep:
+
+| category | count | cause | wide engine helps? |
+|---|---|---|---|
+| skipped before evaluation | ~3 600 of 10 392 | the `\|component\| <= 512` filter | **yes** |
+| refused by both engines | **4** | outside disconnects; model does not apply | **no** |
+
+So the four refusals hide nothing — those configurations are outside what a
+bounded-region count means. **The real coverage gap is the ~3 600 SKIPPED points**,
+concentrated on cubes 7 and 8, and those are exactly what the wide engine would
+recover. The follow-up named above is the right one; the reason given for it was
+half wrong.
+
+<a id="p180"></a>
+
+## Postscript 180: "outside must be a single region" is a SELF-CONSISTENCY GUARD, and here is a minimal 4-cube configuration that trips it
+
+Raised while auditing the n=9 sweep's 4 refused points, on the observation that
+the claim is *obviously* geometrically false: every cube contains the common
+centre, so their union is star-shaped and its complement is connected. A correct
+engine on a valid input can never see depth 0 split. Four configurations are a low
+priority; an engine that can reach a self-contradictory internal state is not.
+
+### What the check actually is
+
+```cpp
+if (per_label.count(0) == 0 || per_label[0] != 1)
+    throw ConfigError("outside must be a single region");
+```
+
+`labs[i]` is a cell's DEPTH — how many cubes contain it. After cells are merged
+across PHANTOM facets by union-find, the depth-0 cells must form exactly one
+component. **This is a guard, not a geometric claim**: it fires when the engine's
+own cell bookkeeping contradicts geometry, and it refuses rather than answering.
+That is the right behaviour — but it means some input reaches a state the engine's
+assumptions exclude.
+
+### Minimal reproducer
+
+    ./cube_regions_n --quats "1,0,-1,-1;2,1,1,1;24,-24,24,-61;56,56,55,56"
+        -> {"error":"outside must be a single region"}
+
+**Irreducible**: all six 2-subsets and all four 3-subsets evaluate cleanly.
+
+```
+pairs   [0,1]=5  [0,2]=4  [0,3]=4  [1,2]=13  [1,3]=4  [2,3]=4
+triples [0,1,2]=49  [0,1,3]=39  [0,2,3]=37  [1,2,3]=43
+all four -> ERROR
+```
+
+Both `cube_regions_n` and `cube_regions_q2w` refuse it identically, so it is not
+an arithmetic budget and not specific to one engine's scalar width.
+
+### Three explanations tested and eliminated
+
+| hypothesis | test | verdict |
+|---|---|---|
+| the complement really does disconnect | union of concentric cubes is star-shaped about the centre | **impossible** |
+| two cubes share a face plane, breaking real/phantom facet logic | shared face normals: **0**, same as the record | **no** |
+| non-generic plane arrangement (triples meeting in a line) | rank-deficient cross-cube normal triples: **11**, versus **18** in the working record | **no** — the record is MORE degenerate and works |
+
+**The cause is not identified.** Recorded with the reproducer and the eliminated
+branches so the next attempt starts from here rather than repeating them.
+
+### Why this matters beyond four points
+
+The guard firing is fail-safe: it refuses instead of returning a number. The open
+question is whether the same underlying condition can ever occur WITHOUT tripping
+the guard — in which case some count somewhere is wrong and silent. Nothing here
+shows that it can; nothing here shows that it cannot. That is the question worth
+answering, and this configuration is small enough to instrument directly.
+
+Files: reproducer above; sweep context in [P179](#p179) Addendum 1.
+
+### Postscript 180, Addendum 1 (2026-08-30): diagnosed — degenerate zero-volume cells, and the counts elsewhere are clean
+
+Instrumented `cube_regions_dbg.cpp` (a COPY; the validated source untouched) to
+print the depth-0 components at the guard, and to census degenerate cells on every
+run whether or not the guard fires.
+
+### The cause
+
+```
+[dbg] ncell=1543  depth-0 cells=1296  components=5
+[dbg]   root=449   cells=1     sample: 2 faces, BOTH box faces, 0 internal
+[dbg]   root=533   cells=2     sample: 1 face
+[dbg]   root=1066  cells=2     sample: 1 face
+[dbg]   root=1090  cells=1290  sample: 5 faces          <- the real outside
+[dbg]   root=1093  cells=1     sample: 2 faces, BOTH box faces, 0 internal
+```
+
+The outside is ONE component of 1 290 cells **plus four degenerate slivers**. A
+genuine 3-D cell has at least 4 faces; these have **1 or 2**, so they enclose no
+volume — artifacts of the plane-clipping. Two touch nothing but box faces, and box
+faces are excluded from merging (`if (f.pid >= 6*n) continue;`), so they can never
+join anything and are counted as separate components.
+
+**So the engine's bookkeeping really is inconsistent, and the guard is right to
+refuse. Only its message is wrong**: nothing about the compound's complement
+disconnects. The failing configuration carries **102 degenerate cells** of 1 543.
+
+### The question that mattered: are counts elsewhere affected?
+
+If slivers at depth > 0 occurred in runs that SUCCEED, they would be counted as
+bounded regions and inflate the answer with nothing to signal it. Censused:
+
+| configuration | cells | degenerate | result |
+|---|---|---|---|
+| 393, 727, 1217, 1895, 2785 | up to 17 797 | **0** | OK |
+| 60 random 6-cube configurations | — | **0** | OK |
+
+**No degenerate cell appears in any configuration the engine accepts.** Every
+count this project relies on comes from a decomposition with zero slivers. The
+defect is confined to inputs that trip the guard, and the guard refuses rather
+than answering — which is what a fail-safe is supposed to do.
+
+### What remains
+
+The trigger is still unidentified: what geometric condition makes the clipper emit
+1- and 2-face cells here and never in 65 other configurations. Three earlier
+hypotheses are already eliminated in [P180](#p180). The narrow fix — discard cells
+with fewer than 4 faces before the component check — would convert 4 refusals into
+4 answers, but it treats the symptom, and the clipper emitting zero-volume cells at
+all is the thing worth understanding.
+
+Files: `cube_regions_dbg.cpp` (instrumented copy, not for production counts).
+
+### Postscript 180, Addendum 2 (2026-08-30): the counts recovered, and how far the geometric diagnosis actually got
+
+### The counts
+
+`cube_regions_fix.cpp` discards cells with fewer than 4 faces before the facet
+grouping (a 3-D cell cannot have fewer; those enclose no volume), tolerates facet
+groups left with one cell when the partner was discarded, and otherwise is
+unchanged. **Gated: it reproduces 393 and 727 exactly.**
+
+```
+minimal failing 4-cube   ->  bounded = 145   by_depth {0:1, 1:56, 2:64, 3:24, 4:1}
+n=9 sweep point          ->  bounded = 2751  (cube 2 at axis 0, s = 1/5)
+    (4,1,1,-1; 3,3,7,3; 1,0,-1,-1; 2,1,1,1; 1,1,1,1; 7,14,1,-5; 4,-3,-4,-4;
+     24,-24,24,-61; 56,56,55,56)
+```
+
+Both are structurally sound: depth-0 = 1, top depth = 1, and the depth histogram
+sums to the total. **2751 is below the record**, so the sweep's conclusion is
+unchanged — the previously unevaluable point does not beat 2785.
+
+Note the 9-cube case carries **128 degenerate cells but none at depth > 0**, which
+is why it produced a valid histogram once they were dropped.
+
+### The geometric condition — where the diagnosis stands
+
+**Established.** The clipper emits zero-volume cells. Their face lists say what
+they are: cells bounded by only TWO planes of the SAME cube (e.g.
+`cube0/axis0/+` and `cube0/axis2/-`), which meet in a line — so the cell IS that
+line, or a flat polygon on it, not a solid. Two more are bounded by nothing but
+box faces. Such cells have no internal facet to merge across, box facets are
+excluded from merging by design, and they therefore survive as separate depth-0
+components and trip the guard.
+
+**Not established: why the clipper emits them here.** Four hypotheses tested and
+eliminated, all by comparison against configurations that work:
+
+| hypothesis | failing case | control | verdict |
+|---|---|---|---|
+| complement genuinely disconnects | — | union is star-shaped about the centre | impossible |
+| two cubes share a face plane | 0 shared normals | record: 0 | no |
+| three planes share a common LINE | 0 | record: 0 | no |
+| non-generic vertices (>3 planes) | 32, max ~6 planes | **its own working 3-subset: 32, max ~6** | no |
+
+The last is the most informative: the failing 4-cube's own 3-subset has identical
+non-genericity and evaluates cleanly, so whatever triggers this is not a property
+any of these standard degeneracy measures detects. **The trigger remains
+unidentified**, and the next step is to instrument the clipper itself and catch
+the moment a sub-4-face cell is created, rather than testing more hypotheses from
+outside.
+
+Files: `cube_regions_fix.cpp` (sliver-discarding, gated on 393/727),
+`cube_regions_dbg.cpp` (instrumented). Neither replaces the validated engine.
+
+### Postscript 180, Addendum 3 (2026-08-30): the degenerate configurations are a CONTINUUM, and the box causes them
+
+Asked whether the configuration producing zero-volume cells is a point or a member
+of a family. It is a family, and the first answer was wrong.
+
+**A single-line sweep said "isolated point".** Varying cube 0's Cayley x, degeneracy
+appeared at exactly x = 0 (102 cells) and vanished at ±1/64 (0 cells). That looked
+conclusive and was not: **it perturbed the one cube that destroys the condition.**
+
+**Perturbing every cube along every Cayley axis, ±1/64 and ±1/512:**
+
+```
+cube 0 -> 0  0  0        (destroys it)
+cube 1 -> 0  0  0        (destroys it)
+cube 2 -> 94..126        (persists)
+cube 3 -> 94..126        (persists)
+```
+
+24 of 48 neighbours are still degenerate. Cubes 2 and 3 are FREE — replacing them
+with random cubes entirely still leaves 12-116 degenerate cells. So the set is
+locally at least **6-dimensional**, cut out by a condition on cubes 0 and 1 alone.
+
+**And the condition is about the BOX, not the compound.** Rotating cubes 0 and 1
+TOGETHER by a common g, preserving their relative orientation exactly, destroys the
+degeneracy every time (3 of 3 tested). A property intrinsic to the compound cannot
+depend on its absolute orientation; this one does. The fixed axis-aligned
+`[-4,4]^3` box is the only thing that breaks rotational symmetry, and the slivers
+sit on its boundary — several flat on the `z = -4` face, one pair of vertices
+0.02 apart.
+
+The pair alone reproduces it: cubes 0 and 1 as a 2-cube compound give 2 degenerate
+cells. Pairing either with the identity gives 0, so it needs that specific pair,
+not one bad cube.
+
+### Consequence
+
+**The degenerate cells are an artifact of the counting box, not of cube compounds.**
+They are all at depth 0 — outside every cube — so they never affect a region count,
+which is what the guard's refusal already ensured. The failure is confined to the
+apparatus and does not touch the mathematics.
+
+This also explains why every intrinsic degeneracy measure came back negative in
+[P180](#p180): coincident planes, common-line triples, and vertex multiplicity are
+all properties of the cubes, and the trigger is not.
+
+**Still unidentified**: the exact condition on the pair-plus-box that makes the
+clipper emit a sub-4-face cell. It is now a question about two cubes and six fixed
+planes rather than about nine cubes, which is a much smaller object to instrument.
+
+Files: `degenerate_cells.html` (local copy of the published figure, provenance-stamped).
+
+### Postscript 180, Addendum 4 (2026-08-30): box artifacts CAN reach the counts — how far, and what it does not touch
+
+Raised as the only question that makes the box artifact matter: does it ever make
+a tool return an incorrect answer, rather than refuse?
+
+### It can reach the counts
+
+The guard checks **depth 0 only**. Slivers at depth > 0 leave it silent. Searching
+inside the degenerate family (cubes 0,1 fixed, cubes 2,3 random), **11 of 40
+configurations had depth>0 slivers AND returned a count**.
+
+On those, two defensible treatments disagree:
+
+```
+depth>0 slivers   engine   sliver-free recount   difference
+      2            117            119               +2
+      4            125            127               +2
+      2            123            125               +2
+```
+
+**The direction matters and corrects [Addendum 2](#p180).** Dropping slivers gives a
+HIGHER count, so the engine is not counting them as extra regions — they are
+merging into neighbours, and discarding them BREAKS those merges, splitting one
+region in two. A zero-volume sliver can legitimately connect two cells that are one
+region. **So "correct count = 145" was asserted without checking the direction of
+the error and is withdrawn**; what is established is that the two methods differ by
+2 on degenerate-family inputs, and which is right is unresolved.
+
+### How far it reaches into this project's results
+
+| population | with any degenerate cell | with depth>0 slivers |
+|---|---|---|
+| tower records 393, 727, 1217, 1895, 2785 | **0** | **0** |
+| 60 random 6-cube configurations | **0** | **0** |
+| 120 replacement-9th-cube samples, drawn as [P179](#p179) drew them | — | **0** |
+| **P179's 144 lattice perturbations** | **12** | **1** |
+
+**Every recorded record is clean.** But one of P179's own 144 lattice
+perturbations carries a depth>0 sliver, so the campaign's "beaten by nothing in
+20 920 evaluations" rests on a population that is not entirely sliver-free.
+
+**This does not threaten the record**, and the reason is directional: the
+disagreement makes the sliver-free recount LARGER, so if anything the engine
+UNDER-counts these configurations. An under-count can hide a challenger; it cannot
+manufacture a false record. The n=9 result stands; the search's completeness is
+what carries a small caveat, and one configuration in 20 920 is the size of it.
+
+**What would settle it**: decide whether a zero-volume cell should merge its
+neighbours or be deleted, which is a question about the intended cell complex, not
+about cube compounds. Until then, counts on degenerate-family inputs are uncertain
+by about 2, and no such input has ever produced a project result.
+
+### Postscript 180, Addendum 5 (2026-08-30): rotate before counting — the fix, and it exonerates the engine
+
+Proposed by the user: the region count cannot depend on the compound's orientation
+relative to the counting box, and [Addendum 3](#p180) showed a global rotation
+destroys the degeneracy. So rotate first, then count.
+
+**Invariance verified** on clean inputs before relying on it: 393, 727 and 1217 each
+return the same count under three different global rotations.
+
+### It also arbitrates the ambiguity Addendum 4 left open
+
+A rotated evaluation is degeneracy-free, so it is ground truth for the same
+compound. On the 11 degenerate-family configurations where the engine and the
+sliver-discarding recount disagreed by 2:
+
+```
+rotated ground truth agrees with:   engine 11 of 11      sliver-free 0 of 11
+```
+
+**The engine was right.** Depth>0 slivers merge into their neighbours correctly and
+do not inflate anything. `cube_regions_fix.cpp` — discarding sub-4-face cells — is
+the thing that introduced error, by breaking legitimate merges and splitting one
+region in two. **It should not be used, and both counts derived from it are
+withdrawn.**
+
+### The counts, redone properly
+
+| configuration | via sliver-discarding (WRONG) | **rotated, 5 different rotations** |
+|---|---|---|
+| minimal 4-cube | 145 | **143** |
+| n=9 sweep point (cube 2, axis 0, s=1/5) | 2751 | **2751** |
+
+Five independent rotations agree in both cases. The 4-cube count was wrong by 2;
+the n=9 sweep point happened to be right, and 2751 is still far below 2785, so
+[P179](#p179) Addendum 1's conclusion is unchanged.
+
+### What this settles
+
+- **No project result is affected by the box artifact.** The engine's counts were
+  correct throughout; the defect is confined to the depth-0 guard, which REFUSES
+  rather than miscounting. Addendum 4's caveat about P179's search population is
+  withdrawn with it.
+- **The remedy is one line at the call site**: apply a global rotation and recount
+  when the guard fires. It needs no change to the validated engine, and the
+  invariance it relies on is a theorem about the count, not a property of the code.
+- The underlying trigger — which pair-plus-box alignment makes the clipper emit a
+  sub-4-face cell — remains unidentified, and now matters only for tidiness.
+
+**Method note against myself.** I called 145 "the correct count" after gating the
+sliver-discarding build on 393 and 727 — inputs with no degenerate cells, where
+the modification is inert. A gate that cannot exercise the changed path is not a
+gate ([FAILURE_MODES 2](FAILURE_MODES.md#2-a-gate-that-cannot-fail)). The control
+that would have caught it is exactly the one proposed here, and it was available
+the whole time.
+
+<a id="p181"></a>
+
+## Postscript 181: n = 10 = 3913 — the tower extended, and the recorded n=9 member is the WRONG one to extend
+
+`extend_n10.py`, 62 211 exact evaluations, 25 512 s. First n=10 value in this
+project.
+
+### The result
+
+    ./cube_regions_n --quats "4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1;1,1,1,1;\
+    7,14,1,-5;4,-3,-4,-4;24,-24,24,-61;57,57,56,57;19,-2,15,24"      -> 3913
+
+`by_depth` {1:500, 2:748, 3:684, 4:588, 5:490, 6:386, 7:282, 8:174, 9:60, 10:1}.
+**Both engines agree.** Its k-subsets give **exactly** 13, 183, 393, 727, 1217,
+1895, 2785 for k = 2, 4, 5, 6, 7, 8, 9 — every record — with only the 3-subsets
+short at 63, the known rational ceiling ([P170](#p170)).
+
+No refusals: **0 rescued by rotation, 0 unevaluable**, so the box artifact
+([P180](#p180)) never bit, though the handler was in place.
+
+### The recorded n=9 representative is not the best base
+
+Running every base across the continuum ([P178](#p178)'s two rays) rather than one:
+
+```
+k =  56  -> 3905      <- the RECORDED 2785 member, (56,56,55,56)
+k =  57  -> 3913      <- best
+k =  60  -> 3905
+k = 100  -> 3905
+k = 1000 -> 3909
+k = -69  -> 3909
+k = -70  -> 3911
+k = -100 -> 3909
+k = -1000-> 3913      <- best
+```
+
+**Spread 8**, and the recorded member is 8 below the best. This is exactly the
+spread `member723.log` measured for the 723 continuum at n=7, and it confirms
+[P176](#p176)'s point with a second instance: **a plateau is one object by count
+and many objects by extension.** Extending from the canonical representative would
+have reported 3905 and missed 3913 — the choice of member matters more than the
+search within it.
+
+### Two NON-CONGRUENT configurations reach 3913
+
+k = 57 with tenth cube (19,-2,15,24), and k = -1000 with tenth cube (3,-3,2,52).
+They are not related by any global cube rotation, and their depth profiles differ:
+
+```
+depth:  0    1    2    3    4    5    6    7    8    9   10
+A:      1  500  748  684  588  490  386  282  174   60    1
+B:      1  504  748  682  586  486  390  282  174   60    1
+```
+
+Congruent compounds must have identical profiles, so this is decisive. Same count,
+different objects — the n=3 situation (two 67s carrying 30 and 72 crossings,
+[METHODS 6](METHODS.md)) recurring at n=10.
+
+### Status and what is not claimed
+
+**VERIFIED, not proved**, and weaker than [P179](#p179)'s n=9: this is a first
+value from one campaign, without the axis re-sweep, the symmetry order, or the
+plateau analysis that n=9 now carries. The sequence becomes
+13, 67, 183, 393, 727, 1217, 1895, 2785, **3913**.
+
+For the record, [P176](#p176) extrapolated a cubic through n=4..8 to ~3935-3943 at
+n=10 and the SAME cubic mispredicted both its neighbours; 3913 is below its range,
+consistent with that cubic being a local description rather than a law.
+
+Files: `extend_n10.py`, `extend_n10.log`, `extend_n10.json`.
+
+<a id="p182"></a>
+
+## Postscript 182: every rung tested is a CONTINUUM, and the recorded member is always an ENDPOINT of it
+
+`rungshapes.py`, `refine_shapes.py`, `locus727.py`. Answers [OQ 9](OPEN_QUESTIONS.md)'s
+"untried: the shape of the 727, 1217 and 1895 loci", and changes what the tower is.
+
+### A retraction first
+
+Earlier this session I reported that 1217 lies on a 13-pair curve but is an
+**isolated point** on it — "count == 1217 at 1 of 19 offsets". That is wrong, twice
+over.
+
+The coarse sweep stepped by 4/63. The plateau is 4/315 wide. A step 40x the width
+cannot land inside twice, so the single hit was the recorded point and nothing else.
+The refinement built to check this then returned "1 offset within budget, count ==
+1217 at 1" — **60 of its 61 offsets were unevaluable**, rejected by the narrow
+engine's 512 cap because offsets of 1/5000 canonicalise to large quaternions, and I
+read that as confirmation. It is [mode 16](FAILURE_MODES.md#16c) with
+"unevaluable is not a negative result" on top: unevaluable scored as agreement. Written up as [FAILURE_MODES 16c](FAILURE_MODES.md#16c).
+
+### The solved part
+
+A 13-pair ([METHODS 12](METHODS.md)) is a cube pair whose relative rotation is about
+a body diagonal. For a fixed base cube `b` the partners form the CURVE
+`q(t) = b*(1, t*a)`. Whether a rung's last cube lies on one is a rational identity
+test, not a search: form `b^-1*c`, require its vector part parallel to `a`, and `t`
+is determined or the pair is refuted. Gated on recovering METHODS 12's known curve
+at 2785 (base cube 1, |t| = 227/889) — and the gate **failed first**, on the right
+grounds: I had used (57,57,56,57) as the n=9 rung, which is the member
+[P181](#p181)'s campaign extended, not the recorded k=56 = (56,56,55,56).
+
+    727   (7,14,1,-5)      0 curves
+    1217  (4,-3,-4,-4)     1 curve   base 2, axis (1,1,-1), t = -11/63
+    1895  (24,-24,24,-61)  0 curves
+    2785  (56,56,55,56)    2 curves  base 1 at -227/889, base 4 at -1/223
+
+### The measured part, and the pattern
+
+Sweeping each solved curve on the WIDE engine, 121 offsets each, **0 unevaluable**:
+
+    1217  base 2   holds on [-59/315, -11/63]          width 4/315   recorded at RIGHT end
+    2785  base 1   holds on [-227/889, -3278/13335]    width 1/105   recorded at LEFT end
+    2785  base 4   holds on [-1/223, 97/28098]         width 1/126   recorded at LEFT end
+
+1895 lies on no 13-pair curve but is a continuum anyway, found by refining
+`shapes.py`'s integer hits to step 1/12 (`refine_shapes.py`), and along TWO
+independent directions:
+
+    1895  dir (0,0,0,1)    holds on [0, 11/12] and [13/12, 29/12]    recorded at t=0, LEFT end
+    1895  dir (1,-1,1,1)   holds on [-229/4, -164/3]  width 31/12    a component far from the record
+
+**In all four intervals containing the recorded configuration, the recorded
+configuration is an ENDPOINT.** Never interior. For 2785 this was already visible in
+[P178](#p178) and read as a coincidence of representative size — "227/889 is the last
+value giving 2785 ... the member with by far the smallest primitive representative".
+It is not a coincidence: a search that reports the smallest-height member of a
+plateau reports a boundary member, because height grows away from the boundary where
+the parametrisation is simplest.
+
+### Why this matters, and what it predicts
+
+[OQ 9](OPEN_QUESTIONS.md) measured that at n=9 -> n=10 the recorded member was the
+WORST of nine tested, 8 below the best. Combine the two facts and the tower's
+construction has a systematic bias, not a random one: **every rung was built by
+extending a boundary member of its predecessor's plateau.** If boundary members
+extend worst in general, every rung above 727 may be low.
+
+That is a prediction and it is testable at a cheap rung. `extend_1217.py` extends
+seven members of the 1217 plateau — both endpoints and five interior points, chosen
+as the SIMPLEST rationals in the interval rather than midpoints ([METHODS 15](METHODS.md#15-choose-the-cheapest-valid-representative-not-the-obvious-one);
+a midpoint here has denominator 630 and pushes the eighth cube over the cap) — with
+the same search shape as `extend_n10.py` so the comparison is like-for-like. If an
+interior member beats 1895, n=8 has a new record and the whole tower is provisional.
+
+### What is NOT claimed
+
+- ~~**727's locus is still unevaluated**~~ **CORRECTED 2026-08-31, see
+  [P183](#p183).** This was wrong when written: 727 has been documented since
+  [P79](#p79)/[P80](#p80) as a plateau of uncountably many on four arcs A-D, with
+  the record sitting at arc D's node — I asserted the negative without reading
+  `RESULTS.md` or `METHODS.md`. `locus727.py` subsequently re-found arc D
+  independently. 727 supports the endpoint finding rather than being absent from it.
+- The interval endpoints above are **sampled**, so each width is a LOWER bound on
+  its plateau ([METHODS 1](METHODS.md#1-solve-the-line-do-not-sample-it) corollary). The
+  curves they lie on are solved; the extents are not.
+- All sweeps move only the LAST cube — a 3-dimensional slice of the 15-dimensional
+  gauge-fixed space. A locus requiring earlier cubes to move is invisible to all of
+  them, including the negative for 727.
+
+Files: `rungshapes.py`, `rungshapes.log`, `refine_shapes.py`, `refine_shapes.log`,
+`shapes.py`, `shapes.log`, `locus727.py`, `extend_1217.py`.
+
+<a id="p183"></a>
+
+## Postscript 183: continuum registry audit — one rung is documented to standard and the rest are not, and P182 got 727 wrong
+
+Prompted by the question "are all continua paths and endpoints documented?". The
+answer is no, and the audit found three errors, one of them mine from this session.
+
+### There is a standard, set at n = 6
+
+`MAXIMISER_TAXONOMY.md` documents 727's four arcs completely: through-point,
+direction, extent SOLVED as roots of a wall equation on the arc's line (quadratic
+for W4, quartic for W3), width in rotation angle, chamber count, and the value each
+end drops to. Two ends are exactly rational (19/6, 43/105); the other four are
+algebraic irrationals that no grid sweep could land on. That is the standard, and
+**only 727 meets it.**
+
+    continuum        path                                  endpoints
+    n=2  13          body-diagonal family                  n/a, closed, no ends
+    n=4  183         NONE - 2 congruence classes only      none
+    n=6  727         arcs A-D, tangents given (D a node)   SOLVED, all six
+    n=7  723         u*(1,1,1)                             valid range u>=55, u<=-7/2
+    n=7  1217        SOLVED curve (P182)                   grid-sampled only
+    n=8  1895        sampled direction, NOT solved         grid-sampled only
+    n=9  2785        k-family + 2 solved 13-pair curves    upper measured, lower is a WINDOW EDGE
+    n=10 3913        none                                  none
+
+### Error 1, mine: [P182](#p182) said 727 showed no locus
+
+It says "727 alone showed nothing" and lists 727's locus as unevaluated. Both
+`RESULTS.md` and `METHODS.md` have carried "**727 is a plateau of UNCOUNTABLY MANY
+non-congruent compounds**" on arcs A-D since Postscripts [79](#p79)/[80](#p80),
+with the record identified as "a single point of arc D". **I asserted a negative
+without reading the documents that already answered it** — the same direction of
+failure as [mode 8](FAILURE_MODES.md#8-stale-summary-statements), but committed by
+the producer rather than inherited from a stale summary.
+
+`locus727.py` then found it independently: 727 holds on t in [-1/4, 5/6] along the
+quaternion direction (2,2,0,-1). In Cayley coordinates that line passes through
+(2, 1/7, -5/7) — the record — with tangent (-2/7, -2/49, 3/49), which is **exactly
+parallel to arc D's first tangent** (-1,-1/7,3/14): the ratio is 2/7 on all three
+components. A re-discovery of a documented arc, not a new one. It does serve as an
+independent check that the sweep agrees with the registry.
+
+P182's "what is NOT claimed" section is corrected accordingly; the finding it was
+built on — that recorded members sit at plateau ENDPOINTS — is unaffected, and 727
+now supports it too, the record being the node where arcs D1 and D2 cross.
+
+### Error 2: 2785's lower endpoint is a sampling artifact
+
+[P178](#p178) records
+
+    t = 220/889 .. 227/889  ->  2785        the continuum
+    t = 228/889 onward      ->  2781        boundary
+
+The UPPER end is a real boundary — the next step drops to 2781. The lower end is
+where the sweep window started. [P182](#p182)'s wide-engine sweep of the same curve
+found 2785 still holding at |t| = 3278/13335 ~ 0.24582, below 220/889 ~ 0.24747.
+**The continuum extends past its recorded left end**, and no bound there is known.
+
+### Error 3, already on record and worth re-surfacing: ends cannot be certified above n = 8
+
+[METHODS 7](METHODS.md) records that at the n=9 continuum's lower end the count
+steps 2781 -> 2785 between k = 439/8 and k = 55 while the edge-edge crossing count
+is **294 on both sides**, unchanged — a face-plane/triple-point wall that the
+coincidence catalogue does not register. So the detector that bracketed 727's six
+ends is known to be incomplete at n = 9. Solving endpoints above n = 8 needs the
+wall equation itself, not the crossing count.
+
+### What closing the gap requires
+
+Nothing new. Each unsolved endpoint is a root of a wall equation restricted to a
+known line, which is exactly the computation that produced 727's six ends. The
+missing work is mechanical: solve the ends for 1217's curve, 1895's two directions,
+2785's two 13-pair curves and its k-family's lower end, and establish a path at all
+for 183 and 3913. Recorded as [OPEN_QUESTIONS 13](OPEN_QUESTIONS.md).
+
+Files: `rungshapes.py`, `locus727.py`, `locus727.log`, `MAXIMISER_TAXONOMY.md`.
+
+<a id="p184"></a>
+
+## Postscript 184: CORRECTION to P175 — null directions DO preserve the count, and the preserving set is a hyperplane
+
+Prompted by the observation "I think we implemented epsilon as a step size". The
+engine did not; **[P175](#p175) did.**
+
+### What was wrong
+
+[P175](#p175) concluded "a direction crossing no wall still changes the count" and
+on that basis retracted [P162](#p162), [P173](#p173) and [P174](#p174). Its entire
+evidence is finite displacements:
+
+    727,  null direction (all cubes):   t=0: 727   1/1000: 685   1/100: 685   1: 593
+    1217, null on CUBE 6 ALONE:         t=0: 1217  1/100: 1213  1/10: 1209   1: 1177
+
+Two of those agree — 685 at 1/1000 and at 1/100 — and by this project's own rule
+([FAILURE_MODES 14](FAILURE_MODES.md#14-agreement-between-samples-certifies-a-shared-cell-not-a-correct-one))
+agreement between samples certifies a SHARED CELL, not a limit. The walls are the
+TANGENT structure ([P166](#p166)), so the count is constant only infinitesimally and
+a step of 1/100 answers a question about 1/100. `epscount.py` and `cube_regions_eps`
+were built on 2026-08-16 for exactly this and **P175 did not use them**.
+
+### Redone with eps a positive infinitesimal
+
+`eps_null3.py`, both signs of every null basis vector, narrow engine escalating to
+the 256-bit `cube_regions_epsw` on refusal. Controls at every rung, both able to
+fail: the zero direction must reproduce the record (it does, 4/4) and a wall
+gradient must change it (it does, 4/4).
+
+    n=6  727   nullity 1:  0 hold, 1 change
+    n=7  1217  nullity 2:  1 hold, 1 change
+    n=8  1895  nullity 3:  2 hold, 1 change
+    n=9  2785  nullity 4:  3 hold, 1 change
+    TOTAL: 6 hold, 4 change, 0 UNEVALUATED
+
+**Exactly one null direction changes the count at every rung, and every other one
+preserves it in the eps -> 0 limit, on BOTH sides.** P175's universal is false for
+n >= 7. It is CORRECT at 727, where the nullity is 1 and that one direction changes —
+which is the rung P175 measured most closely, and why it read as general.
+
+### The artifact hypothesis, tested and rejected
+
+Holds and changes split perfectly by height: every holding direction has |v|max 1,
+every changing one 4 980-9 960. That is exactly [METHODS 15](METHODS.md#15-choose-the-cheapest-valid-representative-not-the-obvious-one)'s
+tell, so it was tested rather than argued (`eps_null4.py`):
+
+    SCALE     4980 * v_hold  |v|max 4980  -> 1217   holds
+              9960 * v_hold  |v|max 9960  -> 1217   holds
+              1,2,3 * v_chng               -> 1165, 1165, 1165   scale-invariant
+    QUOTIENT  v_chng +-h, +2h              -> 1163 / 1835        always changes
+
+Scaling a HOLDING direction up to the changing one's height leaves it holding, so
+height does not drive the answer. Scaling is a positive rescaling of each eps degree
+and cannot flip the sign of the lowest nonzero coefficient — the measurement now
+confirms the argument. The quotient control puts the holding set at codimension 1.
+
+**The count-preserving null directions form a HYPERPLANE in the null space, of
+dimension nullity - 1 = max(0, n-6).**
+
+### What this restores and what it does not
+
+- [P162](#p162)'s "the rank deficit IS the plateau dimension" stays **wrong**, but by
+  one: the preserving dimension is deficit - 1, not deficit, and not 0.
+- [P173](#p173)/[P174](#p174) were retracted on a claim now shown false. Their
+  arithmetic ("each cube past the sixth is loose in one direction") matches
+  max(0, n-6) exactly. **They should be re-examined, not reinstated** — this entry
+  removes the stated reason for the retraction, it does not re-verify their content.
+- A count constant at base + eps*v for infinitesimal eps means constant on a real
+  interval (the count is piecewise constant with finitely many breakpoints along a
+  line), so these are genuine plateau directions and give LOWER bounds on plateau
+  dimension: n=7 >= 1, n=8 >= 2, n=9 >= 3. How that relates to [P182](#p182)'s
+  13-pair curves is not established here.
+
+### The lesson, which is not new
+
+The infinitesimal engine existed, was documented, and was skipped in favour of three
+step sizes — after [METHODS 14](METHODS.md#14-displace-by-an-infinitesimal-not-by-a-small-number)
+was written. Having the right instrument does not make it get used; the check is
+whether the number reported came from it.
+
+Files: `eps_null.py`, `eps_null3.py`, `eps_null3.log`, `eps_null4.py`,
+`eps_null4.log`, `epscount.py` (gained a `wide=` escalation).

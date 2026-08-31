@@ -1,2 +1,24 @@
 rank-13 flats: 2044 | ambient 15 | walls 27 | adapter gated at 727
-   100/2044 flats, 200 faces, max=681, unevaluable 72 (86s)
+   100/2044 flats, 200 faces, max=681, unevaluable 72 (89s)
+   200/2044 flats, 400 faces, max=685, unevaluable 130 (187s)
+   300/2044 flats, 600 faces, max=719, unevaluable 188 (286s)
+   400/2044 flats, 800 faces, max=719, unevaluable 224 (425s)
+   500/2044 flats, 1000 faces, max=719, unevaluable 276 (573s)
+   600/2044 flats, 1200 faces, max=719, unevaluable 347 (717s)
+   700/2044 flats, 1400 faces, max=719, unevaluable 430 (831s)
+   800/2044 flats, 1600 faces, max=719, unevaluable 461 (1013s)
+   900/2044 flats, 1800 faces, max=719, unevaluable 496 (1187s)
+   1000/2044 flats, 2000 faces, max=719, unevaluable 557 (1332s)
+   1100/2044 flats, 2200 faces, max=719, unevaluable 627 (1471s)
+   1200/2044 flats, 2400 faces, max=719, unevaluable 654 (1611s)
+   1300/2044 flats, 2600 faces, max=719, unevaluable 724 (1737s)
+   1400/2044 flats, 2800 faces, max=719, unevaluable 774 (1881s)
+   1500/2044 flats, 3000 faces, max=719, unevaluable 796 (2065s)
+   1600/2044 flats, 3200 faces, max=719, unevaluable 891 (2178s)
+   1700/2044 flats, 3400 faces, max=719, unevaluable 942 (2339s)
+   1800/2044 flats, 3600 faces, max=719, unevaluable 1001 (2490s)
+   1900/2044 flats, 3800 faces, max=719, unevaluable 1108 (2589s)
+   2000/2044 flats, 4000 faces, max=719, unevaluable 1129 (2759s)
+
+rank-13 walk: 4088 faces, MAX = 719 (record 727), unevaluable 1141, 2818s
+top counts: [669, 671, 673, 675, 677, 679, 681, 685, 715, 719]

@@ -21,6 +21,11 @@ from qfield import Q
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ENG = os.path.join(HERE, 'cube_regions_eps')
+# The 256-bit build, for directions the narrow engine refuses on height.
+# A refusal is usually about the REPRESENTATIVE (METHODS 15), but a null
+# direction's primitive vector is not a free choice, so when reduction
+# cannot shorten it the wider engine is the honest remedy.
+ENGW = os.path.join(HERE, 'cube_regions_epsw')
 
 
 def _pair(x, d):
@@ -75,7 +80,7 @@ def eps_quats(point, direction, d, q0=None):
     return ';'.join(out), n
 
 
-def count_eps(point, direction, d, q0=None):
+def count_eps(point, direction, d, q0=None, wide=False):
     """exact count at the infinitesimally displaced configuration, or None.
 
     None means the engine REFUSED (overflow budget or malformed input) and is
@@ -83,7 +88,7 @@ def count_eps(point, direction, d, q0=None):
     stand-in for "the count did not change".
     """
     s, n = eps_quats(point, direction, d, q0)
-    p = subprocess.run([ENG, '--d', str(d), '--quats', s],
+    p = subprocess.run([ENGW if wide else ENG, '--d', str(d), '--quats', s],
                        capture_output=True, text=True)
     try:
         return json.loads(p.stdout.strip().splitlines()[-1])['bounded']

@@ -1,0 +1,10 @@
+2785 continuum: 9 degenerate findings in 2s
+   base 1 axes (1, 1, 1)/(1, 1, 1) -> coincident at u 0
+   base 1 axes (1, 1, -1)/(1, 1, -1) -> IDENTICALLY coincident 
+   base 1 axes (1, -1, 1)/(1, -1, 1) -> coincident at u 0
+   base 1 axes (-1, 1, 1)/(-1, 1, 1) -> coincident at u 0
+   base 3 axes (1, 1, 1)/(1, 1, 1) -> coincident at u 1/4
+   base 4 axes (1, 1, 1)/(1, 1, 1) -> coincident at u 1/4
+   base 4 axes (1, 1, -1)/(1, 1, -1) -> IDENTICALLY coincident 
+   base 4 axes (1, -1, 1)/(1, -1, 1) -> coincident at u 1/4
+   base 4 axes (-1, 1, 1)/(-1, 1, 1) -> coincident at u 1/4

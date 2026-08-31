@@ -124,6 +124,7 @@ def main():
     # smaller number. `count_eps` returns the eps -> 0 limit exactly, and its gate
     # includes the control that scaling a direction by 97 cannot change the count.
     counts, unev, nface = {}, 0, 0
+    faces_out = open(os.path.join(HERE, 'walk13_faces.jsonl'), 'w')
     t0 = time.time()
     for idx, mask in enumerate(masks):
         inS = [j for j in range(m) if mask >> j & 1]
@@ -154,6 +155,11 @@ def main():
             y = [sum(F(y2[k]) * B[k][t] for k in range(2)) for t in range(nc)]
             c = count_eps(list(pt), y, 0, q0)
             nface += 1
+            # PER-FACE RECORD, not just a histogram. The first run recorded counts
+            # and discarded which flat produced them, so "which faces carry 715 and
+            # 719?" needed the whole 42-minute walk again. Same mistake as the flat
+            # census (P165). 4 088 lines is nothing; a re-run is not.
+            faces_out.write(json.dumps({'mask': mask, 'ext': ext, 'count': c}) + '\n')
             if c is None:
                 unev += 1
             else:
@@ -165,6 +171,7 @@ def main():
             json.dump({'flats_done': idx + 1, 'faces': nface, 'counts': counts,
                        'unevaluable': unev, 'secs': time.time() - t0},
                       open(OUT, 'w'), indent=1)
+    faces_out.close()
     mx = max(counts) if counts else None
     print('\nrank-13 walk: %d faces, MAX = %s (record 727), unevaluable %d, %.0fs'
           % (nface, mx, unev, time.time() - t0), flush=True)

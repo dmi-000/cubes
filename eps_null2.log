@@ -1,0 +1,39 @@
+
+n=6  record 727   walls 27  ambient 15  nullity 1
+   CONTROL zero direction        -> 727    OK
+   CONTROL wall-gradient dir     -> 703    OK, count changes
+   --- null directions, eps -> 0 limit, BOTH SIGNS ---
+   null 0  +eps -> 685      -eps -> 685      changes both sides   |v|max 4980
+   summary over 2 signed directions: 0 hold, 2 change, 0 UNEVALUATED
+
+n=7  record 1217   walls 51  ambient 18  nullity 2
+   CONTROL zero direction        -> 1217   OK
+   CONTROL wall-gradient dir     -> 1193   OK, count changes
+   --- null directions, eps -> 0 limit, BOTH SIGNS ---
+   null 0  +eps -> 1217     -eps -> 1217     HOLDS both sides — interior   |v|max 1
+   null 1  +eps -> 1165     -eps -> 1165     changes both sides   |v|max 4980
+   summary over 4 signed directions: 2 hold, 2 change, 0 UNEVALUATED
+
+n=8  record 1895   walls 75  ambient 21  nullity 3
+   CONTROL zero direction        -> 1895   OK
+   CONTROL wall-gradient dir     -> 1871   OK, count changes
+   --- null directions, eps -> 0 limit, BOTH SIGNS ---
+   null 0  +eps -> 1895     -eps -> 1895     HOLDS both sides — interior   |v|max 1
+   null 1  +eps -> None     -eps -> None     UNEVALUATED — engine refused, NOT a negative result   |v|max 9960
+   null 2  +eps -> 1895     -eps -> 1895     HOLDS both sides — interior   |v|max 1
+   summary over 6 signed directions: 4 hold, 0 change, 2 UNEVALUATED
+
+n=7  record 1217  nullity 2   heights before [1, 4980]  after [1, 4980]
+   b0 |v|max 1       +eps 1217    -eps 1217    HOLDS both sides
+   b1 |v|max 4980    +eps None    -eps None    UNEVALUATED — refused, NOT a negative
+   1 of 2 hold, 1 unevaluated
+
+n=8  record 1895  nullity 3   heights before [1, 9960, 1]  after [1, 1, 9960]
+   b0 |v|max 1       +eps 1895    -eps 1895    HOLDS both sides
+   b1 |v|max 1       +eps 1895    -eps 1895    HOLDS both sides
+   b2 |v|max 9960    +eps None    -eps None    UNEVALUATED — refused, NOT a negative
+   2 of 3 hold, 1 unevaluated
+   --- is the holding set a SUBSPACE? ---
+   v+w   |v|max 1      +eps 1895   -eps 1895    holds
+   v-w   |v|max 1      +eps 1895   -eps 1895    holds
+   2v+w  |v|max 2      +eps 1895   -eps 1895    holds

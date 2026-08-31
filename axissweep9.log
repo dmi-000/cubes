@@ -1,0 +1,27 @@
+n=9 axis re-sweep: 433 displacements per line, 24 lines
+   cube 1 axis 0:  241 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 1 axis 1:  236 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 1 axis 2:  241 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 2 axis 0:  241 pts,   1 unevaluable, MAX 2785 at s=0
+   cube 2 axis 1:  241 pts,   1 unevaluable, MAX 2785 at s=0
+   cube 2 axis 2:  241 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 3 axis 0:  433 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 3 axis 1:  433 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 3 axis 2:  433 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 4 axis 0:  433 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 4 axis 1:  433 pts,   1 unevaluable, MAX 2785 at s=0
+   cube 4 axis 2:  433 pts,   1 unevaluable, MAX 2785 at s=0
+   cube 5 axis 0:  206 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 5 axis 1:  209 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 5 axis 2:  209 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 6 axis 0:  433 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 6 axis 1:  433 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 6 axis 2:  433 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 7 axis 0:  148 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 7 axis 1:  148 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 7 axis 2:  134 pts,   0 unevaluable, MAX 2785 at s=1/10
+   cube 8 axis 0:  122 pts,   0 unevaluable, MAX 2785 at s=0
+   cube 8 axis 1:  122 pts,   0 unevaluable, MAX 2785 at s=1/32
+   cube 8 axis 2:  122 pts,   0 unevaluable, MAX 2785 at s=0
+
+6758 evaluations, 4 unevaluable, best over all lines: 2785

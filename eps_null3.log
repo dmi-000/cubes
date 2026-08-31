@@ -1,0 +1,48 @@
+
+n=6  record 727   walls 27  ambient 15  nullity 1
+   CONTROL zero direction        -> 727    OK
+   CONTROL wall-gradient dir     -> 703    OK, count changes
+   --- null directions, eps -> 0 limit, BOTH SIGNS ---
+   null 0  +eps -> 685      -eps -> 685      changes both sides   |v|max 4980
+   summary over 2 signed directions: 0 hold, 2 change, 0 UNEVALUATED
+
+n=7  record 1217   walls 51  ambient 18  nullity 2
+   CONTROL zero direction        -> 1217   OK
+   CONTROL wall-gradient dir     -> 1193   OK, count changes
+   --- null directions, eps -> 0 limit, BOTH SIGNS ---
+   null 0  +eps -> 1217     -eps -> 1217     HOLDS both sides — interior   |v|max 1
+   null 1  +eps -> 1165     -eps -> 1165     changes both sides   |v|max 4980
+   summary over 4 signed directions: 2 hold, 2 change, 0 UNEVALUATED
+
+n=8  record 1895   walls 75  ambient 21  nullity 3
+   CONTROL zero direction        -> 1895   OK
+   CONTROL wall-gradient dir     -> 1871   OK, count changes
+   --- null directions, eps -> 0 limit, BOTH SIGNS ---
+   null 0  +eps -> 1895     -eps -> 1895     HOLDS both sides — interior   |v|max 1
+   null 1  +eps -> None     -eps -> None     UNEVALUATED — engine refused, NOT a negative result   |v|max 9960
+   null 2  +eps -> 1895     -eps -> 1895     HOLDS both sides — interior   |v|max 1
+   summary over 6 signed directions: 4 hold, 0 change, 2 UNEVALUATED
+
+n=6  record 727  nullity 1   CONTROLS zero->727 OK, wall-grad->703 OK
+   b0 |v|max 4980    +eps 685   (WIDE)  -eps 685   (WIDE)  changes
+   n=6: 0 hold, 1 change, 0 unevaluated  (nullity 1, deficit 1)
+
+n=7  record 1217  nullity 2   CONTROLS zero->1217 OK, wall-grad->1193 OK
+   b0 |v|max 1       +eps 1217  (narrow)  -eps 1217  (narrow)  HOLDS both sides
+   b1 |v|max 4980    +eps 1165  (WIDE)  -eps 1165  (WIDE)  changes
+   n=7: 1 hold, 1 change, 0 unevaluated  (nullity 2, deficit 2)
+
+n=8  record 1895  nullity 3   CONTROLS zero->1895 OK, wall-grad->1871 OK
+   b0 |v|max 1       +eps 1895  (narrow)  -eps 1895  (narrow)  HOLDS both sides
+   b1 |v|max 9960    +eps 1837  (WIDE)  -eps 1837  (WIDE)  changes
+   b2 |v|max 1       +eps 1895  (narrow)  -eps 1895  (narrow)  HOLDS both sides
+   n=8: 2 hold, 1 change, 0 unevaluated  (nullity 3, deficit 3)
+
+n=9  record 2785  nullity 4   CONTROLS zero->2785 OK, wall-grad->2759 OK
+   b0 |v|max 1       +eps 2785  (narrow)  -eps 2785  (narrow)  HOLDS both sides
+   b1 |v|max 1       +eps 2785  (narrow)  -eps 2785  (narrow)  HOLDS both sides
+   b2 |v|max 1       +eps 2785  (narrow)  -eps 2785  (narrow)  HOLDS both sides
+   b3 |v|max 9960    +eps 2717  (WIDE)  -eps 2717  (WIDE)  changes
+   n=9: 3 hold, 1 change, 0 unevaluated  (nullity 4, deficit 4)
+
+TOTAL over n=6..9: 6 hold, 4 change, 0 UNEVALUATED

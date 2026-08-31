@@ -46,9 +46,32 @@ enters any decision.
 | 6 | **727** | VERIFIED | 393's five cubes + `7,14,1,-5` |
 | 7 | **1217** | VERIFIED | the 727 six + `4,-3,-4,-4` |
 | 8 | **1895** | VERIFIED | the 1217 seven + `24,-24,24,-61` |
-| 9 | **2785** | VERIFIED | the 1895 eight + `56,56,55,56` — a CONTINUUM, see below **[no establishing Postscript: see note]** |
+| 9 | **2785** | VERIFIED | the 1895 eight + `56,56,55,56` — a CONTINUUM, see below — [P179](LEDGER.md#p179) |
+| 10 | **3913** | VERIFIED | the 2785 nine (member k=57, not the recorded k=56) + `19,-2,15,24` — [P181](LEDGER.md#p181) |
 
-**GAP IN THE RECORD, found 2026-08-18.** Every other row of this table traces to a Postscript — n=4 to [15](LEDGER.md#p15), n=5 to [16](LEDGER.md#p16), n=6 and n=7 to [46](LEDGER.md#p46), n=8 to [101](LEDGER.md#p101) — but **n=9 = 2785 has no establishing entry in `LEDGER.md` at all.** It is documented only in `MAXIMISER_TAXONOMY.md` and `METHODS.md` §9, outside the append-only record. The result itself is not in doubt (both engines agree on the representative); what is missing is its provenance in the ledger. No entry has been written retroactively, because a dated record of what was known when cannot be honestly backfilled.
+**GAP IN THE RECORD, found 2026-08-18 — CLOSED 2026-08-29.** Every other row of this
+table traces to a Postscript, but n=9 = 2785 had no establishing entry in `LEDGER.md`
+at all: it was documented only in `MAXIMISER_TAXONOMY.md` and `METHODS.md` §9, outside
+the append-only record. No entry was backfilled, because a dated record of what was
+known when cannot honestly be written after the fact. Instead the establishing work
+was REDONE and dated to the day it was done: [P179](LEDGER.md#p179), 20 920 exact
+evaluations plus a full-resolution axis sweep, to the same standard as
+[P101](LEDGER.md#p101)'s n=8.
+
+**EVERY RUNG TESTED IS A CONTINUUM, and the recorded member sits at its EDGE
+(2026-08-31, [P182](LEDGER.md#p182)).** The "a CONTINUUM" note on the n=9 row above is
+not special to n=9: 727, 1217 and 1895 are continua too — **every rung from 6 to 9 is
+one** — and in all five intervals measured that contain a recorded configuration, the
+recorded configuration is an ENDPOINT
+rather than an interior point — because a search reports the plateau member with the
+smallest primitive representative, and height is smallest at the boundary. Since
+[P181](LEDGER.md#p181) measured the recorded n=9 member to be the WORST of nine to
+extend (8 below the best), **rows 7 upward are lower bounds that may be systematically
+low**, each built by extending a boundary member of its predecessor's plateau. Under
+test at n=8 (`extend_1217.py`); see [OPEN_QUESTIONS 9](OPEN_QUESTIONS.md). Note the
+endpoints themselves are SOLVED only for 727 ([P183](LEDGER.md#p183) audit,
+[OPEN_QUESTIONS 13](OPEN_QUESTIONS.md)); above n=6 they are grid-sampled, and one of
+2785's recorded ends turned out to be a sweep-window edge rather than a boundary.
 
 The tower nests: 183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1895 ⊂ 2785, adjacent levels differing
 by one cube — verified at the top by taking every 8-, 7-, 6- and 5-cube subset of
@@ -472,6 +495,9 @@ current.
 
 | claim | status now | corrected in |
 |---|---|---|
+| n = 9 = 2785 has no establishing Postscript and its provenance is missing | **CLOSED** — not backfilled; the establishing work was redone and dated to the day it was done | Postscript [179](LEDGER.md#p179) |
+| 727 shows no maximiser locus (P182) | **RETRACTED** — 727 is a plateau on four arcs A-D, documented since Postscripts [79](LEDGER.md#p79)/[80](LEDGER.md#p80); the negative was asserted without reading this file | Postscript [183](LEDGER.md#p183) |
+| 1217 is on a 13-pair curve but is an isolated point on it (1 of 19 offsets) | **RETRACTED** — the sweep stepped 40x the plateau width, and its refinement left 60 of 61 offsets unevaluable; 1217 holds across [-59/315, -11/63] | Postscript [182](LEDGER.md#p182), [FAILURE_MODES 16c](FAILURE_MODES.md#16c) |
 | Off-centred cubes and general hexahedra beat the records | **REFUTED** — an artifact of counting sign-vector cells of the infinite face planes instead of containment regions | Postscript [38](LEDGER.md#p38) |
 | The n = 2 optimum (13) is rigid and near-isolated | **REFUTED** — it is a continuum: 13 holds at every angle about a body diagonal | Postscript [44](LEDGER.md#p44) |
 | Step T reduces to "deg_top ≤ deg_bot at triple points" | **REFUTED** — false; a corner with two blades gives deg_top 8 against deg_bot 4. The theorem holds by a different argument | Postscripts [42](LEDGER.md#p42), [43](LEDGER.md#p43) |

@@ -1,0 +1,5 @@
+narrow engine refused 4 points
+   cube 2 axis 0 s=1/5      ninth=(56, 56, 55, 56)  WIDE=None
+   cube 2 axis 1 s=2/9      ninth=(56, 56, 55, 56)  WIDE=None
+   cube 4 axis 1 s=-1       ninth=(56, 56, 55, 56)  WIDE=None
+   cube 4 axis 2 s=-1       ninth=(56, 56, 55, 56)  WIDE=None

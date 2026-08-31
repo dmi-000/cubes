@@ -1,0 +1,17 @@
+{
+ "output": "degenerate_cells.html",
+ "argv": [
+  "(artifact)"
+ ],
+ "rerun": "python3 (artifact)",
+ "script": "(artifact)",
+ "script_sha1": null,
+ "script_logic_sha1": null,
+ "started": null,
+ "finished": "2026-08-30 18:32:21",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "retroactive": true,
+ "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
+ "note": "Interactive 3D view of the 4-cube configuration (1,0,-1,-1; 2,1,1,1; 24,-24,24,-61; 56,56,55,56) that trips the region counter, with the zero-volume cells its clipper emitted. Geometry from cube_regions_dbg vertex dumps. Published 2026-08-30 at claude.ai/code/artifact/441705ce-ffa0-49b7-bf79-5f8173c5b463; local copy kept because an artifact URL is not a repository file."
+}

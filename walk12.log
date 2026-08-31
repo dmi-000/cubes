@@ -1,0 +1,24 @@
+rank-12 flats: 2012 | ambient 15 | walls 27 | adapter gated at 727
+   100/2012 flats, 522 faces, max=721, unevaluable 10 (275s)
+   200/2012 flats, 1072 faces, max=721, unevaluable 16 (576s)
+   300/2012 flats, 1648 faces, max=721, unevaluable 24 (896s)
+   400/2012 flats, 2286 faces, max=721, unevaluable 36 (1245s)
+   500/2012 flats, 2872 faces, max=721, unevaluable 39 (1570s)
+   600/2012 flats, 3474 faces, max=721, unevaluable 45 (1918s)
+   700/2012 flats, 4048 faces, max=721, unevaluable 58 (2451s)
+   800/2012 flats, 4652 faces, max=721, unevaluable 64 (2995s)
+   900/2012 flats, 5240 faces, max=721, unevaluable 76 (3345s)
+   1000/2012 flats, 5860 faces, max=721, unevaluable 86 (3820s)
+   1100/2012 flats, 6486 faces, max=721, unevaluable 93 (4441s)
+   1200/2012 flats, 7186 faces, max=721, unevaluable 106 (5007s)
+   1300/2012 flats, 7826 faces, max=721, unevaluable 108 (5530s)
+   1400/2012 flats, 8426 faces, max=721, unevaluable 114 (6036s)
+   1500/2012 flats, 9098 faces, max=721, unevaluable 126 (6589s)
+   1600/2012 flats, 9750 faces, max=721, unevaluable 135 (7128s)
+   1700/2012 flats, 10356 faces, max=721, unevaluable 139 (7525s)
+   1800/2012 flats, 10962 faces, max=721, unevaluable 153 (8093s)
+   1900/2012 flats, 11582 faces, max=721, unevaluable 154 (8630s)
+   2000/2012 flats, 12226 faces, max=721, unevaluable 163 (9203s)
+
+rank-12 walk: 12292 faces, MAX = 721 (record 727), unevaluable 164, 9260s
+top counts: [699, 701, 703, 705, 707, 709, 711, 713, 717, 721]

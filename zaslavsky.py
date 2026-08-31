@@ -40,7 +40,18 @@ class Flats:
     """Closure operator on wall index sets, with caching. Exact rational."""
 
     def __init__(self, walls):
-        self.w = [[F(x) for x in row] for row in walls]
+        # FIELD-AGNOSTIC. The reduction below uses only +, -, *, / and a zero
+        # test, so it runs over any ordered field -- Q, or Q(sqrt d) via qfield.Q.
+        # Coercing to Fraction here made the whole lattice machinery rational-only
+        # and shut out the two n=3 maximisers, which are the only PROVED-isolated
+        # records in the project and the only irrational rung. Same assumption
+        # that limited `exactlp.feasible_strict` (P147 Addendum 1).
+        def _keep(x):
+            try:
+                return F(x)
+            except (TypeError, ValueError):
+                return x            # already a field element; use its own arithmetic
+        self.w = [[_keep(x) for x in row] for row in walls]
         self.m = len(walls)
         self.n = len(walls[0])
         self._cl = {}
@@ -90,6 +101,14 @@ class Flats:
 
 def chambers(walls, log=sys.stdout, label=''):
     t0 = time.time()
+    # A ZERO VECTOR IS NOT A HYPERPLANE. One slipped into the octahedral 67's
+    # wall list (a degenerate gradient the `degenerate` flag did not catch); it
+    # joins the bottom flat, and the recursion then returns 0 chambers for a real
+    # arrangement -- a wrong answer raising nothing, FAILURE_MODES 18. Refuse it.
+    bad = [i for i, w in enumerate(walls) if not any(w)]
+    if bad:
+        raise ValueError('walls %s are the zero vector; a zero wall is not a '
+                         'hyperplane and silently zeroes the chamber count' % bad)
     L = Flats(walls)
     m = L.m
     memo = {}
