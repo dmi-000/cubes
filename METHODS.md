@@ -115,7 +115,25 @@ No boundary was found that the coincidence catalogue does not carry.
 **But edge-edge crossings alone are NOT a complete boundary detector.** At the
 lower end of the n = 9 continuum the count steps 2781 -> 2785 between k = 439/8
 and k = 55 while the edge-edge crossing count is **294 on both sides**,
-unchanged. The wall there is of a type the edge-edge count does not register — a
+unchanged.
+
+> **CORRECTED 2026-08-31 ([P187](LEDGER.md#p187)). The bracket above is wrong and
+> its two sample points are on the SAME side.** Direct evaluation: k = 55 gives
+> **2781**, and k = 439/8 gives 2781 — so no step occurs between them. The lower end
+> was SOLVED as a W4 root at
+> `s = 37671/5320 - (1/95)sqrt(452521) = -4.029245e-6` in the parametrisation
+> `ninth cube = (1, 1, 55/56 + s, 1)`, i.e. **k ~ 55.987**, just below the record's
+> k = 56, and bracketed by direct counts 2785 at s = -1/250000 and 2781 at
+> s = -1/200000. So "294 crossings on both sides" compared two points in one
+> chamber — [FAILURE_MODES 14](FAILURE_MODES.md#14-agreement-between-samples-certifies-a-shared-cell-not-a-correct-one)
+> again.
+>
+> **The conclusion may survive its evidence.** The true end IS a W4 root — a face
+> plane through a base triple point, not an edge-edge event — which is what this
+> paragraph claims. But that now rests on the solve, not on the crossing count,
+> and the specific inference "294 corresponds to both 2781 and 2785" is withdrawn.
+> Anything relying on this paragraph to argue that ends cannot be certified above
+> n = 8 should be re-read: the n = 9 end was certified. The wall there is of a type the edge-edge count does not register — a
 face-plane/triple-point event rather than an edge-edge one — so §6's "boundary
 points are coincidence spikes" holds for the boundaries examined at n <= 8 and
 must not be read as a test that can certify the absence of a wall. It also

@@ -1,0 +1,22 @@
+
+n=7  1217: 822 triple points, 4532 W4 quadratics, 4658 distinct roots (1682 below, 2976 above)
+   lower  s = -0.027384234513  (W3 quartic root; exact form needs the quartic factored — see n8_lower.py)
+          21 distinct walls crossed without the count changing
+   upper  s = (-49/12) + (1/6)sqrt(601) = 0.002550224044  height 29  count AT end: 1215
+          2 distinct walls crossed between the record and this end WITHOUT the count changing (METHODS 7)
+   inside (s=0, the record): 1217   1 of 2 located end(s) OPEN (count differs AT the end)
+
+n=8  1895: 1386 triple points, 7758 W4 quadratics, 6831 distinct roots (1288 below, 5543 above)
+   lower  s = -0.025621839667  (W3 quartic root; exact form needs the quartic factored — see n8_lower.py)
+          6 distinct walls crossed without the count changing
+   upper: 1 interval(s) UNEVALUATED and skipped en route
+   upper  s = 0.028087299153  (W3 quartic root; exact form needs the quartic factored — see n8_lower.py)
+          12 distinct walls crossed without the count changing
+   inside (s=0, the record): 1895   0 of 2 located end(s) OPEN (count differs AT the end)
+
+n=9  2785: 2158 triple points, 12200 W4 quadratics, 12376 distinct roots (8232 below, 4144 above)
+   lower  s = (37671/5320) + (-1/95)sqrt(452521) = -0.000004029245  height 766  count AT end: 2783
+          1 distinct walls crossed between the record and this end WITHOUT the count changing (METHODS 7)
+   upper: 57 interval(s) UNEVALUATED and skipped
+   upper  NOT FOUND within 60 roots (60 probes) — unreached, not absent
+   inside (s=0, the record): 2785   1 of 1 located end(s) OPEN (count differs AT the end); the other end was NOT located

@@ -4,3 +4,8 @@ GATE n=7 1217, Cayley-axis line (1,0,0): 822 triple points, 4532 W4 quadratics, 
    upper  s = (-49/12) + (1/6)sqrt(601) = 0.002550224044  height 29  2 probes  count AT end: 1215
    inside (s=0, the record): 1217   plateau is OPEN at both ends
    GATE vs n78_ends: OK
+
+n=9 2785, k-family line (0,1,0): 2158 triple points, 12200 W4 quadratics, 5454 distinct roots (3588 below, 1866 above)
+   lower  s = (37671/5320) + (-1/95)sqrt(452521) = -0.000004029245  height 766  2 probes  count AT end: 2783
+   upper  NOT FOUND within 60 roots (2 probes) — unreached, not absent
+   inside (s=0, the record): 2785   plateau is OPEN at both ends

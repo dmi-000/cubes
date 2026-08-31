@@ -1,0 +1,14 @@
+gate: the record must be 1895 at s=0 -> 1895
+8052 W4 + 15104 W3 crossings on the line; 3546 below the record
+   still 1895 down to s = -0.004316964 (W3)
+   still 1895 down to s = -0.011841992 (W3)
+   still 1895 down to s = -0.014260519 (W3)
+   still 1895 down to s = -0.017901189 (W4)
+   still 1895 down to s = -0.020750685 (W3)
+   still 1895 down to s = -0.025621840 (W3)
+
+LOWER END is a W3 crossing at s = -0.025621839667
+   its polynomial has degree 4; factorisation over Q:
+      (576*x**2 - 2928*x + 5449)^1
+      (340416*x**2 - 786576*x - 20377)^1
+   irreducible factor degrees: [2, 2] -> reachable in Q(sqrt d)

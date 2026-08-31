@@ -13143,7 +13143,15 @@ independent directions:
     1895  dir (1,-1,1,1)   holds on [-229/4, -164/3]  width 31/12    a component far from the record
 
 **In all four intervals containing the recorded configuration, the recorded
-configuration is an ENDPOINT.** Never interior. For 2785 this was already visible in
+configuration is an ENDPOINT.** Never interior.
+
+> **RETRACTED IN FULL 2026-08-31 — [P188](#p188).** False in every case, each for a
+> different reason: 1217's sweep step (1/630) was twice the plateau's remaining width
+> above the record; 1895's sweep WINDOW began at the record (t in [0,4]) so nothing
+> below it could be seen; 2785's lower bound was a window edge, already caught in
+> [P183](#p183). All three records are INTERIOR to their plateaus. The "mechanism"
+> offered below — smallest primitive representative sits at the boundary — was a
+> story fitted to an artifact and is withdrawn with it. For 2785 this was already visible in
 [P178](#p178) and read as a coincidence of representative size — "227/889 is the last
 value giving 2785 ... the member with by far the smallest primitive representative".
 It is not a coincidence: a search that reports the smallest-height member of a
@@ -13208,6 +13216,19 @@ algebraic irrationals that no grid sweep could land on. That is the standard, an
     n=8  1895        sampled direction, NOT solved         grid-sampled only
     n=9  2785        k-family + 2 solved 13-pair curves    upper measured, lower is a WINDOW EDGE
     n=10 3913        none                                  none
+
+> **CORRECTED 2026-08-31 ([P187](LEDGER.md#p187), [P188](LEDGER.md#p188)).** Three rows
+> above are wrong. `n78_ends.py` had ALREADY solved both 1217 ends and 1895's upper end
+> on 2026-08-08, so this audit missed existing work. — the third time in one session that I reported undone
+> something the repository had already done. n=9's two ends are now solved too.
+> And P182's "13-pair curve" for 1217 is not a separate line: its Cayley direction is
+> (1,0,0) — the same axis line n78_ends used. Current state:
+>
+>     n=7  1217   BOTH ENDS SOLVED (n78_ends, 2026-08-08), record INTERIOR
+>     n=8  1895   upper end solved; lower end is a W3 quartic, unreached
+>     n=9  2785   BOTH ENDS SOLVED (P187), record INTERIOR, punctured at s=1/56
+>     n=10 3913   no path established
+
 
 ### Error 1, mine: [P182](#p182) said 727 showed no locus
 
@@ -13495,3 +13516,412 @@ why the weakness was invisible. Consequences, stated plainly:
    was raised today and this campaign was already running when it was.
 
 Files: `extend_1217.py`, `extend_1217.log`, `extend_1217.json`.
+
+<a id="p187"></a>
+
+## Postscript 187: the n = 9 continuum's ends, SOLVED — and METHODS 7's bracket was on one side of the wall
+
+`solve_more_ends.py`, `n9_upper.py`. Prompted by "I'd like to solve any other
+feasible endpoints". [P183](#p183)/[OQ 13](OPEN_QUESTIONS.md) had said endpoints were
+solved only for 727; that audit was itself incomplete — `n78_ends.py` (2026-08-08)
+had already solved both ends of 1217 and the upper end of 1895 on their Cayley-axis
+lines. **The third time this session that I reported something undone that the repo
+had already done.**
+
+### The n = 9 line, complete
+
+Parametrise the ninth cube as (1, 1, 55/56 + s, 1), so s = 0 is the record k = 56:
+
+    lower   s = 37671/5320 - (1/95)sqrt(452521)  = -4.029245e-6    count AT end 2783
+            ... 2785 ...
+    PUNCT   s = 1/56          ninth cube = (1,1,1,1) = base cube 4, count 1895
+            ... 2785 ...
+    upper   s = -2127/2296 + (1/287)sqrt(75737)  =  0.032503696946 count AT end 2783
+
+Both ends are W4 roots — a free-cube face plane through a base triple point — both
+algebraic irrationals, and both OPEN: the count at the endpoint is 2783, two below
+the plateau. [P178](#p178)'s "two rays k >= 56 and k <= -69" is, in this
+parametrisation, **ONE interval punctured at s = 1/56**, which is a cube DUPLICATION
+rather than a wall. That is also why the general outward walk cannot reach the upper
+end from s = 0: it stops at the puncture, which is a degeneracy and not a boundary.
+The upper end was solved by supplying the bracket (125/3864, 31/952) — verified 2785
+and 2781 at its ends — inside which exactly ONE W4 root lies.
+
+### METHODS 7's n = 9 bracket is wrong, and both its sample points are on one side
+
+[METHODS 7](METHODS.md) states "the count steps 2781 -> 2785 between k = 439/8 and
+k = 55 while the edge-edge crossing count is **294 on both sides**". Directly
+evaluated:
+
+    k = 439/8  ->  2781
+    k = 55     ->  2781
+    k = 56     ->  2785        (the record)
+
+**No step occurs between those two points**; the true lower end is at k ~ 55.987.
+So "294 on both sides" compared two configurations in the SAME chamber —
+[FAILURE_MODES 14](FAILURE_MODES.md#14-agreement-between-samples-certifies-a-shared-cell-not-a-correct-one)
+for the third time today. The paragraph's CONCLUSION may survive: the end really is
+a W4 face-plane/triple-point wall, not an edge-edge event, which is what it claimed.
+But that now rests on this solve, and the inference "294 crossings corresponds to
+both 2781 and 2785" is withdrawn. Anything citing that paragraph to argue ends
+cannot be certified above n = 8 must be re-read — **this entry certifies one.**
+
+### Three method errors, each caught by the gate rather than by me
+
+The gate was "reproduce n78_ends' 1217 ends". It failed three times:
+
+1. **"the nearest root is the endpoint"** — false, and it is
+   [METHODS 7](METHODS.md)'s own headline: most coincidences are NOT boundaries. The
+   nearest root below 1217's record has count 1217 AT it. Roots only bracket; the
+   count decides.
+2. **`simplest_between` was valid only for 0 < a < b.** On the negative side it
+   returned rationals OUTSIDE the interval, so probes sampled the wrong cell. Now
+   self-tested against known values before use.
+3. **An off-by-one**: the probe sits in (prev_root, this_root), so a bad probe means
+   the count changed at PREV_ROOT. Returning the other bound overshot 1217's upper
+   end from 0.00255 to 0.0227 — one whole chamber.
+
+Files: `solve_more_ends.py`, `solve_more_ends.log`, `n9_upper.py`, `n9_upper.log`.
+
+<a id="p188"></a>
+
+## Postscript 188: RETRACTION — "the recorded member sits at an ENDPOINT" is false in every case, and each was a different sweep artifact
+
+[P182](#p182)'s headline was: *"In all four intervals containing the recorded
+configuration, the recorded configuration is an ENDPOINT. Never interior."* It is
+wrong three times over, and the three failures are three different mistakes.
+
+### 1217 — the step was twice the remaining width
+
+P182 swept the 13-pair curve at step 1/630 = 0.001587. The solved plateau extends
+only **0.000781** in t above the record. The first sample above the record therefore
+landed outside, every time. Directly:
+
+    t = -11/63 + 1/1280  ->  1217        (inside)
+    t = -11/63 + 1/1000  ->  1213        (outside)
+
+The record is **INTERIOR**. And the curve was never a new object: its Cayley
+direction computes to (992250000/304000063, 0, 0), i.e. **(1,0,0)** — the very
+Cayley-axis line `n78_ends.py` solved on 2026-08-08, whose ends are
+-0.045258752093 and +0.002550224044 with the record at s = 0 strictly between them.
+That was visible in the solved numbers before any of this was sampled.
+
+### 1895 — the window began AT the record
+
+`refine_shapes.py` swept t in **[0, 4]** for direction (0,0,0,1), and the record is
+t = 0. The sweep could not have found anything below it. It did not "find the record
+at the left endpoint"; it started there. Below it:
+
+    t = -1/2  ->  1895        t = -1/4  ->  1895        t = -1  ->  1891
+
+The record is **INTERIOR**. (The level set is also punctured at t = 1, count 1893.)
+
+### 2785 — a window edge, already caught
+
+[P183](#p183) had already found that P182's lower bound 220/889 was where the sweep
+window started, not a boundary. [P187](#p187) then solved the k-line: the record sits
+at s = 0 inside (-4.029e-6, +0.0325037). **INTERIOR**, though very asymmetrically
+placed, which is presumably what made the artifact plausible.
+
+### The part that should not have been written
+
+P182 did not merely report the pattern, it offered a MECHANISM: *"a search reports
+the plateau member with the smallest primitive representative, and height is smallest
+where the parametrisation is simplest, which is at the boundary."* That is a tidy
+story invented to explain an artifact, and having a mechanism made the artifact look
+established rather than suspicious. [P178](#p178)'s earlier note that 227/889 was "the
+last value giving 2785" — which P182 cited as independent corroboration — was the
+same window edge seen twice.
+
+**A pattern assembled from four sweeps, each with its own window and step, is a fact
+about the sweeps until something outside them says otherwise.** The anchor here was
+available the whole time: `n78_ends.py`'s solved ends put the 1217 record strictly
+between two irrational endpoints, on the same line, three weeks before P182 claimed
+it was on the boundary of it.
+
+### What survives, and what falls with it
+
+- **The rungs ARE continua.** That is independent of this and rests on counts held
+  over intervals, on [P184](#p184)'s eps-limit hyperplane, and on [P187](#p187)'s
+  solved ends. Unaffected.
+- **The endpoint claim is withdrawn entirely**, and with it P182's "systematic bias"
+  argument that every rung was built by extending a BOUNDARY member of its
+  predecessor's plateau. That argument had already lost its other leg to
+  [P186](#p186), which voided the extension comparisons. Nothing of it remains.
+- [OQ 9](OPEN_QUESTIONS.md) loses its motivating pattern as well as its measurement.
+
+Files: `refine_shapes.py` (window [0,4] — the defect is in the HITS table),
+`rungshapes.py` (step 1/630), `n78_ends.out` (the anchor that was there all along).
+
+<a id="p189"></a>
+
+## Postscript 189: every tower end n=7..9 is SOLVED, all open, and every one drops by exactly 2 — plus an out-of-sample test P184 could have failed
+
+Three results from "anything to run now?", in increasing order of what they cost.
+
+### 1. P184's formula tested where it was NOT fitted
+
+[P184](#p184) read `preserving dimension = max(0, deficit - 1)` off n=6..9 — the same
+four rungs that produced it. That is a fit. n=3, 4 and 5 all have deficit 1, so the
+formula predicts **zero** preserving directions at each, a prediction that can fail
+outright ([METHODS 4](METHODS.md): choose the control that is hard for the method).
+`eps_lowrungs.py`, controls passing at every rung, 0 unevaluated:
+
+    n=3   63  nullity 1   0 hold, 1 change   predicted 0   CONFIRMS
+    n=4  183  nullity 1   0 hold, 1 change   predicted 0   CONFIRMS
+    n=5  393  nullity 1   0 hold, 1 change   predicted 0   CONFIRMS
+
+Seven rungs now, three out-of-sample. The run also re-derived the tower members below
+n=6 by COUNT rather than assumption, independently reconfirming
+[P162](#p162)'s correction: n=4 is subset {0,1,2,4}, and n=3 is {0,1,4}.
+
+### 2. P182's three lines through 2785 are ONE line
+
+[P182](#p182) reported 2785 lying on TWO 13-pair curves, base cube 1 at t = -227/889
+and base cube 4 at t = -1/223, treated as independent structure. As primitive Cayley
+directions both are **[0,1,0]** — and so is the k-family line [P187](#p187) solved.
+One line, described three ways. With [P188](#p188)'s retraction of the endpoint claim
+and the 1217 curve also turning out to be the Cayley axis (1,0,0), very little of
+P182 remains beyond "these rungs are continua".
+
+### 3. The last unsolved end, and "out of reach" was about the representation
+
+`n78_ends.py` left 1895's lower end as "a W3 quartic, out of reach", a quartic root
+being degree 4 where the engine takes Q(sqrt d). But out of reach is not irreducible:
+the quartic **factors over Q into two quadratics**,
+
+    (576x^2 - 2928x + 5449)(340416x^2 - 786576x - 20377)
+
+so the root is in Q(sqrt 4384009) after all. `n8_lower.py`, `n8_lower.log`.
+
+### The complete table, n = 7..9
+
+    rung   end     s (exact)                                       value    count AT end
+    1217   lower   337/364 - (1/91)sqrt(7809)                  -0.045258752   1215
+    1217   upper   -49/12 + (1/6)sqrt(601)                      0.002550224   1215
+    1895   lower   16387/14184 - (1/1773)sqrt(4384009)         -0.025621840   1893
+    1895   upper   253/24 - sqrt(109)                           0.101360158   1893
+    2785   lower   37671/5320 - (1/95)sqrt(452521)             -0.000004029   2783
+    2785   upper   -2127/2296 + (1/287)sqrt(75737)              0.032503697   2783
+
+> **SUPERSEDED 2026-08-31 — [P192](#p192).** These are the boundaries of OUTER
+> components, not of the components containing the records: the level sets are
+> disconnected and the endpoint solver had two defects (a lossy root dedup, and W4
+> walls only). Corrected boundaries are in P192. Four of the six counts below are
+> consequently unverified at the records' own boundaries.
+
+**Six ends, every one an algebraic irrational, every one OPEN, and every one drops by
+EXACTLY 2.** 1217->1215, 1895->1893, 2785->2783, at both ends of all three. The
+drop-of-2 is an observation, not a law — nothing here explains it — but a wall value
+two below its chamber value, six times out of six across three different rungs and
+both wall types (W4 at five ends, W3 at 1895's lower), is the kind of census
+[METHODS 16](METHODS.md) says to stop counting and factor.
+
+Also measured on the way, the quantity [METHODS 7](METHODS.md) is about: **walls
+crossed between the record and its end WITHOUT the count changing** — 6 below 1895's
+record, 8 below 1217's. Most coincidences are not boundaries, quantified.
+
+Files: `eps_lowrungs.py`, `eps_lowrungs.log`, `n8_lower.py`, `n8_lower.log`,
+`n9_upper.py`, `solve_more_ends.py`.
+
+<a id="p190"></a>
+
+## Postscript 190: n=10 IS a continuum, n=4 appears genuinely finite — tangents solved and verified with eps
+
+`arc_eps.py`. Closes the two rows [OQ 13](OPEN_QUESTIONS.md) had left with no path
+established. Both answers come from the same computation, and they go opposite ways.
+
+### The method, and the one thing changed from `tangent_finder.py`
+
+A curve in a maximiser locus lies inside every wall it does not cross, so its tangent
+is orthogonal to those normals. The full active set OVER-CONSTRAINS, because most
+coincidence crossings do not change the count ([METHODS 7](METHODS.md)) — the
+documented failure being the 727 record itself, where the naive full-rank test reports
+"0-dimensional" although two independent directions preserve 727. `tangent_finder.py`
+already has the repair: null spaces of rank-2 SUBSETS of the active normals, each
+verified.
+
+**What is changed is the verification.** `tangent_finder.subset_tangents` steps
++-1/64 and +-1/1024, both finite. [P188](#p188) established today what that costs:
+1217's plateau is 0.00078 wide along its line, so a finite step can leave a genuine
+plateau and REJECT a real tangent. Verification here is the eps engine — both signs of
+count(pt + eps*v) with eps a positive infinitesimal ([P184](#p184)) — the exact limit,
+no step to choose.
+
+### The gate, on the case that defeats the naive test
+
+    n=6 727:  8 wall normals in the slice, 7 rank-2 candidates
+              VERIFIED tangents: 2       (14, 2, -3) and (21, 4, -6)
+
+Arc D's known tangents are (-1,-1/7,3/14) and (-1,-4/21,2/7); scaled by -14 and -21
+those are exactly the two recovered. 0 unevaluated.
+
+### The two answers
+
+    n=4  183:   10 normals, 30 rank-2 candidates -> 0 VERIFIED, 0 unevaluated
+    n=10 3913:   3 normals,  1 rank-2 candidate  -> 1 VERIFIED: (15, 220, 86)
+
+**n=10 = 3913 is a CONTINUUM.** A count constant at pt + eps*v is constant on a real
+interval, so this is a genuine locus and not a first-order artefact. Its ends are
+solvable by the [P187](#p187)/[P189](#p189) machinery — running as `n10_ends.py`.
+
+**n=4 = 183 shows no tangent at all**, and this is the first rung where the search
+came back empty with nothing unevaluated. Together with [P189](#p189)'s eps result
+(deficit 1, zero preserving null directions) it is consistent with `RESULTS.md`'s
+long-standing description: 183 is a PLATEAU of finitely many points — two congruence
+classes — rather than a continuum. **Not a proof.** Only the last cube moves, a
+3-dimensional slice of the 9-dimensional gauge-fixed space, and only rank-2 subsets
+were tried; a locus needing earlier cubes to move is invisible. The honest statement
+is: no tangent in the slice where 727's arc D was found, tested the same way.
+
+### Where that leaves the continuum question
+
+    n=2   13     continuum (body-diagonal family)
+    n=3   67     ISOLATED, both maximisers, deficit 0
+    n=4   183    no tangent found — plausibly finite
+    n=5   393    deficit 1, no preserving direction (P189)
+    n=6   727    continuum, arcs A-D, all six ends solved
+    n=7   1217   continuum, both ends solved
+    n=8   1895   continuum, both ends solved
+    n=9   2785   continuum, both ends solved
+    n=10  3913   continuum, tangent (15,220,86), ends in progress
+
+The tower is continua from n=6 up, and the two rungs below it that were ever claimed
+to be plateaux (183) or isolated (67) both come back without a tangent.
+
+Files: `arc_eps.py`, `arc_eps.log`, `n10_ends.py`.
+
+<a id="p191"></a>
+
+## Postscript 191: NEW RECORD n = 10 = 3917 — found by sweeping a SOLVED tangent, where menu search had found 3913
+
+`arc_eps.py` -> `n10_ends.py` bracket sweep. **3917, +4 over [P181](#p181)'s 3913.**
+
+### The configuration
+
+    4,1,1,-1; 3,3,7,3; 5,-1,-5,-5; 2,1,1,1; 1,1,1,1;
+    7,14,1,-5; 4,-3,-4,-4; 24,-24,24,-61; 57,57,56,57; 88787,-9061,74275,113786
+
+The tenth cube is the point at s = 1/4673 on the line
+`Cayley = (-2/19, 15/19, 24/19) + s*(15, 220, 86)`, the simplest rational in the
+interval where 3917 holds. The first witness found was s = 1/5000, tenth cube
+(95000, -9715, 79180, 121634); both count 3917.
+
+### Verification, to the [P101](#p101) standard
+
+- **Both engines agree**: `cube_regions_n` and `cube_regions_q2w --d 0` both return
+  3917 with identical depth profiles.
+- `by_depth` {1:504, 2:748, 3:684, 4:588, 5:490, 6:386, 7:282, 8:174, 9:60, 10:1},
+  summing to 3917.
+- **Rotation-invariant**: 3917 under three independent global rotations
+  ((2,1,0,0), (1,1,1,0), (3,0,1,2)), so it is not a counting-box artifact
+  ([P180](#p180) Addendum 5).
+- **Nesting preserved**: dropping the tenth cube gives exactly **2785**, the n=9
+  record. The tower still nests.
+- **It is a continuum**: 3917 holds across s in [1/5000, 107/500000], 15 of 20 points
+  at step 1e-6.
+
+The sequence becomes **13, 67, 183, 393, 727, 1217, 1895, 2785, 3917**.
+
+### How it was found, which is the point
+
+[P181](#p181)'s `extend_n10.py` searched a menu — exhaustive small cubes plus ~4 000
+log-uniform samples to height 512 — across nine members of the 2785 continuum, 62 211
+evaluations, and returned 3913. The winning tenth cube here has height 113 786. **No
+menu of that shape could ever have contained it**, which is the same defect
+[P186](#p186) identified when the 1217 campaign failed to rediscover 1895.
+
+What found it instead: [P190](#p190) solved for the tangent to the 3913 locus —
+(15, 220, 86), exact linear algebra on rank-2 subsets of the wall normals, verified
+with the eps engine — and a rational sweep ALONG that solved direction hit 3917 within
+thirteen probes. Solving for where to look beat sampling by 62 211 evaluations to 13.
+
+That is [METHODS 1](METHODS.md#1-solve-the-line-do-not-sample-it), and it is worth
+recording that the user raised "solve, don't sample" **thirteen separate times** over
+seven weeks ([INTERVENTIONS](INTERVENTIONS.md#a3-recurring-interventions--the-same-correction-over-and-over))
+before this session, and once more within it.
+
+### What this does NOT settle
+
+3917 is a **lower bound**, like every record here. Nothing excludes better n=10
+configurations, and this one was found on ONE line through ONE point. The obvious
+next moves: sweep the same tangent further, re-solve the tangent AT 3917 (a different
+point, possibly a different locus), and re-run [P190](#p190)'s tangent solve at each
+rung of the tower — if a solved tangent beat a 62 211-evaluation search at n=10, the
+lower rungs deserve the same treatment.
+
+Files: `arc_eps.py`, `arc_eps.log`, `n10_ends.py`.
+
+<a id="p192"></a>
+
+## Postscript 192: the endpoint solver had two defects; [P189](#p189)'s table reported the wrong components
+
+`allends.py`. Superseding the endpoint rows of [P187](#p187) and [P189](#p189).
+Nothing about the CONTINUA changes; what changes is which boundary was measured.
+
+### Defect 1 — a lossy dedup made the walk step over intervals
+
+Roots were deduped through a stringified symbolic key `(rp, rq, d)`. The same wall
+position arises from many quadratics with different representations, so the key left
+duplicates in AND merged distinct positions. With values as the key the n=7 line has
+**4 658** distinct roots where the old list had 1 786. The walk was probing intervals
+that spanned several real chambers.
+
+### Defect 2 — only W4 walls were enumerated
+
+`solve_more_ends.py` used `w4_polys` alone. A component bounded by a **W3** edge-edge
+wall was therefore invisible, and both n=7's and n=8's lower boundaries turn out to be
+exactly that.
+
+### The corrected boundaries — of the component CONTAINING THE RECORD
+
+    n=7  1217   ( -0.027384234513  W3 ,  +0.002550224044  W4, count 1215 )
+    n=8  1895   ( -0.025621839667  W3 ,  +0.028087299153  W3 )
+    n=9  2785   ( -0.000004029245  W4, count 2783 ,  +1/56  PUNCTURE )
+
+n=9's upper boundary is not a wall at all: walking up from the record reaches the
+cube-duplication puncture at s = 1/56 ([P187](#p187)) before any wall, so the
+component ends there.
+
+**[P189](#p189)'s table measured OUTER components.** Its -0.045258752093 (n=7) and
++0.101360157756 (n=8) are real walls with the counts reported, but the level sets are
+DISCONNECTED and those bound components separated from the record's by intervals where
+the count is lower. 1217 does hold again out at -0.0452 — verified directly — with
+1215 in between. `n78_ends.py` took its targets numerically from a sweep that had
+stepped over the same gaps, which is why it agreed.
+
+**A correction inside this correction.** I first reported the n=7 gap as a puncture at
+-0.025617 from the W4-only list. That value is wrong: the probe placing it lay BEYOND
+the true W3 boundary, in an interval straddling it. The disconnection is real; the
+number was not.
+
+### What this costs [P189](#p189)'s "every end drops by exactly 2"
+
+That census was taken at the outer-component walls. It remains true of those walls,
+but it is **no longer a statement about the records' own plateau boundaries**, and at
+the corrected boundaries only n=7's upper (1215) and n=9's lower (2783) have been
+evaluated exactly — both still -2. The other three are W3 quartic roots whose exact
+Z[sqrt d] form needs the quartic factored ([`n8_lower.py`](n8_lower.py) shows the
+1895 lower quartic does factor). **Four of six data points are now unverified; the
+census is not withdrawn, it is unfinished.**
+
+### Two performance findings worth keeping
+
+- **`squarefree` is O(sqrt(disc))** and was being called for every root. At n=9
+  discriminants were small enough; at n=10 they reach ~1e18, so an endpoint run
+  burned 37 minutes emitting nothing. The walk never needs the exact form — only root
+  VALUES, to order roots and pick a rational between them — so it is now deferred to
+  the single endpoint root. `root_values` in `solve_more_ends.py`.
+- **The catalogue was never the bottleneck.** `catcache.py` computes the whole n=9
+  base catalogue in **11 seconds**, and now caches it on disk keyed by the base
+  ([METHODS 2](METHODS.md)) — it had been recomputed from scratch by six different
+  scripts.
+
+### Unreached, stated as a count
+
+n=9's upper walk skipped **57 of 60 intervals as UNEVALUATED**: between two very close
+roots the simplest rational necessarily has a large denominator, and the configuration
+outruns even the 256-bit engine. That is a property of the interval, not of the count.
+Unevaluable probes are now skipped and counted rather than treated as stops.
+
+Files: `allends.py`, `allends.log`, `solve_more_ends.py`, `catcache.py`.

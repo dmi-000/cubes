@@ -1,0 +1,9 @@
+
+RECHECK n=7 1217 (must give -0.045258752093 / +0.002550224044, both 1215): 822 triple points, 4532 W4 quadratics, 1881 distinct roots (684 below, 1197 above)
+   lower  s = (4611/5348) + (-1187/1337)sqrt(1) = -0.025617053104  height 1337  count AT end: 1215
+          3 distinct walls crossed between the record and this end WITHOUT the count changing (METHODS 7)
+   upper  s = (-49/12) + (1/6)sqrt(601) = 0.002550224044  height 29  count AT end: 1215
+          1 distinct walls crossed between the record and this end WITHOUT the count changing (METHODS 7)
+   inside (s=0, the record): 1217   2 of 2 located end(s) OPEN (count differs AT the end)
+   GATE vs n78_ends: MISMATCH {'lower': (-0.0256170531039641, 1215), 'upper': (0.0025502240437542847, 1215)}
+gate failed

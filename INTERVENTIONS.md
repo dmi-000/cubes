@@ -55,6 +55,7 @@ it apart.
 | [P175](LEDGER.md#p175) | "do all points on a plateau generate the same tower?" | required first showing deficit directions ARE plateaus; they are not | — |
 | [P182](LEDGER.md#p182) | **"are the 15 directions chosen by sampling or solving?"** | `shapes.py` was sampling. METHODS 1's *named* failure — "seven representative directions, all small-integer and axis-aligned" | **"15 directions"** in my own report |
 | [P183](LEDGER.md#p183) | "are all continua paths and endpoints documented?" | they are not; and I had claimed 727 showed no locus while `RESULTS.md` had said for weeks it is a plateau on four arcs | an audit question I had not asked |
+| [P188](LEDGER.md#p188) | **"I don't see anything updating. pid 97154 is still running."** | a 2.5-hour job burning CPU on a direction whose cheapest representative is (1,0,0) — and, once diagnosed, that P182's headline finding ("recorded members sit at plateau ENDPOINTS") is false in all three cases, each a different sweep artifact | **a process that had printed nothing** |
 | [P184](LEDGER.md#p184) | **"I think we implemented epsilon as a step size"** | the ENGINE is a true infinitesimal; **P175** used steps 1/1000, 1/100, 1 — and two of them agreed, certifying a shared cell. P175's universal is false for n ≥ 7 | **"1/1000: 685  1/100: 685"** printed in the entry |
 
 **The shift.** Early interventions were generative — a human seeing meaning in a
@@ -141,6 +142,7 @@ from re-reading.**
 | What was caught | How |
 |---|---|
 | A misattribution in **this file**: the "another way to slide" quote was cited to P26 when it is inside P25 | verifying every anchor against the ledger before publishing the register |
+| Third instance in one session of claiming something undone that the repo had already done (727's arcs, then `n78_ends.py`'s solved 1217/1895 endpoints) — all three surfaced by the user asking, none by me checking | not caught by me; recorded here because the ratio is the measurement |
 | Reported a "climbing trend" in `extend_1217` (1885 → 1887 → 1889) that does not exist — I read EXECUTION order as PARAMETER order, and the `TS` list is not sorted by t | sorting the results by t before describing them; the real sequence is 1885, 1883, 1887, 1889, 1885, 1883 — non-monotone, like the 723 spread |
 | Wrong n=9 representative in `rungshapes.py` — (57,57,56,57) is the member P181 extended, not the recorded k=56 | the gate demanding METHODS 12's known curve **failed**, on the right grounds |
 | `cube_regions_fix`'s "correct count = 145" was wrong (true 143) | the user's rotation idea supplied ground truth — *shared credit*: the idea was theirs, the test mine |

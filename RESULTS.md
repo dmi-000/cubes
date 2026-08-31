@@ -47,7 +47,7 @@ enters any decision.
 | 7 | **1217** | VERIFIED | the 727 six + `4,-3,-4,-4` |
 | 8 | **1895** | VERIFIED | the 1217 seven + `24,-24,24,-61` |
 | 9 | **2785** | VERIFIED | the 1895 eight + `56,56,55,56` — a CONTINUUM, see below — [P179](LEDGER.md#p179) |
-| 10 | **3913** | VERIFIED | the 2785 nine (member k=57, not the recorded k=56) + `19,-2,15,24` — [P181](LEDGER.md#p181) |
+| 10 | **3917** | VERIFIED | the 2785 nine (member k=57) + `88787,-9061,74275,113786` — found by sweeping a SOLVED tangent, [P191](LEDGER.md#p191). Supersedes 3913 ([P181](LEDGER.md#p181)) |
 
 **GAP IN THE RECORD, found 2026-08-18 — CLOSED 2026-08-29.** Every other row of this
 table traces to a Postscript, but n=9 = 2785 had no establishing entry in `LEDGER.md`
@@ -58,24 +58,20 @@ was REDONE and dated to the day it was done: [P179](LEDGER.md#p179), 20 920 exac
 evaluations plus a full-resolution axis sweep, to the same standard as
 [P101](LEDGER.md#p101)'s n=8.
 
-**EVERY RUNG TESTED IS A CONTINUUM, and the recorded member sits at its EDGE
-(2026-08-31, [P182](LEDGER.md#p182)).** The "a CONTINUUM" note on the n=9 row above is
-not special to n=9: 727, 1217 and 1895 are continua too — **every rung from 6 to 9 is
-one** — and in all five intervals measured that contain a recorded configuration, the
-recorded configuration is an ENDPOINT
-rather than an interior point — because a search reports the plateau member with the
-smallest primitive representative, and height is smallest at the boundary. Since
-[P181](LEDGER.md#p181) measured the recorded n=9 member to be the WORST of nine to
-extend (8 below the best), **rows 7 upward are lower bounds that may be systematically
-low**, each built by extending a boundary member of its predecessor's plateau. Under
-test at n=8 — **which came back VOID**, the search failing to reproduce 1895 from the
-base that reaches it ([P186](LEDGER.md#p186)); the same defect voids the member
-comparisons behind that "8 below best" figure, so the extension-quality question is
-UNMEASURED and the rows above are unaffected lower bounds. See
-[OPEN_QUESTIONS 9](OPEN_QUESTIONS.md). Note the
-endpoints themselves are SOLVED only for 727 ([P183](LEDGER.md#p183) audit,
-[OPEN_QUESTIONS 13](OPEN_QUESTIONS.md)); above n=6 they are grid-sampled, and one of
-2785's recorded ends turned out to be a sweep-window edge rather than a boundary.
+**EVERY RUNG FROM 6 TO 9 IS A CONTINUUM** (2026-08-31,
+[P182](LEDGER.md#p182)/[P184](LEDGER.md#p184)/[P187](LEDGER.md#p187)). The "a
+CONTINUUM" note on the n=9 row above is not special to n=9: 727 (arcs A-D), 1217 and
+1895 are continua too. n=9's ends are now SOLVED exactly —
+`s = 37671/5320 - (1/95)sqrt(452521)` and `s = -2127/2296 + (1/287)sqrt(75737)` in the
+parametrisation ninth cube = (1, 1, 55/56 + s, 1) — both open, the interval punctured
+at s = 1/56 where the ninth cube duplicates a base cube.
+
+*A claim that stood here for part of 2026-08-31 — that the recorded member sits at an
+EDGE of its plateau, making rows 7 upward systematically low — was **RETRACTED** the
+same day ([P188](LEDGER.md#p188)). Every recorded member examined is INTERIOR to its
+plateau; the pattern was three different sweep artifacts. The related claim that the
+recorded n=9 member "extends worst" is separately UNMEASURED
+([P186](LEDGER.md#p186)). The rows above are unaffected lower bounds.*
 
 The tower nests: 183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1895 ⊂ 2785, adjacent levels differing
 by one cube — verified at the top by taking every 8-, 7-, 6- and 5-cube subset of
@@ -501,7 +497,10 @@ current.
 |---|---|---|
 | n = 9 = 2785 has no establishing Postscript and its provenance is missing | **CLOSED** — not backfilled; the establishing work was redone and dated to the day it was done | Postscript [179](LEDGER.md#p179) |
 | 727 shows no maximiser locus (P182) | **RETRACTED** — 727 is a plateau on four arcs A-D, documented since Postscripts [79](LEDGER.md#p79)/[80](LEDGER.md#p80); the negative was asserted without reading this file | Postscript [183](LEDGER.md#p183) |
-| 1217 is on a 13-pair curve but is an isolated point on it (1 of 19 offsets) | **RETRACTED** — the sweep stepped 40x the plateau width, and its refinement left 60 of 61 offsets unevaluable; 1217 holds across [-59/315, -11/63] | Postscript [182](LEDGER.md#p182), [FAILURE_MODES 16c](FAILURE_MODES.md#16c) |
+| 1217 is on a 13-pair curve but is an isolated point on it (1 of 19 offsets) | **RETRACTED** — the sweep stepped 40x the plateau width, and its refinement left 60 of 61 offsets unevaluable; 1217 is a continuum | Postscript [182](LEDGER.md#p182), [FAILURE_MODES 16c](FAILURE_MODES.md#16c) |
+| The recorded member of a continuum sits at an ENDPOINT of it (all four intervals measured) | **RETRACTED** — every recorded member examined is INTERIOR; three different sweep artifacts (step twice the remaining width; a window beginning at the record; a window edge). The "smallest primitive representative sits at the boundary" mechanism was invented to fit them | Postscript [188](LEDGER.md#p188) |
+| The 1217 plateau is [-59/315, -11/63] in the 13-pair parameter | **SUPERSEDED** — that curve is the Cayley-axis line (1,0,0), whose ends `n78_ends.py` solved on 2026-08-08: -0.045258752093 and +0.002550224044, with the record strictly between | Postscripts [187](LEDGER.md#p187), [188](LEDGER.md#p188) |
+| n = 10 = 3913 | **SUPERSEDED** — 3917, found by sweeping the tangent solved in P190; the winning tenth cube has height 113 786, which no log-uniform menu to height 512 could contain | Postscript [191](LEDGER.md#p191) |
 | Off-centred cubes and general hexahedra beat the records | **REFUTED** — an artifact of counting sign-vector cells of the infinite face planes instead of containment regions | Postscript [38](LEDGER.md#p38) |
 | The n = 2 optimum (13) is rigid and near-isolated | **REFUTED** — it is a continuum: 13 holds at every angle about a body diagonal | Postscript [44](LEDGER.md#p44) |
 | Step T reduces to "deg_top ≤ deg_bot at triple points" | **REFUTED** — false; a corner with two blades gives deg_top 8 against deg_bot 4. The theorem holds by a different argument | Postscripts [42](LEDGER.md#p42), [43](LEDGER.md#p43) |

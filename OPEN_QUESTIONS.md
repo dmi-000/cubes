@@ -242,28 +242,19 @@ predecessor's *recorded* representative. If those predecessors are continua too,
 each rung may be the best extension of an arbitrarily chosen base rather than the
 best available — and the gap is 8 at both rungs where it has been measured.
 
-**No longer untried — [P182](LEDGER.md#p182) measured the shapes.** 1217, 1895 and
-2785 are ALL continua, and so is 727 — on its four documented arcs A-D, with the
-record at arc D's node ([P183](LEDGER.md#p183) corrects P182, which had claimed 727
-showed no locus; that claim contradicted `RESULTS.md` and `METHODS.md` and was made
-without reading them). **Every rung from 6 to 9 is a continuum.** More importantly,
-in every interval containing a recorded configuration the recorded configuration is
-an **ENDPOINT**, never interior:
+**The shapes were measured, and the headline drawn from them was WRONG
+([P182](LEDGER.md#p182), retracted by [P188](LEDGER.md#p188)).** What stands: every
+rung from 6 to 9 is a continuum. What does not: the claim that the recorded member
+sits at an ENDPOINT of its plateau. It is INTERIOR in every case examined — 1217's
+sweep stepped twice the plateau's remaining width, 1895's sweep window began at the
+record so nothing below it could be seen, and 2785's lower bound was a window edge.
+The "mechanism" offered for the pattern (searches report the smallest primitive
+representative, which sits at the boundary) was invented to explain an artifact.
 
-    1217   [-59/315, -11/63]           recorded at the RIGHT end
-    1895   [0, 11/12] along (0,0,0,1)  recorded at the LEFT end
-    2785   [-227/889, -3278/13335]     recorded at the LEFT end
-    2785   [-1/223, 97/28098]          recorded at the LEFT end
-
-There is a mechanism, not a coincidence: a search reports the plateau member with the
-smallest primitive representative, and height is smallest where the parametrisation is
-simplest, which is at the boundary. [P178](LEDGER.md#p178) had already noticed 2785's
-recorded member was "the last value giving 2785" and read it as luck.
-
-**So the bias is systematic.** Every rung of the tower was built by extending a
-BOUNDARY member of its predecessor's plateau, and the one rung where members were
-compared (n=9 -> n=10) put the boundary member 8 below the best. Every rung above 727
-may be low for the same reason.
+**So the systematic-bias argument is gone entirely.** This section used to argue that
+every rung was built by extending a BOUNDARY member of its predecessor's plateau, and
+that boundary members extend worst. The first half is refuted ([P188](LEDGER.md#p188))
+and the second half was never measured ([P186](LEDGER.md#p186)). Nothing links them.
 
 **Tested, and the test was VOID — [P186](LEDGER.md#p186), 2026-08-31.**
 `extend_1217.py` ran seven members of the 1217 plateau, 48 396 evaluations, and
@@ -349,7 +340,7 @@ are correct throughout and the guard refuses rather than miscounting, and a glob
 rotation recovers any refused count exactly. It is a tidiness question, not a
 correctness one.
 
-## 13. Where does each continuum actually END? — one rung is solved, the rest are sampled
+## 13. Where does each continuum actually END? — n=7,8,9 SOLVED; n=10 is a continuum with ends in progress; 183 shows no tangent
 
 [P183](LEDGER.md#p183) audited every continuum in the project against the standard
 727 set: through-point, direction, and extent SOLVED as roots of the wall equation
@@ -365,6 +356,18 @@ restricted to the arc's line. **Only 727 meets it** — six ends, two exactly ra
     n=8  1895        sampled direction, NOT solved         grid-sampled only
     n=9  2785        k-family + 2 solved 13-pair curves    upper measured, lower a WINDOW EDGE
     n=10 3913        none                                  none
+
+> **CORRECTED 2026-08-31 ([P187](LEDGER.md#p187), [P188](LEDGER.md#p188)).** Three rows
+> above are wrong. `n78_ends.py` had ALREADY solved both 1217 ends and 1895's upper end
+> on 2026-08-08, so this audit missed existing work. n=9's two ends are now solved too.
+> And P182's "13-pair curve" for 1217 is not a separate line: its Cayley direction is
+> (1,0,0) — the same axis line n78_ends used. Current state:
+>
+>     n=7  1217   BOTH ENDS SOLVED (n78_ends, 2026-08-08), record INTERIOR
+>     n=8  1895   BOTH ENDS SOLVED (P189 — the quartic factors over Q)
+>     n=9  2785   BOTH ENDS SOLVED (P187), record INTERIOR, punctured at s=1/56
+>     n=10 3913   CONTINUUM — tangent (15,220,86) verified with eps (P190); ends in progress
+
 
 **Why it is not bookkeeping.** A grid endpoint is the last sampled point that held,
 so it is simultaneously a LOWER bound on the plateau's extent and an UPPER bound on

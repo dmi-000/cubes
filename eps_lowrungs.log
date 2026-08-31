@@ -1,0 +1,18 @@
+identifying the tower members below n=6 by COUNT, not by assumption:
+   n=3 = 63  subset (0, 1, 4)
+   n=4 = 183  subset (0, 1, 2, 4)
+   n=5 = 393  subset (0, 1, 2, 3, 4)
+
+prediction from P184: deficit 1 at each of these, so ZERO preserving directions
+
+n=3  record 63  walls 7  ambient 6  nullity 1   CONTROLS zero->63 wall->47  OK
+   b0 |v|max 5      +eps 53     -eps 53      changes
+   n=3: 0 hold, 1 change, 0 unevaluated | predicted 0 holding  -> CONFIRMS
+
+n=4  record 183  walls 12  ambient 9  nullity 1   CONTROLS zero->183 wall->161  OK
+   b0 |v|max 25     +eps 157    -eps 157     changes
+   n=4: 0 hold, 1 change, 0 unevaluated | predicted 0 holding  -> CONFIRMS
+
+n=5  record 393  walls 18  ambient 12  nullity 1   CONTROLS zero->393 wall->373  OK
+   b0 |v|max 200    +eps 357    -eps 357     changes
+   n=5: 0 hold, 1 change, 0 unevaluated | predicted 0 holding  -> CONFIRMS

@@ -1,0 +1,12 @@
+
+GATE  n=6 727 (two known tangents): record 727, 27 walls, ambient 15   CONTROLS zero->727 wall->703  OK
+   8 distinct wall normals in the last-cube slice, 7 rank-2 candidates
+   VERIFIED tangents: 2   (7 candidates, 0 UNEVALUATED — not negatives)
+      (14, 2, -3)
+      (21, 4, -6)
+   GATE: expected >= 2 verified, got 2 -> OK
+
+n=10 3913 (P190, for comparison): record 3913, 101 walls, ambient 27   CONTROLS zero->3913 wall->3887  OK
+   3 distinct wall normals in the last-cube slice, 1 rank-2 candidates
+   VERIFIED tangents: 1   (1 candidates, 0 UNEVALUATED — not negatives)
+      (15, 220, 86)
