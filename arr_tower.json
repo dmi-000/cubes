@@ -11,5 +11,31 @@
   "secs": 0.4414677619934082,
   "n": 9,
   "deficit": 4
+ },
+ {
+  "tight": 468,
+  "loose": 10116,
+  "walls": 99,
+  "ambient": 24,
+  "rank": 20,
+  "lineality": 4,
+  "count": 2785,
+  "name": "n=9 member  k=57",
+  "secs": 2900.4534151554108,
+  "n": 9,
+  "deficit": 4
+ },
+ {
+  "tight": 482,
+  "loose": 14368,
+  "walls": 101,
+  "ambient": 27,
+  "rank": 22,
+  "lineality": 5,
+  "count": 3913,
+  "name": "n=10 (P181, on k=57)",
+  "secs": 0.5159561634063721,
+  "n": 10,
+  "deficit": 5
  }
 ]

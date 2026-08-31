@@ -10,6 +10,12 @@ member was the WORST of nine tested, 8 below the best.
 If endpoint members systematically extend worst, then extending an interior member
 of the 1217 plateau should beat 1895, and n=7 is cheap enough to just ask.
 
+VOID AS RUN — see [P186]. The search returned 1891 from the recorded base, which
+provably reaches 1895, so its negatives do not count. The gate below now checks menu
+membership of the known eighth cube before any comparison is read. A second defect
+remains unfixed: base heights along this curve run 4 to 379 while the menu is
+exhaustive only to 4, so one fixed menu is not equally dense around all bases.
+
 Search shape copied from extend_n10.py so the comparison is like-for-like:
 exhaustive cubes in [-4,4]^4 plus log-uniform samples to 512, per base.  Refusals
 are rescued by rotation (P180 Addendum 5), never scored as "no result".
@@ -79,6 +85,27 @@ def rescue(cfg):
     return None
 
 
+KNOWN_EIGHTH = (24, -24, 24, -61)      # recorded base + this = 1895
+
+
+def gate_search_can_find_1895(cand):
+    """The oldest gate in the project: machinery must reproduce the known answer.
+
+    Without this the campaign ran 8 046 s and returned 1891 from the base that
+    provably reaches 1895, making every negative void ([P186]).  The menu is
+    exhaustive on [-4,4]^4 plus ~4 000 log-uniform samples to height 512; the
+    target has height 61, so it sits in the sampled part, and 4 000 samples in
+    ~512^4 is not a search.  Checking MEMBERSHIP is instant and decisive.
+    """
+    if canon(KNOWN_EIGHTH) not in set(cand):
+        raise SystemExit(
+            'GATE FAILED: the candidate menu does not contain %s, the eighth cube '
+            'that takes the recorded base to 1895. The search cannot reproduce the '
+            'known answer, so its negatives would be void (P186). Widen the menu or '
+            'add the known cube as a control before reading any comparison.'
+            % (KNOWN_EIGHTH,))
+
+
 def main():
     rnd = random.Random(20260831)
     t0 = time.time()
@@ -101,6 +128,8 @@ def main():
                             for _ in range(4)))
             if q and max(map(abs, q)) <= 512: cand.append(q)
         cand = list(dict.fromkeys(cand))
+        if t == RECORDED:
+            gate_search_can_find_1895(cand)
         bb, bq = 0, None
         for i in range(0, len(cand), 400):
             chunk = [base + [q] for q in cand[i:i+400]]

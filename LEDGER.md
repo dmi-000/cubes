@@ -12101,6 +12101,11 @@ between n=3 and n=4 (freeness lost) and whose only modular step is the fifth.
   chain, since the tower's own n=3 member is the rational 63 ([P171](#p171)).
 - **From n=7 the growth is exactly linear**: +24 walls, +3 ambient, +2 rank,
   +1 deficit per added cube. Three consecutive rungs, no exceptions.
+  > **CORRECTED 2026-08-31 — [P185](#p185).** The wall half of this FAILS at n=10:
+  > measured 101 against the predicted 123, the tenth cube bringing 14 new tight
+  > conditions where each of the previous three brought 84. Ambient and rank hold.
+  > Note only two of the four columns were ever predictions — ambient is true by
+  > construction and deficit = ambient - rank is derived — and they split one each.
 
 ### What STOPS
 
@@ -13214,8 +13219,11 @@ without reading the documents that already answered it** — the same direction 
 failure as [mode 8](FAILURE_MODES.md#8-stale-summary-statements), but committed by
 the producer rather than inherited from a stale summary.
 
-`locus727.py` then found it independently: 727 holds on t in [-1/4, 5/6] along the
-quaternion direction (2,2,0,-1). In Cayley coordinates that line passes through
+`locus727.py` then found it independently — **completed 2026-08-31: 272 directions,
+26 112 evaluations, 0 unevaluable, exactly TWO intervals** and nothing above 727 seen
+anywhere on the sweep. 727 holds on t in [-1/4, 5/6] along the quaternion direction
+(2,2,0,-1); the only other hit is a single point along (1,-1,0,0) at t=1, which at
+step 1/12 is one evaluation wide and is not evidence of an arc. In Cayley coordinates that line passes through
 (2, 1/7, -5/7) — the record — with tangent (-2/7, -2/49, 3/49), which is **exactly
 parallel to arc D's first tangent** (-1,-1/7,3/14): the ratio is 2/7 on all three
 components. A re-discovery of a documented arc, not a new one. It does serve as an
@@ -13253,6 +13261,16 @@ known line, which is exactly the computation that produced 727's six ends. The
 missing work is mechanical: solve the ends for 1217's curve, 1895's two directions,
 2785's two 13-pair curves and its k-family's lower end, and establish a path at all
 for 183 and 3913. Recorded as [OPEN_QUESTIONS 13](OPEN_QUESTIONS.md).
+
+### What the exhaustive slice sweep adds
+
+`locus727.py` is the strongest negative available in this slice: every direction in
+{-2..2}^4 up to sign and scale, at the resolution that made 1895's locus visible where
+an integer sweep had seen a single point. It re-found arc D and **nothing else**. That
+does not mean arcs A, B and C are absent — they are documented, and they move the
+last cube along lines this parametrisation reaches only if they pass through the
+recorded point, which only arc D does. It does mean no NEW arc through the record
+exists in the last-cube slice at that resolution.
 
 Files: `rungshapes.py`, `locus727.py`, `locus727.log`, `MAXIMISER_TAXONOMY.md`.
 
@@ -13339,3 +13357,141 @@ whether the number reported came from it.
 
 Files: `eps_null.py`, `eps_null3.py`, `eps_null3.log`, `eps_null4.py`,
 `eps_null4.log`, `epscount.py` (gained a `wide=` escalation).
+
+<a id="p185"></a>
+
+## Postscript 185: P172's linear wall law is REFUTED at n = 10, and not for the reason I guessed
+
+`arr_tower.py`, `wall_census.py`. The n=10 arrangement row, now reproducible and
+gated — the earlier number came from an inline heredoc that was never saved
+([FAILURE_MODES 19a](FAILURE_MODES.md#19a)).
+
+### The measurement
+
+    n=9  recorded k=56   count 2785  walls  99  ambient 24  rank 20  deficit 4   [GATE: reproduces P172]
+    n=9  member   k=57   count 2785  walls  99  ambient 24  rank 20  deficit 4
+    n=10 (on k=57)       count 3913  walls 101  ambient 27  rank 22  deficit 5
+
+[P172](#p172) fitted "+24 walls, +3 ambient, +2 rank per added cube, three
+consecutive rungs, no exceptions" and so predicts 123 walls at n=10. **Measured
+101.** Ambient and rank hold; walls do not. Note ambient = 3(n-1) is true by
+construction and deficit = ambient - rank is derived, so of P172's four columns only
+TWO were ever predictions, and they split one each.
+
+### My hypothesis was wrong, and the test said so cleanly
+
+[P181](#p181)'s n=10 is built on the k=57 member of the 2785 continuum, not on the
+recorded k=56 rung, so I expected the two rows to differ and the "law" to have been
+compared across different objects. **They are identical** — 99/24/20 both. The base
+is not the explanation; the break is real.
+
+A second hypothesis, that the drop was a FILTER artifact — `walls_of` silently
+discards tight conditions flagged degenerate — is also dead. `wall_census.py` reports
+the discarded count next to the number derived from it:
+
+    n      count    tight   degen    kept   walls    rank
+    6        727      216       0     216      27      14
+    7       1217      300       0     300      51      16   (+84 tight, +24 walls)
+    8       1895      384       0     384      75      18   (+84, +24)
+    9       2785      468       0     468      99      20   (+84, +24)
+    10      3913      482       0     482     101      22   (+14,  +2)
+
+**Zero degenerate at every rung.** The break is in the geometry: three consecutive
+cubes each brought 84 new tight conditions and 24 new walls; the tenth brought 14
+and 2.
+
+### What this licenses, and what it does not
+
+The n=10 record is structurally unlike every rung below it — far less coincident.
+The tempting inference is that 3913 is therefore a poor n=10 and a coincidence-rich
+tenth cube would beat it. **[METHODS 6](METHODS.md#6-coincidence-count-is-a-certificate-not-a-compass)
+forbids that inference**: coincidence count ranks candidates wrongly (723 carries 180
+crossings and loses to 727's 150; the two n=3 maximisers carry 30 and 72 and both
+count 67). "More coincidences" never rules a candidate IN.
+
+What METHODS 6 does license is the converse, and it is a real test: at a maximiser
+the coincidence count is a strict local maximum, so **if 3913 is not a local maximum
+of tight-condition count, it is ruled OUT as the n=10 maximiser.** That test has not
+been run and is the honest next step. Until it is, this entry claims only that the
+linear law fails, not that the record is low.
+
+Also worth recording: k=56 and k=57 have identical arrangement rows, which is what
+continuum membership should look like — same combinatorics, different point.
+
+Files: `arr_tower.py`, `arr_tower.log`, `arr_tower.json`, `wall_census.py`,
+`wall_census.log`.
+
+<a id="p186"></a>
+
+## Postscript 186: the 1217 extension campaign is VOID — and the same defect sits under P181 and OQ 9
+
+`extend_1217.py`, 48 396 evaluations, 8 046 s, 0 unevaluable, 0 skipped. It was built
+to test [OQ 9](OPEN_QUESTIONS.md)'s prediction that boundary members of a continuum
+extend worst. **It cannot answer that, and the reason invalidates more than itself.**
+
+### The result that voids it
+
+    t = -59/315   interior   best n=8 = 1885
+    t = -2/11     interior   best n=8 = 1883
+    t = -9/50     interior   best n=8 = 1887
+    t = -7/39     interior   best n=8 = 1889
+    t = -5/28     interior   best n=8 = 1885
+    t = -3/17     interior   best n=8 = 1883
+    t = -11/63    RECORDED   best n=8 = 1891
+
+The recorded rung IS 1895, and it is reached from exactly that seventh cube by adding
+(24,-24,24,-61). **The search returned 1891 from the base that provably reaches
+1895.** So the machinery does not reproduce the known answer, and by the project's
+oldest gate — "your machinery must reproduce the current record before your negative
+results count" ([JOURNEY](JOURNEY.md#the-collaboration-honestly-described)) — every
+negative here is void. I copied `extend_n10.py`'s search shape and did not carry a
+gate that this campaign, unlike that one, was in a position to have.
+
+Why it missed: the menu is exhaustive on [-4,4]^4 plus ~4 000 log-uniform samples up
+to height 512. The target (24,-24,24,-61) has height 61, inside the range and outside
+the exhaustive part, and 4 000 samples in a space of about 512^4 ~ 7e10 is not a
+search. **Random menus of this shape cannot be expected to find a specific cube.**
+
+### A second defect, independent of the first
+
+The recorded base's seventh cube is (4,-3,-4,-4), height 4. The six interior members
+have heights 41 to 379. The menu is exhaustive exactly to height 4. So the one base
+that scored highest is also the only one whose own scale matches the dense part of
+the menu. Rank correlation between height and score is only -0.218, so height does
+not explain the ordering — but it bites hardest precisely where the result was read.
+
+### What this invalidates beyond this campaign
+
+`extend_n10.py` ([P181](#p181)) uses the same menu shape, and `member723.py` produced
+[OQ 9](OPEN_QUESTIONS.md)'s other spread the same way. Neither could gate on
+reproducing a known answer — at n=10 there was none to reproduce, which is exactly
+why the weakness was invisible. Consequences, stated plainly:
+
+- **Each per-member number is a LOWER bound**, not that member's extension maximum.
+- **The SPREAD is not established.** "Members reach 3905..3913, spread 8" and
+  "723's eight members reach 1203..1211, spread 8" are differences between lower
+  bounds, and a difference of lower bounds bounds nothing. If the menu fits some
+  members better than others — and heights along a continuum vary by two orders of
+  magnitude, as they do here — the spread measures menu fit.
+- **[OQ 9](OPEN_QUESTIONS.md)'s central claim is therefore unproven in both
+  directions.** "The recorded member extends worst" (from P181) and "the recorded
+  member extends best" (the reading this campaign invited) rest on the same
+  unvalidated instrument. The honest status is: unmeasured.
+- [P181](#p181)'s **3913 itself stands** — it is a configuration that was counted, and
+  a lower bound is what a record claim needs. What does not stand is the comparison
+  between members.
+
+### What a valid test needs
+
+1. A gate that the search reproduces 1895 from the recorded base before any
+   comparison is read. That gate would have failed this run in the first minute
+   instead of after 8 046 seconds.
+2. A menu matched to each base, not a fixed one — heights along the 1217 curve run
+   4 to 379, so a single menu cannot be equally dense around all of them.
+3. Better, and in the project's own idiom: stop searching. Which member extends best
+   is a question about coincidences that can be SOLVED, as
+   [METHODS 12](METHODS.md) solves for 13-pair curves — the 13th instance of
+   "solve, don't sample" in [INTERVENTIONS](INTERVENTIONS.md#a3-recurring-interventions--the-same-correction-over-and-over)
+   was raised today and this campaign was already running when it was.
+
+Files: `extend_1217.py`, `extend_1217.log`, `extend_1217.json`.

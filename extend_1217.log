@@ -1,2 +1,11 @@
    t=-59/315   interior seventh (379, -300, -379, -379) best n=8 = 1885   eighth (22, 1, 118, -95) (6915 evals, 1774s)
    t=-9/50     interior seventh (241, -185, -241, -241) best n=8 = 1887   eighth (1, 1, -385, 1)  (13836 evals, 3069s)
+   t=-7/39     interior seventh (47, -36, -47, -47) best n=8 = 1889   eighth (33, -89, -1, -123) (20748 evals, 4357s)
+   t=-5/28     interior seventh (135, -103, -135, -135) best n=8 = 1885   eighth (22, -23, 143, 23) (27659 evals, 5286s)
+   t=-2/11     interior seventh (53, -41, -53, -53) best n=8 = 1883   eighth (1, -1, -109, -1) (34567 evals, 6248s)
+   t=-3/17     interior seventh (41, -31, -41, -41) best n=8 = 1883   eighth (10, 1, -11, 10) (41479 evals, 7077s)
+   t=-11/63    RECORDED seventh (4, -3, -4, -4)  best n=8 = 1891   eighth (6, -6, 6, 1)    (48396 evals, 8046s)
+
+BEST n=8 FOUND: 1895   (recorded rung is 1895)
+   48396 evaluations, 0 rescued by rotation, 0 unevaluable, 0 bases skipped
+   spread across continuum members: [('-11/63', 1891), ('-2/11', 1883), ('-3/17', 1883), ('-5/28', 1885), ('-59/315', 1885), ('-7/39', 1889), ('-9/50', 1887)]

@@ -1,3 +1,5 @@
 272 directions, step 1/12, |t| <= 4  (26384 evaluations)
    dir (2, 2, 0, -1)  727 holds on [-1/4, 5/6] width 13/12 (14 pts)
    dir (1, -1, 0, 0)  727 holds on [1, 1] width 0 (1 pts)
+
+26112 evaluations, 0 unevaluable, 2 intervals found, max count seen 727

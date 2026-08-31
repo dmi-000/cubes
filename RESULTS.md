@@ -68,7 +68,11 @@ smallest primitive representative, and height is smallest at the boundary. Since
 [P181](LEDGER.md#p181) measured the recorded n=9 member to be the WORST of nine to
 extend (8 below the best), **rows 7 upward are lower bounds that may be systematically
 low**, each built by extending a boundary member of its predecessor's plateau. Under
-test at n=8 (`extend_1217.py`); see [OPEN_QUESTIONS 9](OPEN_QUESTIONS.md). Note the
+test at n=8 — **which came back VOID**, the search failing to reproduce 1895 from the
+base that reaches it ([P186](LEDGER.md#p186)); the same defect voids the member
+comparisons behind that "8 below best" figure, so the extension-quality question is
+UNMEASURED and the rows above are unaffected lower bounds. See
+[OPEN_QUESTIONS 9](OPEN_QUESTIONS.md). Note the
 endpoints themselves are SOLVED only for 727 ([P183](LEDGER.md#p183) audit,
 [OPEN_QUESTIONS 13](OPEN_QUESTIONS.md)); above n=6 they are grid-sampled, and one of
 2785's recorded ends turned out to be a sweep-window edge rather than a boundary.

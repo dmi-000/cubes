@@ -1,0 +1,6 @@
+
+GATE n=7 1217, Cayley-axis line (1,0,0): 822 triple points, 4532 W4 quadratics, 1786 distinct roots (649 below, 1137 above)
+   lower  s = (337/364) + (-1/91)sqrt(7809) = -0.045258752093  height 91  9 probes  count AT end: 1215
+   upper  s = (-49/12) + (1/6)sqrt(601) = 0.002550224044  height 29  2 probes  count AT end: 1215
+   inside (s=0, the record): 1217   plateau is OPEN at both ends
+   GATE vs n78_ends: OK

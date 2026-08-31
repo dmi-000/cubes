@@ -1,2 +1,8 @@
 n=9 recorded k=56      count 2785   walls   99  ambient  24  rank  20  deficit 4  (0s)
    gate: reproduces P172 row for n=9   OK
+n=9 member  k=57       count 2785   walls   99  ambient  24  rank  20  deficit 4  (2900s)
+n=10 (P181, on k=57)   count 3913   walls  101  ambient  27  rank  22  deficit 5  (1s)
+
+P172 predicted n=10 walls = 99 + 24 = 123;  measured 101
+n=9 walls: recorded k=56 -> 99, member k=57 -> 99  (SAME, so the base is not the explanation)
+step from the row n=10 actually extends: 99 -> 101 = +2

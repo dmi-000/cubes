@@ -62,7 +62,67 @@ picture. Recent ones are corrective — a human auditing method. Both matter, bu
 second kind is the one that scales badly: it requires the human to read closely
 enough to spot a leaked parameter, on work that is by then several documents deep.
 
-### A3. What the "Prompted by" marker does and does not capture
+### A3. Recurring interventions — the same correction, over and over
+
+*Added 2026-08-31 after mining all five session transcripts (`mine_interventions.py`).
+These are counts of DISTINCT human turns, not impressions.*
+
+| theme | times raised | first | last |
+|---|---|---|---|
+| **"solve, don't sample"** | **13** | 2026-07-15 | 2026-08-31 |
+| unevaluated cases / gaps not counted | 9 | 2026-07-21 | 2026-08-30 |
+| stale or wrong documents | 8 | 2026-07-30 | 2026-08-18 |
+| continua and their ENDPOINTS | 5 | 2026-08-03 | 2026-08-31 |
+| epsilon / infinitesimal vs step | 5 | 2026-08-03 | 2026-08-31 |
+| "could you have asked that yourself?" | 5 | 2026-08-02 | 2026-08-19 |
+| reproducibility / don't work in scratch | 4 | 2026-08-04 | 2026-08-31 |
+
+**Thirteen times.** "can we solve instead of search?" (08-05), "why did we sweep
+instead of solve?" (08-10), "you said sweep the rulings systematically — did you
+mean solve?" (08-10), "is subset_topology.log sampling directions?" (08-13), "are
+the 15 directions chosen by sampling or solving?" (08-31). METHODS 1 is the FIRST
+principle in the global principles file, and it is there because this question kept
+having to be asked. Writing it down did not stop it being needed.
+
+Three of these threads close a loop that is worth stating exactly, because each is a
+case where the human supplied the remedy and the remedy was later ignored:
+
+- **The ε engine was the user's idea.** 2026-08-03: "Which of those five counts are
+  epsilon neighbors?" Then 2026-08-16: *"can arithmetic fields handle epsilon? or can
+  1/2^n be solved rather than sampled?"* and "infinitesimal-arithmetic engine seems a
+  useful tool." `cube_regions_eps` was built that afternoon. Two weeks later
+  [P175](LEDGER.md#p175) answered an infinitesimal question with 1/1000 and 1/100 —
+  and it took the user saying "I think we implemented epsilon as a step size" on
+  08-31 to find it ([P184](LEDGER.md#p184)).
+- **Endpoints were asked for on 2026-08-03**: "Are there other continua? we should
+  check all endpoints." On 2026-08-31 the audit found them still undocumented for
+  every rung except 727 ([P183](LEDGER.md#p183), [OQ 13](OPEN_QUESTIONS.md)). Four
+  weeks, unclosed, never resurfaced by me.
+- **The reproducibility rule is the user's**: 2026-08-04, "if exact ℚ(√2)/ℚ(√5)
+  representatives aren't in a findable file, they should be. **Everything we do
+  should be reproducible**"; 2026-08-11, "some early .pys were written to temporary
+  scratch and may not have gotten archived... we should strengthen our policy." On
+  2026-08-31 a 3 216-second n=10 measurement turned out to have been launched from an
+  unsaved heredoc ([FAILURE_MODES 19a](FAILURE_MODES.md#19a)).
+
+### A4. Interventions recovered from transcripts that no ledger entry records
+
+Mined 2026-08-31. None of these carry a "Prompted by" marker.
+
+| date | what the human said | what it did |
+|---|---|---|
+| 2026-07-09 | "Is there a way to count analytically without having to approximate irrationals?" | **founded the project's exact-arithmetic rule** — the constraint every engine since has been built to satisfy |
+| 2026-07-09 | "why are all the region counts == 3%4?" | the mod-4 structure |
+| 2026-07-11 | "I think slide3_report.md failed to find the way the 3 cube configurations continuously slide into each other. the 3 cubes all need to rotate together" | corrected a delegated agent's report on the geometry it was hired to find |
+| 2026-07-12, 07-21 | "it seems counter intuitive that moving the center of any of the cubes could increase the number of regions, but do we have any solid arguments against it?" | exposed a **counting bug** — sign-vector cells of infinite face planes instead of containment regions ([P38](LEDGER.md#p38)) |
+| 2026-07-13 | "I think postscript 9 described the 67 flexibility" | the human remembered the ledger's contents better than I did |
+| 2026-07-14 | "I think some of the edge concurrences should persist on the slide" | corrected a claimed loss of coincidences |
+| 2026-07-30 | "why is Postscript 31 after Postscript 41?" | record integrity — ordering corruption in the ledger |
+| 2026-08-02 | "generated positions is good, but **it doesn't update invalidated statements. discipline does that.**" | the doctrine behind the superseded-claims table |
+| 2026-08-05 | "Are you sure the continuum is one dimensional?" | a dimension claim challenged directly |
+| 2026-08-16 | "did we record any claim with falsified numbers?" → "was the method that produced falsified numbers used as the basis of any other claim?" → "how did a wrong answer slip through?" → **"Could you have asked those questions yourself?"** | the audit sequence, and the question that became the standing rule to run it unprompted |
+
+### A5. What the "Prompted by" marker does and does not capture
 
 The ledger marks user-initiated entries with the phrase "Prompted by" — 15 of them.
 That count is an **undercount and should not be quoted as a measurement**:
@@ -81,6 +141,7 @@ from re-reading.**
 | What was caught | How |
 |---|---|
 | A misattribution in **this file**: the "another way to slide" quote was cited to P26 when it is inside P25 | verifying every anchor against the ledger before publishing the register |
+| Reported a "climbing trend" in `extend_1217` (1885 → 1887 → 1889) that does not exist — I read EXECUTION order as PARAMETER order, and the `TS` list is not sorted by t | sorting the results by t before describing them; the real sequence is 1885, 1883, 1887, 1889, 1885, 1883 — non-monotone, like the 723 spread |
 | Wrong n=9 representative in `rungshapes.py` — (57,57,56,57) is the member P181 extended, not the recorded k=56 | the gate demanding METHODS 12's known curve **failed**, on the right grounds |
 | `cube_regions_fix`'s "correct count = 145" was wrong (true 143) | the user's rotation idea supplied ground truth — *shared credit*: the idea was theirs, the test mine |
 | [P147](LEDGER.md#p147)'s two performance claims | my own follow-up probe falsified both; recorded as Addendum 3 |
@@ -123,3 +184,28 @@ the tell recorded — the tell is the reusable part. Append to Part B whenever
 something is caught without one, with *how*. Neither list is allowed to be pruned for
 looking bad; the ratio between them is the measurement, and a register that only
 keeps its successes measures nothing.
+
+---
+
+## Part D — How this file gets updated (the token question)
+
+The obvious objection to mining transcripts is cost: 5 files, **84.4 MB**, 32 186
+JSONL lines. Reading them is impossible. Reading the *human* is easy, because the
+human is a rounding error in the corpus:
+
+    all JSONL lines                    32 186      84.4 MB
+    genuine human turns                 1 554     476.6 KB     0.58%
+    challenge-like turns                  589     321.5 KB
+    long pastes truncated to 400 ch       589      79.6 KB    ~20k tokens   0.09%
+
+`mine_interventions.py` does this. "Genuine" drops `tool_result` blocks (which carry
+`role=user`), system reminders, task notifications and slash-command envelopes;
+"challenge-like" keeps turns with a question mark or corrective vocabulary and drops
+bare acknowledgements; truncation is safe because a long paste only needs its opening
+to be classified. Re-run it after new sessions.
+
+**The recovery rate is the point.** Part A4 lists ten interventions that no ledger
+entry records, including the one that founded the project's exact-arithmetic rule.
+The ledger's own "Prompted by" marker found 15; mining found the rest. Attribution
+by memory undercounts, and it undercounts in a specific direction — the earliest and
+most foundational contributions are the ones least likely to still be cited.

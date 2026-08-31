@@ -112,7 +112,7 @@ the idea.
 **Suggested by the project's own rule** (a census returning few distinct values
 wants factoring, not more counting) and answerable from data already on disk.
 
-## 4. Why 24 walls per added cube, and why lineality = n − 5?
+## 4. Why 24 walls per added cube? — a WINDOW n = 6..9, broken at both ends
 
 For n = 6..9: `walls = 24n − 117`, `tight = 84n − 288`, `rank = 2(n+1)`,
 `lineality = n − 5` ([P122](LEDGER.md#p122)). The 24 is the order of the cube's
@@ -122,6 +122,25 @@ clean to be coincidence.
 **Ruled out:** that it is a law of the family — the fit **FAILS at n = 5**
 (predicted 3 walls, measured 18), so it is a regime beginning at n = 6
 ([P122](LEDGER.md#p122)).
+
+**AND IT FAILS AT n = 10 (2026-08-31, [P185](LEDGER.md#p185)).** The regime is a
+WINDOW of four rungs, closed at both ends, not a law with a starting point:
+
+    quantity            formula        n=10 predicted   n=10 measured
+    walls               24n - 117           123              101      FAILS
+    tight conditions    84n - 288           552              482      FAILS
+    rank                2(n+1)               22               22      holds
+    lineality           n - 5                 5                5      holds
+
+Zero conditions were discarded as degenerate at any rung, so the break is geometric,
+not a filter artifact. **The question sharpens rather than closes:** why do rank and
+lineality keep their linear growth into n = 10 while walls and tight conditions
+break together? The "one new wall per self-symmetry of the added cube" reading has to
+explain why the tenth cube contributed 14 tight conditions where each of the previous
+three contributed 84 — and note the n=10 configuration is a much less coincident
+object than the rungs below it, which [METHODS 6](METHODS.md#6-coincidence-count-is-a-certificate-not-a-compass)
+forbids reading as evidence that 3913 is a poor record, but which is the obvious
+place to look for the mechanism.
 
 ## 5. What surrounds the rational records?
 
@@ -246,10 +265,32 @@ BOUNDARY member of its predecessor's plateau, and the one rung where members wer
 compared (n=9 -> n=10) put the boundary member 8 below the best. Every rung above 727
 may be low for the same reason.
 
-**Being tested now**, at the cheapest rung that can answer it: `extend_1217.py` runs
-the `extend_n10.py` search from seven members of the 1217 plateau — both endpoints and
-five interior points. If an interior member beats 1895, n=8 has a new record and the
-tower is provisional from n=7 up.
+**Tested, and the test was VOID — [P186](LEDGER.md#p186), 2026-08-31.**
+`extend_1217.py` ran seven members of the 1217 plateau, 48 396 evaluations, and
+returned **1891 from the recorded base, which provably reaches 1895**. Machinery that
+cannot reproduce the known answer produces no valid negatives.
+
+**And this section's own two measurements have the same defect.** `extend_n10.py`
+(P181) and `member723.py` use the same random-menu shape and neither could gate on a
+known answer — at n=10 there was none. So:
+
+- each per-member number above is a LOWER bound, not that member's maximum;
+- **"spread 8" is a difference between lower bounds, which bounds nothing**;
+- heights along a continuum vary by two orders of magnitude (4 to 379 on the 1217
+  curve), so a single fixed menu is not equally dense around every member, and the
+  spread may measure menu fit rather than extension quality.
+
+**Status of the whole question: UNMEASURED.** Both readings — "the recorded member
+extends worst" (from P181) and "extends best" (which this campaign appeared to show,
+scoring the recorded endpoint highest at 1891) — rest on the same unvalidated
+instrument. P181's 3913 stands as a record, since a record needs only a lower bound;
+the comparison between members does not.
+
+**What a valid test needs:** a gate that the search reproduces 1895 from the recorded
+base (now in `extend_1217.py`, and it would have failed in the first minute rather
+than after 8 046 seconds); a menu matched per base; and better, a SOLVE — which
+member extends best is a question about coincidences, as
+[METHODS 12](METHODS.md) already solves for 13-pair curves.
 
 **Solved, not sampled, would be better.** `twoparam.py` solves for continuum
 members admitting a degenerate extension locus, and its answer at both 723 and 2785
@@ -342,3 +383,27 @@ above n = 8 need the wall equation itself.
 **What it takes.** Nothing new — the computation that produced 727's six ends,
 applied to 1217's curve, 1895's two directions, 2785's two 13-pair curves and its
 k-family lower end. Establishing a path at all is the open part for 183 and 3913.
+
+## 14. Are P173 and P174 salvageable? — retracted on a premise that has since been overturned
+
+[P175](LEDGER.md#p175) retracted [P162](LEDGER.md#p162), [P173](LEDGER.md#p173) and
+[P174](LEDGER.md#p174) on the grounds that "a direction crossing no wall still changes
+the count". [P184](LEDGER.md#p184) showed that grounds is **false for n ≥ 7**: measured
+with ε a positive infinitesimal rather than steps of 1/1000, the count-preserving null
+directions form a hyperplane of dimension max(0, deficit − 1) — 0 of 1 at n=6, 1 of 2
+at n=7, 2 of 3 at n=8, 3 of 4 at n=9.
+
+**This does not reinstate them.** Removing the stated reason for a retraction is not
+the same as re-verifying the content, and no one has re-checked what P173 and P174
+actually claimed. What is suggestive is that P173's arithmetic — "each cube past the
+sixth is loose in one direction" — matches max(0, n − 6) exactly.
+
+**What settling it needs:** re-derive P173's and P174's claims against P184's
+measurement, direction by direction. Specifically, P174's "the free axis is a body
+diagonal" had its AXES computed correctly and only its interpretation withdrawn, so it
+is the most likely to survive intact. P162's "the rank deficit IS the plateau
+dimension" stays wrong either way — the preserving dimension is deficit − 1.
+
+**Why it is filed rather than done:** it is a re-reading of three entries against a
+new measurement, not a computation, and it should be done deliberately rather than
+folded into a session that has already overturned four things.

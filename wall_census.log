@@ -1,0 +1,6 @@
+n      count    tight   degen    kept   walls    rank
+6        727      216       0     216      27      14 
+7       1217      300       0     300      51      16 (walls +24, degen +0)
+8       1895      384       0     384      75      18 (walls +24, degen +0)
+9       2785      468       0     468      99      20 (walls +24, degen +0)
+10      3913      482       0     482     101      22 (walls +2, degen +0)
