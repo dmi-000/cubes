@@ -7,7 +7,30 @@ below was wrong in some earlier form and was corrected by a specific run.
 
 ---
 
-## 1. Solve the line; do not sample it
+
+## Kinds of entry in this file
+
+*Added 2026-08-31.* This file had accumulated three different kinds of entry under one
+numbering, and each heading now says which it is:
+
+- **PRACTICE** — a transferable imperative about how to work (solve don't sample;
+  choose the hard control; displace by an infinitesimal). No truth value; it cannot be
+  refuted, only ignored. Ten of the twenty-two.
+- **TECHNIQUE** — a procedure specific to this problem (name a wall by its subset
+  signature; memoise on the coarsest invariant). May carry a soundness caveat: §22 is
+  derivable in one direction and heuristic in the converse, which is the direction
+  actually used.
+- **FACT** — a CLAIM ABOUT CUBE COMPOUNDS, not a method at all: §6, §7, §8, §11. These
+  belong to the same world as `RESULTS.md` and can be WRONG. §7's n = 9 evidence was
+  corrected on 2026-08-31 ([P187](LEDGER.md#p187)) after both of its sample points
+  turned out to lie on the same side of the wall it described — a correction that
+  would have been unthinkable for a PRACTICE and is routine for a FACT.
+
+The distinction matters because entries here get cited as authority. Citing a PRACTICE
+settles how to proceed; citing a FACT asserts something that may need re-checking, and
+until now the two looked identical in a citation.
+
+## [PRACTICE] 1. Solve the line; do not sample it
 
 The count and the per-label profile are constant BETWEEN consecutive wall
 crossings on a line. So: build the base's W3/W4 catalogue, solve
@@ -30,7 +53,7 @@ point outside that ball is missed. And a rational strictly between two roots
 unevaluated, never as count changes. Across six lines and 20 308 chambers, 8.5%
 were unevaluable that way.
 
-## 2. Report the MAXIMUM over a line, not the indicator of one value
+## [PRACTICE] 2. Report the MAXIMUM over a line, not the indicator of one value
 
 This is how the n = 8 record was missed for eleven months. The sweep recorded
 where 1891 held — "[0, 3/32] and again on [15/64, 3/8]" — so 1895, sitting in
@@ -39,7 +62,7 @@ as a dropout instead of a rise. **A plateau sweep must report the maximum over
 the line.** Re-reading all six catalogue lines this way (20 308 chambers) found
 no further omission, so the loss was one line even though the habit was general.
 
-## 3. Decide wrapping at the point at infinity, in one call
+## [TECHNIQUE] 3. Decide wrapping at the point at infinity, in one call
 
 A line's point at infinity is the half-turn about its direction, `(0, d)`. One
 engine call there settles whether a family wraps; extending a sweep can only ever
@@ -48,7 +71,7 @@ the n = 6 723 stratum, whose two "huge runs" turned out to be one arc joined
 through infinity. Both wrapping families run along a symmetry axis of the base;
 all five that terminate run in general directions.
 
-## 4. Choose the control that is HARD for the method, not the one to hand
+## [PRACTICE] 4. Choose the control that is HARD for the method, not the one to hand
 
 Three attempts at one direction scan, two of them void, and the controls passed
 every time while the method was broken. The controls used — n = 2's (1,1,0) and
@@ -68,7 +91,7 @@ the method could be wrong about, and use the extreme one:
 
 Full account in `FAILURE_MODES.md` §13a.
 
-## 5. A zero is only as good as the search set that produced it
+## [PRACTICE] 5. A zero is only as good as the search set that produced it
 
 Two questions to answer before believing any "0 of N":
 
@@ -84,7 +107,7 @@ nothing else — that specificity is what makes its zeros elsewhere worth
 something. A cube with w = 0 is at Cayley infinity and cannot be scanned at all;
 say so rather than counting it as covered.
 
-## 6. Coincidence count is a certificate, not a compass
+## [FACT] 6. Coincidence count is a certificate, not a compass
 
 Real edge-edge crossings — two edges from different cubes generically miss, so
 each is a codimension-1 coincidence — track the region count closely and rank
@@ -102,7 +125,7 @@ candidates wrongly.
   and both count exactly **67**. Coincidence structure and region count are not
   even close to determining one another across strata.
 
-## 7. Every boundary is a coincidence boundary; most coincidences are not boundaries
+## [FACT (n=9 evidence CORRECTED 2026-08-31, P187)] 7. Every boundary is a coincidence boundary; most coincidences are not boundaries
 
 W3 + W4 bracket every chamber wall observed on every 727 arc — 39 of 39 — while
 only about a quarter of the interior crossings change anything. The converse
@@ -140,7 +163,7 @@ must not be read as a test that can certify the absence of a wall. It also
 breaks, at this scale, the local single-valued map from crossings to regions
 found at n = 4: here 294 crossings corresponds to both 2781 and 2785.
 
-## 8. Tell chamber values from wall values
+## [FACT] 8. Tell chamber values from wall values
 
 On the lines examined, **every chamber count is ≡ 3 (mod 4) and the values ≡ 1
 (mod 4) occur only ON walls** — 725, 717 and 705 never appear on an open
@@ -154,7 +177,7 @@ Related: a boundary point carries MORE coincidences than either side of it —
 diagonal punctures, 138 → 144 → 150 across an arc and its node. An arc ends by
 running into a denser stratum, never by the geometry running out.
 
-## 9. Search the pair-type multiset, not the rotation space
+## [TECHNIQUE] 9. Search the pair-type multiset, not the rotation space
 
 Crossings per cube PAIR are quantised: among the rational maximisers they take
 only 24, 6 and 0, corresponding exactly to the pair labels 13, 9 and 4. (The
@@ -220,7 +243,7 @@ neighbouring buckets cost almost nothing, because the pair screen was the
 bottleneck rather than the arrangement count, and it turned a confirmation
 exercise into a measurement that overturned the claim.
 
-## 10. Prune by the SUBSET SPECTRUM, not by subset maximality
+## [TECHNIQUE] 10. Prune by the SUBSET SPECTRUM, not by subset maximality
 
 Every (n−1)-subset of an n-record is *near*-maximal; almost none is maximal. The
 full spectrum, dropping each cube in turn:
@@ -247,7 +270,7 @@ the subset it started from.
 
 Two data points; test it before trusting the 98%.
 
-## 11. The depth profile IS the face vector of the boundary spheres
+## [FACT] 11. The depth profile IS the face vector of the boundary spheres
 
 For two convex bodies A, B the depth profile is not merely correlated with the
 incidence data — it is an Euler characteristic of it, and the relation can be
@@ -610,7 +633,7 @@ many faces fit on the union's boundary sphere, not about covering A∖B with sla
 Whether the same framing reaches the n = 3 bound d1 ≤ 48 of `PROOF_67.md`, which
 is also an Euler argument, is open and looks worth trying.
 
-## 12. Solve a coincidence to LOCATE; do not solve it to SCORE
+## [TECHNIQUE] 12. Solve a coincidence to LOCATE; do not solve it to SCORE
 
 Two uses of a coincidence condition, with opposite economics.
 
@@ -670,7 +693,7 @@ place is. And when a solve reports no unique solution, check whether it means no
 solution or an entire family — those are opposite answers and the second is the
 interesting one.
 
-## 13. Render the figure and look at it
+## [PRACTICE] 13. Render the figure and look at it
 
 Text extents cannot be estimated. Legend labels overflowed twice in one session
 on arithmetic that looked right, and a near-tangency of 0.97px between two marks
@@ -681,7 +704,7 @@ result, not just the text.
 
 ---
 
-## 14. Displace by an INFINITESIMAL, not by a small number
+## [PRACTICE] 14. Displace by an INFINITESIMAL, not by a small number
 
 Every displaced count in this project was `count(base + eps*d)` for a finite eps
 chosen by hand or by halving. A finite eps is a SAMPLE of the cell you meant to
@@ -712,7 +735,7 @@ from the validated engine stays re-runnable. Gate: `eps_gate.py`, whose decisive
 control is that scaling a direction by 97 and by 1/1000 must not change the
 count. No finite-eps implementation can pass that.
 
-## 15. Choose the CHEAPEST valid representative, not the obvious one
+## [PRACTICE] 15. Choose the CHEAPEST valid representative, not the obvious one
 
 An object defined up to an equivalence has no canonical representative, so the
 one you pick is a free variable — and picking badly can cost you the measurement
@@ -738,7 +761,7 @@ exists for exactly this reason -- an unscaled null-space vector routinely lands
 outside the engine's budget), a cone's interior point, a class representative, a
 chart. See [FAILURE_MODES](FAILURE_MODES.md) 16.
 
-## 16. Compute the POLYNOMIAL, not the number it specialises to
+## [TECHNIQUE] 16. Compute the POLYNOMIAL, not the number it specialises to
 
 If the quantity you want is a value of a generating function, compute the
 function. Evaluating it answers the question and explains nothing.
@@ -760,7 +783,7 @@ successive postscripts while the object explaining it was one function call away
 When you find yourself writing "mechanism not identified", ask whether the number
 you computed is a specialisation of something.
 
-## 17. Degeneracy is a RESOURCE for the dual method
+## [TECHNIQUE] 17. Degeneracy is a RESOURCE for the dual method
 
 When an object is hard because it is degenerate, ask what the degeneracy makes
 SMALL. It is usually a dual or quotient object, and that is where to compute.
@@ -776,7 +799,7 @@ Measured: 393 by enumeration was a multi-day parallel campaign that deadlocked
 three times and needed a supervisor; 393 from its lattice took **39.5 seconds**.
 727 was unfinished after three days of enumeration; from its lattice, 2 h 06 m.
 
-## 18. Memoise on the COARSEST invariant the recursion depends on
+## [TECHNIQUE] 18. Memoise on the COARSEST invariant the recursion depends on
 
 Identify what the recursive state actually depends on, not what it carries.
 
@@ -790,7 +813,7 @@ becomes hours.
 The general move: after writing a memoised recursion, ask which arguments could be
 replaced by a coarser function of themselves without changing the answer.
 
-## 19. Sample WHICH, not WHAT: an exact predicate on a sampled population is a measurement
+## [PRACTICE] 19. Sample WHICH, not WHAT: an exact predicate on a sampled population is a measurement
 
 A sampled COUNT is a lower bound (method 1). A sampled PROPORTION, where every
 sampled item is decided EXACTLY, is a measurement -- report it as an interval.
@@ -805,7 +828,7 @@ undecided item yields NO comparison and must not be counted as agreement -- 978 
 2 500 trials timed out in one sweep, and "0 mismatches in 2 500" would have
 credited every one of them to success (FAILURE_MODES 19).
 
-## 20. A ratio measured at one size is not a constant of the family
+## [PRACTICE] 20. A ratio measured at one size is not a constant of the family
 
 Before transferring any dimensionless ratio between problem sizes, measure it at a
 third size.
@@ -823,7 +846,7 @@ decimal places. Dividing the sequences gave an exact integer 20 at eight
 consecutive stages, which led to 62, which led to the factorisation in method 16.
 The whole chain started with noticing that two lists of decimals looked alike.
 
-## 21. Prefer a test that can FAIL without contradicting what you already believe
+## [PRACTICE] 21. Prefer a test that can FAIL without contradicting what you already believe
 
 The best test is one whose failure would be informative rather than
 self-contradictory.
@@ -1150,3 +1173,32 @@ somewhere they have never been:
   and the per-label profile are identical for both. **The first excursion into
   untested territory broke a rule inferred from the tested part** — which is the
   argument for the other three below.
+
+## [TECHNIQUE (converse direction is HEURISTIC)] 22. Name a wall by its cubes: the (n-1)-subset signature
+
+At a point just OUTSIDE a wall, count all n subcompounds of size n-1. The subsets whose
+count is UNCHANGED name the cubes essential to that wall's coincidence.
+
+Found while mapping the 3917 region ([P194](LEDGER.md#p194)) and used to characterise
+the boundaries of the 1895 and 2785 regions ([P198](LEDGER.md#p198)): it identifies a
+wall by WHICH CUBES MAKE IT rather than by a parameter value, costs n engine calls,
+and needs no catalogue.
+
+**Its soundness is DIRECTIONAL, and the direction actually used is the heuristic one.**
+
+- *essential => unchanged* is near-derivable: if a coincidence condition involves cube
+  i, deleting i removes the condition, so the count cannot change across that wall in
+  the subcompound.
+- *unchanged => essential* is the CONVERSE and is heuristic. A subset's count can hold
+  for an unrelated reason, or change for one. Every use so far reads the signature in
+  this direction.
+
+So a signature is evidence about a wall's composition, not a determination of it. The
+check that would settle any particular case is to read the wall's own triple point off
+the catalogue and see which cubes' planes form it — cheap, and not yet done for any of
+the walls named this way.
+
+**Corollary that IS safe:** a wall whose signature is empty (every subset changes) is
+not made by any small set of cubes, and one whose signature is a single cube is a
+strong candidate for a coincidence involving that cube essentially.
+

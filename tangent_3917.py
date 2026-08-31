@@ -25,5 +25,9 @@ t_new = tangents_eps(NEW, 'n=10 3917 — the NEW record')
 
 print('\ntangents at 3913: %s' % (t_old,))
 print('tangents at 3917: %s' % (t_new,))
-print('same locus? %s' % ('yes — identical tangent set' if t_old == t_new else
-                          'NO — different tangents, so a different locus'))
+if not t_new:
+    print('same locus? UNDETERMINED — no verified tangent at 3917; an empty result is '
+          'not evidence of absence (see the rank note above)')
+else:
+    print('same locus? %s' % ('yes — identical tangent set' if t_old == t_new else
+                              'NO — different tangents, so a different locus'))

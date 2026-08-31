@@ -20,6 +20,7 @@ Status tags:
 | **VERIFIED** | an exact count of a specific configuration, agreed by two independent engines |
 | **EXHAUSTED** | a search that was complete over a stated family, not a sample |
 | **CONJECTURE** | consistent with all evidence, not proved |
+| **OBSERVED** | a PATTERN noticed, not yet checked against anything outside the sweeps that produced it. The discovery state: not a result, and the thing most likely to be retracted — 4 of the 17 ledger entries written on 2026-08-31 were retracted or superseded the same day, and **all four were pattern claims while every survivor was a measurement**. A hypothesis with a leading candidate belongs in [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md), not here. |
 
 Last updated 2026-08-11.  Open questions and what has been RULED OUT: [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md).  Run data: see [DATA_MANIFEST.md](DATA_MANIFEST.md) for which .json files are current, superseded, or wrong.
 
@@ -46,8 +47,8 @@ enters any decision.
 | 6 | **727** | VERIFIED | 393's five cubes + `7,14,1,-5` |
 | 7 | **1217** | VERIFIED | the 727 six + `4,-3,-4,-4` |
 | 8 | **1895** | VERIFIED | the 1217 seven + `24,-24,24,-61` |
-| 9 | **2785** | VERIFIED | the 1895 eight + `56,56,55,56` — a CONTINUUM, see below — [P179](LEDGER.md#p179) |
-| 10 | **3917** | VERIFIED | the 2785 nine (member k=57) + `88787,-9061,74275,113786` — found by sweeping a SOLVED tangent, [P191](LEDGER.md#p191). Supersedes 3913 ([P181](LEDGER.md#p181)) |
+| 9 | **2787** | VERIFIED | 1895's seven + `168,-168,168,-415` + `88787,-9061,74275,113786` — [P198](LEDGER.md#p198). Supersedes 2785 |
+| 10 | **3921** | VERIFIED | the 2787 nine + `57,57,56,57` — found by mapping the 3917 region's BOUNDARY, [P198](LEDGER.md#p198). Supersedes 3917 and 3913 |
 
 **GAP IN THE RECORD, found 2026-08-18 — CLOSED 2026-08-29.** Every other row of this
 table traces to a Postscript, but n=9 = 2785 had no establishing entry in `LEDGER.md`

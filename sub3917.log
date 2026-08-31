@@ -1,0 +1,15 @@
+point                          n=10 | 9-subset counts, by cube dropped (0..9)
+record        (0,0)            3917 |  2747  2745  2757  2755  2757  2757  2767  2775  2783  2785
+inside        (12,4)           3917 |  2747  2745  2757  2755  2757  2757  2767  2775  2783  2785
+inside        (3,-1) cheap     3917 |  2747  2745  2757  2755  2757  2757  2767  2775  2783  2785
+inside        (20,20)          3917 |  2747  2745  2757  2755  2757  2757  2767  2775  2783  2785
+OUTSIDE       (-4,0)           3913 |  2747  2741  2753  2755  2753  2753  2763  2771  2779  2785
+OUTSIDE       (-8,10)          3913 |  2747  2741  2753  2755  2753  2753  2763  2771  2779  2785
+
+which 9-subsets DIFFER from their value at the record:
+   record        (0,0)          n=10 3917    subsets differing: none
+   inside        (12,4)         n=10 3917    subsets differing: none
+   inside        (3,-1) cheap   n=10 3917    subsets differing: none
+   inside        (20,20)        n=10 3917    subsets differing: none
+   OUTSIDE       (-4,0)         n=10 3913    subsets differing: [1, 2, 4, 5, 6, 7, 8]
+   OUTSIDE       (-8,10)        n=10 3913    subsets differing: [1, 2, 4, 5, 6, 7, 8]

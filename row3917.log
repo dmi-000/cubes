@@ -1,0 +1,5 @@
+                       count   tight   degen   walls    amb   rank  deficit
+n=10 3913 (P181)        3913     482       0     101     27     22        5
+n=10 3917 (P191)        3917     480       0     100     27     21        6
+
+P172 linear law predicts at n=10: walls 123, tight 552, rank 22, deficit 5

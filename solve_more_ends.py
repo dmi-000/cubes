@@ -320,10 +320,13 @@ def ends_of(base, a0, dv, target, label, expect=None):
     if not found:
         verdict = 'no end located — open/closed UNDETERMINED'
     else:
-        opens = [k for k in found if isinstance(out[k][1], int) and out[k][1] != target]
-        verdict = ('%s of %d located end(s) OPEN (count differs AT the end)%s'
-                   % (len(opens), len(found),
-                      '' if len(found) == 2 else '; the other end was NOT located'))
+        ev = [k for k in found if isinstance(out[k][1], int)]
+        opens = [k for k in ev if out[k][1] != target]
+        # An end whose count could not be evaluated is UNDETERMINED, never "not open".
+        verdict = ('%d of %d located end(s) OPEN; %d end(s) located but the count AT '
+                   'them is UNEVALUABLE (engine height limit) — open/closed UNDETERMINED '
+                   'there%s' % (len(opens), len(found), len(found) - len(ev),
+                                '' if len(found) == 2 else '; the other end was NOT located'))
     print('   inside (s=0, the record): %s   %s' % (inside, verdict), flush=True)
     if expect:
         ok = all(abs(out[k][0] - v) < 1e-9 for k, v in expect.items())

@@ -10,3 +10,14 @@ n=10 3913 (P190, for comparison): record 3913, 101 walls, ambient 27   CONTROLS 
    3 distinct wall normals in the last-cube slice, 1 rank-2 candidates
    VERIFIED tangents: 1   (1 candidates, 0 UNEVALUATED — not negatives)
       (15, 220, 86)
+
+n=10 3917 — the NEW record: record 3917, 100 walls, ambient 27   CONTROLS zero->3917 wall->3891  OK
+   normals span rank 1 < 2: using the 2-dimensional orthogonal complement directly
+   2 distinct wall normals in the last-cube slice, 2 rank-2 candidates
+   VERIFIED tangents: 2   (2 candidates, 0 UNEVALUATED — not negatives)
+      (1, -14, 0)
+      (5, 0, 14)
+
+tangents at 3913: [(15, 220, 86)]
+tangents at 3917: [(1, -14, 0), (5, 0, 14)]
+same locus? NO — different tangents, so a different locus

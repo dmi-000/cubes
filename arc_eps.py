@@ -68,6 +68,8 @@ def tangents_eps(cubes, label, expect=None):
     tail = slice(ncols - 3, ncols)                      # last cube's coordinates
     # controls, both able to fail
     z = count_eps(pt, [Q(0,0,0)]*ncols, 0, cubes[0])
+    if z is None:                       # narrow engine refuses on height, not on content
+        z = count_eps(pt, [Q(0,0,0)]*ncols, 0, cubes[0], wide=True)
     wg = count_eps(pt, [Q(F(x),0,0) for x in walls[0]], 0, cubes[0])
     if wg is None:
         wg = count_eps(pt, [Q(F(x),0,0) for x in walls[0]], 0, cubes[0], wide=True)
@@ -87,6 +89,23 @@ def tangents_eps(cubes, label, expect=None):
         c = null2(u, w)
         if c and c not in cands:
             cands.append(c)
+    # If the normals in the slice span rank < 2, no PAIR has a 1-dimensional null
+    # space and the loop above yields nothing — which is a limitation of the method,
+    # not a negative. The orthogonal complement is then 2- or 3-dimensional, so a
+    # basis of it is supplied directly. This is exactly the 3917 case: 2 normals,
+    # parallel, complement of dimension 2, and "0 candidates" read as "no tangent".
+    if not cands and proj:
+        import sympy as sp
+        M = sp.Matrix([list(v) for v in proj])
+        for b in M.nullspace():
+            d = primitive([sp.Rational(x) for x in b])
+            if d and d not in cands:
+                cands.append(d)
+        print('   normals span rank %d < 2: using the %d-dimensional orthogonal '
+              'complement directly' % (M.rank(), len(cands)), flush=True)
+    if not cands and not proj:
+        print('   NO wall normals in this slice — every direction is a candidate; '
+              'not tested here', flush=True)
     print('   %d distinct wall normals in the last-cube slice, %d rank-2 candidates'
           % (len(proj), len(cands)), flush=True)
 

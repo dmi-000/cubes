@@ -1,0 +1,40 @@
+
+GATE  n=6 727 arc D (known to be a NODE): record 727   zero-control -> 727 OK
+   v1       (14, 2, -3)      +eps 727    -eps 727     holds
+   v2       (21, 4, -6)      +eps 727    -eps 727     holds
+   1v1+1v2  [35, 6, -9]      +eps 721    -eps 721     CHANGES
+   1v1-1v2  [-7, -2, 3]      +eps 721    -eps 721     CHANGES
+   2v1+1v2  [49, 8, -12]     +eps 721    -eps 721     CHANGES
+   1v1+2v2  [56, 10, -15]    +eps 721    -eps 721     CHANGES
+   3v1+1v2  [63, 10, -15]    +eps 721    -eps 721     CHANGES
+   1v1+3v2  [11, 2, -3]      +eps 721    -eps 721     CHANGES
+   2v1-1v2  [1, 0, 0]        +eps 721    -eps 721     CHANGES
+   -1v1+2v2  [28, 6, -9]      +eps 721    -eps 721     CHANGES
+   3v1+2v2  [12, 2, -3]      +eps 721    -eps 721     CHANGES
+   5v1+3v2  [133, 22, -33]   +eps 721    -eps 721     CHANGES
+   -> 0 of 10 combinations hold, 10 change, 0 unevaluated
+   VERDICT: NODE — two curves crossing, combinations fail
+
+n=10 3917: record 3917   zero-control -> 3917 OK
+   v1       (1, -14, 0)      +eps 3917   -eps 3917    holds
+   v2       (5, 0, 14)       +eps 3917   -eps 3917    holds
+   1v1+1v2  [3, -7, 7]       +eps 3917   -eps 3917    holds
+   1v1-1v2  [-2, -7, -7]     +eps 3917   -eps 3917    holds
+   2v1+1v2  [1, -4, 2]       +eps 3917   -eps 3917    holds
+   1v1+2v2  [11, -14, 28]    +eps 3917   -eps 3917    holds
+   3v1+1v2  [4, -21, 7]      +eps 3917   -eps 3917    holds
+   1v1+3v2  [8, -7, 21]      +eps 3917   -eps 3917    holds
+   2v1-1v2  [-3, -28, -14]   +eps 3917   -eps 3917    holds
+   -1v1+2v2  [9, 14, 28]      +eps 3917   -eps 3917    holds
+   3v1+2v2  [13, -42, 28]    +eps 3917   -eps 3917    holds
+   5v1+3v2  [10, -35, 21]    +eps 3917   -eps 3917    holds
+   -> 10 of 10 combinations hold, 0 change, 0 unevaluated
+   VERDICT: 2-DIMENSIONAL surface (combinations survive)
+
+n=9 2785 (deficit 4; P184 predicts preserving dim 3): record 2785, 99 walls, ambient 24   CONTROLS zero->2785 wall->2759  OK
+   16 distinct wall normals in the last-cube slice, 1 rank-2 candidates
+   VERIFIED tangents: 1   (1 candidates, 0 UNEVALUATED — not negatives)
+      (0, 1, 0)
+
+verified tangents at 2785: [(0, 1, 0)]
+only ONE tangent verified in this 3-dimensional slice: the locus is at least 1-dimensional here. P184 predicts 3 over the full 24-dimensional space, so the remaining directions would move EARLIER cubes and are invisible in this slice.

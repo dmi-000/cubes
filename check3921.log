@@ -1,0 +1,8 @@
+preserving basis size 5; scanning each direction outward for counts > 3917
+   dir 1  k/den=0.06807  count 3921  <== ABOVE 3917
+
+CANDIDATE n=10 = 3921
+   config: 4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1;1,1,1,1;7,14,1,-5;4,-3,-4,-4;68188416,-68188416,68188416,-168670705;57,57,56,57;88787,-9061,74275,113786
+   heights: 168670705
+   ./cube_regions_n       -> None  by_depth None
+   ./cube_regions_q2w     -> 3921  by_depth {'0': 1, '1': 506, '2': 750, '3': 684, '4': 588, '5': 490, '6': 386, '7': 282, '8': 174, '9': 60, '10': 1}

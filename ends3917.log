@@ -1,0 +1,18 @@
+
+n=10 3917, tangent (1,-14,0): 3162 triple points, 18652 W4 quadratics, 23013 distinct roots (8805 below, 14208 above)
+   lower: 25 interval(s) UNEVALUATED and skipped en route
+   lower  s = (-19120613/69697795) + (2/69697795)sqrt(91162273224271) = -0.000356190499  height 325994457  count AT end: {"seed":null,"error":"quaternion component magnitude 325994457 and d=9
+          26 distinct walls crossed between the record and this end WITHOUT the count changing (METHODS 7)
+   upper: 12 interval(s) UNEVALUATED and skipped en route
+   upper  s = (412782477/3144835540) + (-411356283/3144835540)sqrt(1) = 0.000453503524  height 5758987962  count AT end: {"seed":null,"error":"quaternion component magnitude 5758987962 and d=
+          16 distinct walls crossed between the record and this end WITHOUT the count changing (METHODS 7)
+   inside (s=0, the record): 3917   0 of 2 located end(s) OPEN (count differs AT the end)
+
+n=10 3917, tangent (5,0,14): 3162 triple points, 18642 W4 quadratics, 22619 distinct roots (16994 below, 5625 above)
+   lower: 10 interval(s) UNEVALUATED and skipped en route
+   lower  s = (-589989949/12754252550) + (1/12754252550)sqrt(343146156139732201) = -0.000329550095  height 12754252550  count AT end: REJ
+          10 distinct walls crossed between the record and this end WITHOUT the count changing (METHODS 7)
+   upper: 17 interval(s) UNEVALUATED and skipped en route
+   upper  s = (-137054574/2727447853) + (138003769/2727447853)sqrt(1) = 0.000348015820  height 2727447853  count AT end: {"seed":null,"error":"quaternion component magnitude 2727447853 and d=
+          18 distinct walls crossed between the record and this end WITHOUT the count changing (METHODS 7)
+   inside (s=0, the record): 3917   0 of 2 located end(s) OPEN (count differs AT the end)

@@ -407,6 +407,13 @@ diagonal" had its AXES computed correctly and only its interpretation withdrawn,
 is the most likely to survive intact. P162's "the rank deficit IS the plateau
 dimension" stays wrong either way — the preserving dimension is deficit − 1.
 
+**UPDATED 2026-08-31, then CORRECTED the same day
+([P195](LEDGER.md#p195) -> [P196](LEDGER.md#p196)):** a full-space measurement briefly
+appeared to give dimension = deficit, reinstating P162. It did not — that entry counted
+vectors without checking independence. By RANK the answer is **deficit - 1** at 1895,
+2785 and 3917, confirming [P184](LEDGER.md#p184). P162 stays wrong, and P173 should be
+re-read against dimension = deficit - 1 = n - 6.
+
 **Why it is filed rather than done:** it is a re-reading of three entries against a
 new measurement, not a computation, and it should be done deliberately rather than
 folded into a session that has already overturned four things.

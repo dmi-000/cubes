@@ -1,0 +1,16 @@
+LLL pass 1 heights: [1, 1, 1, 14, 14, 884318520]
+LLL pass 2 heights: [1, 1, 1, 14, 14, 884318520]
+LLL pass 3 heights: [1, 1, 1, 14, 14, 884318520]
+LLL pass 4 heights: [1, 1, 1, 14, 14, 884318520]
+rank preserved: 6
+
+zero-control -> 3917 OK
+   height 1           preserves
+   height 1           preserves
+   height 1           preserves
+   height 14          preserves
+   height 14          preserves
+   height 884318520   UNEVALUATED
+
+verified-preserving subspace dimension: 5   (deficit 6, 1 still unevaluated)
+VERDICT: still short by 1; 1 unevaluated

@@ -13092,7 +13092,7 @@ Files: `extend_n10.py`, `extend_n10.log`, `extend_n10.json`.
 
 <a id="p182"></a>
 
-## Postscript 182: every rung tested is a CONTINUUM, and the recorded member is always an ENDPOINT of it
+## [OBSERVED (endpoint half RETRACTED by P188)] Postscript 182: every rung tested is a CONTINUUM, and the recorded member is always an ENDPOINT of it
 
 `rungshapes.py`, `refine_shapes.py`, `locus727.py`. Answers [OQ 9](OPEN_QUESTIONS.md)'s
 "untried: the shape of the 727, 1217 and 1895 loci", and changes what the tower is.
@@ -13193,7 +13193,7 @@ Files: `rungshapes.py`, `rungshapes.log`, `refine_shapes.py`, `refine_shapes.log
 
 <a id="p183"></a>
 
-## Postscript 183: continuum registry audit — one rung is documented to standard and the rest are not, and P182 got 727 wrong
+## [OBSERVED (CORRECTED by P187/P188)] Postscript 183: continuum registry audit — one rung is documented to standard and the rest are not, and P182 got 727 wrong
 
 Prompted by the question "are all continua paths and endpoints documented?". The
 answer is no, and the audit found three errors, one of them mine from this session.
@@ -13297,7 +13297,7 @@ Files: `rungshapes.py`, `locus727.py`, `locus727.log`, `MAXIMISER_TAXONOMY.md`.
 
 <a id="p184"></a>
 
-## Postscript 184: CORRECTION to P175 — null directions DO preserve the count, and the preserving set is a hyperplane
+## [VERIFIED] Postscript 184: CORRECTION to P175 — null directions DO preserve the count, and the preserving set is a hyperplane
 
 Prompted by the observation "I think we implemented epsilon as a step size". The
 engine did not; **[P175](#p175) did.**
@@ -13381,7 +13381,7 @@ Files: `eps_null.py`, `eps_null3.py`, `eps_null3.log`, `eps_null4.py`,
 
 <a id="p185"></a>
 
-## Postscript 185: P172's linear wall law is REFUTED at n = 10, and not for the reason I guessed
+## [VERIFIED] Postscript 185: P172's linear wall law is REFUTED at n = 10, and not for the reason I guessed
 
 `arr_tower.py`, `wall_census.py`. The n=10 arrangement row, now reproducible and
 gated — the earlier number came from an inline heredoc that was never saved
@@ -13444,7 +13444,7 @@ Files: `arr_tower.py`, `arr_tower.log`, `arr_tower.json`, `wall_census.py`,
 
 <a id="p186"></a>
 
-## Postscript 186: the 1217 extension campaign is VOID — and the same defect sits under P181 and OQ 9
+## [VERIFIED] Postscript 186: the 1217 extension campaign is VOID — and the same defect sits under P181 and OQ 9
 
 `extend_1217.py`, 48 396 evaluations, 8 046 s, 0 unevaluable, 0 skipped. It was built
 to test [OQ 9](OPEN_QUESTIONS.md)'s prediction that boundary members of a continuum
@@ -13519,7 +13519,7 @@ Files: `extend_1217.py`, `extend_1217.log`, `extend_1217.json`.
 
 <a id="p187"></a>
 
-## Postscript 187: the n = 9 continuum's ends, SOLVED — and METHODS 7's bracket was on one side of the wall
+## [VERIFIED (ends SUPERSEDED by P192)] Postscript 187: the n = 9 continuum's ends, SOLVED — and METHODS 7's bracket was on one side of the wall
 
 `solve_more_ends.py`, `n9_upper.py`. Prompted by "I'd like to solve any other
 feasible endpoints". [P183](#p183)/[OQ 13](OPEN_QUESTIONS.md) had said endpoints were
@@ -13585,7 +13585,7 @@ Files: `solve_more_ends.py`, `solve_more_ends.log`, `n9_upper.py`, `n9_upper.log
 
 <a id="p188"></a>
 
-## Postscript 188: RETRACTION — "the recorded member sits at an ENDPOINT" is false in every case, and each was a different sweep artifact
+## [VERIFIED] Postscript 188: RETRACTION — "the recorded member sits at an ENDPOINT" is false in every case, and each was a different sweep artifact
 
 [P182](#p182)'s headline was: *"In all four intervals containing the recorded
 configuration, the recorded configuration is an ENDPOINT. Never interior."* It is
@@ -13655,7 +13655,7 @@ Files: `refine_shapes.py` (window [0,4] — the defect is in the HITS table),
 
 <a id="p189"></a>
 
-## Postscript 189: every tower end n=7..9 is SOLVED, all open, and every one drops by exactly 2 — plus an out-of-sample test P184 could have failed
+## [OBSERVED (SUPERSEDED by P192)] Postscript 189: every tower end n=7..9 is SOLVED, all open, and every one drops by exactly 2 — plus an out-of-sample test P184 could have failed
 
 Three results from "anything to run now?", in increasing order of what they cost.
 
@@ -13726,7 +13726,7 @@ Files: `eps_lowrungs.py`, `eps_lowrungs.log`, `n8_lower.py`, `n8_lower.log`,
 
 <a id="p190"></a>
 
-## Postscript 190: n=10 IS a continuum, n=4 appears genuinely finite — tangents solved and verified with eps
+## [VERIFIED] Postscript 190: n=10 IS a continuum, n=4 appears genuinely finite — tangents solved and verified with eps
 
 `arc_eps.py`. Closes the two rows [OQ 13](OPEN_QUESTIONS.md) had left with no path
 established. Both answers come from the same computation, and they go opposite ways.
@@ -13793,7 +13793,7 @@ Files: `arc_eps.py`, `arc_eps.log`, `n10_ends.py`.
 
 <a id="p191"></a>
 
-## Postscript 191: NEW RECORD n = 10 = 3917 — found by sweeping a SOLVED tangent, where menu search had found 3913
+## [VERIFIED] Postscript 191: NEW RECORD n = 10 = 3917 — found by sweeping a SOLVED tangent, where menu search had found 3913
 
 `arc_eps.py` -> `n10_ends.py` bracket sweep. **3917, +4 over [P181](#p181)'s 3913.**
 
@@ -13854,7 +13854,7 @@ Files: `arc_eps.py`, `arc_eps.log`, `n10_ends.py`.
 
 <a id="p192"></a>
 
-## Postscript 192: the endpoint solver had two defects; [P189](#p189)'s table reported the wrong components
+## [VERIFIED] Postscript 192: the endpoint solver had two defects; [P189](#p189)'s table reported the wrong components
 
 `allends.py`. Superseding the endpoint rows of [P187](#p187) and [P189](#p189).
 Nothing about the CONTINUA changes; what changes is which boundary was measured.
@@ -13925,3 +13925,501 @@ outruns even the 256-bit engine. That is a property of the interval, not of the 
 Unevaluable probes are now skipped and counted rather than treated as stops.
 
 Files: `allends.py`, `allends.log`, `solve_more_ends.py`, `catcache.py`.
+
+<a id="p193"></a>
+
+## [VERIFIED] Postscript 193: the tangent space at 3917 is 2-dimensional; two ends solved, two refuted by their own solver
+
+`tangent_3917.py`, `ends3917.py`. Answering "re-solve the tangent at 3917 and find
+its endpoints". 3917 ([P191](#p191)) is a different point from 3913 and behaves
+differently in every respect measured.
+
+### The arrangement row, and a law that breaks harder
+
+                     count  tight  degen  walls  amb  rank  deficit
+    n=10 3913         3913    482      0    101   27    22        5
+    n=10 3917         3917    480      0    100   27    21        6
+    P172 predicts             552            123   27    22        5
+
+[P185](#p185) found the linear wall law breaking at n=10 and this settles the obvious
+objection — that it broke because 3913 was the wrong configuration. **3917 is further
+from the law, not closer** (100 walls, 480 tight), and it breaks `deficit = n - 5` as
+well, at 6. P185 stands and strengthens.
+
+Deficit 6 predicts, via [P184](#p184), a **5-dimensional** count-preserving space.
+
+### Two tangents, where 3913 had one
+
+    3913:  (15, 220, 86)
+    3917:  (1, -14, 0)  and  (5, 0, 14)
+
+Both eps-verified on both signs, 0 unevaluated, gated on recovering 727 arc D's two
+known tangents. So 3917's locus is at least 2-dimensional in the last-cube slice —
+consistent with deficit 6 — and it is NOT the same locus as 3913's.
+
+**Two method defects were found getting here, both silently returning "no tangent".**
+First, the eps zero-direction CONTROL did not escalate to the wide engine, so at
+height 113 786 it refused and the whole run was void — caught, correctly, by the gate.
+Second, with only 2 wall normals in the slice and those PARALLEL, no rank-2 subset has
+a 1-dimensional null space, so the candidate generator produced nothing and reported
+"0 verified tangents". That is a rank deficiency in the method, not a property of the
+locus; the orthogonal complement is used directly now.
+
+### The ends: two solved, two refuted, and why
+
+    tangent (1,-14,0)   upper  s = 1426194/3144835540    = +0.000453504   SOLVED, rational
+                        lower  solver said -0.000356190              REFUTED
+    tangent (5,0,14)    upper  s = 949195/2727447853     = +0.000348016   SOLVED, rational
+                        lower  solver said -0.000329550              REFUTED
+
+Direct probes bracket the truth:
+
+    (1,-14,0):  3917 holds for k in [-1, 40] of s = k/88787, i.e. [-1.126e-5, +4.505e-4]
+    (5,0,14):   3917 holds for k in [-3, 30],                 i.e. [-3.379e-5, +3.379e-4]
+
+Both upper ends fall inside their brackets — confirmed. Both lower ends were an ORDER
+OF MAGNITUDE too far out. The walks had reported "25 (resp. 10) intervals UNEVALUATED
+and skipped en route", and the skipped intervals are exactly where the boundaries
+were. **The warning was the result**: an endpoint reported after skipped intervals is
+an upper bound on the extent, never the extent.
+
+### The representative, again
+
+Every verification probe first came back `None` — the engine refusing at heights up to
+1.3e10. The cause was not the locus: `a0` has denominator 88787, so a probe at
+s = 5/15597 forces a common denominator near 1.3e9. Probing at **s = k/88787**, the
+record's OWN denominator, holds the height constant at ~113 786 and every probe
+evaluates. [METHODS 15](METHODS.md) for the fourth time today, and the tell was its
+own: failures and successes split perfectly on input height.
+
+### What the shape says
+
+The plateau is strongly ASYMMETRIC about the record — extending ~40x further in +s
+than -s on the first tangent, ~10x on the second. And the count immediately outside is
+**3913 on all four sides**, a drop of 4, where the ends measured at n=7..9 dropped by
+2 ([P189](#p189), now unfinished per [P192](#p192)).
+
+Max on both lines is 3917; no improvement found along either.
+
+### Addendum: a SURFACE, not a node — two tangents do not settle it
+
+Prompted by "does that mean 3917 is a two dimensional region, or the intersection of
+two one dimensional regions?" — a distinction the entry above left open, and the
+project already had the counterexample: `MAXIMISER_TAXONOMY.md` records 727's arc D as
+"two arcs meeting at a NODE, not a surface", two independent tangents whose
+combinations all fail.
+
+`dim3917.py` runs the discriminating test — do combinations a*v1 + b*v2 preserve the
+count — with eps, both signs, gated on reproducing 727's known verdict:
+
+    727 arc D:   0 of 10 combinations hold   -> NODE          (gate: matches taxonomy)
+    3917:       10 of 10 combinations hold   -> SURFACE
+
+and an anchor outside the eps procedure, a direct rational scan on the lattice
+tenth cube = record + (k1*v1 + k2*v2)/88787:
+
+    3917 at 246 of 289 lattice points, a FILLED region, not a cross
+
+So 3917's locus is genuinely 2-dimensional in the last-cube slice — consistent with
+its deficit of 6 and [P184](#p184)'s max(0, deficit-1) = 5 over the full 27-dimensional
+space. Its boundary against 3913 is a straight line in the lattice, i.e. a single
+wall, and the region extends past the scanned window.
+
+**This also revises the reading of [P191](#p191)'s search.** The 1-D sweeps along each
+tangent separately found 3917 holding over k in [-1,40] and [-3,30]; the 2-D scan
+finds it at (24,24), far outside either. Sweeping a surface one line at a time
+understates it — the same shape of error as sampling a plateau with a step.
+
+Files: `tangent_3917.py`, `tangent_3917.log`, `ends3917.py`, `ends3917.log`,
+`row3917.py`, `row3917.log`, `arc_eps.py`, `dim3917.py`, `dim3917.log`.
+
+<a id="p194"></a>
+
+## [VERIFIED + one OBSERVED inference] Postscript 194: the 3917 region's 9-subsets are constant on it, and its boundary wall names the two cubes that make it
+
+`sub3917.py`, `scan3917.py`. Prompted by "I'd like to characterize its boundaries...
+I'm also wondering about the n-1 images of the region."
+
+### A 19x cheaper representative, by solving a congruence
+
+The record's tenth cube has height 113 786 with denominator D = 88787 = **19 x 4673**
+(4673 prime). On the lattice `tenth cube = (D, -9061+k1+5k2, 74275-14k1, 113786+14k2)`
+all four components share a factor 19 exactly when
+
+    k1 = 3 (mod 19)   and   k2 = 18 (mod 19)
+
+— three linear congruences that reduce to those two. Evaluating those points, four lie
+inside the region, the cheapest being (k1,k2) = (3,-1):
+
+    tenth cube (4673, -477, 3907, 5988)   height 5988,  19x below the record's
+
+[METHODS 15](METHODS.md) as a construction rather than a rescue: the cheap
+representative was solved for, not searched.
+
+### The n-1 images: ALL nine subsets are constant on the region
+
+At four points spanning the region — the record (0,0), (12,4), the cheap (3,-1), and
+(20,20) — every one of the ten 9-subset counts is identical:
+
+    2747  2745  2757  2755  2757  2757  2767  2775  2783  2785      (dropping cube 0..9)
+
+So the region is not merely a plateau of the n=10 count: it is a **simultaneous
+plateau of the full compound and of all ten of its 9-subsets**. Dropping the tenth
+cube gives 2785 everywhere, which is forced; the other nine being constant is not.
+
+### Crossing the boundary names the cubes responsible
+
+At two points across the lower-left wall, (-4,0) and (-8,10):
+
+    n=10   drop0  drop1  drop2  drop3  drop4  drop5  drop6  drop7  drop8  drop9
+     -4      0      -4     -4      0     -4     -4     -4     -4     -4      0
+
+**Seven of the nine moving subsets cross a wall simultaneously, and every one of them
+loses exactly 4 — the same 4 the full compound loses.** Two are blind to it: dropping
+cube 0, and dropping cube 3.
+
+That pins the wall's composition. A W4 wall is a free-cube face plane passing through
+a base TRIPLE POINT; if that triple point is formed by planes of **cubes 0 and 3
+only**, then deleting either destroys the coincidence while deleting any other cube
+leaves it intact — exactly the observed pattern, on all ten subsets. The prediction is
+testable against the catalogue and has NOT yet been checked; it is recorded as an
+inference from the subset pattern, not as a verified fact.
+
+This is the first boundary in the project identified by WHICH CUBES make it, rather
+than by its parameter value.
+
+### The region is a POLYGON, mapped
+
+`scan3917.py`, 676 lattice points at step 4, 121 of them 3917:
+
+    k2 =  -8 : k1 in [  4, 20]        k2 = 24 : k1 in [ -4, 28]
+           0 : k1 in [  0, 40]             32 : k1 in [  4, 24]
+           8 : k1 in [ -4, 36]             44 : k1 in [ 12, 20]
+          16 : k1 in [ -8, 32]             52 : k1 = 16   (a point)
+
+Both edges REVERSE: the left edge bottoms out near (-8, 16), the right peaks at
+(40, 0). Those are vertices, so the boundary is at least four walls and the region is
+a polygon tapering to a point near (16, 52). Extent k1 in [-24,40], k2 in [-20,52].
+Nothing on the plane exceeds 3917.
+
+### 2785 is NOT 2-dimensional in this slice — the contrast is structural
+
+Prompted by "so 2785 is also a 2-d region." It is not, where the moving cube moves:
+
+    n=9  2785   16 wall normals in the last-cube slice -> ONE verified tangent (0,1,0)
+    n=10 3917    2 wall normals, PARALLEL              -> TWO verified tangents
+
+(0,1,0) is exactly the k-family line [P187](#p187) solved. So 2785's locus is
+1-dimensional in the slice and 3917's is 2-dimensional, and the reason is visible in
+the normals: 3917's slice carries two parallel normals, leaving a 2-dimensional
+orthogonal complement, where 2785's carries sixteen.
+
+**Both are bigger than any sweep has seen.** [P184](#p184) gives preserving dimension
+= deficit - 1, so 2785 (deficit 4) is 3-dimensional and 3917 (deficit 6) is
+5-dimensional over the full space. The extra dimensions move EARLIER cubes and are
+invisible to every sweep in this project, all of which move only the last one.
+[P187](#p187)'s endpoint work therefore traced one line through a 3-dimensional
+object — the same understatement as sweeping 3917's surface one line at a time.
+
+Files: `sub3917.py`, `sub3917.log`, `scan3917.py`, `scan3917.log`, `dim3917.py`,
+`dim2785.py`, `dim2785.log`.
+
+<a id="p195"></a>
+
+## [OBSERVED (RETRACTED by P196)] Postscript 195: the locus dimension is the DEFICIT — [P162](#p162) vindicated, at three records of four
+
+> **RETRACTED IN FULL 2026-08-31 — [P196](#p196).** This entry reported `len(list)`
+> as a dimension without ever testing linear independence. Measured by RANK, the
+> answers are 2 (727, a node), 2 (1895), 3 (2785), 5 (3917) — i.e. **deficit - 1**,
+> confirming [P184](#p184). P162 stays wrong and its reinstatement below is withdrawn.
+
+`map_geometry.py`. Prompted by "let's map the full geometry of 2785 and 3917 (and
+maybe 1895?)". Every sweep in this project moves only the LAST cube, a 3-dimensional
+slice of the 3(n-1)-dimensional space; [P194] had just shown the slice understates the
+locus badly. This measures in the full space.
+
+### Method, and why a subspace rather than a direction count
+
+The count-preserving set is a union of relatively open cones and NOT necessarily a
+subspace: 727's arc D is two curves crossing at a node, where both tangents preserve
+and no combination does. So dimension is measured by GROWING A VERIFIED SUBSPACE — a
+candidate joins the basis only if it preserves AND its integer combinations with every
+existing basis vector also preserve. That cannot merge a node, which is what the gate
+checks.
+
+### The result
+
+    record   ambient  walls  deficit   verified-preserving subspace   P184's deficit-1
+    727        15       27      1              1  (GATE: OK)                 0
+    1895       21       75      3              3                             2
+    2785       24       99      4              4                             3
+    3917       27      100      6              5, with 3 UNEVALUATED          5
+
+**Dimension = deficit, exactly, at 727, 1895 and 2785.** That is precisely
+[P162](#p162)'s claim — "the rank deficit IS the plateau dimension" — which has been
+wrong twice since:
+
+- [P175](#p175) retracted it outright, on the finite-step evidence [P184](#p184)
+  later showed invalid;
+- [P184](#p184) partially restored it but concluded P162 was "wrong by ONE", because
+  it searched only INSIDE the null space, where the preserving set is a hyperplane of
+  dimension deficit - 1.
+
+The missing dimension is not in the null space. It is a direction that DOES cross
+walls without changing the count — [METHODS 7](METHODS.md)'s "most coincidences are
+not boundaries" supplying exactly one more dimension, which a null-space search could
+never see. **P162 is reinstated**; P184's measurement stands and was simply
+incomplete in scope.
+
+### 3917 is UNRESOLVED, and the unevaluated count is the reason
+
+3 of 8 candidates could not be evaluated: the record's tenth cube has height 113 786
+and the eps engine refuses at that scale for some directions. So the honest answer at
+n=10 is **dimension >= 5, with 3 candidates untested**, and whether it reaches the
+deficit 6 is open. It is not evidence against the law; it is an absence of evidence,
+and it sits exactly where the law would be tested.
+
+**Everything here is a LOWER bound.** The candidate pool was the null-space basis plus
+rank-2 directions in the last-cube slice. A larger pool could only raise these
+numbers.
+
+### What to do about 3917
+
+[P194](#p194) found a representative of the 3917 region 19x cheaper than the record —
+(4673, -477, 3907, 5988), from solving k1 = 3, k2 = 18 (mod 19). It is a DIFFERENT
+point of the region and lies on fewer walls, so its deficit and its locus dimension
+are its own; measuring there answers "what is the dimension at a generic point of the
+region", which is a different and also worth-asking question. It does not substitute
+for the record.
+
+### Consequence for [OQ 14](OPEN_QUESTIONS.md)
+
+That question asked whether P173/P174 are salvageable, given P184 had removed the
+stated reason for their retraction. This goes further: the premise P162 was retracted
+on is now measured to be TRUE at three records. P173's arithmetic — "each cube past
+the sixth is loose in one direction" — should be re-read against dimension = deficit
+= n - 5, not against deficit - 1.
+
+Files: `map_geometry.py`, `map_geometry.log`.
+
+<a id="p196"></a>
+
+## [VERIFIED] Postscript 196: RETRACTION of [P195](#p195) — it counted VECTORS and called them dimensions
+
+`rank_geometry.py`. P195 was recorded an hour before this and is wrong.
+
+### The bug
+
+`map_geometry.py` grew a list `B` of directions that preserve the count, appended each
+one that passed its combination checks, and reported **`len(B)`** as the dimension. It
+never tested LINEAR INDEPENDENCE. Dependent directions inflated the count.
+
+Caught by a contradiction the numbers themselves produced: P195 reported dimension 4
+at 2785, whose null space is 4-dimensional — so the preserving set would have to BE
+the null space, and every null direction would preserve. But [P184](#p184) measured one
+of them changing the count. Both could not hold. Checking directly: the slice tangent
+(0,1,0) at 2785 lies INSIDE the null space and in the span of the three preserving
+basis vectors, so the pool rank is **3**, not 4.
+
+### Corrected measurement
+
+                 deficit   preserving RANK   unevaluated   combo failures   P184 predicts
+    n=6  727        1             2               0              4               0
+    n=8  1895       3             2               0              0               2
+    n=9  2785       4             3               0              0               3
+    n=10 3917       6             5               1              0               5
+
+**[P184](#p184) is confirmed at 1895, 2785 and 3917: preserving dimension =
+deficit - 1, exactly.** [P162](#p162)'s "the rank deficit IS the plateau dimension"
+stays WRONG, and P195's reinstatement of it is withdrawn in full.
+
+727 is the exception and not a counterexample: rank 2 but **4 of its combinations
+FAIL**, which is the node — arc D's two tangents each preserve while spanning no
+preserving subspace. A dimension is not defined there, and P195 read the node's vector
+count as a dimension too.
+
+### What this does to n=10, the question that started it
+
+3917 gives preserving rank **5 = deficit - 1**, matching the law at every other rung,
+with ONE direction unevaluated. At 727, 1895, 2785 and 3917 alike, exactly one null
+direction fails to preserve; the unevaluated vector at 3917 is the one the law
+predicts should be that failure. So n=10 is consistent with the law and the open item
+is narrow: confirm that one direction CHANGES, which needs either a 512-bit eps engine
+or a solved safe finite step ([METHODS 14](METHODS.md)'s Cauchy-bound corollary),
+since its shortest known representative has height 8.8e8 and LLL will not shorten it.
+
+### The lesson, which is not new
+
+A "dimension" computed as the length of a list is not a dimension. The check costs one
+rank call per candidate and would have prevented the whole entry. This is the second
+time today a headline was produced by a measurement that never tested the property it
+named — the first being [P188](#p188)'s endpoint pattern, assembled from sweeps whose
+windows and steps decided the answer.
+
+Files: `rank_geometry.py`, `rank_geometry.log`, `map_geometry.py` (defective),
+`lll.py`, `resolve3917.py`, `resolve3917b.py`.
+
+<a id="p197"></a>
+
+## [OBSERVED] Postscript 197: triage — the record problem is a DEPTH-1 problem, and only one route can ever cap it
+
+Prompted by "what are the real open questions we can expect to resolve?" Answered by
+applying [METHODS](METHODS.md)'s own triage rule — before launching a search, ask what
+result would end it, and check whether an existing bound already caps what it can find.
+
+### The existing bound is TIGHT, and I had been reading it wrong
+
+`RESULTS.md`'s ceiling law C(l,n) = (12l-6)n - 2(l^2-1) indexes l as CO-DEPTH: it
+bounds d_{n-l}, with l = 1 giving the PROVED d_{n-1} <= 6n. Read as depth it looks
+hopeless (4.6x slack) and is violated; read correctly it is nearly exact:
+
+    n        record       bound = 1 + sum_l C(l,n)      gap     ratio
+    3            67                        67             0     1.000
+    4           183                       195            12     1.066
+    5           393                       429            36     1.092
+    6           727                       801            74     1.102
+    7          1217                      1343           126     1.104
+    8          1895                      2087           192     1.101
+    9          2785                      3065           280     1.101
+    10         3917                      4309           392     1.100
+
+Ratio 1.100-1.104 across five rungs. And the n=10 record SATURATES its ceiling exactly
+at l = 1, 2 and 7, sitting within 2-4 at l = 3,4,5,6.
+
+### Where the whole gap lives
+
+    n     total gap   slack at DEPTH 1   share
+    6         74            62            84%
+    7        126           114            90%
+    8        192           178            93%
+    9        280           258            92%
+    10       392           356            91%
+
+Per-depth slack at n=10: [0, 0, 2, 4, 2, 2, 0, 26, 356]. **Every depth except the
+outermost is within 4 of its ceiling, several exactly tight, and 91% of the gap is at
+depth 1.** The record problem, at every n measured, is a depth-1 problem.
+
+### What that makes resolvable
+
+**Route to a THEOREM (the only one).** The l = 1 ceiling is proved; l >= 2 is empirical
+over ~1M configurations. Proving l >= 2 makes 1 + sum C(l,n) a genuine upper bound at
+ratio 1.10, and tightening the DEPTH-1 ceiling closes 91% of what remains. Together
+those would make records decidable rather than searchable. Nothing else can: search
+yields lower bounds forever, and today [P191](#p191) showed exactly that — 3913 stood
+as the n=10 value until a solved tangent beat it by 4 in thirteen probes.
+
+**Bounded and cheap, method already validated:** the composition of 3917's boundary
+wall ([P194](#p194) predicts cubes 0 and 3 from the subset signature — readable off
+the catalogue); whether 183 is genuinely finite (extend the all-slices tangent search
+of `resolve3917b.py`); the one unevaluated direction at 3917 ([P196](#p196)), needing
+a 512-bit eps engine or a solved Cauchy-bound step.
+
+**Not resolvable by search, and should stop being attempted that way:** whether any
+record above n = 3 is maximal, and [OQ 11](OPEN_QUESTIONS.md)'s irrationality question,
+which a search can never close negatively.
+
+### A hypothesis, explicitly flagged as one
+
+The gaps 0, 12, 36, 74, 126, 192, 280, 392 have second differences 12, 14, 14, 14, 22,
+24. If the run of 14s were the law, n=9's gap would be 272 rather than 280 — i.e. 2785
+would be 8 below the true maximum. **That is three-point fitting on a second
+difference, which is precisely the shape of [P172](#p172)'s wall law that held for
+three rungs and broke at the fourth.** It is recorded as a hypothesis generator, not a
+result: a smooth gap sequence would flag which records are suboptimal, and it already
+points at n = 9.
+
+<a id="p198"></a>
+
+## [VERIFIED] Postscript 198: TWO NEW RECORDS — n=9 = 2787 and n=10 = 3921 — found by mapping a region's BOUNDARY
+
+`boundaries.py`, `check3921.py`, `cheap3921.py`. Prompted by "let's find the
+boundaries of the record regions, then start testing hypotheses". Mapping the boundary
+of the 3917 region walked out of it into a HIGHER count.
+
+### The records
+
+**n = 10 = 3921** (was 3917 this morning, 3913 before that):
+
+    4,1,1,-1; 3,3,7,3; 5,-1,-5,-5; 2,1,1,1; 1,1,1,1;
+    7,14,1,-5; 4,-3,-4,-4; 168,-168,168,-415; 57,57,56,57; 88787,-9061,74275,113786
+
+**n = 9 = 2787** (was 2785), its own 9-subset:
+
+    4,1,1,-1; 3,3,7,3; 5,-1,-5,-5; 2,1,1,1; 1,1,1,1;
+    7,14,1,-5; 4,-3,-4,-4; 168,-168,168,-415; 88787,-9061,74275,113786
+
+Both verified to the [P101](#p101) standard: `cube_regions_n` and `cube_regions_q2w`
+agree; depth profiles sum exactly (3921 = 506+750+684+588+490+386+282+174+60+1,
+2787 = 426+596+524+434+344+254+154+54+1); both are ROTATION-INVARIANT under three
+independent global rotations, so neither is a counting-box artifact; and nesting
+holds — 3921's best 9-subset is 2787, whose best 8-subset is 1895.
+
+The sequence becomes **13, 67, 183, 393, 727, 1217, 1895, 2787, 3921**.
+
+### How, and it is the third time today
+
+The first witness had height 1.7e8 — `cube_regions_n` refuses it, so only the wide
+engine confirmed it. A record needs two. 3921 holds on a region, so a cheaper member
+exists: searching simple rationals along the same direction ([METHODS 15]) gave
+s = 1/14, height 113 786, which both engines count.
+
+The method that found it was not a search. [P191](#p191) found 3917 by sweeping a
+SOLVED tangent; this found 3921 by mapping the resulting region's boundary and
+stepping through it. Search over menus produced 3913 in 62 211 evaluations
+([P181](#p181)); solving produced 3917 and then 3921.
+
+### The boundaries themselves, named by the cubes that make them
+
+Using [P194](#p194)'s subset signature — a wall is invisible to the (n-1)-subsets
+that delete a cube essential to its coincidence, so the UNCHANGED subsets name the
+wall — with a fine step and bisection to the first crossing:
+
+    n=8 1895 (rank 2):  walls {1,3,6} at 0.0013-0.0026, {2,5,7} at 0.0128,
+                        {0,5,6} at 0.0226, {3,4,5,7} at 0.0417 = exactly 1/24
+    n=9 2785 (rank 3):  walls {1,3,6} at 0.0026, {0,6,8} at 4.4e-6, {3,6,7} at 0.101,
+                        {8} at 1/56 exactly — the cube-duplication PUNCTURE ([P187])
+
+The regions are extremely anisotropic: at 1895 the nearest wall is 30x closer than the
+farthest; at 2785 one wall sits at 4.4e-6 and another at 0.101, a factor of 23 000.
+**A single step size cannot map these**, which is why every earlier one-line sweep
+misread them.
+
+**A defect caught mid-run:** the first pass stepped by 1/D with D the record's
+denominator (24, 56) and EVERY direction left the region on step 1 — so those
+"boundaries" were wherever one coarse step landed. Only after refining by 4096 and
+bisecting did the walls above appear.
+
+### [P197](#p197)'s hypothesis: direction right, magnitude wrong
+
+P197 flagged, explicitly as three-point fitting, that the gap sequence's second
+differences (12,14,14,14,22,24) suggested n=9's record was ~8 low. **It was low** —
+but by 2, not 8, on what has been found so far. Updated:
+
+    gaps      : 0, 12, 36, 74, 126, 192, 278, 388
+    2nd diffs : 12, 14, 14, 14, 20, 24        (was 12,14,14,14,22,24)
+
+Still not smooth, so if the heuristic means anything, further records remain at n = 9
+and n = 10. It has now earned one hit and no proof.
+
+Files: `boundaries.py`, `boundaries.log`, `check3921.py`, `cheap3921.py`.
+
+## Status tags on postscripts
+
+*Added 2026-08-31.* Each entry from P182 onward carries a tag in its heading, using
+`RESULTS.md`'s vocabulary plus **OBSERVED**:
+
+- **VERIFIED / PROVED / EXHAUSTED** — a measurement, a theorem, a complete search.
+- **OBSERVED** — a pattern noticed, not yet checked against an anchor outside the
+  sweeps that produced it. This is the discovery state.
+
+The tag exists because of a measurement on this file: of the 17 entries written on
+2026-08-31, **4 were retracted or superseded the same day, and all four were pattern
+claims** — every entry reporting a measurement survived. Before the tag, 189 of 201
+postscripts carried no status at all, so a reader could not tell a verified count from
+a pattern seen in four sweeps. Earlier entries are untagged and should be read with
+that in mind.
+
+A hypothesis — a pattern with a leading candidate explanation — belongs in
+`OPEN_QUESTIONS.md` as a question with a candidate answer, not here and not in
+`RESULTS.md`.
+

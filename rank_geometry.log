@@ -1,0 +1,4 @@
+n=6  727    deficit 1 | preserving RANK 2 | 0 unevaluated | 4 combo failures | P184 says 0
+n=8  1895   deficit 3 | preserving RANK 2 | 0 unevaluated | 0 combo failures | P184 says 2
+n=9  2785   deficit 4 | preserving RANK 3 | 0 unevaluated | 0 combo failures | P184 says 3
+n=10 3917   deficit 6 | preserving RANK 5 | 1 unevaluated | 0 combo failures | P184 says 5
