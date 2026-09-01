@@ -1,0 +1,10 @@
+GATE: record sixth cube (7, 14, 1, -5) -> count 727, r = 3, deficit 1  OK
+
+70 candidates counted; measuring r on 18 spanning the range
+   sixth cube          count    r  deficit
+   (9, -9, -9, -4)       723    2        2
+   (6, 6, -6, -5)        723    2        2
+   (2, -2, -2, -1)       719    2        2
+   (3, 1, -9, 4)         717    2        2
+   (8, -3, 4, -5)        711    2        2
+   (2, -2, 5, -2)        711    2        2

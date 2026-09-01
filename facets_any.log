@@ -1,0 +1,11 @@
+
+1217 (n=7)  record 1217  deficit 2  preserving rank 1
+   2 facets:
+      cubes [1, 3, 6]      at 0.0025635   count outside 1213   <== the wall shared by n=8,9,10
+      cubes [0, 5, 6]      at 0.045288   count outside 1213   <== the other shared wall
+
+727  (n=6)  record 727  deficit 1  preserving rank 0
+   no preserving direction (the locus is a NODE or a point) — the facet walk does not apply here
+
+393  (n=5)  record 393  deficit 1  preserving rank 0
+   no preserving direction (the locus is a NODE or a point) — the facet walk does not apply here

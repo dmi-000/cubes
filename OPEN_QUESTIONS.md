@@ -417,3 +417,69 @@ re-read against dimension = deficit - 1 = n - 6.
 **Why it is filed rather than done:** it is a re-reading of three entries against a
 new measurement, not a computation, and it should be done deliberately rather than
 folded into a session that has already overturned four things.
+
+## 15. Why does an added cube contribute rank 2 instead of 3? — **ANSWERED 2026-08-31**
+
+> **ANSWERED by [P206](LEDGER.md#p206), the same day this question was written.**
+> `deficit = 1 + sum_j (3 - r_j)` with `r_j` the rank of the wall gradients on cube j's
+> own three columns — verified at all eight records. The 727 core has r_j = 3 for every
+> cube (fully constrained); every cube added beyond it has r_j <= 2. So the deficit is
+> the count of per-cube free directions plus one universal coupling, and the "phase
+> change at n = 7" is simply the first rung with an added cube. What remains open is
+> the follow-on below.
+>
+> **Still open:** what determines whether an added cube gets r = 3, 2 or 1? Generic is
+> r = 2 (6 of 6 sampled at n=6). The "less constrained wins" reading was REFUTED
+> ([P207](LEDGER.md#p207)): the n=6 record is MORE constrained than generic while the
+> n=9/10 records are LESS, so there is no consistent direction. What survives is only
+> that records are NON-GENERIC in r — four of five off the generic value, and the two
+> sitting at it are exactly the two superseded on 2026-08-31, which is confounded with
+> their having been found by menu search.
+
+**This is [P205](LEDGER.md#p205)'s reduction of the whole "phase change at n = 7".** A
+cube has three degrees of freedom. Up to n = 6 each added cube raises the wall matrix's
+rank by 3; from n = 7 it raises it by 2. Since `deficit = ambient - rank` and ambient is
+always +3, that single drop is why deficit starts growing — and since
+`locus dimension = deficit - 1` ([P184](LEDGER.md#p184)/[P196](LEDGER.md#p196)), it is
+also why the maximiser loci stop being points. Three reported phase changes are this
+one fact.
+
+**It is NOT a property of n.** Two records at the same n differ in rank: 2785 has 20
+and 2787 has 19; 3913 has 22 while 3917 and 3925 have 21. So the drop belongs to
+particular configurations, and the records found on 2026-08-31 already violate the
+pattern it was read off.
+
+**What would settle it.** The drop means the added cube's wall gradients acquire a
+linear dependency on the existing ones in exactly ONE direction. Name that dependency:
+compute the wall matrix before and after adding a cube, find the vector in the new
+gradients' span that lies in the old span, and read off what coincidence it expresses.
+Then ask which added cubes produce it and which do not — 3913 versus 3917 at the same
+n is a ready-made pair with different answers.
+
+**Why it is worth doing:** it is concrete linear algebra on matrices already computed
+and cached, it explains three observations at once, and nothing else in the file
+currently attacks the mechanism rather than the pattern.
+
+## 16. Why does modularity occur at exactly ONE rung?
+
+`393 ⊂ 727` is modular; no other containment in the tower is
+([P170](LEDGER.md#p170), proved over 1 192 678 flats). This has been cited as
+established context for weeks — including repeatedly on 2026-08-31 — **without ever
+being posed as a question**, which is why it is only now in this file.
+
+**What would settle it.** Stanley's modular factorization says a modular flat splits
+the characteristic polynomial. The measurement to make is which property of the 393/727
+pair supplies the modularity and which property the other pairs lack — rank additivity
+was already measured ([P159](LEDGER.md#p159): 11 violations at 727 ⊂ 1217, 0 at
+393 ⊂ 727), so the question is what makes those 11 appear.
+
+**Caution.** [P158](LEDGER.md#p158) was retracted after modularity was refuted four
+ways at a different rung, so any new claim here needs the same four-way check before it
+is believed.
+
+---
+
+*Added 2026-08-31, prompted by "are mysteries open questions?" — the answer being that
+they become one only when someone states what would settle them. Of four long-standing
+"mysteries" cited in this project, exactly one (§4, the wall law) had ever been
+converted. These are two of the other three.*

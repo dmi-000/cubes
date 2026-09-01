@@ -1198,6 +1198,14 @@ check that would settle any particular case is to read the wall's own triple poi
 the catalogue and see which cubes' planes form it — cheap, and not yet done for any of
 the walls named this way.
 
+**ACROSS COMPOUNDS the signature is a LABEL, not an identity.** It names cubes by
+INDEX, and an index means different things in different compounds. At the n=8..10
+records, signature [3,6,7] appears three times naming three DIFFERENT walls, because
+cube 7 is (24,-24,24,-61) in two of them and (168,-168,168,-415) in the others; while
+[1,3,6] appears four times naming genuinely ONE wall, because cubes 0-6 are the same
+quaternion in every record ([P202](LEDGER.md#p202)). Check the cubes before reading a
+matched signature as a matched wall.
+
 **Corollary that IS safe:** a wall whose signature is empty (every subset changes) is
 not made by any small set of cubes, and one whose signature is a single cube is a
 strong candidate for a coincidence involving that cube essentially.

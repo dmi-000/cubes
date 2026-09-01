@@ -14423,3 +14423,495 @@ A hypothesis — a pattern with a leading candidate explanation — belongs in
 `OPEN_QUESTIONS.md` as a question with a candidate answer, not here and not in
 `RESULTS.md`.
 
+
+<a id="p199"></a>
+
+## [VERIFIED] Postscript 199: 2787's region has FOUR facets, the census saturates, and its vertices are worse
+
+`facets.py`, and `climb.py` now emits this census itself. Prompted by two user
+observations that changed the method: "would it suffice to look around the vertices of
+the bounding polygon?" and "after climbing facets, we should have the boundaries at
+hand and not need a separate record_boundaries run."
+
+### Sampling directions was the wrong finite object
+
+The region is a cell, so **every direction's first crossing lands on a FACET**. Facets
+are finite; directions are a continuum. `climb.py` had reported 2787 "locally maximal"
+from 18 sampled directions, which is [METHODS 1](METHODS.md#1-solve-the-line-do-not-sample-it)'s
+named failure and was tagged OBSERVED for that reason. Enumerating facets is a search
+over a set that can be NAMED, and it reports its own completeness through a saturation
+curve.
+
+    directions walked   8  16  24  32  40  48  56  64
+    distinct facets     4   4   4   4   4   4   4   4
+
+Flat from the first checkpoint. The four facets, by [METHODS 22](METHODS.md) signature:
+
+    cubes [1,3,6]   at 0.00255    count outside 2783
+    cubes [5,7,8]   at 0.00336    2783
+    cubes [3,6,7]   at 0.0299     2783
+    cubes [0,5,6]   at 0.0453     2783
+
+All four drop by exactly 4, and the region is anisotropic by 18x.
+
+### Vertices reach cells no facet crossing can
+
+A facet gives the neighbour across ONE wall. Cells meeting at a VERTEX are reachable
+only by crossing several at once, so they are invisible to every interior direction's
+first crossing however many are sampled. Scaling two directions so each one's wall sits
+at t = 1 and adding them aims at their corner:
+
+    [1,3,6] + [3,6,7]  ->  2.7e-07   count 2779   NEW signature
+    [1,3,6] + [5,7,8]  ->  2.7e-07   count 2755   NEW signature
+    best over all six vertex probes: 2787 = the record
+
+Two probes reached cells with signatures no facet walk produced, confirming the blind
+spot was real — and both are LOWER. Corners exit at ~1e-7 where facets sit at ~1e-3,
+which is what a corner is.
+
+**So 2787's local maximality now rests on a saturated facet list plus its vertex
+neighbours, not on 18 sampled directions.** Still not a proof: completeness of the
+facet list assumes the region is STAR-SHAPED about the record, automatic for a cell of
+a hyperplane arrangement but not guaranteed here, where the boundaries are quadrics.
+The saturation curve is evidence about that, not a substitute for it.
+
+### The census is now free
+
+`climb.py` walks to the first crossing in every direction already; it was discarding
+the crossing and keeping only the best count. It now records each crossing's signature
+and distance, so the facet census of every region falls out of the walk that was
+happening anyway, and the final iteration's census IS the local maximum's boundary.
+`record_boundaries.py` is marked SUPERSEDED — running it separately duplicated the
+expensive part for no new information.
+
+Files: `facets.py`, `facets.log`, `climb.py`, `record_boundaries.py` (superseded).
+
+<a id="p200"></a>
+
+## [VERIFIED] Postscript 200: n = 10 = 3925 — and every gain today landed in the two outermost layers
+
+`climb.py`, iteration 1 on 3921. **3925**, +4 over [P198](#p198), +12 over the 3913
+this day started with.
+
+    4,1,1,-1; 3,3,7,3; 5,-1,-5,-5; 2,1,1,1; 1,1,1,1;
+    7,14,1,-5; 4,-3,-4,-4; 168,-168,168,-415; 6555,6555,6497,6555; 88787,-9061,74275,113786
+
+Both engines return 3925; by_depth sums exactly; invariant under three global
+rotations; best 9-subset is 2787, the n=9 record, so nesting holds. Gate passed
+inside the climb before the configuration was accepted as the next base.
+
+### Where the gains went
+
+    3913   [500, 748, 684, 588, 490, 386, 282, 174, 60, 1]
+    3917   [504, 748, 684, 588, 490, 386, 282, 174, 60, 1]
+    3921   [506, 750, 684, 588, 490, 386, 282, 174, 60, 1]
+    3925   [508, 752, 684, 588, 490, 386, 282, 174, 60, 1]
+
+**Depths 3 through 10 are IDENTICAL across all four records.** The entire +12 is d1
+(+8) and d2 (+4). Four independent record improvements, found by three different
+methods — a solved tangent ([P191](#p191)), a boundary crossing ([P198](#p198)), and
+the automated climb — and every one of them moved only the two outermost layers.
+
+That is [P197](#p197)'s triage arriving as a measurement rather than an inference. P197
+computed that 91% of the slack between the records and the ceiling bound sits at depth
+1, with every interior depth within 4 of its ceiling and several exactly tight. The
+climb has now spent a day confirming it from the other direction: **the interior is
+frozen and all the available freedom is at the surface.**
+
+It also sharpens what remains. The ceiling bound at n=10 is 4309; 3925 leaves a gap of
+384, and by the same census essentially all of it is d1's. Whether that gap closes is
+the depth-1 question, and nothing found today touches depths 3-10 at all.
+
+Files: `climb.py`, `climb.log`.
+
+<a id="p201"></a>
+
+## [VERIFIED] Postscript 201: a prediction sharpened until it could fail, then tested — it survived
+
+`falsify.py`. Prompted by "you also mentioned a falsifiable prediction. are you working
+on falsifying?" — I was not. I had stated it and queued behind a running job, which is
+not testing it.
+
+### The prediction as first stated could not fail
+
+[P194](#p194)/[TAXONOMY §9] said "2787's four facets must embed in 3925's wall set".
+2787 IS 3925 minus cube 8, and cubes 0-7 and 9 are identical in both, so a coincidence
+among cubes {1,3,6} exists in 3925's arrangement **by construction**. The claim was a
+restatement of the setup.
+
+### The version that can fail
+
+A wall may EXIST without BOUNDING. 3925's region could be cut off nearer by some other
+wall in every direction, leaving 2787's facets interior to it and bounding nothing.
+Test: walk 2787 to each facet crossing — a point just outside that wall — then
+re-insert cube 8 and count the ten-cube compound there. If the count is still 3925, the
+wall does not bound 3925's region and the claim is refuted for that facet.
+
+    facet [1,3,6]   at 0.00255    2787 -> 2783    3925 -> 3921
+    facet [5,7,8]   at 0.00336    2787 -> 2783    3925 -> 3921
+    facet [3,6,7]   at 0.02993    2787 -> 2783    3925 -> 3921
+    facet [0,5,6]   at 0.04526    2787 -> 2783    3925 -> 3921
+
+**0 of 4 falsified; the prediction SURVIVES.** And it survives with a regularity that
+was not predicted: crossing each of these walls costs **exactly -4 in both
+compounds**. Adding cube 8 changes neither which walls bound the region nor what
+crossing them costs.
+
+The test reused 2787's cached wall data, so it did not duplicate the `walls_and_null`
+the climb was computing for 3925.
+
+### The climb terminated
+
+    [n=9  iter 1] 2787  deficit 5  preserving rank 4  -> locally maximal
+    [n=10 iter 1] 3921  deficit 6  preserving rank 5  -> NEW RECORD 3925
+    [n=10 iter 2] 3925  deficit 6  preserving rank 5  -> locally maximal
+
+Preserving rank = deficit - 1 at all three, now including two configurations
+([P184](#p184)) the law was never fitted on.
+
+### A fix that did not take
+
+`climb.py` was patched mid-session to emit its facet census per iteration, so the
+boundary would come free from the walk. **The running process had already loaded the
+old code**, so no census was emitted and 3925's facets remain uncomputed by it. The
+patch is correct and untested. Editing a file does not change a process already
+running — the same class of mistake as `grep python3` reporting zero jobs while the
+climb ran at 99% CPU ([FAILURE_MODES 11e](FAILURE_MODES.md#11e)), twice today.
+
+### Addendum: the two regions have the SAME boundary
+
+`facets10.py` then computed 3925's own census, and it is not merely compatible with
+2787's — it is the same object:
+
+    2787   [1,3,6] 0.0025502   [5,7,8] 0.0033597   [3,6,7] 0.029932   [0,5,6] 0.045259  -> 2783
+    3925   [1,3,6] 0.0025502   [5,7,9] 0.0033597   [3,6,7] 0.029932   [0,5,6] 0.045259  -> 3921
+
+Four facets each, saturating at 4 across 64 directions, at distances agreeing to seven
+figures, with the same signatures under the relabel (2787's cube 8 is 3925's cube 9).
+**No facet carries cube 8 in its signature**: the cube whose addition turns 2787 into
+3925 contributes no wall of its own to the region.
+
+So the shadow relation is far tighter than "the facets embed". Every wall bounding
+either region is a coincidence among cubes present in BOTH, so adding cube 8 moves no
+boundary and the two regions coincide in the shared coordinates. That also explains the
+uniform -4 above: crossing a wall destroys the same coincidence in both compounds.
+
+**Where they DIFFER is at the vertices.** Facet crossings cost -4 in both, but the
+corner probes do not match:
+
+    2787   corner [1,3,6]+[3,6,7] -> 2779  (-8)     [1,3,6]+[5,7,8] -> 2755  (-32)
+    3925   corner [1,3,6]+[3,6,7] -> 3909  (-16)    [1,3,6]+[5,7,9] -> 3889  (-36)
+
+Same corners, same distances (~2.7e-07), different costs. So cube 8 is invisible to the
+facets and visible at the corners — where two coincidences are destroyed at once and
+the extra cube's own regions are caught in the collapse. Neither corner beats its
+record.
+
+Files: `falsify.py`, `falsify.log`, `climb.py`, `climb.log`, `facets10.py`,
+`facets10.log`.
+
+<a id="p202"></a>
+
+## [VERIFIED] Postscript 202: the same wall bounds the record region at n = 8, 9 and 10
+
+Prompted by "are there similar connections between other n?" — [P201](#p201) had found
+2787 and 3925 sharing a boundary exactly. They are not the only pair.
+
+### Cubes shared, cubes not
+
+    cubes 0-6   IDENTICAL across 1895, 2785, 2787, 3925
+    cube 7      (24,-24,24,-61) at 1895/2785 ; (168,-168,168,-415) at 2787/3925
+    cubes 8,9   differ throughout
+
+### Facet signatures across the four records
+
+    [1,3,6]      facet of ALL FOUR       cubes all shared -> ONE wall, genuinely
+    [0,5,6]      facet of THREE          cubes all shared -> ONE wall, genuinely
+    [3,6,7]      facet of three          cube 7 differs   -> same label, DIFFERENT wall
+    [2,5,7], [3,4,5,7], [0,6,8], [8], [5,7,8], [5,7,9]   one record each
+
+**Two coincidences among the base cubes bound the record region at n = 8, at both n = 9
+records, and at n = 10.** The regions of different rungs are cut by literally the same
+walls — not analogous walls, the same ones, since every cube they involve is the same
+quaternion in every record.
+
+That is a stronger form of the tower's nesting. Nesting says each record CONTAINS its
+predecessor; this says their maximiser regions are bounded by shared coincidences, so
+the constraint structure is inherited and not merely the configuration.
+
+### The caution it produces, for [METHODS 22](METHODS.md)
+
+Three signatures match across records while naming DIFFERENT walls, because they
+involve cube 7, which is not the same cube in all of them. **A subset signature names
+cubes by INDEX, and an index means different things in different compounds.** Comparing
+signatures across compounds is only meaningful for indices whose cubes are identical —
+here 0-6. Within one compound the signature is well defined; across compounds it is a
+label that must be checked before it is a claim.
+
+This does not affect [P201](#p201): 2787 and 3925 share cubes 0-7 and the relabel
+8 -> 9 was applied explicitly, so their identical censuses are a real identity.
+
+Files: `facets.log`, `facets10.log`, `boundaries.log`.
+
+<a id="p203"></a>
+
+## [VERIFIED] Postscript 203: TWO coincidences bound every record region from n = 7 to n = 10
+
+`facets_any.py`. Testing how far [P202](#p202)'s shared walls reach down the tower.
+
+### The result
+
+    1217 (n=7)   deficit 2   preserving rank 1
+        [1,3,6]   at 0.0025635   -> 1213      the ONLY two facets
+        [0,5,6]   at 0.045288    -> 1213
+
+    1895 (n=8)   [1,3,6], [0,5,6]  present among four facets
+    2787 (n=9)   [1,3,6], [0,5,6]  present among four facets
+    3925 (n=10)  [1,3,6], [0,5,6]  present among four facets
+
+    727 (n=6)    preserving rank 0 — no preserving direction; no region to bound
+    393 (n=5)    preserving rank 0 — likewise
+
+**The coincidences {1,3,6} and {0,5,6} bound the record region at every rung from n=7
+to n=10, and at n=7 they bound it alone.** Distances agree closely across rungs —
+0.0025635 / 0.0025502 and 0.045288 / 0.045259 — and that is forced rather than lucky:
+both walls involve only cubes 1, 3, 5 and 6, which sit at IDENTICAL positions in every
+record, so the wall is in the same place and the record is the same distance from it.
+
+### Why the question stops at n = 7 — one real reason, and one I got wrong
+
+- **The walls need cube 6** = (4,-3,-4,-4), which first appears at n = 7. Below that
+  they do not exist, so the question is not merely unanswered but ill posed. This
+  stands.
+
+- ~~There is no region to bound at 727 and 393.~~ **WRONG, corrected the same day.**
+  `facets_any.py` reported preserving rank 0 there, and I read that as "no region".
+  Two errors:
+
+  **(a) rank 0 is a bounding structure** — a 0-dimensional region, a single point,
+  whose boundary is itself. A point is not the absence of a region.
+
+  **(b) 727's rank 0 is an artifact of my candidate pool.** The script builds
+  candidates from the NULL BASIS only; 727's null space is 1-dimensional and its
+  generator changes the count ([P184](#p184): 0 of 1 hold at n=6), so the pool was
+  empty. But arc D's tangents (14,2,-3) and (21,4,-6) each PRESERVE 727 — they are
+  slice tangents that CROSS walls and were never candidates. **727's locus is
+  1-dimensional with SIX SOLVED ENDS already recorded in `MAXIMISER_TAXONOMY.md`**
+  (arcs A, B, C bounded exactly, D a node). Its boundary was mapped weeks ago.
+
+  For 393 the pool was null-only as well, so its rank 0 is likewise UNVERIFIED: it may
+  be a point, or it may have non-null tangents nobody has looked for. Unknown, not
+  established.
+
+  The lesson is the one this file keeps recording: a search that finds nothing has
+  found nothing only within the set it searched, and my set excluded exactly the
+  directions 727's locus uses.
+
+### What it says about the tower
+
+The tower's nesting was known as a fact about CONFIGURATIONS: each record contains its
+predecessor. This is a fact about their CONSTRAINTS. From n = 7 upward the maximiser
+regions are cut by the same two base-cube coincidences, and the extra facets appearing
+at n >= 8 all involve the cubes that rung added. So what is inherited up the tower is
+the bounding structure, with each new cube contributing at most its own new walls and
+never displacing the inherited ones — at n = 10, cube 8 contributes no facet at all
+([P201](#p201)).
+
+> **A closing observation from this entry was RETRACTED as VACUOUS
+> ([P205](#p205)):** that the rung where records stop being isolated coincides with
+> where {1,3,6} and {0,5,6} first exist. Both walls involve cube 6, the SEVENTH cube,
+> so they exist iff n >= 7 by definition. A tautology, not a coincidence.
+
+Files: `facets_any.py`, `facets_any.log`.
+
+<a id="p204"></a>
+
+## [VERIFIED] Postscript 204: 183 and 393 are genuinely 0-dimensional — verified with a pool that finds arcs
+
+`verify393.py`. Prompted by "393 should be verified" — its rank 0 came from the same
+null-space-only pool that produced a FALSE negative at 727 ([P203](#p203) addendum), so
+it was unverified rather than established.
+
+    GATE 727   111 candidates, 0 unevaluated -> BOTH arc D tangents recovered, rank 2
+                                                (the null-only pool gave 0)
+    393 (n=5)   72 candidates, 0 unevaluated -> 0 preserving, RANK 0
+    183 (n=4)   47 candidates, 0 unevaluated -> 0 preserving, RANK 0
+
+The pool is the null space PLUS rank-2 null directions of the wall normals projected
+onto every cube's 3-slice, plus the full orthogonal complement where those span rank
+< 2 — the pool that finds 727's arcs, which is exactly the case the previous one
+failed. Zero unevaluated at all three rungs, so no gap hides behind the negatives.
+
+**183 and 393 are single points**, and a point is a 0-dimensional REGION whose boundary
+is itself — not the absence of a region, which is how I first read rank 0. This also
+confirms [P190](#p190)'s "183 appears genuinely finite" with a far better pool.
+
+It completes the tower's dimension table (`MAXIMISER_TAXONOMY.md` §11): rank =
+deficit - 1 at every rung EXCEPT 727, whose preserving directions span rank 2 while no
+2-dimensional subspace preserves, so its largest preserving subspace is 1-dimensional
+against a predicted 0.
+
+**Still a pool, not a proof.** A tangent needing a direction outside null-space-plus-
+slice-pairs would be missed. What has changed is that the pool now demonstrably catches
+the hard case it used to fail.
+
+Files: `verify393.py`, `verify393.log`.
+
+<a id="p205"></a>
+
+## [OBSERVED] Postscript 205: the "phase change at n = 7" is one fact, not several — and it is not a fact about n
+
+Prompted by "do you understand what causes phase changes?" The honest answer is no, and
+checking shrinks the phenomenon considerably.
+
+### Three apparent phase changes are one
+
+[P172](#p172) reported a regime change at n = 6 -> 7 visible in three quantities:
+walls (+4,5,6,9 then +24,24,24), rank gain (3,3,3,3 then 2,2,2), deficit (1,1,1,1,1
+then 2,3,4). And [P204](#p204) added a fourth: the loci go from POINTS at n = 4,5 to
+positive-dimensional regions from n = 7.
+
+These are not independent. `deficit = ambient - rank`, and ambient is always +3, so
+deficit grows exactly when rank gain falls below 3. And `locus dimension = deficit - 1`
+is measured ([P184](#p184)/[P196](#p196)). So "deficit starts growing" and "loci become
+positive-dimensional" are the SAME fact, and the wall-count jump is the third face of
+it. One event, counted three times.
+
+### A coincidence I asserted and now retract as VACUOUS
+
+[P203](#p203)'s closing observation — that the rung where records stop being isolated is
+also where the shared walls {1,3,6} and {0,5,6} first exist — is empty. Both walls
+involve cube 6, which IS the seventh cube. Walls involving the seventh cube exist iff
+n >= 7 **by definition**. It is a tautology, not a coincidence, and it was tagged
+OBSERVED when it should have been seen as contentless.
+
+### And it is not a property of n
+
+    n=9    2785  rank 20  deficit 4       2787  rank 19  deficit 5
+    n=10   3913  rank 22  deficit 5       3917/3925  rank 21  deficit 6
+
+**Rank is not a function of n.** Two records at the same n differ in rank, so the
+"rank gain drops to 2 at n = 7" pattern describes the particular CHAIN of
+configurations that had been found by 2026-08-24, not the problem at size n — and the
+records found on 2026-08-31 already violate it. Whatever a phase change is here, it is
+a property of a path through configuration space, not of the size of the compound.
+
+### What would count as an explanation, and nobody has looked
+
+The whole thing reduces to one algebraic question: **why does a particular added cube
+contribute rank 2 to the wall matrix rather than 3?** A cube has three degrees of
+freedom; the drop means its wall gradients acquire a linear dependency on the existing
+ones in exactly one direction. Which dependency, and why it appears for some added
+cubes and not others, is a concrete question about the wall matrix that has not been
+asked.
+
+Still unexplained and NOT reducible to the above: modularity occurring at exactly one
+rung (393 subset 727), freeness holding only for n <= 3, and the wall/tight linear law
+breaking at n = 10 ([P185](#p185)).
+
+<a id="p206"></a>
+
+## [VERIFIED] Postscript 206: OQ 15 ANSWERED — deficit decomposes per cube, and the "phase change" is the 727 core being rigid
+
+`oq15.py`. Prompted by "you say the one question is answerable. let's answer it."
+
+### The identity
+
+Let `r_j` = rank of the tight-wall gradients restricted to cube j's OWN three columns —
+how many of that cube's three rotational degrees of freedom its coincidences constrain.
+Then, at **all eight records measured**:
+
+    deficit = 1 + sum_j (3 - r_j)          rank = sum_j r_j - 1
+
+    record      ambient  rank  deficit   predicted
+    393  n=5      12      11      1          1
+    727  n=6      15      14      1          1
+    1217 n=7      18      16      2          2
+    1895 n=8      21      18      3          3
+    2785 n=9      24      20      4          4
+    2787 n=9      24      19      5          5
+    3913 n=10     27      22      5          5
+    3925 n=10     27      21      6          6
+
+The deficit is not a global mystery: it is the COUNT OF PER-CUBE FREE DIRECTIONS, plus
+exactly one cross-cube coupling that is the same at every rung.
+
+### The mechanism, and the dissolution of the "phase change at n = 7"
+
+    cubes 1-5 (the 727 core)        r = 3 always — fully constrained
+    cubes 6,7,8,9 (added)           r = 2 — one free direction, a COORDINATE AXIS
+    2787's cube 8, 3925's cube 9    r = 1 — TWO free directions
+
+**The 727 core is rigid.** Every one of its cubes has all three degrees of freedom
+constrained by its own coincidences. Every cube added beyond it is under-constrained by
+at least one direction. So deficit = 1 while there are no added cubes and grows by one
+per free direction thereafter — which is the entire "regime change at n = 6 -> 7"
+([P172](#p172)) and, via `locus dimension = deficit - 1`, the entire "records stop
+being isolated" ([P204](#p204)). **Not a property of n**, as [P205](#p205) already
+showed from the same-n rank differences; a property of which cubes are present.
+
+### [P174](#p174) is NOT recovered
+
+It claimed the free axis is a BODY DIAGONAL. Measured, the free directions are
+COORDINATE AXES — (1,0,0) at cube 6, (0,0,1) at cube 7, (0,1,0) at cube 8 — in Cayley
+coordinates. Bears on [OQ 14](OPEN_QUESTIONS.md), and argues against reinstating P174.
+
+### An OBSERVED correlation, on two pairs only
+
+Where two records exist at the same n, the winner has the LESS constrained added cube:
+
+    n=9    2785  cube 8 r=2      2787  cube 8 r=1     +2
+    n=10   3913  cube 9 r=2      3925  cube 9 r=1     +12
+
+Two pairs is not a pattern. But it is testable and it points somewhere: if a lower r_j
+on the added cube tends to raise the count, then the search should be aimed at cubes
+whose coincidences constrain them least — the opposite of the coincidence-maximising
+instinct [METHODS 6](METHODS.md) already warns is not a compass.
+
+Files: `oq15.py`, `oq15.log`.
+
+<a id="p207"></a>
+
+## [VERIFIED] Postscript 207: "less constrained added cube wins" is REFUTED — and the test's own design was the sampling error again
+
+`rtest.py`. Testing [P206](#p206)'s OBSERVED correlation, which rested on two same-n
+pairs where the winner had the less constrained added cube (r = 1 vs r = 2).
+
+### The design flaw, visible in the output
+
+Candidates were chosen to span the range of COUNTS. Six of six came back at **r = 2** —
+no spread at all in the variable under test. Selecting on the cheap axis rather than
+the one the question is about is [METHODS 1](METHODS.md)'s failure in a new dress, and
+it makes the intended correlation uncomputable. The run was stopped rather than spend
+five minutes per candidate confirming r = 2 eleven more times.
+
+### The question is settled anyway, from the other direction
+
+    GENERIC at n=6      6 of 6 sampled candidates have r = 2 (counts 711..723)
+
+    727  (n=6)   record   r = 3    MORE constrained than generic
+    2785 (n=9)   record   r = 2    generic          -- SUPERSEDED today
+    2787 (n=9)   record   r = 1    LESS constrained
+    3913 (n=10)  record   r = 2    generic          -- SUPERSEDED today
+    3925 (n=10)  record   r = 1    LESS constrained
+
+**The hypothesis is REFUTED as stated.** The n=6 record is more constrained than
+generic; the n=9 and n=10 records are less. There is no consistent direction, so
+"lower r wins" cannot be a search signal. The gate carried the counterexample from the
+start — 727's added cube has the maximum r — and I noted that before running rather
+than after, which is the only reason the null result is not a surprise.
+
+### What survives is weaker, and different
+
+**Records are NON-GENERIC in r.** Four of five sit off the generic value (3, 1, 1
+against a generic 2) — and the two that sit AT it, 2785 and 3913, are precisely the two
+records SUPERSEDED on 2026-08-31. That is five data points and a coincidence of timing
+that has an obvious alternative explanation: both were found by menu search, which
+[P186](#p186) showed cannot reach the configurations the solved methods reach. So
+"generic in r" may track "found by a weak method" rather than anything about r.
+
+Recorded as OBSERVED, not acted on. The test that would separate the two is to measure
+r for records found by DIFFERENT methods at the same rung — which is what the two
+superseded pairs already are, and they are confounded exactly that way.
+
+Files: `rtest.py`, `rtest.log`.

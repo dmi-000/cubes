@@ -41,6 +41,9 @@ anchors so the register is complete rather than only self-critical.
 | [P17](LEDGER.md#p17) | noticed golden N4 is optimal on every subset yet not maxN4 | frustration; the middle-layer mechanism |
 | [P25](LEDGER.md#p25) | looking at the viewer, asked whether a nearby configuration "perhaps with irrational rotations" could close the near-miss edges exactly; and separately, for "another way to slide from octahedral √2 to golden √5 maintaining edge concurrences" | the **dihedral family** — closed form, four theorems, both 67s; and pair-identity tracking across the slide |
 | [P49](LEDGER.md#p49) | asked whether the absence of irrational solutions was an artifact of an unnecessary restriction | it was; walls are pairs of planes |
+| [P198](LEDGER.md#p198) | **"let's find the boundaries of the record regions, then start testing hypotheses"** | **TWO NEW RECORDS**: n=9 = 2787 and n=10 = 3921. Mapping a region's boundary walked out of it into higher counts |
+| [P199](LEDGER.md#p199) | **"would it suffice to look around the vertices of the bounding polygon?"** | replaced direction-sampling with FACET enumeration — the finite object — plus vertex probes that reach cells no first crossing can. The facet census saturated at 4 |
+| [P199](LEDGER.md#p199) | "after climbing facets, we should have the boundaries at hand and not need a separate record_boundaries run" | removed a duplicated expensive computation: the climb was already walking to every boundary and discarding it. `record_boundaries.py` superseded |
 
 ### A2. Corrective: a human question that invalidated something already reported
 
@@ -56,6 +59,12 @@ it apart.
 | [P182](LEDGER.md#p182) | **"are the 15 directions chosen by sampling or solving?"** | `shapes.py` was sampling. METHODS 1's *named* failure — "seven representative directions, all small-integer and axis-aligned" | **"15 directions"** in my own report |
 | [P183](LEDGER.md#p183) | "are all continua paths and endpoints documented?" | they are not; and I had claimed 727 showed no locus while `RESULTS.md` had said for weeks it is a plateau on four arcs | an audit question I had not asked |
 | [P188](LEDGER.md#p188) | **"I don't see anything updating. pid 97154 is still running."** | a 2.5-hour job burning CPU on a direction whose cheapest representative is (1,0,0) — and, once diagnosed, that P182's headline finding ("recorded members sit at plateau ENDPOINTS") is false in all three cases, each a different sweep artifact | **a process that had printed nothing** |
+| [P197](LEDGER.md#p197) | "what are the real open questions that we can expect to resolve?" | exposed that I had been reading the ceiling law's index as DEPTH when it is CO-DEPTH — read correctly the bound is tight (ratio 1.100-1.104) and **91% of the gap is at depth 1** | a triage question I had not asked |
+| — | **"a hypothesis sounds like an OPEN QUESTION"** | killed my proposal for a new register between RESULTS and METHODS. `CONJECTURE` already existed and had been used twice, once being its own definition. The gap was a missing FIELD, not a missing file | — |
+| — | **"Are discoveries distinct from results or methods?"** | produced the OBSERVED tag, and the measurement behind it: **4 of 17 entries written that day were retracted or superseded the same day, and all four were pattern claims while every survivor was a measurement** | — |
+| — | "would we want similar tags to characterize METHODS?" | tagging by KIND revealed **4 of 22 METHODS entries are FACTs, not methods** — including §7, which I had cited as authority all day and whose n=9 evidence I had corrected that morning | — |
+| — | **"would you now say P194's OBSERVATION rather than discovery?"** | forced the method/observation split: the technique is a METHOD, the conclusion drawn with it is OBSERVED. Produced METHODS 22 with its directionality caveat — sound as essential=>unchanged, HEURISTIC in the converse actually used | my own loose word "discovery" |
+| — | **"Is that a case for solve not sample?"** | yes — 18 directions in a 4-dimensional subspace. Led to finding that all 76 tight walls vanish identically on the null space, so the cheap chamber solve does not apply, and to EXHAUSTION over a stated family as the honest rung | "18 directions" in my own report |
 | [P184](LEDGER.md#p184) | **"I think we implemented epsilon as a step size"** | the ENGINE is a true infinitesimal; **P175** used steps 1/1000, 1/100, 1 — and two of them agreed, certifying a shared cell. P175's universal is false for n ≥ 7 | **"1/1000: 685  1/100: 685"** printed in the entry |
 
 **The shift.** Early interventions were generative — a human seeing meaning in a
@@ -141,6 +150,7 @@ from re-reading.**
 
 | What was caught | How |
 |---|---|
+| The contradiction that exposed [P195](LEDGER.md#p195): it claimed dimension 4 at 2785, whose null space is 4-dimensional, so every null direction would have to preserve — but P184 had measured one changing. `map_geometry.py` was reporting `len(list)` as a dimension and never checked linear independence | noticing that two of my own entries could not both be true |
 | A misattribution in **this file**: the "another way to slide" quote was cited to P26 when it is inside P25 | verifying every anchor against the ledger before publishing the register |
 | Third instance in one session of claiming something undone that the repo had already done (727's arcs, then `n78_ends.py`'s solved 1217/1895 endpoints) — all three surfaced by the user asking, none by me checking | not caught by me; recorded here because the ratio is the measurement |
 | Reported a "climbing trend" in `extend_1217` (1885 → 1887 → 1889) that does not exist — I read EXECUTION order as PARAMETER order, and the `TS` list is not sorted by t | sorting the results by t before describing them; the real sequence is 1885, 1883, 1887, 1889, 1885, 1883 — non-monotone, like the 723 spread |

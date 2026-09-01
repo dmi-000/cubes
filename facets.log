@@ -1,0 +1,26 @@
+FACET ENUMERATION (saturation curve: new facets vs directions walked)
+     8 directions -> 4 distinct facets
+    16 directions -> 4 distinct facets
+    24 directions -> 4 distinct facets
+    32 directions -> 4 distinct facets
+    40 directions -> 4 distinct facets
+    48 directions -> 4 distinct facets
+    56 directions -> 4 distinct facets
+    64 directions -> 4 distinct facets
+
+4 FACETS found:
+   cubes [1, 3, 6]      at 0.0025502   count outside 2783
+   cubes [5, 7, 8]      at 0.0033597   count outside 2783
+   cubes [3, 6, 7]      at 0.029932   count outside 2783
+   cubes [0, 5, 6]      at 0.045259   count outside 2783
+   saturation tail: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+
+VERTEX PROBES (aim where two facets meet; both walls crossed at once):
+   [1, 3, 6] + [0, 5, 6] -> 0.0025502 count 2783  (facet [1, 3, 6])
+   [1, 3, 6] + [3, 6, 7] -> 2.7464e-07 count 2779  (NEW facet)
+   [1, 3, 6] + [5, 7, 8] -> 2.7464e-07 count 2755  (NEW facet)
+   [0, 5, 6] + [3, 6, 7] -> 1.0986e-06 count 2783  (facet [0, 5, 6])
+   [0, 5, 6] + [5, 7, 8] -> 1.3732e-07 count 2783  (facet [5, 7, 8])
+   [3, 6, 7] + [5, 7, 8] -> 0.0033597 count 2783  (facet [5, 7, 8])
+
+best over all vertex probes: 2787 (record 2787)

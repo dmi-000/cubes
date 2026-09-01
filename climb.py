@@ -9,8 +9,12 @@ self-sustaining. Per record:
      symmetric: at 2785 one wall sits at 4.4e-6 and another at 0.101);
   3. for each direction, fine step 1/(D*M) and BISECT to the first count change —
      a coarse step lands past several walls and misreads the boundary (P198);
-  4. any count ABOVE the record becomes the next base;
-  5. before accepting, find a LOW-HEIGHT member of the new region by searching simple
+  4. every crossing is RECORDED with its (n-1)-subset signature and distance, so the
+     facet census of each region comes free from the walk that was happening anyway —
+     at termination the last census IS the local maximum's boundary, and no separate
+     `record_boundaries.py` run is needed (it is superseded);
+  5. any count ABOVE the record becomes the next base;
+  6. before accepting, find a LOW-HEIGHT member of the new region by searching simple
      rationals along the same direction (METHODS 15), so both engines can verify it.
 
 Every accepted record is gated: both engines agree, and the count is invariant under
@@ -106,6 +110,9 @@ def climb(cubes,label):
             co=[rnd.randint(-2,2) for _ in good]
             if any(co): dirs.append(prim([sum(a*g[i] for a,g in zip(co,good)) for i in range(ncols)]))
         best=(rec,None)
+        facets={}
+        base=cfg_at(pt,cubes[0])
+        bsub=tuple(cnt([base[i] for i in range(n) if i!=j]) for j in range(n))
         den=Dden*M
         for v0 in dirs[:NDIR]:
             for sgn in (1,-1):
@@ -124,12 +131,23 @@ def climb(cubes,label):
                     if cm is None: break
                     if cm==rec: lo=mid
                     else: hi=mid
-                c=cnt(cfg_at([pt[i]+F(hi,den)*v[i] for i in range(ncols)],cubes[0]))
-                if c and c>best[0]:
+                p2=[pt[i]+F(hi,den)*v[i] for i in range(ncols)]
+                full=cfg_at(p2,cubes[0]); c=cnt(full)
+                if c is None or c==rec: continue
+                sub=tuple(cnt([full[i] for i in range(n) if i!=j]) for j in range(n))
+                sig=tuple(j for j in range(n) if sub[j]==bsub[j])
+                if sig not in facets: facets[sig]=(float(hi)/den,c)
+                if c>best[0]:
                     best=(c,(v,F(hi,den)))
                     print('   boundary crossing -> %d  (ABOVE %d)'%(c,rec),flush=True)
+        print('   FACET CENSUS of this region: %d distinct walls'%len(facets),flush=True)
+        for sig,(d,c) in sorted(facets.items(),key=lambda kv:kv[1][0]):
+            print('      cubes %-16s at %.5g   count outside %d'%(str(list(sig)),d,c),flush=True)
         if best[1] is None:
-            print('   no crossing above the record; region is locally maximal'); return cubes,rec
+            print('   no crossing above the record; region is locally maximal '
+                  'OVER THE DIRECTIONS WALKED (not a proof — see facets.py for the '
+                  'saturation curve and vertex probes)',flush=True)
+            return cubes,rec
         c,(v,s)=best
         cheap=None
         for q in range(2,200):

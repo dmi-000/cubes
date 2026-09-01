@@ -1,0 +1,16 @@
+
+GATE 727 (n=6)  record 727  ambient 15  walls 27  deficit 1   CONTROLS zero->727 wall->703 OK
+   pool 111 candidates (null + every cube-slice), 0 UNEVALUATED
+   preserving directions 2, RANK 2   (null-only pool gave rank 0)
+   GATE: expected >= 2 preserving, got 2 -> OK
+   witnesses: [(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 2, -3), (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 4, -6)]
+
+393 (n=5)  record 393  ambient 12  walls 18  deficit 1   CONTROLS zero->393 wall->373 OK
+   pool 72 candidates (null + every cube-slice), 0 UNEVALUATED
+   preserving directions 0, RANK 0   (null-only pool gave rank 0)
+   => locus is 0-DIMENSIONAL here: a single point, whose boundary is itself
+
+183 (n=4)  record 183  ambient 9  walls 12  deficit 1   CONTROLS zero->183 wall->161 OK
+   pool 47 candidates (null + every cube-slice), 0 UNEVALUATED
+   preserving directions 0, RANK 0   (null-only pool gave rank 0)
+   => locus is 0-DIMENSIONAL here: a single point, whose boundary is itself

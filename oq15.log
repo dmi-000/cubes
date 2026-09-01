@@ -1,0 +1,80 @@
+
+393  n=5   ambient 12  walls 18  rank 11  deficit 1
+   cube 1  rank of walls on its own 3 columns = 3
+   cube 2  rank of walls on its own 3 columns = 3
+   cube 3  rank of walls on its own 3 columns = 3
+   cube 4  rank of walls on its own 3 columns = 3
+   sum of per-cube ranks 12   vs total rank 11   (excess 1 = cross-cube coupling)
+
+727  n=6   ambient 15  walls 27  rank 14  deficit 1
+   cube 1  rank of walls on its own 3 columns = 3
+   cube 2  rank of walls on its own 3 columns = 3
+   cube 3  rank of walls on its own 3 columns = 3
+   cube 4  rank of walls on its own 3 columns = 3
+   cube 5  rank of walls on its own 3 columns = 3
+   sum of per-cube ranks 15   vs total rank 14   (excess 1 = cross-cube coupling)
+
+1217 n=7   ambient 18  walls 51  rank 16  deficit 2
+   cube 1  rank of walls on its own 3 columns = 3
+   cube 2  rank of walls on its own 3 columns = 3
+   cube 3  rank of walls on its own 3 columns = 3
+   cube 4  rank of walls on its own 3 columns = 3
+   cube 5  rank of walls on its own 3 columns = 3
+   cube 6  rank of walls on its own 3 columns = 2   free direction(s) [(1, 0, 0)]
+   sum of per-cube ranks 17   vs total rank 16   (excess 1 = cross-cube coupling)
+
+1895 n=8   ambient 21  walls 75  rank 18  deficit 3
+   cube 1  rank of walls on its own 3 columns = 3
+   cube 2  rank of walls on its own 3 columns = 3
+   cube 3  rank of walls on its own 3 columns = 3
+   cube 4  rank of walls on its own 3 columns = 3
+   cube 5  rank of walls on its own 3 columns = 3
+   cube 6  rank of walls on its own 3 columns = 2   free direction(s) [(1, 0, 0)]
+   cube 7  rank of walls on its own 3 columns = 2   free direction(s) [(0, 0, 1)]
+   sum of per-cube ranks 19   vs total rank 18   (excess 1 = cross-cube coupling)
+
+2785 n=9   ambient 24  walls 99  rank 20  deficit 4
+   cube 1  rank of walls on its own 3 columns = 3
+   cube 2  rank of walls on its own 3 columns = 3
+   cube 3  rank of walls on its own 3 columns = 3
+   cube 4  rank of walls on its own 3 columns = 3
+   cube 5  rank of walls on its own 3 columns = 3
+   cube 6  rank of walls on its own 3 columns = 2   free direction(s) [(1, 0, 0)]
+   cube 7  rank of walls on its own 3 columns = 2   free direction(s) [(0, 0, 1)]
+   cube 8  rank of walls on its own 3 columns = 2   free direction(s) [(0, 1, 0)]
+   sum of per-cube ranks 21   vs total rank 20   (excess 1 = cross-cube coupling)
+
+2787 n=9   ambient 24  walls 76  rank 19  deficit 5
+   cube 1  rank of walls on its own 3 columns = 3
+   cube 2  rank of walls on its own 3 columns = 3
+   cube 3  rank of walls on its own 3 columns = 3
+   cube 4  rank of walls on its own 3 columns = 3
+   cube 5  rank of walls on its own 3 columns = 3
+   cube 6  rank of walls on its own 3 columns = 2   free direction(s) [(1, 0, 0)]
+   cube 7  rank of walls on its own 3 columns = 2   free direction(s) [(0, 0, 1)]
+   cube 8  rank of walls on its own 3 columns = 1   free direction(s) [(1, -14, 0), (5, 0, 14)]
+   sum of per-cube ranks 20   vs total rank 19   (excess 1 = cross-cube coupling)
+
+3913 n=10   ambient 27  walls 101  rank 22  deficit 5
+   cube 1  rank of walls on its own 3 columns = 3
+   cube 2  rank of walls on its own 3 columns = 3
+   cube 3  rank of walls on its own 3 columns = 3
+   cube 4  rank of walls on its own 3 columns = 3
+   cube 5  rank of walls on its own 3 columns = 3
+   cube 6  rank of walls on its own 3 columns = 2   free direction(s) [(1, 0, 0)]
+   cube 7  rank of walls on its own 3 columns = 2   free direction(s) [(0, 0, 1)]
+   cube 8  rank of walls on its own 3 columns = 2   free direction(s) [(0, 1, 0)]
+   cube 9  rank of walls on its own 3 columns = 2   free direction(s) [(15, 220, 86)]
+   sum of per-cube ranks 23   vs total rank 22   (excess 1 = cross-cube coupling)
+
+3925 n=10   ambient 27  walls 100  rank 21  deficit 6
+   cube 1  rank of walls on its own 3 columns = 3
+   cube 2  rank of walls on its own 3 columns = 3
+   cube 3  rank of walls on its own 3 columns = 3
+   cube 4  rank of walls on its own 3 columns = 3
+   cube 5  rank of walls on its own 3 columns = 3
+   cube 6  rank of walls on its own 3 columns = 2   free direction(s) [(1, 0, 0)]
+   cube 7  rank of walls on its own 3 columns = 2   free direction(s) [(0, 0, 1)]
+   cube 8  rank of walls on its own 3 columns = 2   free direction(s) [(0, 1, 0)]
+   cube 9  rank of walls on its own 3 columns = 1   free direction(s) [(1, -14, 0), (5, 0, 14)]
+   sum of per-cube ranks 22   vs total rank 21   (excess 1 = cross-cube coupling)

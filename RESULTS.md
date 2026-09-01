@@ -48,7 +48,7 @@ enters any decision.
 | 7 | **1217** | VERIFIED | the 727 six + `4,-3,-4,-4` |
 | 8 | **1895** | VERIFIED | the 1217 seven + `24,-24,24,-61` |
 | 9 | **2787** | VERIFIED | 1895's seven + `168,-168,168,-415` + `88787,-9061,74275,113786` — [P198](LEDGER.md#p198). Supersedes 2785 |
-| 10 | **3921** | VERIFIED | the 2787 nine + `57,57,56,57` — found by mapping the 3917 region's BOUNDARY, [P198](LEDGER.md#p198). Supersedes 3917 and 3913 |
+| 10 | **3925** | VERIFIED | the 2787 nine + `6555,6555,6497,6555` — found by the automated boundary climb, [P200](LEDGER.md#p200). Supersedes 3921, 3917, 3913 |
 
 **GAP IN THE RECORD, found 2026-08-18 — CLOSED 2026-08-29.** Every other row of this
 table traces to a Postscript, but n=9 = 2785 had no establishing entry in `LEDGER.md`
@@ -74,7 +74,10 @@ plateau; the pattern was three different sweep artifacts. The related claim that
 recorded n=9 member "extends worst" is separately UNMEASURED
 ([P186](LEDGER.md#p186)). The rows above are unaffected lower bounds.*
 
-The tower nests: 183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1895 ⊂ 2785, adjacent levels differing
+The tower nests: 183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1895 ⊂ **2787** ⊂ **3925** (updated
+2026-08-31; this line read "⊂ 2785" and ended at n=9 until then). Tower-level facts —
+nesting, shared bounding walls, locus dimension, depth structure — are collected in
+[MAXIMISER_TAXONOMY.md §11](MAXIMISER_TAXONOMY.md). Adjacent levels differing
 by one cube — verified at the top by taking every 8-, 7-, 6- and 5-cube subset of
 the 2785, which give exactly 1895, 1217, 727 and 393. Depth profiles:
 

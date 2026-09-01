@@ -1,0 +1,14 @@
+
+[n=9 iter 1] record 2787  deficit 5  height 113786
+   preserving rank 4
+   no crossing above the record; region is locally maximal
+
+[n=10 iter 1] record 3921  deficit 6  height 113786
+   preserving rank 5
+   boundary crossing -> 3925  (ABOVE 3921)
+   NEW RECORD 3925  height 113786  gate: both engines + 3 rotations agree
+   4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1;1,1,1,1;7,14,1,-5;4,-3,-4,-4;168,-168,168,-415;6555,6555,6497,6555;88787,-9061,74275,113786
+
+[n=10 iter 2] record 3925  deficit 6  height 113786
+   preserving rank 5
+   no crossing above the record; region is locally maximal

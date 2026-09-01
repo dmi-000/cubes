@@ -251,7 +251,14 @@ two agree AT a maximiser and disagree in how they rank the configurations around
 it — which is exactly the wrong way round for a search that has to navigate by
 comparing non-maximal candidates.
 
-### n = 9 — 2785, and it is a continuum running into a degeneracy
+### n = 9 — SUPERSEDED 2026-08-31: the record is 2787, not 2785
+
+> The section below describes **2785**, which stood from 2026-08-07 until 2026-08-31.
+> It is retained because its arc analysis and degeneracy discussion are about a real
+> configuration, but it is no longer the maximiser. See "n = 9 — 2787" and
+> "n = 10 — 3925" below.
+
+### n = 9 — 2785 (SUPERSEDED), and it is a continuum running into a degeneracy
 
     ./cube_regions_n --quats "$BASE;7,14,1,-5;4,-3,-4,-4;24,-24,24,-61;56,56,55,56"
 
@@ -1081,3 +1088,205 @@ currently in the repository. Of the 468 that are testable: **12 loops, 456 arcs*
 1/1024 but not 1/64 — a finite-step artefact, since strict inequalities are
 violated at finite ε — is recorded identically to one wrong at every scale. That
 number is not interpretable until the per-ε counts are kept.
+
+## 9. Added 2026-08-31 — the current n = 9 and n = 10 maximisers
+
+### n = 9 — 2787
+
+    4,1,1,-1; 3,3,7,3; 5,-1,-5,-5; 2,1,1,1; 1,1,1,1;
+    7,14,1,-5; 4,-3,-4,-4; 168,-168,168,-415; 88787,-9061,74275,113786
+
+    count       2787            ([P198](LEDGER.md#p198)) supersedes 2785
+    profile     426 596 524 434 344 254 154 54 1
+    deficit     5      preserving rank 4 = deficit - 1  ([P184](LEDGER.md#p184))
+    facets      4, and the enumeration SATURATED (flat from 8 through 64 directions)
+
+        cubes [1,3,6]   at 0.00255    count outside 2783
+        cubes [5,7,8]   at 0.00336    2783
+        cubes [3,6,7]   at 0.0299     2783
+        cubes [0,5,6]   at 0.0453     2783
+
+    anisotropy  18x between nearest and farthest wall
+    vertices    6 pairwise probes; two reached cells no facet crossing reaches
+                (2779, 2755); none above the record
+    status      LOCAL MAXIMUM over the saturated facet list and its vertex
+                neighbours — NOT a proof: completeness assumes the region is
+                star-shaped about the record, automatic for a hyperplane cell but
+                not guaranteed where the boundaries are quadrics ([P199](LEDGER.md#p199))
+
+### n = 10 — 3925
+
+    ... the 2787 nine, plus 6555,6555,6497,6555
+
+    count       3925            ([P200](LEDGER.md#p200)); 3913 -> 3917 -> 3921 -> 3925 in one day
+    profile     508 752 684 588 490 386 282 174 60 1
+    deficit     6      preserving rank 5
+    facets      4, saturated — IDENTICAL to 2787's, same distances, same signatures
+                under the relabel (2787's cube 8 = 3925's cube 9):
+
+        cubes [1,3,6]   at 0.00255    count outside 3921
+        cubes [5,7,9]   at 0.00336    3921
+        cubes [3,6,7]   at 0.0299     3921
+        cubes [0,5,6]   at 0.0453     3921
+
+                No facet involves cube 8 — the added cube bounds nothing ([P201](LEDGER.md#p201))
+    status      LOCAL MAXIMUM over the saturated facet list and its vertex neighbours
+
+**Depths 3-10 are IDENTICAL across all four n=10 records found on 2026-08-31.** The
+entire +12 is d1 (+8) and d2 (+4), by three different methods. The interior is frozen;
+all the freedom is at the surface, which is [P197](LEDGER.md#p197)'s ceiling triage
+arriving as a measurement.
+
+### How the two are related — a PROVED identity, not a coincidence
+
+2787 is the cube-8 removal from 3925. The one-cube increments are
+
+    cube dropped   0     1     2     3     4     5     6     7     8     9
+    D_j          1170  1172  1164  1162  1160  1164  1150  1146  1138  1140
+
+and `RESULTS.md` records **D_j = |V(G)| - #components(G_j)** as PROVED, hence bounded
+by an Euler count on the added cube's own surface. So:
+
+- **the record shadow is exactly the subset whose removed cube contributes LEAST** —
+  2787 is the minimum of that spread (1138 of 1138..1172), not a lucky subset;
+- inverted, that is a search rule: to get an (n-1) record from an n record, delete the
+  least-contributing cube; to climb, add the most-contributing one. Both 2787 and 2785
+  fell out of the n=10 records this way at no cost;
+- the per-depth DIFFERENCE of the two profiles is not meaningful — adding a cube shifts
+  regions from depth k to k+1 — but the total increment is.
+
+**A prediction, not yet checked:** every wall of 2787 is a coincidence among cubes all
+present in 3925, so 2787's four facets must embed in 3925's wall set. Testable as soon
+as the climb reports 3925's facet census.
+
+## 10. Parameter conventions — one form, and the conversions into it
+
+*Added 2026-08-31, after `k` was found to carry two conflicting definitions that
+differ by exactly 1 and had produced an apparent contradiction between this file and
+[P187](LEDGER.md#p187) (both were right).*
+
+**Every maximiser family in this project is a straight line in Cayley space.** That
+includes the ones written in other forms: a 13-pair curve `q(t) = b*(1, t*axis)` is a
+line because left quaternion multiplication is projective-linear, and the n=9
+`q(k) = k*S + P` family is the line `(1, k/(k+1), 1)`. So one convention suffices:
+
+    STANDARD FORM       Cayley point  =  a0 + s * d        a0 the record, d integer
+
+and the endpoint machinery (`solve_more_ends.py`, `n9_upper.py`, `n8_lower.py`,
+`facets.py`, `climb.py`) already uses it exclusively.
+
+### Conversions from the older symbols
+
+    family              old form                      a0                 d
+    723  (n=6,7)        Cayley u*(1,1,1)              0                  (1,1,1)
+    727  arcs A-D       a0 + s*(1,-3,-6) etc.         the arc's point    the tangent
+    1217 (n=7)          --                            (-3/4,-1,-1)       (1,0,0)
+    1895 (n=8)          --                            (-1,1,-61/24)      (0,0,1)
+    2785 (n=9)          q(k) = k*S + P                (1,55/56,1)        (0,1,0)
+    13-pair curves      q(t) = b*(1, t*axis)          Cayley(b*(1,t0*axis))  the tangent
+
+### The `k` collision, resolved
+
+    RESULTS / P178 :  q(k) = k*(1,1,1,1) + (1,1,0,1) = (k+1, k+1, k, k+1)
+    P187  / newer  :  (k, k, k-1, k)
+
+Both name the same cube at the record — RESULTS `k=55` and P187 `k=56` are both
+(56,56,55,56) — so **the two differ by exactly 1**. This file's n=9 lower boundary
+`k = 54.987367` and P187's `k ~ 55.987` are the SAME point, confirmed to six decimals
+by converting P187's exact `s = 37671/5320 - (1/95)sqrt(452521)` through `y = 1 - 1/k`.
+Neither document was wrong; the symbol was overloaded.
+
+### Policy
+
+Normalise going FORWARD to the standard form, and **declare the convention at the
+point of use** rather than rewriting historical entries. Rewriting a numeric parameter
+in an old entry changes what that entry said, which is different from the
+data-preserving consistent RENAMING the project permits; the precedent is line 489
+of this file, which records "these ranges are in the OLD parameter s = u - 2/5"
+instead of restating them.
+
+Two undeclared conventions for one symbol is a latent contradiction sitting in the
+record — the same class of error as reading the ceiling law's `l` as depth when it is
+co-depth, which did invert a conclusion ([P197](LEDGER.md#p197)).
+
+## 11. The tower as an object — facts about the CHAIN, not about one maximiser
+
+*Added 2026-08-31. Tower-level facts had no home: this file is organised per-n, and
+`RESULTS.md` carried only a one-line nesting claim which was two records stale.*
+
+### The chain
+
+    13, 67, 183, 393, 727, 1217, 1895, 2787, 3925          n = 2..10
+
+    183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1895 ⊂ 2787 ⊂ 3925
+
+Each record contains its predecessor as a subset, verified at the top by taking every
+9-subset of 3925 (best 2787) and every 8-subset of 2787 (best 1895).
+
+### Shared bounding walls — the constraint structure is inherited
+
+**The coincidences {1,3,6} and {0,5,6} bound the record region at EVERY rung from
+n = 7 to n = 10** ([P203](LEDGER.md#p203)), and at n = 7 they bound it alone. They are
+literally the same walls, not analogues: every cube they involve (1, 3, 5, 6) is the
+same quaternion in all four records, so the wall sits in one place and each record is
+the same distance from it (0.00256/0.00255 and 0.04529/0.04526).
+
+Facets appearing at n >= 8 all involve cubes that rung added, and a new cube may
+contribute none at all — at n = 10, cube 8 contributes no facet
+([P201](LEDGER.md#p201)). So nesting is not only a fact about configurations; the
+BOUNDING STRUCTURE is inherited and never displaced.
+
+**Below n = 7 the question is ill posed**: both walls need cube 6 = (4,-3,-4,-4),
+which first appears at n = 7.
+
+### Locus dimension
+
+    record   n    deficit   largest preserving SUBSPACE   deficit - 1
+    183      4      1         0   a POINT                        0   ok
+    393      5      1         0   a POINT                        0   ok
+    727      6      1         1   a NODE: two arcs, each 1-dim   0   EXCEEDS
+    1217     7      2         1                                  1   ok
+    1895     8      3         2                                  2   ok
+    2785     9      4         3                                  3   ok
+    2787     9      5         4                                  4   ok
+    3917    10      6         5                                  5   ok
+    3925    10      6         5                                  5   ok
+
+183 and 393 VERIFIED 0-dimensional 2026-08-31 (`verify393.py`) with a pool that finds
+arcs — 47 and 72 candidates from the null space AND every cube-slice, 0 unevaluated,
+0 preserving — gated on 727, where the same pool recovers both arc D tangents that a
+null-space-only pool misses entirely. **A rank of 0 here is a 0-dimensional REGION, a
+single point whose boundary is itself, not the absence of a region.**
+
+727 is the one rung EXCEEDING deficit - 1: its preserving directions span rank 2 but no
+2-dimensional subspace preserves (combinations fail — it is a node), so the largest
+preserving subspace is 1-dimensional against a predicted 0.
+
+**rank = deficit - 1** at every rung measured ([P184](LEDGER.md#p184),
+[P196](LEDGER.md#p196)); [P162](LEDGER.md#p162)'s "rank deficit IS the plateau
+dimension" stays wrong. Note the deficits of the NEW records exceed the old law
+`deficit = n - 5`: 2787 has 5 at n=9 and 3925 has 6 at n=10.
+
+**A rank of 0 is a 0-dimensional region — a point — not the absence of one**, and it
+must not be read as "nothing to bound". At 727 a reported rank 0 was an artifact of a
+null-space-only candidate pool; its locus is 1-dimensional with six SOLVED ends (§2a
+above). 393's rank 0 is likewise unverified.
+
+### Depth structure
+
+- **d_{n-1} = 6n** for n = 3..10 — but GENERIC, achieved by random configurations too;
+  deviations mark degeneracies. It is the l = 1 ceiling law, PROVED.
+- **The interior is frozen.** Across all four n=10 records found on 2026-08-31
+  (3913, 3917, 3921, 3925) depths 3 through 10 are IDENTICAL; the entire +12 is d1 (+8)
+  and d2 (+4), by three different search methods ([P200](LEDGER.md#p200)).
+- **91% of the gap to the ceiling bound is at depth 1** ([P197](LEDGER.md#p197)), every
+  interior depth within 4 of its ceiling and several exactly tight. The record problem
+  is a depth-1 problem.
+
+### Arrangement growth, and where it breaks
+
+`walls = 24n - 117` and `tight = 84n - 288` hold for n = 6..9 and BREAK at n = 10
+([P185](LEDGER.md#p185)) — on either n=10 record, so it is not an artifact of which one
+(3925: 100 walls, 480 tight, against 123 and 552 predicted). `rank` and `deficit`
+continue. Whatever governs the arrangement's rank is not what governs its coincidence
+count.
