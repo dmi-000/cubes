@@ -14,5 +14,5 @@
  "python": "3.14.2",
  "retroactive": true,
  "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
- "note": "12 of 960 shards, 57 780 chambers, produced on cube64 2026-08-28/29 and recovered 2026-08-29. Backs P163."
+ "note": "12 of 960 shards, 57 780 chambers, produced on the second machine 2026-08-28/29 and recovered 2026-08-29. Backs P163."
 }

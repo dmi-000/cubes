@@ -17,7 +17,7 @@ THREE THINGS THIS GETS RIGHT BECAUSE THEY WERE GOT WRONG FIRST:
    written with count null and tallied separately. A maximum computed over an
    unknown fraction of the space is not a maximum.
 
-3. SHARDED AND RESUMABLE AT FINE GRAIN.  cube64 rebooted mid-run on 2026-08-25 and
+3. SHARDED AND RESUMABLE AT FINE GRAIN.  the second machine rebooted mid-run on 2026-08-25 and
    destroyed a 25-hour stage that had no intra-stage checkpoint. Shards here are
    sized in minutes; a finished shard is renamed atomically and never recomputed.
 

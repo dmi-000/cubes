@@ -11050,7 +11050,7 @@ of 74 544 chambers** — a sampled check of a consequence, so it is strong evide
 for modularity rather than a proof of it. Proving the mechanism means verifying
 that X is a modular flat directly, i.e. that rank(X)+rank(Y) = rank(X∨Y)+rank(X∧Y)
 for every flat Y of L(A_727) — 1 192 678 flats, and the machinery to enumerate them
-already exists in `zaslavsky.Flats`. **PROVED, 2026-08-24.** `modular_proof.py` ran that check on cube64 and
+already exists in `zaslavsky.Flats`. **PROVED, 2026-08-24.** `modular_proof.py` ran that check on the second machine and
 verified the modularity identity for **all 1 192 678 flats, with 0 violations** —
 exhaustive, not sampled. The run first reproduced the chamber count 4 621 728 as
 a gate before checking anything, so the lattice it swept is the validated one.
@@ -11174,7 +11174,7 @@ be quoted as one.
 `uniform_test.py` runs the falsifiable consequence: modularity forces every 727
 chamber to be cut into exactly 279 — every time, not on average. One chamber cut
 into any other number refutes the hypothesis and the count with it, while leaving
-untouched everything that was computed rather than assumed. RUNNING on cube64.
+untouched everything that was computed rather than assumed. RUNNING on the second machine.
 
 ### Why enumeration is now permanently excluded
 
@@ -11454,7 +11454,7 @@ change, so the deficit is the dimension of the plateau through the record.
 ## Postscript 163: the chamber evaluation, stopped early — what 1.25% already says
 
 [P160](#p160)'s campaign was halted after 12 of 960 shards. Reason: measured ETA
-187 h on all 12 cores of cube64, for a result that by P160's own argument cannot
+187 h on all 12 cores of the second machine, for a result that by P160's own argument cannot
 reach 727. Days of a whole machine is the wrong price for the weaker of two
 available questions.
 
@@ -11524,7 +11524,7 @@ Files: `eval727/` (12 shards, retained as a record of the error, not as data),
 ## Postscript 164: three cited results existed only on a borrowed machine
 
 Audit prompted by the question "are there files needed to reproduce results that
-exist only on cube64?" — asked before anything was lost, which is the only useful
+exist only on the second machine?" — asked before anything was lost, which is the only useful
 time to ask it.
 
 **Answer: yes, seven artifacts, three of them backing cited postscripts.**
@@ -11540,7 +11540,7 @@ Plus `cp727.log`, `modular_proof.log`, `p727_remote.log`, `pilot_shard.log`.
 **This is the project's own rule broken.** METHODS: *deliverables, including
 controls, go where they survive — write them to the repository directly, never to
 scratch space, and never scratch-then-copy: the copy step is the one that gets
-skipped.* cube64 is scratch by that definition: a borrowed machine, already
+skipped.* the second machine is scratch by that definition: a borrowed machine, already
 rebooted once mid-run on 2026-08-25, destroying a 25-hour stage. Had it been
 reclaimed or wiped, three postscripts would have cited numbers with no recoverable
 evidence.
@@ -11566,7 +11566,7 @@ where the copy step gets skipped.
 
 ## Postscript 165: the intersection lattice of 727, by rank — and the stratum walk is now sized
 
-`flat_ranks_par.py` (parallel rank-synchronous BFS, cube64, 4 cores, 23 241 s)
+`flat_ranks_par.py` (parallel rank-synchronous BFS, the second machine, 4 cores, 23 241 s)
 enumerated all 1 192 678 flats and SAVED the high-rank ones.
 
 | rank | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |

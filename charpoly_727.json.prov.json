@@ -13,5 +13,5 @@
  "python": "3.14.2",
  "retroactive": true,
  "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
- "note": "Produced on cube64 (Intel x86_64, 12 cores) 2026-08-24, 9735.9s, under its .venv. Recovered to the repository 2026-08-29. Backs P155 (the factorisation chi_727 = chi_393 (t-1)(t^2-8t+22))."
+ "note": "Produced on the second machine (Intel x86_64, 12 cores) 2026-08-24, 9735.9s, under its .venv. Recovered to the repository 2026-08-29. Backs P155 (the factorisation chi_727 = chi_393 (t-1)(t^2-8t+22))."
 }

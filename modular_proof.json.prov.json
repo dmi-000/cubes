@@ -13,5 +13,5 @@
  "python": "3.14.2",
  "retroactive": true,
  "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
- "note": "Produced on cube64 2026-08-24, 28105.8s: modularity of X verified over ALL 1 192 678 flats, 0 violations, gated on reproducing 4 621 728 chambers first. Recovered to the repository 2026-08-29. Backs P156."
+ "note": "Produced on the second machine 2026-08-24, 28105.8s: modularity of X verified over ALL 1 192 678 flats, 0 violations, gated on reproducing 4 621 728 chambers first. Recovered to the repository 2026-08-29. Backs P156."
 }

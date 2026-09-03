@@ -116,7 +116,7 @@ def pstream_chambers(walls, ncols, workdir, nworkers=4, log=sys.stdout,
         # SHARDS ARE DECOUPLED FROM PROCESSES.  A part file is written atomically
         # only when its shard finishes, so shard size sets how much work an
         # interruption destroys.  With shards == processes, stage 27 of the 727
-        # run is a single ~25-hour unit: cube64 rebooted mid-stage on 2026-08-25
+        # run is a single ~25-hour unit: the second machine rebooted mid-stage on 2026-08-25
         # and every one of its 12 parts was still .partial, so the whole stage was
         # lost while stages 1-26 survived untouched.
         #
