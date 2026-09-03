@@ -43,6 +43,7 @@ import os, sys
 from fractions import Fraction as F
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from catcache import catalogue
+from simplest import simplest_between, _selftest_simplest
 from n78_ends import w4_polys, squarefree, qstr, run
 import wall_params as W
 
@@ -132,40 +133,6 @@ def approx(r, prec=60):
     scale = 10 ** prec
     root = F(math.isqrt(d * scale * scale), scale)
     return rp + rq * root
-
-
-def simplest_between(a, b):
-    """Simplest rational strictly inside (a, b) — METHODS 15.
-
-    A first version was a Stern-Brocot descent valid only for 0 < a < b. On the
-    NEGATIVE side of the record it returned rationals OUTSIDE the interval, so the
-    probes sampled the wrong cell and the walk sailed past the true endpoint,
-    reporting -0.0606 where ground truth and `n78_ends.py` both say -0.04526. Self-
-    tested below against known values before use.
-    """
-    import math
-    if a > b:
-        a, b = b, a
-    if a == b:
-        raise ValueError('empty interval')
-    n = math.floor(a) + 1
-    if a < n < b:
-        return F(n)
-    ia = math.floor(a)
-    fa, fb = a - ia, b - ia
-    if fa == 0:
-        return ia + F(1, math.floor(1 / fb) + 1)
-    return ia + 1 / simplest_between(1 / fb, 1 / fa)
-
-
-def _selftest_simplest():
-    cases = [(F(1, 3), F(1, 2), F(2, 5)), (F(-46, 1000), F(-452, 10000), None),
-             (F(-1), F(1), F(0)), (F(1, 1000), F(26, 10000), None),
-             (F(0), F(1, 7), None), (F(-2), F(-19, 10), None)]
-    for a, b, want in cases:
-        g = simplest_between(a, b)
-        if not (min(a, b) < g < max(a, b)) or (want is not None and g != want):
-            raise SystemExit('simplest_between self-test FAILED on (%s,%s) -> %s' % (a, b, g))
 
 
 def q_of_rat(a0, dv, s):

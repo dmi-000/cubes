@@ -1,0 +1,35 @@
+n=4: 136 local maxima
+
+141 -> 141  (20 points, 13 unevaluable)
+   TOTAL      : min 123, drop 18
+   depth-1    : min 38    drop 12     ends 50..50
+   depth-2    : min 60    drop 6      ends 66..66
+   depth-3    : min 24    drop 0      ends 24..24
+   depth-4    : min 1     drop 0      ends 1..1
+   no linear combination of the depth layers is monotone here (best margin -0.000 <= 0)
+
+141 -> 141  (8 points, 25 unevaluable)
+   TOTAL      : min 111, drop 30
+   depth-1    : min 32    drop 18     ends 50..50
+   depth-2    : min 54    drop 12     ends 66..66
+   depth-3    : min 24    drop 0      ends 24..24
+   depth-4    : min 1     drop 0      ends 1..1
+   no linear combination of the depth layers is monotone here (best margin -0.000 <= 0)
+
+141 -> 141  (33 points, 0 unevaluable)
+   TOTAL      : min 107, drop 34
+   depth-1    : min 32    drop 18     ends 50..50
+   depth-2    : min 52    drop 14     ends 66..66
+   depth-3    : min 22    drop 2      ends 24..24
+   depth-4    : min 1     drop 0      ends 1..1
+   no linear combination of the depth layers is monotone here (best margin -0.000 <= 0)
+
+141 -> 141  (33 points, 0 unevaluable)
+   TOTAL      : min 95, drop 46
+   depth-1    : min 26    drop 24     ends 50..50
+   depth-2    : min 46    drop 20     ends 66..66
+   depth-3    : min 22    drop 2      ends 24..24
+   depth-4    : min 1     drop 0      ends 1..1
+   no linear combination of the depth layers is monotone here (best margin -0.000 <= 0)
+
+141 -> 141 : too few evaluable points (31 unevaluable)

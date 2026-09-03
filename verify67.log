@@ -1,0 +1,14 @@
+
+octahedral 67 (Q(sqrt2))  record 67  ambient 6  walls 6  deficit 0
+   CONTROLS zero->67  wall-gradient->53  OK
+   pool 12 candidates (null + every cube-slice), 0 UNEVALUATED
+   preserving directions 0, RANK 0
+   => 0-DIMENSIONAL: a single point. Isolation is now a MEASUREMENT,
+      not a codimension heuristic.
+
+golden 67 (Q(sqrt5))  record 67  ambient 6  walls 9  deficit 0
+   CONTROLS zero->67  wall-gradient->47  OK
+   pool 26 candidates (null + every cube-slice), 0 UNEVALUATED
+   preserving directions 0, RANK 0
+   => 0-DIMENSIONAL: a single point. Isolation is now a MEASUREMENT,
+      not a codimension heuristic.

@@ -296,6 +296,11 @@ isolated. [P175](LEDGER.md#p175) refuted the chain — the rational 63 is free W
 deficit 1 — and [P171](LEDGER.md#p171) showed freeness belongs to n ≤ 3 generally,
 not to maximality. So the observation stands and the mechanism does not.
 
+**Their isolation is now MEASURED (2026-09-01, [P209](LEDGER.md#p209)):** both 67s are
+0-dimensional — preserving rank 0 from a pool spanning the null space and every
+cube-slice, 0 unevaluated, in ℚ(√2) and ℚ(√5) respectively. So "isolated" is no longer
+a codimension heuristic. WHY they are isolated remains open; that they are is settled.
+
 What survives as fact: both 67s have deficit 0 and every record n ≥ 4 has deficit
 ≥ 1; χ splits for 13, 63 and both 67s and never above; n=3 is the only irrational
 rung and the only one the rational tower cannot reach (63 < 67).
@@ -483,3 +488,189 @@ is believed.
 they become one only when someone states what would settle them. Of four long-standing
 "mysteries" cited in this project, exactly one (§4, the wall law) had ever been
 converted. These are two of the other three.*
+
+## 17. Where might a higher record be? — one documented region never searched
+
+*Added 2026-09-01, in answer to "does anything in our data suggest where there may be a
+higher record we haven't found?"*
+
+### The strongest lead is an omission, not a pattern
+
+**The whole tower above n = 6 extends ONE POINT of ONE ARC of a four-arc node.** 727 is
+a node where arcs A, B, C, D meet ([MAXIMISER_TAXONOMY](MAXIMISER_TAXONOMY.md) §2a);
+every record from 1217 upward was built from `BASE + (7,14,1,-5)`, a single member of
+arc D. Arcs A, B and C each carry 727 across SOLVED extents —
+
+    A   s in [~2.063979, 19/6]        10 chambers
+    B   s in [43/105, ~0.579411]     >=13 chambers
+    C   s in [~1.167462, ~47.772089] >=13 chambers
+
+— and **none has ever been used as an extension base**. `which_member.py` was written
+on 2026-08-09 for exactly this two-parameter search ("every extension hunt in this
+project fixed the (n-1) record at ONE point ... and varied only the new cube"), and its
+log is **0 bytes**: never run.
+
+**What would settle it:** run it. Extend members of arcs A, B and C to n = 7 and
+compare against 1217. The extents are solved, so the members are enumerable rather than
+sampled, and the chamber counts say how many genuinely distinct ones there are.
+
+**Why it is credible rather than merely untried:** [P186](LEDGER.md#p186) established
+that which member of a continuum you extend is a real variable — the 723 continuum's
+eight members reached four distinct maxima — and [P191](LEDGER.md#p191)/[P198](LEDGER.md#p198)
+showed that changing HOW you search beats searching harder. This changes WHERE.
+
+### A quantitative lead, weaker
+
+Ceiling gaps at the current records are 0, 12, 36, 74, 126, 192, 278, 384; second
+differences 12, **14, 14, 14**, 20, 20. If the run of 14s were the law, n = 9 would
+reach 2793 (+6 over 2787) and n = 10 would reach 3943 (+18 over 3925). The heuristic
+flagged n = 9 as low BEFORE 2787 was found — predicting +8, with +2 so far — so it has
+one partial hit. It is three-point fitting on a second difference, the exact shape of
+[P172](LEDGER.md#p172)'s law that broke, and is OBSERVED at best.
+
+### Where in the profile, and where NOT to look
+
+91% of the ceiling slack is at depth 1 ([P197](LEDGER.md#p197)), and all four n = 10
+records found on 2026-08-31 differ only in d1 and d2 with depths 3-10 FROZEN. So a
+better record along the current path differs in the outermost layers; moving the
+interior needs a different region.
+
+Ruled out by measurement, not by intuition: **the current regions are exhausted** —
+2787 and 3925 are locally maximal over saturated facet lists and vertex probes
+([P199](LEDGER.md#p199), [P201](LEDGER.md#p201)), so the next record is not adjacent to
+either. And **menu search** produced both records superseded on 2026-08-31;
+[P186](LEDGER.md#p186) showed it cannot reach what the solved methods reach.
+
+## 18. Is d1 <= 3n^2 + O(n)? — the one loose quadratic
+
+*Stated as a PROPOSITION, not as the task "tighten the ceiling". A task can only be
+done or abandoned; a proposition can be settled — by a proof, or by one configuration
+exceeding it.*
+
+The bound `1 + sum_l C(l,n)` is the only route to a maximality proof
+([P208](LEDGER.md#p208)), and **91% of its slack is at depth 1**
+([P197](LEDGER.md#p197)). The depth-1 ceiling is `C(n-1,n) = 10n^2 - 14n`. The records'
+d1 is fitted exactly at n = 8, 9, 10 by `3n^2 + 25n - 42`, and within 2 at n = 5, 6, 7:
+
+    n         3    4    5    6    7    8    9   10
+    d1       44   92  156  214  278  350  426  508
+    ceiling  48  104  180  276  392  528  684  860
+    ratio  .917 .885 .867 .775 .709 .663 .623 .591
+
+The ratio decays monotonically: the ceiling's leading coefficient is more than 3x too
+large and gets worse with n.
+
+**Caution on the fit.** It describes RECORDS, which are lower bounds, and being exact
+at three consecutive rungs is the shape of [P172](LEDGER.md#p172)'s wall law that broke
+at the fourth. Its value is naming the leading coefficient a proof should target — not
+asserting the maximum.
+
+### What would settle it
+
+- **A proof using CONCENTRICITY.** A depth-1 point lies in exactly one cube and outside
+  all others; but every cube contains the shared centre, so such points are necessarily
+  far from it, near the corners and edges of a single cube. The present bound treats
+  the other cubes' faces as generic planes cutting a cube and does not use the shared
+  centre at all. This is the most specific unexploited constraint.
+- **A counterexample:** any configuration with d1 above the claimed form.
+- **BOTH live routes converge on CONCENTRICITY.** The depth-1 ceiling treats the other
+  cubes' faces as generic planes cutting a cube; the increment bound
+  ([MAXIMISER_TAXONOMY §5](MAXIMISER_TAXONOMY.md)) bounds the added cube's surface
+  cells the same generic way. **Neither uses the one geometric fact peculiar to this
+  problem: every cube shares a centre.** That is the single unexploited constraint
+  behind both routes, and it is why they are not independent attacks.
+- **Prerequisite either way:** `C(l,n)` is PROVED only for l = 1; l >= 2 is empirical
+  over ~1M configurations. Until that is proved the sum is not an upper bound and any
+  refinement of it refines a conjecture.
+
+### Related, and NOT this question
+
+Two other routes to a smaller bound are PLANS, and belong with their questions or in
+[MAXIMISER_TAXONOMY §5](MAXIMISER_TAXONOMY.md) rather than here: replacing the sum of
+independent per-depth maxima with a joint trade-off constraint (no linear relation
+exists — the alternating sum runs 7, 27, 49, 77, 85, 97, 109, 111, 123, not constant),
+and sharpening the recursion `max(n) <= max(n-1) + max Delta`, whose increment bound is
+PROVED but currently looser than the depth sum.
+
+---
+
+*A note on this file, measured 2026-09-01: only **5 of 17** entries state what would
+settle them, and all five were written in the two days after that test was articulated.
+The other twelve are mysteries in question clothing — citable indefinitely, answerable
+never. Converting one costs a paragraph; the conversion is what turns a standing
+observation into something that can be closed.*
+
+## 19. Is there an exchange rate between CONSTRAINTS and COUNT, and does it bound the record?
+
+**The hope (user, 2026-09-01).** If some indicator of a count's rarity — the volume that
+climbs to it, the height of its representatives, the number of conditions it satisfies —
+varied with the count and ran out not far above the record, that would hint there is
+little room to beat the record. And if beating a record demands several individually rare
+conditions, their conjunction should be rarer still. Search yields lower bounds forever;
+an indicator that runs out is an UPPER-bound argument, which is what this project cannot
+obtain by searching.
+
+**What was measured, and what it rules out.** `rarity.py` computed, for 20 distinct
+terminal counts at n=4, the number of tight conditions, the null dimension, and the
+eps-verified preserving rank. **The dimension is NOT a function of the count**: count 123
+occurs at rank 7 and at rank 9; count 127 at rank 4 and at rank 7. So there is no curve
+d(c) to extrapolate, and the naive form of the idea does not start.
+
+**The form that does start.** Index by constraint rather than by count:
+
+> **K(c) = the minimum codimension of any configuration achieving count ≥ c.**
+
+Non-decreasing by construction. At n=4 both ends are measured: K(c) = 0 for c ≤ **136**
+(full-dimensional configurations exist at 111, 120, 123, 128, 131, 132, 135, 136), and
+K(183) = 9 = the ambient dimension, because 183 is 0-dimensional ([P204](LEDGER.md#p204)).
+So K rises from 0 to the ambient over 47 counts — about **5.2 counts per constraint** —
+and reaches the ambient exactly at the record.
+
+**Why that is an upper bound if it holds.** A count needing codimension greater than
+3(n−1) is over-determined: no configuration can satisfy the conditions. So the count at
+which K reaches the ambient dimension bounds the record from above. At n=4 that is 183,
+which IS the record.
+
+**And it says n=9 has room.** 2787's region has rank 4 in ambient 24, so it is NOT
+maximally constrained — four constraints of headroom remain. At the rate implied by its
+own endpoints, (2787 − 2491)/20 ≈ 14.8 counts per constraint, that headroom is worth
+about **+59**, suggesting ~2846 is reachable at n=9.
+
+**To settle it, three things are needed and none is expensive:**
+
+1. **K(c) in the middle.** Both measured points are at the extremes (codim 0 and codim
+   ambient). The interior is unsampled because climbs terminate at low codimension. Needs
+   configurations of intermediate codimension — the region boundaries of known records.
+2. **Whether the rate 5.2 is n-dependent in a stable way.** Provisionally
+   (record − GPD endpoint)/codim gives 5.2, 7.1, 7.8, 10.2, 14.8, 16.2 at n = 4, 6, 7, 8,
+   9, 10 — roughly 1.5n — but each uses the endpoint estimate, which
+   [P215](LEDGER.md#p215) says is the non-robust half of that fit.
+3. **The counts ON the walls.** *Corrected 2026-09-01 — the first version of this item
+   said "every walk steps ACROSS a wall, which lowers codimension". That is false for the
+   climber that found the records, and the user caught it.* `climb.py` with `menu=None`
+   takes its directions from the null space of the TIGHT walls, each `count_eps`-verified
+   to PRESERVE the count, so it walks ALONG the stratum — along the walls it is already
+   on — until the count changes at a wall WITHIN that stratum. The codimension is
+   preserved across the move, measured twice independently: 3921 (deficit 6) → 3925
+   (deficit 6). Only the BASIN climber (isotropic menu, no preservation) crosses
+   transversally into near-generic chambers, and generalising from it was the error.
+
+   What is true, and is the point: the accepted configuration is just PAST the wall, never
+   ON it. A point on that wall has codimension one HIGHER than either cell beside it, and
+   **no count in this project has ever been taken there** — yet that is where the
+   constraint argument says records live, 183 being an intersection rather than a chamber.
+
+   **And this explains the headroom.** Because the record climb preserves codimension by
+   construction, it *structurally cannot* reach a more constrained configuration. That is
+   why 2787 sits at rank 4 in ambient 24 with four constraints unspent while the climb
+   reports local maximality over 36 of 36 rays: the headroom lies in the one direction the
+   method cannot travel. Landing on the walls is the only way to spend it.
+
+   `onwall.py` evaluates W4 walls exactly — their roots lie in ℚ(√d), so `count_at` needs
+   no rational approximation; W3 walls are quartic and are skipped and counted as skipped.
+
+**The conjunction half of the idea is untested.** If beating a record requires several
+conditions that are individually rare, the joint rarity should be estimable from the
+individual ones — but only if the conditions are near-independent, and
+[P206](LEDGER.md#p206)'s `deficit = 1 + Σ_j (3 − r_j)` says the per-cube contributions add
+exactly, which is evidence FOR independence and worth pressing.

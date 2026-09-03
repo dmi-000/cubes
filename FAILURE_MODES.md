@@ -757,6 +757,32 @@ saving first, and its output must name its own input. "Deliverables go where the
 survive" covers the script; this adds that the LOG must carry the configuration, not
 just the result — otherwise the artifact that survives cannot be interpreted.
 
+### 19b. Addendum, 2026-09-01: saying "this belongs in X" is not putting it in X
+
+Twice within ten minutes, and both caught by the user rather than by me.
+
+Writing OQ 18, I recorded two routes to a smaller ceiling bound under the heading
+"Related, and NOT this question", with the sentence that they "belong with their
+questions or in MAXIMISER_TAXONOMY §5". I did not put them there. `grep` on §5 returned
+**zero** mentions of either. So they existed only as a pointer inside a question that
+explicitly disclaims them — named, disowned, unrecorded.
+
+Then, having filed them, I wrote that the convergence of both routes on CONCENTRICITY
+was "worth noting on its own", and that I would "flag" having made the first mistake.
+Neither was written anywhere. Both existed only in conversation until the user asked
+"has the point worth noting been noted? has the flag been flagged?"
+
+**This is [the record-propagation principle](../.claude/investigation-principles.md)
+one level up.** That principle says writing a correction into the record feels like
+completing the correction while the summary still carries the old claim. This is the
+same substitution applied to filing: **naming the destination feels like delivering to
+it.** The tell is a sentence of the form "this belongs in X" or "worth noting" or "I'll
+flag that" — every one of which is a description of an action standing in for the
+action, and every one of which reads as completed work in a transcript.
+
+**The rule.** If a sentence names where something should go, put it there in the same
+turn or do not write the sentence. "Worth noting" is not a note.
+
 ## 20. A test run writing to the production output path
 
 **What happened, 2026-08-20.** `exactlp.py` had just been changed to take its
@@ -836,3 +862,22 @@ representation is converted to another — arrangement coordinates to configurat
 sign vector to witness, flat to subspace — there is a known value on both sides of
 the conversion. Evaluate it. A pipeline of individually gated components is not a
 gated pipeline.
+
+### 20. A sampled termination test read as a decision
+
+`climb.py` ended with "no crossing above the record; region is locally maximal OVER THE
+DIRECTIONS WALKED". The hedge is accurate and was written deliberately — and it did not
+help. The terminal counts were still used as terminal counts, a basin histogram was
+built from them, and the sentence "6 of the first 8 random starts were already local
+maxima" was reported to the user. Re-tested against exactly-solved lines, **3 of those 8
+terminations were premature.**
+
+The lesson is not "hedge harder". A search procedure and a decision procedure are
+different objects, and a hedge in the log does not convert one into the other. If a
+result will be USED as a decision, the test has to be a decision — here, walls solved
+rather than rays sampled. The tell: a stopping condition whose statement contains the
+name of the method ("over the directions walked", "within the sweep window", "up to the
+budget"). That phrase marks a lower bound, and a lower bound must not be histogrammed.
+
+Related: FAILURE_MODES 16c (refusals turning a plateau into a point) and the standing
+rule that a sampled count is a lower bound and a solved one is not.

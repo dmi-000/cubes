@@ -1,0 +1,103 @@
+8 undetermined climbs to retry at coarser M
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 119  M=4096  -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 119  M=256   -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 119  M=16    -> None
+   rays: 2 of 24 crossed, 0 found no wall within t<=8, 22 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 2 distinct walls
+      cubes [0]              at 4.1592e-06   count outside 266
+      cubes []               at 4.1592e-06   count outside 266
+   UNDETERMINED: 22 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=5 from 278  M=4096  -> None
+   rays: 2 of 24 crossed, 0 found no wall within t<=8, 22 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 2 distinct walls
+      cubes [0]              at 4.1592e-06   count outside 266
+      cubes []               at 4.1592e-06   count outside 266
+   UNDETERMINED: 22 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=5 from 278  M=256   -> None
+   rays: 2 of 24 crossed, 0 found no wall within t<=8, 22 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 2 distinct walls
+      cubes [0]              at 4.1592e-06   count outside 266
+      cubes []               at 4.1592e-06   count outside 266
+   UNDETERMINED: 22 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=5 from 278  M=16    -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 137  M=4096  -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 137  M=256   -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 137  M=16    -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 113  M=4096  -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 113  M=256   -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 113  M=16    -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=5 from 313  M=4096  -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=5 from 313  M=256   -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=5 from 313  M=16    -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 133  M=4096  -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 133  M=256   -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 133  M=16    -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 119  M=4096  -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 119  M=256   -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 119  M=16    -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 141  M=4096  -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 141  M=256   -> None
+   rays: 0 of 24 crossed, 0 found no wall within t<=8, 24 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 0 distinct walls
+   UNDETERMINED: 24 of 24 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+   n=4 from 141  M=16    -> None

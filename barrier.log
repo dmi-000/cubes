@@ -1,0 +1,27 @@
+n=4: 136 local maxima; pairing the highest ones
+     A      B min seen   drop A   drop B   unevaluable
+   141    141      119       22       22   22 of 49
+   141    141      115       26       26   31 of 49
+   141    141      111       30       30   38 of 49
+   141    141      115       26       26   0 of 49
+   141    141      107       34       34   0 of 49
+   141    141      107       34       34   45 of 49
+   141    141       95       46       46   0 of 49
+   141    141      111       30       30   22 of 49
+   141    141      141        0        0   47 of 49
+   141    139      111       30       28   36 of 49
+   141    139      139        2        0   47 of 49
+   141    137      111       30       26   0 of 49
+   139    137      107       32       30   0 of 49
+   139    137      115       24       22   0 of 49
+   137    137      111       26       26   0 of 49
+   137    137      119       18       18   0 of 49
+   137    137      111       26       26   0 of 49
+   137    137      115       22       22   0 of 49
+   137    137      119       18       18   0 of 49
+   137    136      119       18       17   0 of 49
+
+barrier depth seen on the straight path, in REGIONS:
+   min 0   median 26   max 46   (over 20 pairs)
+   a walk allowing k downhill MOVES crosses a valley only if the dip costs
+   fewer than k of them; each move here changes the count by a multiple of 4.

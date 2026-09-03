@@ -1,0 +1,6 @@
+=== n=9 record 2787 count 2787
+   solved scan: 384 chambers along 32 lines, 71 UNEVALUATED, best 2787 (from 2787)
+   best 2787 ; 384 chambers, 71 unevaluated (18.5%)  [pre-dedup: 35.7% / 42.1%]
+=== n=10 record 3925 (simpler rep) count 3925
+   solved scan: 432 chambers along 36 lines, 87 UNEVALUATED, best 3925 (from 3925)
+   best 3925 ; 432 chambers, 87 unevaluated (20.1%)  [pre-dedup: 35.7% / 42.1%]

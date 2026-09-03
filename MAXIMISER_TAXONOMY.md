@@ -874,12 +874,22 @@ that reports 0 must first recover a known tangent, or its zeros are void.
   n = 3, where "exactly two 67s" would be affected. **This is the largest
   standing gap in the table.** Path: extend the null-space method to the full
   moduli space, which needs wall normals in all 3(n−1) coordinates rather than 3.
+  → **LARGELY CLOSED 2026-08-31/09-01.** `rank_geometry.py` and `verify393.py` do
+  exactly this: directions in the full 3(n−1) space, candidates drawn from the null
+  space AND every cube's 3-slice, each verified with ε. Results in
+  [P196](LEDGER.md#p196) (preserving rank = deficit − 1 at 1895, 2785, 3917) and
+  [P204](LEDGER.md#p204) (183 and 393 verified 0-dimensional, gated on 727 where a
+  null-space-only pool gives a FALSE negative). Still a pool rather than a proof.
 * **Components at n ≥ 4** — each needs its arcs found first. Path: the 727
   route, sweeping the maximiser locus inside each catalogue wall plane. Note
   arc A lies in only ONE catalogue plane, so a complete enumeration also needs
   the unenumerated W3/W4 walls.
 * **Step 4 of the recursion is not built.** Nothing yet descends INTO a boundary
-  and stratifies it. That is the general machine the one-off measurements above
+  and stratifies it. → **PARTIALLY BUILT 2026-08-31.** `facets.py` descends into the
+  boundary and enumerates its facets with a saturation curve, and the vertex probes
+  stratify one level further, reaching cells no facet crossing reaches
+  ([P199](LEDGER.md#p199)). What is still missing is the GENERAL machine: this is
+  hand-aimed at one record at a time, not a recursion. That is the general machine the one-off measurements above
   are hand-worked instances of, and it would deliver components, types and
   boundary kinds in one pass instead of one datum at a time.
 * ~~Loop-versus-arc is unmeasured everywhere except n = 2~~ — **MEASURED for all
@@ -923,10 +933,28 @@ that reports 0 must first recover a known tangent, or its zeros are void.
 * ~~Types at n = 2's edge arc~~ — **MEASURED**, and there is only one type in all
   of n = 2: (1, 6, 6, 1) on both arcs (§3). **Types at 183** is not a gap but a
   consequence: no direction holds 183, so its type count is 1 by default.
-* **The two 67s' Jacobian rank** — would upgrade their isolation from a
-  codimension heuristic to a computation. Representatives are in
-  `MAXIMISERS.md`; the obstacle is that the walls must be differentiated in
-  ℚ(√2) and ℚ(√5) rather than ℚ.
+* ~~**The two 67s' Jacobian rank**~~ — **DONE 2026-09-01, [P209](LEDGER.md#p209).**
+  Both are 0-DIMENSIONAL: 12 and 26 candidates from the null space and every cube-slice,
+  0 unevaluated, preserving rank 0, controls passing. The stated obstacle — needing to
+  differentiate in ℚ(√2) and ℚ(√5) — had already been removed: `dimension.set_field(d)`
+  and `count_eps(..., d, ...)` always took the field, so the plan ran unchanged. Their
+  isolation is now a measurement, not a codimension heuristic.
+* **A joint depth constraint, to replace the sum of independent maxima.** The ceiling
+  bound is `sum_l max(d_l)`; the truth is `max(sum_l d_l)`, and the difference IS the
+  gap — at n = 10 the record attains its ceiling at l = 1, 2 and 7 but nowhere else
+  simultaneously. Path: find a trade-off theorem ("d_l at its ceiling forces d_l'
+  below"). Checked and NOT available for free: the alternating sum runs
+  7, 27, 49, 77, 85, 97, 109, 111, 123 — not constant, so no simple Euler relation.
+  Settles [OQ 18](OPEN_QUESTIONS.md) only indirectly; it lowers the bound without
+  touching d1. (Recorded 2026-09-01.)
+* **Sharpen the recursion `max(n) <= max(n-1) + max Delta`.** Its increment bound is
+  PROVED (`Delta_j = |V(G)| - #components(G_j)`, hence bounded by an Euler count on
+  the added cube's surface), unlike the l >= 2 ceilings which are empirical. Currently
+  LOOSER than the depth sum — a surface cut by 6(n-1) planes gives O(n^2) cells, so at
+  n = 10 it yields roughly 5700 against the depth sum's 4309. Path: bound the surface
+  cells using concentricity, the same unexploited constraint as
+  [OQ 18](OPEN_QUESTIONS.md). Attractive because it rests on a theorem rather than a
+  conjecture. (Recorded 2026-09-01.)
 * **Lemma B** — max(3) = 67 reduces to one two-rotation statement, g(13,13) = 16
   and g ≤ 14 otherwise, measured but unproved. Two attack routes are in the
   ledger.

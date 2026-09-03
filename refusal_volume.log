@@ -1,0 +1,12 @@
+configuration                 count   height   chambers    refused     rate
+RECORD n=5                      393        7        144         54   37.50%
+  generic n=5 (control)         281       93        144          0    0.00%
+RECORD n=6                      727       14        180         63   35.00%
+  generic n=6 (control)         561      108        180          0    0.00%
+RECORD n=7                     1217       14        216         63   29.17%
+  generic n=7 (control)         955      107        216          0    0.00%
+RECORD n=8                     1895       61        252         70   27.78%
+  generic n=8 (control)        1589      104        252          0    0.00%
+
+For comparison, already measured: RECORD n=9 (height 113786) refused 137 of
+384 chambers = 35.7%.

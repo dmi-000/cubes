@@ -1,0 +1,9 @@
+n=4: 136 distinct local maxima from the basin campaign
+pairwise separation, degrees (max per-cube rotation angle, best matching):
+   min 3.71   1st pct 24.98   median 41.95   max 57.98
+   closest pairs: [('3.71', 133, 130), ('6.39', 131, 127), ('6.82', 115, 115), ('8.06', 131, 137), ('8.10', 135, 131)]
+   pairs closer than 1 degree: 0 of 9180
+
+chamber scale from 264 facet distances: min 1.06e-07 median 9.36e-05 max 0.0453
+   (Cayley units; a degree of rotation is ~0.0087 in Cayley near the identity)
+   median separation 41.95 deg -> ~0.366 Cayley -> ~3909 walls apart

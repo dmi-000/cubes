@@ -11540,7 +11540,7 @@ Plus `cp727.log`, `modular_proof.log`, `p727_remote.log`, `pilot_shard.log`.
 **This is the project's own rule broken.** METHODS: *deliverables, including
 controls, go where they survive — write them to the repository directly, never to
 scratch space, and never scratch-then-copy: the copy step is the one that gets
-skipped.* the second machine is scratch by that definition: a borrowed machine, already
+skipped.* The second machine is scratch by that definition: a borrowed box, already
 rebooted once mid-run on 2026-08-25, destroying a 25-hour stage. Had it been
 reclaimed or wiped, three postscripts would have cited numbers with no recoverable
 evidence.
@@ -11566,7 +11566,7 @@ where the copy step gets skipped.
 
 ## Postscript 165: the intersection lattice of 727, by rank — and the stratum walk is now sized
 
-`flat_ranks_par.py` (parallel rank-synchronous BFS, the second machine, 4 cores, 23 241 s)
+`flat_ranks_par.py` (parallel rank-synchronous BFS, second machine, 4 cores, 23 241 s)
 enumerated all 1 192 678 flats and SAVED the high-rank ones.
 
 | rank | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
@@ -14915,3 +14915,985 @@ r for records found by DIFFERENT methods at the same rung — which is what the 
 superseded pairs already are, and they are confounded exactly that way.
 
 Files: `rtest.py`, `rtest.log`.
+
+<a id="p208"></a>
+
+## [OBSERVED] Postscript 208: what would suggest a record IS a maximum — and what our data says instead
+
+Prompted by "think about what would suggest that a record could be a maximum."
+
+### The only route to a proof
+
+A record is proved maximal when it equals the ceiling bound `1 + sum_l C(l,n)`. This is
+not hypothetical: **at n = 3 the gap is exactly 0**, and 67 is the one record proved
+maximal. Every other rung has a gap:
+
+    n        3    4    5    6    7    8    9   10
+    gap      0   12   36   74  126  192  278  384
+
+Two prerequisites, both stated in [P197](#p197): the ceiling law is PROVED only for
+l = 1, so l >= 2 must be proved before the sum is a bound at all; and 91% of the slack
+sits at DEPTH 1, so tightening d1's ceiling is where the closing would happen.
+
+### Rigidity — and the data already speaks to it
+
+    183  (n=4)   locus a POINT (verified)        has stood since 2026-08-18
+    393  (n=5)   locus a POINT (verified)        has stood
+    727  (n=6)   locus a NODE, 1-dimensional     has stood
+    1217 (n=7)   rank 1
+    1895 (n=8)   rank 2
+    2785 (n=9)   rank 3                          FELL 2026-08-31
+    3913 (n=10)  rank 5                          FELL 2026-08-31
+
+**A record whose locus is a single point cannot be improved by MOVING** — any better
+configuration must lie in a different region entirely. A record with a 5-dimensional
+locus has room to walk, and on 2026-08-31 the two highest-dimensional records fell
+while the rigid ones did not. Locus dimension = deficit - 1 = the count of anomalous
+cubes ([P206](#p206)), so it is cheap to compute for any candidate.
+
+**Stated as a signal, not a law: 2 of 2 records that fell were the highest-dimensional
+ones.** Two events. The alternative explanation is at least as good — those two were
+also the ones found by MENU SEARCH, which [P186](#p186) showed cannot reach what solved
+methods reach. Dimension and provenance are confounded in both cases, exactly as in
+[P207](#p207)'s refuted correlation.
+
+### The weaker forms, and what they are missing
+
+- **EXHAUSTED over a complete family** — what the n=3 proof did: reduce to finitely
+  many combinatorial types and check each. No such finiteness result exists above n=3.
+- **Local maximality** — currently established as "no crossing raises the count over a
+  SATURATED facet list plus vertex probes" ([P199](#p199), [P201](#p201)). That is
+  evidence, not proof: completeness of the facet list assumes the region is
+  STAR-SHAPED about the record, automatic for a hyperplane cell but not guaranteed
+  where the boundaries are quadrics.
+
+### What our data currently says about OUR records
+
+Against maximality, at n = 9 and n = 10: the gap sequence's second differences run
+12, 14, 14, 14, **20, 20** — not smooth, and if the run of 14s were the law there is
++6 at n=9 and +18 at n=10 still available ([OQ 17](OPEN_QUESTIONS.md)). Their loci are
+4- and 5-dimensional. And an entire documented region — 727's arcs A, B, C — has never
+been used as an extension base.
+
+For 183 and 393 the picture is the opposite: rigid, verified 0-dimensional, standing
+for weeks. [OQ 6](OPEN_QUESTIONS.md) asks whether 183 is maximal at n = 4, and of all
+the rungs it is the one where the evidence points that way.
+
+<a id="p209"></a>
+
+## [VERIFIED] Postscript 209: both 67s are 0-DIMENSIONAL — a plan whose obstacle had already been removed
+
+`verify67.py`. Prompted by "what about the 4 plans you just presented?"
+
+`MAXIMISER_TAXONOMY.md` §5 listed this as open: "**The two 67s' Jacobian rank** — would
+upgrade their isolation from a codimension heuristic to a computation ... the obstacle
+is that the walls must be differentiated in Q(sqrt 2) and Q(sqrt 5) rather than Q."
+
+**The obstacle was already gone.** `verify393.py` performed exactly this computation in
+Q on 2026-09-01 ([P204](#p204)), and both `dimension.set_field(d)` and
+`epscount.count_eps(..., d, ...)` have always taken the field. The plan ran unchanged.
+
+    octahedral 67  Q(sqrt2)   ambient 6   walls 6   deficit 0
+                   controls zero->67, wall-gradient->53   OK
+                   12 candidates, 0 UNEVALUATED, preserving RANK 0
+
+    golden 67      Q(sqrt5)   ambient 6   walls 9   deficit 0
+                   controls zero->67, wall-gradient->47   OK
+                   26 candidates, 0 UNEVALUATED, preserving RANK 0
+
+**Both are single points.** Candidates were drawn from the null space AND every cube's
+3-slice — the pool that catches 727's arcs, where a null-space-only pool returns a
+false negative ([P204](#p204)) — with both signs verified by eps and nothing
+unevaluated. Isolation at n = 3 is now measured, not inferred from codimension.
+
+### The rigidity table is now complete at the bottom of the tower
+
+    67  (n=3, both)   0-dimensional   VERIFIED   (this entry)
+    183 (n=4)         0-dimensional   VERIFIED   ([P204](#p204))
+    393 (n=5)         0-dimensional   VERIFIED   ([P204](#p204))
+    727 (n=6)         a NODE, 1-dim   arcs A-D, six ends solved
+    1217..3925        positive-dimensional, rank = deficit - 1
+
+Every maximiser at n <= 5 is a rigid point; every one from n = 7 up has room to move.
+That is the signal [P208](#p208) identified for maximality, now established rather than
+asserted at the three rungs where it holds.
+
+### What this says about auditing plans
+
+The plan was blocked by a stated obstacle, the obstacle was removed by unrelated work,
+and the file kept advertising it as blocked. Nothing flagged the change: the tooling
+that unblocked it (`set_field`, `count_eps(..., d, ...)`) predates the plan, so it was
+arguably never blocked at all — only believed to be.
+
+Files: `verify67.py`, `verify67.log`.
+
+<a id="p210"></a>
+
+## [VERIFIED] Postscript 210: the region count over VOLUME — the Haar baseline, and why the records have none
+
+**The question.** For each region count `c`, what is the volume of the space that
+carries it — and, refining it, the volume from which climbing reaches it?
+
+**"Volume" had to be defined before anything could be measured.** Lebesgue measure in
+Cayley coordinates is infinite (the chart is ℝ³ per cube, a half-turn is at infinity),
+so it weights nothing. The measure that exists is **Haar on SO(3)^(n−1)** after
+gauge-fixing cube 0 — the unique rotation-invariant probability measure, and the only
+one under which "the volume of the set with count c" is a number.
+
+**The sampler is exact, not rounded** (`haarsample.py`). Draw an integer 4-vector
+uniformly from the box [−Q,Q]⁴ and reject unless ‖v‖² ≤ Q². A uniform point of the
+4-ball has direction *exactly* uniform on S³, and only a quaternion's direction names
+a rotation — so the rotation is exactly Haar and the quaternion is exactly an integer
+4-tuple, with no float rounded into a chamber decision. The residual approximation is
+that the point is a LATTICE point of the ball; the deviation is O(1/Q), which at
+Q = 30 000 is ~3·10⁻⁵ against a Monte Carlo error of 1/√K ≈ 10⁻².
+
+**21 751 exactly-Haar configurations, exactly counted, 0 unevaluated.**
+
+| n | K | min | max | mean | sd | record | (rec−mean)/sd | max/rec |
+|---|---|---|---|---|---|---|---|---|
+| 3 | 4000 | 17 | 39 | 32.2 | 3.9 | 67 | 8.92 | 0.582 |
+| 4 | 4000 | 79 | 135 | 115.3 | 9.6 | 183 | 7.05 | 0.738 |
+| 5 | 4000 | 213 | 325 | 279.8 | 17.2 | 393 | 6.57 | 0.827 |
+| 6 | 3000 | 411 | 619 | 551.4 | 26.9 | 727 | 6.53 | 0.851 |
+| 7 | 3000 | 777 | 1069 | 958.5 | 38.2 | 1217 | 6.77 | 0.878 |
+| 8 | 2000 | 1319 | 1667 | 1529.4 | 52.0 | 1895 | 7.03 | 0.880 |
+| 9 | 1615 | 1949 | 2477 | 2287.8 | 67.7 | 2787 | 7.37 | 0.889 |
+| 10 | 1136 | 2923 | 3503 | 3259.6 | 88.5 | 3925 | 7.52 | 0.892 |
+
+**Four things it says.**
+
+1. **The records have no volume, and the measurement agrees with the geometry.** Not
+   one draw of 21 751 reached even **90 %** of the record at any n — at n=10 the
+   volume with count ≥ 3533 is below 0.0026 at 95 % confidence. That is what the
+   dimension figures already implied: `climb.log` gives the n=9 record preserving rank
+   4 in ambient 24 and the n=10 record preserving rank 5 in ambient 27, and
+   [P204](#p204) has 183 and 393 0-dimensional. A set of codimension ≥ 19 is
+   Haar-null, so **the volume at every known record is exactly 0** — the distribution
+   asked for has *no mass at the top*, and a random-restart search for records is not
+   slow, it is impossible.
+
+2. **Both the generic count and the record are cubic in n, with a fixed ratio.**
+   Least squares over the eight rows and the nine records:
+   mean ≈ 4.45n³ − 12.5n² + 5.6n + 8.3 (max residual 1.03),
+   record ≈ 5.06n³ − 13.3n² + 21.1n − 13 (max residual 1.00),
+   sd ≈ 1.115n² − 2.66n + 2.23 (max residual 0.81).
+   So mean/record → ≈ 0.88, and **(record − mean)/sd ~ 0.55n grows linearly** — the
+   record is a *fixed* ~7 sd out over the measured range but pulls away asymptotically.
+
+3. **The upper tail is the thin one.** Skewness is −0.50 ± 0.03 at every n from 3 to
+   10 — remarkably stable — so the distribution has a longer LEFT tail and high counts
+   are cut off more sharply than a Gaussian would predict. Sampling is worse at
+   finding records than a normal-tail estimate suggests.
+
+4. **The generic count is congruent to a single class mod 4, alternating with n.**
+   99.1–99.9 % of draws for 4 ≤ n ≤ 10 fall in ONE residue class mod 4: 3 for even n,
+   1 for odd n (n=3 is the exception, 77 % / 22 % split between 1 and 2). Consistent
+   with generic wall crossings changing the count by a multiple of 4, which is what
+   the climb trajectories show directly (107 → 111 → 119 → 123 → 127). The records
+   183, 393, 727, 1217, 1895 sit in the majority class; **67, 2787 and 3925 do not** —
+   they are not generic points, so nothing forced them to.
+
+**Control on the coarse lattice.** The basin runs must start at Q = 128 (probe points
+cost Q²·M in height and both engines refuse above ~10⁸, measured, the same ceiling at
+n=4 and n=10), so Q=128 was sampled independently and compared. It is **shifted up**:
++1.7 ± 0.6 at n=4 and +1.2 ± 1.1 at n=5, consistent at n=7 and n=10. Low-height
+rationals sit nearer coincidences and count slightly higher; the bias is ≤ 1.5 % and
+falls with n, and it is stated rather than assumed away.
+
+Files: `haarsample.py`, `basin_report.py`, `haar_n{3..10}_Q30000.jsonl`,
+`haar_n{4,5,7,10}_Q128.jsonl`.
+
+<a id="p211"></a>
+
+## [VERIFIED] Postscript 211: "locally maximal over the directions walked" was a sampled termination test — and the record's HEIGHT is forced by its codimension
+
+**User's question: "Is it not selecting tangents guaranteed to find walls?"** It is not,
+and the code says so plainly. `conditions()` emits gradients only for conditions already
+TIGHT; at a generic point `tight` is empty and `loose` is a bare integer counter
+(`loose += 1`). There is no wall list at a generic point, so `climb.py`'s isotropic rays
+find facets in proportion to the solid angle each subtends. `facets.py` announces that
+it "supersedes the direction-sampling in `climb.py`", but walks 64 *directions* with a
+saturation curve — better evidence, same logic.
+
+**How wrong it was, measured.** Ray diagnostics were added first (a ray now reports
+crossed / no-wall-within-t≤8 / unevaluable-before-bisection / unevaluable-after), and
+they are clean: 24 of 24 rays cross, 0 refused. Then the terminal configurations of the
+first 8 basin climbs were re-tested against exactly-solved single-cube lines
+(`solved_scan.py`): **3 of 8 terminations were premature.** The scan reaches 129 from a
+configuration the ray walk stopped at 121, and 99 from one it stopped at 95. So every
+terminal count in a ray-only basin run is a LOWER BOUND, and the basin histogram built
+from them is biased low. Corrected by making the solved scan the termination test —
+the ray walk stays as the cheap search, but nothing terminates on sampled evidence.
+
+**What the solved scan is, and how exact it actually is.** For a ray moving ONE cube the
+walls are enumerable: W4 gives one quadratic per (triple point × free-cube face), W3
+comes from `wall_params.w3_params`, and sorting their roots partitions the line into its
+chambers with nothing stepped over. Representatives are the SIMPLEST rational in each
+interval, never the midpoint. But the two families are not on the same footing, and this
+was overclaimed once before it was checked: W4 reality is decided exactly (rational
+discriminant, `isqrt`), whereas `real_roots` falls back to **`np.roots` in double
+precision** for the quartics and keeps a root when `|imag| < 1e-9`. So a W3 wall's
+existence rests on a float threshold. Positive results are unharmed — every count is the
+exact count of an exactly specified configuration — but a NEGATIVE is complete only up
+to W3 root precision. Making the negative airtight needs Sturm isolation, not more lines.
+
+**The records, scanned.** n=9: 2787 not beaten along 32 exactly-scanned lines — **but
+137 of 384 chambers were UNEVALUATED (36 %)**, so the negative covers 247 chambers and
+that belongs in the headline, not the detail.
+
+**Why the refusals concentrate there, and it is not the apparatus.** The obvious repair
+is a cheaper representative. It does not exist:
+
+| round pt to | height | count |
+|---|---|---|
+| 1/2⁴ | 37 | 2717 |
+| 1/2⁸ | 597 | 2753 |
+| 1/2¹² | 9 557 | 2751 |
+| 1/2¹⁶ | 152 917 | 2753 |
+| 1/2²⁰ | 2 446 677 | 2751 |
+| 1/2²⁴ | 39 146 837 | 2751 |
+
+**No dyadic rounding at any resolution recovers 2787.** It converges to 2751 instead.
+Re-gauging by conjugation with each cube in turn also leaves the height at 113 786
+exactly. That is what codimension 20 looks like from the outside: a lattice of ANY
+fineness misses the stratum, so **the record's tall representative is forced by its
+codimension, not chosen badly** — and this is an independent confirmation, by a
+completely different route, of [P210](#p210)'s measure-zero finding.
+
+**And it relocates the volume question — but not the way this entry first said.** The
+rounding lands on a configuration carrying count **2751**, against a Haar mean of 2288
+and a maximum of 2477 over 1 615 draws at n=9, and that was written up here as "a
+full-dimensional neighbourhood of the record holds counts far above anything sampling
+reaches".
+
+*Corrected 2026-09-01.* It is not full-dimensional. Running the exact genericity test on
+that configuration — the one this entry should have run before claiming it — returns
+**61 TIGHT conditions, nullity 11 of 24**: a codimension-13 stratum, so 2751 is attained
+on a Haar-null set too. The cause is the rounding itself: forcing every coordinate onto
+a common denominator 2^k makes them commensurable and manufactures coincidences, so a
+dyadic point is systematically MORE degenerate than a random one, not a generic sample
+of the neighbourhood. The same effect is visible in [P210](#p210)'s control, where the
+coarse Q=128 lattice counts high by +1.7 ± 0.6 at n=4.
+
+What survives: 2751 > 2477 says high counts exist near the record. What does not: any
+claim about the VOLUME at those counts. The tail question is settled instead by
+[P215](#p215)'s bounded-tail fit, on genuinely Haar samples.
+
+**Boundary walking (user's second observation: "finding any wall allows walking along
+the wall to find surrounding walls").** Implemented in `facet_walk.py`: a facet, once
+found, seeds tilted probes around the ray that found it, so the search spreads over the
+boundary's adjacency graph rather than the sphere of directions. Held to an equal probe
+budget against an isotropic control — the comparison is the point, since "more facets"
+is meaningless at unequal cost.
+
+*Corrected 2026-09-01, before this entry was acted on.* The first configuration read
+"same facet set from 18 probes vs 160", and the very next one exposed it: the walk
+reported 1 facet against the control's 9, because **its queue empties and it stops**
+instead of spending the budget. An equal-budget comparison in which one side spends 18
+probes and the other 160 is not one, and the number flattered the method that quit
+early. Fixed by refilling the queue with fresh isotropic seeds when it drains, and the
+tilt ladder widened to (1024, 256, 64, 16, 4).
+
+*Re-run, and the claim does not survive.* With the budget spent properly the walk first
+appeared to win (10 facets, best neighbour 127, against 9 and 119) -- but it had refused
+**76 of its 160 probes**, because a tilted direction K*v+u has components ~K*RBALL and
+the probe step is v/den, so a large direction is a tall configuration. The isotropic
+control refused 0. Rescaling the tilted directions back to the control's magnitude (only
+the direction matters, so this is the same ray) removes the refusals -- and with all 160
+probes evaluable on both sides the walk **does not win**:
+
+| configuration | boundary walk | isotropic control |
+|---|---|---|
+| n=4 #0 | 1 facet, best 121 | 1 facet, best 121 |
+| n=4 #1 | 8 facets, best 115 | **9 facets, best 119** |
+| n=4 #2 | 1 facet, best 121 | 1 facet, best 121 |
+
+So the "10 vs 9" was an artifact of the height bug changing what got measured, and this
+claim has now been made and withdrawn TWICE on this one comparison -- first on an
+unequal budget, then on unequal refusal rates. **Recorded position: boundary walking as
+implemented does not beat isotropic rays at equal budget on these three configurations.**
+The idea may still be right -- two of the three chambers expose only ONE facet to 160
+rays, so there is almost nothing for adjacency to exploit there, and the signature's
+non-injectivity (below) could be hiding facets from both methods equally. But nothing
+above supports it, and it should not be cited as an improvement.
+
+Caveat that limits both: facets are named by the (n−1)-subset signature, which
+METHODS 22 already records as non-injective, so a facet COUNT from either method is a
+lower bound.
+
+**Engine refusal is now a reported volume, not a discarded climb** (user's third
+observation). A climb ending UNDETERMINED measures the Haar volume of configurations
+this apparatus cannot decide — a property of engine + representative policy, reportable
+with a binomial interval. `basin_report.py` prints it beside the basins.
+
+Files: `solved_scan.py`, `facet_walk.py`, `basin.py`, `climb.py` (`first_crossing`
+extracted so the walk and the climb share one implementation; regression 107 → 127
+unchanged, and the n=9 record climb still reports 2787 / deficit 5 / rank 4).
+
+<a id="p212"></a>
+
+## [VERIFIED] Postscript 212: the "36 % of chambers unevaluable" was a DUPLICATE-ROOT bug, and it nearly bought an engine
+
+**User's question: would data on the volume of the engine-failure space help judge
+whether modular sign evaluation is worth building?** Asking it is what found the bug,
+because the volume and the refusal rate disagreed by so much that one of them had to be
+explained.
+
+**The volume says the ceiling costs nothing.**
+
+| where | refusals |
+|---|---|
+| Haar baseline, 30 000 exactly-Haar draws, n=3..10 | **0** |
+| chambers along solved lines from generic starts | 0.4 – 1.7 % |
+| chambers along solved lines at a RECORD | ~36 % |
+
+So the refusal set is Haar-null — a volume-based valuation returns ≈ 0 and rejects the
+build. The apparent case FOR building was that the 36 % sits exactly on the strata where
+every record lives, so volume looked like the wrong currency.
+
+**First hypothesis, and it was wrong.** Height: the n=9 record carries a height-113 786
+quaternion, and no dyadic rounding recovers 2787 ([P211](#p211)). But the n=5 record has
+height **7** and refuses **37.5 %**, while a generic n=5 configuration at height 93
+refuses **0 %**. n=6 (height 14) refuses 35.0 %. Three records at heights 7, 14 and
+113 786 all refuse ~36 %. Height is not the variable.
+
+**What it actually was.** The scan partitions a line by the sorted roots of the wall
+polynomials and takes the simplest rational inside each interval. The gap distribution
+at the n=5 record is **bimodal with an empty band 38 orders wide**:
+
+    603 of 719 gaps  >  1e-12
+    116 of 719 gaps  <  1e-50      (smallest 3.4e-65)
+      0 gaps in between
+
+`root_values` states ~1e-60 accuracy. Gaps of 1e-65 are *below its own precision*, and
+no geometry produces gaps of 1e-65 but never 1e-30. Those 116 are **one root reported
+twice** — distinct quadratics sharing a root, each rounded slightly differently. Two
+copies of a root bound a phantom interval of width ~1e-124; `simplest_between` fits a
+62-digit denominator inside it; the resulting configuration overflows both engines. The
+interval was not thin. **It was not there.**
+
+**Fixed** by merging roots closer than `DUP_TOL = 1e-30`, chosen to sit in the measured
+empty band. Refusals at the records:
+
+| | before | after |
+|---|---|---|
+| n=5 record (393) | 37.50 % | **7.64 %** |
+| n=6 record (727) | 35.00 % | **7.22 %** |
+
+and 393 and 727 remain unbeaten on the scanned lines, now with far better coverage.
+
+**The conclusion, reversed.** Two messages before this, the 36 % was reported as the
+measured case for building modular/CRT sign evaluation to remove the height ceiling.
+It is not: four fifths of it was a deduplication bug in the caller, and the engine was
+being blamed for arithmetic it was never asked to do. The evidence now says **do not
+build it** — the ceiling costs ~0 volume, and the one place it looked expensive was our
+own bookkeeping. What remains open is the residual ~7 %, and it is
+**not** more duplicates: sweeping DUP_TOL from 1e-30 to 1e-11 -- nineteen orders, right
+up to the edge of the smallest real gap -- leaves it at 7.64 % unchanged, so the
+duplicate population is entirely captured by any tolerance in the empty band and the
+remaining 11 chambers refuse for a different reason. Genuinely narrow cells and the
+1e-12 rounding of the W3 quartic roots are the candidates; deciding between them is the
+open question, and neither is an argument for a wider engine until it is decided.
+
+**The general tell, worth keeping.** A refusal rate that is high at special points and
+zero everywhere else looks like a limit of the instrument, and is more often a limit of
+what is being handed to it. This is the same shape as the recorded principle "a refusal
+may be about your representative, not about the question" — but one level up: not a bad
+representative of a real object, a representative of an object that does not exist.
+
+Files: `solved_scan.py`, `refusal_volume.py`, `basin_report.py`.
+
+<a id="p213"></a>
+
+## [VERIFIED] Postscript 213: the recorded local-maximality of 2787 rested on 32 refused rays out of 36
+
+The audit [P211](#p211) said it could not yet run — `climb.py` was re-run at n=9 and
+n=10 with the new ray counters, and the answer is the bad one:
+
+```
+[n=9 AUDIT iter 1] record 2787  deficit 5  height 113786
+   rays: 4 of 36 crossed, 0 found no wall within t<=8, 32 UNEVALUABLE
+   UNDETERMINED: 32 of 36 rays ended UNEVALUABLE (engine refused every probe);
+   this is NOT local maximality
+[n=10 AUDIT iter 1] record 3921  deficit 6  height 113786
+   rays: 6 of 36 crossed, 30 UNEVALUABLE
+```
+
+`climb.log`'s recorded line for n=9 — *"no crossing above the record; region is locally
+maximal"* — was produced when **32 of its 36 rays had been refused by both engines**.
+Four rays crossed. The old code's `if c is None or c==rec: continue` folded a refusal
+into "no crossing", and the conclusion printed was the one for "no crossing".
+
+**What this does and does not invalidate.** It does NOT touch the RECORD 2787 itself:
+that count is gated by two engines and three rotations and stands. What falls is the
+*local-maximality* statement attached to it, which is now downgraded to "4 rays crossed
+and none went higher". The same holds for n=10.
+
+**What still supports maximality, on better evidence.** The solved scan
+([P211](#p211), [P212](#p212)) found nothing above 2787 across 32 exactly-scanned
+single-cube lines — and after the duplicate-root fix its own refusal rate at records
+falls from ~36 % to ~7 %. That is independent of the ray walk and much stronger than it.
+So the conclusion survives; the evidence recorded for it did not.
+
+**Why the refusals concentrate at n=9/n=10 and not at n=5..8.** `den = Dden*M` ties the
+probe step to the current representative's height, and the n=9/n=10 records carry a
+height-113 786 quaternion that [P211](#p211) showed cannot be lowered by rounding or
+re-gauging. So the probes are tall exactly where the record is tall — and unlike the
+[P212](#p212) case, this one really is about height. Both mechanisms exist; they had to
+be told apart by measurement, not by assumption.
+
+**One good thing came out of the same run.** The n=10 audit re-derived 3925 through the
+new `rerep` + `simplify_point` path and landed on a **simpler representative** of it:
+ninth cube `1824,1824,1849,1824` (height 1849) where the recorded one is
+`6555,6555,6497,6555` (height 6555). Both verified here at 3925 by two engines and three
+rotations. So 3925 is now reproduced by an independent route, and the cheaper
+representative is available for any later work on it — though the configuration's
+overall height is still set by the tenth cube's 113 786 and is unchanged.
+
+Files: `climb_audit.log`, `climb.py`.
+
+<a id="p214"></a>
+
+## [VERIFIED] Postscript 214: the basin distribution with UNEVALUABLE as a bin — and the refusals are at the TOP of the climb
+
+Three questions from the user, and the second and third had not been recorded at all.
+
+**1. The distribution, with UNEVALUABLE as its own category.** 123 climbs, terminal
+count against Haar volume (each start is an equal-volume draw, so the histogram IS the
+volume):
+
+| n | climbs | start mean | terminal mean | gain | terminal max | UNEVALUABLE | Haar mean | Haar max | record |
+|---|---|---|---|---|---|---|---|---|---|
+| 4 | 97 | 116.1 | 128.5 | +12.4 | 141 | **5.2 % ± 4.5 %** | 115.3 | 135 | 183 |
+| 5 | 26 | 277.8 | 295.2 | +17.5 | 325 | **7.7 % ± 10.5 %** | 279.8 | 325 | 393 |
+
+At n=4 the volume concentrates at 135 (0.175), 131 (0.144) and 127 (0.144). Climbing
+lifts the mean by ~11 % and reaches 141, above the maximum of **4 000** Haar draws (135)
+— so it does get where sampling does not. The record 183 is still 30 % above the best
+climb, and no positive-volume basin reaches it, consistent with [P210](#p210).
+
+**2. When a climb ends UNEVALUABLE, how high had it got?** It was recoverable and had
+never been read: `cfg1` records the last accepted configuration. Counting them:
+
+    n=4 undetermined climbs reached  113, 119, 119, 137, 141
+    n=5 undetermined climbs reached  278, 313
+
+**141 is the highest count in the entire n=4 campaign, and it comes from a climb that
+was scored as a failure.**
+
+*Corrected 2026-09-01.* This entry went on to say "the refusals are not scattered — they
+are concentrated at the TOP of the climb". With six undetermined climbs now recovered
+(113, 119, 119, 133, 137, 141) against 149 terminated ones, that is **false**: the
+undetermined mean is **127.0**, BELOW the terminated mean of **128.9**. One of them is at
+the top; the set is not. The claim was an over-read of a single data point, made in the
+same paragraph that recovered it. The intrinsic version fails too — across the 149 local
+maxima the correlation between terminal count and log10(representative height) is
+**r = −0.003**, and the medians are U-shaped (490 / 239 / 193 / 685 over count bands
+95–120 / 121–130 / 131–136 / 137–145), so height does not track the count either.
+
+What survives is the mechanism, which is real: a climb heading toward a record enters
+ever-smaller chambers,
+`simplify_point` needs an ever-finer dyadic to stay inside one, and `den = Dden*M` ties
+the probe step to that growing height. Dropping these climbs biases the distribution
+down at exactly the end that matters. Now recorded as `best_evaluable` per row.
+
+**3. What bit width would have been needed?** Also never recorded, and now computed
+rather than guessed. Calibration first, by bisecting each engine's refusal height:
+
+    cube_regions_n    capacity 2^112  refuses above height 2^16.1  =>  k = 6.96
+    cube_regions_q2w  capacity 2^240  refuses above height 2^28.5  =>  k = 8.41
+
+so the pipeline grows as h^k and a probe of height h needs ~8.41·log2(h) bits (the wide
+engine binds). Self-consistent: the formula returns exactly 240.0 bits at the measured
+2^28.5 threshold. Probe height is ~h²·M, so for the seven undetermined climbs:
+
+| n | cfg height | probe height | bits needed | fits 240? | fits 512? |
+|---|---|---|---|---|---|
+| 4 | 44 462 | 8.1e12 | 361 | no | **yes** |
+| 5 | 65 468 | 1.8e13 | 370 | no | **yes** |
+| 5 | 389 632 | 6.2e14 | 413 | no | **yes** |
+| 4 | 2 375 689 | 2.3e16 | 457 | no | **yes** |
+| 4 | 5 723 700 | 1.3e17 | 479 | no | **yes** |
+| 4 | 7 877 885 | 2.5e17 | 486 | no | **yes** |
+| 4 | 9 405 804 | 3.6e17 | 491 | no | **yes** |
+
+*Corrected 2026-09-01 with MEASURED values.* The table above estimates the probe height
+as h²·M from the accepted configuration's height. Instrumenting the refusals directly
+(`climb.REFUSED`) gives a tallest refused probe of **4.54e11 → 325.7 bits**, so the h²·M
+estimate is pessimistic by 40–170 bits: `den = Dden*M` uses the LAST cube's height, not
+the configuration's. The measured figure is the one to use.
+
+**~326 bits measured, 361–491 estimated. A 512-bit chain covers every observed refusal** — one more doubling, the
+same move that took i128 to i256, and far cheaper than the modular/CRT engine
+[P212](#p212) argued against. Note these are a DIFFERENT population from P212's: those
+were phantom intervals from duplicated roots and needed no engine at all; these are real
+height growth from climbing into small chambers. Both present as "unevaluable", and only
+measurement separated them.
+
+**The valuation, which is what was asked for.** The ceiling costs ~0 volume over the
+space at large (0 refusals in 30 000 Haar draws) but 5–8 % of climb outcomes, and those
+are the climbs reaching the highest counts. Widening to 512 bits is priced at ≤ 272 bits
+of extra capacity and would let precisely the top of the distribution continue.
+
+**And the ceiling cannot be tuned around.** The seven undetermined climbs were re-run
+with the step divisor M reduced 16x and 256x (M = 4096, 256, 16), which lowers every
+probe height directly. **All three refuse identically** — 24 of 24 rays, every time. So
+this is not a step-size choice dressed up as an engine limit; it is the engine limit.
+
+Files: `basin_report.py`, `climb.py` (`required_bits`, `REFUSED`), `basin.py`,
+`retry_coarse.log`.
+
+<a id="p215"></a>
+
+## [VERIFIED] Postscript 215: the attainable-count distribution has a BOUNDED tail, and its endpoint is below the record at every n
+
+**Question: what is the volume of the space that climbs to a record, and if there is no
+sample, what does extrapolating the measured distribution give?**
+
+**No sample.** 0 of 123 climbs reached a record; the rule of three gives only < 2.4 %,
+which is too weak to be worth quoting.
+
+**The extrapolation.** A generalized Pareto fit to the upper tail of the exactly-Haar
+count distribution ([P210](#p210)) returns a NEGATIVE shape parameter — a bounded tail
+with a finite upper endpoint — in **all 32 fits**, eight values of n crossed with four
+threshold quantiles (0.80, 0.90, 0.95, 0.975):
+
+| n | ξ at q=0.80 | q=0.90 | q=0.95 | q=0.975 | endpoint | record | endpoint/record |
+|---|---|---|---|---|---|---|---|
+| 3 | −0.741 | −0.741 | −0.741 | −0.741 | 39 | 67 | 0.58 |
+| 4 | −0.691 | −1.249 | −1.249 | −3.467 | 135 | 183 | 0.74 |
+| 6 | −0.369 | −0.393 | −0.489 | −0.601 | 621 | 727 | 0.85 |
+| 8 | −0.275 | −0.292 | −0.241 | −0.338 | 1681 | 1895 | 0.89 |
+| 10 | −0.244 | −0.191 | −0.099 | −0.043 | 3568 | 3925 | 0.91 |
+
+So there is a **highest count attainable on a set of positive volume**, and it sits below
+the record at every n, by a margin that narrows with n (0.58 → 0.91). Model volume at
+≥ the record: **0**. At ≥ 90 % of the record: 0 everywhere except n=10, where it is
+1.1e-5.
+
+**What is robust and what is not.** ξ < 0 in every one of the 32 fits is the finding;
+the ENDPOINT estimate is not, because with ξ < 0 it anchors near the observed maximum
+and largely reproduces it (39 vs max 39, 135 vs 135, 3568 vs 3503). Quote the bounded
+tail; do not quote the endpoint as a measured number. n=10's ξ = −0.043 at q=0.975 is the
+weakest, on the fewest points.
+
+**It agrees with the geometry, by a completely different route.** The records sit on
+strata of codimension ≥ 19, and a wall-crossing climb from a chamber interior lands in
+chamber interiors forever, so it cannot arrive at one: volume exactly 0. The tail fit
+knows nothing about strata and says the same.
+
+**The gap between the two is where the interest is.** Climbing reaches **141** at n=4
+while 4 000 Haar draws maxed at **135** — so climbing enters chambers too small for
+sampling ever to land in. The picture is a hierarchy, volume falling to zero as the count
+rises to the record, and the arithmetic ceiling stops the walk partway up it rather than
+the geometry doing so.
+
+Files: `basin_report.py`, `haar_n*_Q30000.jsonl`.
+
+<a id="p216"></a>
+
+## [VERIFIED] Postscript 216: the climbs were not dying of engine ceiling — they were dying of DYADIC ROUNDING
+
+**User's question: "Do you use continued fractions to find simple rationals?"** In one
+place yes, and not in the place that governed whether a climb survived.
+
+    simplest_between        a continued-fraction (Stern-Brocot) descent:
+                            return ia + 1/simplest_between(1/fb, 1/fa).
+                            Used by rerep, the endpoint solver, solved_scan.
+    limit_denominator       Python's own CF algorithm; used in wall_params,
+                            solved_scan and six other modules.
+    simplify_point          NO. Pure dyadic rounding, F(round(x*2^k), 2^k) for
+                            k = 3..33 -- and this is the routine that sets the
+                            height of every configuration the climb accepts.
+    climb.py legacy `cheap` NO. Brute force, for q in range(2,200): for p in range(1,q).
+
+Dyadic rounding is the wrong lattice for this: one denominator 2^k is shared by all
+3(n−1) coordinates, so the single TIGHTEST direction sets the height of every other one.
+Measuring each coordinate's own slack and taking the continued-fraction simplest rational
+inside each interval separately (`simplify_box.py`) gives every coordinate its own
+denominator.
+
+**On a configuration where a climb had died UNDETERMINED:**
+
+| representative | height | est. probe bits |
+|---|---|---|
+| dyadic (old) | 44 462 | 361 |
+| per-coordinate CF, 2 rounds | 2 697 | 293 |
+| | **16x smaller** | |
+
+Round 1 alone gave only 1.5x; the iteration is what pays.
+
+**And then the decisive test — not the bit arithmetic, but whether the climb resumes:**
+
+```
+=== n=4 count 119  height 44462 (this climb DIED here)
+   simplified to height 2697 (16x), count 119
+   RESUMED CLIMB: 119 -> 131
+```
+
+with `rays: 24 of 24 crossed, 0 UNEVALUABLE` at **every** iteration of the resumed climb,
+and every step gated by two engines and three rotations (123 at height 11266, 127 at
+5633, 131 at 11225).
+
+**What this retracts.** Two messages earlier the recommendation was "implement CRT /
+modular sign evaluation", on the argument that the refusals sit where the climb does its
+most valuable work and that a fixed widening buys only a bounded extension. The premise
+was measured and true; the conclusion was premature. **The engine ceiling was not the
+binding constraint on these climbs — the representative was**, and the fix was a routine
+already in the repository, used by four other modules, that `simplify_point` did not
+call. [P214](#p214)'s "5–8 % of climb outcomes" is now an upper bound on what any engine
+work could buy, and it should be re-measured after this change before the engine question
+is reopened.
+
+**This is the THIRD time in one session that a refusal was about the representative**
+— [P212](#p212) (phantom intervals from duplicated roots), [P211](#p211)'s forced record
+height (which was genuine), and now this. The recorded principle says "a refusal may be
+about your representative, not about the question", and the tell it names — failures and
+successes separating on input height — was present each time. Reading the principle is
+not the same as running the check.
+
+`simplify_point` now falls back to the continued-fraction route whenever the dyadic
+answer exceeds height 4096, so every later climb gets this without asking.
+
+Files: `simplify_box.py`, `climb.py` (`simplify_point`, `SIMPLE_H`, `SIMPLE_ROUNDS`),
+`resume_simplified.log`, `simplify_box.log`.
+
+<a id="p217"></a>
+
+## [VERIFIED] Postscript 217: the precision a record's neighbourhood needs is BOUNDED — 384 bits covers all of it
+
+**User's argument.** A record is a tightly constrained subset of the rotation space, so
+there is a bounded amount of information in it, and one should not expect the information
+in its representation to grow fast. Formally: a record is a rational point on a variety
+cut out by wall equations whose coefficients come from cube geometry and a combinatorial
+type — bounded data — so Siegel/Bombieri–Vaaler-type bounds put a low-height rational
+point in the region, bounded by that data rather than exploding.
+
+**It makes a checkable prediction, and the integers carry it.** Of the eleven distinct
+cubes appearing in any record, **nine have only two distinct component magnitudes, one of
+them repeated three times**:
+
+    (2,1,1,1) (4,1,1,-1) (3,3,7,3) (5,-1,-5,-5) (4,-3,-4,-4)
+    (24,-24,24,-61) (168,-168,168,-415) (1824,1824,1849,1824)
+
+For random integer 4-tuples that is vanishingly unlikely. The two exceptions are
+`(7,14,1,-5)` (height 14) and **`(88787,-9061,74275,113786)` (height 113 786)** — so the
+single cube that is both unpatterned and 60x taller than any other is exactly the one
+[P211](#p211) declared "forced by its codimension".
+
+**Measured, and the argument holds.** The n=9 record climb was re-run with refusal
+instrumentation. Its 1 040 refused probes need:
+
+    probe height  min 3.8e8   median 2.4e10   max 5.3e13
+    bits needed   min 240     median 290      max 383      (we have 240)
+
+| chain width | refused probes it would evaluate |
+|---|---|
+| 256 | 6 of 1040 (1 %) |
+| 320 | 762 of 1040 (73 %) |
+| **384** | **1040 of 1040 (100 %)** |
+
+**The whole unexplored neighbourhood of the n=9 record fits in 384 bits** — 144 more than
+we have, one widening, bounded. Not the unbounded escalation that argued for CRT in the
+previous entry.
+
+**And [P211](#p211)'s "the height is forced" is unproven, not proven.** Two searches, both
+bad, and their failures are instructive:
+
+1. *Naive tangent-space search*, 31 200 rational combinations of the eps-verified
+   preserving basis: nothing lower. Ill-posed — adding small multiples of integer basis
+   vectors can only RAISE denominators; lowering the height needs a combination that
+   CANCELS the existing one.
+2. *Denominator cancellation as a congruence.* The Cayley point has common denominator
+   L = 74 581 080 = 2³·3·5·7·19·4673, and solving `P + Σ cᵢbᵢ ≡ 0 (mod m)` over the rank-4
+   tangent space shows **m = 2 and m = 19 are both cancellable**. Constructing those
+   points: they **stay in the region** (count 2787 verified, three of them) — but their
+   heights are HIGHER (2 515 275, 7 676 376, 47 790 127), because clearing the global
+   denominator inflates the per-cube numerators.
+
+So the region demonstrably contains many other rational points carrying 2787, and the
+right question — minimise max quaternion height over the 4-dimensional family — is
+well-posed and has not been asked properly yet. P211's dyadic-rounding and
+conjugate-by-each-cube evidence does not answer it, and neither do these two.
+
+**Recommendation, revised again.** Widen the chain once to 384 or 512 bits; do NOT build
+CRT/modular sign evaluation. [P216](#p216) already showed most climb refusals were a
+dyadic-rounding artifact and are fixed for free; this entry shows the residual — the
+record neighbourhoods, the part that is genuine — is bounded and small. The
+unbounded-escalation argument that favoured CRT was measured on climbs whose heights were
+inflated by the very bug P216 fixed.
+
+Files: `record_height.py`, `cancel_test.log`, `cancel_build.log`, `n9_refusal_bits.log`.
+
+
+<a id="p218"></a>
+
+## [VERIFIED] Postscript 218: the n=9 record has a representative of height 415 — the 113 786 outlier is gone
+
+**User: "It may be an interesting exercise to see if we can find a simpler representative
+that avoids the (88787,−9061,74275,113786) outlier."** It was, and it does.
+
+**The freedom was countable.** The record's region has dimension 4 (eps-verified
+preserving rank), while ONE cube's Cayley coordinates are only 3 numbers. So the map from
+the tangent space to that cube's position cannot be injective, and the cube can be moved
+without leaving the region. `simplify_record.py` solves for the tangent step that lands
+the ninth cube on a simple rational and lets the COUNT decide whether the step stayed in
+the region — the region is curved, so the linear algebra proposes and the count disposes.
+
+**Result, at target denominator 109:**
+
+    old   ...;168,-168,168,-415;88787,-9061,74275,113786     height 113786
+    new   ...;168,-168,168,-415;109,-11,91,140               height    415
+
+**274x smaller.** Verified well beyond the count: both engines agree, all three global
+rotations agree, and the **by_depth profile is identical across all ten depths**
+(1, 426, 596, 524, 434, 344, 254, 154, 54, 1) — a much stronger check than the total.
+
+The configuration's height is now set by `(168,-168,168,-415)`, the same order as every
+other cube in every record. The outlier that [P217] flagged as the only cube both
+unpatterned and 60x taller than any other was an artifact of how the point was found — a
+simplest-rational along ONE ray inside a 4-dimensional region — exactly as the user's
+information argument predicted.
+
+**What this retracts.** [P211](#p211) concluded "the record's tall representative is
+forced by its codimension, not chosen badly", from dyadic rounding to 1/2^24 and
+conjugation by each of the nine cubes. Both searches were the wrong shape ([P216](#p216)
+explains why dyadic rounding is), and the conclusion is now **false**: the height was
+chosen badly, by 274x. The codimension argument survives only in its weaker true form —
+a lattice of any fineness misses the stratum, so ROUNDING cannot find a cheap
+representative — but moving inside the region can, and does.
+
+**And it settles the engine question. The number is ZERO.**
+
+    n=9 record at height 113786:  rays  4 of 36 crossed, 32 UNEVALUABLE
+                                  1040 refused probes, up to 383 bits needed
+    n=9 record at height 415:     rays 36 of 36 crossed,  0 UNEVALUABLE
+                                  0 refused probes
+
+[P217] recommended widening the chain to 384 bits on the strength of that 1 040. **The
+entire requirement was the representative.** No engine change is warranted: not CRT, not
+a 384-bit widening, nothing. Four successive recommendations on this question — build
+CRT, don't build CRT, widen to 384, and now nothing — and every reversal came from
+measuring the thing rather than reasoning about it.
+
+**The local-maximality claim is also repaired.** [P213](#p213) had to downgrade "2787's
+region is locally maximal" to "4 rays crossed and none went higher". At height 415 all
+**36 of 36** rays cross and the facet census is complete over them — four distinct walls,
+at 0.00255, 0.00999, 0.0299 and 0.04526, count 2783 outside every one. Still a
+directions-walked statement rather than a proof, but resting on 36 of 36 instead of 4.
+
+**Steering again gets to 140.** Applied to the new tallest cube, `(168,-168,168,-415)`
+becomes `(9,-9,9,-22)`: configuration height **140**, an **813x** reduction from the
+original 113 786. All three representatives agree on the count under both engines and on
+the by_depth profile at every depth. And `(9,-9,9,-22)` has |9| three times — it joins
+the two-distinct-magnitudes family that nine of the eleven record cubes share
+([P217](#p217)), which is the structural prediction the user's information argument made.
+
+**CAVEAT, and it is not small.** The deficit and preserving rank are NOT the same at the
+two points: deficit 5 / rank 4 at height 113 786, deficit 4 / rank 2 at height 415. Same
+count, same depth profile at every depth, but a different tight-condition structure — so
+these are points of the same LEVEL SET `{count = 2787}` and not demonstrably points of
+the same stratum. The tangent step is first-order and the region is curved, so the walk
+may have landed on a neighbouring, less degenerate face. Nothing above depends on them
+being the same stratum, but the phrase "the same region" should not be used until this is
+settled, and any dimension figure quoted for the n=9 record now has to say WHICH
+representative it came from.
+
+**A practical cost, recorded so it is not rediscovered.** `cached_conditions` is keyed on
+the CONFIGURATION, so a new representative gets no cache hit: every symbolic analysis of
+the n=9 record — `walls_and_null`, the preserving basis, anything built on them — has to
+be recomputed once for the height-415 point, and at n=9 that is over an hour. Cheaper to
+*use* and once-off expensive to *adopt*. The cache is keyed correctly; this is the price
+of the change, not a fault, and it is paid once.
+
+Files: `simplify_record.py`, `simplify_record.log`, `record_height.py`.
+
+<a id="p219"></a>
+
+## [VERIFIED] Postscript 219: the arc menu enumerated QUATERNIONS where it should have enumerated CUBES — 7.2x, and the gate passed in 51 seconds
+
+`arcs_extend.py` had run 8 h 20 m and printed nothing past arc D's chamber census. Two
+questions: is there anything to make it faster, and should it be sharded with finer
+checkpoints. Yes to both, and the first is the larger.
+
+**The menu was 7.2x too big.** It enumerated *primitive integer 4-tuples* in [-4,4]^4 —
+2 928 of them — as if each were a distinct candidate cube. But a cube is invariant under
+the 24 octahedral rotations, so `q` and `q*s` describe the SAME cube and must give the
+same count. Quotienting by that action, keeping the LOWEST-height member of each orbit:
+
+    2 928 primitive quaternions  ->  405 distinct cubes   (7.2x fewer)
+    class of (4,-3,-4,-4) still present; no representative taller than before
+
+**Controlled, able to fail.** The quotient is a claim about the engine, so it is checked
+against the engine before use, on classes chosen at random rather than the convenient
+one: 18 octahedral pairs, **0 disagreements**. If any had differed the reduction would be
+unsound and the run would stop rather than tune around it.
+
+**Measured effect: 51 s per member, against ~6 min.** And the consequence that matters —
+**the gate passed on the FIRST member**: arc D reaches **1217 at s = -1/10 with seventh
+cube (4,4,4,-3)**, the octahedral image of the recorded (4,-3,-4,-4). The gate that had
+been pending for eight hours was 51 seconds of work behind a menu 7.2x too large. So
+negatives on arcs A, B and C will be real rather than void ([P186](#p186)).
+
+**Checkpointing, which the first run had none of.** It wrote nothing until an arc
+completed, so eight hours of work was worth zero on a kill — and this campaign has now
+been killed and corrected twice. One JSONL line per member now, and a restart skips what
+is already recorded: the campaign costs the correction, not the run.
+
+**Sharded 8 ways on the second machine, and two things had to be fixed to allow it.**
+
+1. *A shard-local gate would have killed seven of eight shards.* Only the shard holding
+   the 1217 member can see it; the others would have hit `sys.exit('gate failed')` and
+   died looking like a refutation. The gate is global, evaluated over the union of the
+   checkpoints by the new `arcs_report.py`; a shard now reports only what it saw.
+
+2. *A real concurrency bug in `catcache.py`, which killed 3 of 8 shards in their first
+   second.* The temp file was `path + '.tmp'` — **the same name in every process** — so
+   one shard's `os.replace` moved the file out from under another's, giving
+   `FileNotFoundError`. Its comment said "atomic: a killed run leaves no half file",
+   which is true against a kill and false against a sibling. `dimension.cached_conditions`
+   already had the right pattern (`f + '.%d.tmp' % os.getpid()`, commented "atomic: shards
+   share this cache") — the cache written later did not copy it. Fixed.
+
+The local duplicate of `simplest_between` in this file was also replaced with an import
+of the self-tested one.
+
+Files: `arcs_extend.py`, `arcs_report.py`, `catcache.py`, `arcs_extend_s*.jsonl`.
+
+<a id="p220"></a>
+
+## [VERIFIED] Postscript 220: the whole gap between our climbs and the n=4 record is ONE LAYER, and it is the only layer with headroom
+
+**User's question: would it be worth randomly reweighting the depth counts in the climb?**
+Worth it, and there is a principled weighting rather than a random one — it was already
+in the repository, unused as a search criterion.
+
+**The ceiling law caps each layer.** `C(l,n) = (12l−6)n − 2(l²−1)` bounds depth n−l, so at
+n=4: depth-1 ≤ 104, depth-2 ≤ 66, depth-3 ≤ 24. Comparing the record with the best the
+basin campaign reaches:
+
+| | depth-1 | depth-2 | depth-3 | depth-4 | total |
+|---|---|---|---|---|---|
+| **record** | **92** | 66 = cap | 24 = cap | 1 | **183** |
+| best climb | **50** | 66 = cap | 24 = cap | 1 | 141 |
+| cap | 104 | 66 | 24 | | |
+
+**Both sit EXACTLY at the depth-2 and depth-3 caps.** The entire 42-region gap is depth-1,
+and depth-1 is the only layer with any headroom left (54 at our maxima, 12 at the record).
+
+**That explains the stall mechanically, and it is the recorded frustration in operational
+form.** Raising depth-1 must disturb layers pinned at their caps, and a pinned layer can
+only move DOWN. So the total dips, and a strictly-improving total climb refuses precisely
+the move it needs. JOURNEY Act IV said golden is the top-layer-cap configuration and the
+records are the deep-cap ones and nobody gets both; this says our climbs are deep-capped
+too, and are stuck for the same reason — they have been pushing on layers that cannot
+move.
+
+**Consistent with the valley measurements.** Along paths between local maxima at n=4,
+depth-3 drops 0–2 and depth-4 drops 0 while the total drops 18–46 ([OQ 19]): the deep
+layers are flat because they are at their ceiling, and every bit of the valley is
+shallow-layer motion.
+
+**Two objectives added to `frustrate.py`, both derived rather than guessed:**
+
+    HEADROOM(n)  weight each layer by (cap - current), recomputed per evaluation.
+                 At our maxima this is (54, 0, 0) -- it points at depth-1 alone.
+    CAPPED(n)    lexicographic: maximise depth-1, break ties on the capped layers.
+
+with `TOTAL` and a plain anneal budget as controls, and the walk keeping BEST-EVER
+separately from where it ends, since with annealing on they differ.
+
+**What would falsify the idea:** if a depth-1-weighted walk reaches depth-1 far above 50
+while the total stays at or below 141, then depth-1 is not the binding resource and the
+cap-headroom reading is wrong. That is a real possible outcome, not a formality — golden
+reaches depth-1 = 104, the cap itself, and totals only 177.
+
+### First results, and a self-inflicted false alarm
+
+**The HEADROOM objective as first written was wrong, and its run is VOID.** It computed
+`sum_k (cap_k - v_k) * v_k`, which is a product of headroom with the value and is
+maximised at HALF of every cap. Its ranking was anti-correlated with the goal:
+
+| profile | objective | total |
+|---|---|---|
+| half of every cap | **3937** (best) | 99 |
+| where the walk landed | 2972 | 122 |
+| our best maximum | 2700 | 142 |
+| **the n=4 record** | **1104** (worst) | **184** |
+
+A walk on it climbed steadily to 2952 while the total fell to 111 — which reads exactly
+like the falsifier above being triggered, and is nothing of the kind. Headroom is a WEIGHT
+on candidates, fixed at the current configuration (`w_k = cap_k - v_k(current)`,
+objective = `sum_k w_k * v_k(candidate)`), not a factor multiplied into a candidate's own
+value. Corrected, the objective ranks record 4968 > our maximum 2700 > the walk's landing
+2052, and at a cap-pinned configuration reduces to depth-1 alone as intended.
+
+**The real first result is different from what this entry predicted.** With the
+lexicographic and layer-1 objectives, which were correct all along:
+
+| objective | best depth-1 | best total |
+|---|---|---|
+| LAYER-1 | 44 | 135 |
+| LAYER-1 then TOTAL | — | 137 |
+| CAPPED (depth-1 first) | 44 | 135 |
+| TOTAL (reference) | 50 | 141 |
+
+**Aiming at depth-1 reached depth-1 = 44–48, LOWER than the 50 the plain total walk
+reaches.** So the objective is not the binding constraint: the MOVE SET is. First
+crossings from a generic chamber apparently do not offer depth-1-raising moves at all, and
+no reweighting of a menu that lacks the move can conjure it. Getting depth-1 from 50 to 92
+needs structurally different moves, which is a different problem from choosing weights —
+and it is consistent with [OQ 19]'s finding that the record climb preserves codimension
+while the record sits far deeper in the stratification.
+
+Files: `frustrate.py`, `barrier.py`, `barrier_layers.py`, `rarity.py`, `maxima_spacing.py`.
+
+<a id="p221"></a>
+
+## [VERIFIED] Postscript 221: arcs B and C also reach 1217 — the n=6→7 step is not unique to the recorded arc; and local maxima are ~3 900 walls apart
+
+**[OQ 17](OPEN_QUESTIONS.md) answered.** The whole tower above n=6 was built by extending
+ONE POINT of ONE ARC of a four-arc node, and the other three arcs had never been used as
+an extension base. With the menu reduced 7.2x ([P220](#p220) — quotienting quaternions to
+CUBES) and the campaign sharded 8 ways with per-member checkpoints, all four arcs are now
+being swept:
+
+| arc | members done | best n=7 | seventh cube |
+|---|---|---|---|
+| D (the recorded 727) | 62 of 62 | **1217** | (4,4,4,−3) |
+| B | 41 | **1217** | (4,4,−3,4) |
+| C | 22 | **1217** | (4,4,−4,3) |
+| A | 8 | 1213 | (4,4,4,−3) |
+
+**GATE PASSED** — arc D rediscovers 1217 from the recorded point, so these are real
+results and not void ones ([P186](#p186)). And the answer is that **arcs B and C reach the
+n=7 record too**, with seventh cubes that are octahedral images of the same class. The
+n=6→7 step is therefore a property of the NODE, not of the particular arc the tower
+happened to be built along. Arc A is 8 members in at 1213 and not yet decided.
+
+**Local maxima are far apart, measured.** `maxima_spacing.py` compared 136 distinct local
+maxima from the basin campaign, quotienting by everything a configuration is defined up to
+— the gauge, each cube's 24 octahedral symmetries, the residual global rotation, and the
+ORDER of the cubes (a compound is a set, so the free cubes are matched by the permutation
+minimising the distance). Median separation **41.95°**, about 0.366 in Cayley units,
+against a median facet distance of ~1e-4: **~3 900 walls apart**.
+
+**That settles the annealing question in the form it was asked.** Jumping from one local
+maximum to another by tolerating downhill moves is hopeless at that separation — it is not
+a valley to cross but a continent. Consistent with the direct barrier measurement, where
+straight paths between maxima dip 18–46 regions (6–12 downhill moves) and the deep layers
+stay flat because they are already at their caps ([P220](#p220)).
+
+**But a bounded anneal budget does help LOCALLY, which is a different claim.** From the
+same start, with the same directions:
+
+    total objective, no anneal : best total 121
+    total objective, anneal 6  : best total 135
+
+So downhill steps are worth having for escaping a shallow local maximum, and are useless
+for reaching a different basin. Those were being conflated; they are separate questions
+with opposite answers.
+
+Files: `maxima_spacing.py`, `barrier.py`, `barrier_layers.py`, `frustrate.py`,
+`arcs_extend.py`, `arcs_report.py`.

@@ -25,10 +25,15 @@ def catalogue(cubes, bound=4):
             return pickle.load(f)
     from solve_ends import catalogue as _cat
     val = _cat(cubes, bound)
-    tmp = path + '.tmp'
+    # The temp name MUST carry the pid. With a shared '.tmp' the write is atomic against
+    # a kill but not against a sibling: two shards starting together both write the same
+    # temp file and the second os.replace dies with FileNotFoundError because the first
+    # already moved it. Three of eight arc shards died this way on their first second.
+    # `dimension.cached_conditions` already had the right pattern; this file did not.
+    tmp = path + '.%d.tmp' % os.getpid()
     with open(tmp, 'wb') as f:
         pickle.dump(val, f)
-    os.replace(tmp, path)                 # atomic: a killed run leaves no half file
+    os.replace(tmp, path)                 # atomic against a kill AND against siblings
     return val
 
 

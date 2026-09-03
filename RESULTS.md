@@ -47,7 +47,7 @@ enters any decision.
 | 6 | **727** | VERIFIED | 393's five cubes + `7,14,1,-5` |
 | 7 | **1217** | VERIFIED | the 727 six + `4,-3,-4,-4` |
 | 8 | **1895** | VERIFIED | the 1217 seven + `24,-24,24,-61` |
-| 9 | **2787** | VERIFIED | 1895's seven + `168,-168,168,-415` + `88787,-9061,74275,113786` — [P198](LEDGER.md#p198). Supersedes 2785 |
+| 9 | **2787** | VERIFIED | 1895's seven + `168,-168,168,-415` + `109,-11,91,140` — [P198](LEDGER.md#p198), representative simplified [P218](LEDGER.md#p218). Supersedes 2785. *The first published representative used `88787,-9061,74275,113786` (height 113 786); the region is 4-dimensional and contains this one at height 415, same count, same by_depth profile at every depth, both engines and three rotations. The old one remains valid — it is the same region — but costs 274x the height and is why the record's neighbourhood was largely unevaluable.* |
 | 10 | **3925** | VERIFIED | the 2787 nine + `6555,6555,6497,6555` — found by the automated boundary climb, [P200](LEDGER.md#p200). Supersedes 3921, 3917, 3913 |
 
 **GAP IN THE RECORD, found 2026-08-18 — CLOSED 2026-08-29.** Every other row of this

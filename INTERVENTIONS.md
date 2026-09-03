@@ -59,6 +59,7 @@ it apart.
 | [P182](LEDGER.md#p182) | **"are the 15 directions chosen by sampling or solving?"** | `shapes.py` was sampling. METHODS 1's *named* failure — "seven representative directions, all small-integer and axis-aligned" | **"15 directions"** in my own report |
 | [P183](LEDGER.md#p183) | "are all continua paths and endpoints documented?" | they are not; and I had claimed 727 showed no locus while `RESULTS.md` had said for weeks it is a plateau on four arcs | an audit question I had not asked |
 | [P188](LEDGER.md#p188) | **"I don't see anything updating. pid 97154 is still running."** | a 2.5-hour job burning CPU on a direction whose cheapest representative is (1,0,0) — and, once diagnosed, that P182's headline finding ("recorded members sit at plateau ENDPOINTS") is false in all three cases, each a different sweep artifact | **a process that had printed nothing** |
+| [FM 19b](FAILURE_MODES.md#19b) | **"Has the point worth noting been noted? Has the flag been flagged?"** | caught that I had written "worth noting on its own" and "I'd flag that" and recorded NEITHER — one turn after writing "this belongs in TAXONOMY §5" and not putting it there. Naming a destination substituting for delivering to it | **my own words** "worth noting" and "I'd flag" |
 | [P197](LEDGER.md#p197) | "what are the real open questions that we can expect to resolve?" | exposed that I had been reading the ceiling law's index as DEPTH when it is CO-DEPTH — read correctly the bound is tight (ratio 1.100-1.104) and **91% of the gap is at depth 1** | a triage question I had not asked |
 | — | **"a hypothesis sounds like an OPEN QUESTION"** | killed my proposal for a new register between RESULTS and METHODS. `CONJECTURE` already existed and had been used twice, once being its own definition. The gap was a missing FIELD, not a missing file | — |
 | — | **"Are discoveries distinct from results or methods?"** | produced the OBSERVED tag, and the measurement behind it: **4 of 17 entries written that day were retracted or superseded the same day, and all four were pattern claims while every survivor was a measurement** | — |
@@ -221,3 +222,29 @@ entry records, including the one that founded the project's exact-arithmetic rul
 The ledger's own "Prompted by" marker found 15; mining found the rest. Attribution
 by memory undercounts, and it undercounts in a specific direction — the earliest and
 most foundational contributions are the ones least likely to still be cited.
+
+## A5. 2026-09-01 — three challenges, three defects, one campaign
+
+All three arrived as short questions about method, not about results, and each one
+turned out to sit on top of a defect that was producing numbers at the time.
+
+| user's words | what it found | would it have been caught? |
+|---|---|---|
+| "Don't we already have a climber?" | A second climber was being written alongside `climb.py`. Checking rather than assuming produced the measurement that mattered anyway — at a Haar-random point there are **0 tight walls, nullity 9 of 9** — so the right move was to give `climb.py` a direction menu, not to fork it. `simplest_between` was also extracted to one module instead of two. | Probably not. The duplicate had a plausible justification and was already written. |
+| "[the second machine]" / "if this is a long run" | The campaign was queued on a laptop already running `arcs_extend` and eight samplers. The second machine has 12 cores and was idle at load 1.5. | No — the machine was simply not in mind. |
+| "Is it not selecting tangents guaranteed to find walls?" | **No, and it was not.** `conditions()` emits gradients only for already-TIGHT conditions; at a generic point `loose` is a bare counter. Re-testing the first 8 climbs against solved lines found **3 of 8 terminations premature**. The hedge "locally maximal OVER THE DIRECTIONS WALKED" was in the log the whole time and did not stop the numbers being used as terminal counts. | No. The hedge had been written deliberately, which is exactly why it stopped being read. |
+| "could a rational engine use factorizations instead of large products?" + "volume of engine failure space might help judge the value" | The 36 % refusal rate at records — reported one message earlier as the measured case for building a modular-arithmetic engine — was **four fifths a duplicate-root bug in the caller** ([P212](LEDGER.md#p212)). Asking for the volume is what exposed it: 0 refusals in 30 000 Haar draws against 36 % at records is a contradiction, and one side had to give. | No. The build was about to be specced. |
+
+**What the four have in common.** None asked whether a result was right. Each asked what
+the METHOD was — which climber, which machine, which directions, which arithmetic — and
+in every case the method had a defect the results were quietly carrying. The producer
+checks results against expectations; the reader asks what produced them.
+
+**Self-caught in the same session, for the ledger's balance:** the unevaluable-vs-
+disagreement conflation in `gate()`; the height runaway that made a climb declare
+maximality on refused probes; the `basin.py` RNG stream that would have made the NDIR
+saturation check compare different starts; the `facet_walk` budget bug and then its
+refusal-rate bug, each found by running the control rather than the method. The last two
+are also the session's worst pattern: the same claim was published and withdrawn twice
+before the control was clean.
+

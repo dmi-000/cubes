@@ -1,0 +1,20 @@
+
+[n=9 REFUSAL-INSTRUMENTED iter 1] record 2787  deficit 5  height 113786
+   preserving rank 4
+   rays: 4 of 36 crossed, 0 found no wall within t<=8, 32 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 4 distinct walls
+      cubes [1, 3, 6]        at 0.0025502   count outside 2783
+      cubes [5, 7, 8]        at 0.0033597   count outside 2783
+      cubes [3, 6, 7]        at 0.029932   count outside 2783
+      cubes [0, 5, 6]        at 0.045259   count outside 2783
+   UNDETERMINED: 32 of 36 rays ended UNEVALUABLE (engine refused every probe); this is NOT local maximality
+
+refused probes at the n=9 RECORD: 1040
+  probe height   min 3.78e+08  median 2.44e+10  max 5.3e+13
+  bits needed    min 240  median 290  max 383   (have 240)
+    a  256-bit chain would evaluate 6 of 1040 refused probes (1%)
+    a  320-bit chain would evaluate 762 of 1040 refused probes (73%)
+    a  384-bit chain would evaluate 1040 of 1040 refused probes (100%)
+    a  448-bit chain would evaluate 1040 of 1040 refused probes (100%)
+    a  512-bit chain would evaluate 1040 of 1040 refused probes (100%)
+    a  640-bit chain would evaluate 1040 of 1040 refused probes (100%)
