@@ -1,0 +1,38 @@
+linehop n=4, 6 Haar starts   (climbing plateaus at 141; record 183)
+
+start 0: total 127
+   iter  1: -> 133  (cube 1, cell 1 along the line, 12 candidates above)
+   iter  2: -> 137  (cube 3, cell 0 along the line, 6 candidates above)
+   iter  3: -> 141  (cube 3, cell 16 along the line, 4 candidates above)
+   iter  4: no cell on any scanned line beats 141; stop
+   best 141  (143s)
+
+start 1: total 104
+   iter  1: -> 112  (cube 1, cell 19 along the line, 71 candidates above)
+   iter  2: no cell on any scanned line beats 112; stop
+   best 112  (60s)
+
+start 2: total 115
+   iter  1: -> 119  (cube 3, cell 12 along the line, 33 candidates above)
+   iter  2: no cell on any scanned line beats 119; stop
+   best 119  (75s)
+
+start 3: total 111
+   iter  1: -> 119  (cube 2, cell 0 along the line, 35 candidates above)
+   iter  2: -> 123  (cube 1, cell 15 along the line, 56 candidates above)
+   iter  3: no cell on any scanned line beats 123; stop
+   best 123  (101s)
+
+start 4: total 121
+   iter  1: -> 125  (cube 1, cell 0 along the line, 8 candidates above)
+   iter  2: -> 127  (cube 3, cell 0 along the line, 5 candidates above)
+   iter  3: no cell on any scanned line beats 127; stop
+   best 127  (187s)
+
+start 5: total 119
+   iter  1: -> 125  (cube 2, cell 5 along the line, 1 candidates above)
+   iter  2: no cell on any scanned line beats 125; stop
+   best 125  (86s)
+
+BEST OVER ALL STARTS: 141
+1,0,0,0;20,-201,482,201;41,48,-102,-22;12963,32073,8704,-44116

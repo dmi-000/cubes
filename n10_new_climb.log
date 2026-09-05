@@ -1,0 +1,14 @@
+n=10 record at height 1849 (was 113786)
+
+[n=10 at height 1849 iter 1] record 3925  deficit 5  height 1849
+   preserving rank 3
+   rays: 36 of 36 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 5 distinct walls
+      cubes [1, 3, 6]        at 0.0025513   count outside 3921
+      cubes [3, 6, 8]        at 0.0069144   count outside 3921
+      cubes [5, 7, 9]        at 0.0099888   count outside 3921
+      cubes [2, 8, 9]        at 0.019571   count outside 3921
+      cubes [3, 6, 7]        at 0.029932   count outside 3921
+   no crossing above the record; region is locally maximal OVER THE DIRECTIONS WALKED (not a proof — see facets.py for the saturation curve and vertex probes)
+
+refused probes: 0    [at height 113786 the audit had 30 of 36 rays UNEVALUABLE]

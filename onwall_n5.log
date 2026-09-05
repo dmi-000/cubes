@@ -1,0 +1,12 @@
+cube 1 dv=['-1', '-4', '0'] : count here 393, ON-WALL counts [381, 379, 377, 375, 373]
+cube 1 dv=['4', '-6', '-5'] : count here 393, ON-WALL counts [373, 371]
+cube 2 dv=['2', '-5', '-1'] : count here 393, ON-WALL counts [373, 371]
+cube 2 dv=['3', '-6', '2'] : count here 393, ON-WALL counts [373, 371]
+cube 3 dv=['-3', '-6', '-5'] : count here 393, ON-WALL counts [377, 375]
+cube 3 dv=['0', '0', '-5'] : count here 393, ON-WALL counts [383, 381, 379, 377]
+cube 4 dv=['-3', '-5', '2'] : count here 393, ON-WALL counts [371, 369]
+cube 4 dv=['0', '-6', '3'] : count here 393, ON-WALL counts [369, 365]
+
+64 wall points evaluated, 1 UNEVALUATED
+highest ON-WALL count found: 383  (the configuration itself counts 393)
+no wall carries a higher count than the record itself, on these lines

@@ -1,0 +1,78 @@
+shared-axis family, axis (1, 1, 0): 87 angle values, 113564 sorted triples
+   total    9  depth-1   4   angles (Fraction(-8, 1), Fraction(-8, 1), Fraction(-8, 1))
+   total   37  depth-1  16   angles (Fraction(-8, 1), Fraction(-8, 1), Fraction(-7, 1))
+   total   41  depth-1  18   angles (Fraction(-8, 1), Fraction(-8, 1), Fraction(-3, 2))
+   total   49  depth-1  24   angles (Fraction(-8, 1), Fraction(-8, 1), Fraction(-1, 1))
+   total   53  depth-1  24   angles (Fraction(-8, 1), Fraction(-8, 1), Fraction(-7, 8))
+   total   57  depth-1  26   angles (Fraction(-8, 1), Fraction(-8, 1), Fraction(-5, 6))
+   total   97  depth-1  48   angles (Fraction(-8, 1), Fraction(-7, 1), Fraction(-6, 1))
+   total  103  depth-1  48   angles (Fraction(-8, 1), Fraction(-7, 1), Fraction(-3, 2))
+   total  105  depth-1  50   angles (Fraction(-8, 1), Fraction(-7, 1), Fraction(-7, 5))
+   total  109  depth-1  50   angles (Fraction(-8, 1), Fraction(-7, 1), Fraction(-4, 3))
+   total  121  depth-1  56   angles (Fraction(-8, 1), Fraction(-7, 1), Fraction(-1, 1))
+   total  129  depth-1  58   angles (Fraction(-8, 1), Fraction(-7, 1), Fraction(-7, 8))
+   total  137  depth-1  64   angles (Fraction(-8, 1), Fraction(-7, 1), Fraction(-5, 6))
+   total  145  depth-1  70   angles (Fraction(-8, 1), Fraction(-7, 1), Fraction(-4, 5))
+   total  149  depth-1  72   angles (Fraction(-8, 1), Fraction(-1, 1), Fraction(-4, 5))
+   total  153  depth-1  74   angles (Fraction(-8, 1), Fraction(-1, 1), Fraction(-5, 8))
+   total  157  depth-1  76   angles (Fraction(-8, 1), Fraction(-7, 8), Fraction(-3, 4))
+   total  161  depth-1  80   angles (Fraction(-8, 1), Fraction(-5, 6), Fraction(-4, 5))
+   ... 2000 evaluated
+   ... 4000 evaluated
+   ... 6000 evaluated
+   ... 8000 evaluated
+   ... 10000 evaluated
+   ... 12000 evaluated
+   ... 14000 evaluated
+   ... 16000 evaluated
+   ... 18000 evaluated
+   ... 20000 evaluated
+   ... 22000 evaluated
+   ... 24000 evaluated
+   ... 26000 evaluated
+   ... 28000 evaluated
+   ... 30000 evaluated
+   ... 32000 evaluated
+   ... 34000 evaluated
+   ... 36000 evaluated
+   ... 38000 evaluated
+   ... 40000 evaluated
+   ... 42000 evaluated
+   ... 44000 evaluated
+   ... 46000 evaluated
+   ... 48000 evaluated
+   ... 50000 evaluated
+   ... 52000 evaluated
+   ... 54000 evaluated
+   ... 56000 evaluated
+   ... 58000 evaluated
+   ... 60000 evaluated
+   ... 62000 evaluated
+   ... 64000 evaluated
+   ... 66000 evaluated
+   ... 68000 evaluated
+   ... 70000 evaluated
+   ... 72000 evaluated
+   ... 74000 evaluated
+   ... 76000 evaluated
+   ... 78000 evaluated
+   ... 80000 evaluated
+   ... 82000 evaluated
+   ... 84000 evaluated
+   ... 86000 evaluated
+   ... 88000 evaluated
+   ... 90000 evaluated
+   ... 92000 evaluated
+   ... 94000 evaluated
+   ... 96000 evaluated
+   ... 98000 evaluated
+   ... 100000 evaluated
+   ... 102000 evaluated
+   ... 104000 evaluated
+   ... 106000 evaluated
+   ... 108000 evaluated
+   ... 110000 evaluated
+   ... 112000 evaluated
+
+BEST in the shared-axis family: total 161, depth-1 80
+1,0,0,0;1,-8,-8,0;6,-5,-5,0;5,-4,-4,0

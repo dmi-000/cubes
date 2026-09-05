@@ -1,0 +1,9 @@
+145 primitive axes with components in [-3,3]; 400 random angle-sets each; n=4
+(climbing from Haar starts plateaus at 141; best Haar depth-1 is 46)
+   axis (1, 1, 1)    best total  145  depth-1  72
+   axis (1, 1, 0)    best total  161  depth-1  80
+   axis (3, 2, 0)    best total  165  depth-1  78
+   axis (3, 0, -2)   best total  169  depth-1  80
+
+BEST over the shared-axis ensemble: total 169, depth-1 80, axis (3, 0, -2)
+14,-3,0,2;3,-3,0,2;16,21,0,-14;3,-30,0,20

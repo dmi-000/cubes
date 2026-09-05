@@ -15885,15 +15885,35 @@ a valley to cross but a continent. Consistent with the direct barrier measuremen
 straight paths between maxima dip 18–46 regions (6–12 downhill moves) and the deep layers
 stay flat because they are already at their caps ([P220](#p220)).
 
-**But a bounded anneal budget does help LOCALLY, which is a different claim.** From the
-same start, with the same directions:
+**But a bounded anneal budget does help LOCALLY, which is a different claim.**
 
-    total objective, no anneal : best total 121
-    total objective, anneal 6  : best total 135
+*Corrected 2026-09-04.* The first version of this paragraph quoted a single pair, 121
+without annealing against 135 with it, and that number came from `frustrate.py`'s broken
+best-tracking: `best` was compared on the OBJECTIVE, but a stateful objective re-weights
+every iteration so its values are not comparable across them, and a walk that sat on total
+135 for nine iterations reported 127. The walk was also OSCILLATING between two
+configurations, with `stall` resetting on every up-step so the anneal budget never
+depleted. Both are fixed — `best` now tracks the total and is updated from every candidate
+evaluated, and a visited set makes a revisit count against the budget instead of resetting
+it. Re-run over three starts and six objectives:
 
-So downhill steps are worth having for escaping a shallow local maximum, and are useless
-for reaching a different basin. Those were being conflated; they are separate questions
-with opposite answers.
+| start | no anneal | anneal 6 | LAYER-1 | LAYER-1→TOTAL | CAPPED | HEADROOM |
+|---|---|---|---|---|---|---|
+| 121 | **121** | 135 | 135 | 135 | 135 | 135 |
+| 127 | **131** | 137 | 137 | 137 | 137 | 137 |
+| 119 | **135** | 135 | 135 | 135 | 135 | 135 |
+
+**Annealing is the whole of the effect and the objective is inert.** A budget of 6 helps
+on two starts of three — dramatically on the first, which makes no progress at all without
+it — and is neutral on the third. Every one of the five re-weighted objectives returns
+EXACTLY the same total and the same depth-1 as plain TOTAL-with-annealing, on every start.
+So the layer weighting proposed in [P220](#p220) buys nothing, which is the move-set
+diagnosis confirmed: the walk's crossings do not contain depth-1-raising moves, and no
+scoring of a menu can produce a move it lacks.
+
+Downhill steps are therefore worth having for escaping a shallow local maximum, and
+useless for reaching a different basin ~3 900 walls away. Those two were being conflated;
+they are separate questions with opposite answers.
 
 Files: `maxima_spacing.py`, `barrier.py`, `barrier_layers.py`, `frustrate.py`,
 `arcs_extend.py`, `arcs_report.py`.

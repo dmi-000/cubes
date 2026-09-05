@@ -104,7 +104,12 @@ def walk(cfg, objective, label, ndir=12, iters=25, anneal=0, seed=0, verbose=Tru
         return None
     obj = objective(d0) if getattr(objective, 'stateful', False) else objective
     cur = obj(d0)
-    best = (cur, d0['bounded'], list(cubes))
+    # BEST IS TRACKED ON THE TOTAL, not on the objective. With a stateful objective the
+    # weights change every iteration, so objective values from different iterations are
+    # not comparable -- comparing them made a walk that sat on total 135 for nine
+    # iterations report "best total 127". The objective steers; the total is the result.
+    best = (d0['bounded'], list(cubes))
+    seen = {tuple(map(tuple, cubes))}
     stall = 0
     for it in range(1, iters + 1):
         D.set_field(0); D.QZERO[:] = [cubes[0]]
@@ -133,14 +138,24 @@ def walk(cfg, objective, label, ndir=12, iters=25, anneal=0, seed=0, verbose=Tru
                 if dd is None:
                     unev += 1; continue
                 cands.append((obj(dd), dd['bounded'], r['cfg']))
+                if dd['bounded'] > best[0]:      # keep it even if we do not step there
+                    best = (dd['bounded'], list(r['cfg']))
         if not cands:
             if verbose:
                 print('   [%s] iter %d: no crossing evaluated (%d unevaluable); stop'
                       % (label, it, unev), flush=True)
             break
         cands.sort(key=lambda t: -t[0])
-        top = cands[0]
-        up = top[0] > cur
+        # OSCILLATION. A stateful objective re-weights each iteration, which can flip the
+        # preference back and forth between two configurations forever: iterations 17-25
+        # of one run alternated 2860/135, 2520/131, 2860/135, ... and since `stall` reset
+        # on every UP the anneal budget never depleted and all 25 iterations were spent
+        # going nowhere. Prefer a candidate not already visited, and when every candidate
+        # is one we have seen, count it against the budget instead of resetting it.
+        fresh = [c for c in cands if tuple(map(tuple, c[2])) not in seen]
+        revisit = not fresh
+        top = (fresh or cands)[0]
+        up = top[0] > cur and not revisit
         if not up and stall >= anneal:
             if verbose:
                 print('   [%s] iter %d: no improving move and anneal budget spent; stop'
@@ -153,12 +168,14 @@ def walk(cfg, objective, label, ndir=12, iters=25, anneal=0, seed=0, verbose=Tru
             if C.cnt(cf2) == top[1]:
                 top = (top[0], top[1], cf2)
         cubes = list(top[2]); cur = top[0]
+        seen.add(tuple(map(tuple, cubes)))
         stall = 0 if up else stall + 1
-        if cur > best[0]:
-            best = (cur, top[1], list(cubes))
+        if top[1] > best[0]:
+            best = (top[1], list(cubes))
         if verbose:
-            print('   [%s] iter %2d: objective %s (total %d) %s  height %d  [%d unevaluable]'
-                  % (label, it, cur, top[1], 'UP' if up else 'DOWN (anneal %d/%d)' % (stall, anneal),
+            print('   [%s] iter %2d: objective %s (total %d, best %d) %s  height %d  [%d unevaluable]'
+                  % (label, it, cur, top[1], best[0],
+                     'UP' if up else ('REVISIT' if revisit else 'DOWN') + ' (anneal %d/%d)' % (stall, anneal),
                      max(abs(x) for q in cubes for x in q), unev), flush=True)
     return best
 
@@ -174,17 +191,20 @@ if __name__ == '__main__':
         cfg = haar_config(rng, n, 128, chart=True)
         d0 = full(cfg)
         print('\nstart %d: total %d, profile %s' % (k, d0['bounded'], d0['by_depth']), flush=True)
-        a = walk(cfg, TOTAL, 'total,no-anneal', anneal=0, seed=k)
-        print('   -> total-objective, no anneal : best total %d' % a[1], flush=True)
-        b = walk(cfg, TOTAL, 'total,anneal', anneal=AN, seed=k)
-        print('   -> total-objective, anneal %d  : best total %d' % (AN, b[1]), flush=True)
-        c = walk(cfg, LAYER(1), 'layer1', anneal=AN, seed=k)
-        print('   -> LAYER-1 objective          : best depth-1 %d, its total %d' % (c[0], c[1]), flush=True)
-        if c[2]:
-            e = walk(c[2], TOTAL, 'layer1-then-total', anneal=AN, seed=k)
-            print('   -> then total from there      : best total %d' % e[1], flush=True)
-        g = walk(cfg, CAPPED(n), 'capped(depth1 first)', anneal=AN, seed=k)
-        print('   -> CAPPED objective           : best total %d (depth-1 %d)'
-              % (g[1], g[0] // 1000), flush=True)
-        h = walk(cfg, HEADROOM(n), 'headroom-weighted', anneal=AN, seed=k)
-        print('   -> HEADROOM-weighted          : best total %d' % h[1], flush=True)
+        def report(tag, res):
+            if res is None:
+                print('   -> %-28s : walk did not start' % tag, flush=True); return
+            tot, cf = res
+            d = full(cf) or {'by_depth': {}}
+            d1 = int(d.get('by_depth', {}).get('1', 0))
+            print('   -> %-28s : best total %3d  (depth-1 %d)' % (tag, tot, d1), flush=True)
+            return cf
+
+        report('TOTAL, no anneal', walk(cfg, TOTAL, 'total,no-anneal', anneal=0, seed=k))
+        report('TOTAL, anneal %d' % AN, walk(cfg, TOTAL, 'total,anneal', anneal=AN, seed=k))
+        cf1 = report('LAYER-1', walk(cfg, LAYER(1), 'layer1', anneal=AN, seed=k))
+        if cf1:
+            report('LAYER-1 then TOTAL',
+                   walk(cf1, TOTAL, 'layer1-then-total', anneal=AN, seed=k))
+        report('CAPPED (depth-1 first)', walk(cfg, CAPPED(n), 'capped', anneal=AN, seed=k))
+        report('HEADROOM-weighted', walk(cfg, HEADROOM(n), 'headroom', anneal=AN, seed=k))

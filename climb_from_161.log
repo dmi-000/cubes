@@ -1,0 +1,7 @@
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 1 distinct walls
+      cubes []               at 4.8828e-05   count outside 123
+   no crossing above the record; region is locally maximal OVER THE DIRECTIONS WALKED (not a proof — see facets.py for the saturation curve and vertex probes)
+
+GENERIC CLIMB from 161 -> 161
+1,0,0,0;1,-8,-8,0;6,-5,-5,0;5,-4,-4,0

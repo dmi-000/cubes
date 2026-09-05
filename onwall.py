@@ -53,14 +53,28 @@ def on_walls(cfg, j, dv, reach=8):
     unev = 0
     for _, v, r in out[:reach]:
         c, mag = count_at(base, a0, dv, r)
+        if c is not None:
+            try:
+                c = int(c)              # count_at returns a str on some paths
+            except (TypeError, ValueError):
+                c = None
         if c is None:
             unev += 1
         res.append((v, c, r[2]))
     return here, res, unev
 
 if __name__ == '__main__':
-    N9 = [(4,1,1,-1),(3,3,7,3),(5,-1,-5,-5),(2,1,1,1),(1,1,1,1),(7,14,1,-5),
-          (4,-3,-4,-4),(9,-9,9,-22),(109,-11,91,140)]
+    # TEST THE HYPOTHESIS WHERE IT IS CHEAP. The n=9 version burned 51 CPU-hours without
+    # emerging from its first 8-cube catalogue; the question -- is the count ON a wall
+    # higher than on either side? -- is the same question at n=5, where a catalogue costs
+    # under a second. Pay n=9 prices only if the cheap answer says there is something there.
+    RECORDS = {
+        5: [(4,1,1,-1),(3,3,7,3),(5,-1,-5,-5),(2,1,1,1),(1,1,1,1)],
+        6: [(4,1,1,-1),(3,3,7,3),(5,-1,-5,-5),(2,1,1,1),(1,1,1,1),(7,14,1,-5)],
+        9: [(4,1,1,-1),(3,3,7,3),(5,-1,-5,-5),(2,1,1,1),(1,1,1,1),(7,14,1,-5),
+            (4,-3,-4,-4),(9,-9,9,-22),(109,-11,91,140)],
+    }
+    N9 = RECORDS[int(sys.argv[1]) if len(sys.argv) > 1 else 5]
     import random
     rng = random.Random(7)
     best = (0, None)
@@ -79,6 +93,10 @@ if __name__ == '__main__':
             print('cube %d dv=%s : count here %s, ON-WALL counts %s'
                   % (j, [str(x) for x in dv], here, sorted(set(hi), reverse=True)[:6]), flush=True)
     print('\n%d wall points evaluated, %d UNEVALUATED' % (tot, unevt))
-    print('highest ON-WALL count found: %s  (the record is 2787)' % best[0])
-    if best[0] > 2787:
+    here0 = count(N9)
+    print('highest ON-WALL count found: %s  (the configuration itself counts %s)'
+          % (best[0], here0))
+    if best[0] > here0:
         print('ABOVE THE RECORD at %s' % (best[1],))
+    else:
+        print('no wall carries a higher count than the record itself, on these lines')
