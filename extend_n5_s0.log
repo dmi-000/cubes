@@ -1,0 +1,14 @@
+GATE: 393 + (1, -5, -7, -14) (menu spelling of (7, 14, 1, -5)) -> 727   [727 required]
+shard 0/4: 10927 of 43707 menu cubes
+  base 0 (n=5 393) shard 0: best 727  (1988s)
+  base 1 (n=5 387) shard 0: best 725  (930s)
+  base 2 (n=5 387) shard 0: best 717  (1099s)
+  base 3 (n=5 387) shard 0: best 717  (1424s)
+  base 4 (n=5 387) shard 0: best 723  (1390s)
+  base 5 (n=5 387) shard 0: best 717  (1323s)
+  base 6 (n=5 387) shard 0: best 721  (1243s)
+  base 7 (n=5 387) shard 0: best 721  (930s)
+  base 8 (n=5 387) shard 0: best 719  (899s)
+  base 9 (n=5 387) shard 0: best 719  (797s)
+  base 10 (n=5 387) shard 0: best 717  (527s)
+shard 0 done

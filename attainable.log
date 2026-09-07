@@ -1,0 +1,19 @@
+ATTAINABLE (pair count, #corner-corner, #edge-edge) over 2200 non-degenerate pairs
+
+count     corners    edges   gain how many
+4               0        0      0      737
+5               0        4      4      865
+9               0        6      6      442
+9               0        8      8       89
+13              0       10     10       14
+13              2        6     10       53
+
+number of DISTINCT edge radii within each class:
+   count  4 corners 0 edges  0 -> 0 distinct edge radii   (x737)
+   count  5 corners 0 edges  4 -> 2 distinct edge radii   (x865)
+   count  9 corners 0 edges  6 -> 2 distinct edge radii   (x10)
+   count  9 corners 0 edges  6 -> 3 distinct edge radii   (x432)
+   count  9 corners 0 edges  8 -> 2 distinct edge radii   (x13)
+   count  9 corners 0 edges  8 -> 3 distinct edge radii   (x76)
+   count 13 corners 0 edges 10 -> 3 distinct edge radii   (x14)
+   count 13 corners 2 edges  6 -> 1 distinct edge radii   (x53)

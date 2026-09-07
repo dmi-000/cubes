@@ -1,0 +1,8 @@
+case                count   mirror same radii same profile rotationally congruent?
+n=4 record 183        183      183       True         True YES (congruent)
+n=5 record 393        393      393       True         True YES (congruent)
+shared-axis 161       161      161       True         True YES (congruent)
+haar A                113      113       True         True YES (congruent)
+haar B                121      121       True         True YES (congruent)
+
+0 counterexample(s) among 5 cases: same radius signature, not rotationally congruent

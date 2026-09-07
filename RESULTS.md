@@ -40,7 +40,7 @@ enters any decision.
 
 | n | best known | status | configuration |
 |---|---|---|---|
-| 2 | **13** | PROVED maximum | any angle about a shared body diagonal |
+| 2 | **13** | PROVED maximum | any angle about a shared body diagonal — *sufficient, NOT necessary: `1,0,0,0;2,2,3,0` counts 13 with a coordinate-plane axis. And "any angle" excludes the cube's own symmetries: `1,0,0,0;1,1,1,1` is a body-diagonal axis and counts **1**, the cubes coinciding. [P233](LEDGER.md#p233)* |
 | 3 | **67** | PROVED maximum | octahedral ℚ(√2), and golden ℚ(√5) — two non-congruent maximizers |
 | 4 | 183 | VERIFIED | wide-perturbation climb — a **PLATEAU**, see below |
 | 5 | 393 | VERIFIED | 5-subset of the n=6 record |
@@ -127,7 +127,18 @@ unchanged — so the increment is entirely shallow, the same signature by which
   polytopes). One caveat remains, inherited from the contact analysis: two
   cells meeting *tangentially* rather than transversally, a higher-codimension
   degeneracy.
-- **d₁ ≤ 108·C(n,3) + 2 for every n.** PROVED, but loose (2026-08-09,
+- **d₁ ≤ 108·C(n,3) + 10·C(n,2) + 2 for every n and EVERY configuration.** PROVED
+  ([P237](LEDGER.md#p237), 2026-09-07). Gives 494 at n = 4 and 2312 at n = 6. The two-body
+  term is the part a three-cube plane count cannot see — edge-edge coincidences and shared
+  corners — and it is bounded by **max(2) = 13**, already proved: for a pair alone
+  d₁(pair) = gain + c + 1 and d₂(pair) ≥ 1, so gain ≤ 12 − 2 = 10, attained exactly at
+  13-pairs. Verified on 2 500 pairs with zero violations; the pair count determines the gain
+  (4→0, 5→2, 9→6, 13→10).
+- **d₁ ≤ 108·C(n,3) + 2 for every n.** SUPERSEDED — PROVED **for coincidence-free configurations only**
+  *(qualified 2026-09-07, [P235](LEDGER.md#p235): the identity it rests on is an INEQUALITY
+  off that class — d₁ EXCEEDS V₃/2 + c + 1 by 96 at the n=4 record, more than the V₃/2 = 42 it
+  keeps — so bounding V₃ does not bound d₁ there. Maximisers are coincidence-rich by
+  construction. The bound is not refuted; it is unproved where it matters.)*, and loose (2026-08-09,
   `METHODS.md` §11). The depth-1 count equals V₃/2 + c + 1 with V₃ the triple
   points on ∂(A₁∪…∪Aₙ) — verified on coincidence-free configurations at n = 3,
   4, 5 and 6 — and a triple point takes one face-plane from each of three cubes,
@@ -522,6 +533,7 @@ current.
 | Irrational 727s are chamber boundaries, never interior to a continuum; 10 of their types occur only irrationally | **REFUTED within the hour** — the active-wall count k was used as a proxy for "chamber boundary", but a wall crossing usually leaves the type unchanged. Tested directly, 14 of 16 are interior to their own type-chamber, and 7 of 7 supposedly irrational-only types occur at an immediate rational neighbour | Postscript [61](LEDGER.md#p61) |
 | More coincidences imply a higher count | **REFUTED** — 727 has 18 interior crossings to 723's 48, and counts more | Postscript [47](LEDGER.md#p47) |
 | The E1 derivation fails because "each connected piece adds at most one region" is false for non-disk pieces | **REFUTED** — the piece bound was never needed; the real error was scoring twelve TANGENT vertices as zero, and the stated counterexample (∂B ∩ int A connected with six boundary circles) is geometrically false — it has six components | Postscripts [53](LEDGER.md#p53), [56](LEDGER.md#p56) |
+| Filtering before counting cannot pay; counting is the cheapest thing that tells you the count | **REVERSED** — the filter was costed in a `Fraction` implementation 10x slower than an exact-integer one, and the statistic costed was the worthless one. By enrichment rather than correlation, keeping max-concurrence in {6,8,9} skips 69.6 % of candidates, loses 11.1 % of configurations counting ≥165 and **none** of those ≥170, and nets **1.81x** — held out on a disjoint half of a 3.1M-row census | Postscript [231](LEDGER.md#p231) |
 | The plane-incidence SIGNATURE measures the compound, and the Möbius weight of its real incidences is the best count predictor here (r = 0.562, orders 77.6 %) | **VOID** — `concurrence.planes()` read the ROWS of each rotation matrix where a cube's face normals are the COLUMNS, so every signature was a property of the quaternion SPELLING rather than of the compound: 6 of 6 octahedral respellings changed it (0 of 96 after the fix). Recomputed, r = **−0.147** and the ordering is **50.6 %** of 3 320 pairs — chance, and the correlation changed SIGN rather than shrinking. The census's 3.1M `sig` values, the Chao1 ≈ 4 216 richness estimate and the per-ensemble coverage table go with it; `cfg`, `count` and `depth` are untouched, so re-signing costs no new search | Postscript [227](LEDGER.md#p227), [FAILURE_MODES 27](FAILURE_MODES.md) |
 | The n = 4 record has a 9-fold plane concurrence, and 9-fold is the sweet spot for records | **CORRECTED** — 183's max concurrence is **6**. 723 does carry two 9-folds (re-verified with the corrected normals, so `ALGEBRAIC_SEARCH.md`'s premise stands), but **727, which beats it, has max 6 and no 9-fold at all**. The sweet spot is a property of 723, not of records. PROJECT.md had carried 723's property forward to 727 when 727 superseded it, without re-measuring | Postscript [227](LEDGER.md#p227) |
 | Records concentrate at high-multiplicity concurrences | **REVERSED** — the sweet-spot caveat was noted early (Act III: "more alignment is not better"), but the heuristic still drove the searches. Measured, the correlation is negative. Over 1200 unselected draws, configurations counting ≥ 700 average 1.6 hits on the base's triple-point walls; those counting < 650 average 92.6. The heuristic described 723, which is exactly the 54-crossing corner family | Postscripts [55](LEDGER.md#p55), [57](LEDGER.md#p57) |

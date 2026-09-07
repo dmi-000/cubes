@@ -105,6 +105,12 @@ found four illusions in a week, the tempting next move is to assume the fifth is
 It is not, and the diagnosis that worked four times is now itself a thing to check rather
 than to apply.
 
+Three more arrived within two days of this list being written, so the number in the heading
+is a floor and not a count: seventy-six "distinct" bases turned out to be eleven compounds
+wearing different names; a preservation rate held up as structure turned out to depend on
+nothing but the height of the perturbing direction, three separate times; and an exact
+pair rule was established on evidence that was one configuration counted four times.
+
 Five illusions, one disease: mistaking a property of the notation for a property of the
 thing. A quaternion is notation for a cube; a dyadic rounding is notation for a point; a
 menu of integer 4-tuples is notation for a set of cubes. Every one of the five was a
@@ -150,6 +156,13 @@ And at n=4 the whole gap has a name. The record's profile is {depth-1: 92, depth
 depth-3: 24}, and 66 and 24 are exactly the ceiling-law caps. Every local maximum the
 search reaches has {50, 66, 24}. The deep layers are already at their ceilings in both.
 **Every one of the forty-two missing regions is depth-1.**
+
+That layer is no longer merely named. Across 3 133 320 census configurations depth-1 tops
+out at 96 against a conjectured cap of 104, and the record's 92 now decomposes exactly:
+**92 = 42 + 48 + 2**, where 42 is the generic triple-point term and the 48 is three pairs
+of cubes sharing a body diagonal contributing ten each, plus three more pairs contributing
+six. What had been a description — *a hub with three cubes on body diagonals* — is an
+identity.
 
 ## IV. The mirror
 
@@ -302,7 +315,44 @@ in the one ensemble where it was mathematically obliged to return nothing. In th
 structured families depth-1 and depth-2 genuinely trade against each other, and the idea
 works. A good idea was buried by testing it where it could not speak.
 
-## VI. What the two stories say to each other
+## VI. The bound
+
+Section I said that every number in the table is a lower bound and that no amount of
+searching turns one into an upper bound — you can search forever and only learn that you
+have not yet failed. That was the shape of the whole project for five weeks. It stopped
+being the shape on the thirty-third day, and the way it stopped is worth the space.
+
+The project did have an upper bound on the depth-1 layer, published: `d1 ≤ 108·C(n,3) + 2`.
+Before tightening it, somebody re-derived it — and found it rests on an identity that fails
+at **coincident** configurations. Every maximiser is coincident. So the project's only
+upper bounds above n = 3 were proved for a class of configurations that contains no
+maximiser: true, published, and inapplicable exactly where they were wanted.
+
+The repair is elementary in the good sense. Count depth-1 regions by Euler's formula plus
+handshake on the outer boundary, which needs no genericity at all. Vertices where three or
+more cubes meet can be charged to triples of planes taken from three different cubes, which
+is the old count, now used only where it is valid. The vertices the old bound missed are
+the ones where only **two** bodies meet — they carry no cross-cube triple, which is precisely
+why they escaped. And a pair of cubes on its own is the one case in this whole problem that
+is *proved*: the maximum for two cubes is 13, and it has been proved since the beginning.
+That pins each pair's contribution at 10. Adding more cubes only swallows outer vertices,
+so a pair inside a large compound cannot do better than the pair alone.
+
+    d1  ≤  108·C(n,3)  +  10·C(n,2)  +  2      for every n, every configuration
+
+The number got **worse**: 494 at n = 4 where the old one said 434. That is the honest
+trade — a weaker bound that covers the case of interest, in place of a sharper one that
+does not. And it is checkable: over 2 500 pairs the observed maximum gain is exactly 10,
+and the pair's own region count *determines* its contribution, with no exceptions in 3 000
+pairs — 4 gives 0, 5 gives 2, 9 gives 6, 13 gives 10. The bound is attained precisely at
+13-pairs, which are cubes sharing a body diagonal.
+
+There is something pleasing in the shape of it. The load-bearing element is **max(2) = 13**
+— the smallest theorem in the project, the one about two cubes, proved before any of this
+began and long since filed as background. The first upper bound that holds where the
+records actually live is carried by the bottom of the tower.
+
+## VII. What the two stories say to each other
 
 That an hour of theirs and a month of ours are not comparable is the least interesting
 thing about the pair.
@@ -310,8 +360,9 @@ thing about the pair.
 What is interesting is that the paper's collaboration and this one failed in the same
 ways — lost work, repeated reminders, optimising the search when stuck — and that only one
 of them wrote the failures down. The register that makes this project look messier is the
-reason its results can be trusted, and the reason four illusions were caught in a single
-week rather than surviving into the literature.
+reason its results can be trusted, and the reason eight illusions were caught in three
+weeks rather than surviving into the literature. One of them had already been published as
+an upper bound.
 
 And what is more interesting still is that the behaviour the comparison said was missing
 here turned out to be available on request. It needed a mandate, a target with a checker,
@@ -319,14 +370,25 @@ and an hour of not being interrupted. Given those, the log fills with the same m
 diagnostic before an optimisation, an ensemble abandoned outright, eleven hours killed on
 evidence, and an old null result re-read and understood.
 
-The remaining gap is small enough to state in one line. The best configuration found from
-random starts now counts **177** against the record's 183, and the structural target is
-still depth-1 = 92 with depth-2 held at its cap of 66, last reported at 74 and 66. Six
-regions, or eighteen, depending which way you measure.
+And the last thing is the one that changes the genre. For five weeks this was a search:
+every result a lower bound, no way to know how far there was left to go, a table of numbers
+that could only ever grow. It is now, in one layer at least, a subject with a theorem in
+it — and the theorem was not found by searching harder. It was found by re-deriving
+something already believed, discovering it did not apply where it was needed, and repairing
+it with a result so old and so small it had stopped being mentioned.
+
+The best configuration found from random starts counts **177** against the record's 183.
+That gap is still open, and so is every other. But the shape of the ignorance has changed:
+depth-1 at n = 4 is now known to lie somewhere between 92 and 494, for reasons rather than
+for want of trying, and the interesting question is no longer *how high can we get* but
+*how far apart can those two numbers be made to move*.
 
 ---
 
-*Updated 2026-09-05 as the work moved: attempts 9 through 12 of the exploration log, the
+*Updated 2026-09-07: Section VI is new — [P235](LEDGER.md#p235) to
+[P237](LEDGER.md#p237) postdate everything else here — and Sections II and III were
+revised as the illusion count rose and the record's depth-1 was accounted for exactly.
+Earlier note, 2026-09-05, as the work moved: attempts 9 through 12 of the exploration log, the
 census, the predictor, and [P222](LEDGER.md#p222) all postdate the first draft, and
 Section V's qualification was added because the log said plainly what the first draft had
 glossed.*

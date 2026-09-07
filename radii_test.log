@@ -1,0 +1,6 @@
+GATE respelling: 0 of 24 respellings changed the radius signature
+GATE global rotation: unchanged
+
+600 configurations, 37s (0.06 s each)
+radius signature       distinct  600 of 600   repeated    0   pin the count    0 (0.0%)  median spread -
+plane-incidence sig    distinct  137 of 600   repeated   57   pin the count    5 (8.8%)  median spread 16

@@ -6,8 +6,14 @@
 - 183 = hub cube + three cubes at t = ±1/4 about three of the four body diagonals.
   Eight such configurations, each with C3 symmetry about the UNUSED diagonal, pairwise
   26.35° / 43.00° apart — not one orbit.
-- A NINTH 183 exists (the tower's n=4 layer, = the 393 minus its cube 3): asymmetric,
-  symmetry group order 1, two cubes on no diagonal. Both routes extend to 393.
+- ~~A NINTH 183 exists (the tower's n=4 layer, = the 393 minus its cube 3): asymmetric,
+  symmetry group order 1, two cubes on no diagonal.~~ **FALSE, corrected 2026-09-07.**
+  Checked directly: the five 4-subsets of the 393 count 179, 179, 179, **183**, 171, and the
+  183 one (minus cube 3) has **symmetry order 3**, not 1, and is **CONGRUENT to the recorded
+  183** (`congruent.py` exhibits the rotation). It is not a ninth 183 and it is not
+  asymmetric — it is the same compound as one of the eight. The three genuinely asymmetric
+  subsets count 179, not 183. This claim never reached the LEDGER; [P224]'s "eight such
+  configurations" stands unaffected.
 
 **Two exact pair rules, zero violations n=4..7:**
 - 13-pair ⟺ relative rotation axis is a BODY DIAGONAL
@@ -80,6 +86,22 @@ the CUBE's geometry, not by n.
   **11 compounds**: exactly one reaches 393 (congruent to the tower's, verified
   constructively) and ten reach 387. `congruent.py` does it in 24n quaternion products, not
   n!·24^n, and its gate checks a self-match, a respelling AND two negatives.
+- **[P229] — 727 is the MAXIMUM over the whole 43 707-cube menu on the n=5 record.**
+  Exhaustive, 43 707 of 43 707 evaluated, **zero refusals**. Exactly 6 cubes reach it: two
+  C3 orbits = two congruence classes, one congruent to the recorded 727 (height 14), the
+  other the known {214,216,162,98,36,1} class — which has a **height-13** representative
+  here. Both classes were known; that they are the ONLY two in this menu is new.
+- LEDGER index regenerated: it had stopped at P146 and was 83 entries behind.
+  `index_ledger.py` predated both the `[VERIFIED]` heading tags and the explicit
+  `<a id="pN">` anchors, so running it DROPPED P220-229 and replaced 146 working `#pN`
+  links with fragile slugs — while printing success. Tool fixed (prefer the explicit
+  anchor; refuse to write if it indexes fewer blocks than the file has headings); index now
+  274 of 274, P1-P229, zero dangling links. [FAILURE_MODES 28].
+- **[METHODS 24] — a free gate found in the sweep's own data.** The menu is the octahedral
+  quotient, so it CONTAINS each base's own five cubes; adding a duplicate cannot change the
+  arrangement. So min-over-menu must equal the base's own n=5 count, attained by exactly
+  those five cubes. Passes on every base so far. Unlike the 727 gate it needs no known
+  answer and fires on all 11 runs, not one.
 - Caught before the run: the six "top" bases the extension sweep was about to process were
   six NAMES for one object. Extending them would have spent ~10 h of CPU answering one
   question once. The sweep now runs on the 11 class representatives.
@@ -104,7 +126,14 @@ the CUBE's geometry, not by n.
 - **GATE PASSED 2026-09-07:** `393 + (1,-5,-7,-14)` (the menu's spelling of (7,14,1,-5))
   `-> 727`. That confirms the engine, the `--base` path, and that the octahedral respelling
   is the same physical cube, in one call.
-- RUNNING: four shards, `extend_n5_s{0..3}.log`. Merge with `extend_n5.py --report`.
+- **COMPLETE — [P230].** All 11 bases x 43 707 cubes = **480 777 counts, zero refusals**.
+  **727 stands**; only the record's own base reaches it. The ten 387-bases spread 717..725,
+  so the n=5 count does NOT determine extension quality ([OQ 22], closed) — though at the
+  top it is still the right ranking. Report: `python3 extend_n5_report.py`.
+- A prediction was registered before its test ran, confirmed on base 7 (symmetry order 12 ->
+  12 cubes at max in ONE orbit, 1 class) and **refuted on base 10** (also order 12 -> 368
+  cubes in 90 orbits). One for two; dead. Half of it ("orbit sizes divide 12") was Lagrange's
+  theorem and could not have failed — a gate that cannot fail dressed as a prediction.
 
 ## Running / next
 
@@ -114,14 +143,55 @@ the CUBE's geometry, not by n.
   partial merges are meaningful because every shard is a uniform stride through the menu.
 - `resig.py 3000` → `resig_rerun.log`. Re-signs a seeded census sample under both maps.
 
+**[P232] — TAXONOMY 12a re-established (2026-09-07).** Its numbers stay void and UNSOURCED
+(no script, no postscript produce 66/66/71). Its CONCLUSION is confirmed: at generic
+perturbing-direction height the signature is preserved in **0 of 240** (config, direction)
+pairs, so there is no gradient to navigate and METHODS 23a's premise is sound. Three of my
+own answers were wrong first: a finite-step sweep said ~35 % preserved, flat 2^-4..2^-26 over
+160 000 configurations; conditioning on degenerate bases cut it to 1.8 %; varying only the
+DIRECTION HEIGHT took it to 0.0 % at h>=50. **The whole effect was small-integer directions**
+([FAILURE_MODES 29]). New machinery: `epsfield.py` (Z[e] ordered by lowest nonzero
+coefficient, degree bound 12 verified), `eps_signature.py` (two-sided gate: a corner-triple
+9-fold must survive a tangent infinitesimal and die under a generic one — both hold).
+The e-field costs 45x a finite step; my claim that it would be cheaper was wrong.
+
+**[P233] — an audit for overclaimed RESULTS found one (2026-09-07).** [P225]'s **13-pair
+rule is FALSE**: 150 of 199 independent pairs, counterexample `1,0,0,0;2,2,3,0` -> 13 with
+axis (2,3,0). Its **9-pair rule HOLDS**, now 1403 of 1403 -- far stronger than before. The
+stated evidence ("zero violations across records n=4..7, 6+10+15+21 pairs") was **one nested
+tower: 21 distinct pairs from one configuration** ([FAILURE_MODES 30]). [P226] rests on the
+same chain and is flagged, not refuted. RESULTS' n=2 row now says body-diagonal is
+SUFFICIENT not necessary. NOTE: my first version of the test used ONE spelling of the
+relative rotation and said BOTH rules were violated -- over the full 576-element double coset
+rule 2 is perfect. Third representative-vs-object error of the day.
+
 **Next, in the order I would take them:**
-1. The census's `sig` column is still void for 3 132 491 of 3 135 491 rows. `resig.py` does
-   the work; it just needs to be pointed at all of them instead of a sample (~2.5 h across
-   shards). Only worth it if any signature claim is going to be reused — the corrected
-   3 000-row resample already says what happened to the ones that were.
-2. Re-ask OPEN_QUESTIONS 21's replacement: is there ANY engine-free statistic that orders
-   the count better than chance? All three tried were measured through the broken map, so
-   all three are UNMEASURED, not refuted.
+0. Nothing in the n=5->n=6 direction. That family is exhausted: [P230] is the complete
+   answer over the stated menu, and going further needs a solved method, not a wider menu —
+   the three-wall intersection of [P48].
+1. **DONE — [P231].** Full census re-signed, `resign_all.py` shards 0-3 ->
+   `resign_results/`, restartable (skips rows already written). It computes ALL FOUR void
+   statistics in one incidence pass: `sig`, max concurrence, real (face-bounded) incidence
+   count, Moebius weight.
+   *The "~2.5 h across shards" figure quoted here before was wrong.* Measured: the Fraction
+   implementation costs 0.048 s/row = **41 core-hours**. Every decision is an exact SIGN
+   TEST with a bounded multiply chain, so the rationals are unnecessary; carrying points as
+   (numerators, det) integers gives **0.0042 s/row, 10.4x faster, 4 core-hours** — gated
+   against the Fraction version on 300 real census rows, 0 mismatches, all non-trivial.
+2. **[P223] IS REVERSED — filtering pays.** Max plane-concurrence orders **61.1 %** of
+   pairs (~78σ); the Möbius weight that [P222] crowned is chance at 51.5 %. In exact
+   integers the statistic costs **0.25× a count** (the 0.8×–3.8× that killed filtering was
+   a `Fraction` implementation). By ENRICHMENT, keeping maxc in {6,8,9} skips **69.6 %**,
+   loses **11.1 %** of counts ≥165 and **0 %** of those ≥170 — **1.81×, held out on a
+   disjoint half**. The 177s and the 183 record are all maxc 6, inside the kept set.
+   Ratio stays 0.22×→0.30× through n=8, so the n-scaling objection is immaterial.
+3. Richness replacements: **7 156** signatures (not 3 055), Chao1 **9 681** (not ~4 216),
+   coverage 61–82 %; `haar` 45 in 278 576 draws. Signature pins the count in **12.8 %** of
+   repeated signatures — the 3 000-row samples said 4.8 % and 3.7 %, understating 3×.
+4. **[FAILURE_MODES 27b]:** I re-measured 1 of the 3 void statistics and wrote "there is no
+   predictor" into five documents. The signal was in one of the two I skipped.
+5. Data quality: 53 census rows have only 2 distinct cubes of 4 and count 13. The ensembles
+   generate coinciding cubes and nothing rejects them.
 3. The 4-pair growth sequence (0, 2, 6, 11, 18) from [P225] — whether it is forced, and
    what it bounds.
 

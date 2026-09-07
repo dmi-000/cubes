@@ -232,8 +232,11 @@ is also golden's total, which is suggestive and unexamined.
 **Merge is a union, never a max.** Keeping only the best count per signature would destroy
 the spread, and the spread IS the measurement of the signature's incompleteness.
 
-**Phase 1 deliberately does not filter.** The signature costs 0.8x a count, so filtering
-pays only above a 76% skip rate — and filtering now would bias the very distribution being
+**Phase 1 deliberately does not filter.** ~~The signature costs 0.8x a count, so filtering
+pays only above a 76% skip rate~~ — *corrected 2026-09-07: 0.8× was a `Fraction`
+implementation; in exact integers it is 0.25× and the required skip rate is 25 %, which a
+max-concurrence filter clears with room ([P231](LEDGER.md#p231)).* The reason to keep Phase 1
+unfiltered is the second one alone: filtering would bias the very distribution being
 characterised.
 
 ## 10. What predicts the count — VOID, and a third retraction that takes the section with it
@@ -247,11 +250,17 @@ characterised.
 > other two rows were measured through the same map and are unmeasured rather than refuted.
 > [P227](LEDGER.md#p227), [FAILURE_MODES 27](FAILURE_MODES.md).
 
-| predictor | strength as measured | status |
+| predictor | strength as measured | corrected, full 3.1M-row census |
 |---|---|---|
-| max plane-concurrence | r = 0.354, non-monotone | VOID |
-| raw real (face-bounded) incidence count | orders 57% | VOID |
-| ~~**Möbius weight of real incidences**~~ | ~~r = 0.562, orders 77.6%~~ | **VOID → r = −0.147, 50.6 %** |
+| **max plane-concurrence** | r = 0.354, non-monotone | **r = +0.122, orders 61.1 % — the real one** |
+| raw real (face-bounded) incidence count | orders 57% | r = +0.024, orders 54.3 % |
+| ~~**Möbius weight of real incidences**~~ | ~~r = 0.562, orders 77.6%~~ | r = −0.105, **orders 51.5 % — chance** |
+
+**The ranking inverted.** The statistic this section crowned is the worthless one, and the
+signal is in max plane-concurrence — which was in the table all along, scored as void and
+then never re-measured. It works by ENRICHMENT rather than slope (maxc 9 is 0.7 % of
+configurations and 12.6 % of those counting ≥165), and at 0.25× the cost of a count in exact
+integers it makes filtering pay: **1.81× held out**. See [P231](LEDGER.md#p231).
 
 ~~The winner is `sum over real, face-bounded incidence points of (m-1)(m-2)/2` — a simple
 vertex weighs 1, a 4-fold 3, a 9-fold 28. It needs no engine call at all: planes,

@@ -1,0 +1,31 @@
+  25/400 configs, 1.3 min
+  50/400 configs, 2.5 min
+  75/400 configs, 3.8 min
+  100/400 configs, 5.1 min
+  125/400 configs, 6.3 min
+  150/400 configs, 7.6 min
+  175/400 configs, 8.8 min
+  200/400 configs, 10.1 min
+  225/400 configs, 11.4 min
+  250/400 configs, 12.6 min
+  275/400 configs, 13.9 min
+  300/400 configs, 15.1 min
+  325/400 configs, 16.4 min
+  350/400 configs, 17.7 min
+  375/400 configs, 18.9 min
+  400/400 configs, 20.2 min
+
+DEGENERATE bases (non-empty signature) -- what 12a is about: 304 configurations
+   preserved in 43 of 2432 (config, direction) pairs = 1.8%
+   directions preserved, per configuration:
+      0 of 8 :   271 configs ( 89.1%)   <-- none
+      1 of 8 :    27 configs (  8.9%)
+      2 of 8 :     2 configs (  0.7%)
+      3 of 8 :     4 configs (  1.3%)
+
+GENERIC bases (empty signature) -- preservation here is trivial: 96 configurations
+   preserved in 768 of 768 (config, direction) pairs = 100.0%
+   directions preserved, per configuration:
+      8 of 8 :    96 configs (100.0%)   <-- all
+
+wrote eps_ls.json

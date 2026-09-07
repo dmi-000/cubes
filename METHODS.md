@@ -1228,7 +1228,8 @@ Three rules that are not incidental:
    distribution, not two candidates for one slot.
 2. **Do not filter during the characterising phase.** The relation between signature and
    count is what is being measured; skipping counts biases exactly that distribution.
-   (And measurement says filtering cannot pay anyway — see FAILURE_MODES.)
+   (Filtering DOES pay as of [P231](LEDGER.md#p231); this rule now rests only on the bias
+   argument above, which is sufficient for a characterising phase and for nothing else.)
 3. **Record refusals with their cause and their signature.** The signature needs no
    engine, so a refused configuration still enters the table and evaluability becomes a
    feature rather than a hole.
@@ -1243,8 +1244,21 @@ Three rules that are not incidental:
 > the samples — so they cannot be rescaled. The METHOD is unaffected —
 > the three rules below are about how to run a census, not about which statistic it
 > records — and the census's `cfg`, `count` and `depth` columns are valid, so re-signing
-> costs no new search. The effort-reweighting decision made from the void coverage figures
-> should be re-derived before it is used again. See [P227](LEDGER.md#p227).
+> costs no new search. See [P227](LEDGER.md#p227).
+>
+> **RESOLVED 2026-09-07 — [P231](LEDGER.md#p231) re-signed all 3 135 491 rows.** Replacements:
+> **7 156** distinct signatures, Chao1 **9 681**, coverage **61–82 %** by ensemble
+> (`axis` 82 %, `chain` 61 %). Richest are `threeaxis` **4 993**, `twoaxis` 3 949,
+> `chain` 3 504; `haar` yields **45** in 278 576 draws. The corrected map is 2.3× richer
+> than the broken one, so the effort-reweighting below must be re-derived from these
+> numbers, not the void ones.
+>
+> **And rule 2 is now half wrong.** Filtering before counting DOES pay
+> ([P223](LEDGER.md#p223) reversed by [P231](LEDGER.md#p231)): max plane-concurrence orders
+> 61.1 % of pairs and costs 0.25× a count in exact integers. Rule 2's own stated reason —
+> that filtering biases the distribution being characterised — stands on its own and is why
+> it should still not be done during a CHARACTERISING phase. It is no longer true that it
+> "cannot pay anyway".
 
 **Where to spend effort, from the census itself** *(figures void, see above)***:** the
 ensembles differ by 47x in
@@ -1265,7 +1279,12 @@ open measurement, not an assumption.
 ### 23a. [PRACTICE] The plan: reach unrecorded signatures by constructing new ensembles
 
 Signature space is not navigable (TAXONOMY 12a), so new signatures come from new
-constructions. Three ensembles are added, chosen because each imposes a DIFFERENT incidence
+constructions. *Re-established 2026-09-07 ([P232](LEDGER.md#p232)): TAXONOMY 12a's numbers
+are void and unsourced, but its CONCLUSION now rests on an exact infinitesimal measurement —
+at generic perturbing-direction height the signature is preserved in 0 of 240 (config,
+direction) pairs. An earlier flag here said this premise "may reverse"; it does not, and the
+~40 % that prompted the flag was small-integer directions being special. **This paragraph's
+premise is sound.*** Three ensembles are added, chosen because each imposes a DIFFERENT incidence
 pattern rather than more of the same one:
 
 * **`chain`** — cube k is cube k−1 rotated about a fresh random axis. Consecutive pairs
@@ -1289,3 +1308,41 @@ ensembles spends most of it on exhausted ones.
 table, then structure per se is not what opens new regions and the differences among
 `axis`/`twoaxis` were incidental. Coverage and new-signature rate are recorded per ensemble
 so this is visible rather than assumed.
+
+## 24. [TECHNIQUE] A sweep over a group quotient contains its own base — so its minimum is a free gate
+
+**The problem it solves.** An extension sweep — fix a base of n−1 objects, add one from a
+menu, count — needs a gate, and the obvious one is a known answer: the n=5 record plus the
+recorded sixth cube must return 727. That gate is real but it fires **once**, on one base,
+and says nothing about the other ten runs sharing the same code path.
+
+**The observation.** When the menu is the full quotient of a lattice by the symmetry group
+of the objects — here the octahedral group acting on integer quaternions — it necessarily
+contains the classes of the base's own members. Adding a member already present leaves the
+arrangement unchanged, so it leaves the count unchanged. Therefore, with no extra
+computation and no known answer required:
+
+    min over the whole menu  ==  the base's own count
+    attained by exactly the base's own members, and by nothing else
+
+Both halves matter. The value catches an incremental engine that is not reusing the base
+state; the **identity of the minimisers** catches one that is reusing a stale snapshot,
+because a wrong snapshot can still produce a plausible minimum at the wrong cubes.
+
+**Measured.** Across the n=5 → n=6 sweep, every base: minimum equals the base's count,
+attained by exactly 5 cubes, and all 5 are the octahedral classes of that base's own cubes.
+Zero failures. It cost one line in the reporting script and it is checked on **every** base
+rather than on the one with a known answer.
+
+**Why it is worth naming.** This project's incremental engine had already shipped a bug
+where `--base` returned the base's count for *every* candidate ([P223](LEDGER.md#p223)) —
+the exact failure this gate detects, and the inverse of the one it detects too. That bug was
+caught by a 75/75 agreement gate built specially. This gate needs nothing built: the data a
+sweep already produces contains a value that is forced.
+
+**The generalisation.** Wherever a search enumerates *changes* to a fixed object over a menu
+that is closed under the object's own symmetries, the null change is in the menu. Find it,
+and you have an anchor outside the procedure ([METHODS 4](#4), [FAILURE_MODES 14](FAILURE_MODES.md))
+that costs nothing and fires on every run rather than on the one you thought to check.
+Coset representatives, basis extensions, feature-addition sweeps, ablation studies: the
+identity element is usually in the menu and usually unexamined.

@@ -1249,15 +1249,24 @@ a cube, a cube has 24 names, and the signature changed when the name did, 6 time
 With the columns it changes 0 times in 96.
 
 Corrected, the predictor's correlation does not weaken; it **changes sign**, to r = −0.147,
-ordering 50.6 % of 3 320 pairs — chance. There is no structural handle on the count. The two filter
-measurements that killed both candidate filters stand and are now the whole finding:
-**counting is the cheapest thing that tells you the count, and there is nothing else that
-tells you anything.**
+ordering 50.6 % of 3 320 pairs — chance.
+
+*And then the act's ending turned over once more, on the full census
+([P231](LEDGER.md#p231)). I wrote here that there is no structural handle on the count. There
+is: **max plane-concurrence orders 61.1 % of pairs**, ~78σ from chance — the one statistic
+of the three that nobody had re-measured, scored as a negative while unevaluated. It is not
+the Möbius weight, which is the worthless one; and it does not work by correlation but by
+ENRICHMENT — configurations with max concurrence 9 are 0.7 % of the census and 12.6 % of its
+best. In exact integer arithmetic it costs a quarter of a count, so **filtering pays after
+all**, 1.81× on held-out data. "Counting is the cheapest thing that tells you the count" was
+the sentence this act ended on twice, and it is false.*
 
 The **signature** itself survives as a definition and loses all its numbers: 759 947
 configurations giving 3 055 signatures with ~4 216 estimated, and the null ensemble's
-striking 42-in-218 475, were all counted under the broken map, and a re-signed sample moves
-per-ensemble richness in *both* directions, so no scale factor repairs them. What survives
+striking 42-in-218 475, were all counted under the broken map. *Replaced the same day by
+re-signing all 3 135 491 rows ([P231](LEDGER.md#p231)): **7 156** signatures, Chao1 **9 681**,
+and `haar` yielding **45** in 278 576 draws — the corrected map is 2.3× richer, and the
+null ensemble's poverty, which was the real point, is sharper than before.* What survives
 the correction is exactly what did not depend on which normals: that a signature does not
 pin the count (re-measured — 6 of 161 repeated signatures pin it, median spread 22), and
 the user's reading of why, that something must align to split regions in one configuration

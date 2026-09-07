@@ -1,0 +1,7 @@
+76 n=5 bases
+  congruence classes (constructive, congruent.py) : 11   [8.7 s]
+  radius-signature groups                          : 11   [12.2 s]
+  every radius group lies inside one congruence class : True
+  groups match exactly                                : True
+  radius group sizes: [2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8]
+  congruence class sizes: [2, 2, 8, 8, 8, 8, 8, 8, 8, 8, 8]

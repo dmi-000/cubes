@@ -302,3 +302,66 @@ control. Three cubes sharing a corner axis MUST show a 9-fold concurrence, four 
 12-fold — it is three lines, it is forced by geometry rather than by the code, and it fails
 loudly on the broken map. It was written after the fix, like the probe in
 [METHODS 4](METHODS.md)'s own cautionary note about being built seventh.
+
+## A7. 2026-09-07 — one question about the TOOL overturned three of my conclusions
+
+**The turn**, in full: *"for something as small as 2^-20, would calculus be a more
+appropriate tool than arithmetic?"*
+
+It arrived while I was reporting a finished measurement as a finding. It named no result,
+disputed no number, and pointed at the instrument.
+
+**What it found.** I was re-measuring [TAXONOMY 12a](MAXIMISER_TAXONOMY.md) with finite
+displacements at 2⁻⁴ … 2⁻²⁶ and had just reported ~35 % of signatures preserved, flat at
+every scale across 160 000 configurations and 8 seeds, agreeing to 0.3 %. I read the flatness
+as scale-independence and had already written into two documents that 12a might be backwards
+and that the ensemble-design program of [METHODS 23a](METHODS.md) rested on a claim that
+might reverse.
+
+Working through the question produced three successive corrections, all of them mine:
+
+| | what changed | result |
+|---|---|---|
+| 1 | the tool: an infinitesimal instead of a small number | exposed that "preserved" pooled 24 % of bases whose signature was EMPTY — nothing to break |
+| 2 | conditioning on degenerate bases | 35 % → 1.8 % |
+| 3 | varying DIRECTION height, step removed | 1.8 % → **0.0 %** at h ≥ 50 |
+
+**12a was right.** Its numbers stay void and unsourced; its conclusion is now supported by an
+exact, two-sidedly gated, direction-resolved measurement it never had. My flag on METHODS 23a
+is withdrawn.
+
+**Why the question worked, and it is the same mechanism as [A5](#a5-2026-09-01--three-challenges-three-defects-one-campaign) and [A6](#a6-2026-09-0607--the-signature-bug-and-the-shape-of-the-gate-that-found-it).**
+The user's own principles file already contained the answer — *"an infinitesimal is exact; a
+small number is a sample"* — and I had read it that morning and quoted its neighbours in two
+postscripts. It did not fire, because the finite-step measurement did not feel like sampling:
+it was exact integer arithmetic, deterministic, gated, and flat over five orders of
+magnitude. **The rule was known, written down, and inapplicable-looking.** A question about
+the instrument is what made it applicable.
+
+And the deeper thing the question bought was not exactness at all. With a finite step, scale
+and direction are confounded — every displacement has both. Removing the scale by
+construction left direction as the only free parameter, which is how a five-row table found
+what 160 000 configurations had hidden. **The value of the better tool was that it had one
+fewer knob**, not that it was more precise.
+
+**Cost of the version I would have shipped:** two documents asserting that a sound method
+premise was about to reverse, on the strength of six agreeing scales that were six
+measurements of the same axis-aligned direction set ([FAILURE_MODES 29](FAILURE_MODES.md)).
+
+**Also this session, same shape, no defect found:** *"While that runs on this machine, do you
+want to start something on the cubes64 machine?"* — the [A5](#a5-2026-09-01--three-challenges-three-defects-one-campaign)
+pattern of a resource simply not being in mind. It is what caused the 12a re-measurement to
+be attempted at all.
+
+**Self-caught the same day, for balance:** the two-statistic debt in
+[FAILURE_MODES 27b](FAILURE_MODES.md) (I re-measured 1 of 3 void statistics and wrote "there
+is no predictor" into five documents); the per-ensemble richness directions that a second
+seed contradicted (27a); a stale index generator that silently dropped every recent entry
+while printing success (28); and the six n=5 bases that were six names for one compound
+([P228](LEDGER.md#p228)).
+
+**The counting that matters.** Four user turns this session, three of them one sentence.
+Every one was about method — which tool, which machine, which parameter — and none was about
+a number. The producer checks results against expectations; the reader asks what produced
+them. That is now three consecutive entries in this file saying the same thing, which
+suggests it is not an observation about particular sessions.

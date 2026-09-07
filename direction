@@ -1,0 +1,17 @@
+Which track should I take after clearing the two-statistic debt?
+
+❯ 1. Tighten the n=4 depth-1 bound (Recommended)
+     Attack d₁ ≤ 434 → ~104 at n=4 by a boundary face-count, the same shape of argument that proved d₁ ≤ 12 at n=2. Success unlocks 
+     max(4)=183, then max(5), then max(6) ≤ 729. Multi-session, may fail, and failing still produces a sharper bound than 434.
+  2. Solved search at the n=6/7 frontier
+     Use P48's three-wall intersection — the method that actually found 727 — rather than menus. Yields configurations and lower 
+     bounds, not theorems. Lower risk, lower ceiling.
+  3. Finish the correction work first
+     Re-sign all 3.13M census rows (~2.5h CPU, no new search) and close out every claim still resting on the broken map before 
+     starting anything new.
+  4. The 4-pair growth sequence
+     P225 left 0, 2, 6, 11, 18 unexplained — whether it is forced, and what it bounds. Small, self-contained, and it feeds the
+     frustration-deficit conjecture that predicts max(6)=729 independently.
+  5. Type something.
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  6. Chat about this

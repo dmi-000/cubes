@@ -96,7 +96,7 @@ Terminology follows [`GLOSSARY.md`](GLOSSARY.md) §8.0 — no bare "point", "lin
 | 2 | 13 | **1** | **2 arcs + finitely many classes** | **1** — one profile (1,6,6,1) on BOTH arcs | **D₆** (12) | rational dense on the arcs |
 | 3 | 67 | **0**, but see §4 | **exactly 2** | 1 each | **O** (24) oct / **D₃** (6) golden | both irrational, ℚ(√2), ℚ(√5) |
 | 4 | 183 | **0 by every probe**, not proved | ≥1; all 5 climbs give ONE class | 1 | **C₃** | rational |
-| 5 | 393 | **0** against single-cube moves | ≥1 | 1 | **C₃** | rational |
+| 5 | 393 | **0**, now in the FULL space (nullity 1, that direction leaves the stratum) | ≥1 | 1 | **C₃** | rational |
 | 6 | 723 | **≥1** | **13** (orbit dedup) ; family is VAST — see below | **≥11** exact on the wrapping line | **C₃** | rational |
 | 6 | **727** | **1** | **≥4** — exactly **3** from the ℚ(√d) campaign (orbit dedup), plus the record's line | **≥10** on arc A | **trivial** | rational and irrational on ONE arc |
 | 7 | 1217 | **≥1**, extent 2.64° | ≥1 | **exactly 7** | **trivial** | rational |
@@ -689,7 +689,22 @@ change the count. Test rank-2 subsets and verify each (`tangent_finder.py`).
   ε and 0 of 870 integer directions at three scales (§3). What can be said is
   that no single-cube direction of the tested kind holds 183 — not that 183 is
   isolated, which needs a method that survives its controls.
-* **393 = 0 against single-cube moves** — 12 active walls giving **46** distinct
+* **393 = 0 in the FULL configuration space** *(2026-09-07; this cell read "0 against
+  single-cube moves" and the scope was the whole weakness — a user asked whether multi-cube
+  moves had been tested, and they had not)*. At the 393 the ambient space is **12**-dimensional
+  (four moving cubes × 3 Cayley coordinates, cube 0 frozen as gauge). Its **168** tight
+  conditions have rank **11**, so the null space is **1**-dimensional — and that single
+  direction moves **all four** cubes, which is why no single-cube probe could ever have found
+  it, in either direction. Walked: the count drops **393 → 357** at 1/64, 1/256, 1/1024,
+  1/4096, 1/16384 and 1/65536, symmetric in ±v. Settled EXACTLY with an infinitesimal, so no
+  step size is involved: the signature goes `((4,174),(6,8)) → ((4,54),(6,2))` along ±ε·v, i.e.
+  the configuration **leaves its degenerate stratum immediately**, which the count cannot
+  survive. Compare **727, nullity 1 as well, whose null tangent DOES hold** — identical
+  first-order signature, opposite outcome.
+  *Still not a proof of isolation.* First-order tangency to ALL active walls is what was
+  tested; a locus that is CURVED at 393, or a direction tangent to a subset of walls whose
+  crossings happen not to change the count, would be missed.
+  The earlier evidence for this cell, retained: 12 active walls giving **46** distinct
   rank-2 subset directions, not one preserving 393 at ε = 1/64 or 1/1024; plus
   548 in-plane directions at four ε scales down to 1/65536, the count dropping
   to 377 in every one; plus the 1160-direction scan and the 12 axis sweeps of §3.
@@ -1321,6 +1336,12 @@ count.
 
 ## 12. Signatures — a taxonomy of configurations by their incidence structure
 
+> **SUPERSEDED 2026-09-07 by [P231](LEDGER.md#p231)** — the full census has been re-signed
+> and the replacement figures are there: **7 156 distinct signatures** (not 3 055),
+> Chao1 **9 681** (not ~4 216), 74 % coverage, and `haar` yielding **45** signatures in
+> 278 576 draws. The corrected map is **2.3× richer** than the broken one. Read the numbers
+> below only as a record of what was retired.
+>
 > **CORRECTION 2026-09-07 — every number in §12 and §12a below was computed with broken
 > face normals.** `concurrence.planes()` read the ROWS of each rotation matrix instead of
 > the COLUMNS, so it described each cube's INVERSE rotation. The signature was therefore a
@@ -1360,9 +1381,10 @@ discards the best thing search has found ([P222](LEDGER.md#p222), [P227](LEDGER.
 
 **What it does NOT determine: the count.** Of repeated signatures, **0 of 12** pin the
 count exactly; spreads run 6–44 regions. *(Void as stated — but re-measured under the
-corrected map: 8 of 166 repeated signatures pin the count exactly in one sample and 6 of
-161 in a second, median spread 22 in both — so the section's claim holds and is now on 14×
-the sample.)* Same-signature pairs have
+corrected map on the FULL census: 629 of 4 920 repeated signatures pin the count exactly
+(**12.8 %**), median spread 16, max 96. The section's claim holds — 87 % do not pin — but
+note the two 3 000-row samples said 4.8 % and 3.7 %, understating it threefold.
+[P231](LEDGER.md#p231).)* Same-signature pairs have
 *identical* total incidences (1688 = 1688 — void) and always differ in the REAL,
 face-bounded ones — because a
 region boundary is a face SQUARE, and an incidence on the plane's extension beyond the
@@ -1399,7 +1421,52 @@ enumerable, not to have that particular size. Ask it: rather than sampling
 configurations and reading off signatures, enumerate signatures and solve for a
 configuration realising each. See METHODS.
 
-### 12a. Signature space has no local structure — measured
+### 12a. Signature space has no local structure — numbers VOID and UNSOURCED, conclusion CONFIRMED
+
+> **2026-09-07. Two separate problems, and the second is worse than the first.**
+>
+> **(1) Void by provenance.** The numbers below were computed with `concurrence.planes()`
+> reading matrix ROWS instead of COLUMNS ([P227](LEDGER.md#p227)).
+>
+> **(2) Unsourced — there is no script in this repository that produces 66.0 / 66.0 / 71.0,
+> and no ledger postscript records the measurement.** Its perturbation model therefore
+> cannot be inspected. That matters more than usual here, because a re-measurement scoring
+> the SAME perturbed configurations under both normal conventions shows the two agree
+> (median L1 12 vs 12, ~40 % unchanged either way) — so **the normals bug does not explain
+> the disagreement with the numbers below.** Something about how §12a perturbed does, and
+> nobody can now say what.
+>
+> **(3) The conclusion is CONFIRMED — see [P232](LEDGER.md#p232). My first replacement was
+> wrong and is withdrawn.** A finite-step measurement found the signature preserved ~35 % of
+> the time, flat from 2⁻⁴ to 2⁻²⁶ across 160 000 configurations, and I read that as
+> contradicting §12a. It does not. Two confounds and then a third accounted for all of it:
+> 24 % of sampled configurations have an EMPTY signature and are preserved trivially; and the
+> rest is the height of the perturbing direction. Holding the step at an infinitesimal and
+> varying only the direction:
+>
+> | direction set | preserved |
+> |---|---|
+> | ±1 on one component | 16.2 % |
+> | random in [−1,1]⁴ | 10.4 % |
+> | random in [−5,5]⁴ | 2.5 % |
+> | random in [−50,50]⁴ | **0.0 %** |
+> | random in [−500,500]⁴ | **0.0 %** |
+>
+> A clean monotone split by the SIZE of the direction and by nothing about the object. At
+> generic height, preservation is **0 of 240** (config, direction) pairs. **§12a is right:
+> there is no gradient to navigate.** Its numbers are still void and unsourced; its claim is
+> now supported by an exact, two-sidedly gated, direction-resolved measurement it never had.
+>
+> **The control the original did not have**, and the reason "0 % unchanged at every scale"
+> should have been questioned when it was written: that is exactly what a broken comparison
+> also reports. A measurement whose answer is "nothing ever matches" cannot distinguish a
+> space with no local structure from a comparison that never returns equal. The replacement
+> gates on a ZERO perturbation returning L1 = 0 and 100 % unchanged.
+>
+> **What rests on this.** §12a is the stated reason navigation was abandoned as a search
+> strategy and the reason [METHODS §23a](METHODS.md) builds new ensembles instead — "new
+> signatures come from new constructions" is a direct quotation of its conclusion. **That
+> program is sound**; the replacement landed and supports it.
 
 A perturbation of 2⁻¹⁴ moves the signature exactly as far as one of 2⁻⁴, and the signature
 is **never** preserved:

@@ -30,18 +30,18 @@ with `index_ledger.py` after appending.
 - [Postscript 9 addendum](#postscript-9-addendum-2-2026-07-13-edge-crossings-along-the-slide--near-persistence-quantified) — edge crossings along the slide — near-persistence quantified
 - [Postscript 10](#p10) — symmetry-stratified sweep of the walls — no new record, framework validated, coverage caveat
 - [Postscript 11](#p11) — full-quaternion symmetry re-run — NEW RECORD 717 (and 705); Postscript 10's negative was a…
-- [Postscript 11 addendum](#postscript-11-addendum-717-is-capped--the-shallow-tail-tradeoff-is-a-11-conservation) — 717 is capped — the shallow-tail tradeoff is a 1:1 conservation
+- [Postscript 11 addendum](#p11a) — 717 is capped — the shallow-tail tradeoff is a 1:1 conservation
 - [Postscript 12](#p12) — shared-axis "intersection" families — NEW RECORD 723
 - [Postscript 13](#p13) — incidence geometry — edge vs corner concurrences, the 9-fold sweet spot, and the algebraic…
 - [Postscript 14](#p14) — the depth trade-off structure — deep layers quantize, shallow layers grow, records sacrifice…
-- [Postscript 14](#p14) — — results & a correction (2026-07-12)
+- [Postscript 14](#postscript-14--results--a-correction-2026-07-12) — — results & a correction (2026-07-12)
 - [Postscript 15](#p15) — n=4 — golden 177 is NOT the maximum; new rational record 183
 - [Postscript 16](#p16) — records NEST — 723's subsets contain the smaller records, and its 5-subset beats golden 351
 - [Postscript 16 addendum](#postscript-16-addendum-greedy-extension-validated--new-n7-record-1207) — greedy extension VALIDATED — new n=7 record 1207
 - [Postscript 16 addendum](#postscript-16-addendum-2-n2-and-n3-stress-tested--13-and-67-hold) — n=2 and n=3 stress-tested — 13 and 67 hold
 - [Postscript 16 addendum](#postscript-16-addendum-3-n5--393-is-robust-native-search-cant-reach-it) — n=5 = 393 is robust; native search can't reach it
 - [Postscript 17](#p17) — local perfection is globally frustrated past n=3 — the "middle-layer" mechanism
-- [Postscript 17 addendum](#postscript-17-addendum-the-dof-hierarchy--local-optima-are-rigid-flexibility-lives-in-suboptimal-but-structured-configs) — the DOF hierarchy — local optima are RIGID, flexibility lives in suboptimal-but-structured…
+- [Postscript 17 addendum](#p17a) — the DOF hierarchy — local optima are RIGID, flexibility lives in suboptimal-but-structured…
 - [Postscript 18](#p18) — shared-axis-cluster construction — free spoke angles recover every record; locked/control…
 - [Postscript 18 addendum](#postscript-18-addendum-shared-axis-campaign-complete-150k-evals) — shared-axis campaign complete (~150k evals)
 - [Postscript 19](#p19) — THE GENERAL CEILING LAW — depth-(n−l) ≤ (12l−6)n − 2(l²−1)
@@ -157,48 +157,151 @@ with `index_ledger.py` after appending.
 - [Postscript 102](#p102) — the record's twelve — the tight-set failure is localised to slab-PAIR conditions, one base…
 - [Postscript 103](#p103) — rulings are NOT constant-count lines — the path ranked first refutes its own premise, and…
 - [Postscript 104](#p104) — every wall splits over ℚ, and now for a reason — det(Q) is a perfect square identically
-- [Postscript 105](#p105) — hunt_v3 stopped at 720 500 candidates — a 30-hour search returns a plateau member, and…
+- [Postscript 105](#p105) — hunt_v3 stopped at 720 500 candidates — a 30-hour search returns a plateau member, and the…
 - [Postscript 106](#p106) — the singleton term is ADDITIVE in the two pair labels — and max(3) ≤ 67 reduces to one…
 - [Postscript 107](#p107) — the constant is the FACET COUNT — m = F exactly, and max(3) ≤ 12F − 5 with 67 at F = 6
 - [Postscript 108](#p108) — rulings DO beat generic directions — but only at the arc terminus, and multiplicity is not why
-- [Postscript 109](#p109) — the bound is Euler on the intersection graph plus Alexander duality — and the residual gap is one sign
-- [Postscript 110](#p110) — the bound is PROVED (Mayer–Vietoris + Alexander duality), and the theorem then caught two bugs in the code testing it
+- [Postscript 109](#p109) — the bound is Euler on the intersection graph plus Alexander duality — and the residual gap…
+- [Postscript 110](#p110) — the bound is PROVED (Mayer–Vietoris + Alexander duality), and the theorem then caught two…
 - [Postscript 111](#p111) — every subset of every record, counted — the base layer for a topology of the record set
 - [Postscript 112](#p112) — ARC MEMBERSHIP is what makes a ruling special — and m = F in 3 443 of 3 443 once the bug is out
 - [Postscript 113](#p113) — dimension is SOLVED, not probed — and the multi-cube gap closes
-- [Postscript 114](#p114) — the count is bought with CODIMENSION — every level's best sits on a locus of dimension exactly 1 **(headline CORRECTED — see the addendum and [115](#p115))**
-- [Postscript 115](#p115) — LINEALITY never inverts at the top — the first quantity here that fails by being indecisive rather than wrong
+- [Postscript 114](#p114) — the count is bought with CODIMENSION — every level's best sits on a locus of dimension exactly 1
+- [Postscript 115](#p115) — LINEALITY never inverts at the top — the first quantity here that fails by being indecisive…
 - [Postscript 116](#p116) — the incremental route works — and finds MORE than the plane-restricted search it replaces
-- [Postscript 117](#p117) — EVERY record is an isolated point — the census completed, and 114 definitively refuted
-- [Postscript 118](#p118) — the two 67s enter the machinery at last — both are ISOLATED, by enumerating every face rather than probing directions
-- [Postscript 119](#p119) — an ordered field containing an infinitesimal — the step size is gone, and it immediately falsified 36 faces measured by halving
-- [Postscript 120](#p120) — the all-members census completes — 826 of 826 — and a positive-dimensional chart origin, not the solver, was the 10-hour wall
+- [Postscript 117](#p117) — EVERY record is an isolated point — the census completed, and [Postscript 114](#p114)…
+- [Postscript 118](#p118) — the two 67s enter the machinery at last — both are ISOLATED, by enumerating every face…
+- [Postscript 119](#p119) — an ordered field containing an infinitesimal — the step size is gone, and it immediately…
+- [Postscript 120](#p120) — the all-members census completes — 826 of 826 — and a positive-dimensional chart origin, not…
 - [Postscript 121](#p121) — region counts are ODD, by central symmetry — and the rare even ones detect a SHELL
-- [Postscript 122](#p122) — isolated points come in TWO KINDS — the 67s are pinned at first order, every rational record only at second
+- [Postscript 122](#p122) — isolated points come in TWO KINDS — the 67s are pinned at first order, every rational record…
 - [Postscript 123](#p123) — the Jacobian cannot see (1,1,1,1) walls — and 12 of them pass through the records
-- [Postscript 124](#p124) — δ = 0 — the (1,1,1,1) walls add no rank, and 122 is REINSTATED
-- [Postscript 125](#p125) — extension is a THREE-dimensional problem, and only 12 of 6 864 walls are local — the climb is enumerable after all
-- [Postscript 126](#p126) — the subset spectrum of every record — the tower breaks ONCE, at n=3, and for an arithmetic reason
-- [Postscript 127](#p127) — shells are STABLE — they occupy open chambers, not degenerate strata — and three explanations for them are eliminated
-- [Postscript 128](#p128) — irrationality does NOT force rigidity — the n=2 arc supplies the third data point that was thought not to exist
-- [Postscript 129](#p129) — shells are ORDINARY — counting well suppresses them — and the octahedral 67, not the golden, is the anomaly
-- [Postscript 130](#p130) — the shell detector is one-sided — TWO shells restore odd parity, and the octahedral anomaly was never measured
-- [Postscript 131](#p131) — the "two 67 triples" family is EXHAUSTED and caps at 177 — the sharpest irrational lead at n = 4 is closed
-- [Postscript 132](#p132) — the 2026-08-18 campaigns sampled where they should have SOLVED — records live on measure-zero sets
+- [Postscript 124](#p124) — δ = 0 — the (1,1,1,1) walls add no rank, and [Postscript 122](#p122) is REINSTATED
+- [Postscript 125](#p125) — extension is a THREE-dimensional problem, and only 12 of 6 864 walls are local — the climb…
+- [Postscript 126](#p126) — the subset spectrum of every record — the tower breaks ONCE, at n=3, and for an arithmetic…
+- [Postscript 127](#p127) — shells are STABLE — they occupy open chambers, not degenerate strata — and three…
+- [Postscript 128](#p128) — irrationality does NOT force rigidity — the n=2 arc supplies the third data point that was…
+- [Postscript 129](#p129) — shells are ORDINARY — counting well suppresses them — and the octahedral 67, not the golden,…
+- [Postscript 130](#p130) — the shell detector is one-sided — TWO shells restore odd parity, and the octahedral anomaly…
+- [Postscript 131](#p131) — the "two 67 triples" family is EXHAUSTED and caps at 177 — the sharpest irrational lead at n…
+- [Postscript 132](#p132) — the 2026-08-18 campaigns sampled where they should have SOLVED — records live on…
 - [Postscript 133](#p133) — 183 is a PLATEAU — the wide climb found a non-congruent second 183, identical on every invariant
 - [Postscript 134](#p134) — three independent methods all cap at 177 for irrational n = 4
 - [Postscript 135](#p135) — the MAXIMAL subset spectrum is not the maximum — perfect subsets cost 6 regions
 - [Postscript 136](#p136) — the two 183s lie on 88 COMMON walls, cutting a 1-dimensional locus through both
-- [Postscript 137](#p137) — the octahedral 67's walls are CONTAINED in the golden's — and the 12 extra ones single out an axis pair
-- [Postscript 138](#p138) — two walls plus a quadric — the RIGHT construction, validated — and irrational n = 4 tops out at 173
+- [Postscript 137](#p137) — the octahedral 67's walls are CONTAINED in the golden's — and the 12 extra ones single out…
+- [Postscript 138](#p138) — two walls plus a quadric — the RIGHT construction, validated — and irrational n = 4 tops out…
 - [Postscript 139](#p139) — wall structure IS a compass — but a coarse one that saturates before the record
 - [Postscript 140](#p140) — there is NO "one wall away" from 183 — all 12 walls are entangled, and that IS the cliff
-- [Postscript 141](#p141) — the CROSSABILITY PROFILE discriminates where every count saturates — the record is the most DEGENERATE configuration
-- [Postscript 142](#p142) — the face enumerator was exponential in the WALL COUNT, not in its output — and that was the whole problem
+- [Postscript 141](#p141) — the CROSSABILITY PROFILE discriminates where every count saturates — the record is the most…
+- [Postscript 142](#p142) — the face enumerator was exponential in the WALL COUNT, not in its output — and that was the…
 - [Postscript 143](#p143) — 183 has EXACTLY 1 712 chambers — and the 727 run is days, not a weekend
-- [Postscript 144](#p144) — the 727 run has a MEMORY ceiling, not a time budget — and two wrong diagnoses before the right one
-- [Postscript 145](#p145) — Fourier-Motzkin is the MEMORY consumer too — 144 was half right
+- [Postscript 144](#p144) — the 727 run has a MEMORY ceiling, not a time budget — and two wrong diagnoses before the…
+- [Postscript 145](#p145) — Fourier-Motzkin is the MEMORY consumer too — [Postscript 144](#p144) was half right
 - [Postscript 146](#p146) — streaming chambers to disk removes the memory ceiling — validated at 1 712
+- [Postscript 147](#p147) — exact rational LP replaces Fourier–Motzkin — 237 668 real instances, zero disagreements
+- [Postscript 147 addendum](#postscript-147-addendum-1-2026-08-20-same-day-the-swap-is-not-a-clean-drop-in--two-limits-found-by-gates) — the swap is NOT a clean drop-in — two limits found by gates
+- [Postscript 147 addendum](#postscript-147-addendum-2-2026-08-20-the-destroyed-sweep-re-run--what-reproduced-and-what-did-not) — the destroyed sweep, re-run — what reproduced and what did not
+- [Postscript 147 addendum](#postscript-147-addendum-3-2026-08-20-the-swap-is-right-for-393-for-the-opposite-reason-to-the-one-given) — the swap is right for 393, for the opposite reason to the one given
+- [Postscript 148](#p148) — the 393 neighbourhood, COMPLETE — 74 544 chambers, the first for a rational record
+- [Postscript 149](#p149) — the queue deadlock fixed structurally — bounded in-flight dispatch
+- [Postscript 150](#p150) — 727's stages are EXACTLY 20× 393's — and the 14M–36M estimate is refuted by a hard bound
+- [Postscript 151](#p151) — 727 estimated at 4.68M chambers — and the realised fraction COLLAPSES with size
+- [Postscript 152](#p152) — chamber counts DERIVED, not enumerated — 393 in 39.5 seconds instead of three days
+- [Postscript 153](#p153) — 727 = 4 621 728 chambers — EXACT, and exactly 62 × 393
+- [Postscript 154](#p154) — where the common factors live — the 20 is in the splits, the 1553 is not, and it is NOT a…
+- [Postscript 155](#p155) — THE STRUCTURE — χ₃₉₃ divides χ₇₂₇, and adding a cube multiplies by (t−1)(t²−8t+22)
+- [Postscript 156](#p156) — the geometric explanation — modular factorisation, and a falsifiable uniformity test
+- [Postscript 157](#p157) — both standing predictions confirmed — c₂₆ = 3 727 200, and the split fractions are exact…
+- [Postscript 157 addendum](#postscript-157-addendum-1-2026-08-24-the-enumeration-reaches-stage-26-and-confirms-the-derivation) — the enumeration reaches stage 26 and confirms the derivation
+- [Postscript 158](#p158) — n=7 predicted at 1 289 462 112 chambers — by quotient alone, and conditionally
+- [Postscript 159](#p159) — where the modular structure stops, and why — a rank deficit of exactly 1
+- [Postscript 159 addendum](#postscript-159-addendum-1-2026-08-25-the-direct-measurement-completes--subdivision-is-not-uniform) — the direct measurement completes — subdivision is NOT uniform
+- [Postscript 160](#p160) — evaluating every chamber — what it will and will not certify
+- [Postscript 161](#p161) — faces() is repairable — but deriving the face COUNT first says not to bother
+- [Postscript 162](#p162) — no record above n=3 is an isolated point — the rank deficit IS the plateau dimension
+- [Postscript 163](#p163) — the chamber evaluation, stopped early — what 1.25% already says
+- [Postscript 164](#p164) — three cited results existed only on a borrowed machine
+- [Postscript 165](#p165) — the intersection lattice of 727, by rank — and the stratum walk is now sized
+- [Postscript 166](#p166) — the arrangement is TANGENT — what 4 621 728 chambers actually counts
+- [Postscript 166 addendum](#postscript-166-addendum-1-2026-08-30-chambers-are-within-the-eps-budget-the-deep-strata-are-not) — chambers ARE within the eps budget; the deep strata are not
+- [Postscript 167](#p167) — a WIDE infinitesimal engine — the deep strata are reachable, and rank 13 tops out at 675
+- [Postscript 168](#p168) — the rank-13 stratum walked — max 719, and a gap at the top
+- [Postscript 168 addendum](#postscript-168-addendum-1-2026-08-30-wall-multiplicity-orders-the-stratum-and-the-refusals-miss-nothing) — wall multiplicity orders the stratum, and the refusals miss nothing
+- [Postscript 169](#p169) — the n=3 maximisers sit at COMPLETELY DECOMPOSABLE arrangements — and that is what makes n=3…
+- [Postscript 169 addendum](#postscript-169-addendum-1-2026-08-30-the-sharp-statement-is-freeness-and-the-dividing-line-is-exactly-n3) — the sharp statement is FREENESS, and the dividing line is exactly n=3
+- [Postscript 170](#p170) — correcting "183 does not embed in 393" — it does, and modularity is unique to ONE rung
+- [Postscript 171](#p171) — the embedding chain extended to n=2 — freeness belongs to n<=3, NOT to maximality
+- [Postscript 172](#p172) — the tower's arrangement table, n = 2..9 — what persists and what breaks, with a sharp regime…
+- [Postscript 173](#p173) — the regimes EXPLAINED — each cube past the sixth is loose in one direction
+- [Postscript 174](#p174) — the free axis is a BODY DIAGONAL — the n=2 continuum reappears inside every rung above n=6
+- [Postscript 175](#p175) — CORRECTION — the rank deficit is not a plateau, and the "loose cube" reading of P173/P174 is…
+- [Postscript 176](#p176) — what an n=10 extension could actually settle — and a cubic that fails its own control
+- [Postscript 177](#p177) — solving the two-parameter problem — the 723 continuum's degeneracy is UNIVERSAL, so it…
+- [Postscript 177 addendum](#postscript-177-addendum-1-2026-08-30-pointed-at-2785--2-seconds-and-the-degeneracies-are-punctures) — pointed at 2785 — 2 seconds, and the degeneracies are punctures
+- [Postscript 178](#p178) — the SHAPE of the n=9 continuum — two rays, k >= 56 and k <= -69, with the recorded member at…
+- [Postscript 179](#p179) — n = 9 = 2785 established — closing the provenance gap, dated today rather than backfilled
+- [Postscript 179 addendum](#postscript-179-addendum-1-2026-08-30-the-omitted-sweep-run--no-omission-of-the-1895-kind-at-n9) — the omitted sweep, run — no omission of the 1895 kind at n=9
+- [Postscript 180](#p180) — "outside must be a single region" is a SELF-CONSISTENCY GUARD, and here is a minimal 4-cube…
+- [Postscript 180 addendum](#postscript-180-addendum-1-2026-08-30-diagnosed--degenerate-zero-volume-cells-and-the-counts-elsewhere-are-clean) — diagnosed — degenerate zero-volume cells, and the counts elsewhere are clean
+- [Postscript 180 addendum](#postscript-180-addendum-2-2026-08-30-the-counts-recovered-and-how-far-the-geometric-diagnosis-actually-got) — the counts recovered, and how far the geometric diagnosis actually got
+- [Postscript 180 addendum](#postscript-180-addendum-3-2026-08-30-the-degenerate-configurations-are-a-continuum-and-the-box-causes-them) — the degenerate configurations are a CONTINUUM, and the box causes them
+- [Postscript 180 addendum](#postscript-180-addendum-4-2026-08-30-box-artifacts-can-reach-the-counts--how-far-and-what-it-does-not-touch) — box artifacts CAN reach the counts — how far, and what it does not touch
+- [Postscript 180 addendum](#postscript-180-addendum-5-2026-08-30-rotate-before-counting--the-fix-and-it-exonerates-the-engine) — rotate before counting — the fix, and it exonerates the engine
+- [Postscript 181](#p181) — n = 10 = 3913 — the tower extended, and the recorded n=9 member is the WRONG one to extend
+- [Postscript 184](#p184) — CORRECTION to P175 — null directions DO preserve the count, and the preserving set is a…
+- [Postscript 185](#p185) — P172's linear wall law is REFUTED at n = 10, and not for the reason I guessed
+- [Postscript 186](#p186) — the 1217 extension campaign is VOID — and the same defect sits under P181 and OQ 9
+- [Postscript 188](#p188) — RETRACTION — "the recorded member sits at an ENDPOINT" is false in every case, and each was…
+- [Postscript 190](#p190) — n=10 IS a continuum, n=4 appears genuinely finite — tangents solved and verified with eps
+- [Postscript 191](#p191) — NEW RECORD n = 10 = 3917 — found by sweeping a SOLVED tangent, where menu search had found 3913
+- [Postscript 192](#p192) — the endpoint solver had two defects; [P189](#p189)'s table reported the wrong components
+- [Postscript 193](#p193) — the tangent space at 3917 is 2-dimensional; two ends solved, two refuted by their own solver
+- [Postscript 196](#p196) — RETRACTION of [P195](#p195) — it counted VECTORS and called them dimensions
+- [Postscript 197](#p197) — **[OBSERVED]** triage — the record problem is a DEPTH-1 problem, and only one route can ever cap it
+- [Postscript 198](#p198) — TWO NEW RECORDS — n=9 = 2787 and n=10 = 3921 — found by mapping a region's BOUNDARY
+- [Postscript 199](#p199) — 2787's region has FOUR facets, the census saturates, and its vertices are worse
+- [Postscript 200](#p200) — n = 10 = 3925 — and every gain today landed in the two outermost layers
+- [Postscript 201](#p201) — a prediction sharpened until it could fail, then tested — it survived
+- [Postscript 202](#p202) — the same wall bounds the record region at n = 8, 9 and 10
+- [Postscript 203](#p203) — TWO coincidences bound every record region from n = 7 to n = 10
+- [Postscript 204](#p204) — 183 and 393 are genuinely 0-dimensional — verified with a pool that finds arcs
+- [Postscript 205](#p205) — **[OBSERVED]** the "phase change at n = 7" is one fact, not several — and it is not a fact about n
+- [Postscript 206](#p206) — OQ 15 ANSWERED — deficit decomposes per cube, and the "phase change" is the 727 core being rigid
+- [Postscript 207](#p207) — "less constrained added cube wins" is REFUTED — and the test's own design was the sampling…
+- [Postscript 208](#p208) — **[OBSERVED]** what would suggest a record IS a maximum — and what our data says instead
+- [Postscript 209](#p209) — both 67s are 0-DIMENSIONAL — a plan whose obstacle had already been removed
+- [Postscript 210](#p210) — the region count over VOLUME — the Haar baseline, and why the records have none
+- [Postscript 211](#p211) — "locally maximal over the directions walked" was a sampled termination test — and the…
+- [Postscript 212](#p212) — the "36 % of chambers unevaluable" was a DUPLICATE-ROOT bug, and it nearly bought an engine
+- [Postscript 213](#p213) — the recorded local-maximality of 2787 rested on 32 refused rays out of 36
+- [Postscript 214](#p214) — the basin distribution with UNEVALUABLE as a bin — and the refusals are at the TOP of the climb
+- [Postscript 215](#p215) — the attainable-count distribution has a BOUNDED tail, and its endpoint is below the record…
+- [Postscript 216](#p216) — the climbs were not dying of engine ceiling — they were dying of DYADIC ROUNDING
+- [Postscript 217](#p217) — the precision a record's neighbourhood needs is BOUNDED — 384 bits covers all of it
+- [Postscript 218](#p218) — the n=9 record has a representative of height 415 — the 113 786 outlier is gone
+- [Postscript 219](#p219) — the arc menu enumerated QUATERNIONS where it should have enumerated CUBES — 7.2x, and the…
+- [Postscript 220](#p220) — the whole gap between our climbs and the n=4 record is ONE LAYER, and it is the only layer…
+- [Postscript 221](#p221) — arcs B and C also reach 1217 — the n=6→7 step is not unique to the recorded arc; and local…
+- [Postscript 222](#p222) — **[PARTLY RETRACTED]** what predicts the region count — the predictor is void, the constraint findings stand
+- [Postscript 223](#p223) — **[REVERSED]** filtering before counting is dead — measured twice, built never
+- [Postscript 224](#p224) — the n=4 record's CONSTRUCTION — three cubes on three different body diagonals
+- [Postscript 225](#p225) — **[PARTLY REFUTED]** two exact pair rules, and the frustration curve measured along the whole tower
+- [Postscript 226](#p226) — **[EVIDENCE OVERSTATED]** the tower is a five-cube CORE plus cubes hung off a hub
+- [Postscript 227](#p227) — the signature was computed from the INVERSE rotation — one line, and what it takes down
+- [Postscript 228](#p228) — the n=5 record is UNIQUE in the four-diagonal family, and 76 "distinct" bases were 11 compounds
+- [Postscript 229](#p229) — 727 is the maximum over a 43 707-cube menu on the n=5 record — exhaustively, with zero refusals
+- [Postscript 230](#p230) — the whole n=5 family extended — 480 777 configurations, zero refusals, and 727 stands
+- [Postscript 231](#p231) — the full census re-signed — filtering is NOT dead, and the statistic that was crowned is the…
+- [Postscript 232](#p232) — TAXONOMY 12a re-established exactly — and preservation was a SMALL-INTEGER DIRECTION…
+- [Postscript 233](#p233) — one of [P225]'s two "exact pair rules" is FALSE — and its evidence was one configuration…
+- [Postscript 234](#p234) — 393 is rigid in the FULL space — the only candidate direction moves four cubes at once
+- [Postscript 235](#p235) — the project's only upper bounds above n=3 are proved for COINCIDENCE-FREE configurations,…
+- [Postscript 236](#p236) — the obstacle of [P235] dissolves — d1 splits exactly into a 3-body term and a PAIR term, and…
+- [Postscript 237](#p237) — d1 ≤ 108·C(n,3) + 10·C(n,2) + 2, for EVERY configuration — the first upper bound above n=3…
+- [Postscript 238](#p238) — coincidence RADII are a perfect invariant and a symmetry detector — and there is no ninth 183
+- [Postscript 239](#p239) — radii as an equivalence detector, and the first count predictor derived from a theorem
+- [Postscript 240](#p240) — which radius combinations are attainable — the combinatorial part is a five-element list,…
 
 <!-- INDEX:END -->
 
@@ -16013,7 +16116,17 @@ Files: `census.py`, `census_merge.py`, `signature.py`, `realsig.py`, `signed_sig
 
 <a id="p223"></a>
 
-## [VERIFIED] Postscript 223: filtering before counting is dead — measured twice, built never
+## [REVERSED] Postscript 223: filtering before counting is dead — measured twice, built never
+
+> **REVERSED 2026-09-07 by [P231](#p231).** Filtering pays. Three things were wrong here:
+> the statistic was costed in a `Fraction` implementation 10× slower than an exact integer
+> one (0.25× a count, not 0.8×–3.8×); the statistic being costed was the Möbius weight,
+> which the corrected normals show is worthless (orders 51.5 %); and correlation was the
+> wrong framing — by *enrichment*, keeping `maxc ∈ {6,8,9}` skips 69.6 % of candidates for
+> 11.1 % of the high counts and nets **1.81×**, held out on a disjoint half of the census.
+> The n-scaling objection below was tested and is immaterial: the ratio goes 0.22× at n=4 to
+> 0.30× at n=8 and flattens. **The conclusion "counting is the cheapest thing that tells you
+> the count" is false.** Everything below is the reasoning as it stood.
 
 Two open questions closed, both negatively, and the negatives are the useful part.
 
@@ -16044,10 +16157,11 @@ costs 0.7 × a count for 61 % ordering, which would need a ~70 % skip rate to br
 and a 61 % predictor skipping 70 % discards records freely. Worse, the statistic costs
 C(6n,3) exact 3×3 solves while the count scales better, so the ratio **worsens** with n.
 
-**Both filters were measured before being built, and both died there** — concurrence at
+*(Reversed — see the banner above.)* **Both filters were measured before being built, and both died there** — concurrence at
 0.8 × a count needing a 76 % skip rate ([P222](#p222)), and this at 3.8 ×. That is the
 whole "solve cheaply, filter structurally, count only the promising" program, and it does
-not work here: **counting is the cheapest thing that tells you the count.**
+not work here: **counting is the cheapest thing that tells you the count.** *(False —
+reversed by [P231](#p231). See the banner at the head of this postscript.)*
 
 ~~What survives is the finding, not the application. The Möbius weight of real incidences
 remains the best count predictor this project has (r = 0.562, orders 77.6 % of arbitrary
@@ -16057,7 +16171,9 @@ pairs) and is worth keeping as structure — it just cannot buy time.~~
 inverse rotation of every cube; corrected, r = −0.147 and it orders 50.6 % of 3 320 pairs
 ([P227](#p227)). The conclusion of this postscript is unaffected and in fact strengthened:
 **counting is the cheapest thing that tells you the count**, and now there is no structural
-predictor to weigh against it either.
+predictor to weigh against it either. *(Both halves false — reversed by [P231](#p231):
+max plane-concurrence orders 61.1 % of pairs and the statistic costs 0.25× a count in exact
+integers, which is a 1.81× filter on held-out data.)*
 
 **So the leverage is where [P222](#p222) left it: the counting engine**, which recomputes
 all n cubes from scratch when only one has moved. Every search here — climbs, sweeps,
@@ -16139,7 +16255,13 @@ Files: `recordfamily3.log`, `n4_search_report.md`, `maxima_spacing.py`, `concurr
 
 <a id="p225"></a>
 
-## [VERIFIED] Postscript 225: two exact pair rules, and the frustration curve measured along the whole tower
+## [PARTLY REFUTED] Postscript 225: two exact pair rules, and the frustration curve measured along the whole tower
+
+> **2026-09-07 — [P233](#p233).** The 13-pair rule is **FALSE** on independent pairs (150 of
+> 199; `1,0,0,0;2,2,3,0` counts 13 with axis (2,3,0)). The 9-pair rule **HOLDS**, now on
+> 1 403 of 1 403. And the evidence claimed below — *"zero violations across every record from
+> n=4 to n=7 (6, 10, 15 and 21 pairs)"* — reads as 52 tests but the records are NESTED: it is
+> **21 distinct pairs from one 7-cube configuration.**
 
 **Two conditions, zero violations across every record from n=4 to n=7** (6, 10, 15 and 21
 pairs checked individually):
@@ -16185,7 +16307,12 @@ Files: `n4_search_report.md`, `maxima_spacing.py`, `concurrence.py`.
 
 <a id="p226"></a>
 
-## [VERIFIED] Postscript 226: the tower is a five-cube CORE plus cubes hung off a hub
+## [EVIDENCE OVERSTATED] Postscript 226: the tower is a five-cube CORE plus cubes hung off a hub
+
+> **2026-09-07 — [P233](#p233).** The five records tabulated below are one nested chain, not
+> five independent observations: 36 distinct pairs total, each level containing the last. The
+> structural reading may well be right; the phrase "at every level" describes **one object
+> measured six times**, and nothing here has been tested against a record outside this tower.
 
 Extending [P225]'s pair rules to the graph structure. For each record, the 13-pairs and
 9-pairs were taken as graphs on the cubes and their degree sequences computed.
@@ -16412,3 +16539,774 @@ cube and a global rotation — the class count and the string count differ by a 
 free to measure and expensive to ignore. Here it was **6.9×**.
 
 Files: `congruent.py`, `n5family.py`, `n5family_classes.json`, `extend_n5.py`.
+
+<a id="p229"></a>
+
+## [VERIFIED] Postscript 229: 727 is the maximum over a 43 707-cube menu on the n=5 record — exhaustively, with zero refusals
+
+*2026-09-07.* Extending [P228]. The n=5 record's class was extended by **every** cube in the
+octahedral quotient of [−14,14]⁴ — 43 707 classes, one representative each — with
+`cube_regions_inc --base`, which reuses the five-cube arrangement and clips only the six new
+planes. **43 707 of 43 707 evaluated; zero refusals, zero unevaluable.**
+
+**Gated first, and the gate is one candidate.** The 393 base plus the menu's spelling of
+(7,14,1,-5) must return 727. It does. That confirms the engine, the `--base` path, and that
+an octahedral respelling is the same physical cube, in a single call — the previous version
+put this behind a two-hour pass, which is how a menu-membership bug cost two hours to
+observe.
+
+**The result.**
+
+    max over the whole menu     727     6 cubes
+                                725     3
+                                723   269
+                                721    21
+                                719   105
+                                717   156
+                                715   150
+    median 689,  mean 689.9
+
+**Nothing beats 727.** This is an exhaustive statement over a stated family, not a sample —
+the distinction [RESULTS](RESULTS.md) tags as EXHAUSTED rather than OBSERVED — and the
+family is large enough to contain the record's own sixth cube, which is what makes the
+negative mean something.
+
+**The six winners are two orbits, and the orbits are the base's own symmetry.**
+
+| class | cubes | height | depth profile | |
+|---|---|---|---|---|
+| 1 | (1,5,7,−14), (1,7,14,−5), (1,14,5,−7) | 14 | {214, 220, 156, 100, 36, 1} | **congruent to the recorded 727** |
+| 0 | (1,5,8,−13), (1,8,13,−5), (1,13,5,−8) | **13** | {214, 216, 162, 98, 36, 1} | the second 727 class |
+
+Each triple is one orbit of the 393's C₃ symmetry, so the six are two compounds, not six —
+verified constructively with `congruent.py`, which exhibits the rotation. Both classes were
+already known ([P48](#p48) found the plateau; the {214,216,162,98,36,1} profile is recorded
+from [P185](#p185) onward). What is new is that they are the **only** two in this menu, and
+that each occurs exactly once up to congruence.
+
+**A smaller representative of the second class.** In this base's spelling the
+{214,216,162,98,36,1} class is reached by a **height-13** cube. Heights matter here only
+because menu shape has repeatedly been the binding constraint — 723 stood for weeks because
+every campaign sampled small quaternions ([RESULTS](RESULTS.md)) — and a height-13 witness is
+inside menus that a height-14 one is not.
+
+**What this does NOT say.** It says nothing about cubes outside the menu. The menu is a
+lattice quotient, and a lattice sweep is a sample of SO(3) however exhaustive it is of
+itself; [METHODS 1](METHODS.md) applies, and the solved version of this question is the
+three-wall intersection of [P48](#p48), which is what actually found 727. The value here is
+the *shape* of the top of the distribution — 6 cubes at 727, 3 at 725, 269 at 723 — which a
+solver does not give.
+
+**The other ten n=5 classes are running** (each reaches 387, six below the record). Their
+result belongs in a later postscript; this one covers the record's own class only.
+
+Files: `extend_n5.py`, `congruent.py`, `cube_regions_inc`, `extend_n5_results/`.
+
+<a id="p230"></a>
+
+## [VERIFIED] Postscript 230: the whole n=5 family extended — 480 777 configurations, zero refusals, and 727 stands
+
+*2026-09-07.* Completing [P229]. All **eleven** congruence classes of n=5 base counting ≥385
+([P228]) were extended by every cube in the octahedral quotient of [−14,14]⁴ — 43 707 classes
+each, **480 777 counts in total, 43 707 of 43 707 evaluated per base, zero refusals**.
+
+| base | n=5 | n=6 max | cubes at max | orbits | median | bulk top | esc | sym |
+|---|---|---|---|---|---|---|---|---|
+| 0 | **393** | **727** | 6 | 2 | 689 | 723 | 4 | 3 |
+| 1 | 387 | 725 | 3 | 1 | 679 | 713 | 12 | 3 |
+| 8 | 387 | 723 | 1 | 1 | 681 | 713 | 10 | 3 |
+| 4 | 387 | 723 | 3 | 1 | 681 | 717 | 6 | 3 |
+| 5 | 387 | 723 | 4 | 2 | 683 | 717 | 6 | 3 |
+| 6 | 387 | 723 | 3 | 1 | 681 | 717 | 6 | 3 |
+| 7 | 387 | 721 | 12 | 1 | 681 | 717 | 4 | **12** |
+| 9 | 387 | 719 | 6 | 2 | 683 | 717 | 2 | 3 |
+| 2 | 387 | 717 | 199 | 121 | 681 | 717 | 0 | 3 |
+| 3 | 387 | 717 | 246 | 136 | 681 | 717 | 0 | 3 |
+| 10 | 387 | 717 | 368 | 90 | 683 | 717 | 0 | **12** |
+
+**Three results.**
+
+1. **727 stands.** Nothing in 480 777 configurations beats it, and only the record's own base
+   reaches it. EXHAUSTED over a stated family, not sampled.
+2. **The n=5 count does not determine how well a base extends.** Ten compounds with identical
+   n=5 count 387 spread across 717–725. Ranking bases by their own count discards
+   information — which is [OQ 22](OPEN_QUESTIONS.md), now closed.
+3. **But at the top the count is still the right ranking**: base 0 is the only base above 725.
+
+**Two gates, and the better one came from the data rather than from me.** The designed gate
+fires once: the 393 base plus the menu's spelling of (7,14,1,-5) must return 727. The gate
+found *in* the sweep fires on every base, needs no known answer, and is exact — the menu is
+the octahedral quotient, so it contains each base's own five cubes, and adding a duplicate
+cannot change the arrangement. So the minimum over the menu must equal the base's own count,
+attained by exactly those five cubes. **Passes 11 of 11.** Written up as
+[METHODS 24](METHODS.md); it is the precise inverse of the `--base` bug this project already
+shipped ([P223](#p223)), which returned the base's count for *every* candidate.
+
+**A prediction registered, confirmed, then refuted — and half of it was never a prediction.**
+Two bases (7 and 10) have symmetry group order 12 against everyone else's 3. Before either
+ran I predicted their maxima would be concentrated into few, large orbits. Base 7 delivered
+the strongest possible form: **12 cubes at its maximum in exactly ONE orbit, one congruence
+class**, 12:1 against the others' 3:1. Base 10, equally symmetric, gave **368 cubes in 90
+orbits** — the widest plateau of any base. **One for two; the claim is dead.**
+
+And the other half of what I wrote was vacuous: *"orbit sizes will be divisors of 12"* is
+Lagrange's theorem. It could not have come out otherwise, so its confirmation on base 7 was
+[FAILURE_MODES 2](FAILURE_MODES.md) — a gate that cannot fail — dressed as a result. The
+testable content was entirely in the word *concentrated*, and that is what base 10 killed.
+
+**What survives of the symmetry observation** is a reframing rather than a finding: how many
+cubes attain a base's maximum is mostly a statement about that base's own group, so the
+invariant quantity is **orbits at the maximum**. Read that way, eight of eleven bases have
+**one or two best sixth cubes up to congruence**, and three (2, 3, 10) have genuine wide
+plateaus of 90–136. That split does not track symmetry, count, or median.
+
+**Nothing measured here predicts extension quality within the tier.** Symmetry order does not
+(the two order-12 bases are the tier's second-best and worst). Median does not (683 belongs
+to bases reaching 723, 719 and 717). `esc` and `cubes at max` are two views of one quantity
+and both are downstream of the answer. The tier is flat to every statistic tried.
+
+**Scope.** The menu is a lattice quotient, so each row is exhaustive of a stated family and a
+sample of SO(3) ([METHODS 1](METHODS.md)). This bounds nothing above 727; the solved route to
+that question remains the three-wall intersection of [P48](#p48).
+
+Files: `extend_n5.py`, `extend_n5_report.py`, `congruent.py`, `n5family_classes.json`,
+`extend_n5_results/` (44 shard files).
+
+<a id="p231"></a>
+
+## [VERIFIED] Postscript 231: the full census re-signed — filtering is NOT dead, and the statistic that was crowned is the one that is worthless
+
+*2026-09-07.* All **3 135 491** census rows re-signed with the corrected face normals
+([P227]), 2 171 excluded for having no count. One incidence pass per row produced all four
+void statistics. `resign_all.py`, `resign_report.py`.
+
+### 1. Richness — the void ~4 216 replaced
+
+| ensemble | configs | signatures | Chao1 | coverage |
+|---|---|---|---|---|
+| `threeaxis` | 672 273 | **4 993** | 7 507 | 67 % |
+| `twoaxis` | 377 083 | 3 949 | 6 164 | 64 % |
+| `chain` | 589 353 | 3 504 | 5 764 | 61 % |
+| `axis` | 328 610 | 1 868 | 2 281 | 82 % |
+| `project` | 270 856 | 339 | 487 | 70 % |
+| `mixed` | 616 569 | 236 | 302 | 78 % |
+| `haar` | 278 576 | **45** | 70 | 65 % |
+| **ALL** | 3 133 320 | **7 156** | **9 681** | 74 % |
+
+The corrected map is **2.3× richer** than the broken one (7 156 against 3 055). *Chao1
+assumes independent draws from a fixed population; these are constructed families, so read
+it as an order of magnitude — a caveat the original did not carry.* The qualitative point
+survives intact and is sharper: the null ensemble yields **45** signatures in 278 576 draws.
+
+### 2. A signature still does not pin the count — but my sample understated by 3×
+
+**4 920** signatures occur more than once; **629 (12.8 %)** pin the count exactly, median
+spread 16, max 96. The two 3 000-row resamples said 4.8 % and 3.7 %. The claim survives —
+87 % do not pin — but *the number a sample gave was wrong by a factor of three*, which is
+worth remembering the next time a resample stands in for a census.
+
+### 3. The predictor ranking is INVERTED
+
+| statistic | void figure | corrected, full census |
+|---|---|---|
+| max plane-concurrence | r = 0.354 | **r = +0.122, orders 61.1 %** (124 753 pairs) |
+| real (face-bounded) incidences | orders 57 % | r = +0.024, orders 54.3 % |
+| Möbius weight of real incidences | **r = 0.562, orders 77.6 %** | r = −0.105, **orders 51.5 %** |
+
+**The statistic [P222] crowned is the only one that is worthless, and the signal is in the
+one nobody re-measured.** 61.1 % on 124 753 pairs is ~78σ from chance.
+
+**Correcting myself, from this morning.** [P227] re-measured the Möbius weight alone, and I
+then wrote *"there is no predictor"* and *"there is no cheap non-circular count predictor"* —
+scoring two unevaluated statistics as negatives, hours after adding [FAILURE_MODES 27] about
+exactly this. Unevaluable is not a negative result; neither is unevaluated.
+
+**It is strongly non-monotone**, so `r` is the wrong summary. Mean count by max concurrence:
+
+    maxc   3     4     5     6     7     8     9    10    11    12
+    mean 115.5 122.0 112.1 128.0 106.7 123.0 136.1 120.9  13.0 133.4
+
+### 4. [P223] IS REVERSED — filtering pays
+
+Three compounding errors killed it. **(a)** The economics were measured with a `Fraction`
+implementation. Every decision here is an exact sign test with a bounded multiply chain, so
+the rationals are unnecessary; carrying points as (numerators, det) integers is **10×
+faster** and the statistic costs **0.25× a count**, not the 0.8×–3.8× that killed it.
+**(b)** The statistic being costed was the worthless one. **(c)** A correlation framing hides
+the structure — the right view is *enrichment*, not slope:
+
+| maxc | share of configs | share of counts ≥165 | enrichment |
+|---|---|---|---|
+| 9 | 0.70 % | 12.57 % | **18.0×** |
+| 6 | 20.81 % | 62.99 % | 3.0× |
+| 8 | 8.81 % | 13.64 % | 1.6× |
+| 3, 10, 11, 12 | 9.0 % | **0.00 %** | **0** |
+
+**Held out on a disjoint half of the census** — classes ranked on one half, scored on the
+other — keeping `maxc ∈ {6, 8, 9}` **skips 69.6 % of candidates, loses 11.1 % of the
+configurations counting ≥165, and nets 1.81×.** In-sample and held-out agree to 0.3 %.
+
+**And the threshold sensitivity runs the right way**: the filter loses 22.7 % at ≥150,
+10.8 % at ≥165, and **0.0 % at ≥170, ≥175 and ≥177**. All four census-best 177s have
+maxc = 6, and so does the n=4 record **183** — both inside the kept set. It discards
+mediocre-high configurations and none of the best.
+
+**The n-scaling objection, tested rather than repeated.** [P223] argued the ratio must worsen
+with n because the statistic is C(6n,3) solves. Measured: **0.22× (n=4), 0.28×, 0.29×,
+0.31×, 0.30× (n=8)** — it worsens slightly and then flattens, staying far below the 25 %
+break-even through n=8.
+
+### 5. A data-quality finding, unlooked for
+
+The 53 rows at maxc = 11 all count **13** — the n=2 maximum — and have only **2 distinct
+cubes of 4**. The ensembles generate coinciding cubes, so a small number of census rows are
+effectively n=2 compounds filed as n=4. Not enough to move any figure above, but the
+generators should reject duplicates and nothing was checking.
+
+**Scope.** All of §4 is n=4. The enrichment classes are measured, not derived, and a filter
+tuned on this census may be circular for a search that leaves it — the objection [P222] made
+against fitness-shaped filters applies to this one too, and the held-out split tests
+generalisation only *within* the census.
+
+Files: `resign_all.py`, `resign_report.py`, `resign_results/` (4 shards, 3 135 491 rows).
+
+<a id="p232"></a>
+
+## [VERIFIED] Postscript 232: TAXONOMY 12a re-established exactly — and preservation was a SMALL-INTEGER DIRECTION artifact, three times over
+
+*2026-09-07.* Arising from a user question: *for something as small as 2^-20, would calculus
+be a more appropriate tool than arithmetic?* Yes, and it took three wrong answers to get
+there — each one mine, each one a method parameter I had not varied.
+
+**The claim under test.** [TAXONOMY 12a](MAXIMISER_TAXONOMY.md) reported that a signature is
+**never** preserved under perturbation, at any scale, and concluded signature space has no
+local structure — the premise that abandoned navigation as a search strategy and built the
+ensemble-design program of [METHODS 23a](METHODS.md). Its numbers were void ([P227]) and, it
+turned out, **unsourced**: no script and no postscript produce them.
+
+**Attempt 1 — finite steps.** 160 000 configurations, 8 seeds, scales 2^-4 … 2^-26:
+**~35 % preserved, flat to 0.3 % at every scale**, corrected and broken normals agreeing.
+I read the flatness as scale-independence and wrote that 12a might be backwards.
+
+**Attempt 2 — an infinitesimal.** Exact arithmetic in Z[e] ordered by the sign of the lowest
+nonzero coefficient, degree bound verified at 12 so truncation is never reached
+(`epsfield.py`, `eps_signature.py`). Gated two-sidedly on a corner triple: a 9-fold that
+exists *because* three cubes share the (1,1,1) corner must SURVIVE an infinitesimal rotation
+about that axis and must DIE under a generic one. Both hold. Conditioning on the base being
+degenerate — a configuration with an empty signature has nothing to break — gives
+
+    degenerate bases (304)   preserved in   43 of 2432 pairs =  1.8 %
+    generic bases     (96)   preserved in  768 of  768 pairs = 100  %
+
+So most of the 35 % was 96 generic bases preserved trivially. I then offered a refinement:
+11 % of degenerate bases have at least one surviving direction, "a thin cone, not an empty
+one".
+
+**Attempt 3 — vary the DIRECTION, holding the step at an infinitesimal.** The refinement is
+also an artifact. Preservation depends on nothing but the height of the perturbing direction:
+
+| direction set | preserved | configs with ≥1 surviving direction |
+|---|---|---|
+| ±1 on one component (what attempt 1 used) | 16.2 % | 18 of 60 |
+| random in [−1,1]⁴ | 10.4 % | 17 of 60 |
+| random in [−5,5]⁴ (what attempt 2 used) | 2.5 % | 5 of 60 |
+| random in [−50,50]⁴ | **0.0 %** | **0 of 60** |
+| random in [−500,500]⁴ | **0.0 %** | **0 of 60** |
+
+**A clean monotone split by the SIZE of the input and by nothing about the object** — the
+documented tell for a badly chosen representative ([METHODS 16](METHODS.md)). Every nonzero
+rate this project measured for signature preservation was small-integer directions being
+special, not the space having structure.
+
+**Verdict, split.** 12a's **numbers stay void and unsourced**. 12a's **conclusion is
+confirmed, and more strongly than it stated it**: at generic direction height, preservation
+is **0 of 240** (config, direction) pairs. [METHODS 23a](METHODS.md)'s premise stands, and my
+flag that it "rests on a claim that may reverse" is withdrawn. *Stated as a bound rather than
+a zero: 0 of 240 caps the true rate near 1.2 %, not at 0.*
+
+**What the infinitesimal actually bought, since it was not speed.** Measured: 0.37 s per
+(config, direction) against 0.0087 s for a finite step at 2^-26 — **45× more expensive**, and
+my claim that it would be cheaper because bignums blow up at deep scales was simply wrong
+(0.0059 s at 2^-4 to 0.0087 s at 2^-26, a 1.5× drift). What it bought was the ability to
+**vary direction independently of step size**. With a finite step the two are confounded; with
+the step removed by construction, direction is the only remaining parameter and the artifact
+became visible in one table.
+
+**Three wrong answers, one cause.** Attempt 1 varied scale and held the direction set fixed
+at axis-aligned ±1. Attempt 2 varied nothing, inheriting [−5,5]⁴. Attempt 3 varied direction
+and found the whole effect there. **Six scales agreeing perfectly across 160 000
+configurations were six measurements of the same wrong thing** — [FAILURE_MODES 14](FAILURE_MODES.md),
+two samples agreeing means they share a cell, at a scale where the agreement looked
+overwhelming.
+
+Files: `epsfield.py`, `eps_signature.py`, `eps_local_structure.py`,
+`eps_direction_sensitivity.py`, `local_structure.py`, `ls_1..8.json`, `eps_ls.json`.
+
+<a id="p233"></a>
+
+## [VERIFIED] Postscript 233: one of [P225]'s two "exact pair rules" is FALSE — and its evidence was one configuration counted four times
+
+*2026-09-07.* Arising from a user question — *after several reversals, are there dubious
+claims about RESULTS stated with inappropriate certainty?* This is one, found by auditing for
+absolute quantifiers attached to small evidence.
+
+**The evidence base was overstated by construction.** [P225](#p225) asserts two rules with
+*"zero violations across every record from n=4 to n=7 (6, 10, 15 and 21 pairs)"*, which reads
+as 52 tests across four records. **The records are the tower and are perfectly nested** —
+every pair at level n is contained in level n+1:
+
+    n      4    5    6    7    8    9
+    pairs  6   10   15   21   28   36
+    NEW    6    4    5    6    7    8
+
+So the n≤7 evidence is **21 distinct pairs from a single 7-cube configuration**, not 52 from
+four. [P226](#p226)'s freeze claim rests on the same chain: five records, 36 distinct pairs,
+one object.
+
+**Tested on independent pairs.** Both rules are statements about PAIRS of cubes, so they are
+testable on arbitrary pairs rather than only on records. 4 000 pairs drawn from unrelated
+census configurations, counted exactly:
+
+| rule | result |
+|---|---|
+| **9-pair ⟹ axis lies in a coordinate plane** | **1 403 of 1 403 — HOLDS** |
+| **13-pair ⟹ axis is a BODY DIAGONAL** | **150 of 199 — FALSE** |
+
+**Explicit counterexamples**, verified directly by the engine:
+
+    ./cube_regions_n --quats "1,0,0,0;2,2,3,0"    -> bounded 13,  axis (2,3,0)
+    ./cube_regions_n --quats "1,0,0,0;2,0,-3,2"   -> bounded 13,  axis (0,-3,2)
+
+Both are coordinate-plane axes. **A quarter of independent 13-pairs have no body-diagonal
+representative at all.** The rule held on the tower because the tower's 13-pairs happen to be
+of that kind — which is a fact about one compound, and was reported as a law.
+
+**The converse fails too, and more cheaply than anyone checked.**
+`1,0,0,0;1,1,1,1` is a body-diagonal axis and counts **1**, not 13, because (1,1,1,1) is a
+120° rotation about (1,1,1) — a cube self-symmetry, so the two cubes coincide.
+[RESULTS](RESULTS.md)'s "13 for any angle about a shared body diagonal" needs *any angle other
+than the cube's own symmetries*.
+
+**What survives.** Rule 2 is now on 1 403 independent confirmations instead of a handful from
+one object — far stronger than it was. Rule 1 is dead as an ⟺ and survives only as an
+observation about this tower.
+
+**And I nearly refuted the true rule.** The first version of this test computed the relative
+rotation as `canon(q_a^-1 q_b)` — ONE spelling. A cube has 24 names, so a pair's relative
+rotation has up to 576, and asking about one asks about the spelling. That test reported
+**both** rules violated (rule 2 at 398 of 1 403). Over the full double coset rule 2 is perfect.
+Identical in kind to [P228](#p228)'s menu-membership bug and to [P227](#p227) itself: a
+property of a representative mistaken for a property of the object, three times in one day.
+
+Files: `congruent.py`, `cube_regions_n`.
+
+<a id="p234"></a>
+
+## [VERIFIED] Postscript 234: 393 is rigid in the FULL space — the only candidate direction moves four cubes at once
+
+*2026-09-07.* Arising from a user question about a table cell: *"MAXIMISER_TAXONOMY says
+`| 5 | 393 | 0 against single-cube moves |` — have we tested it against multiple cube
+moves?"* No. The scope was stated honestly and the gap it names was real.
+
+**The gap was structural, not incidental.** At the 393 the ambient space is 12-dimensional —
+four moving cubes × 3 Cayley coordinates, cube 0 frozen as gauge. Single-cube probes explore
+four separate 3-dimensional coordinate subspaces and cannot see any direction that moves two
+cubes together. Computing the null space of the active wall conditions in the FULL space:
+
+    393 : ambient 12   tight 168   rank 11   NULLITY 1   -- and that direction moves ALL FOUR cubes
+    727 : ambient 15   tight 216   rank 14   NULLITY 1   -- known moduli dimension >= 1
+
+**So 393 had exactly the first-order signature of a configuration known to sit on a
+continuum, and the one direction that could have realised it was invisible to every probe
+ever run on it.**
+
+**Walked, and it fails.** The count drops **393 → 357** at 1/64, 1/256, 1/1024, 1/4096,
+1/16384, 1/65536, symmetric in ±v.
+
+**Settled exactly, because six agreeing finite steps is the evidence [P232] just showed can
+be worthless.** Perturbing by an infinitesimal along ±v and computing the signature in Z[e]:
+
+    393        ((4,174), (6,8))
+    393 ± e*v  ((4, 54), (6,2))     -- LEAVES the degenerate stratum
+
+The configuration leaves its stratum for all sufficiently small e > 0, which the count cannot
+survive. No step size appears anywhere in that statement.
+
+**Net: the claim is STRENGTHENED, not overturned.** "0 against single-cube moves" becomes
+"0 in the full configuration space, to first order" — and it now rests on the one direction
+that mattered rather than on a family of probes that were structurally blind to it.
+
+**What is still not proved.** First-order tangency to ALL active walls is what was tested. A
+locus CURVED at 393 would be missed by a straight-line tangent, and so would a direction
+tangent to a subset of walls whose crossings happen not to change the count. The cell still
+reads "not proved" for n=4 and should be read the same way here.
+
+**The pattern worth keeping.** A stated scope is not a discharged one. This cell said exactly
+what it had tested, correctly, for weeks — and the honest scope note was doing the work of
+hiding that the untested part was where the answer lived.
+
+Files: `dimension.py`, `epsfield.py`, `eps_signature.py`.
+
+<a id="p235"></a>
+
+## [VERIFIED] Postscript 235: the project's only upper bounds above n=3 are proved for COINCIDENCE-FREE configurations, and maximisers are not
+
+*2026-09-07.* First step of the n=4 depth-1 programme: before tightening
+`d1 <= 108*C(n,3) + 2`, re-derive it. It does not hold where it is needed.
+
+**The target is sound.** The ceiling law was checked against **3 133 320 independent census
+configurations** — not the nested tower that [P233](#p233) exposed. Zero violations at any
+depth; `d2 = 66` and `d3 = 24` are both ATTAINED, so those caps are tight, and `d1` tops out
+at **96** against the conjectured cap **104** (record 92). The n=4 record's profile
+`{1, 92, 66, 24, 1}` sits exactly on two of three caps, and `1 + 24 + 66 + 104 = 195` minus
+the frustration deficit 12 is exactly 183. The programme's target is the right one.
+
+**The identity was reproduced independently.** `v3_outer.py` recomputes V3 on the outer
+boundary and c on the outer curve arrangement from scratch. On a coincidence-free n=4
+configuration it gives `64/2 + 1 + 1 = 34 = d1` — exact agreement, and `c = 1` in every case
+tested, so the constant 2 in the published bound is not the problem.
+
+**But `d1 = V3/2 + c + 1` is an INEQUALITY, and the gap is largest at maximisers.**
+
+| configuration | d1 | V3 | c | V3/2+c+1 | excess |
+|---|---|---|---|---|---|
+| n=4 Haar, coincidence-free | 34 | 64 | 1 | 34 | **0** |
+| n=5 Haar, two 4-body points | 70 | 122 | 1 | 63 | 14 |
+| n=4 tower layer | 80 | 84 | 1 | 44 | 72 |
+| **n=4 record 183** | **92** | 84 | 1 | 44 | **96** |
+| **n=5 record 393** | **156** | 150 | 1 | 77 | **158** |
+
+At the n=4 record the excess is **96 against a V3/2 of 42** — the term the derivation drops is
+larger than the term it keeps.
+
+**What this means for the bound.** [RESULTS](RESULTS.md) states `d1 <= 108*C(n,3) + 2` as
+**PROVED for every n**, deriving it from an identity it describes two lines later as
+*"verified on coincidence-free configurations"*. Those are not the same claim. `d1 = V3/2 + c
++ 1` fails at every coincident configuration measured here, always in the direction that
+makes d1 LARGER than the identity predicts, so bounding V3 does not bound d1 unless the
+excess is bounded too — and nothing bounds it. **The bound is not false; it is unproved
+outside the coincidence-free class.** The n=4 record is emphatically outside it, and by
+construction: [P224](#p224) and [P225](#p225) established that maximisers are built from
+coincidences.
+
+**So the programme's first task changes.** Tightening 216 to something smaller was the plan,
+and it is now the second task. The first is to bound the excess — the extra degree carried by
+merged vertices — or to find a route to d1 that does not pass through a generic-position
+identity. That is a real obstacle rather than a loose constant, and it sits underneath the
+project's only upper bounds at n >= 4.
+
+**A substitution that does NOT rescue it, tested and discarded.** METHODS notes that 216 is
+loose "even at n = 3, where the true cap implied by d1 <= 48 is V3 <= 92", then keeps using
+216. Replacing it is valid — every outer triple point of a sub-triple in a larger
+configuration is an outer triple point of that triple alone, verified on five configurations,
+and standalone V3 never exceeded 32 against the cap of 92 — and it would give
+`d1 <= 46*C(n,3) + 2`, i.e. **186 at n=4 instead of 434**. But it is a bound on V3, so it
+inherits the same defect and buys nothing at a maximiser.
+
+Files: `v3_outer.py`.
+
+<a id="p236"></a>
+
+## [VERIFIED] Postscript 236: the obstacle of [P235] dissolves — d1 splits exactly into a 3-body term and a PAIR term, and the pair term is n=2 geometry
+
+*2026-09-07.* [P235] found that `d1 = V3/2 + c + 1` is an inequality at coincident
+configurations, with the dropped term (96) larger than the kept one (42) at the n=4 record,
+so the project's only upper bounds above n=3 were unproved exactly at maximisers. The
+obstacle was in the substitution, not in Euler.
+
+**Step 1 — use the genericity-free form.** Euler plus handshake on the outer boundary give,
+with no assumption whatever,
+
+    d1  =  E - V + c + 1  =  SUM_v ( deg(v)/2 - 1 )  +  c + 1
+
+Putting deg = 3 at triple points and 2 at edge-face incidences is what produces `V3/2+c+1`,
+and that is the step that fails. **The exact form is EXACT on every configuration tested,
+records included** — n=4 Haar 34, n=5 Haar 70, n=4 record 92, n=4 tower 80, n=5 record 156,
+all matching, with `c = 1` throughout, so the published constant 2 was never the problem.
+
+**Step 2 — classify what contributes, and the answer is short.** Only vertices of degree ≥ 3
+contribute. Tabulating them by how many face planes each cube supplies:
+
+| planes per cube | deg | gain | cross-cube triples | what it is |
+|---|---|---|---|---|
+| (1,1,1) | 3 | 1/2 | 1 | generic triple point |
+| (1,1,1,1) | 4 | 1 | 4 | four bodies through a point |
+| (2,1) | 2 | 0 | 0 | edge-face incidence |
+| **(2,2)** | **4** | **1** | **0** | **edge-edge coincidence** |
+| **(3,3)** | **6** | **2** | **0** | **SHARED CORNER** |
+
+Every ≥3-body vertex satisfies `gain ≤ crossT/2`, so it is charged correctly by the old
+plane-triple count. **The two-body vertices carry no cross-cube triple at all**, which is why
+a count of "one plane from each of three cubes" cannot see them. At the n=4 record they are
+36 edge-edge and 6 shared corners, contributing `36 + 12 = 48` — *exactly* the whole excess.
+
+**The split is therefore exact and complete:**
+
+    d1  =  (3-or-more-body gain)  +  (two-body gain)  +  c + 1
+
+    n=4 record 183   92 = 42 + 48 + 2        n=4 Haar   34 = 32 + 0 + 2
+    n=4 tower         80 = 42 + 36 + 2        n=5 Haar   70 = 62 + 6 + 2
+    n=5 record 393   156 = 78 + 76 + 2
+
+**Step 3 — what remains, and why it is the tractable half.** The first term is bounded exactly
+as before, now legitimately: `≤ 108*C(n,3)`. The second is a sum over PAIRS of cubes of
+`2*(shared corners) + (edge-edge coincidences)` — **a question about two congruent cubes
+about a common centre, which is the one case this project has fully PROVED** (max(2) = 13).
+A cube has 8 corners and 12 edges, so both counts are finite and small; measured per pair:
+
+    n=4 record 8.00   n=5 record 7.60   n=4 tower 6.00   n=5 Haar 0.60   n=4 Haar 0.00
+
+With β the per-pair bound, `d1 ≤ 108*C(n,3) + β*C(n,2) + 2` holds **for every configuration,
+coincident or not**. At β = 8 that is 482 at n=4 against the old (restricted) 434 — a slightly
+weaker number for a bound that is actually proved where it is needed, which is the right
+trade. Tightening 216 to the triples that are real and outside every other body, the original
+plan, then applies to the first term unchanged.
+
+**And the pair term explains a known fact.** A shared corner is two cubes sharing a body
+diagonal, which is exactly [P225]'s 13-pair condition — the one direction of that rule which
+[P233] confirmed is sufficient. The record's 13-pairs are the source of its degree-6 vertices,
+and its d1 excess of 48 is bought with them.
+
+Files: `v3_outer.py`.
+
+<a id="p237"></a>
+
+## [VERIFIED] Postscript 237: d1 ≤ 108·C(n,3) + 10·C(n,2) + 2, for EVERY configuration — the first upper bound above n=3 that holds at maximisers
+
+*2026-09-07.* Completing [P235] and [P236]. The published `d1 <= 108*C(n,3) + 2` rests on an
+identity that fails at coincident configurations, i.e. at every maximiser. This replaces it
+with a bound proved without any genericity assumption, at the cost of one term.
+
+**The chain, with every input already established.**
+
+1. **`d1 = SUM_v (deg(v)/2 − 1) + c + 1`.** Euler plus handshake on the outer boundary.
+   Exact, no genericity — verified on records and Haar draws alike ([P236]).
+2. **Vertices meeting three or more bodies charge to cross-cube plane triples.** For a vertex
+   with `k_i` planes from cube `i`, the gain `deg/2 − 1` is at most half the number of triples
+   taking one plane from each of three distinct cubes, so this term is `≤ 216*C(n,3)/2 =
+   108*C(n,3)` — the old count, now applied only where it is valid.
+3. **Two-body vertices are bounded by the n = 2 theorem.** They carry no cross-cube triple,
+   which is exactly why the old bound missed them. But for a pair alone there are no
+   ≥3-body vertices at all, so step 1 reads `gain = d1(pair) − c − 1`. The common core
+   contains the centre, so `d2(pair) ≥ 1` and `d1(pair) ≤ count − 1 ≤ 12` by **max(2) = 13,
+   which is PROVED**. With `c ≥ 1`:
+
+        gain(pair)  =  d1(pair) − c − 1  ≤  12 − 1 − 1  =  10
+
+4. **Adding cubes only deletes outer vertices** (they get swallowed), so the pair-alone value
+   bounds the same pair inside any larger configuration.
+
+**Hence, for every n and every configuration:**
+
+    d1  <=  108*C(n,3)  +  10*C(n,2)  +  2
+
+    n=4  494      n=6  2312      n=8  6330
+    n=5 1182      n=7  3992
+
+**Verification.** 2 500 non-degenerate pairs: max gain observed **10**, matching the bound
+exactly, with zero violations of `gain ≤ 10`, `d2 ≥ 1`, or `d1 + d2 = count`. The pair count
+**determines** the gain, on 3 000 pairs with no exceptions:
+
+    count   4   5   9  13
+    gain    0   2   6  10
+
+so the bound is attained precisely at 13-pairs — and 13-pairs are shared body diagonals
+([P233]), i.e. shared corners, which are the degree-6 vertices.
+
+**The n=4 record, accounted for exactly.** `d1 = 92 = 42 + 48 + 2`: three 13-pairs at gain 10
+and three 9-pairs at gain 6 give the 48, and 42 is the generic triple-point term. [P224]'s
+"hub plus three cubes on body diagonals" and [P225]'s frustration are now a d1 identity rather
+than a description.
+
+**Honest accounting of what changed.** The number got WORSE: 494 against 434 at n = 4. The old
+figure was proved for coincidence-free configurations, a class containing no maximiser; this
+one is proved for all of them. A weaker bound that covers the case of interest is the trade,
+and the tightening programme — replacing 216 by the triples that are real and outside every
+other body — now applies to a first term that is legitimately there.
+
+**Distance to the goal.** The target is `d1 <= 104` at n = 4 (attained value 92, census max
+96). This bound is 494, so the remaining factor is **4.75×**, all of it in the 3-body term:
+`108*C(4,3) = 432` against a measured 3-body gain of 42 at the record — a factor of 10 sitting
+entirely in "which plane triples are real and outermost".
+
+Files: `v3_outer.py`, `pair_term.py`.
+
+<a id="p238"></a>
+
+## [VERIFIED] Postscript 238: coincidence RADII are a perfect invariant and a symmetry detector — and there is no ninth 183
+
+*2026-09-07.* A user proposal: record the radii at which cube boundaries coincide, and ask how
+well the list characterises a configuration. It is a better-founded invariant than the
+plane-incidence signature and answers a different question than expected.
+
+**Why it cannot repeat [P227]'s failure.** A radius is a distance from the shared centre, so
+it is invariant under a global rotation, and each cube's own 24 symmetries fix the cube as a
+point set, so it is invariant under respelling. The property is structural, not measured —
+and gated anyway: **0 of 24 octahedral respellings** changed it, and a global rotation left it
+unchanged. `radii.py`.
+
+**The user's scale claim, confirmed exactly.** With cubes `|M.x| <= 1` (side 2), an edge-edge
+coincidence lies on an edge of both cubes so `2 <= r^2 <= 3`, and a corner-corner coincidence
+has `r^2 = 3`. Measured: edge-edge radii fall in `[51/25, 281/100]`, every corner-corner at
+exactly 3, on every configuration tested. (For unit-side cubes, `sqrt(2)/2 <= r <= sqrt(3)/2`,
+as stated.)
+
+**As a classifier it is too good: it is INJECTIVE.** On 600 census configurations there are
+**600 distinct radius signatures** — nothing ever collides, so "does it pin the count" is
+vacuous. The plane-incidence signature gives 137 distinct on the same 600, with 57 repeated
+groups. A perfect fingerprint is not a taxonomy.
+
+**The information is in how much the multiset COLLAPSES**, and that measures symmetry:
+
+| configuration | count | symmetry | vertices | distinct r² | ratio |
+|---|---|---|---|---|---|
+| 183 (recorded) | 183 | 3 | 150 | 17 | **8.82** |
+| 393 minus cube 4 | 171 | 3 | 168 | 23 | 7.30 |
+| shared-axis 161 | 161 | 2 | 116 | 30 | 3.87 |
+| 393 minus cube 0 | **179** | **1** | 146 | 39 | 3.74 |
+| Haar | 113 | 1 | 162 | 70 | 2.31 |
+| random census, every count band 80–179 | | | | | **~2.2, flat** |
+
+The ratio is flat across count bands inside the random ensemble and tracks symmetry order
+everywhere: 3 → 7.3–8.8, 2 → 3.9, 1 → 2.3–3.7. **A 179-count configuration with trivial
+symmetry scores BELOW a 171-count one with C₃.** So it separates records from random draws by
+4×, but by detecting their symmetry, not their quality — the same shape as max plane
+concurrence in [P231].
+
+**An audit finding, unlooked for.** Running the symmetry control refuted a claim in the
+handoff note: *"a NINTH 183 exists (the 393 minus its cube 3): asymmetric, symmetry group
+order 1"*. The five 4-subsets of the 393 count **179, 179, 179, 183, 171**; the 183 one has
+**symmetry 3**, not 1, and `congruent.py` exhibits a rotation carrying it to the recorded 183.
+It is the same compound, not a ninth, and the three genuinely asymmetric subsets count 179.
+The claim never reached this ledger, so [P224]'s "eight such configurations" is unaffected —
+but it had been sitting in the handoff note that seeds every session.
+
+Files: `radii.py`, `congruent.py`.
+
+<a id="p239"></a>
+
+## [VERIFIED] Postscript 239: radii as an equivalence detector, and the first count predictor derived from a theorem
+
+*2026-09-07.* Two user questions about the radius invariant of [P238]: can it detect
+equivalence, can a configuration be solved for from a characterisation, and can it give a
+count quickly.
+
+### 1. Equivalence — YES, validated against ground truth
+
+The 76 n=5 bases are **11 congruence classes** by the constructive test of [P228], which
+exhibits the rotation. Grouping instead by radius signature gives **11 groups with identical
+sizes [2,2,8,8,8,8,8,8,8,8,8]**, every group inside one congruence class. Exact agreement.
+
+The right way to use it is as a HASH, and the asymptotics are the point: a radius signature is
+**one computation per configuration**, where pairwise congruence testing is O(N·k) tests for k
+classes. On 76 bases the constructive test is still faster (8.7 s against 12.2 s); at 10 000
+configurations the ordering reverses decisively. Bucket by radius, confirm inside buckets —
+injectivity here is measured, not proved, so the exact test stays in the loop.
+
+### 2. Solving for a configuration — the right inverse problem, unlike the signature
+
+A multiplicity histogram is a combinatorial object and is a poor target for inversion;
+[METHODS 23](METHODS.md) records that a full histogram is overdetermined and generally not
+realisable. **Radii are different in kind: they appear directly as polynomial conditions.**
+A corner-corner coincidence is `R_i v = R_j w` for cube corners v, w; an edge-edge coincidence
+at radius r is a point on an edge of each with `|p|² = r²`. Both are polynomial in the Cayley
+parameters, so `ALGEBRAIC_SEARCH.md`'s GroebnerBasis solver applies unchanged.
+
+The full list is still hopeless — 9 degrees of freedom at n=4 against ~150 radii — so the
+usable form is partial inversion. **And [P237] says which radii to ask for**: the two-body
+term of d1 is exactly `2*(corner-corner) + (edge-edge)`, so "solve for a configuration with k
+shared corners" is simultaneously well-posed, polynomial, and a direct maximisation of a term
+of d1. That is a sharper search target than any the signature programme produced.
+
+### 3. A quick count — no, but a quick TERM of the count, and it is the best predictor found
+
+The radius list cannot give the region count without the arrangement's combinatorics. But
+[P237]'s pair gain is determined by the pair count (4→0, 5→2, 9→6, 13→10), so the whole
+two-body term of d1 is computable from **pairwise data alone**:
+
+    PAIR-TERM  =  sum over pairs of gain(pair count)
+
+Measured on 2 958 census configurations, 6 two-cube counts each:
+
+    r vs d1            +0.699
+    r vs total count   +0.344
+    orders             67.6 % of pairs
+    cost               0.0088 s per configuration, about 0.5x a 4-cube count
+
+**Against [P231]'s best of 61.1 %, and with a derivation behind it.** Every predictor this
+project has tried was a fitted statistic — max concurrence, real incidences, Möbius weight —
+and the strongest of them ordered 61.1 %. This one is not fitted: it is an exact term of d1,
+proved in [P237], which is why its correlation with d1 (+0.699) far exceeds its correlation
+with the total (+0.344). It predicts the part of the count it provably equals.
+
+**The honest limits.** It captures only the two-body term; the three-body term needs the
+arrangement, which is why the total-count correlation is the weaker number. And at 0.5x a
+count it is dearer than [P231]'s integer concurrence statistic at 0.25x, so as a FILTER the
+comparison is not settled — as a search OBJECTIVE, which needs no engine call at all if the
+pair gains are computed geometrically rather than counted, it is the better object.
+
+Files: `radii.py`, `pair_term.py`, `congruent.py`.
+
+<a id="p240"></a>
+
+## [VERIFIED] Postscript 240: which radius combinations are attainable — the combinatorial part is a five-element list, the metric part is a solve
+
+*2026-09-07.* A user question: some combinations of radii are unattainable; is it easy to
+determine which? The question splits, and the two halves have opposite answers.
+
+### The combinatorial part is trivially easy — five possibilities, and that is all
+
+Over 900 non-degenerate pairs, the coincidences that carry d1 (degree > 2, the ones
+[P237] counts) take exactly **five** forms:
+
+| pair count | corner-corner | edge-edge | gain |
+|---|---|---|---|
+| 4 | 0 | 0 | 0 |
+| 5 | 0 | 2 | 2 |
+| 9 | 0 | 6 | 6 |
+| 13 | 0 | 10 | 10 |
+| 13 | **2** | 6 | 10 |
+
+Nothing else occurs. So **one shared corner is impossible** (corners come in antipodal pairs,
+so the count is even), four, six and eight shared corners do not occur between distinct cubes,
+and gains of 4 or 8 do not exist. The whole two-body design space is a five-element menu per
+pair.
+
+**And 13-pairs come in two geometric types**, both at gain 10 — `(2 corners, 6 edges)` ×43 and
+`(0 corners, 10 edges)` ×17. That sharpens [P233], which refuted "13-pair ⟺ body diagonal":
+the body-diagonal ones are exactly the two-shared-corner type, and the counterexamples are the
+ten-edge type. Same gain, different geometry.
+
+*(A count over ALL meetings rather than degree-3-and-up gives a sixth row, `(9, 0, 8)`; those
+extra two meetings have degree 2 and contribute nothing. The two tables were briefly conflated
+while writing this and the distinction is the whole difference between the geometry and the d1
+accounting.)*
+
+### The metric part — cheap necessary conditions, and sufficiency is a solve
+
+Necessary, all checkable in O(1):
+
+* **corner-corner: `r² = 3` exactly.**
+* **edge-edge: `2 ≤ r² ≤ 3`** — the point lies on an edge of both cubes, so between the
+  edge-midpoint and corner radii. Observed range `[2, 278466/93025]`, the top being 2.9934.
+* **for rational cubes, `r²` has a PERFECT-SQUARE denominator** — true of every radius in the
+  sample, and immediate from the coincidence point having rational coordinates over a common
+  denominator.
+* the multiset structure must be one of the five rows above.
+
+Sufficiency is not easy and should not be expected to be: a target radius is a polynomial
+condition in the Cayley parameters, so realising a prescribed list is a GroebnerBasis problem
+([ALGEBRAIC_SEARCH.md](ALGEBRAIC_SEARCH.md)). Tractable for a few constraints, hopeless for a
+full list — 9 degrees of freedom at n=4 against ~150 radii.
+
+### Why this is the useful shape
+
+For SEARCH the metric part is not needed. [P239] shows the two-body term of d1 depends only on
+which of the five rows each pair occupies, so a design target is a choice from a five-element
+menu per pair: at n=4 that is `5^6 = 15 625` assignments, a finite space small enough to
+enumerate, of which the realisable ones are what [P228]-style saturation results identify. The
+n=4 record occupies `(13,2,6)` on its three hub pairs and `(9,0,6)` on the other three, for
+`3*10 + 3*6 = 48` — and [P228] already proved the analogous saturation at n=5, where four body
+diagonals exhaust what a cube has to offer.
+
+Files: `radii.py`, `pair_term.py`.

@@ -708,11 +708,14 @@ generating malformed input and the sample is biased in an unknown direction.
 > correlation changes sign and the ordering is chance. There is nothing to make pay. See
 > [P227](LEDGER.md#p227) and [FAILURE_MODES 27](FAILURE_MODES.md).
 >
-> **What replaces it as an open question** is narrower and still live: *is there ANY
-> statistic computable without an engine call that orders the count better than chance?*
-> The three tried here — max concurrence, raw real-incidence count, Möbius weight — were all
-> measured through the broken map, so all three are unmeasured, not refuted. The re-measure
-> is cheap: the census stores `cfg`.
+> **ANSWERED 2026-09-07 by [P231](LEDGER.md#p231), and the answer is yes.** All three were
+> re-measured on the full 3.1M-row census. **Max plane-concurrence orders 61.1 % of pairs**
+> (124 753 pairs, ~78σ from chance) — the one statistic nobody had re-measured. The raw real
+> incidence count is marginal at 54.3 %; the Möbius weight, which [P222] crowned, is chance
+> at 51.5 %. And it PAYS: [P223](LEDGER.md#p223) is reversed.
+>
+> *I wrote "there is no predictor" above on the strength of re-measuring one of the three.
+> The other two were unevaluated, and I scored them as negatives.*
 
 ~~[P222](LEDGER.md#p222) established `Σ over real, face-bounded incidence points of
 (m−1)(m−2)/2` as the best count predictor this project has (r = 0.562, orders 77.6 % of
@@ -732,3 +735,132 @@ from filtering, and is the one place a 77.6 % predictor that costs a count could
 *Struck 2026-09-07. Hill-climbing on a 50.6 % objective is a random walk with extra steps.
 The idea itself — an engine-free search objective, counting only endpoints — survives the
 statistic it was attached to, and is worth re-raising if any statistic ever clears chance.*
+
+## 22. Does an n=5 base's own count predict how well it extends? — **CLOSED 2026-09-07: no, and nothing else measured here does either**
+
+[OQ 9](#9) asks which member of a *continuum* extends best. This is the same question asked
+across a *tier*, and the n=5 family makes it answerable exactly rather than by sampling:
+[P228](LEDGER.md#p228) shows the 76 bases counting ≥385 are **11 congruence classes**, one at
+393 and **ten at 387**. Ten distinct compounds with identical n=5 counts is a controlled
+comparison that does not usually exist here.
+
+Each is being extended against the same 43 707-cube menu ([P229](LEDGER.md#p229)). Partial,
+4 of 11:
+
+| base | n=5 | n=6 max | cubes at max | median | bulk top | escape |
+|---|---|---|---|---|---|---|
+| 0 | **393** | **727** | 6 (2 classes) | 689 | 723 | +4 |
+| 1 | 387 | 725 | 3 (1 class) | 679 | 713 | **+12** |
+| 2 | 387 | 717 | 199 | 681 | 717 | 0 |
+| 3 | 387 | 717 | 246 | 681 | 717 | 0 |
+| 4 | 387 | 723 | 3 (1 class) | 681 | 717 | +6 |
+
+**Already visible, and it is not what I expected.** The ten 387s do **not** extend alike:
+725, 717, 717, 723 so far — an 8-region spread among compounds that are indistinguishable by
+their own count. So the n=5 count does not determine extension quality — which is the useful half
+of the answer, since it means a search that ranks bases by their own count is discarding
+information.
+
+**Three things it may still turn out to be**, and the data will separate them:
+
+1. **The shape of the top differs.** The record base's maximum is ISOLATED — 6 cubes, 2
+   congruence classes — while bases 2 and 3 have 199 and 246 cubes tied at theirs, dropping
+   to 12 and 3 at the next value down. Isolated peak vs. broad plateau may be the real
+   distinction, not the peak's height.
+2. **Peak and bulk disagree.** Base 1 has the higher peak (725) and the LOWER median (679);
+   bases 2/3 have lower peaks and higher medians (681). "Extends best" is two questions.
+3. **Escape above the bulk.** Defined as max minus the highest count reached by ≥100 menu
+   cubes. *Two caveats, and the second is the more damaging.* First, the ≥100 threshold was
+   chosen after seeing bases 0–3, so those four are in-sample and only bases 4–10 test it.
+   Second — noticed at base 4 — **escape and isolation are very nearly the same
+   measurement, not two.** If the maximum is attained by fewer than 100 cubes it cannot be
+   the bulk top, so `escape > 0` follows almost mechanically from `cubes at max < 100`.
+   Points 1 and 3 are therefore one observation counted twice, and the table's `cubes` and
+   `esc` columns are not independent evidence. What is NOT mechanical is how far the escape
+   goes once it happens (4, 12, 6 so far), and that is the part worth watching.
+   The obvious theory — the record base is the one that escapes its plateau — is already
+   refuted either way, since base 1 escapes by 12 against base 0's 4.
+
+**A structural property that DOES separate them, and a prediction registered before its
+test ran.** Each base's own symmetry group — the global rotations carrying the compound to
+itself, computed exactly by the `congruent.py` construction — is:
+
+    bases 0-6, 8, 9   order 3
+    bases 7 and 10    order 12
+
+Two of the ten 387-compounds are four times more symmetric than the rest, at identical n=5
+count. **Prediction, written 2026-09-07 while bases 7 and 10 were still unrun:** their
+winning cubes must come in orbits of the order-12 group, so the number of cubes at their
+maximum should be a sum of divisors of 12 (12, 6, 4, 3, 2, 1) rather than the 3+1 pattern
+seen everywhere else — and the ratio of cubes-at-max to congruence-classes-at-max should be
+correspondingly larger. If instead they behave like the order-3 bases, the symmetry does not
+reach the extension and this line is dead.
+
+**CONFIRMED on base 7 — then REFUTED on base 10, which is why it was registered.**
+
+Base 7 (order 12) put **12 cubes at its maximum of 721 in exactly ONE orbit, one congruence
+class** — ratio 12:1 against the order-3 bases' 3:1. Base 10, also order 12, put **368 cubes
+at its maximum of 717 in 90 orbits**, behaving like the low-symmetry wide-plateau bases 2 and
+3 rather than like base 7. **One for two. The claim that higher symmetry concentrates the
+maximum is dead.**
+
+*And half of what I wrote as a prediction was not one.* "Orbit sizes are divisors of 12" is
+Lagrange's theorem — forced, untestable, and it dressed a tautology as a result. The only
+testable part was the non-obvious bit: that a more symmetric base would have a CONCENTRATED
+maximum, few orbits. That is the part base 10 killed. A prediction whose confirming
+observation could not have come out otherwise is [FAILURE_MODES 2](FAILURE_MODES.md), a gate
+that cannot fail, wearing a prediction's clothes.
+
+**What survives is narrower and is the reframing, not the prediction.** How many cubes attain the
+maximum is mostly a statement about the base's symmetry, not about the extension. The
+invariant quantity is **congruence classes at the maximum**, which is 1 or 2 for every base
+measured so far. Stated that way the sweep says something much simpler than the raw counts
+did: *each n=5 base has essentially ONE best sixth cube, up to congruence.*
+
+*Orbit structure already confirms the mechanism on the order-3 bases: base 5 has 4 cubes at
+its maximum in 2 classes, which is one C3 orbit of size 3 plus one cube FIXED by the C3 (its
+axis is the base's own symmetry axis) — 3+1, not 2+2. I first guessed base 5's stabiliser
+must differ from the others'. It does not; it is order 3 like them.*
+
+## CLOSED 2026-09-07 — all eleven rows
+
+| base | n=5 | n=6 max | cubes | orbits | median | bulk | esc | sym |
+|---|---|---|---|---|---|---|---|---|
+| 0 | **393** | **727** | 6 | 2 | 689 | 723 | 4 | 3 |
+| 1 | 387 | 725 | 3 | 1 | 679 | 713 | 12 | 3 |
+| 8 | 387 | 723 | 1 | 1 | 681 | 713 | 10 | 3 |
+| 4 | 387 | 723 | 3 | 1 | 681 | 717 | 6 | 3 |
+| 5 | 387 | 723 | 4 | 2 | 683 | 717 | 6 | 3 |
+| 6 | 387 | 723 | 3 | 1 | 681 | 717 | 6 | 3 |
+| 7 | 387 | 721 | 12 | 1 | 681 | 717 | 4 | **12** |
+| 9 | 387 | 719 | 6 | 2 | 683 | 717 | 2 | 3 |
+| 2 | 387 | 717 | 199 | 121 | 681 | 717 | 0 | 3 |
+| 3 | 387 | 717 | 246 | 136 | 681 | 717 | 0 | 3 |
+| 10 | 387 | 717 | 368 | 90 | 683 | 717 | 0 | **12** |
+
+**480 777 configurations, zero refusals, and the duplicate-cube gate ([METHODS 24]) passes on
+all eleven.**
+
+**The answer, in three parts.**
+
+1. **The n=5 count does not determine extension quality.** Ten compounds with identical n=5
+   counts extend to 717, 717, 717, 719, 721, 723, 723, 723, 723, 725 — a spread of 8. A
+   search that ranks bases by their own count is discarding information.
+2. **But the record base is still the unique best extender here.** Only base 0 reaches 727,
+   and it is the only one above 725. So at this rung the count *is* the right ranking at the
+   top even though it is not a ranking in the middle — which is a sharper form of what
+   [OQ 9](#9) asks along continua.
+3. **Nothing measured here separates the ten 387s in a way that predicts their extension.**
+   Symmetry order does not (bases 7 and 10 are both order 12 and land at 721 and 717, the
+   best and the worst of the tier). Median does not (683 belongs to bases 5, 9 and 10, which
+   reach 723, 719 and 717). `esc` and `cubes` are two views of one thing and both are
+   downstream of the answer rather than upstream of it. **The tier is flat to every statistic
+   tried, and extension quality is not yet predictable from the base.**
+
+**What it does not cover.** The menu is a lattice quotient: every row is exhaustive over a
+stated family and a sample of SO(3) ([METHODS 1](METHODS.md)). A base that extends badly here
+may extend well elsewhere, and nothing here bounds n=6 above 727.
+
+**What it cannot answer.** The menu is a lattice quotient, so every row is exhaustive over a
+stated family and a sample of SO(3) ([METHODS 1](METHODS.md)). A base that extends badly here
+may extend well elsewhere.

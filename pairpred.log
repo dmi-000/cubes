@@ -1,0 +1,7 @@
+2958 configurations; 18000 pair counts took 26.3 s (0.0088 s per 4-cube config)
+PAIR-TERM statistic  =  sum over pairs of gain(pair count),  gain: 4->0 5->2 9->6 13->10
+   r vs total count : +0.344
+   r vs d1          : +0.699
+   orders 117236/173483 = 67.6% of pairs
+
+for comparison [P231]: max plane-concurrence r=+0.122, orders 61.1%%
