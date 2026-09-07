@@ -366,17 +366,28 @@ A clean fact ties this to the whole search: "several cubes share a
 corner" is exactly the same as "those cubes differ by rotations about the
 axis through that corner." So corner-sharing *is* the shared-axis
 symmetry — which is why the shared-axis families are where the records
-live. The record 723 (now 727, Postscript [46](LEDGER.md#p46)) has two 9-fold corner concurrences (three cubes
+live. The record **723** has two 9-fold corner concurrences (three cubes
 meeting at a corner, twice), and is thus *corner-dominated*, though it
-also contains about 180 lesser edge concurrences. (There are never any
+also contains about 180 lesser edge concurrences. **727, which superseded it**
+(Postscript [46](LEDGER.md#p46)), **does NOT**: its max concurrence is 6 and it has no
+9-fold point — so corner-domination is a property of 723, not of the n=6 maximum. *(This
+sentence read "the record 723 (now 727) has two 9-fold …" until 2026-09-07: the supersession
+was noted without re-measuring the statistic. Both signatures verified with the corrected
+face normals, [P227](LEDGER.md#p227).)* (There are never any
 *line* concurrences — three planes sharing a whole line — because that
 would need three parallel-enough normals, which no arrangement realizes.)
 
-**There is a sweet spot, not "more is better."** One might guess that
+**More is not better.** One might guess that
 forcing even more planes through a point helps. It does not: forcing four
 cubes to share one corner (a 12-fold concurrence) yields only 393 pieces
 — far below the record. Over-concentrating the coincidence merges away
-too many regions. The record's 9-fold concurrence is near the optimum.
+too many regions.
+
+*This paragraph ended "the record's 9-fold concurrence is near the optimum" until
+2026-09-07. That claimed a sweet spot AT 9 from two points — 723 at 9 and a forced 12-fold
+at 393 — and 727 refutes it: it beats 723 with max concurrence 6. Over-concentration hurts;
+where the optimum is, or whether concentration is the right axis at all, is not established.
+[P227](LEDGER.md#p227).*
 
 **A question raised by this picture — now largely answered.** Every
 six-cube record is corner-dominated. Could there be a six-cube maximum

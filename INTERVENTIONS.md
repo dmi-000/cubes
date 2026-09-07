@@ -248,3 +248,57 @@ refusal-rate bug, each found by running the control rather than the method. The 
 are also the session's worst pattern: the same claim was published and withdrawn twice
 before the control was clean.
 
+
+## A6. 2026-09-06/07 — the signature bug, and the shape of the gate that found it
+
+**The defect.** `concurrence.planes()` built each cube's six face normals from the ROWS of
+its rotation matrix; in world coordinates they are the COLUMNS. Every plane-incidence
+signature this project ever computed therefore described each cube's INVERSE rotation.
+
+**How it was caught, and this one is a self-catch worth recording precisely** — not because
+it reflects well, but because the shape is reusable. It did not come from doubting a result.
+Every result looked fine: the statistic was exact, deterministic, reproducible, and
+correlated with the count at r = 0.562 over half a million configurations. It came from
+asking what the statistic was a function OF. A quaternion is a *representation* of a cube,
+and a cube is invariant under 24 rotations, so `q` and `q·s` are two names for one object
+and any honest function must be constant along that orbit. Broken: **6 of 6** respellings
+changed the signature. Corrected: **0 of 96**.
+
+| what it cost | |
+|---|---|
+| census `sig` column | 3 135 491 rows void (counts and configs valid) |
+| Chao1 richness ≈ 4 216 | void, no replacement |
+| the count predictor | r **+0.562 → −0.147**, ordering **77.6 % → 50.6 %** |
+| "the n=4 record has a 9-fold" | wrong; it has 6 |
+| a corner-triple construction | 1 500 configurations, aimed at a phantom |
+
+**The four turns from the user that this sits under**, and they are the same pattern as A5
+— all about the method, none about a result:
+
+| user's words | what it led to |
+|---|---|
+| "When identical signatures give different counts, what distinguishes the configurations?" | The face-boundedness mechanism, and the whole real-incidence line. The QUESTION survives the bug: re-measured under the corrected map, 6 of 161 repeated signatures pin the count. |
+| "Can we normalize the signature?" | Directly upstream of the fix. Asking whether the signature *needed* normalising is asking what it is invariant under, which is the gate. |
+| "Can the signature outputs be corrected?" | Forced the distinction between the void column (`sig`) and the valid ones (`cfg`, `count`, `depth`) — i.e. that the correction costs a recomputation and not a re-search. |
+| "Also consider whether there are other kinds of signatures not yet characterized. If identical signatures can give the same count, then the signatures are incomplete in some way." | The incompleteness claim was the one thing in this line that did not depend on the normals, and it is the one thing that survived. |
+
+**Self-caught in the same stretch, for balance, and each one is a gate failing correctly:**
+the `--base` incremental engine silently returning the base's count for every candidate
+(caught by a 75/75 agreement gate, after a broken version had already been reported as
+5.2× — the honest figure is 2.6×); an S₄ "reduction" argued from true premises to a false
+conclusion and refuted by counting 24 permutations of a known-good tuple; the FIRST gate
+written against that, which was also wrong; and a THIRD gate failure that read as
+"CUBE NOT IN MENU" when the menu was fine — it tested membership of an octahedral QUOTIENT
+with `in`, and the target class was present under a different one of its four equal-height
+spellings.
+
+**The pattern in all four.** A gate is code and can be wrong; it needs its own known-good
+case. Two of the four failures above were the gate rather than the thing gated, and both
+would have been caught by running the gate once on a case known to pass — which costs
+seconds and was skipped because the gate felt like the check rather than a thing to check.
+
+**And the omission that made the bug survivable for two days**: there was never a positive
+control. Three cubes sharing a corner axis MUST show a 9-fold concurrence, four MUST show a
+12-fold — it is three lines, it is forced by geometry rather than by the code, and it fails
+loudly on the broken map. It was written after the fix, like the probe in
+[METHODS 4](METHODS.md)'s own cautionary note about being built seventh.

@@ -1,0 +1,10 @@
+Does a small perturbation move the signature a little, or scramble it?
+(L1 distance between multiplicity histograms; sig sizes are ~100-200 points)
+
+  perturbation   median sig-distance   fraction unchanged
+    2^-14          71.0                0%
+    2^-12          66.0                0%
+    2^-10          71.0                0%
+    2^-8           66.0                0%
+    2^-6           71.0                0%
+    2^-4           66.0                0%

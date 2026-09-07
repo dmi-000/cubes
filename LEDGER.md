@@ -15917,3 +15917,498 @@ they are separate questions with opposite answers.
 
 Files: `maxima_spacing.py`, `barrier.py`, `barrier_layers.py`, `frustrate.py`,
 `arcs_extend.py`, `arcs_report.py`.
+
+<a id="p222"></a>
+
+## [PARTLY RETRACTED] Postscript 222: what predicts the region count — the predictor is void, the constraint findings stand
+
+> **CORRECTION 2026-09-07 — read this before the table below.** Every incidence statistic
+> in this postscript was computed by `concurrence.planes()`, which read the ROWS of each
+> rotation matrix instead of the COLUMNS, i.e. the inverse rotation. **The predictor row of
+> the table below is VOID.** Recomputed with the corrected normals, the Möbius weight of
+> real incidences scores **r = −0.147** and orders **50.6 %** of 3 320 pairs — the
+> correlation changes sign and the ordering lands on chance, so there is no weakened version
+> of the claim to keep. The economics, the two retractions, and the "constraints do not determine
+> the count" measurement do NOT depend on the normals and stand. Details, and the octahedral
+> gate that caught it, in [P227](#p227).
+
+Arising from a user question — *are our record configurations constructed by solving sets
+of simultaneous constraints?* — and a sequence of sharpenings from the same source. The
+premise was half right in a way worth recording, because I disputed the wrong half.
+
+**Records ARE at simultaneous constraint solutions.** I first answered that they were
+found by climbing rather than by solving. That is true of the procedure and false of the
+object: a sweep lands on WALL CROSSINGS, and every wall here is a point-incidence
+condition solved exactly (W4 = a face plane through a base triple point, a quadratic;
+W3 = an edge meeting a crossing line, a quartic). The climb is iterated constraint
+solving; it discovers WHICH constraints one at a time rather than choosing them. The n=9
+record carries ~20 tight conditions in ambient 24.
+
+**But constraints do not determine the count, and the sharpest form of that is new.** A W4
+wall is a quadratic, so it has two roots — two configurations satisfying the IDENTICAL
+constraint. Counting both:
+
+    10 pairs agree, 50 DIFFER, 96 unevaluable   (83% of evaluable pairs differ, by 8-16 regions)
+
+Not similar constraints giving different counts: one fully-solved constraint failing to
+pin the count between its own two solutions.
+
+**The economics.** Measured at n=4: solving one wall point **0.00062 s**, counting one
+configuration **0.043 s**, computing its concurrence **0.050 s**. So the solve is **70x
+cheaper** than verification, but the obvious structural filter costs as much as the answer
+it would save — a filter must skip >76% of candidates merely to break even.
+
+**What actually predicts the count.** 556 746 configurations across four ensembles
+(`census.py`, union-merged so the spread survives — keeping only the best per signature
+would destroy the measurement).
+
+| predictor | strength as measured | status |
+|---|---|---|
+| max plane-concurrence | r = 0.354, non-monotone | VOID — broken normals |
+| raw real (face-bounded) incidence count | orders 57 % | VOID — broken normals |
+| ~~**Möbius weight of real incidences**~~ | ~~r = 0.562, orders 77.6 %~~ | **VOID → r = −0.147, 50.6 %** |
+
+~~The winner is `Σ over real, face-bounded incidence points of (m−1)(m−2)/2`. It needs no
+engine call, and it orders 77.6 % across arbitrary pairs against 78.8 % within a
+signature — a standalone predictor, not a tie-breaker. First cheap, non-circular filter
+this search has had.~~
+
+**Struck 2026-09-07.** The statistic is well defined and was computed from the wrong face
+normals; corrected, it does not predict the count at all. This project has **no** cheap
+non-circular count predictor. See [P227](#p227).
+
+**Why face-boundedness is the missing ingredient**, which was the user's own conjecture:
+the signature counts incidences of PLANES, but regions are bounded by face SQUARES. Same-
+signature pairs have **identical total incidences (1688 = 1688)** and always differ in the
+REAL ones. As the user put it, something must align to split regions in one and merge them
+in the other.
+
+*The mechanism above is a geometric argument and does not depend on the normals; the 1688
+figure does and is void. The claim it supports — that a signature does not pin the count —
+was re-measured under the corrected map and survives: of 161 repeated signatures, 6 pin the
+count exactly, median spread 22 ([P227](#p227)).*
+
+**RETRACTION 1.** A statistic derived as "excess over generic",
+`C(m,3) − (m−1)(m−2)/2`, scored 78 % on 9 pairs and was reported as the promising lead. At
+413 pairs it scores **40 %**, and the lexicographic rule built on it scores **49.0 %** —
+chance. It was flagged as p ≈ 0.09 when reported and did not survive.
+
+**RETRACTION 2, and it is a wrong derivation rather than a small sample.** I argued from
+the Möbius weights that degeneracy should be PENALISED, since a degenerate point of
+multiplicity m replaces C(m,3) simple vertices with only (m−1)(m−2)/2 of weight. The
+measurement says the opposite: more Möbius weight is monotonically better, no sweet-spot
+correction. The algebra was mine and wrong; the 397-pair measurement stands.
+
+**Signatures are blind to plane-level degeneracy** *(figures below void — broken normals)*,
+and it does not matter much: shared or
+parallel planes between cubes give `det = 0` and are skipped, affecting **17 of 300**
+configurations — but configurations counting ≥150 average **0.0** parallel-classes against
+**0.1** below 130, so that degeneracy associates with LOWER counts.
+
+**Also from the census: 177 at n=4**, against the 141 plateau this line started from and
+the 183 record. Golden's total is also 177.
+
+Files: `census.py`, `census_merge.py`, `signature.py`, `realsig.py`, `signed_sig.py`,
+`concurrence.py`, `EXPLORATION_141.md`.
+
+<a id="p223"></a>
+
+## [VERIFIED] Postscript 223: filtering before counting is dead — measured twice, built never
+
+Two open questions closed, both negatively, and the negatives are the useful part.
+
+**[OQ 20](OPEN_QUESTIONS.md) — why the engine refuses silently.** 65 census refusals in
+556 746 configurations (0.012 %) were all recorded as cause `other`, because the classifier
+read **stderr**, which is always empty. The engine reports
+`{"error": "outside must be a single region"}` **in stdout as JSON** and exits 0. So the
+cause is neither degeneracy nor budget: it is the counter's own internal consistency check
+(the unbounded exterior should form a single region). Heights are 78–108, far under any
+overflow threshold, and duplicate cubes were tested directly and count fine (bounded = 63,
+exit 0). These configurations are therefore unevaluated for a reason internal to the
+engine and could sit anywhere in the count distribution — an engine issue to report, not a
+property of the space. Classifier fixed.
+
+**[OQ 21](OPEN_QUESTIONS.md) — does the Möbius-weight predictor PAY?** No, and it cannot
+be made to — and since 2026-09-07 the question is moot, because the predictor itself is
+void ([P227](#p227)): the corrected statistic orders 50.6 % of pairs, so there is nothing
+to pay for. The timings below are still correct as timings; the ordering percentages in
+them are not.
+
+    full statistic   0.177 s   = 3.8x a count (0.047 s)   orders 78.9%
+    30% of triples   0.055 s   = 1.2x a count             orders 65.8%
+    15% of triples   0.032 s   = 0.7x a count             orders 61.0%
+     8% of triples   0.019 s   = 0.4x a count             orders 56.3%
+
+**By the point it is cheaper than counting it is barely better than a coin.** At 15 % it
+costs 0.7 × a count for 61 % ordering, which would need a ~70 % skip rate to break even —
+and a 61 % predictor skipping 70 % discards records freely. Worse, the statistic costs
+C(6n,3) exact 3×3 solves while the count scales better, so the ratio **worsens** with n.
+
+**Both filters were measured before being built, and both died there** — concurrence at
+0.8 × a count needing a 76 % skip rate ([P222](#p222)), and this at 3.8 ×. That is the
+whole "solve cheaply, filter structurally, count only the promising" program, and it does
+not work here: **counting is the cheapest thing that tells you the count.**
+
+~~What survives is the finding, not the application. The Möbius weight of real incidences
+remains the best count predictor this project has (r = 0.562, orders 77.6 % of arbitrary
+pairs) and is worth keeping as structure — it just cannot buy time.~~
+
+**Struck 2026-09-07.** Nothing survives of the finding. The statistic was computed from the
+inverse rotation of every cube; corrected, r = −0.147 and it orders 50.6 % of 3 320 pairs
+([P227](#p227)). The conclusion of this postscript is unaffected and in fact strengthened:
+**counting is the cheapest thing that tells you the count**, and now there is no structural
+predictor to weigh against it either.
+
+**So the leverage is where [P222](#p222) left it: the counting engine**, which recomputes
+all n cubes from scratch when only one has moved. Every search here — climbs, sweeps,
+menus, the census — pays that repeatedly.
+
+*Corrected immediately, before the claim was used.* The first draft of this paragraph said
+"the one lever with 70×-scale headroom". That number is the SOLVE-versus-COUNT ratio and
+has nothing to do with incremental counting. The incremental engine's headroom is the base
+share T(n−1)/T(n). A single-base run gave 26–95 % across n = 4..10, too noisy to quote;
+repeated over six random bases with twelve timings each it is clean, and it TRENDS:
+
+| n | base share | incremental speedup |
+|---|---|---|
+| 5 | 57.4 % | 2.35× |
+| 7 | 63.3 % | 2.73× |
+| 10 | **70.9 %** | **3.43×** |
+
+So reusing the base is worth 2.4× at n=5 rising to 3.4× at n=10 — worth having, not the
+order of magnitude implied, and two different ratios were being conflated in the same
+sentence. The trend is the useful part: the base share grows with n because the added
+cube's six planes are a shrinking fraction of 6n, so **the lever improves exactly where the
+work is hardest**, which is the n=10 frontier and beyond.
+
+**Architecturally it is the best case.** The planes are laid out cube-major,
+`pid = k*6 + j*2 + cs`, so cubes 0..n−2 occupy indices 0..6(n−1)−1 and an added cube is
+the last six. A snapshot taken after the base's planes IS the base arrangement — no
+reordering, no re-keying. The work is snapshot/restore of the cell list and its per-cell
+sign masks, which the engine already maintains.
+
+Files: `census.py`, `signed_sig.py`, `OPEN_QUESTIONS.md`.
+
+<a id="p224"></a>
+
+## [VERIFIED] Postscript 224: the n=4 record's CONSTRUCTION — three cubes on three different body diagonals
+
+Arising from the user's question *"what makes them different?"* about two configurations
+both reaching 183. Answering it produced the record's structure, which this project has
+had as a configuration since 2026-07-12 but never as a construction.
+
+**Two distinct 183s.** The recorded record and one found by re-running the documented
+deep-climb baseline from a Haar-random start:
+
+    recorded  1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4
+    baseline  0,1,1,0;1,-1,-1,4;2,3,5,0;1,1,-4,-1
+
+Separated by **26.35°** under the full quotient — gauge, each cube's 24 symmetries, the
+residual global rotation, and cube ordering. Not a respelling: two different compounds.
+
+**They agree on every invariant we can compute.** Count 183; depth profile
+{1:92, 2:66, 3:24}; corrected signature ((4,90),(6,6)); pair counts **[9,9,9,13,13,13]**;
+triple counts [55,63,63,63]; and six 6-fold points, each pairing **cube 0** with one other
+cube at a pair of antipodal corners. Even the corner positions match, up to relabelling
+cubes 2 and 3. **The difference is the angles alone.**
+
+**So the record's family is explicit:**
+
+> Cube 0, plus three cubes each a rotation about a **different body diagonal**. The three
+> cube-0 pairs are the 13-pairs; the three pairs among cubes 1–3 are the 9-pairs. Free
+> parameters: three angles, plus which three of the four diagonals.
+
+Both known 183s were verified to lie in it, and the angles are simple — **|t| = 1/4 for
+three of the four cubes in each**:
+
+    recorded  axes (1,1,1)/(1,-1,-1)/(1,1,1)/(1,1,-1)   t = -1, 5, 1/4, -1/4
+    baseline  axes (1,-1,-1)/(1,-1,-1)/(1,1,-1)/(1,1,1) t =  1, 1/4, -1/4, 1/4
+
+(Cube 0's assignment is free: the identity is octahedrally equivalent to a 120° rotation
+about (1,1,1), which is also why a t = 5 appears for what is the same cube as a t = 1/4.)
+
+**Why this matters more than another 183.** JOURNEY Act IV's frustration — "you cannot
+make every part optimal and maximise the whole" — becomes concrete and countable here. A
+13-pair is the maximal pair. The record uses **exactly three of them**, all through cube 0,
+and pays with three 9-pairs among the rest. That is the trade, in a two-line
+parametrisation, and it is enumerable rather than searchable: 22 simple angles × 4
+diagonal triples is 42 592 configurations, against the 2.58 million random ones that never
+passed 177.
+
+Files: `recordfamily3.log`, `n4_search_report.md`, `maxima_spacing.py`, `concurrence.py`.
+
+<a id="p225"></a>
+
+## [VERIFIED] Postscript 225: two exact pair rules, and the frustration curve measured along the whole tower
+
+**Two conditions, zero violations across every record from n=4 to n=7** (6, 10, 15 and 21
+pairs checked individually):
+
+> **13-pair ⟺ the pair's relative rotation axis is a BODY DIAGONAL.**
+> **9-pair ⟺ that axis lies in a COORDINATE PLANE** (perpendicular to a face normal).
+
+13 and 9 are the two special pair values ([JOURNEY] Act IV: 94 % of random pairs count 4,
+2 % count 9, 0.1 % count 13). These give them exact geometric characterisations.
+
+**The n=5 record's shape follows.** In the frame where its hub (cube 4 = `1,1,1,1`, an
+octahedral element and therefore the identity cube) is the identity, the other four cubes
+sit on the **four distinct body diagonals**, one each, and every remaining pair is 9. So
+393 is a hub plus one cube per diagonal — and since a cube has only four body diagonals,
+**the construction saturates exactly at n = 5**.
+
+**Predicted and confirmed: 727 must break it.** The first generic 4-pairs appear at n = 6,
+and the 13-count stays pinned at 4 until n = 7 forces diagonal REUSE — `(1,1,-1)` carries
+four 13-pairs there against three at n = 5.
+
+**The frustration curve, in pairs:**
+
+| n | total pairs | 13-pairs | 9-pairs | 4-pairs (generic) | structured share |
+|---|---|---|---|---|---|
+| 5 | 10 | 4 | 6 | **0** | 100 % |
+| 6 | 15 | 4 | 9 | 2 | 87 % |
+| 7 | 21 | 6 | 9 | 6 | 71 % |
+| 8 | 28 | 8 | 9 | 11 | 61 % |
+| 9 | 36 | 8 | 10 | 18 | 50 % |
+| 10 | 45 | 13 | 10 | 32 | 51 % |
+
+**The 9-count is nearly CONSTANT — 6, 9, 9, 9, 10, 10 — while total pairs go 10 to 45.**
+The 13-count grows slowly (4, 4, 6, 8, 8, 13). Structured pairs total 10, 13, 15, 17, 18,
+23 against 10, 15, 21, 28, 36, 45 possible.
+
+**That is Act IV's frustration with a cause rather than a description.** The supply of
+maximal pairs is bounded by the CUBE's geometry — four body diagonals — not by n. Past
+n = 5 a record has no choice but to accept generic pairs, and the fraction it can keep
+structured falls from 100 % to ~50 % by n = 9. "You cannot make every part optimal and
+maximise the whole" because past four cubes there are not enough optimal parts to go round.
+
+Files: `n4_search_report.md`, `maxima_spacing.py`, `concurrence.py`.
+
+<a id="p226"></a>
+
+## [VERIFIED] Postscript 226: the tower is a five-cube CORE plus cubes hung off a hub
+
+Extending [P225]'s pair rules to the graph structure. For each record, the 13-pairs and
+9-pairs were taken as graphs on the cubes and their degree sequences computed.
+
+| n | 13-degree sequence | 9-degree sequence | max 13-clique |
+|---|---|---|---|
+| 5 | [4,1,1,1,1] | [3,3,3,3,0] | 2 |
+| 6 | [4,1,1,1,1,0] | [4,4,4,3,3,0] | 2 |
+| 7 | [5,2,2,1,1,1,0] | [4,4,4,3,3,0,0] | 3 |
+| 8 | [6,2,2,2,2,1,1,0] | [4,4,4,3,3,0,0,0] | 3 |
+| 9 | [6,2,2,2,2,1,1,0,0] | [4,4,4,4,3,1,0,0,0] | 3 |
+
+**A hub persists at every level** — one cube of 13-degree 4, 4, 5, 6, 6 while every other
+cube sits at 1 or 2. The hub construction found at n=4 and n=5 is not a small-n accident.
+
+**The 9-structure FREEZES.** From n=6 the 9-degree sequence is [4,4,4,3,3,0,...]: exactly
+**five cubes ever participate in 9-pairs**, and every cube added beyond them has 9-degree
+zero. That is why [P225]'s 9-count stays pinned near 10 while n grows — it is C(5,2)
+minus a couple, the internal pairs of a five-cube core.
+
+**So the tower reads as: the 393 core, plus cubes hung off the hub by 13-pairs, plus
+generic attachments.** The structured part does not grow with n; it is a fixed
+five-cube object, and everything above n=5 is decoration on it. That is a sharper
+statement of the frustration than the pair counts alone: past n=5 a record cannot extend
+its structured core at all, only attach to it.
+
+**Max 13-clique stays tiny** (2, 2, 3, 3, 3), so the 13-pairs form a star-like graph rather
+than a dense one — consistent with the hub reading and inconsistent with "many cubes
+mutually sharing diagonals".
+
+*Correction, same session:* a first version of this table included an n=10 row built as
+C8 plus three cubes — eleven cubes, not ten, so not the record. Dropped rather than
+reported.
+
+Files: `n5family.py`, `SESSION_STATE.md`.
+
+<a id="p227"></a>
+
+## [VERIFIED] Postscript 227: the signature was computed from the INVERSE rotation — one line, and what it takes down
+
+*Written 2026-09-07, correcting [P222](#p222), [P223](#p223) and everything downstream of
+`signature.py`.*
+
+**The bug.** `concurrence.planes()` built each cube's six face normals from the ROWS of its
+rotation matrix. In world coordinates the face normals are the COLUMNS; the rows are the
+normals of the INVERSE rotation. So every signature this project computed described a real
+compound — just not the one being measured. Fixed:
+
+```python
+for c in range(3):                        # COLUMNS. Rows give R^-1, a different compound.
+    v = (M[0][c], M[1][c], M[2][c])
+    for s in (1, -1):
+        out.append((v[0], v[1], v[2], s * n))
+```
+
+**How it was caught, and the gate is the transferable part.** A cube is invariant under the
+24 rotations of the octahedral group, so `q` and `q·s` denote the SAME cube and any honest
+function of the compound must be constant on the octahedral orbit. That is an anchor
+outside the procedure — the kind [FAILURE_MODES 14](FAILURE_MODES.md) says a stopping rule
+needs — and it costs one loop. Broken code: **6 of 6** respellings changed the signature.
+Corrected: **0 of 96**. `invariance_gate()` now runs on every `python3 concurrence.py` and
+is not optional.
+
+**What this invalidates, counted rather than described.**
+
+| claim | status |
+|---|---|
+| every `sig` in the 2 938 001-row census | **VOID** |
+| Chao1 richness ≈ 4 216 distinct signatures, ~72 % seen | **VOID** — inputs void |
+| "the n=4 record has a 9-fold plane concurrence" | **WRONG**; it has **6** |
+| the corner-triple construction, built to hit that 9-fold | **VOID** — 1 500 configs, 0 hits |
+| Möbius-weight predictor, r = 0.562 / orders 77.6 % | **VOID**, see below |
+| `cfg`, `count`, `depth` columns of the census | **VALID** — no signature in their path |
+| "identical signature, different count" | **STANDS** — see below |
+
+**The corrected predictor, and it is not a haircut.** Recomputed on **3 000 of the
+2 938 001 rows** — a resample, not the full census, which is ~2.5 h across shards and has
+NOT been run:
+
+    was (broken planes):  r = +0.562   orders 77.6 %
+    run 1, inline:        r = -0.184   orders 46/88     = 52.3 %
+    run 2, resig.py:      r = -0.147   orders 1680/3320 = 50.6 %
+
+The correlation does not shrink, it **changes sign**, and the ordering lands on chance in
+two independent samples. There is no surviving version of the claim: the best count
+predictor this project had was an artifact of reading a matrix the wrong way round.
+[P222](#p222) and [P223](#p223) are corrected in place accordingly, quoting run 2, which
+has 38× the pairs and a script behind it.
+
+*Run 1 was computed inline and its script was not kept — the exact failure
+[METHODS 12](METHODS.md) warns about. `resig.py` is run 2 and exists; both runs are quoted
+because the agreement between two seeds is the only evidence here that ≈ 50 % is the
+population value and not one sample's accident.*
+
+**Richness: only ONE ensemble moved more than the noise, and correcting my own first
+reading of this is the point of quoting two runs.**
+
+| ensemble | broken → corrected, run 1 | run 2 |
+|---|---|---|
+| `chain` | 34 → **102** | 47 → **114** |
+| `threeaxis` | 188 → 202 | 193 → 195 |
+| `twoaxis` | 129 → 120 | 115 → **126** |
+| `axis` | 93 → 89 | 74 → **77** |
+| `mixed` | 24 → 24 | 27 → 26 |
+| `project` | 24 → 22 | 20 → 20 |
+| `haar` | 7 → 7 | 5 → 7 |
+
+`chain` roughly triples in both. Every other ensemble moves by less than the difference
+between the two samples, and `axis` and `twoaxis` move in OPPOSITE directions between them.
+**I first wrote "richness moved in both directions, so no scale factor repairs the table."
+The conclusion is right and the evidence I gave for it was noise**: what the two runs
+jointly support is that one ensemble is transformed and the rest are unresolved at n = 3 000.
+The table cannot be rescaled because it has not been re-measured, not because a direction
+was established.
+
+**The one claim that survives is the one that never needed the normals to be right.** Of
+166 signatures seen more than once under the CORRECTED map, **8 pin the count exactly**,
+median spread **22** (run 1); run 2 gives 6 of 161, median spread **22**. So identical signature / different count remains true, and the
+user's reading of it — something must align to split regions in one and merge them in the
+other — is untouched. It was a statement about the map being non-injective, and a wrong
+map that is also non-injective does not settle it; the corrected one does.
+
+**Recoverable, and cheaply.** The census stores `cfg` per row, so every signature is
+recomputable without re-running any search. That is [METHODS 2](METHODS.md) paying off in
+the case it was written for: the expensive step was cached, so the correction costs the
+correction.
+
+**The positive control the whole line never had, built afterwards.** Three cubes sharing a
+CORNER axis must put nine face planes through that corner — three per cube, by construction
+— and four cubes must put twelve. The corrected code, asked:
+
+    three cubes on the (1,1,1) corner axis  ->  ((4,60),  (9,2))
+    four cubes on the same corner axis      ->  ((4,114), (12,2))
+
+Exactly the predicted 9-fold and 12-fold, at the corner and its antipode. That is a known
+answer tested against the machinery's own intermediate object ([METHODS 4](METHODS.md)),
+it costs three lines, and it would have failed loudly on the broken map. It was written
+after the bug, like the probe in that method's own cautionary note.
+
+**AUDIT — what else used this method, asked and answered rather than assumed.** The oldest
+and most load-bearing claim downstream of plane concurrence is
+[ALGEBRAIC_SEARCH.md](ALGEBRAIC_SEARCH.md)'s founding premise: *the 723 record has two
+9-fold plane concurrences, and they are three cubes sharing a corner.* Re-measured with the
+corrected normals:
+
+| configuration | corrected signature | max |
+|---|---|---|
+| n=5 record 393 | `((4,174), (6,8))` | 6 |
+| n=6 record **723** | `((4,216), (6,6), (9,2))` | **9** |
+| n=6 record **727** | `((4,208), (6,10))` | **6** |
+| n=4 record 183 | `((4,90), (6,6))` | 6 |
+| shared-axis 161 | — | 8 |
+
+**The premise SURVIVES, exactly as stated**: 723 really does carry two 9-fold concurrences,
+and the geometric derivation behind it (a corner-sharing triple contributes 3+3+3 planes
+through one point) never depended on the normals. `ALGEBRAIC_SEARCH.md` is not retracted.
+
+**But the corrected table says something the broken one could not.** **727 — the BETTER of
+the two n=6 records, by four regions — has no 9-fold point at all.** The "9-fold sweet
+spot" was inferred from 723 alone and from a 12-fold forced to 393; the record that beats
+723 sits at max 6. So concentration is not what the record buys, and this is the same
+conclusion [P222](#p222) reached from the other end when its predictor died. It also
+matches [P225](#p225)'s pair rules, where what distinguishes records is which AXES the pairs
+share, not how much incidence piles onto one point.
+
+**Unevaluated count, in the headline where it belongs:** 3 132 491 of 3 135 491 census rows
+have NOT been re-signed. Every corrected census figure above is from the 3 000-row
+resample; the record signatures in the audit table are exact, single configurations.
+
+Files: `concurrence.py` (`invariance_gate`), `signature.py`, `realsig.py`, `signed_sig.py`,
+`resig.py`, `resig_rerun.log`, `resig.log` (the original inline run).
+
+<a id="p228"></a>
+
+## [VERIFIED] Postscript 228: the n=5 record is UNIQUE in the four-diagonal family, and 76 "distinct" bases were 11 compounds
+
+*2026-09-07.* Following [P224]/[P225]: the n=5 record 393 is a hub cube plus one cube about
+each of the four body diagonals, so the family is a four-angle sweep. `n5family.py` swept it
+under a gate (reproduce the 393 or exit) and kept every base reaching ≥385 — **76 of them**.
+
+**They are eleven compounds.** Two configurations are the same object iff some global
+rotation `g` and bijection `π` give `b_π(i) = g · a_i · s_i` with each `s_i` octahedral,
+since a cube is unchanged by its own 24 rotations. That looks like an `n! · 24ⁿ` search and
+is not: `g` must send cube 0 of A to *some* cube of B, so
+
+    g = b_j · s⁻¹ · a_0⁻¹        j over n cubes, s over 24 rotations
+
+leaves **24n candidates**, each checked by comparing `{g·a_i}` and `{b_k}` as sets of
+octahedral CLASSES — exact integer arithmetic, no angles, no tolerance. `congruent.py`.
+
+| n=5 count | congruence classes | spellings kept |
+|---|---|---|
+| **393** | **1** | 8 |
+| 387 | 10 | 68 (8 each, two classes of 2) |
+
+**Three things follow.**
+
+1. **The n=5 record is unique in this family**, and the class is congruent to the tower's
+   393 — verified constructively, by exhibiting the rotation, not by matching invariants.
+   The eight spellings are the eight assignments of the angle multiset to the four diagonals
+   that survive; they are one compound.
+2. **The runner-up is 387, in TEN distinct compounds.** A six-region gap with tenfold
+   degeneracy underneath it is a sharper statement of the record's isolation than the count
+   alone: the family's second tier is wide and the top is a point.
+3. **The six "top" bases an extension sweep was about to process were six names for one
+   object.** Caught before the run, by asking what the objects were rather than trusting the
+   count column to separate them: all six had count 393 and six different quaternion
+   strings. Extending all six would have spent ~10 hours of CPU to answer one question once,
+   and would have reported a redundancy as a survey.
+
+**Why the invariant was not enough, and this is the transferable part.** The first check was
+a cheap invariant — the multiset of pairwise relative-rotation angles, exact rationals — and
+it *did* say all six agreed. An invariant that agrees is not a proof of congruence; it is
+the absence of a proof of difference, which is the same shape as
+[FAILURE_MODES 14](FAILURE_MODES.md) (two samples agreeing means they share a cell). The
+constructive test costs 24n quaternion products and returns the witness, so it was written
+instead. Its own gate checks a self-match, a respelling match, and **two negatives** — a
+test that cannot fail is not a test.
+
+**The generalisation to the searches.** Any campaign that enumerates configurations and
+dedupes by count, by height, or by a signature is deduping by an invariant. Where the
+objects are defined up to a group — and here they always are, up to the octahedral group per
+cube and a global rotation — the class count and the string count differ by a factor that is
+free to measure and expensive to ignore. Here it was **6.9×**.
+
+Files: `congruent.py`, `n5family.py`, `n5family_classes.json`, `extend_n5.py`.

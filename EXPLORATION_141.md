@@ -217,3 +217,82 @@ pairs (running); three axes, or one axis per cube with shared PAIRWISE structure
 the shared-axis slice exactly rather than gridding it, since within a fixed axis pair the
 walls are the same W4/W3 families and `solved_scan` applies; and using the projection as
 one move inside the climber rather than as a one-off preprocessing step.
+
+## 9. The signature census — and 177
+
+After attempt 8 the search moved from "find a better configuration" to "characterise what
+predicts the count", at the user's direction. `census.py` draws from four ensembles
+(`haar`, `axis`, `twoaxis`, `project`), records signature + count + depth profile, and
+appends; `census_merge.py` union-merges. **556 746 configurations** so far across two
+machines, 2 888 distinct signatures, 59 unevaluable.
+
+**Best found: 177**, up from attempt 3's 169 and the 141 plateau this log started at. 177
+is also golden's total, which is suggestive and unexamined.
+
+**Merge is a union, never a max.** Keeping only the best count per signature would destroy
+the spread, and the spread IS the measurement of the signature's incompleteness.
+
+**Phase 1 deliberately does not filter.** The signature costs 0.8x a count, so filtering
+pays only above a 76% skip rate — and filtering now would bias the very distribution being
+characterised.
+
+## 10. What predicts the count — VOID, and a third retraction that takes the section with it
+
+> **RETRACTION 3, 2026-09-07, and it subsumes the two below.** Every number in this section
+> was computed by `concurrence.planes()`, which read matrix ROWS where a cube's face normals
+> are the COLUMNS — the inverse rotation. The statistic was a function of the quaternion
+> SPELLING, not of the compound (6 of 6 octahedral respellings changed it; 0 of 96 after the
+> fix). Recomputed on a seeded census sample, the winner scores **r = −0.147, ordering
+> 50.6 % of 3 320 pairs**: the correlation changes SIGN and lands on chance. **There is no predictor.** The
+> other two rows were measured through the same map and are unmeasured rather than refuted.
+> [P227](LEDGER.md#p227), [FAILURE_MODES 27](FAILURE_MODES.md).
+
+| predictor | strength as measured | status |
+|---|---|---|
+| max plane-concurrence | r = 0.354, non-monotone | VOID |
+| raw real (face-bounded) incidence count | orders 57% | VOID |
+| ~~**Möbius weight of real incidences**~~ | ~~r = 0.562, orders 77.6%~~ | **VOID → r = −0.147, 50.6 %** |
+
+~~The winner is `sum over real, face-bounded incidence points of (m-1)(m-2)/2` — a simple
+vertex weighs 1, a 4-fold 3, a 9-fold 28. It needs no engine call at all: planes,
+`solve3` and the face test are arithmetic on the quaternions. And it orders 77.6% across
+arbitrary pairs against 78.8% within a signature, so it is a standalone predictor
+rather than a tie-breaker — the first cheap, non-circular filter this search has had.~~
+
+*The construction is still well defined and still needs no engine call; it simply does not
+predict the count. Retractions 1 and 2 below are kept because they record how the section
+was reasoned, not because their numbers mean anything now.*
+
+**RETRACTION 1.** A "principled" statistic C (excess over generic,
+`C(m,3) - (m-1)(m-2)/2`) scored 78% on 9 pairs and was reported as the promising lead. At
+413 pairs it scores **40%**. It was flagged as p ~ 0.09 at the time and it did not survive.
+The lexicographic C-then-A rule built on it scores **49.0%** — chance.
+
+**RETRACTION 2.** The sign was backwards in my derivation. I argued from the Möbius
+weights that degeneracy should be penalised (a degenerate point replaces C(m,3) simple
+vertices with only (m-1)(m-2)/2 of weight). The measurement says the opposite: **more
+Möbius weight is simply better**, monotone, no sweet-spot correction. The derivation was
+wrong; the 397-pair measurement is not.
+
+## 11. Do signatures account for degeneracy? No — and it does not matter much
+
+Two cubes sharing a face plane, or having parallel planes, give `det = 0` in `solve3`, so
+those coincidences are skipped and the signature is blind to them. Measured: **17 of 300**
+configurations have a shared plane, **17 of 300** have cross-cube parallels — real, ~6%.
+
+But it points away from records: configurations counting >= 150 have **0.0** mean
+parallel-classes against **0.1** for those under 130. Degeneracy of this kind associates
+with LOWER counts, consistent with over-concentration merging regions away. Worth closing
+for completeness; not worth chasing for records.
+
+## 12. Unevaluable, now recorded rather than counted
+
+The census originally counted refusals and discarded them — the failure mode this project
+has on file. Now each is recorded with cause, height and signature (the signature needs no
+engine, so a refused configuration still enters the table).
+
+60 refusals: **all produce no stderr at all**, so the degenerate-vs-budget classifier never
+fired. Heights run 6 to 1748, far below any overflow threshold, which rules out budget and
+leaves genuine degeneracy as the likely cause — but confirming it needs the engine's exit
+code, not its stderr. Rate by ensemble: `twoaxis` 25, `project` 23, `haar` 9, `axis` 2 —
+the more structured the ensemble, the more it refuses.

@@ -135,10 +135,14 @@ cubes, needing √5) with 6- and 9-plane points where cube *corners
 coincide*, at √3. A dedicated search then showed edge-dominated six-cube
 configurations top out at 691 and that edge-richness *anti-correlates*
 with the count (rank correlation ≈ −0.58): corners are simply the
-stronger ingredient. Also measured: concurrence has a sweet spot. The
-record's two 9-plane corner points (three cubes sharing a corner) are
-near-optimal; forcing a 12-plane point (four cubes through one corner)
-crashes a six-cube count into the 300s. More alignment is not better.
+stronger ingredient. Also measured: more alignment is not better. The
+then-record 723's two 9-plane corner points (three cubes sharing a
+corner) looked near-optimal, and forcing a 12-plane point (four cubes
+through one corner) crashes a six-cube count into the 300s. *Corrected
+2026-09-07: the 12-plane measurement stands, but "near-optimal" does not
+— 727, which beats 723, has max concurrence 6 and no 9-plane point at
+all, so 9 is not an optimum and the sweet spot was one configuration's
+property. [P227](LEDGER.md#p227).*
 A useful fact fell out for free: "k cubes share a corner" is *the same
 thing* as "k cubes related by rotations about the axis through that
 corner" — corner-sharing IS shared-axis symmetry, which is why all the
@@ -1204,3 +1208,72 @@ diagrams), `events_report.md` (the create-vs-merge catalogue),
 `dihedral_slider_report.md`, `README.md` (all code + commands). The
 interactive viewer (opaque surface mode + dihedral-family slider):
 https://claude.ai/code/artifact/044d34a6-3f36-43b2-9ec8-17fb5691c87c*
+
+## Act X: the wall was the ensemble, and signatures are the map
+
+The act opens with a plateau that is not in the problem. Roughly 150 climbs from
+Haar-random starts at n=4 all stop at total 141 with profile {1:50, 2:66, 3:24} —
+depth-2 and depth-3 exactly at their ceiling-law caps, the entire gap to the 183 record in
+depth-1, at 50 against a cap of 104. Configurations at 177 and 183 are recorded, so 141 is
+a wall in the search.
+
+**It was not the objective.** Re-weighting the layers changed nothing: LAYER-1, CAPPED and
+HEADROOM returned byte-identical answers to plain TOTAL on every start, because depth-1
+and the total correlate **0.984** across the Haar ensemble. They are collinear there, so
+the frustration that Act IV describes cannot be played off between them. The re-weighting
+proposal was sound and was tested in the one ensemble where it had to be inert.
+
+**It was not the move set either** — though that was a real limitation. Climbing by whole
+solved lines instead of adjacent chambers found wins 16 cells out along a line, so the
+first-crossing move WAS costing something; it still stopped at 141.
+
+**It was the ensemble.** The best depth-1 in 4 000 Haar draws is 46, against the 92 the
+record needs. Drawing instead from configurations whose cubes share a rotation axis broke
+the plateau immediately — 145, then 161, then 169 — and a closed-form projection carries
+any Haar-random start onto that set in a single move, 111–131 becoming 153–161 every time.
+So random starts were never excluded; perturbation was, because the target sits on a
+Haar-null set no perturbation reaches.
+
+**And then the question changed.** What predicts a count, if not the count? The answer the
+act reached — the Möbius weight of real, face-bounded incidences, r = 0.562, ordering 77.6 %
+of arbitrary pairs with no engine call — **was wrong, and the way it was wrong is the real
+end of the act.**
+
+`concurrence.planes()` built each cube's face normals from the ROWS of its rotation matrix.
+They are the COLUMNS. The rows belong to the inverse rotation, so every signature in this
+act, and the predictor built on them, described a compound that was not the one being
+measured. Nothing internal could see it: the statistic was exact, deterministic,
+reproducible, and correlated with the count across half a million configurations. What saw
+it was a question about what the statistic was a function OF — a quaternion is a *name* for
+a cube, a cube has 24 names, and the signature changed when the name did, 6 times out of 6.
+With the columns it changes 0 times in 96.
+
+Corrected, the predictor's correlation does not weaken; it **changes sign**, to r = −0.147,
+ordering 50.6 % of 3 320 pairs — chance. There is no structural handle on the count. The two filter
+measurements that killed both candidate filters stand and are now the whole finding:
+**counting is the cheapest thing that tells you the count, and there is nothing else that
+tells you anything.**
+
+The **signature** itself survives as a definition and loses all its numbers: 759 947
+configurations giving 3 055 signatures with ~4 216 estimated, and the null ensemble's
+striking 42-in-218 475, were all counted under the broken map, and a re-signed sample moves
+per-ensemble richness in *both* directions, so no scale factor repairs them. What survives
+the correction is exactly what did not depend on which normals: that a signature does not
+pin the count (re-measured — 6 of 161 repeated signatures pin it, median spread 22), and
+the user's reading of why, that something must align to split regions in one configuration
+and merge them in another.
+
+**One thing the corrected map says that the broken one could not.** 723 does carry two
+9-fold concurrences, so the algebraic search's founding premise is intact. But **727 — the
+record that beats it — has max concurrence 6 and no 9-fold at all**, as do the n=4 and n=5
+records. The "9-fold sweet spot" that guided months of searching is a property of one
+configuration, not of records.
+
+So the act ends where it began, at an ensemble rather than a map: signature space is still
+the right object to want, and every number this act reported about its size is unmeasured.
+See [P227](LEDGER.md#p227) and [FAILURE_MODES 27](FAILURE_MODES.md).
+
+*(Written 2026-09-07. The paragraphs above replace three that reported the predictor and
+the ~4 216 signature population as findings. The originals are preserved struck in
+[P222](LEDGER.md#p222) and [MAXIMISER_TAXONOMY §12](MAXIMISER_TAXONOMY.md), which is where
+a reader tracing the retired numbers should land.)*

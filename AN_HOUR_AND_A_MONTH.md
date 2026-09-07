@@ -34,7 +34,7 @@ to notice and is stated here because it explains the rest of the story: **the wa
 along the stratum it starts on and cannot leave it.** Codimension is preserved. The
 record climb can polish a record and cannot reach a differently-shaped one.
 
-## II. Four illusions
+## II. Five illusions
 
 Most of what this project spent August believing about its own limits turned out to be
 facts about how it wrote numbers down, not facts about cubes. They arrived in one week,
@@ -77,8 +77,38 @@ quaternions named the *same cube*. Quotienting cut the work 7.2×, and the gate 
 been blocking for eight hours and twenty minutes passed **fifty-one seconds** after the
 smaller menu was used.
 
-Four illusions, one disease: mistaking a property of the notation for a property of the
-thing. The project's own principles file had the rule written down — *a refusal may be
+**The fifth was the most expensive, and it was found after this document first claimed
+there were four.** A statistic built to predict the region count read each cube's face
+normals from the ROWS of its rotation matrix. In world coordinates they are the COLUMNS;
+the rows belong to the *inverse* rotation. So every signature computed described a real
+compound — just not the one being measured. Nearly three million rows of census carried
+it. And the predictor it produced did not merely weaken when the line was fixed: the
+correlation **changed sign**, from +0.562 to −0.147, and the ordering fell from 77.6 % to
+50.6 %, which is a coin.
+
+What makes it worth telling is not the error but what was already on hand. A cube is
+invariant under twenty-four rotations, so a quaternion is a *name* for a cube and every
+cube has twenty-four of them; any honest function of a compound must give the same answer
+for all of them. Checking that costs one loop, and against the broken code six of six
+respellings changed the answer. **This project had used that very symmetry a week earlier
+— to shrink a search menu from 2 928 candidates to 405, and it had even validated the
+shrink against the engine.** The same fact was available as a speedup and taken; available
+as a gate and not taken. Knowing a symmetry and testing against it are, once again,
+different activities.
+
+**And a sixth case where the same diagnosis is wrong.** A later census recorded its
+refusals instead of counting them, and they do not fit the pattern: sixty of them, every
+one producing no error output at all, at heights from 6 to 1 748 — orders below any
+overflow threshold. Nothing about the representation explains those. They look like
+genuine degeneracy, and the more structured the ensemble the more of them appear. Having
+found four illusions in a week, the tempting next move is to assume the fifth is one too.
+It is not, and the diagnosis that worked four times is now itself a thing to check rather
+than to apply.
+
+Five illusions, one disease: mistaking a property of the notation for a property of the
+thing. A quaternion is notation for a cube; a dyadic rounding is notation for a point; a
+menu of integer 4-tuples is notation for a set of cubes. Every one of the five was a
+property of the writing mistaken for a property of what was written about. The project's own principles file had the rule written down — *a refusal may be
 about your representative, not about the question* — and names the tell, which is
 failures separating cleanly by the size of the input. It was present all four times.
 Having the rule and running the check are different activities.
@@ -104,6 +134,17 @@ by the gauge, by each cube's twenty-four symmetries, by the leftover global rota
 by the fact that a compound is a set and its cubes are not labelled. Between two of them
 the count dips by twenty to forty-six. Crossing that by tolerating downhill steps is not
 climbing out of a valley; it is walking to another continent.
+
+One more thing about the space is worth stating because it is so unaccommodating. Every
+wall in this arrangement is a solved constraint — a face plane through a triple point is a
+quadratic, an edge meeting a crossing line a quartic. A quadratic has *two* roots, so it
+yields two configurations satisfying the identical constraint. Do they carry the same
+count? **Ten pairs agree, fifty differ** by eight to sixteen regions — and ninety-six of
+the hundred and fifty-six pairs could not be evaluated at all, which belongs in the
+sentence rather than in a footnote, since this project has a rule about exactly that. On
+the evaluable third, then: not similar constraints giving different answers, but one
+fully-solved constraint failing to pin the count between its own two solutions. Whatever
+determines the count, it is not the constraint set alone.
 
 And at n=4 the whole gap has a name. The record's profile is {depth-1: 92, depth-2: 66,
 depth-3: 24}, and 66 and 24 are exactly the ceiling-law caps. Every local maximum the
@@ -202,6 +243,57 @@ depth-2 pinned at its cap of 66 while depth-1 carries the surplus — and reache
 the move set.** Every climber in this project moves by perturbing a configuration, and the
 target sits on a set that perturbation cannot reach. One projection crosses it.
 
+It kept going after that, and the best now stands at **177** — which happens to be exactly
+golden's total, noted in the log as *"suggestive and unexamined"*, which is the right thing
+to say about a coincidence you have not earned yet. A census of **556 746 configurations**
+across four ensembles then produced something the search had never had: a predictor of the
+count that needs **no engine call at all**. Sum, over the incidence points that are real —
+that actually land inside a face square rather than merely on the infinite plane —
+the weight (m−1)(m−2)/2. It orders 77.6% of arbitrary pairs correctly, which is not far
+off the 78.8% achieved *within* a single signature, so it is a standalone filter and not a
+tie-breaker. Solving a wall point costs 0.00062 s against 0.043 s to count a configuration:
+the arithmetic is seventy times cheaper than the answer.
+
+And the log corrects itself twice in the same section. A statistic that scored 78% on nine
+pairs scores **40% on four hundred and thirteen**; the lexicographic rule built on it lands
+at 49.0%, which is chance. Then the sign of its own derivation turns out to be backwards —
+it had argued degeneracy should be penalised, and the measurement says more weight is
+simply better, monotone, no correction. Both are written up as retractions, in the register
+this project uses, by the session that made the mistakes. Whatever else the mandate did, it
+did not cost the discipline.
+
+> **Correction, 2026-09-07, and it is the sharpest thing in this document.** The predictor
+> two paragraphs up does not exist. The routine computing plane incidences read the ROWS of
+> each cube's rotation matrix where the face normals are the COLUMNS, so every signature and
+> every incidence weight described each cube's *inverse* rotation. Recomputed, the
+> correlation does not weaken — it changes sign, from r = +0.562 to −0.147, and the ordering
+> falls from 77.6 % to 50.6 %, which is a coin. [P227](LEDGER.md#p227).
+>
+> The two retractions this section praises were real and were correctly made. They were also
+> corrections *within* a wrong frame: both asked whether the right function of the incidence
+> points had been chosen, and neither could ask whether the incidence points were the right
+> ones, because nothing inside the method could. The statistic was exact, deterministic,
+> reproducible and correlated across half a million configurations. What eventually caught
+> it was not more self-scrutiny of results but a question about the object: a quaternion is
+> a *name* for a cube, a cube has 24 names, and the statistic changed when the name did.
+>
+> So the honest version of "it did not cost the discipline" is narrower than the sentence
+> above claims. The discipline that survived was the discipline of retracting a claim once
+> it is questioned. The discipline that was missing for two days was the discipline of
+> gating a new statistic against a symmetry it must respect *before* half a million
+> configurations are spent on it — and that one is cheaper, and would have made both
+> retractions unnecessary. A document about autonomy should say which kind it demonstrated.
+
+**One qualification, since the point of the experiment was to measure autonomy and not to
+celebrate it.** Attempts 1 through 8 are self-directed: the diagnostic, the ensemble
+abandoned, the eleven hours killed, the projection. Attempt 9 opens with *"at the user's
+direction"* — the move from *find a better configuration* to *characterise what predicts
+the count* was supplied, as was the conjecture about face-boundedness that turned out to be
+the missing ingredient. So the honest reading is that the mandate bought a genuinely
+autonomous stretch of about eight explorations, after which the collaboration returned to
+its usual shape. That is a real result and a smaller one than the section would otherwise
+suggest.
+
 The sting is in the collinearity. Days earlier this project had proposed re-weighting the
 depth layers, built five weighted objectives, run them, found every one byte-identical to
 plain total, and reported the idea dead. It was not dead. At r = 0.984 those objectives
@@ -227,10 +319,17 @@ and an hour of not being interrupted. Given those, the log fills with the same m
 diagnostic before an optimisation, an ensemble abandoned outright, eleven hours killed on
 evidence, and an old null result re-read and understood.
 
-The remaining gap to 183 is now sharp enough to state in one line: **depth-1 = 92 with
-depth-2 held at 66.** Best so far, 74 and 66. Eighteen to go.
+The remaining gap is small enough to state in one line. The best configuration found from
+random starts now counts **177** against the record's 183, and the structural target is
+still depth-1 = 92 with depth-2 held at its cap of 66, last reported at 74 and 66. Six
+regions, or eighteen, depending which way you measure.
 
 ---
+
+*Updated 2026-09-05 as the work moved: attempts 9 through 12 of the exploration log, the
+census, the predictor, and [P222](LEDGER.md#p222) all postdate the first draft, and
+Section V's qualification was added because the log said plainly what the first draft had
+glossed.*
 
 *Every claim here is traceable. [`RESULTS.md`](RESULTS.md) carries the current status of
 each with a tag; [`LEDGER.md`](LEDGER.md) is the dated record beneath it, and corrections

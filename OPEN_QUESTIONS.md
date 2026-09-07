@@ -674,3 +674,61 @@ conditions that are individually rare, the joint rarity should be estimable from
 individual ones — but only if the conditions are near-independent, and
 [P206](LEDGER.md#p206)'s `deficit = 1 + Σ_j (3 − r_j)` says the per-cube contributions add
 exactly, which is evidence FOR independence and worth pressing.
+
+## 20. Why does the engine refuse, when it refuses silently?
+
+60 census refusals at n=4, **all producing no stderr at all**, so the degenerate-vs-budget
+classifier in `census.py` never fired and every one is recorded as `other`. Heights run 6
+to 1748 — far below any overflow threshold — which rules out the budget explanation and
+leaves genuine degeneracy (coincident cubes, a non-generic plane triple) as the likely
+cause. **ANSWERED 2026-09-05, and it is neither hypothesis.** The engine reports
+`{"error": "outside must be a single region"}` in **stdout as JSON**, exiting 0, with
+stderr empty — so the classifier, which read stderr, could never have fired. All 65 are
+that one error. It is the engine's own internal consistency check (the unbounded exterior
+should form a single region), not degeneracy and not overflow: heights are 78–108 and
+duplicate cubes were tested directly and count fine (bounded = 63, exit 0).
+
+So these configurations are unevaluated for a reason internal to the counter, which means
+they could sit anywhere in the count distribution and the census cannot say. 65 of 556 746
+is 0.012 %, small enough not to bias the measurements above, and worth reporting as an
+engine issue rather than a property of the space. Classifier fixed to read the JSON error
+field.
+
+Rate by ensemble: `twoaxis` 25, `project` 23, `haar` 9, `axis` 2 — the more structured the
+ensemble, the more it refuses, which is what makes the answer interesting rather than
+housekeeping. If these are degeneracies then the census is discarding exactly the
+high-coincidence tail that records inhabit; if they are something else, the ensembles are
+generating malformed input and the sample is biased in an unknown direction.
+
+## 21. Does the Möbius-weight predictor PAY, or only predict? — **CLOSED 2026-09-07: it does neither**
+
+> **The question is void, not answered.** [P222](LEDGER.md#p222)'s predictor was computed
+> from face normals taken as matrix ROWS rather than COLUMNS — the inverse rotation of every
+> cube. Recomputed correctly it scores **r = −0.147** and orders **50.6 %** of 3 320 pairs: the
+> correlation changes sign and the ordering is chance. There is nothing to make pay. See
+> [P227](LEDGER.md#p227) and [FAILURE_MODES 27](FAILURE_MODES.md).
+>
+> **What replaces it as an open question** is narrower and still live: *is there ANY
+> statistic computable without an engine call that orders the count better than chance?*
+> The three tried here — max concurrence, raw real-incidence count, Möbius weight — were all
+> measured through the broken map, so all three are unmeasured, not refuted. The re-measure
+> is cheap: the census stores `cfg`.
+
+~~[P222](LEDGER.md#p222) established `Σ over real, face-bounded incidence points of
+(m−1)(m−2)/2` as the best count predictor this project has (r = 0.562, orders 77.6 % of
+arbitrary pairs, no engine call). It is characterised and **not yet used**.~~
+
+The obvious use is a filtered census: generate cheaply, count only the top decile by
+weight. But "no engine call" is not the same as "cheap" — the statistic needs C(6n,3)
+exact 3×3 solves, which at n=4 is 2 024 of them, and the concurrence filter died on
+exactly this arithmetic (0.050 s against a count's 0.043 s). **The cost must be measured
+before the filter is built**, or this repeats [P222]'s mistake one level up.
+
+~~If it is not cheaper than counting, the statistic still has a use that does not depend on
+being cheap: as a **search objective**. A walk can hill-climb on Möbius weight with no
+engine in the loop at all and count only its endpoints — which is a different economics
+from filtering, and is the one place a 77.6 % predictor that costs a count could still pay.~~
+
+*Struck 2026-09-07. Hill-climbing on a 50.6 % objective is a random walk with extra steps.
+The idea itself — an engine-free search objective, counting only endpoints — survives the
+statistic it was attached to, and is worth re-raising if any statistic ever clears chance.*

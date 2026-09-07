@@ -863,7 +863,7 @@ sign vector to witness, flat to subspace — there is a known value on both side
 the conversion. Evaluate it. A pipeline of individually gated components is not a
 gated pipeline.
 
-### 20. A sampled termination test read as a decision
+## 22. A sampled termination test read as a decision
 
 `climb.py` ended with "no crossing above the record; region is locally maximal OVER THE
 DIRECTIONS WALKED". The hedge is accurate and was written deliberately — and it did not
@@ -881,3 +881,156 @@ budget"). That phrase marks a lower bound, and a lower bound must not be histogr
 
 Related: FAILURE_MODES 16c (refusals turning a plateau into a point) and the standing
 rule that a sampled count is a lower bound and a solved one is not.
+
+## 23. A statistic measured on my own recomputation, not on the statistic
+
+The Möbius-weight predictor was declared unusable because it cost 3.8x a count. Then the
+catalogue turned out to record exactly what it needs — `real_pts.append((s, len(on),
+len(cubes_on)))`, the point, its multiplicity, and a face test already applied — so the
+information was free and only my recomputation was expensive. That hope was also wrong:
+reading it from the catalogue costs **14x a count**, worse still, because the catalogue
+computes a bounded box search and all crossing lines besides. The negative survived, but
+it was nearly overturned on a guess and then re-confirmed by measurement rather than by
+the original reasoning.
+
+Still open and flagged rather than smoothed: the two statistics **disagree, r = −0.049**,
+while both order the count at 86–90 %. Two supposedly equivalent measures of one quantity
+cannot be uncorrelated; one is not measuring what I think.
+
+## 24. A gate that caught a fast, plausible, wrong engine
+
+The first incremental counting engine compiled, ran **5.2x faster at n=10**, and was
+wrong: it returned the base's own count for every candidate after the first. Cause —
+`exact_count_config` calls `verts.clear()` on entry, so restoring the base by
+`verts.resize(g_baseVerts)` refilled it with default-constructed vertices and every saved
+cell indexed into zeros. The speedup was measuring skipped work.
+
+The equivalence gate — 75 configurations at n=4, 7 and 10, counted both ways — caught it
+immediately: 3 of 75 agreed. After saving the vertex DATA rather than its length, 75 of 75
+agree and the honest speedup is 2.6x at n=10, half what the broken version advertised.
+
+**The tell, and it is general: a performance win that exceeds its own prediction.** The
+base-share measurement predicted at most 3.4x; the broken engine reported 5.2x. A speedup
+larger than the work you believed you were skipping means you are skipping work you did
+not intend to.
+
+## 25. Two ratios conflated inside one sentence
+
+[P223](LEDGER.md#p223) was written claiming the incremental engine was "the one lever with
+70x-scale headroom". 70x is the SOLVE-versus-COUNT ratio and has nothing to do with
+incremental counting, whose headroom is the base share — 2.4x at n=5 rising to 3.4x at
+n=10. Both numbers were measured in the same session, minutes apart, and were joined by
+nothing but proximity. Corrected before the claim was used anywhere.
+
+## 26. An enumeration run without a gate, and a symmetry claimed without checking it
+
+The n=5 record family (hub + one cube per body diagonal, [P225]) was swept over 66 045
+angle tuples and returned **best 375, 0 bases at >=385**. The 393 is IN that family by
+construction, so the negative was void before it was printed.
+
+**The reduction was wrong.** I argued: the cube's rotation group acts as S4 on the four
+body diagonals, and conjugation preserves a rotation's angle, so permuting which diagonal
+carries which angle gives a congruent compound -- hence only sorted 4-tuples need
+evaluating, 24x fewer. Both premises are true and the conclusion does not follow. The
+action is not free on the SIGNED structure: a rotation permuting diagonals can reverse
+orientations, sending t to -t on some of them, so permuting angles alone is not the group
+action. Measured directly afterwards: the 24 assignments of (-5,-3,5,5) give **two**
+counts, 341 and 393, and the sorted tuple gives **341**. Sorted-only discarded exactly the
+arrangement that reaches the record.
+
+**Two separate failures, and the second is the one that cost the hour.**
+
+1. A symmetry argued from plausible premises and never tested. One command -- count all 24
+   permutations of a known-good tuple -- would have refuted it in seconds, before the
+   sweep. Testing a claimed symmetry is cheap precisely because a symmetry makes a
+   prediction: the counts must agree.
+2. **No gate.** The campaign had an obvious one available -- it must rediscover the 393 --
+   and [P186] had already taught this project exactly that lesson on the arc sweeps, where
+   the gate was the thing that made the negatives real. I wrote the sweep without one, got
+   a negative, and only checked afterwards.
+
+Compounding it: the FIRST gate I then wrote was also wrong. It found the first
+(diagonal, t) pair expressing each cube and asked whether that particular t was in the
+swept set -- but the C3 orbit of 1/4 is {1/4, 5, -3/7} and the sweep keeps 5, the same
+cube. The gate reported failure for a family that did contain the target. A gate is code
+and can be wrong; it needs its own sanity check, which here is "does it pass on a case
+known to be good".
+
+The rerun puts the gate FIRST -- it reproduces the 393 exactly, or exits -- and drops the
+reduction, trimming the angle set instead. Trimming is honest (the negatives are then
+about a stated set); an unchecked symmetry is not.
+
+## 27. A statistic that was a function of the SPELLING, not the object
+
+`concurrence.planes()` built each cube's six face normals from the ROWS of its rotation
+matrix. In world coordinates the face normals are the COLUMNS; the rows are the normals of
+the inverse rotation. Every plane-incidence signature this project computed — the whole
+`signature.py` / `realsig.py` / `signed_sig.py` line, and the `sig` column of a 3 135 491-row
+census — therefore described a real compound that was not the one being measured.
+
+**The gate costs one loop, and it is forced by the objects themselves.** A cube is
+invariant under the 24 rotations of the octahedral group, so `q` and `q·s` are two names
+for the SAME cube. Any honest function of the compound must be constant along that orbit.
+
+    for s in OCT:  assert signature(respell(cfg, s)) == signature(cfg)
+
+Broken code: **6 of 6** respellings changed the signature. Corrected: **0 of 96**. The
+gate is now permanent — it runs on every `python3 concurrence.py`.
+
+**What it cost**, and the size is the point: the census's signature column (3.1M rows), a
+Chao1 richness estimate built on it, the claim that the n=4 record carries a 9-fold plane
+concurrence (it carries **6**, and the shared-axis 161 carries 8 — so the record is BELOW
+the configuration the statistic was invented to rank above it), a 1 500-configuration
+construction aimed at that phantom 9-fold, and [P222]'s best-ever count predictor, whose
+correlation did not shrink but **changed sign**, from r = +0.562 to −0.147, with ordering
+falling from 77.6 % to 50.6 % — chance. See [P227].
+
+**Why it survived so long.** Every internal consistency check passed. The signature was
+deterministic, exact (integer planes, exact rational intersection points, no tolerance
+anywhere), reproducible, and correlated with the count well enough to look like a finding.
+Two implementations would have agreed, because both would have read rows. Nothing inside
+the method could see it: the anchor had to come from a symmetry of the INPUT, which is
+outside the method by construction.
+
+**Standing rule, and it generalises past this project.** When a statistic is computed from
+a REPRESENTATION of an object — a quaternion for a rotation, a basis for a subspace, a
+coset representative, a chart — gate it against the representation's own redundancy group
+before believing one number it produces. The redundancy group is usually known for free and
+usually small; here it was 24 elements and one loop. This is [FAILURE_MODES 21]'s rule
+("gate every ADAPTER") pointed at the other end of the pipeline: 21 is about the map INTO
+the object, this is about a map OUT of it, and both are invisible to a correct engine.
+
+**Corollary about correlation as evidence.** r = 0.562 across half a million configurations
+felt like strong evidence that the statistic meant something. It was strong evidence that
+the statistic was not noise — and the inverse rotation of a compound is not noise. A
+statistic can be highly structured, highly reproducible, and about the wrong object.
+
+### 27a. The correction's own evidence was a single sample — and the second one contradicted it
+
+Same day, inside the fix for 27. Reporting the damage, I wrote that per-ensemble signature
+richness *"moves in BOTH directions (`chain` 34 → 102, `axis` 93 → 89), so no scale factor
+repairs the table"*, and propagated that sentence into four documents.
+
+It came from one 3 000-row resample computed inline, whose script was not kept. Writing
+`resig.py` so the correction would be reproducible produced a second sample — and `axis`
+moved the **other** way (74 → 77), as did `twoaxis` (129 → 120 becomes 115 → 126). Only
+`chain` is resolved: it roughly triples in both. The predictor figures agreed across the two
+runs (r = −0.184 / −0.147, ordering 52.3 % / 50.6 %), which is why the headline claim was
+right; the per-ensemble directions did not, and I had quoted the directions as evidence.
+
+**The conclusion was right and its stated evidence was noise.** "No scale factor repairs the
+table" is true because the table has not been re-measured — not because a direction was
+established. Those are different claims and only the second one needs data.
+
+**Three things this says that 27 does not.**
+
+1. **A correction is a result and gets a result's discipline.** The bug it corrects makes
+   the correction feel like the careful part of the work. It is not; it is new measurement,
+   made in a hurry, usually on a smaller sample than the thing being corrected.
+2. **The script that produces a quoted number must exist before the number is quoted.**
+   Run 1 was inline. Had it been a file, run 2 would have been a re-run with a different
+   seed — five seconds of thought — instead of an accident of rewriting it for
+   reproducibility. [METHODS 12](METHODS.md), and this project has now paid for it twice.
+3. **Two samples that agree on the headline can disagree on the detail**, and quoting the
+   detail as support for the headline reads as more evidence than there is. The honest form
+   quotes both runs, which is what [P227](LEDGER.md#p227) now does.

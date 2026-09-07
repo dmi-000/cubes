@@ -1210,3 +1210,82 @@ matched signature as a matched wall.
 not made by any small set of cubes, and one whose signature is a single cube is a
 strong candidate for a coincidence involving that cube essentially.
 
+
+## 23. [TECHNIQUE] Census the signature space, and search for the unrecorded
+
+**The problem it solves.** Sampling configurations to find records measures the sampler:
+the Haar ensemble's best count in 4 000 draws is 135 against a record of 183, and its best
+depth-1 is 46 against the 92 needed. Searching harder inside it searches the wrong set.
+
+**The method.** Draw from several ensembles, record signature + count + depth profile per
+configuration, append, and union-merge across machines. `census.py`, `census_merge.py`.
+
+Three rules that are not incidental:
+
+1. **Union-merge, never max.** Keeping only the best count per signature destroys the
+   spread, and the spread IS the measurement of the signature's incompleteness. Two
+   machines reporting different maxima for one signature are two samples of a
+   distribution, not two candidates for one slot.
+2. **Do not filter during the characterising phase.** The relation between signature and
+   count is what is being measured; skipping counts biases exactly that distribution.
+   (And measurement says filtering cannot pay anyway — see FAILURE_MODES.)
+3. **Record refusals with their cause and their signature.** The signature needs no
+   engine, so a refused configuration still enters the table and evaluability becomes a
+   feature rather than a hole.
+
+> **CORRECTION 2026-09-07.** Every richness and coverage figure quoted in §23 and §23a was
+> computed with `concurrence.planes()` reading matrix ROWS instead of COLUMNS — the inverse
+> rotation of each cube — so the signature was a function of the quaternion spelling, not of
+> the compound (6 of 6 octahedral respellings changed it; 0 of 96 after the fix). **The
+> 47× richness ratio, the 58–80 % coverage band, the ~4 216 estimate and the
+> 42/1 759/1 997 progression are all void**, and two independent 3 000-row resamples agree
+> only that `chain` roughly triples — every other ensemble moves less than the gap between
+> the samples — so they cannot be rescaled. The METHOD is unaffected —
+> the three rules below are about how to run a census, not about which statistic it
+> records — and the census's `cfg`, `count` and `depth` columns are valid, so re-signing
+> costs no new search. The effort-reweighting decision made from the void coverage figures
+> should be re-derived before it is used again. See [P227](LEDGER.md#p227).
+
+**Where to spend effort, from the census itself** *(figures void, see above)***:** the
+ensembles differ by 47x in
+signature richness per draw, and coverage runs 58–80 %. Effort split evenly across
+ensembles is effort spent mostly on exhausted ones.
+
+**The inverse, not yet built.** A signature space in the low thousands would be enumerable
+where ~750 000
+configurations is not, which makes the map worth inverting: given a target signature,
+solve or search for a configuration realising it, and visit the unrecorded ones
+deliberately instead of waiting for random draws to stumble on them. Partial inversion is
+already known to work — `ALGEBRAIC_SEARCH.md`'s GroebnerBasis solver imposes a chosen
+incidence and solves exactly — while a full histogram is overdetermined and generally not
+realisable. The cheap alternative is navigation: perturb a configuration whose signature
+is adjacent to the target. Whether signature space HAS local structure to navigate is an
+open measurement, not an assumption.
+
+### 23a. [PRACTICE] The plan: reach unrecorded signatures by constructing new ensembles
+
+Signature space is not navigable (TAXONOMY 12a), so new signatures come from new
+constructions. Three ensembles are added, chosen because each imposes a DIFFERENT incidence
+pattern rather than more of the same one:
+
+* **`chain`** — cube k is cube k−1 rotated about a fresh random axis. Consecutive pairs
+  share an axis; non-consecutive pairs do not. This makes PAIRS special rather than the
+  whole set, which is the structure JOURNEY Act IV attributes to the record ("half its
+  pairs at 9"), and which no star-shaped shared-axis family can produce.
+* **`threeaxis`** — cubes partitioned over three axes rather than one or two, continuing
+  the progression that took 42 signatures (`haar`) to 1 759 (`axis`) to 1 997 (`twoaxis`).
+* **`mixed`** — two cubes sharing an axis, the rest Haar. Partial structure, to test
+  whether signature richness needs the whole configuration constrained or only part of it.
+
+**Effort is reweighted by the census's own coverage figures** *(void — this reweighting was
+derived from broken-normal signatures and has not been re-derived; the corrected resamples
+have `chain` roughly tripling, which alone is enough to change which ensembles look
+exhausted)*. `haar` (70 % covered, 42
+signatures) and `project` (64 %) are nearly exhausted and their shards are retired;
+`twoaxis` at 58 % is the least covered and keeps its shards. Splitting effort evenly across
+ensembles spends most of it on exhausted ones.
+
+**What would falsify the plan:** if the new ensembles return signatures already in the
+table, then structure per se is not what opens new regions and the differences among
+`axis`/`twoaxis` were incidental. Coverage and new-signature rate are recorded per ensemble
+so this is visible rather than assumed.

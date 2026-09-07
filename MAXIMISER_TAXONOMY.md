@@ -1318,3 +1318,107 @@ above). 393's rank 0 is likewise unverified.
 (3925: 100 walls, 480 tight, against 123 and 552 predicted). `rank` and `deficit`
 continue. Whatever governs the arrangement's rank is not what governs its coincidence
 count.
+
+## 12. Signatures — a taxonomy of configurations by their incidence structure
+
+> **CORRECTION 2026-09-07 — every number in §12 and §12a below was computed with broken
+> face normals.** `concurrence.planes()` read the ROWS of each rotation matrix instead of
+> the COLUMNS, so it described each cube's INVERSE rotation. The signature was therefore a
+> function of the quaternion spelling rather than of the compound: replacing a cube by an
+> octahedrally equivalent quaternion — the same cube — changed it in 6 of 6 tries. With the
+> columns it changes in 0 of 96. **Void here: the two example signatures, the 1688 total,
+> the 3 055 distinct signatures, the Chao1 ≈ 4 216 and the whole per-ensemble table, and
+> §12a's L1 distances.** Two independent 3 000-row resamples agree on only one thing about
+> per-ensemble richness: `chain` roughly TRIPLES under the corrected map (34 → 102 and
+> 47 → 114); every other ensemble moves by less than the gap between the two samples, and
+> `axis` and `twoaxis` move in opposite directions between them. So the table below is not
+> rescalable — not because a direction was established, but because nothing was: the full
+> re-signing of 3.1M stored `cfg` rows has NOT been run. What survives, because it
+> does not depend on which normals: the *definition*, the *inverse question* this section
+> exists to pose, and §12a's stratum argument (qualitatively — its numbers are void). The
+> "does a signature pin the count" answer was independently re-measured under the corrected
+> map and holds. See [P227](LEDGER.md#p227).
+
+A **signature** is the histogram of plane-incidence multiplicities of a configuration:
+"one 9-fold point, eight 6-fold points, ninety-six 4-fold points", written as a sorted
+tuple of `(multiplicity, count)` pairs, 3-fold points omitted as generic. It is computed
+from the quaternions alone — `planes`, `solve3`, and an exactness test — with **no engine
+call**, and it is the first classification of configurations here that is neither a count
+nor a dimension.
+
+**What it separates.** The n=4 record and the best structured configuration found by
+search have visibly different shapes:
+
+    n=4 record 183   ((4,96), (6,8), (9,2))     VOID -- broken normals
+    shared-axis 161  ((4,122),(6,2), (8,2))     VOID -- broken normals
+
+*Corrected 2026-09-07:* the record's max plane-concurrence is **6**, not 9; the shared-axis
+161's is **8**. So the record sits BELOW the shared-axis configuration on this statistic,
+where the void numbers had it above. The section's conclusion is unchanged and its evidence
+is stronger: "more constraint is better" is false, and a filter keyed to the record's shape
+discards the best thing search has found ([P222](LEDGER.md#p222), [P227](LEDGER.md#p227)).
+
+**What it does NOT determine: the count.** Of repeated signatures, **0 of 12** pin the
+count exactly; spreads run 6–44 regions. *(Void as stated — but re-measured under the
+corrected map: 8 of 166 repeated signatures pin the count exactly in one sample and 6 of
+161 in a second, median spread 22 in both — so the section's claim holds and is now on 14×
+the sample.)* Same-signature pairs have
+*identical* total incidences (1688 = 1688 — void) and always differ in the REAL,
+face-bounded ones — because a
+region boundary is a face SQUARE, and an incidence on the plane's extension beyond the
+square is algebraically identical and geometrically inert.
+
+**Population, measured — VOID, the whole subsection.** *(The table below counts signatures
+under the broken map. Kept struck rather than deleted so the 4 216 that appears in
+OPEN_QUESTIONS and METHODS can be traced to its source and retired.)* 759 947
+configurations across four ensembles give **3 055 distinct signatures**, with a Chao1
+richness estimate of **~4 216** — about 72 % seen.
+
+| ensemble | configs | signatures | Chao1 | coverage |
+|---|---|---|---|---|
+| `haar` | 218 475 | **42** | 60 | 70 % |
+| `project` | 212 497 | 331 | 514 | 64 % |
+| `axis` | 257 664 | 1 759 | 2 196 | 80 % |
+| `twoaxis` | 71 311 | **1 997** | 3 447 | **58 %** |
+
+**The null ensemble produces 42 signatures in 218 475 draws** *(void figure; both corrected
+resamples put `haar` at 7 distinct signatures, the smallest richness of any ensemble, so the
+qualitative point below is the part that survives)*.
+Random configurations are
+structurally near-homogeneous, which is a sharper statement of why Haar search fails than
+anything about counts. `twoaxis` is both richest and least covered and is where unrecorded
+signatures live.
+
+**Why the number matters** — and this is the part worth rescuing rather than the number.
+A signature count in the low thousands would be a *manageable* object where 759 947
+configurations is not, which is what makes the inverse question askable. **The specific
+figure ~4 216 is void and there is no corrected replacement**: recomputing it needs the
+full re-signing, and the resample says richness moved both ways per ensemble, so it could
+land either side. The inverse question is unaffected — it needs the object to be
+enumerable, not to have that particular size. Ask it: rather than sampling
+configurations and reading off signatures, enumerate signatures and solve for a
+configuration realising each. See METHODS.
+
+### 12a. Signature space has no local structure — measured
+
+A perturbation of 2⁻¹⁴ moves the signature exactly as far as one of 2⁻⁴, and the signature
+is **never** preserved:
+
+    perturbation   median L1 distance between histograms   unchanged
+      2^-4                     66.0                           0%
+      2^-8                     66.0                           0%
+      2^-14                    71.0                           0%
+
+The reason is the same one that governs the records. **A signature is a property of a
+degenerate stratum**: it counts EXACT incidences, so any perturbation at all destroys every
+non-generic coincidence simultaneously and drops the configuration into the generic
+stratum. There is no gradient because there is no neighbourhood.
+
+**Consequence for finding unrecorded signatures.** Navigation is dead — one cannot walk
+from a known signature toward a target. Strata are reached by CONSTRUCTION or by SOLVING,
+never by wandering, and an ensemble is precisely a solved family with a closed-form
+parametrisation. That is why `twoaxis` yields 1 997 signatures where `haar` yields 42: not
+better sampling, but direct construction of strata.
+
+**So designing an ensemble IS reaching a region of signature space**, and it is far cheaper
+than GroebnerBasis solving for the same end.

@@ -1,0 +1,7 @@
+cost per configuration (a count is 0.047 s):
+  my from-scratch statistic      0.1558 s  (3.3x a count)
+  catalogue, uncached            0.7352 s  (15.6x)
+  catalogue, CACHED              0.6670 s  (14.19x)
+  from-scratch   orders 26/29 = 89.7%
+  catalogue      orders 25/29 = 86.2%
+  agreement between the two statistics: r = -0.049

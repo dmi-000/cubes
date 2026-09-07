@@ -19,6 +19,10 @@ Findings from it (a real scientific result, not just plumbing):
     than the record. 723's 9-fold is near-optimal; over-concentrating
     incidence at one point merges away too many regions (the T2 / deep-
     ceiling direction).
+    *Qualified 2026-09-07: the 12-fold measurement stands, but "near-optimal" does not.
+    727 beats 723 with max concurrence 6, so the optimum on this axis is not at 9 and
+    may not exist. What the two measurements jointly support is only the upper half:
+    over-concentration hurts. See [P227](LEDGER.md#p227).*
   - **Welding A to TWO cubes at general corners** (two separate 6-fold
     coincidences, the 723-type spread) gives 689 across 26 exact
     solutions, with **d1 = 224 — a new depth-1 high, above the record's
@@ -29,6 +33,20 @@ The solver did not beat 723, but it maps the incidence/count tradeoff
 exactly and finds configs a numeric grid would not land on.
 
 ## Premise (validated, not assumed)
+
+> **Re-validated 2026-09-07, after a bug that could have voided it.**
+> `concurrence.planes()` was found to read matrix ROWS instead of COLUMNS — the inverse
+> rotation of each cube — which voided the signature census and the count predictor
+> ([P227](LEDGER.md#p227)). This premise was re-measured under the corrected normals and
+> **stands unchanged**: 723's corrected signature is `((4,216), (6,6), (9,2))`, two 9-fold
+> points, and a constructed corner-sharing triple returns the predicted 9-fold (and a
+> quadruple the predicted 12-fold). The derivation was geometric, not code-derived, which is
+> why it survived.
+>
+> **One correction the re-measurement forces**, and it cuts against the sweet-spot reading
+> below: **727 — the better n=6 record — has max concurrence 6 and no 9-fold at all**
+> (`((4,208), (6,10))`), as does the n=4 record 183. The 9-fold sweet spot was read off 723
+> alone. It is a property of 723, not of records.
 
 Record configs sit at HIGH-MULTIPLICITY POINT incidences, not edges:
 - The 723 record has two **9-fold plane concurrences** — points where 9
