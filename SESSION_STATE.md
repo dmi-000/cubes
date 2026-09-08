@@ -2,10 +2,31 @@
 
 ## Where the work stands
 
+**LATEST — 2026-09-07, [P266]: Theorem S is proved, for all n.**
+
+    Σ over the (n−1)-subsets T of d_(n−2)(T)  ≤  6n(n−2) + d_(n−1)(S)
+
+At n = 4 that is `Σ_T d₂(T) ≤ 48 + d₃`, which [P262]–[P265] had isolated as the last
+inequality before the n = 4 ceiling law, and which [P265] failed to prove or refute the
+same day. It follows from the two OLDEST theorems here — the fibration lemma and [P33]'s
+anchor theorem — by splitting each count's deficit from 6 into anchors LOST (subadditive,
+because a fixed six-point witness set survives intersection) and anchors SHARED (monotone,
+a partition-matroid rank). Write-up `PROOF_SUBSET.md`; gate `anchor_split.py`.
+
+**`max(4) ≤ 195` is still NOT proved.** Two steps of the chain from Theorem S to it are
+not Theorem S's to give: `W₁ = 2(d₃−2)` fails on a degenerate residue (new [OQ 32]) and
+`c_ℓ ≤ 1` is [OQ 30]. Those two are what is left.
+
+**Also established, negatively:** the same anchor technique CANNOT give the l=2 ceiling law
+at any n — per-pair anchors give 12·C(n,2), quadratic, against a linear law
+([P266] addendum). [OQ 29] should not be attacked that way.
+
+
 **The n=4 record is now a CONSTRUCTION, not just a configuration** ([P224], [P225]):
 - 183 = hub cube + three cubes at t = ±1/4 about three of the four body diagonals.
-  Eight such configurations, each with C3 symmetry about the UNUSED diagonal, pairwise
-  26.35° / 43.00° apart — not one orbit.
+  ~~Eight such configurations ... pairwise 26.35° / 43.00° apart — not one orbit.~~
+  **CORRECTED 2026-09-07 ([P241]): all eight, and the recorded 183, are ONE congruence
+  class** — witnesses exhibited. There is one known 183. The construction stands.
 - ~~A NINTH 183 exists (the tower's n=4 layer, = the 393 minus its cube 3): asymmetric,
   symmetry group order 1, two cubes on no diagonal.~~ **FALSE, corrected 2026-09-07.**
   Checked directly: the five 4-subsets of the 393 count 179, 179, 179, **183**, 171, and the
@@ -164,6 +185,30 @@ same chain and is flagged, not refuted. RESULTS' n=2 row now says body-diagonal 
 SUFFICIENT not necessary. NOTE: my first version of the test used ONE spelling of the
 relative rotation and said BOTH rules were violated -- over the full 576-element double coset
 rule 2 is perfect. Third representative-vs-object error of the day.
+
+**[P243]-[P245] + OQ 23-28 (2026-09-07).** Euler applies at EVERY depth:
+`d_ell = E_ell - V_ell + c_ell + 1`, exact on 22 of 22 checks. **The two-body term is ZERO for
+every ell >= 2**, so [P235]'s coincidence obstacle lives at depth 1 alone and
+`d_ell <= 108*C(n,3)+2` is PROVED there unconditionally. Cross-level:
+`TOTAL = E - sum_v m_v + sum_ell (c_ell+1) + 1`, exact at records. **CAUTION: `c_ell = 1` is
+NOT universal** (47 of 1500 level-instances differ, up to 16) — a closed form substituting 1
+is generic-only; corrected within the hour of writing it. Six open questions recorded as
+OQ 23-28, including "is `by_depth` itself gated?" and "is `m_v <= 3` real or a
+four-configuration artifact?".
+
+**CAUTION carried forward.** Three routes to exceeding 183 were measured and each loses more
+than it gains ([P242], [P247]) -- this is NOT a proof of maximality and the phrase "all routes
+obstructed" was withdrawn the hour it was written. The three came from reading terms off an
+identity (invalid, [P247]), two are correlations over samples, and all three were measured on
+a census whose maximum is 177 -- an instrument that cannot find the record it is being used to
+defend. The proof route is [OQ 28]: a lower bound on `sum_v m_v`.
+
+**n=4 BOUNDS, end of 2026-09-07:** [183, 953] proved this morning -> **[183, 263]** proved
+([P261]) -> **[183, 195]** conditional on ONE inequality, `Σ_T d2(T) <= 48 + d3` ([P264],
+[OQ 31]): 0 violations in 3 599 configurations, tight in 2 351. Directed refutation of the
+ceiling law failed at its cheapest point (l=2 cap attained 1 341-1 721 times per n at n=4..7,
+exceeded never, [P262]). CAUTION: the E-route bounds rest on ingredients hours old and
+`c_ell = 1` is not proved ([OQ 30], reduced to quotient-connectivity by [P259]).
 
 **Next, in the order I would take them:**
 0. Nothing in the n=5->n=6 direction. That family is exhausted: [P230] is the complete

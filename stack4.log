@@ -1,0 +1,9 @@
+DIRECTED SEARCH: stack SHARED-AXIS pairs and watch V3 against the ceiling-law prediction
+
+construction            draws    ell=1    ell=2    ell=3 over cap?
+generic (Haar)             60       84      128       44        0
+1 shared-axis pair         60       78      120       44        0
+3 shared-axis pairs        60       74      114       42        0
+6 shared-axis pairs        60       70      110       42        0
+
+ceiling-law V3 predictions at n=4:  ell=1 204  ell=2 128  ell=3 44

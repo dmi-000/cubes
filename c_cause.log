@@ -1,0 +1,43 @@
+==============================================================================
+1. THE KNOWN c>1 CONFIGURATIONS: is each one degenerate, and does the
+   IDENTITY hold there?  (identity holding = the value is a measurement)
+==============================================================================
+  (shares face plane, c, identity holds) -> count
+    deg=False c=2   identity_ok=True  : 37
+
+  c>1 instances that are NON-degenerate AND identity-valid: 37
+    ell=1 c=2 self=0 pairs=1 sizes=[88, 88]
+      1,0,0,0;-23,-90,43,22;72,-37,-17,-2;-4,4,-79,25
+      other coincidences: NONE
+    ell=1 c=2 self=0 pairs=1 sizes=[62, 62]
+      1,0,0,0;-28,-38,96,65;91,27,7,-1;-53,64,79,52
+      other coincidences: NONE
+    ell=1 c=2 self=0 pairs=1 sizes=[82, 82]
+      1,0,0,0;-41,-19,67,20;64,9,-35,6;-54,-25,98,1
+      other coincidences: NONE
+    ell=1 c=2 self=0 pairs=1 sizes=[86, 86]
+      1,0,0,0;-54,18,67,24;-48,-83,41,-61;45,76,34,36
+      other coincidences: NONE
+    ell=1 c=2 self=0 pairs=1 sizes=[70, 70]
+      1,0,0,0;-7,-11,-1,-111;-40,-49,32,51;-65,84,9,54
+      other coincidences: NONE
+    ell=1 c=2 self=0 pairs=1 sizes=[64, 64]
+      1,0,0,0;1,0,-24,16;-70,97,3,17;-75,43,79,-34
+      other coincidences: NONE
+    ell=1 c=2 self=0 pairs=1 sizes=[69, 69]
+      1,0,0,0;1,14,-21,-7;8,10,-15,-5;1,16,-24,-8
+      other coincidences: NONE
+    ell=2 c=2 self=0 pairs=1 sizes=[57, 57]
+      1,0,0,0;1,14,-21,-7;8,10,-15,-5;1,16,-24,-8
+      other coincidences: NONE
+
+==============================================================================
+2. RATES: P(c>1) with and without a shared face plane, by SHAPE
+==============================================================================
+  level-instances: 478 non-degenerate, 197 plane-degenerate
+    deg=False c=1                      identity_ok=True  :   476  (99.58%)
+    deg=False c=2 (0 self + 1 pair)    identity_ok=True  :     2  ( 0.42%)
+    deg=True  c=1                      identity_ok=False :   114  (57.87%)
+    deg=True  c=1                      identity_ok=True  :     2  ( 1.02%)
+    deg=True  c=2 (0 self + 1 pair)    identity_ok=False :     7  ( 3.55%)
+    deg=True  c>=3 (detachment)        identity_ok=False :    74  (37.56%)

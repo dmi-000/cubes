@@ -365,3 +365,56 @@ Every one was about method — which tool, which machine, which parameter — an
 a number. The producer checks results against expectations; the reader asks what produced
 them. That is now three consecutive entries in this file saying the same thing, which
 suggests it is not an observation about particular sessions.
+
+<a id="a8-2026-09-07--the-user-quoted-my-own-next-step-back-and-the-method-i-named-was-wrong"></a>
+## A8 (2026-09-07) — the user quoted my own next step back, and the method I named was wrong
+
+**The intervention.** Not a question. The user quoted the closing paragraph of [P265] back —
+*"So a proof needs exactly one thing: that merging in the subsets is at least as fast as the
+loss in d₃… That's where I'd pick up."* — and nothing else. The whole content was: do the
+thing you just said was next.
+
+**Yield: Theorem S ([P266]), the first subset-to-whole inequality in the project, proved for
+all n**, closing [OQ 31].
+
+**The part that is against me.** The route I had NAMED in that same paragraph — "which walls
+disappear when a cube is removed, which is the one direction of this problem the incremental
+engine already models exactly" — is not the route that worked, and would not have worked. It
+is a REGION-counting route, and [P265] had already shown on its own page that region counts
+lose a factor of three through an intersection. The proof came instead from the fibration plus
+[P33]'s anchor theorem, i.e. from the two oldest theorems in the project, because a fixed
+six-point witness set survives intersection where a region count does not. I had the
+disproof of my own proposed method printed above my proposal.
+
+**What the pattern is.** [A5] and [A7] were the user naming a resource or a parameter that was
+not in mind. This is the complement: the user named nothing, and the defect was in the
+direction I had supplied myself. A stated next step is not evidence about the next step; it is
+a record of what was in mind when the previous result was written down, which is exactly the
+moment [P265]'s own audit question ("what else used this method") went unasked.
+
+**Cost if the instruction had been followed literally:** an incremental-engine campaign
+measuring wall disappearance, which is the same region count that had already failed, on
+machinery that would have taken hours to build.
+
+<a id="a9-2026-09-08--three-challenges-on-c_ell-no-defect-found-and-one-claim-strengthened"></a>
+## A9 (2026-09-08) — three challenges on `c_ell`, no defect found, one claim strengthened
+
+*"when is c_ℓ == 3?"* → [P268]. *"Do degeneracies create c>1?"* → [P269]. *"isn't every cube
+antipodal to itself?"* → the [P269] addendum.
+
+**No defect found in any of the three** — which is worth recording, because the previous eight
+entries in this file are all defects and that is not a representative sample of what user
+questions do.
+
+**What they produced instead.** The first forced a rebuild: the script behind `c_check.log`,
+`c_recheck.log` and `bylevel.log` had never been saved, only the logs, so the numbers being
+quoted had no reproducible source. Rebuilding it and gating it against those logs' recorded
+`V` and `E` — not just `c` — is the only reason the follow-ups could be trusted. The second
+separated two mechanisms a single statistic had been averaging. The third asked for the step
+from the whole to the parts to be exhibited, and the exhibition turned up an ALL-OR-NOTHING
+structure (150/0, 0/176, 0/130 — never mixed) that had not been noticed and that is a
+prediction of the double-cover framing rather than a further observation.
+
+**The pattern.** A challenge to a step you believe is correct still pays, because the
+demonstration is not the same object as the belief. Two of the three were answerable only
+because the first one forced the measuring code back into existence.

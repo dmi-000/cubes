@@ -1,0 +1,9 @@
+GENERALISATION OF PROOF_67 5.3:  V3(depth 1) <= 2*(d2 - 2)
+(a depth-1 triple point has b=3 so m=2 [P248]: it is ALSO a depth-2 vertex)
+
+n       draws  max V3(1)  max 2(d2-2) violations    tight
+4          26         84          128          0        0
+5          26        150          252          0        0
+6          26        240          436          0        0
+
+n=3 reference (PROOF_67 5.3): V3 = 32 = 2*(18-2), TIGHT at both maximizers

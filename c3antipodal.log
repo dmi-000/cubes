@@ -1,0 +1,8 @@
+case                                           c  self  pairs  unmatched  sizes
+c_check's ell=2 c=3 (plane-degenerate)         3     1      1          0  [84, 4, 4]   deg=True
+n=5 ell=3 c=3 (plane-degenerate)               3     1      1          0  [130, 6, 6]   deg=True
+n=4 record 183, ell=1 (c=1)                    1     1      0          0  [150]   deg=False
+a c=2 non-degenerate case ([P245])             2     0      1          0  [65, 65]   deg=False
+
+c = self + 2*pairs in every row above, so c = 3 = 1 self + 1 pair is
+STRUCTURALLY ALLOWED.  It is not parity that rules it out.

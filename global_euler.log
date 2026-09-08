@@ -1,0 +1,10 @@
+IDENTITY UNDER TEST:  sum_ell d_ell  =  E_tot - sum_ell V_ell + sum_ell (c_ell + 1)
+
+n=4 haar         sum d_ell = 112     E_tot=430   sum V_ell=324   sum(c+1)=6     rhs=112   EXACT
+                 vertices appearing at k levels: {1: 116, 2: 104}
+n=4 record 183   sum d_ell = 182     E_tot=498   sum V_ell=322   sum(c+1)=6     rhs=182   EXACT
+                 vertices appearing at k levels: {1: 66, 2: 128}
+n=5 record 393   sum d_ell = 392     E_tot=1080  sum V_ell=696   sum(c+1)=8     rhs=392   EXACT
+                 vertices appearing at k levels: {1: 116, 2: 272, 3: 12}
+n=6 record 727   sum d_ell = 726     E_tot=2116  sum V_ell=1400  sum(c+1)=10    rhs=726   EXACT
+                 vertices appearing at k levels: {1: 192, 2: 586, 3: 12}

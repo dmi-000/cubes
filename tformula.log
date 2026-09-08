@@ -1,0 +1,12 @@
+n=4 TEST:  TOTAL = T + two-body + 2(n-1) + 1  =  T + two + 7
+
+exact: 56   differs: 45   of 101
+   T=100 two=0 pred=107 actual=109
+   T=96 two=4 pred=107 actual=109
+   T=96 two=10 pred=113 actual=115
+   T=104 two=6 pred=117 actual=119
+
+observed max T = 128   (PROVED cap 32*C(4,3) = 128)
+observed max two-body = 48   (PROVED cap 10*C(4,2) = 60)
+
+=> the formula is not general; bound not established

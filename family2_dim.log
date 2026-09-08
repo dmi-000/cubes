@@ -1,0 +1,42 @@
+two-body weight decomposed: deg4 = edge-edge coincidence (wt 1),
+                            deg6 = corner contact      (wt 2)
+
+case                total  per pair: (deg2, deg4, deg6) -> weight
+record 183            183  (0,6,2)=10  (0,6,2)=10  (0,6,2)=10  (8,6,0)=6  (8,6,0)=6  (8,6,0)=6
+edge-axis w10         155  (12,2,0)=2  (0,6,2)=10  (18,0,0)=0  (14,2,0)=2  (20,0,0)=0  (0,6,2)=10
+(2,2,1)-axis w10      135  (14,2,0)=2  (0,10,0)=10  (14,0,0)=0  (18,0,0)=0  (16,0,0)=0  (20,0,0)=0
+61.15 family          147  (18,0,0)=0  (8,6,0)=6  (0,10,0)=10  (20,0,0)=0  (18,0,0)=0  (20,0,0)=0
+17.9deg outlier       149  (18,0,0)=0  (6,6,0)=6  (0,4,2)=8  (14,0,0)=0  (0,6,2)=10  (10,2,0)=2
+
+weight 10 = how many simultaneous walls?  read off the deg4/deg6 columns:
+that count is what a multiwall SOLVE must be asked for, per pair.
+(2,2,1) w=5: lattice box +-3 in all four components, 2401 points
+  (0,10,0) neighbours found: 77
+     (2, -1, 5, -2)
+     (2, -1, 5, 2)
+     (2, 0, 2, 3)
+     (2, 0, 3, -2)
+     (2, 0, 3, 2)
+     (2, 1, 5, -2)
+     (2, 1, 5, 2)
+     (2, 2, 0, 3)
+     (2, 2, 3, 0)
+     (2, 2, 5, -1)
+  most common (weight, signature): [((2, (14, 2, 0)), 885), ((6, (6, 6, 0)), 356), ((6, (8, 6, 0)), 317), ((10, (0, 6, 2)), 305), ((0, (20, 0, 0)), 240), ((0, (0, 0, 0)), 198)]
+
+(-5,-2,2) w=1: lattice box +-3 in all four components, 2401 points
+  (0,10,0) neighbours found: 77
+     (-2, -8, -3, 3)
+     (-2, -5, -2, -1)
+     (-2, -5, -2, 1)
+     (-2, -5, -1, 2)
+     (-2, -5, 1, 2)
+     (-2, -3, -2, 0)
+     (-2, -3, 0, 2)
+     (-2, -2, -5, -1)
+     (-2, -2, -5, 1)
+     (-2, -2, -3, 0)
+  most common (weight, signature): [((2, (14, 2, 0)), 885), ((6, (6, 6, 0)), 356), ((6, (8, 6, 0)), 317), ((10, (0, 6, 2)), 305), ((0, (20, 0, 0)), 240), ((0, (0, 0, 0)), 198)]
+
+many (0,10,0) points spread through the box => positive-dimensional (codim <= 2)
+only scaled copies of the seed => the point is isolated, codimension 3

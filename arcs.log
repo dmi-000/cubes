@@ -1,0 +1,19 @@
+ANATOMY OF THE PAIR-CURVE ARC COUNT
+
+n         pairs    max own   max cuts   max arcs      max E
+2             1         20          0         20         20
+3             3         24         32         52        156
+4             6         24         64         84        492
+5            10         24         96        116       1112
+6            15         24        128        148       2098
+
+own = segments of dA_i ^ dA_j before any cutting  (crude cap: 48 = 12 edges x 2 x 2 cubes)
+cuts = points where OTHER bodies cross that curve
+arcs = own + cuts (a closed curve gains one arc per cut)
+
+crude derivable: own <= 48, cuts <= 2*48 per other body -> arcs <= 48*(1+2(n-2))
+   n=2 : crude arcs/pair <= 48     E <= 48    
+   n=3 : crude arcs/pair <= 144    E <= 432   
+   n=4 : crude arcs/pair <= 240    E <= 1440  
+   n=5 : crude arcs/pair <= 336    E <= 3360  
+   n=6 : crude arcs/pair <= 432    E <= 6480  

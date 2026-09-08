@@ -25,7 +25,8 @@ The answers we have:
 Two of those are proved maxima. The rest are the best anyone has found, and each is a
 lower bound that no amount of further searching can turn into an upper one — which is
 the fact that shapes everything else here. You can search forever and only ever learn
-that you have not yet failed.
+that you have not yet failed. *That was true of this project for five weeks and stopped
+being true while this document was being written; Section VI is what happened.*
 
 The tower was built by a kind of ascent. Take a record, find the directions in which the
 count does not change, walk along them until it does, step across, and repeat. It works.
@@ -105,8 +106,11 @@ found four illusions in a week, the tempting next move is to assume the fifth is
 It is not, and the diagnosis that worked four times is now itself a thing to check rather
 than to apply.
 
-Three more arrived within two days of this list being written, so the number in the heading
-is a floor and not a count: seventy-six "distinct" bases turned out to be eleven compounds
+The sixth was a published theorem. The project's only upper bound above n = 3 rested on an
+identity that fails at coincident configurations, and every maximiser is coincident — so it
+was true, printed, and inapplicable precisely where it was wanted (Section VI). Three more
+arrived within two days of this list being written, so the number in the heading is a floor
+and not a count: seventy-six "distinct" bases turned out to be eleven compounds
 wearing different names; a preservation rate held up as structure turned out to depend on
 nothing but the height of the perturbing direction, three separate times; and an exact
 pair rule was established on evidence that was one configuration counted four times.
@@ -320,37 +324,55 @@ works. A good idea was buried by testing it where it could not speak.
 Section I said that every number in the table is a lower bound and that no amount of
 searching turns one into an upper bound — you can search forever and only learn that you
 have not yet failed. That was the shape of the whole project for five weeks. It stopped
-being the shape on the thirty-third day, and the way it stopped is worth the space.
+being the shape on a Sunday, and how it stopped is the best thing in this document.
 
-The project did have an upper bound on the depth-1 layer, published: `d1 ≤ 108·C(n,3) + 2`.
-Before tightening it, somebody re-derived it — and found it rests on an identity that fails
-at **coincident** configurations. Every maximiser is coincident. So the project's only
-upper bounds above n = 3 were proved for a class of configurations that contains no
-maximiser: true, published, and inapplicable exactly where they were wanted.
+It began with one sentence from the user: *a better upper bound seems as good as a better
+lower bound.* Which sounds like a truism and was not, because acting on it exposed that
+**the project had never had an upper bound on the total count above n = 3 at all.** It had
+bounds on the depth-1 layer, and the results file said plainly that they bound d₁ only, not
+a total. Nobody had noticed that the sentence was a description of a gap.
 
-The repair is elementary in the good sense. Count depth-1 regions by Euler's formula plus
-handshake on the outer boundary, which needs no genericity at all. Vertices where three or
-more cubes meet can be charged to triples of planes taken from three different cubes, which
-is the old count, now used only where it is valid. The vertices the old bound missed are
-the ones where only **two** bodies meet — they carry no cross-cube triple, which is precisely
-why they escaped. And a pair of cubes on its own is the one case in this whole problem that
-is *proved*: the maximum for two cubes is 13, and it has been proved since the beginning.
-That pins each pair's contribution at 10. Adding more cubes only swallows outer vertices,
-so a pair inside a large compound cannot do better than the pair alone.
+Then two things had to happen, and the first was a demolition. The published depth-1 bound
+`d1 ≤ 108·C(n,3) + 2` was re-derived before being tightened, and it turned out to rest on
+an identity that fails at **coincident** configurations. Every maximiser is coincident. The
+project's only upper bounds above n = 3 were true, published, and inapplicable exactly
+where they were wanted — the sixth illusion, and the only one that had been a theorem.
 
-    d1  ≤  108·C(n,3)  +  10·C(n,2)  +  2      for every n, every configuration
+The repair is elementary in the good sense. Count by Euler plus handshake, which needs no
+genericity. Vertices where three or more cubes meet charge to triples of planes from three
+different cubes — the old count, now used only where it is valid. The vertices the old
+bound missed are the **two-body** ones, which carry no cross-cube triple, which is exactly
+why they escaped; and a pair of cubes alone is the one case in this entire problem that is
+*proved*, since the maximum for two cubes is 13 and has been since the beginning. That pins
+each pair at 10. The load-bearing element in the first bound that holds at maximisers is
+**max(2) = 13** — the smallest theorem in the project, filed as background years of
+postscripts ago. The bottom of the tower carries the top.
 
-The number got **worse**: 494 at n = 4 where the old one said 434. That is the honest
-trade — a weaker bound that covers the case of interest, in place of a sharper one that
-does not. And it is checkable: over 2 500 pairs the observed maximum gain is exactly 10,
-and the pair's own region count *determines* its contribution, with no exceptions in 3 000
-pairs — 4 gives 0, 5 gives 2, 9 gives 6, 13 gives 10. The bound is attained precisely at
-13-pairs, which are cubes sharing a body diagonal.
+With every layer bounded, the layers sum, and the interval for max(4) went from (183, ∞) to
+**[183, 953]** in a morning. Crude — three separately loose bounds added together, with the
+looseness compounding from 5.2× at n = 4 to 26.5× at n = 10 — but an upper bound that
+exists can be improved, and one that does not exist cannot. It was improved the same day,
+twice: 953, then 423, then **263**.
 
-There is something pleasing in the shape of it. The load-bearing element is **max(2) = 13**
-— the smallest theorem in the project, the one about two cubes, proved before any of this
-began and long since filed as background. The first upper bound that holds where the
-records actually live is carried by the bottom of the tower.
+And the last step stopped being a bound at all. The total is now an **identity**:
+
+    TOTAL  =  X  +  Σ μ_v  +  Σ (c+1)  +  1
+
+    the n=4 record    X = 48   Σμ = 128   →   48 + 128 + 7  =  183   exact
+    a Haar draw       X =  0   Σμ = 108   →    0 + 108 + 7  =  115   exact
+    a structured one  X =  6   Σμ =  92   →    6 +  92 + 7  =  105   exact
+
+The region count stopped being a thing you measure with an engine and became a thing you
+decompose, with the bound falling out of bounding the parts. The whole n = 4 ceiling law
+has since compressed to a single inequality — `V3(depth 1) ≤ 84` — and a subset-to-whole
+inequality needed along the way was proved for all n.
+
+The same days produced a row of refutations, several of them of the project's own
+proposals and one inside the hour it was proposed: a wall-crossing proof route dead, a
+disconnected-boundary lever illusory, a geometric prediction refuted by its own test, a
+rate corrected twice by the person who published it. None of that is failure. A programme
+that generates its own counterexamples at that rate is one that has finally got something
+solid enough to push against.
 
 ## VII. What the two stories say to each other
 
@@ -372,20 +394,27 @@ evidence, and an old null result re-read and understood.
 
 And the last thing is the one that changes the genre. For five weeks this was a search:
 every result a lower bound, no way to know how far there was left to go, a table of numbers
-that could only ever grow. It is now, in one layer at least, a subject with a theorem in
-it — and the theorem was not found by searching harder. It was found by re-deriving
-something already believed, discovering it did not apply where it was needed, and repairing
-it with a result so old and so small it had stopped being mentioned.
+that could only ever grow. It is now a subject with theorems in it — and none of them was
+found by searching harder. They were found by re-deriving something already believed,
+discovering it did not apply where it was needed, and repairing it with a result so old and
+so small it had stopped being mentioned.
 
-The best configuration found from random starts counts **177** against the record's 183.
-That gap is still open, and so is every other. But the shape of the ignorance has changed:
-depth-1 at n = 4 is now known to lie somewhere between 92 and 494, for reasons rather than
-for want of trying, and the interesting question is no longer *how high can we get* but
-*how far apart can those two numbers be made to move*.
+The interesting number is no longer a record. It is an **interval**: max(4) lies in
+[183, 263], where a day earlier it lay in (183, ∞) and a week earlier there was no upper
+end to write. The value everyone believes is 195. So the whole remaining question at n = 4
+is a gap of sixty-eight between what is proved and what is expected, and it has been
+compressed to a single inequality about triple points.
+
+Knuth's hour produced a construction and a theorem about it. Our month produced a tower of
+records, eight ways of being wrong about our own instruments, and — on the thirty-fourth
+day, from a one-line remark that sounded like a truism — the first thing in the project
+that a search could never have found.
 
 ---
 
-*Updated 2026-09-07: Section VI is new — [P235](LEDGER.md#p235) to
+*Updated 2026-09-08: Section VI rewritten around [P249](LEDGER.md#p249) and the
+tightening to 263, which supersede the depth-1-only bound it first described; Sections I,
+II and VII revised to match. Earlier note, 2026-09-07: Section VI is new — [P235](LEDGER.md#p235) to
 [P237](LEDGER.md#p237) postdate everything else here — and Sections II and III were
 revised as the illusion count rose and the record's depth-1 was accounted for exactly.
 Earlier note, 2026-09-05, as the work moved: attempts 9 through 12 of the exploration log, the

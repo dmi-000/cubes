@@ -1,0 +1,12 @@
+DIRECTED REFUTATION ATTEMPT: n=6, ell=2.  cap = 222, best ever observed = 220
+
+record neighbourhood     600 configs   max d2 = 222    at-or-above cap: 77
+record + swap 6th        600 configs   max d2 = 222    at-or-above cap: 1
+shared-axis n=6          600 configs   max d2 = 208    at-or-above cap: 0
+haar n=6                 400 configs   max d2 = 202    at-or-above cap: 0
+
+2197 configurations total;  best d2 = 222   (cap 222, record 220)
+top of the d2 distribution: {222: 78, 220: 144, 218: 134, 216: 83, 214: 74, 212: 115, 210: 169, 208: 158}
+
+cap ATTAINED for the first time -- law is tight here, not refuted
+4,1,1,-1;23,23,56,24;40,-9,-41,-40;15,8,9,8;8,7,8,7;56,112,7,-40

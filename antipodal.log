@@ -1,0 +1,8 @@
+HYPOTHESIS: c=2 means two ANTIPODAL halves; c=1 means one self-antipodal component
+
+c=1 instances : 1924   of which the component is SELF-antipodal: 1924
+c=2 instances : 8   of which the two are ANTIPODAL IMAGES  : 8
+c>2 instances : none reported above
+
+If every component is self-antipodal or paired with its antipode, then the antipodal
+map acts on components and c <= 2 follows from the HALF-arrangement being connected.

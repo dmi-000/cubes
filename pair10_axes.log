@@ -1,0 +1,54 @@
+case           total   d1    T  per-pair two-body weight (cap 10 each, [P237])
+record 183       183   92   48  [10, 10, 10, 6, 6, 6]
+135 (climb)      135   44    0  [0, 0, 0, 0, 0, 0]
+135 (sweep)      135   44    0  [0, 0, 0, 0, 0, 0]
+random           125   42    6  [0, 6, 0, 0, 0, 0]
+random           105   36    8  [0, 2, 4, 0, 2, 0]
+random           119   36    0  [0, 0, 0, 0, 0, 0]
+random           101   30    2  [0, 2, 0, 0, 0, 0]
+random           123   38    0  [0, 0, 0, 0, 0, 0]
+random           125   38    0  [0, 0, 0, 0, 0, 0]
+random           127   40    0  [0, 0, 0, 0, 0, 0]
+random           121   38    2  [2, 0, 0, 0, 0, 0]
+random           115   34    0  [0, 0, 0, 0, 0, 0]
+random           135   46    6  [0, 2, 4, 0, 0, 0]
+random           125   40    4  [4, 0, 0, 0, 0, 0]
+random           105   32    2  [0, 2, 0, 0, 0, 0]
+
+max per-pair weight observed: 10   ([P237] cap is 10)
+a 195 needs all six pairs at 10 with W0 = 84, d2 = 66, d3 = 24 held.
+per-pair two-body weight histogram: {0: 1501, 2: 377, 4: 112, 6: 187, 8: 37, 10: 54}
+configurations by #pairs at weight >= 10: {0: 331, 1: 41, 2: 5, 3: 1}
+axis type of every weight-10 pair: {'body diagonal (1,1,1)': 42, 'generic': 11, 'coordinate plane': 1}
+
+best total T found: 48 (count 183) pairs [10, 10, 10, 6, 6, 6]
+  1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4
+T = 60 (all six at 10) is what max(4) = 195 would need.
+45 weight-10 pairs found; sorted by DISTANCE FROM A BODY DIAGONAL (deg)
+
+   dist  O-red angle  axis (sorted, unsigned)
+  38.94       17.897  [0.9623, 0.1925, 0.1925]  pair (1, 3)
+          1,0,0,0;-3,8,4,2;-1,-2,-2,3;4,0,-4,-4
+  35.26       26.525  [0.7071, 0.7071, 0.0000]  pair (2, 3)
+          1,0,0,0;6,4,6,-2;-3,6,0,-3;1,4,-6,-2
+  15.79       61.928  [0.6667, 0.6667, 0.3333]  pair (0, 2)
+          1,0,0,0;0,13,3,1;1,-5,-2,2;1,4,-5,-11
+  13.26       61.350  [0.6556, 0.6556, 0.3746]  pair (0, 3)
+          1,0,0,0;2,21,13,11;4,-13,-4,5;4,7,-7,-18
+  12.27       61.154  [0.6509, 0.6509, 0.3906]  pair (0, 3)
+          1,0,0,0;-2,17,15,6;7,-16,-5,5;3,5,-5,-13
+  12.27       61.154  [0.6509, 0.6509, 0.3906]  pair (0, 3)
+          1,0,0,0;5,3,4,-1;-2,5,-3,3;0,5,-4,-4
+  12.27       61.154  [0.6509, 0.6509, 0.3906]  pair (0, 2)
+          1,0,0,0;2,-1,-4,4;0,-5,4,4;4,3,3,3
+  10.02       60.766  [0.6396, 0.6396, 0.4264]  pair (0, 1)
+          1,0,0,0;0,3,-5,-3;-2,-1,-1,-4;1,-3,-3,-2
+   4.76       60.171  [0.6092, 0.6092, 0.5077]  pair (0, 2)
+          1,0,0,0;8,-4,-8,9;-11,0,12,-11;1,-7,-1,6
+   0.00       46.826  [0.5774, 0.5774, 0.5774]  pair (0, 1)
+   0.00       46.826  [0.5774, 0.5774, 0.5774]  pair (0, 2)
+   0.00       46.826  [0.5774, 0.5774, 0.5774]  pair (0, 3)
+
+weight-10 pairs MORE than 1 deg from a body diagonal: 9 of 45
+if that is 0, weight 10 needs a body diagonal and T=60 is impossible (max(4) < 195).
+if it is > 0, the four-diagonal argument fails and 195 stays live.

@@ -1,0 +1,14 @@
+n=6 record 727  profile {'0': 1, '1': 214, '2': 220, '3': 156, '4': 100, '5': 36, '6': 1}
+   ell   E-V+c+1 vs actual      3-body    2-body    cap C(n-ell,n)
+   1     214 = 214 OK           124       88        276 
+   2     220 = 220 OK           218       0         222 
+   3     156 = 156 OK           154       0         164 
+   4     100 = 100 OK           98        0         102 
+   5     36 = 36 OK             34        0         36 <-- AT CAP
+
+n=4 record 183  profile {'0': 1, '1': 92, '2': 66, '3': 24, '4': 1}
+   ell   E-V+c+1 vs actual      3-body    2-body    cap C(n-ell,n)
+   1     92 = 92 OK             42        48        104 
+   2     66 = 66 OK             64        0         66 <-- AT CAP
+   3     24 = 24 OK             22        0         24 <-- AT CAP
+

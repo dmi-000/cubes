@@ -1,0 +1,14 @@
+individual caps at n=4:  d1<=104  d2<=66  d3<=24  (sum 194, +2 for d0,d4 = 196)
+
+3133320 configurations
+
+quantity   max seen    cap sum      slack   profile achieving it
+d1               96        104          8   d1=96 d2=48 d3=24 total=169
+d2               66         66          0   d1=64 d2=66 d3=24 total=155
+d3               24         24          0   d1=34 d2=50 d3=24 total=109
+d1+d2           152        170         18   d1=88 d2=64 d3=24 total=177
+d2+d3            90         90          0   d1=64 d2=66 d3=24 total=155
+d1+d2+d3        176        194         18   d1=88 d2=64 d3=24 total=177
+total           177        196         19   d1=88 d2=64 d3=24 total=177
+
+the RECORD: d1=92 d2=66 d3=24 total=183  ->  d1+d2=158, d1+d2+d3=182

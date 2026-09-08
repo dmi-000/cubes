@@ -1,0 +1,24 @@
+DOES  d_ell = E - V + c + 1  HOLD AT EVERY LEVEL?
+
+n=4 haar   profile {'0': 1, '1': 34, '2': 56, '3': 22, '4': 1}
+   ell=1 : V=162   E=194   c=1     E-V+c+1 = 34     actual d1 = 34    EXACT
+   ell=2 : V=118   E=172   c=1     E-V+c+1 = 56     actual d2 = 56    EXACT
+   ell=3 : V=44    E=64    c=1     E-V+c+1 = 22     actual d3 = 22    EXACT
+
+n=4 record 183   profile {'0': 1, '1': 92, '2': 66, '3': 24, '4': 1}
+   ell=1 : V=150   E=240   c=1     E-V+c+1 = 92     actual d1 = 92    EXACT
+   ell=2 : V=128   E=192   c=1     E-V+c+1 = 66     actual d2 = 66    EXACT
+   ell=3 : V=44    E=66    c=1     E-V+c+1 = 24     actual d3 = 24    EXACT
+
+n=5 record 393   profile {'0': 1, '1': 156, '2': 128, '3': 78, '4': 30, '5': 1}
+   ell=1 : V=266   E=420   c=1     E-V+c+1 = 156    actual d1 = 156   EXACT
+   ell=2 : V=240   E=366   c=1     E-V+c+1 = 128    actual d2 = 128   EXACT
+   ell=3 : V=140   E=216   c=1     E-V+c+1 = 78     actual d3 = 78    EXACT
+   ell=4 : V=50    E=78    c=1     E-V+c+1 = 30     actual d4 = 30    EXACT
+
+n=5 haar   profile {'0': 1, '1': 70, '2': 118, '3': 82, '4': 30, '5': 1}
+   ell=1 : V=280   E=348   c=1     E-V+c+1 = 70     actual d1 = 70    EXACT
+   ell=2 : V=246   E=362   c=1     E-V+c+1 = 118    actual d2 = 118   EXACT
+   ell=3 : V=162   E=242   c=1     E-V+c+1 = 82     actual d3 = 82    EXACT
+   ell=4 : V=56    E=84    c=1     E-V+c+1 = 30     actual d4 = 30    EXACT
+

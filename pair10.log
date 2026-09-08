@@ -1,0 +1,26 @@
+case           total   d1    T  per-pair two-body weight (cap 10 each, [P237])
+record 183       183   92   48  [10, 10, 10, 6, 6, 6]
+135 (climb)      135   44    0  [0, 0, 0, 0, 0, 0]
+135 (sweep)      135   44    0  [0, 0, 0, 0, 0, 0]
+random           125   42    6  [0, 6, 0, 0, 0, 0]
+random           105   36    8  [0, 2, 4, 0, 2, 0]
+random           119   36    0  [0, 0, 0, 0, 0, 0]
+random           101   30    2  [0, 2, 0, 0, 0, 0]
+random           123   38    0  [0, 0, 0, 0, 0, 0]
+random           125   38    0  [0, 0, 0, 0, 0, 0]
+random           127   40    0  [0, 0, 0, 0, 0, 0]
+random           121   38    2  [2, 0, 0, 0, 0, 0]
+random           115   34    0  [0, 0, 0, 0, 0, 0]
+random           135   46    6  [0, 2, 4, 0, 0, 0]
+random           125   40    4  [4, 0, 0, 0, 0, 0]
+random           105   32    2  [0, 2, 0, 0, 0, 0]
+
+max per-pair weight observed: 10   ([P237] cap is 10)
+a 195 needs all six pairs at 10 with W0 = 84, d2 = 66, d3 = 24 held.
+per-pair two-body weight histogram: {0: 1373, 2: 333, 4: 103, 6: 162, 8: 30, 10: 45}
+configurations by #pairs at weight >= 10: {0: 300, 1: 38, 2: 2, 3: 1}
+axis type of every weight-10 pair: {'body diagonal (1,1,1)': 36, 'generic': 8, 'coordinate plane': 1}
+
+best total T found: 48 (count 183) pairs [10, 10, 10, 6, 6, 6]
+  1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4
+T = 60 (all six at 10) is what max(4) = 195 would need.

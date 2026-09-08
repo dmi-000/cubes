@@ -1,0 +1,36 @@
+n=4 record 183, ell=1  (c=1)
+  1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4
+  shares a face plane : False
+  components          : [150]   (|V| = 150, even: True)
+  vertex set is -I-closed : True      fixed points of -I : 0   (must be 0 -- the action is FREE)
+  nodes with -p in the SAME component  : 150
+  nodes with -p in a DIFFERENT one     : 0
+  nodes whose -p is absent             : 0   (must be 0)
+  witness (SAME): p = ('1', '-1/5', '-1')
+               -p = ('-1', '1/5', '1')   component(s) 0
+
+non-degenerate c=2, ell=1
+  1,0,0,0;-23,-90,43,22;72,-37,-17,-2;-4,4,-79,25
+  shares a face plane : False
+  components          : [88, 88]   (|V| = 176, even: True)
+  vertex set is -I-closed : True      fixed points of -I : 0   (must be 0 -- the action is FREE)
+  nodes with -p in the SAME component  : 0
+  nodes with -p in a DIFFERENT one     : 176
+  nodes whose -p is absent             : 0   (must be 0)
+  witness (OTHER): p = ('-4706245/4310269', '837419/4310269', '4012755/4310269')
+               -p = ('4706245/4310269', '-837419/4310269', '-4012755/4310269')   component(s) (0, 1)
+
+non-degenerate c=2, ell=1
+  1,0,0,0;1,5,10,15;1,2,4,6;8,7,14,21
+  shares a face plane : False
+  components          : [65, 65]   (|V| = 130, even: True)
+  vertex set is -I-closed : True      fixed points of -I : 0   (must be 0 -- the action is FREE)
+  nodes with -p in the SAME component  : 0
+  nodes with -p in a DIFFERENT one     : 130
+  nodes whose -p is absent             : 0   (must be 0)
+  witness (OTHER): p = ('11/14', '1', '-5/7')
+               -p = ('-11/14', '-1', '5/7')   component(s) (1, 0)
+
+Every cube is antipodal to itself; the level graph is antipodal to itself;
+its COMPONENTS need not be.  Both outcomes occur above, on configurations
+that differ in nothing else -- neither shares a face plane.

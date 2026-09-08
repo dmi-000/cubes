@@ -1,0 +1,10 @@
+ATTACK ON l = 2  (the first UNPROVED case):  d_(n-2) <= 18n - 6
+
+n       ell      cap best found     at cap  above cap verdict
+4         2       66         66       1341          0 cap attained
+5         3       84         84       1534          0 cap attained
+6         4      102        102       1677          0 cap attained
+7         5      120        120       1721          0 cap attained
+
+l=1 is PROVED (d_(n-1) <= 6n).  l=2 is the first open case and is attained at every n,
+so a violation needs only +2 -- the cheapest refutation available anywhere in the law.

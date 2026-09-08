@@ -1,0 +1,6 @@
+counts: [183, 183, 183, 183, 183, 183, 183, 183]
+congruence classes among the 8: 1  sizes [8]
+radius signatures: 1  groups [[0, 1, 2, 3, 4, 5, 6, 7]]
+
+no counterexample: every radius group is one congruence class
+radius signature EQUALS congruence on this family

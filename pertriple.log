@@ -1,0 +1,20 @@
+DEPTH-1 TRIPLE POINTS, ATTRIBUTED PER TRIPLE (n=4, four triples)
+
+cfg     total on the full union      standalone             sum stand
+RECORD     84 [24, 20, 20, 20]       [32, 32, 32, 32]            128
+1          68 [18, 18, 18, 14]       [28, 28, 28, 24]            108
+2          68 [18, 18, 18, 14]       [32, 28, 28, 24]            112
+3          68 [22, 18, 14, 14]       [32, 28, 28, 24]            112
+4          68 [20, 16, 16, 16]       [32, 28, 28, 24]            112
+5          60 [18, 18, 14, 10]       [32, 28, 24, 20]            104
+6          60 [16, 16, 16, 12]       [28, 28, 28, 20]            104
+7          68 [20, 16, 16, 16]       [28, 28, 28, 28]            112
+8          52 [14, 14, 14, 10]       [24, 24, 24, 16]             88
+9          76 [24, 20, 16, 16]       [32, 32, 28, 28]            120
+10         76 [26, 18, 18, 14]       [32, 32, 28, 28]            120
+11         68 [22, 18, 14, 14]       [32, 32, 24, 24]            112
+
+max any single triple contributes ON THE UNION : 28
+max any single triple contributes STANDALONE   : 32   (PROOF_67 bound: 32)
+max total observed                             : 84   (4 x 32 = 128)
+mean (union sum)/(standalone sum)              : 0.605

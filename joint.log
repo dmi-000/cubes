@@ -1,0 +1,10 @@
+THE JOINT SURFACE  max(d1+d2)  -- the layers are not independent
+
+n     cap d1+d2 record d1+d2   best found record tot  conditional
+4           170          158          158        183          183
+5           314          284          284        393          399
+6           498          434          434        727          737
+7           722          606          606       1217         1227
+
+conditional = best(d1+d2) + sum of deeper CAPS + 1
+if max(d1+d2) equals the record value, max(n) = the record exactly

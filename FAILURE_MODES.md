@@ -1168,3 +1168,72 @@ or derived families, report the new observations per level, not the cumulative t
 a sub-object (here, a PAIR of cubes), it is usually testable on sub-objects drawn from
 anywhere, which converts a handful of correlated instances into thousands of independent ones
 for the cost of one script.
+
+
+## 30a. A summary keyed on a string property that collides — 41 phantom violations
+
+*2026-09-07, self-caught within one run.* `anchor_report.py` picked out the largest subset of
+each cube's record with `max(per, key=lambda R: R.count(","))`, the keys being repr'd tuples.
+At n = 4 that works: `"(1, 2)"` has one comma, `"(1, 2, 3)"` has two. At n = 3 it does not:
+`"(1,)"` and `"(2, 3)"` BOTH have one comma, so the singleton was sometimes chosen as the
+full set and the monotonicity test ran backwards. The roll-up reported **41 violations of
+Lemma 3 and 8 of the per-cube theorem** on a proof that was correct.
+
+**What caught it, and what did not.** Not the count being large — a real refutation would also
+have been large. What caught it was that the GATE SCRIPT ITSELF had a separate counter for the
+same condition, computed from the tuples rather than their printed form, and it read zero. Two
+routes to one number, disagreeing, and the cheaper-looking one was the wrong one.
+
+**The rule.** A property extracted from the PRINTED form of a key is a different property from
+the one it looks like, and the difference appears at a size other than the one it was written
+at. Where a roll-up recomputes something the producing script already knows, keep the
+producer's own counter and compare them — the disagreement is the gate. Same family as
+FAILURE_MODES 27 (a statistic that was a function of the spelling).
+
+## 31. Counting integer-sampled instances to argue a condition has positive measure
+
+*2026-09-08, caught by a user challenge ("so c_ℓ>1 is degenerate").* [P269] argued that
+`c_ell = 2` is not a degeneracy from two numbers: 37 known instances share no face plane, and
+0.42 % of random draws show it. Both are true and neither is evidence for the claim.
+
+**Why.** The instances came from sampling INTEGER quaternions. Integer sampling hits rational
+measure-zero loci with positive probability — that is what rational points on a variety ARE —
+so a nonzero hit rate is consistent with the condition being exactly degenerate. And excluding
+one named degeneracy (a shared face plane) excludes one, not the class; there is no finite list
+to finish.
+
+**What decides it.** Perturbation. A degeneracy is closed and measure-zero, so a generic
+arbitrarily small move destroys it; an open condition survives. 108 of 108 perturbations at
+1/100 and finer kept `c = 2`. That is definition-independent: it settles the question against
+every notion of degeneracy as a closed condition without enumerating them.
+
+**The rule.** To show a condition is NOT degenerate, perturb off it — never count instances,
+and never argue from the absence of a listed coincidence. The conclusion here survived; the
+argument for it did not, and the difference was invisible until someone pushed on it.
+
+**Companion trap, hit in the same run.** The first perturbation sweep scored 26 draws as
+failures when the C++ engine refused quaternions above its `|component| <= 512` budget. `c` is
+computed in exact `Fraction` arithmetic in Python and has no size limit; only the identity
+check needed the engine. Skipping that check at fine scales took the unevaluated count from 26
+to 0. Reporting engine refusals as evidence about the object is FAILURE_MODES-grade on its own
+(see "unevaluable is not a negative result").
+
+
+### 31a. Addendum: the rule was written down, then broken in the same session
+
+*2026-09-08.* FAILURE_MODES 31 was recorded after a user challenge, saying that integer
+sampling hits rational coincidence loci with positive probability and that excluding ONE named
+coincidence (a shared face plane) excludes one, not the class. Within the same session [P271]
+sampled integer quaternions at heights 3, 9, 30, 120, filtered on `shares_plane` alone, and
+reported "fails on 6.9 % of GENERIC configurations".
+
+Re-tested with a real genericity condition — no vertex on four or more cube boundaries, every
+3-body vertex of degree 3 — the rate splits 0.9 % (simple, 211) against 41.7 % (coincident,
+36), and the headline figure was the pool.
+
+**The transferable part is not the rule, it is where the rule failed to bind.** The filter
+`shares_plane` was already in the code and reading `True/False`, so genericity FELT tested. A
+named boolean that answers a narrower question than its name suggests is worse than no filter,
+because it stops the question being asked. Check what the predicate actually excludes against
+the coincidences the argument needs excluded — here, four boundaries through a point, which no
+pair of parallel normals ever produces.

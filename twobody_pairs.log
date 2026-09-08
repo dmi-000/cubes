@@ -1,0 +1,19 @@
+case           total   d1    T  per-pair two-body weight (cap 10 each, [P237])
+record 183       183   92   48  [10, 10, 10, 6, 6, 6]
+135 (climb)      135   44    0  [0, 0, 0, 0, 0, 0]
+135 (sweep)      135   44    0  [0, 0, 0, 0, 0, 0]
+random           125   42    6  [0, 6, 0, 0, 0, 0]
+random           105   36    8  [0, 2, 4, 0, 2, 0]
+random           119   36    0  [0, 0, 0, 0, 0, 0]
+random           101   30    2  [0, 2, 0, 0, 0, 0]
+random           123   38    0  [0, 0, 0, 0, 0, 0]
+random           125   38    0  [0, 0, 0, 0, 0, 0]
+random           127   40    0  [0, 0, 0, 0, 0, 0]
+random           121   38    2  [2, 0, 0, 0, 0, 0]
+random           115   34    0  [0, 0, 0, 0, 0, 0]
+random           135   46    6  [0, 2, 4, 0, 0, 0]
+random           125   40    4  [4, 0, 0, 0, 0, 0]
+random           105   32    2  [0, 2, 0, 0, 0, 0]
+
+max per-pair weight observed: 10   ([P237] cap is 10)
+a 195 needs all six pairs at 10 with W0 = 84, d2 = 66, d3 = 24 held.

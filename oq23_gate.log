@@ -1,0 +1,15 @@
+OQ 23 GATE: the pipeline against configurations with a KNOWN answer
+
+two cubes, shared body diagonal   engine {'0': 1, '1': 12, '2': 1}
+   known: bounded 13 = d1 12 + d2 1     engine bounded = 13  OK
+   ell=1  pipeline d=12  engine d=12  OK
+
+axial fan: N cubes about a shared 4-fold axis, PROVEN (2N-1)^2 bounded regions
+   N=2  known    9  engine 9  OK   pipeline levels: MISMATCH [(1, 10, 8)]
+   N=3  known   25  engine 25  OK   pipeline levels: MISMATCH [(1, 62, 12), (2, 1, 12)]
+   N=4  known   49  engine 49  OK   pipeline levels: MISMATCH [(1, 210, 16), (2, 1, 16), (3, 1, 16)]
+   N=5  known   81  engine 81  OK   pipeline levels: MISMATCH [(1, 502, 20), (2, 1, 20), (3, 1, 20), (4, 1, 20)]
+   N=6  known  121  engine 121  OK   pipeline levels: MISMATCH [(1, 986, 24), (2, 1, 24), (3, 1, 24), (4, 1, 24), (5, 1, 24)]
+
+(the axial fan has every cube sharing the top and bottom face planes -- the degenerate
+ case the pair code excludes, so this tests the machinery where it is most likely to break)

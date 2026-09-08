@@ -1,0 +1,13 @@
+n=4 record 183           150 vertices    17 distinct r^2  (corner 1, edge-edge 4)  [0s]
+n=4 shared-axis 161      116 vertices    30 distinct r^2  (corner 1, edge-edge 11)  [0s]
+n=5 record 393           266 vertices    35 distinct r^2  (corner 1, edge-edge 7)  [0s]
+n=6 723                  416 vertices    60 distinct r^2  (corner 1, edge-edge 9)  [0s]
+n=6 record 727           432 vertices   138 distinct r^2  (corner 1, edge-edge 14)  [0s]
+n=7 record 1217          622 vertices   223 distinct r^2  (corner 1, edge-edge 15)  [0s]
+
+UNION over these maximisers: 295 distinct r^2 values
+  range: 77/64 .. 3
+  how many are exactly 3 (corner radius): 1
+  how many lie in [2,3] (edge-edge band): 138
+  how many are integers: [Fraction(2, 1), Fraction(3, 1)]
+  most common denominators: [(81, 5), (121, 4), (961, 4), (9, 4), (64, 3), (25, 3)]

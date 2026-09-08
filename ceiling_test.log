@@ -1,0 +1,36 @@
+CEILING LAW  d_(n-l) <= (12l-6)n - 2(l^2-1)   tested BEYOND n=4 for the first time
+
+n=5 : 658 configurations
+   ell        cap  max seen violations   attained
+   1          180       122          0          0 
+   2          134       134          0          9 
+   3           84        84          0        308 
+   4           30        30          0        577 
+
+n=6 : 659 configurations
+   ell        cap  max seen violations   attained
+   1          276       180          0          0 
+   2          222       220          0          0 
+   3          164       164          0        140 
+   4          102       102          0        508 
+   5           36        36          0        577 
+
+n=7 : 657 configurations
+   ell        cap  max seen violations   attained
+   1          392       246          0          0 
+   2          330       318          0          0 
+   3          264       264          0         31 
+   4          194       194          0        349 
+   5          120       120          0        535 
+   6           42        42          0        576 
+
+n=8 : 652 configurations
+   ell        cap  max seen violations   attained
+   1          528       294          0          0 
+   2          458       418          0          0 
+   3          384       384          0          3 
+   4          306       306          0        173 
+   5          224       224          0        443 
+   6          138       138          0        503 
+   7           48        48          0        534 
+

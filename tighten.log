@@ -1,0 +1,21 @@
+CHECKING THE INGREDIENTS on real configurations
+
+case              own     V2 sum mu sumC(b,3)  24*C(n,2) 32*C(n,3)
+n=4 record        114     66    128      128        144      128
+n=5 record        192    116    308      320        240      320
+n=6 record        292    192    622      634        360      640
+n=4 rnd           120    120    116      116        144      128
+n=4 rnd           118    116     96       96        144      128
+n=4 rnd           118    116    120      120        144      128
+
+violations of  own<=24*C(n,2),  sumC(b,3)<=32*C(n,3),  mu<=sumC(b,3): 0
+
+TIGHTENED BOUND:  TOTAL <= own_cap*C(n,2) + 32*C(n,3) + 2(n-1) + 1   (V2 >= 0 dropped)
+n      record      own<=48      own<=24         P249      ceiling
+4         183          423          279          953          195
+5         393          809          569         3377          429
+6         727         1371         1011         8835          801
+7        1217         2141         1637        19163         1343
+8        1895         3151         2479        36629         2087
+9        2787         4433         3569        63933         3065
+10       3925         6019         4939       104207         4309

@@ -1,0 +1,23 @@
+CANDIDATE:  TOTAL = X + sum(mu) + 2(n-1) + 1,   X = own - V2
+
+case           own    V2     X sum mu     pred   actual ok
+n=4 record     114    66    48    128      183      183 EXACT
+n=5 record     192   116    76    308      393      393 EXACT
+n=6 record     292   192   100    622      733      727 differs
+n=4 rnd        120   120     0    108      115      115 EXACT
+n=4 rnd        120   120     0    112      119      119 EXACT
+n=4 rnd        118   116     2    112      121      121 EXACT
+n=4 axis       114   108     6     92      105      105 EXACT
+n=4 axis       114   108     6     84       97       97 EXACT
+
+exact 7, differs 1
+
+BOUND:  X <= min(own_cap*C(n,2), 32*C(n,3)),  sum mu <= 32*C(n,3)
+n      record  X-form 48  X-form 24    P260 48    ceiling
+4         183        263        263        423        195
+5         393        649        569        809        429
+6         727       1291       1011       1371        801
+7        1217       2141       1637       2141       1343
+8        1895       3151       2479       3151       2087
+9        2787       4433       3569       4433       3065
+10       3925       6019       4939       6019       4309

@@ -1,0 +1,21 @@
+CLAIM: r^2 < 2  =>  the vertex is a plain (1,1,1) triple point
+
+2742 vertices over 4 configurations, all levels; violations: 72
+
+r2<2 :
+    profile (1, 1, 1)    degree 3   gain  0.5  x2116
+    profile (1, 1, 1, 1) degree 4   gain  1.0  x72
+    gains present: [0.5, 1.0]
+
+2<=r2<3 :
+    profile (2, 1)       degree 2   gain  0.0  x296
+    profile (2, 2)       degree 4   gain  1.0  x170
+    profile (1, 1, 1)    degree 3   gain  0.5  x60
+    profile (2, 2, 2)    degree 6   gain  2.0  x4
+    profile (2, 2)       degree 2   gain  0.0  x2
+    gains present: [0.0, 0.5, 1.0, 2.0]
+
+r2=3 :
+    profile (3, 3)       degree 6   gain  2.0  x22
+    gains present: [2.0]
+

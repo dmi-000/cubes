@@ -285,7 +285,7 @@ with `index_ledger.py` after appending.
 - [Postscript 221](#p221) — arcs B and C also reach 1217 — the n=6→7 step is not unique to the recorded arc; and local…
 - [Postscript 222](#p222) — **[PARTLY RETRACTED]** what predicts the region count — the predictor is void, the constraint findings stand
 - [Postscript 223](#p223) — **[REVERSED]** filtering before counting is dead — measured twice, built never
-- [Postscript 224](#p224) — the n=4 record's CONSTRUCTION — three cubes on three different body diagonals
+- [Postscript 224](#p224) — **[PARTLY REFUTED]** the n=4 record's CONSTRUCTION — three cubes on three different body diagonals
 - [Postscript 225](#p225) — **[PARTLY REFUTED]** two exact pair rules, and the frustration curve measured along the whole tower
 - [Postscript 226](#p226) — **[EVIDENCE OVERSTATED]** the tower is a five-cube CORE plus cubes hung off a hub
 - [Postscript 227](#p227) — the signature was computed from the INVERSE rotation — one line, and what it takes down
@@ -302,6 +302,51 @@ with `index_ledger.py` after appending.
 - [Postscript 238](#p238) — coincidence RADII are a perfect invariant and a symmetry detector — and there is no ninth 183
 - [Postscript 239](#p239) — radii as an equivalence detector, and the first count predictor derived from a theorem
 - [Postscript 240](#p240) — which radius combinations are attainable — the combinatorial part is a five-element list,…
+- [Postscript 241](#p241) — the radius invariant survives every hard control — and there is only ONE 183, not eight
+- [Postscript 242](#p242) — depth frustration, located exactly — d1 rises with 13-pairs and d2 dies of them
+- [Postscript 243](#p243) — Euler applies at EVERY depth — and the coincidence obstacle lives only at depth 1
+- [Postscript 244](#p244) — what the radius does and does not determine in the depth-Euler count
+- [Postscript 245](#p245) — a cross-level Euler identity — the whole count is `E − Σ m_v + 2n − 1`
+- [Postscript 246](#p246) — [OQ 23] answered — the engine passes its first external gate, the arc pipeline fails on…
+- [Postscript 247](#p247) — the disconnected-boundary lever is ILLUSORY — proposed and refuted the same hour
+- [Postscript 248](#p248) — [OQ 28] answered — `m_v = b_v − 1`, and the count becomes purely combinatorial
+- [Postscript 249](#p249) — the first PROVED upper bounds on max(n) for n >= 4
+- [Postscript 250](#p250) — the ceiling law tested beyond n=4 for the first time — and the deep caps are ATTAINED…
+- [Postscript 251](#p251) — the ceiling law restated as a triple-point count — exact for l = 1 and l = 2 in general position
+- [Postscript 252](#p252) — the wall-crossing proof route is DEAD — coincidence does not locally reduce V3, though the…
+- [Postscript 253](#p253) — where the ceiling law is loose, and a refinement that does NOT hold
+- [Postscript 254](#p254) — the +4 does not stack — shared axes REDUCE V3, and the record sits at the observed V3 ceiling
+- [Postscript 255](#p255) — a directed refutation attempt on the ceiling law — not refuted, cap attained for the first…
+- [Postscript 256](#p256) — the layers are not independent — a JOINT conditional bound is 7x tighter, and exact at n=4
+- [Postscript 257](#p257) — the frustration as an IDENTITY — a depth-1 triple point buys 1/2 at depth 1 and costs 3/2 at…
+- [Postscript 258](#p258) — the ceiling law's caps provably cannot all be attained — and a bound of 195 that does NOT follow
+- [Postscript 259](#p259) — `c_ell` is an antipodal dichotomy — and it reduces [OQ 30] to a connectivity claim
+- [Postscript 260](#p260) — the Euler bound tightened — 423 at n=4, 17x better at n=10
+- [Postscript 261](#p261) — the V2 slack collapses — `TOTAL = X + Σ μ_v + Σ(c+1) + 1`, and n=4 falls to 263
+- [Postscript 262](#p262) — the n=4 ceiling law reduces to ONE inequality — `V3(depth 1) <= 84`
+- [Postscript 263](#p263) — solving for a +2 violation — the route is structurally blocked, and `W0 = 128 - W1`
+- [Postscript 264](#p264) — the n=4 ceiling law compresses to ONE subset-to-whole inequality
+- [Postscript 265](#p265) — the subset inequality resists refutation, and the reason is a coupling
+- [Postscript 266](#p266) — THEOREM S — the subset-to-whole inequality is proved, for all n
+- [Postscript 266 addendum](#postscript-266-addendum-the-same-technique-cannot-give-the-l2-ceiling-law--a-counting-fact-not-a-failed-attempt) — the same technique CANNOT give the l=2 ceiling law — a counting fact, not a failed attempt
+- [Postscript 267](#p267) — an incremental depth profile gives an ADMISSIBLE branch-and-bound bound that never binds —…
+- [Postscript 268](#p268) — `c_ell = 3` — never once validly, allowed by parity, and the degenerate cases are visibly…
+- [Postscript 269](#p269) — degeneracies do NOT create `c > 1` — they destroy the instrument, and the two shapes of `c >…
+- [Postscript 269 addendum](#postscript-269-addendum-yes-every-cube-is-antipodal-to-itself--that-is-the-hypothesis-not-a-contradiction) — yes, every cube is antipodal to itself — that is the hypothesis, not a contradiction
+- [Postscript 269 addendum](#postscript-269-addendum-2-c_ell--2-is-open-not-degenerate--decided-by-perturbation-and-the-earlier-evidence-for-it-was-not-sufficient) — `c_ell = 2` is OPEN, not degenerate — decided by perturbation, and the earlier evidence for…
+- [Postscript 270](#p270) — what causes `c = 2` — a Z/2 monodromy class, per LEVEL, and a geometric prediction of mine…
+- [Postscript 271](#p271) — **[SUPERSEDED IN PART]** [OQ 32] is wider than recorded — the chain step fails ~~on 6.9 % of GENERIC configurations~~…
+- [Postscript 272](#p272) — what determines `W0` — an exact anatomy, a reduction to `budget <= 128`, and [P271]'s rate…
+- [Postscript 273](#p273) — what a `W0 > 84` violation requires — derived, not searched; and a [P263] regularity is…
+- [Postscript 273 addendum](#postscript-273-addendum-the-exchange-rate-measured--a-violation-needs-the-swallowing-deficit-to-exceed-the-budget-deficit-and-it-runs-519x-the-wrong-way) — the exchange rate, measured — a violation needs the swallowing deficit to EXCEED the budget…
+- [Postscript 274](#p274) — `W0 <= 82 + 2(tau3 + c3)` PROVED — and both conjuncts the route needed are FALSE, one of…
+- [Postscript 275](#p275) — the EXACT accounting for `W0` — `W0 <= 84` is one domination between measurable non-negative…
+- [Postscript 276](#p276) — 183's margin over 135 is ENTIRELY two-body — and the gap to the conjectured 195 is exactly…
+- [Postscript 277](#p277) — the four-diagonal obstruction is REFUTED — weight 10 does not need a body diagonal, and…
+- [Postscript 278](#p278) — two-body weight is a WALL COUNT — weight 10 has exactly two realisations, and every sampled…
+- [Postscript 279](#p279) — weight 10 is CODIMENSION 2 in both realisations — so `T = 60` is overdetermined by 3; plus a…
+- [Postscript 280](#p280) — the second weight-10 family SOLVED — an exact rational curve, codimension 2 confirmed, and a…
+- [Postscript 281](#p281) — `T` is a sum of IN-CONTEXT weights, not standalone ones — my premise was wrong, and the…
 
 <!-- INDEX:END -->
 
@@ -16207,7 +16252,13 @@ Files: `census.py`, `signed_sig.py`, `OPEN_QUESTIONS.md`.
 
 <a id="p224"></a>
 
-## [VERIFIED] Postscript 224: the n=4 record's CONSTRUCTION — three cubes on three different body diagonals
+## [PARTLY REFUTED] Postscript 224: the n=4 record's CONSTRUCTION — three cubes on three different body diagonals
+
+> **2026-09-07 — [P241](#p241).** The construction stands; the COUNTING of 183s does not.
+> "Two distinct 183s ... separated by 26.35° under the full quotient" and the eight family
+> members are **all one congruence class** — `congruent.py` exhibits the rotations. There is
+> ONE known 183. The 26.35° separates two parametrisations of the same compound, so the
+> quotient it was measured under cannot have included the global rotation.
 
 Arising from the user's question *"what makes them different?"* about two configurations
 both reaching 183. Answering it produced the record's structure, which this project has
@@ -17310,3 +17361,2438 @@ n=4 record occupies `(13,2,6)` on its three hub pairs and `(9,0,6)` on the other
 diagonals exhaust what a cube has to offer.
 
 Files: `radii.py`, `pair_term.py`.
+
+<a id="p241"></a>
+
+## [VERIFIED] Postscript 241: the radius invariant survives every hard control — and there is only ONE 183, not eight
+
+*2026-09-07.* A user question: 600 distinct radius signatures on 600 configurations was an
+easy control; can non-congruent configurations be CONSTRUCTED with the same signature? Three
+attacks, none successful, and the third refuted a claim in [P224](#p224).
+
+### 1. Chirality — closed off by a theorem, not by a failed search
+
+The natural attack is a mirror image: reflection is an isometry fixing the centre, so it
+preserves every radius exactly, and a chiral compound would not be rotationally congruent to
+its mirror. **It cannot work here.** A cube is centrally symmetric, so `−I` acts trivially on
+it; any reflection `S` factors as `(−I)·(−S)` with `det(−S) = +1`, hence reflecting a cube is
+the same as rotating it. **Every configuration of centrally symmetric bodies is achiral.**
+Tested on five configurations including both records: same radii, same depth profile,
+rotationally congruent in all five.
+
+### 2. A dense pair sweep — 44 295 pairs, zero counterexamples
+
+Pairs have only 3 degrees of freedom, so they can be sampled thickly: every axis to height 5
+crossed with 128 rational angles, plus 4 000 random height-9 quaternions.
+
+    44 295 distinct pairs  ->  2 863 radius signatures
+    2 861 signatures shared by more than one pair
+    non-congruent pairs sharing a signature:  0
+
+The invariant collapses 15-fold and **every collision is a genuine congruence** — it is
+behaving as an exact double-coset invariant on pairs.
+
+### 3. The 183 family — and the claim it refutes
+
+[P224](#p224) reports **"two distinct 183s"** separated by **26.35°** "under the full
+quotient — gauge, each cube's 24 symmetries", and the eight members of the diagonal family
+were described as eight configurations rather than one. Tested with `congruent.py`, which
+exhibits the rotation rather than comparing invariants:
+
+    recorded 183 -> family member 0 : g = (0, 0, 0, 1)
+    recorded 183 -> family member 1 : g = (0, 1, -1, 0)
+    recorded 183 -> family member 2 : g = (1, 1, -1, 1)
+    recorded 183 -> family member 3 : g = (0, 1, 0, 0)
+    recorded 183 -> family member 4 : g = (0, 1, 0, 1)
+
+**All eight family members and the recorded record are ONE congruence class.** There is one
+183 known, not two and not eight. The 26.35° is the distance between two PARAMETRISATIONS of
+the same compound, so whatever quotient it was measured under did not include the global
+rotation. And the radius signature agrees exactly: one signature, one class.
+
+**Third instance today of the same error.** [P228](#p228) found six "top" n=5 bases that were
+six names for one object; [P238](#p238) found the "ninth 183" was the recorded one; this is
+the eight-member family. In each case a count of distinct STRINGS was reported as a count of
+distinct OBJECTS, and in each case the constructive test settled it in seconds. The project
+now has that test — it should be run before any sentence of the form "there are k distinct X".
+
+### Standing
+
+**No counterexample to injectivity exists after three attacks, one of which is closed by a
+theorem.** That is a lower bound on the invariant's power and not a completeness proof —
+searching yields lower bounds forever. The open question is whether the radius multiset
+provably determines a compound up to rotation; for PAIRS that is a concrete algebraic question
+about whether the coincidence radii separate double cosets, and the evidence at 44 295 samples
+says yes.
+
+Files: `radii.py`, `congruent.py`.
+
+<a id="p242"></a>
+
+## [VERIFIED] Postscript 242: depth frustration, located exactly — d1 rises with 13-pairs and d2 dies of them
+
+*2026-09-07.* A user question: depth-profile frustration has blocked higher counts; what would
+it take to raise a profile? [P236]/[P237]'s decomposition makes it a measurement.
+
+**Where the slack is.** At n=4 the record's profile is `{1, 92, 66, 24, 1}` and it sits ON two
+of the three caps: `d3 = 24 = C(1,4)` (proved) and `d2 = 66 = C(2,4)` (conjectured) are both
+ATTAINED. Only `d1` has room: 92 against a conjectured 104.
+
+**And d1 = 104 is never attained.** Across **3 133 320** census configurations:
+
+    d1 = 104            :        0
+    d2 = 66             :   51 730
+    d3 = 24             : 2 362 760
+    d1>=92 AND d2=66 AND d3=24 :  0      <- not once
+    census max d1       :       96  (with d2 = 48, total 169)
+
+**No configuration in 3.13M reaches d1 >= 92 while holding d2 at its cap.** The record does,
+and the census never matched it in 2.58M draws of search.
+
+**The mechanism, decomposed.** [P236]: `d1 = (3-body gain) + (2-body gain) + 2`.
+
+| configuration | 3-body | 2-body | d1 | d2 | pair counts |
+|---|---|---|---|---|---|
+| record 183 | 42 | 48 | 92 | **66** | 13,13,13,9,9,9 |
+| census best d1 | 42 | **52** | **96** | **48** | 13,9,13,13,9,13 |
+
+**The 3-body term is identical.** The extra 4 of d1 is bought entirely by a FOURTH 13-pair —
+and that fourth 13-pair costs **18 regions of d2**. Net −14. A 13-pair is two cubes sharing a
+body diagonal, so their intersection is large and aligned, and depth-2 regions merge.
+
+*(This also corrects a claim made an hour earlier from a 1 932-configuration scan, that at
+most 3 of 6 pairs can be 13-pairs. Four occur; the scan simply missed them.)*
+
+**The other lever is worse.** The 3-body term is NOT near-constant — over 700 configurations
+it runs 14 to 212, mean 36.4, sd 20.4. But raising it past the record's 42 collapses the
+total:
+
+    3-body 30-39  ->  mean total 128        3-body 50-59  ->  mean total 102
+    3-body 40-49  ->  mean total 134        3-body 80-89  ->  mean total  34
+                                            3-body 200+   ->  mean total  49
+
+**The record sits at the joint optimum of both levers** — 42 on a term whose useful range ends
+around 45, and 48 on a term whose next increment costs more than it pays.
+
+**So what would it take.** Not more of either quantity: one of two couplings has to break.
+
+1. **A fourth 13-pair that does not collapse d2.** The 13-pairs raising d1 are shared body
+   diagonals; the question is whether four shared-corner pairs can be arranged so their
+   pairwise intersections do not merge depth-2 regions. [P240] says 13-pairs come in TWO
+   geometric types — `(2 corners, 6 edges)` and `(0 corners, 10 edges)` — at the same gain 10.
+   **Only the first has been examined.** Whether the ten-edge type costs d2 the same way is
+   unmeasured, and it is the cheapest open question this decomposition raises.
+2. **A 3-body term above ~45 without the collapse.** Every configuration measured above 50
+   loses more in the deeper layers than it gains, but the mechanism is not established.
+
+Files: `v3_outer.py`, `pair_term.py`.
+
+<a id="p243"></a>
+
+## [VERIFIED] Postscript 243: Euler applies at EVERY depth — and the coincidence obstacle lives only at depth 1
+
+*2026-09-07.* A user question: can the Euler count be applied by level? Yes, exactly, and the
+answer reduces the conjectured ceiling law to a single quantity.
+
+**The identity generalises verbatim.** An arc on `∂A_i ∩ ∂A_j` has depth `s+2` just inside and
+`s` just outside, with s the number of OTHER cubes strictly containing it, so it lies on
+`∂U_{s+1}`. Taking the arcs with `s = ell-1` gives the depth-ell boundary, and
+
+    d_ell  =  E_ell - V_ell + c_ell + 1
+
+**Exact on 22 of 22 checks** — n=4, 5 and 6, records and Haar draws, every level of each.
+`c_ell = 1` on all of those, but **that is not general**: 8 of 1 389 level-instances over
+non-degenerate census configurations have `c_ell = 2` ([P245](#p245); an earlier figure of
+"up to 16" came from plane-degenerate cases where this pipeline is invalid, [P246](#p246)).
+The identity carries `c_ell` as a term and is unaffected; any closed form that substitutes 1
+for it is not.
+[P236] was the ell = 1 case of this.
+
+**And the decomposition says where the difficulty is.**
+
+| | ell | d_ell | 3-body | 2-body | cap C(n−ell,n) |
+|---|---|---|---|---|---|
+| n=4 record | 1 | 92 | 42 | **48** | 104 |
+| | 2 | 66 | 64 | **0** | 66 — attained |
+| | 3 | 24 | 22 | **0** | 24 — attained |
+| n=6 record | 1 | 214 | 124 | **88** | 276 |
+| | 2 | 220 | 218 | **0** | 222 |
+| | 3 | 156 | 154 | **0** | 164 |
+| | 4 | 100 | 98 | **0** | 102 |
+| | 5 | 36 | 34 | **0** | 36 — attained |
+
+**At every level ell >= 2 the two-body term is identically ZERO.** *(**REFUTED 2026-09-08 by
+[P274](#p274)**: `tau3 = 2` on verified simple, non-degenerate configurations — e.g.
+`1,0,0,0;-4,4,-6,5;1,-1,-5,2;1,4,6,3`, two two-body vertices of DEGREE 4 at depth 3, both
+identity forms checking. 3 of 263 in a blind sweep, 2 of them simple. The observation held
+on the 22 records and Haar draws it was made on; it is not identical vanishing.)* Edge-edge and corner-corner
+coincidences — the vertices [P235] showed a three-cube plane count cannot see, and which carry
+48 of the n=4 record's 92 at depth 1 — contribute nothing at any deeper level.
+
+**Three consequences.**
+
+1. **[P235]'s obstacle is confined to depth 1.** The published `d1 <= 108*C(n,3) + 2` was
+   invalid at maximisers because it dropped the two-body term. At ell >= 2 there is no such
+   term to drop, so **`d_ell <= 108*C(n,3) + 2` is proved for every ell >= 2 with no
+   correction**, at every configuration, coincident or not. [P237]'s pair term is a depth-1
+   phenomenon.
+2. **The ceiling law for l >= 2 reduces to one quantity.** Since `d_ell = (3-body gain) + 2`
+   exactly at those levels, the conjecture `d_ell <= C(n-ell, n)` is precisely
+   `3-body gain <= C(n-ell,n) - 2` — a statement about triple points on one surface, with the
+   coincidence complication removed. That is the first reformulation of the l >= 2 ceiling law
+   that is not simply a restatement of it.
+3. **The record's deep layers are AT the cap and the shallow one is not**, and now for a
+   structural reason rather than an observed one: depth 1 is the only level with a second term
+   to trade, which is exactly where [P242] found the frustration.
+
+Files: `v3_outer.py`.
+
+<a id="p244"></a>
+
+## [VERIFIED] Postscript 244: what the radius does and does not determine in the depth-Euler count
+
+*2026-09-07.* A user question following [P243]: limits on depth counts are now limits on Euler
+counts at depth — is that derivable from the radius signature? Partly, and the partition is
+clean at the extremes and genuinely ambiguous in the middle.
+
+**The geometric constraint.** With side-2 cubes a corner sits at `r² = 3`, an edge point in
+`[2,3]`, a face point in `[1,3]`. So a vertex at `r² < 2` is strictly interior to every face
+it lies on and cannot touch any cube's edge — **every cube through it contributes exactly one
+plane.** Its profile is all-ones, its degree is the number of bodies b, and its gain is
+`b/2 − 1`. Measured over 2 742 vertices at all levels of four configurations:
+
+| radius band | profiles observed | gains |
+|---|---|---|
+| `r² < 2` | (1,1,1) ×2116, (1,1,1,1) ×72 | 0.5, 1.0 — **all-ones only** |
+| `2 ≤ r² < 3` | (2,1), (2,2), (1,1,1), (2,2,2) | 0, 0.5, 1.0, 2.0 |
+| `r² = 3` | (3,3) only ×22 | **2.0 only** |
+
+*(A first version of this claim said `r² < 2` forces the profile (1,1,1) specifically. That is
+the b = 3 case; 72 vertices are (1,1,1,1). The all-ones form is the correct statement and the
+72 are its confirmation, not its refutation.)*
+
+**So the radius gives a BOUND, not the value.** Gains are capped at 2 in both upper bands and
+at `n/2 − 1` in the lowest, giving
+
+    d_ell  <=  (n/2 - 1) * N(<2)  +  2 * (N([2,3)) + N(=3))  +  c + 1
+
+computable from a level-tagged radius multiset alone, with no arrangement combinatorics.
+
+**What it cannot give.** The middle band `2 ≤ r² < 3` carries four different gains at the same
+radius, so the exact count is not a function of radii. What determines `d_ell` exactly is the
+(level, degree) multiset — and that determines it with radii playing no part at all, since
+`d_ell = Σ(deg/2 − 1) + c + 1`. **Radii are a congruence fingerprint ([P238], [P241]) and a
+bound; degrees are the count.** The two invariants answer different questions and neither
+subsumes the other.
+
+**Where this is useful.** The `r² = 3` band is the sharp one: every such vertex has gain
+exactly 2, and by [P240] these are shared corners, i.e. 13-pairs. Since [P243] shows the
+two-body term vanishes at every level `ell >= 2`, all `r² = 3` vertices live at depth 1 — which
+is [P242]'s frustration seen once more, now as a statement about a single radius value.
+
+Files: `radii.py`, `v3_outer.py`.
+
+<a id="p245"></a>
+
+## [VERIFIED] Postscript 245: a cross-level Euler identity — the whole count is `E − Σ m_v + 2n − 1`
+
+*2026-09-07.* A user question following [P243]/[P244]: can Euler counts constrain which depth
+profiles are possible? Yes, and the constraint is a single exact identity.
+
+**Each arc lies at exactly one level** — an arc on `∂A_i ∩ ∂A_j` with s other cubes strictly
+containing it belongs to `∂U_{s+1}` and to nothing else. **Each vertex may lie at several.**
+Summing [P243]'s per-level identity over ell:
+
+    SUM_ell d_ell  =  E_tot  -  SUM_ell V_ell  +  SUM_ell (c_ell + 1)
+
+**Exact on every configuration tested**, records included:
+
+| | Σ d_ell | E_tot | Σ V_ell | Σ(c+1) |
+|---|---|---|---|---|
+| n=4 Haar | 112 | 430 | 324 | 6 |
+| n=4 record 183 | 182 | 498 | 322 | 6 |
+| n=5 record 393 | 392 | 1080 | 696 | 8 |
+| n=6 record 727 | 726 | 2116 | 1400 | 10 |
+
+Writing `m_v` for the number of levels a vertex appears at, `Σ_ell V_ell = Σ_v m_v`, so
+
+    TOTAL  =  E  -  SUM_v m_v  +  SUM_ell (c_ell + 1)  +  1
+
+> **CORRECTED TWICE, 2026-09-07.** This first read `TOTAL = E − Σ m_v + 2n − 1`, substituting
+> `c_ell = 1` because it held in every case then measured. A scan found `c_ell != 1` in 47 of
+> 1 500 level-instances, "up to c = 16", and the closed form was withdrawn. **That scan was
+> itself contaminated**: [P246](#p246) shows this pipeline is INVALID on configurations where
+> two cubes share a face plane, and every large `c` came from those. Re-run on the 463
+> non-degenerate configurations of the same sample:
+>
+>     c = 1 : 1381 level-instances        c = 2 : 8 level-instances
+>
+> **So `c_ell != 1` is real but rare (0.6 %) and reaches only 2, not 16.** The identity is
+> unaffected either way — `c_ell` is a term in it, not an assumption — and the closed form is
+> correct wherever every level's curve arrangement is connected, which is 99.4 % of
+> non-degenerate configurations including both records. The "c = 1 throughout" remarks in
+> [P243](#p243) and [P236](#p236) are observations on the cases tested, not theorems.
+
+    record 183 : 498 - 322 + 7 = 183       Haar : 430 - 324 + 7 = 113   (both have every c_ell = 1)
+
+**This is the objective function, exactly.** Maximising the region count is maximising
+`E − Σ_v m_v`: as many arcs as possible, with their endpoints confined to as few levels as
+possible. Every search this project has run has been optimising that quantity without naming
+it.
+
+**And it is the coupling that constrains profiles.** Measured, `m_v ∈ {1,2,3}` — a vertex never
+spans more than three levels, and is usually on one or two:
+
+    n=4 record  {1:66, 2:128}        n=6 record  {1:192, 2:586, 3:12}
+    n=4 Haar    {1:116, 2:104}       n=5 record  {1:116, 2:272, 3:12}
+
+A vertex on levels ell and ell+1 is counted in both `V_ell` and `V_{ell+1}`, so raising `d_ell`
+by adding vertices there charges the neighbouring level too. **That is why `d1` and `d2` cannot
+both reach their caps while `d2` and `d3` can** ([P242]): the census attains `d2 + d3 = 90 =
+66 + 24` exactly, but `d1 + d2` tops out at 152 against a cap sum of 170, and the record's 158
+beats all 3 133 320 census configurations.
+
+**How the record wins, in these terms.** Against a Haar draw it has **more arcs and no more
+vertex-level incidences** — 498 against 430 arcs, 322 against 324 incidences. It is not
+trading; it is better on both terms at once. That is a sharper description of a maximiser than
+"more coincidence" or "more symmetry", both of which this project has tried and retracted
+([P231], [P238]).
+
+**What it makes askable.** `E` is bounded by plane-triple counting, and `Σ_v m_v ≥ V` since
+`m_v ≥ 1`, so `TOTAL ≤ E − V + 2n − 1`. Turning that into a real bound needs a lower bound on
+`Σ_v m_v` — i.e. on how many vertices must span two levels — which is the first concrete route
+to constraining a whole profile rather than one layer of it.
+
+Files: `v3_outer.py`.
+
+<a id="p246"></a>
+
+## [VERIFIED] Postscript 246: [OQ 23] answered — the engine passes its first external gate, the arc pipeline fails on shared face planes
+
+*2026-09-07.* [OQ 23](OPEN_QUESTIONS.md) asked whether the depth machinery is gated against
+anything with a known answer. It was not. Now it is, and the two halves give opposite answers.
+
+**The ENGINE passes.** The axial fan — N cubes about a shared 4-fold axis — has a PROVEN
+closed form of `(2N−1)²` bounded regions. `cube_regions_n` returns **9, 25, 49, 81, 121** for
+N = 2…6. Exact, and the first time this project's counter has been checked against a proven
+formula rather than against a second implementation. Two cubes about a body diagonal likewise
+give the proved `13 = 12 + 1`, matching depth by depth.
+
+**The ARC PIPELINE fails, on exactly the case predicted.** `v3_outer.py` and everything built
+on it assume `∂A_i ∩ ∂A_j` is a curve. In the axial fan every cube shares the top and bottom
+face planes, so that intersection contains two-dimensional pieces, and the level counts come
+out nonsense — d1 = 986 against a true 24 at N = 6.
+
+**Scope, now stated rather than assumed.** The identities of [P236], [P237], [P243], [P244]
+and [P245] are valid where **no two cubes share a face plane**. That excludes **37 of 500**
+census configurations (7.4 %) and includes every record and every Haar draw tested — the pairs
+of both records were checked directly and share no planes. The results stand; their domain is
+now written down.
+
+**And it retracted a correction made an hour earlier.** [P245] had been amended to say
+`c_ell != 1` occurs "up to c = 16". Every one of those large values came from a
+plane-degenerate configuration. Re-run on the non-degenerate ones only: `c = 1` in 1 381
+level-instances, `c = 2` in **8**, nothing higher. The amendment was right that `c = 1` is not
+universal and wrong about how far it departs — **a correction built on ungated machinery,
+which is what [OQ 23] existed to catch.**
+
+**The lesson is the ordering.** The pipeline produced 22 exact agreements with the engine
+across records and Haar draws before anyone asked what it did on a known answer. Agreement
+with a second instrument is not a gate; only a known value is ([METHODS 4](METHODS.md)). The
+axial fan has been in `LEDGER` Reference Points since the beginning.
+
+Files: `v3_outer.py`, `oq23_gate.log`, `c_recheck.log`.
+
+<a id="p247"></a>
+
+## [VERIFIED] Postscript 247: the disconnected-boundary lever is ILLUSORY — proposed and refuted the same hour
+
+*2026-09-07.* [P245]'s identity `TOTAL = E − Σ_v m_v + Σ_ell (c_ell + 1) + 1` has `c_ell`
+entering POSITIVELY, so a disconnected level-curve arrangement adds a region for free. Both
+records have every `c_ell = 1`. I proposed this as a search lever never used — *"a record-like
+configuration whose depth-1 curve arrangement is disconnected would count 184 with no other
+change"*. **It does not work, and the reason is structural.**
+
+**Measured** over 2 811 non-degenerate configurations:
+
+| c₁ | n | mean count | max count | mean d1 | **mean E − V** |
+|---|---|---|---|---|---|
+| 1 | 2 783 | 125.0 | **167** | 43.7 | **41.7** |
+| 2 | 28 | 103.1 | 128 | 30.8 | **27.8** |
+
+The extra component is worth **+1**; it costs about **14** in `E − V`. Every one of the 28
+`c₁ = 2` configurations has E and V nearly equal — the best is `E = 226, V = 188` — where the
+record has `E = 240, V = 150`, a gap of 90.
+
+**Why it cannot work.** `E − V = Σ_v (deg(v)/2 − 1)`, so `E − V` IS the gain sum. Disconnecting
+the depth-1 curve arrangement requires the pairwise intersection curves not to meet one
+another — and those meetings are exactly the degree-3-and-higher vertices that generate d1.
+**The condition that raises `c₁` is the negation of the condition that raises `E − V`**, and
+the second is worth an order of magnitude more. The "+1 for free" is real and is swamped.
+
+**The proposal was wrong in the way this project's own rule predicts.** [P245] gives an
+identity, and reading a lever off a positive coefficient treats the three terms as
+independent. They are not: `E`, `Σ m_v` and `c_ell` are three statistics of one arrangement.
+An identity constrains; it does not decompose into levers. Same shape as [P222]'s Möbius
+derivation, where the algebra was mine and the measurement said the opposite.
+
+**What survives.** The identity is unaffected — it was never in question — and the criterion
+for beating 183 at n = 4 stands: `E − Σ_v m_v ≥ 177` against the record's 176. But it must be
+reached through the first two terms. **`c_ell` is not a lever; it is a symptom of a
+badly-connected arrangement.**
+
+### Addendum, same hour: "all three routes are obstructed" is NOT a proof, and was overstated
+
+Having measured obstructions to a fourth 13-pair ([P242]), to a larger 3-body term ([P242])
+and to a disconnected boundary (above), I wrote that *"the record sits at a genuine local
+optimum of the identity, not merely of the count."* **Withdrawn.** Three reasons, and the
+third is decisive:
+
+1. **The three are not a partition.** They were obtained by reading terms off [P245]'s
+   identity — the exact reasoning this postscript refutes two paragraphs above. `E`,
+   `Σ m_v` and `c_ell` are three statistics of ONE arrangement; "raise E", "lower Σm",
+   "raise c" is not an enumeration of moves. Nothing tested a configuration that moves two
+   of them together.
+2. **Two of the three are correlations, not bounds.** The 3-body collapse is a mean over
+   bands of 700 configurations. The 13-pair trade compares exactly TWO configurations — the
+   record and the single census entry with d1 = 96. That is [FAILURE_MODES 30]'s shape:
+   n = 1 against n = 1, reported as a mechanism.
+3. **The instrument cannot reach the target.** All three measurements are on the census,
+   whose maximum is **177** and which never found the 183 record in 2.58M draws. An
+   instrument that provably misses the known answer says nothing about the region beyond it.
+   Reading its silence above 183 as evidence is *unevaluated scored as negative*, which this
+   project has a standing rule against.
+
+**What is actually established:** three specific perturbations of the record, measured on an
+ensemble that cannot reach the record, each lose more than they gain. That is weak evidence
+that 183 is locally good and none at all that it is maximal. The proof route remains
+[OQ 28](OPEN_QUESTIONS.md) — a lower bound on `Σ_v m_v`, which with a bound on `E` turns the
+identity into a cap. Until then every "route" argument is a search result, and search yields
+lower bounds forever.
+
+Files: `c_lever.log`.
+
+<a id="p248"></a>
+
+## [VERIFIED] Postscript 248: [OQ 28] answered — `m_v = b_v − 1`, and the count becomes purely combinatorial
+
+*2026-09-07.* [OQ 28] asked for a lower bound on `Σ_v m_v`, the one piece missing between
+[P245]'s identity and a real cap on the total. It is not a bound; it is an equality.
+
+**The local law.** At a vertex v, let `b_v` be the number of bodies whose boundary contains v
+and `m_v` the number of depth levels its incident arcs occupy. Then
+
+    m_v  =  b_v - 1
+
+**Zero violations** across n = 4, 5, 6, records and Haar draws:
+
+    n=4 Haar   (b,m): {(2,1):116, (3,2):104}
+    n=4 record (b,m): {(2,1):66,  (3,2):128}
+    n=5 record (b,m): {(2,1):116, (3,2):272, (4,3):12}
+    n=6 record (b,m): {(2,1):192, (3,2):586, (4,3):12}
+
+**And the reason is local geometry, not a fit.** At a triple point of bodies i, j, k the curve
+`∂A_i ∩ ∂A_j` passes THROUGH `∂A_k`, so the containment-in-k of its two half-arcs differs and
+they lie at consecutive levels: `m = 2`. Each further body through v splits the arcs once
+more. A vertex on only two bodies has all its arcs on one curve at one level: `m = 1`.
+
+**So the whole count is combinatorial**, with `Σ m_v = Σ b_v − V` and L levels:
+
+    TOTAL  =  E  -  SUM_v (b_v - 1)  +  2L + 1
+
+    113, 183, 393, 301, 727 — all five exact against the engine.
+
+**What this changes for a proof.** Since `b_v >= 2` always and `b_v >= 3` at any triple point,
+
+    TOTAL  <=  E  -  V2  -  2*V3  +  2L + 1
+
+with `V2`, `V3` the vertices on exactly two and on three-or-more bodies. This recovers
+`delta_c.py`'s identity from the depth side and, more usefully, **replaces "bound Σ m_v" with
+"bound E from above and V2, V3 from below"** — three finite combinatorial quantities about
+pairwise intersection curves, with no reference to depth, coincidence or genericity.
+
+**The honest distance.** Bounding `E` alone by plane-triple counting reproduces the same 5×
+looseness as before (434-scale against a true ~90 at n=4). The prospect is that the
+COMBINATION `E − V2 − 2V3` is better behaved than `E`, because arcs and their endpoints are
+not independent — every arc has two ends. Whether that is so is the next measurement, and it
+is the first time the question has been askable in this form.
+
+Files: `mv_law.log`.
+
+<a id="p249"></a>
+
+## [VERIFIED] Postscript 249: the first PROVED upper bounds on max(n) for n >= 4
+
+*2026-09-07.* Prompted by a user observation — *a better upper bound seems as good as a
+better lower bound* — which exposed that **this project has never had an upper bound on the
+total count above n = 3.** [RESULTS](RESULTS.md) says so explicitly of the d1 bounds: "they
+bound d₁ only, not a total". [P237] and [P243] together now bound every layer, so summing
+them gives one.
+
+    d1        <= 108*C(n,3) + 10*C(n,2) + 2     [P237]  every configuration, coincident or not
+    d_ell     <= 108*C(n,3) + 2   (2<=ell<=n-2) [P243]  the two-body term vanishes there
+    d_(n-1)   <= 6n                             PROVED, the l=1 ceiling law
+    d_n        = 1                              the core
+
+| n | record | **PROVED ≤** | ratio | conjectured cap | ratio |
+|---|---|---|---|---|---|
+| 4 | 183 | **953** | 5.2× | 195 | 1.07× |
+| 5 | 393 | **3 377** | 8.6× | 429 | 1.09× |
+| 6 | 727 | **8 835** | 12.2× | 801 | 1.10× |
+| 7 | 1 217 | **19 163** | 15.7× | 1 343 | 1.10× |
+| 8 | 1 895 | **36 629** | 19.3× | 2 087 | 1.10× |
+| 9 | 2 787 | **63 933** | 22.9× | 3 065 | 1.10× |
+| 10 | 3 925 | **104 207** | 26.5× | 4 309 | 1.10× |
+
+**The interval for max(4) is now [183, 953], and it was (183, ∞) this morning.** These are
+crude — they sum three separately loose layer bounds, and looseness compounds with n from
+5.2× to 26.5×. But an upper bound that exists can be improved; one that does not exist cannot.
+
+**Where the improvement is.** The conjectured ceiling law would give the right-hand column,
+and it is astonishingly tight — the records sit at **1.07–1.10×** the cap sum at every n from
+4 to 10. Proving it would collapse the n=4 interval from [183, 953] to [183, 195], i.e. put
+max(4) within 7 % of the record. [P243] reduced that conjecture, for every l >= 2, to the
+single statement `3-body gain <= C(n−ell,n) − 2` — no coincidence term, no genericity.
+
+**And the identity of [P248] should beat all of this**, because summing per-layer bounds
+triple-counts: `TOTAL = E − Σ_v (b_v − 1) + 2L + 1` bounds the total in one step rather than
+three, and its ingredients are arcs and vertices of pairwise curves.
+
+**A check that fails, recorded because it was available.** [RESULTS](RESULTS.md)'s frustration
+deficit `6(n−3)(n−2)` is flagged there as unsourced and exact at n = 3, 4, 5. Against the
+conjectured cap sums above, the actual deficits are
+
+    n        4   5   6    7    8    9   10
+    actual  12  36  74  126  192  278  384
+    formula 12  36  72  120  180  252  336
+    miss     0   0   2    6   12   26   48
+
+**It fails from n = 6 and the miss grows.** Since the records are not proved maxima the
+comparison is not decisive, but the formula predicts max(6) = 729 against a record of 727 and
+max(10) = 4261 against 3925, so it is either wrong or every record from n = 6 up is beatable.
+
+Files: computed from [P237], [P243]; no new code.
+
+<a id="p250"></a>
+
+## [VERIFIED] Postscript 250: the ceiling law tested beyond n=4 for the first time — and the deep caps are ATTAINED generically, not merely respected
+
+*2026-09-07.* A user question: what would it take to prove or refute the ceiling law
+`d_(n-l) <= (12l-6)n - 2(l^2-1)`, conjectured for l >= 2 and proved only for l = 1?
+
+**First: it had only ever been checked at n = 4.** Today's 3 133 320-configuration
+verification used the census, which is entirely n = 4. Tested now at n = 5, 6, 7 over ~1 970
+configurations from three ensembles (Haar, shared-axis, body-diagonal): **zero violations at
+every level.**
+
+**But the informative result is which caps are ATTAINED:**
+
+| n | ell | cap | max seen | attained by |
+|---|---|---|---|---|
+| 5 | 1 | 180 | 122 | 0 of 658 |
+| 5 | 2 | 134 | **134** | 9 |
+| 5 | 3 | 84 | **84** | 308 |
+| 5 | 4 | 30 | **30** | **577** |
+| 7 | 1 | 392 | 246 | 0 |
+| 7 | 6 | 42 | **42** | **576 of 657** |
+
+**At deep levels the cap is not an upper bound that happens to hold — it is the GENERIC
+VALUE.** Seven hundred draws in a row hit it exactly. At shallow levels it is never
+approached: d1 reaches 68 % of its cap at n = 5 and 63 % at n = 7.
+
+**That changes the shape of the proof.** A statement "X <= B" proved for generic X and
+attained everywhere is not an inequality to be bounded; it is an EQUALITY to be computed,
+plus an argument that coincidence can only reduce it. Both halves are more tractable than a
+bound:
+
+1. **Compute the generic value.** At level ell the arrangement is generic — no coincidences —
+   so `d_ell = E_ell - V_ell + c_ell + 1` ([P243]) with every vertex a simple triple point of
+   degree 3, i.e. `d_ell = V3(ell)/2 + c + 1`. The claim becomes an exact count of triple
+   points that lie inside exactly `ell-1` cubes, in general position. That is a combinatorial
+   identity, not an estimate.
+2. **Show coincidence only reduces.** Merging vertices raises degree, and [P240]'s arithmetic
+   already shows a higher-multiplicity point buys less gain per plane-triple consumed than
+   the simple points it replaces — the same convexity that made [P237]'s charging work.
+
+**Refutation looks unlikely and the reason is structural.** The levels with slack (shallow,
+large l) sit 30–40 % BELOW their caps, so a violation would have to appear where the formula
+is most generous; the levels where the formula is tight are attained exactly and would have
+to be exceeded. Neither happened in 1 970 configurations at n = 5..7 or 3.1M at n = 4.
+
+**What it would buy.** Proving it collapses the n=4 interval from **[183, 953]** ([P249]) to
+**[183, 195]**. Note the bound would still be loose at ell = 1 — `d1 <= 104` against a
+measured maximum of 96 — so even a full proof leaves max(4) undetermined in [183, 195]. The
+remaining 12 is the frustration [P242] located.
+
+Files: `ceiling_test.log`.
+
+<a id="p251"></a>
+
+## [VERIFIED] Postscript 251: the ceiling law restated as a triple-point count — exact for l = 1 and l = 2 in general position
+
+*2026-09-07.* First step on [OQ 29](OPEN_QUESTIONS.md), chosen over the depth-1 gap because
+its payoff is 758 regions of interval against 12 and it is a prerequisite for the other.
+
+**The restatement.** Generically `c = 1` and every level-ell vertex is a simple triple point,
+so [P243] gives `d_ell = V3(ell)/2 + 2`. Substituting the conjectured cap
+`C(l,n) = (12l-6)n - 2(l^2-1)` with `l = n - ell` turns the conjecture into a prediction about
+the arrangement itself, with no reference to region counting:
+
+    V3(ell)  =  (24l - 12) n  -  4 l^2
+
+**Measured** on 30 Haar configurations at each of n = 4, 5, 6, 7:
+
+| l | prediction | attained (general position) |
+|---|---|---|
+| 1 | `12n − 4` | **30/30** at n=6 and n=7; 26/30 at n=5; 25/30 at n=4 |
+| 2 | `36n − 16` | **30/30** at n=7; 27/30 at n=6; 11/30 at n=5 |
+| 3 | `60n − 36` | 19/30 at n=7; 2/30 at n=6 |
+| large l (shallow) | — | 0/30 everywhere; max seen is 33 % of prediction at n=7, l=6 |
+
+**Never exceeded at any n, any l.** So the formula is a valid upper bound on V3 throughout,
+and an EQUALITY in general position for l = 1 and l = 2.
+
+**Two things follow.**
+
+1. **The l = 1 row is a consistency check that passes.** `l = 1` is the case already PROVED
+   (`d_(n-1) <= 6n`, the anchor lemma), and `V3 = 12n − 4` reproduces it exactly through
+   `d = V3/2 + 2`. The restatement is therefore calibrated against a theorem, not only against
+   measurements.
+2. **`l = 2` behaves identically to the proved case** — 30/30 at n = 7 — which makes
+   `V3(l=2) = 36n − 16` in general position the natural next theorem, and the first genuinely
+   new one on this route.
+
+**And the shape of the difficulty is now visible.** The formula is an equality at small l and
+increasingly loose at large l: at n = 7, l = 6 the maximum observed V3 is 260 against a
+predicted 780. So the ceiling law is TIGHT where it is provable-looking and LOOSE where the
+records actually live — depth 1 is always the shallowest level. Proving it in full still
+leaves max(4) in [183, 195], and that residue is [P242]'s frustration.
+
+Files: `v3_generic.log`.
+
+<a id="p252"></a>
+
+## [VERIFIED] Postscript 252: the wall-crossing proof route is DEAD — coincidence does not locally reduce V3, though the bound still holds
+
+*2026-09-07.* [P251] left the ceiling law as "compute the generic value, then show coincidence
+only reduces it". A one-minute screen killed the second half.
+
+**Setup.** 200 coincident n=4 census configurations, each perturbed at two scales to land in a
+neighbouring generic chamber, V3 compared per level.
+
+| | count |
+|---|---|
+| coincident V3 exceeds the generic FORMULA | **0** — the conjecture survives |
+| coincident V3 exceeds a NEARBY PERTURBED value | **4** — always by exactly +4 |
+
+    ell=2  coincident 84   perturbed 80    formula 128
+    ell=3  coincident 40   perturbed 36    formula  44
+    ell=1  coincident 64   perturbed 60    formula 204
+    ell=2  coincident 104  perturbed 100   formula 128
+
+**So `ΔV3 <= 0` across a wall is FALSE**, and the reduction proposed in [P251] — enumerate the
+finitely many wall types, check each — cannot close the conjecture. The bound `V3 <= formula`
+holds (0 of 3 330 earlier, 0 here), but not because coincidence reduces V3 locally: the
+perturbation simply lands in a chamber whose value is lower still. **Whatever makes the
+conjecture true is not local monotonicity.**
+
+**What survives.** The generic computation, half (a) of [P251], is untouched and remains the
+first target: `V3 = (24l−12)n − 4l^2` exactly, for l = 1 (already a theorem) and l = 2. What
+is now missing is a global argument, not a local one.
+
+**A bug in my own reporting, made twice.** The screen's output format was misordered on both
+runs — arguments `(ell, a, b, k)` printed into slots `(ell, V3, k, V3)`. The tell was a
+printed perturbation scale of `2^-80` when only k = 6 and 10 were used: an impossible value in
+a field I controlled. Had the misordering produced a *plausible* number instead, the
+conclusion drawn from it would have been wrong and nothing would have flagged it. Same family
+as [FAILURE_MODES 28] — a program reporting a number it never checked against its own inputs.
+
+**And a correction to how this postscript's method was described.** [P250] and my own summary
+called searching generic configurations "provably useless". That is wrong, and this screen is
+the counterexample: it produced no configuration and no theorem, cost under a minute, and
+eliminated a proof strategy that would otherwise have taken days. **Search yields lower bounds
+on RECORDS forever — that is the narrow true claim.** As reconnaissance for where to point a
+solver or a prover, a search that finds nothing can be worth more than one that finds
+something, and this project's own rule about not spending effort on exhausted directions
+depends on exactly such searches.
+
+Files: `wall_screen2.log`.
+
+<a id="p253"></a>
+
+## [VERIFIED] Postscript 253: where the ceiling law is loose, and a refinement that does NOT hold
+
+*2026-09-07.* A user question: can the formula be refined, perhaps to account for
+degeneracies? The diagnosis is solid; the refinement I derived from it is not, and the way it
+failed is worth more than the refinement would have been.
+
+**Where the looseness is.** From [P250]'s test at n = 7:
+
+    ell >= 3 : cap ATTAINED (264/264, 194/194, 120/120, 42/42)
+    ell = 2  : 318 of 330   -- 96 %
+    ell = 1  : 246 of 392   -- 63 %
+
+**All of the slack is at depth 1**, and by [P243] depth 1 is the *only* level carrying a
+two-body term. The ceiling law is a pure three-body count being asked to cover the one level
+with two contributions. That diagnosis stands and locates the refinement exactly.
+
+**The refinement that fails.** Depth-1 three-body counts from a 30-draw sweep read 80, 140,
+200, 260 at n = 4..7 — differences of exactly 60 — suggesting `V3(depth 1) = 60n − 160`. With
+[P237]'s proved `two-body <= 10*C(n,2)` that would give
+
+    d1  <=  (60n-160)/2 + 10*C(n,2) + 2  =  5n^2 + 25n - 78
+
+tighter than the ceiling law at every n (102 vs 104 at n=4, 342 vs 392 at n=7). **It is not a
+bound.** Re-run at 40 draws:
+
+    n         4     5     6     7     8
+    max V3   84   140   200   252   320
+    60n-160  80   140   200   260   320
+
+**n = 4 exceeds it.** A formula fitted to SAMPLE MAXIMA was about to be used as an upper
+bound — and a sampled maximum is a lower bound on the true maximum, so the fit was invalid
+before it was falsified. Ten extra draws found what thirty had not. `d1 <= 5n^2 + 25n - 78`
+is withdrawn.
+
+**What is legitimately established.** The refinement's SHAPE is right even though its content
+is not:
+
+    d1  =  (three-body gain at depth 1)  +  (two-body gain)  +  c + 1
+    two-body gain  <=  10*C(n,2)                                   PROVED [P237]
+    three-body gain at depth 1  =  V3(depth 1)/2                   [P243]
+
+so **a refined depth-1 bound needs exactly one missing piece: a PROVED upper bound on V3 at
+depth 1.** That is a well-posed question about triple points on the outer boundary, it is the
+only place the ceiling law is loose, and nothing about it is known beyond samples.
+
+**Method note.** This is the third time today a small sample produced a law that a slightly
+larger sample broke ([P233], [P245], here). The distinguishing feature of this one is that the
+quantity being fitted was a MAXIMUM, where the direction of the error is knowable in advance:
+sampling can only underestimate it. A fit to sample maxima should never be used as a bound,
+in any direction, ever.
+
+Files: `refine.log`.
+
+<a id="p254"></a>
+
+## [VERIFIED] Postscript 254: the +4 does not stack — shared axes REDUCE V3, and the record sits at the observed V3 ceiling
+
+*2026-09-07.* Following a user observation that failures in one direction suggest angles for
+the other: [P252]'s failed proof (ΔV3 ≤ 0 across walls is false, coincidence can add +4) was
+turned into a directed counterexample search — identify the +4 mechanism and stack it.
+
+**The mechanism identified.** One of P252's four cases was
+`1,0,0,0; 7,0,1,3; 4,0,1,3; 3,15,5,-10` — cubes 1 and 2 share the vector part `(0,1,3)`, i.e.
+a shared rotation axis lying in a coordinate plane, a 9-pair by [P233].
+
+**Stacking it fails, monotonically.** V3 by level at n = 4, 60 draws each:
+
+| construction | ell=1 | ell=2 | ell=3 |
+|---|---|---|---|
+| generic (Haar) | **84** | **128** | **44** |
+| 1 shared-axis pair | 78 | 120 | 44 |
+| 3 shared-axis pairs | 74 | 114 | 42 |
+| 6 shared-axis pairs | 70 | 110 | 42 |
+
+Every added shared axis LOWERS V3. So the +4 of [P252] was that particular perturbation
+landing in a low neighbouring chamber, not an accumulable mechanism — the two findings are
+consistent (a coincidence can exceed SOME neighbour while sitting below the generic value)
+and only the second generalises.
+
+**What the failed search gives back.** Two things, both about the record:
+
+1. **The structures that maximise the COUNT reduce V3.** Shared axes and 13-pairs are what
+   [P224]/[P225] show records are built from, and they cost V3. So the count and the
+   three-body term are not aligned, and depth-1 slack in the ceiling law will not be filled
+   by record-like structures.
+2. **The record sits exactly at the observed V3 ceiling.** Generic maximum V3 at depth 1 is
+   **84** over 60 Haar draws at n = 4 — and [P251] measured the n=4 record's depth-1 V3 as
+   **84** as well. So
+
+        d1 = 84/2 + 48 + 2 = 42 + 48 + 2 = 92
+
+   **the record attains the maximum observed three-body count AND the maximum two-body
+   term simultaneously.** That is a sharper statement of why it is hard to beat than anything
+   in [P242]: not a trade-off it navigates well, but both terms at their observed ceilings.
+
+**So beating 183 at n = 4 requires `V3(depth 1) > 84` or `two-body > 48`.** The second is
+capped at 60 by [P237] and never observed above 48; the first has no proof, only the
+observation that 84 was never exceeded in ~200 draws across three ensembles. **A proved upper
+bound on V3 at depth 1 is now the single quantity standing between the current state and a
+sharp n=4 bound** — the same gap [P253] identified from the opposite direction.
+
+Files: `stack4.log`.
+
+<a id="p255"></a>
+
+## [VERIFIED] Postscript 255: a directed refutation attempt on the ceiling law — not refuted, cap attained for the first time, and the frustration exhibited
+
+*2026-09-07.* A user question: if the law cannot be established, can it be refuted? Today's
+attainment data says where to aim — **not where the law is loose but where it is tightest**,
+since a violation there costs +2 instead of +50 %.
+
+**Target chosen: n = 6, ell = 2.** Cap 222; best ever observed 220 (the record itself); gap of
+2, the smallest anywhere in the measured table.
+
+**Result: not refuted, and the cap ATTAINED for the first time.**
+
+| ensemble | configs | max d2 | at cap |
+|---|---|---|---|
+| record neighbourhood | 600 | **222** | 77 |
+| record + swapped 6th cube | 600 | **222** | 1 |
+| shared-axis n=6 | 600 | 208 | 0 |
+| Haar n=6 | 400 | 202 | 0 |
+
+Nothing above 222 in 2 197 configurations. **And the cap is reachable only near the record** —
+structured shared-axis families stop at 208, Haar at 202.
+
+**What the attaining configuration shows, and it is the day's clearest exhibit.**
+
+    4,1,1,-1;23,23,56,24;40,-9,-41,-40;15,8,9,8;8,7,8,7;56,112,7,-40
+
+    profile   {132, 222, 164, 102, 36, 1}   total 657
+    vs caps   -144   AT    AT    AT   AT
+
+**Every deep cap attained simultaneously — d2, d3, d4, d5 all exactly at C(l,6)** — which has
+never been observed before. Against the record:
+
+    record    {214, 220, 156, 100, 36, 1}   total 727
+    vs caps    -62    -2    -8    -2   AT
+
+**The record gives up 2, 8 and 2 at the deep levels and takes 82 at depth 1, for a net +70.**
+So the deep caps ARE jointly attainable; attaining them is simply the wrong thing to do. That
+is [P242]'s frustration exhibited by an explicit pair of configurations rather than inferred
+from correlations over samples — the objection I recorded against my own earlier evidence.
+
+**Three consequences.**
+
+1. **The ceiling law survives its best-targeted attack.** Zero violations now across 3.1M at
+   n=4, ~1 970 at n=5..7, and 2 197 aimed directly at the tightest gap.
+2. **`d2 <= 222` at n=6 is tight**, not merely respected — one more cap moves from "never
+   exceeded" to "attained", which is the class of evidence [P250] identified as the strong one.
+3. **The n=6 conditional bound is unimproved but better understood**: max(6) <= 801 needs
+   `d1 <= 276`, and the configurations that max everything else reach only d1 = 132. The
+   binding constraint at every n is depth 1, again.
+
+Files: `refute.log`.
+
+<a id="p256"></a>
+
+## [VERIFIED] Postscript 256: the layers are not independent — a JOINT conditional bound is 7x tighter, and exact at n=4
+
+*2026-09-07.* A user observation: exploring the attainment surface can inform proving a bound,
+approaching it, or tightening a conditional one. It does all three, and the third is immediate.
+
+**The defect in the current conditional.** [P249]'s bound sums independent per-layer caps.
+[P255] showed the layers are NOT independent: a configuration attaining all four deep caps at
+n=6 reaches only 657, while the record gives up 2, 8 and 2 there to take 82 at depth 1 and
+totals 727. Summing caps therefore adds a maximum that cannot be jointly realised.
+
+**The joint quantity, measured** (~1 000 configurations per n from the record neighbourhood,
+Haar and shared-axis ensembles):
+
+| n | cap d1+d2 | record d1+d2 | best found | record total | joint conditional |
+|---|---|---|---|---|---|
+| 4 | 170 | **158** | **158** | 183 | **183 — exact** |
+| 5 | 314 | **284** | **284** | 393 | 399 (+6) |
+| 6 | 498 | **434** | **434** | 727 | 737 (+10) |
+
+**The record attains max(d1+d2) at every n tested** — nothing in the sample beat it. And the
+conditional `max(n) <= max(d1+d2) + (deeper caps) + 1` gives
+
+    ceiling-law conditional : 195, 429, 801   ratios 1.07, 1.09, 1.10
+    JOINT conditional       : 183, 399, 737   ratios 1.00, 1.015, 1.014
+
+**a sevenfold reduction in the gap, and EXACT at n = 4.**
+
+**This is a conjecture, not a bound, and the distinction is the one [P253] was burned by.**
+`max(d1+d2) = 158` is a SAMPLED maximum, hence a lower bound on the true maximum, so using it
+as a cap is invalid in the same way `60n-160` was. What the table establishes is the SHAPE:
+the right object to bound is the joint quantity, not the layers separately, and a joint bound
+of the observed size would be nearly exact.
+
+**What it informs, in the user's three directions.**
+
+1. **Proving:** the target changes from "bound each d_ell" to "bound d1 + d2 jointly". The
+   frustration [P242] and [P255] exhibit is precisely a joint constraint, so this is bounding
+   the phenomenon rather than working around it.
+2. **Approaching:** the record already attains the observed joint maximum, so beating it
+   requires a configuration with a NEW joint maximum — a much narrower search target than
+   "a big count", and one where 1 000 draws per n found nothing.
+3. **Tightening:** the conditional improves from 1.07-1.10x the record to 1.00-1.015x
+   immediately, at no cost beyond stating it correctly.
+
+*n = 7 was in the run and did not complete within the time budget; it is not reported rather
+than reported as absent.*
+
+Files: `joint.log`.
+
+<a id="p257"></a>
+
+## [VERIFIED] Postscript 257: the frustration as an IDENTITY — a depth-1 triple point buys 1/2 at depth 1 and costs 3/2 at depth 2
+
+*2026-09-07.* A user observation: dependent per-layer caps also interact with the per-layer
+Euler counts. They do, and the interaction is exact.
+
+**Adjacent levels share vertices.** By [P248] a vertex lies at `b_v − 1` levels, so levels 1
+and 2 share their 3-body vertices with nothing containing them — which is precisely the
+depth-1 triple point set. Adding the two per-level Euler counts and splitting
+`V1 + V2 = |V1 ∪ V2| + |V1 ∩ V2|`:
+
+    d1 + d2  =  (E1 + E2)  -  |V1 ∪ V2|  -  |V1 ∩ V2|  +  c1 + c2 + 2
+
+**Exact on every configuration tested**, records and Haar alike:
+
+| | d1 | d2 | E1+E2 | \|V1∪V2\| | \|V1∩V2\| | sum |
+|---|---|---|---|---|---|---|
+| n=4 record | 92 | 66 | 432 | 194 | **84** | 158 |
+| n=5 record | 156 | 128 | 786 | 356 | **150** | 284 |
+| n=6 record | 214 | 220 | 1282 | 612 | **240** | 434 |
+| n=4 Haar | 34 | 56 | 366 | 216 | **64** | 90 |
+
+and `|V1 ∩ V2|` reproduces [P251]'s depth-1 triple-point counts exactly.
+
+**The shared vertices are subtracted TWICE**, once in each level's `−V`. So:
+
+    V3(depth 1) enters  d1        with coefficient  +1/2     ([P243]: it IS the 3-body gain)
+    V3(depth 1) enters  d1 + d2   with coefficient  -1       (shared, subtracted twice)
+    hence it enters     d2        with coefficient  -3/2
+
+**Every depth-1 triple point buys half a region at depth 1 and costs one and a half at depth
+2.** That is the frustration of [P242] and [P255] as an identity rather than a correlation
+over samples — the weakness I recorded against my own earlier evidence for it, now removed.
+
+**Why it matters for the bound.** [P256] found that the right object is the joint quantity
+`d1 + d2`, because the per-layer caps are not simultaneously attainable. This says WHY, and
+gives the joint quantity an Euler expression in which the coupling term appears explicitly.
+Bounding `d1 + d2` therefore needs `E1 + E2` above and `|V1 ∪ V2| + V3(depth 1)` below — and
+the second is a lower bound on vertex counts, which is the opposite direction from every
+bound this project has attempted, and typically the easier one.
+
+Files: `coupling.log`.
+
+<a id="p258"></a>
+
+## [VERIFIED] Postscript 258: the ceiling law's caps provably cannot all be attained — and a bound of 195 that does NOT follow
+
+*2026-09-07.* A user question: can Euler-count arguments support the ceiling law, or suggest a
+path to break it? They support it, in a way that is stronger than the law itself in aggregate
+— and an attempt to convert that into a bound fails on a term I had assumed away.
+
+**At each level ell >= 2 Euler does not add anything**: [P243] makes `d_ell <= C(n-ell,n)`
+equivalent to `V3(ell) <= 2(C(n-ell,n) - 2)`, a reformulation rather than support.
+
+**In AGGREGATE it does.** Each triple point lies at exactly 2 levels ([P248]: `m_v = b_v - 1`),
+so `Σ_ell V3(ell) = 2T`, and `T <= 32*C(n,3)` is PROVED — PROOF_67's Lemma 1a applied per
+3-subset, since the points where body k cuts the curve `∂A_i ∩ ∂A_j` ARE the triple points of
+{i,j,k}. Comparing the proved aggregate with what the ceiling law permits:
+
+| n | PROVED `Σ V3 <= 64·C(n,3)` | ceiling law allows | ratio |
+|---|---|---|---|
+| 4 | **256** | 376 | 1.47 |
+| 5 | **640** | 840 | 1.31 |
+| 6 | **1 280** | 1 580 | 1.23 |
+| 8 | **3 584** | 4 144 | 1.16 |
+
+**The total triple-point budget is provably 16–47 % smaller than the sum of the ceiling law's
+per-level caps.** Hence **the caps cannot all be attained simultaneously** — a PROVED statement
+of the frustration that [P242] measured, [P255] exhibited and [P257] made an identity. It also
+explains why: at n=4 attaining 104, 66 and 24 together would need `Σ V3 = 376` against a proved
+ceiling of 256.
+
+**The bound this does NOT give.** If `TOTAL = T + two-body + 2(n-1) + 1`, then the proved
+`T <= 128` and `two-body <= 60` would give `max(4) <= 195` — the ceiling law's value, proved.
+Tested on 101 n=4 configurations: **exact on 56, wrong on 45**, always low by 2. The cause is
+the term I replaced: the true identity carries `Σ_ell (c_ell + 1)`, not `2L`, and `c_ell = 1`
+is not universal ([P245] correction). Each level with `c_ell = 2` adds 1.
+
+    TOTAL  =  T  +  two-body  +  Σ_ell (c_ell + 1)  +  1
+
+**So the last gap is an upper bound on `c_ell`**, the number of connected components of each
+level's curve arrangement. Observed `c_ell <= 2` (1 381 instances at 1, 8 at 2, none higher on
+non-degenerate configurations). With `c_ell <= 2` the bound would be 198; with `c_ell = 1` it
+is 195. **Nothing bounds `c_ell` above**, and that is now the single missing ingredient between
+the proved machinery and a bound matching the ceiling law at n = 4.
+
+*Recorded as a failed derivation rather than dropped: the aggregate result stands on its own,
+and the 195 is exactly the kind of near-miss that would be mis-remembered as established.*
+
+Files: `aggregate.log`, `tformula.log`.
+
+<a id="p259"></a>
+
+## [VERIFIED] Postscript 259: `c_ell` is an antipodal dichotomy — and it reduces [OQ 30] to a connectivity claim
+
+*2026-09-07.* A user question: what causes `c_ell = 1` versus `c_ell = 2`? The answer is
+complete and structural.
+
+**Measured** over 700 non-degenerate n=4 census configurations, all levels:
+
+    c = 1 : 1 924 instances -- the single component is SELF-ANTIPODAL in 1 924 of 1 924
+    c = 2 :     8 instances -- the two components are exact ANTIPODAL IMAGES in 8 of 8
+    c > 2 : none
+
+**The cause.** Every cube is centrally symmetric, so `-I` fixes each body setwise — the fact
+[P241] proved when it closed off chirality as a route to breaking the radius invariant. Hence
+the entire arrangement is invariant under `x -> -x`, a fixed-point-free involution, which
+therefore PERMUTES the components. Each component is either self-antipodal or swapped with a
+partner, so
+
+    c_ell  =  (# self-antipodal components)  +  2 * (# antipodal pairs)
+
+and the two observed cases are exactly "one self-antipodal component" and "one swapped pair".
+
+**Consequence for [OQ 30].** The open question was an upper bound on `c_ell`, the last
+ingredient between the proved machinery and a bound matching the ceiling law at n = 4
+([P258]). It now reduces to a single connectivity claim:
+
+> **Is the QUOTIENT arrangement — the level-ell arrangement modulo the antipodal map —
+> connected?**
+
+If yes, then upstairs `c_ell <= 2` immediately, and [P258]'s chain gives `max(4) <= 198`
+PROVED, with 195 if the quotient is moreover connected in the stronger sense that a
+self-antipodal component exists. That is a claim about one connected object rather than an
+enumeration of components, and connectivity of an arrangement on a sphere is the kind of thing
+Euler arguments handle.
+
+**A closure worth noting.** [P241] proved cube compounds are achiral in order to kill a
+counterexample search — a purely negative use. The same fact turns out to be the structural
+reason for the `c_ell` dichotomy, which is now the last named gap in the n=4 bound. The
+negative result and the positive one are the same theorem.
+
+Files: `c2cause.log`, `antipodal.log`.
+
+<a id="p260"></a>
+
+## [VERIFIED] Postscript 260: the Euler bound tightened — 423 at n=4, 17x better at n=10
+
+*2026-09-07.* Tightening [P249]'s and the E-route's bounds by using the exact decomposition
+instead of a crude degree argument.
+
+**The identity.** From `TOTAL = E - Σ_v (b_v - 1) + Σ_ell (c_ell + 1) + 1` ([P248]) and
+`E = Σ_pairs own + Σ_{b>=3} C(b_v,2)` (today), the vertex terms combine:
+
+    C(b,2) - (b-1)  =  (b-1)(b-2)/2  =  the Moebius weight mu_v
+
+    **TOTAL  =  Σ_pairs own  -  V2  +  Σ_{b>=3} mu_v  +  Σ_ell (c_ell + 1)  +  1**
+
+**Bounding each term, with provenance.**
+
+* `Σ own <= 48*C(n,2)` — DERIVABLE in one line: the curve `∂A_i ∩ ∂A_j` has a vertex only where
+  an edge of one cube meets the other's boundary, ≤ 2 per edge by convexity, 12 edges each.
+  (`own <= 24` is observed on 1 920 configurations and attained, but unproved.)
+* `Σ mu_v <= 32*C(n,3)` — the convexity of [P237] again: a point on b bodies contributes
+  `mu = (b-1)(b-2)/2` and consumes `C(b,3)` triples, and `mu/C(b,3)` is 1 at b=3 and DECREASING
+  after, so `Σ mu <= Σ C(b_v,3) <= 32*C(n,3)` using PROOF_67 Lemma 1a per 3-subset. **PROVED.**
+* `V2 >= 0` — dropped, and this is where most of the remaining slack sits (V2 is 66 at the n=4
+  record, 192 at n=6).
+* `Σ(c_ell+1)` — taken as `2(n-1)`, i.e. `c_ell = 1`, which is NOT proved ([P245] correction,
+  [P259]). With `c_ell <= 2` the bounds rise by `n-1`: 282 rather than 279 at n = 4.
+
+**Ingredients checked on real configurations: zero violations** of `own <= 24*C(n,2)`,
+`Σ C(b,3) <= 32*C(n,3)`, or `mu <= Σ C(b,3)`, over records at n=4,5,6 and Haar draws.
+
+| n | record | own ≤ 48 (derivable) | own ≤ 24 (observed) | [P249] | ceiling law (conj.) |
+|---|---|---|---|---|---|
+| 4 | 183 | **423** | 279 | 953 | 195 |
+| 5 | 393 | **809** | 569 | 3 377 | 429 |
+| 6 | 727 | **1 371** | 1 011 | 8 835 | 801 |
+| 8 | 1 895 | **3 151** | 2 479 | 36 629 | 2 087 |
+| 10 | 3 925 | **6 019** | 4 939 | 104 207 | 4 309 |
+
+**2.3x better than [P249] at n=4 and 17x better at n=10.** The ratio to the record now FALLS
+with n — 2.31 down to 1.53 — where [P249]'s rose from 5.2 to 26.5, because this bounds the
+total in one step instead of summing n separately loose layer caps.
+
+**Where the remaining slack is, in order.**
+
+1. **`V2 >= 0`.** At the n=4 record V2 = 66, so recovering it would give 213 against 279 — the
+   single largest available gain, and closer to the ceiling law's 195 than to the current bound.
+2. **`own <= 48` vs 24.** Worth a factor 1.5 at n=4; observed but unproved.
+3. **`c_ell`.** Worth 3 regions at n=4; [OQ 30], now reduced to a connectivity claim ([P259]).
+
+Files: `tighten.log`.
+
+<a id="p261"></a>
+
+## [VERIFIED] Postscript 261: the V2 slack collapses — `TOTAL = X + Σ μ_v + Σ(c+1) + 1`, and n=4 falls to 263
+
+*2026-09-07.* [P260] dropped `V2 >= 0` and identified that as the largest remaining slack (V2
+is 66 at the n=4 record). It does not need bounding: it cancels.
+
+**The collapse.** `own - V2` counts exactly the own-vertices that are ALSO triple points —
+call it `X`. So [P260]'s identity becomes
+
+    **TOTAL  =  X  +  Σ_{b>=3} mu_v  +  Σ_ell (c_ell + 1)  +  1**
+
+with `X = own - V2 >= 0`. Verified exact on 7 of 8 configurations (the n=6 record differs by 6,
+the same `c_ell != 1` term as [P258]):
+
+    n=4 record   X=48   Σμ=128   ->  48+128+7  = 183 = actual
+    n=5 record   X=76   Σμ=308   ->  76+308+9  = 393 = actual
+    n=4 Haar     X=0    Σμ=108   ->   0+108+7  = 115 = actual
+    n=4 axis     X=6    Σμ= 92   ->   6+ 92+7  = 105 = actual
+
+**X is a pure coincidence count.** It is **0** on every generic configuration tested and 48, 76,
+100 at the n=4, 5, 6 records. An own-vertex is where an edge of one cube meets another's
+boundary; it is also a triple point only when a THIRD body passes through that same point —
+a codimension-1 condition. **The record's entire advantage over a generic configuration, in
+this accounting, is X.**
+
+**The bound.** `X <= min(48*C(n,2), 32*C(n,3))` — the first from the one-line convexity count of
+own-vertices, the second because every such point is a triple point and PROOF_67 Lemma 1a caps
+those per 3-subset. With `Σ mu_v <= 32*C(n,3)` ([P260]):
+
+| n | record | **bound** | [P260] | [P249] this morning | ceiling law |
+|---|---|---|---|---|---|
+| 4 | 183 | **263** | 423 | 953 | 195 |
+| 5 | 393 | **649** | 809 | 3 377 | 429 |
+| 6 | 727 | **1 291** | 1 371 | 8 835 | 801 |
+| 10 | 3 925 | 6 019 | 6 019 | 104 207 | 4 309 |
+
+**n = 4 has gone 953 -> 423 -> 263 in one session**, a 3.6x reduction. The X-form helps where
+`32*C(n,3)` is the smaller cap, i.e. n <= 6; beyond that the own-count binds and it agrees with
+[P260].
+
+**All remaining slack at n=4 is in X.** The bound uses `X <= 128`; the record has `X = 48`.
+`Σ mu_v = 128` is attained exactly. So the last question at n=4 is: **how many own-vertices can
+simultaneously be triple points?** That is again "how much can coincidence buy" — the same
+question [P237] answered for the two-body term, now for the edge-triple term.
+
+Files: `slack.log`.
+
+<a id="p262"></a>
+
+## [VERIFIED] Postscript 262: the n=4 ceiling law reduces to ONE inequality — `V3(depth 1) <= 84`
+
+*2026-09-07.* An attempt to establish or refute the ceiling law. Refutation fails at the
+cheapest available point; the proof reduces to a single inequality at n = 4.
+
+**REFUTATION FAILS at the first unproved case.** `l = 1` is proved (`d_(n-1) <= 6n`). `l = 2`
+is the first open case AND is attained at every n, so a violation needs only +2 — the cheapest
+anywhere in the law. Directed search from record neighbourhoods at six perturbation scales,
+plus Haar and shared-axis families, ~1 700 configurations per n:
+
+| n | ell | cap | best | at cap | above cap |
+|---|---|---|---|---|---|
+| 4 | 2 | 66 | 66 | **1 341** | **0** |
+| 5 | 3 | 84 | 84 | **1 534** | **0** |
+| 6 | 4 | 102 | 102 | **1 677** | **0** |
+| 7 | 5 | 120 | 120 | **1 721** | **0** |
+
+The cap is hit thousands of times and passed never.
+
+**THE REDUCTION.** A triple point lies inside at most `n-3` other cubes, so with `W_s` the
+3-body vertices having exactly s containing them, `W_s = 0` for `s > n-3`. At n = 4 only `W_0`
+and `W_1` exist, and `V3(ell) = W_(ell-1) + W_(ell-2)` ([P248], exact at n=4):
+
+    V3(3) = W_1          <= 12n-4 = 44     PROVED  (Euler `V3 <= 2(d-2)` + the l=1 law d_3 <= 6n)
+    V3(2) = W_1 + W_0    <= 36n-16 = 128   OPEN -- needs W_0 <= 84
+    V3(1) = W_0
+
+**And the depth-1 cap falls out of the same inequality**, by a route that does not use the
+level chain at all:
+
+    d1 = V3(1)/2 + two-body + c + 1  <=  84/2 + 60 + 2  =  104
+                                     with two-body <= 10*C(4,2) = 60 PROVED [P237]
+
+**So `V3(depth 1) <= 84` implies the ENTIRE n=4 ceiling law — all three caps — and hence
+`max(4) <= 195`.** That the same constant 84 produces `d2 <= 66` through the level chain and
+`d1 <= 104` through the two-body decomposition, both exactly, is strong evidence the
+decomposition is right rather than fitted.
+
+**Status of the inequality.** The record ATTAINS it (`V3(1) = 84`, as it attains `V3(2) = 128`
+and `V3(3) = 44`), and 84 was never exceeded in ~200 draws across three ensembles ([P254]).
+It is not proved. **It is the same quantity [P253] identified from the refinement side and
+[P254] from the record side** — three independent lines have now converged on one inequality.
+
+**Scope.** The reduction is n=4-specific: `V3(ell) = W_(ell-1) + W_(ell-2)` fails at n >= 5,
+where 4-body vertices span three levels ([P248]) and the recursion needs correction terms.
+
+Files: `l2attack.log`.
+
+<a id="p263"></a>
+
+## [VERIFIED] Postscript 263: solving for a +2 violation — the route is structurally blocked, and `W0 = 128 - W1`
+
+*2026-09-07.* A user question: can a `+2` violation of the ceiling law be SOLVED for rather
+than searched for? At n=4 it can be reduced to a precondition, and the precondition then
+blocks it.
+
+**What a +2 violation requires.** `d2 = V3(2)/2 + c2 + 1`, so `d2 = 68` needs either
+`V3(2) >= 132` with `c2 = 1` — and since `W1 <= 44` is proved, that means
+**`V3(depth 1) = W0 >= 88`** — or `c2 >= 3`, which [P259]'s antipodal dichotomy forbids unless
+the quotient arrangement disconnects (never observed).
+
+**The precondition is solvable.** A triple's standalone `V3 = 32` exactly when it attains
+`d2 = 18`, its own l=1 cap — one engine call per 3-subset. So the maximum budget
+`4 x 32 = 128` is a checkable condition, not a search.
+
+**And it is common:** **1 449 of 2 101** configurations have all four triples at `d2 = 18`.
+The binding constraint is not achieving the budget but RETAINING it.
+
+**The result, on every one of those 1 449:**
+
+| (W0, W1, W≥2, sum) | count |
+|---|---|
+| (84, 44, 0, **128**) | **1 441** |
+| (80, 44, 0, 124) | 7 |
+| (82, 40, 0, 122) | 1 |
+
+**`W0 = 84` in 1 441 of 1 449, and never exceeds 84.** The mechanism is exact: each of the
+budget's triple points either survives on `∂U` (counted in `W0`) or is swallowed by the fourth
+cube, and a swallowed one is precisely a triple point with one cube containing it — `W1`. So
+
+    W0  =  budget  -  W1  <=  128 - W1
+
+with `budget <= 128` from PROOF_67 Lemma 1a per 3-subset and **`W1 <= 44` PROVED**. Equality
+holds exactly when `W1 = 44`, i.e. when `d3 = 24` — the generic value, attained by 2.36M of
+3.13M census configurations.
+
+**The eight exceptions are the budget failing, not the bound.** Their sums are 124 and 122, not
+128: `d2 = 18` implies standalone `V3 = 32` only through `V3 = 2(d2-2)`, which needs the triple
+to be GENERIC. A coincident triple can attain `d2 = 18` with fewer triple points. `W1` never
+exceeds 44 in any of the 1 449.
+
+**So the +2 route is structurally blocked**: `W0` is not free but is `128 - W1` with both terms
+capped, and pushing `W0` up requires pushing `W1` down, which requires `d3 < 24` — and that
+lowers the budget too. **What remains open is a LOWER bound on `W1`**, which is the last thing
+between this and `W0 <= 84`, hence [OQ 31] and hence `max(4) <= 195`.
+
+Files: `solve_plus2.log`, `exceptions.log`.
+
+<a id="p264"></a>
+
+## [VERIFIED] Postscript 264: the n=4 ceiling law compresses to ONE subset-to-whole inequality
+
+*2026-09-07.* Completing [P262]/[P263]. The needed lower bound on `W1` — equivalently on `d3` —
+is not an independent fact: it follows from a relation between the 3-subsets and the whole.
+
+**The reduction.** `W0 <= 84` is what the whole n=4 ceiling law needs ([P262]). Since
+`W0 = budget - W1` ([P263]), `standalone V3(T) = 2(d2(T) - 2)` per triple, and `W1 = 2(d3 - 2)`:
+
+    W0 <= 84   <=>   Σ_T 2(d2(T)-2) - 2(d3-2) <= 84   <=>   **Σ_T d2(T)  <=  48 + d3**
+
+a statement purely about the four 3-subset counts and one number from the full configuration.
+**At the record: 18+18+18+18 = 72 and 48+24 = 72 — exactly tight.**
+
+**Measured on 3 599 configurations** (record neighbourhoods at six scales, Haar, shared-axis):
+
+    violations                       : 0
+    tight (Σ = 48 + d3)              : 2 351
+    max (Σ - d3) observed            : 48   -- the bound, attained
+    configurations with Σ = 72       : 2 351, and d3 = 24 in ALL of them
+
+**So "all four 3-subsets attain d2 = 18" implies "d3 = 24", with no exceptions in 2 351 cases**
+— which is precisely the lower bound on `W1` that [P263] left open.
+
+**The full n=4 chain, with provenance:**
+
+| step | status |
+|---|---|
+| `d2(T) <= 18` per 3-subset | **PROVED** (l=1 ceiling law at n=3) |
+| `d3 <= 24` | **PROVED** (l=1 ceiling law at n=4) |
+| `Σ_T d2(T) <= 48 + d3` | **OPEN** — 0 violations / 3 599, tight in 2 351 |
+| ⟹ `W0 = V3(depth 1) <= 84` | follows |
+| ⟹ `d1 <= 104`, `d2 <= 66`, `d3 <= 24` | follows ([P262]) |
+| ⟹ **max(4) <= 195** | follows |
+
+**One inequality now stands between the project and `max(4) <= 195`**, and it is of a shape
+nothing else here has had: it relates SUBSET counts to the whole, both sides are region counts
+the engine computes directly, and it is exactly tight at the record and at 2 351 other
+configurations. An inequality attained that often is an equality with a defect term, which is
+the tractable shape ([P250]).
+
+Files: `d3solve.log`.
+
+<a id="p265"></a>
+
+## [VERIFIED] Postscript 265: the subset inequality resists refutation, and the reason is a coupling
+
+*2026-09-07.* Attempting to prove or refute [P264]'s `Σ_T d2(T) <= 48 + d3`, the single
+inequality between the project and `max(4) <= 195`.
+
+**Derivation attempt — too lossy.** For the 3-subset `T_m` omitting cube m,
+`dep_{T_m} = dep - [p in A_m]`, so `{dep_T = 2} = ({dep=2} \ A_m) ∪ ({dep=3} ∩ A_m)`. Each full
+depth-2 region falls in 2 subsets and each depth-3 region in 3, giving
+
+    Σ_T d2(T)  <=  2*d2(full) + 3*d3(full)
+
+which at the record is `2(66) + 3(24) = 204` against an actual 72. **Merging carries the entire
+content of the inequality**, so counting regions before merge cannot reach it.
+
+**Refutation attempt — fails, with structure.** Since `Σ_T d2(T) <= 4 x 18 = 72` is proved, a
+violation needs `Σ = 72` with `d3 < 24`. Searched with pools weighted to that failure mode —
+random quaternions at four height scales, shared-axis families, record neighbourhoods at seven
+perturbation scales — **3 339 configurations, 0 violations**, of which 357 have `d3 < 24`:
+
+| d3 | max Σ | bound 48+d3 | slack |
+|---|---|---|---|
+| 24 | **72** | 72 | **0 — tight** |
+| 22 | 66 | 70 | 4 |
+| 20 | 62 | 68 | 6 |
+| 18 | 55 | 66 | 11 |
+| 16 | 42 | 64 | 22 |
+| 8 | 33 | 56 | 23 |
+
+**The slack grows monotonically as `d3` falls.** The only route to a violation — lowering `d3`
+— drives `Σ` down FASTER than it lowers the bound. `Σ` and `d3` are positively coupled, and
+the inequality is tight ONLY at `(72, 24)`, the record's values.
+
+**Status: neither proved nor refuted, ~6 900 configurations with zero violations across two
+independent runs, tight only at the joint maximum.** An inequality attained only where both
+sides are maximal is an equality-at-the-extreme with a defect term — the shape [P250] named as
+tractable — and the defect here is visibly the coupling, not a scattering.
+
+**What a proof needs.** Not a region count before merging (shown too lossy above), but a
+statement that merging in the subsets is at least as fast as the loss in `d3`. That is a
+statement about which walls disappear when a cube is removed, which is the one direction of
+this problem the incremental engine already models exactly.
+
+Files: `refute264.log`, `d3solve.log`.
+
+<a id="p266"></a>
+
+## [VERIFIED] Postscript 266: THEOREM S — the subset-to-whole inequality is proved, for all n
+
+*2026-09-07.* Direct continuation of [P265], which ended by naming what a proof would need:
+"a statement that merging in the subsets is at least as fast as the loss in `d3`". That is
+what this is, and the route it takes is not the incremental one [P265] guessed at.
+
+**Theorem S.** For `n >= 3` unit cubes with a common centre, indexed by `S`,
+
+    Σ over the (n-1)-subsets T of S  of  d_(n-2)(T)   <=   6n(n-2)  +  d_(n-1)(S).
+
+At `n = 4`: **`Σ_T d2(T) <= 48 + d3`** — [P264]'s inequality, [OQ 31], the single statement
+[P262]/[P263] left between the project and the n = 4 ceiling law. Full write-up in
+`PROOF_SUBSET.md`.
+
+**The proof uses no new geometry.** Both ingredients are existing project theorems: FIB (the
+fibration, PROOF_67 §2) turns every count into components of a spherical set
+`S_C(R) = {u : r_C(u) < r_i(u) for i in R}`, and [P33] Theorem 1 (ANCHOR, unconditional, all
+n) says every component of `S_C(R)` contains a face-centre direction of `C`. Fix a cube `C`
+and its six face directions `F`, and split the deficit of each count from 6:
+
+    6 - #pi0(S_C(R))  =  m(R) + s(R),    m = 6 - |F n S_C(R)|,    s = |F n S_C(R)| - #pi0
+
+— anchors LOST and anchors SHARED. The two behave oppositely under adding a cube to `R`:
+
+- **`m` is subadditive** because a FIXED six-point witness set intersects: `u in S_C(R)` iff
+  `u in S_C({i})` for every `i`, so `m(R) = |union of alpha_i|` for `alpha_i` the anchors cube
+  `i` kills alone, and `m(R) <= m(R\{m}) + m(R\{m'})` for any two distinct `m, m'`.
+- **`s` is monotone**: `S_C(R)` is a subset of `S_C(R')` for `R' ⊂ R`, so its component
+  partition of the surviving anchors is FINER; and `|X| - #blocks(X)` is the rank function of
+  a partition matroid, monotone in `X`. Hence `s(R) <= s(R')`.
+
+Adding: `delta(R) <= [m(R\{m1}) + m(R\{m2})] + s(R\{m1}) <= Σ_m delta(R\{m})`, which is the
+per-cube statement `Σ_m #pi0(S_C(R\{m})) <= 6(n-2) + #pi0(S_C(R))`. Summing over `C` and
+applying FIB to both sides gives Theorem S. []
+
+**Why [P265]'s derivation route failed, precisely.** It counted REGIONS before merging and lost
+a factor of three (204 against 72 at the record). The reason is now visible: non-emptiness of a
+set is not compatible with intersection, so a region count cannot be tracked through
+`A n B n D`. Membership of a fixed finite witness set IS compatible with intersection — and
+ANCHOR is exactly what supplies the fixed witness set. **The theorem that made the l=1 ceiling
+law is also what makes the subsets talk to the whole.**
+
+**Why refutation kept failing.** Equality needs at most two nonzero `m` and one nonzero `s` per
+cube — almost nothing lost anywhere. Any drop in `d_(n-1)` is, by ANCHOR, an anchor lost or
+shared, and Lemma 3 says the SAME loss shows up in the subsets. [P265] measured this as slack
+growing monotonically (0, 4, 6, 11, 22, 23) as `d3` fell; the refutation was asking for a loss
+in the whole that is invisible in the parts, and there is none.
+
+**GATE (`anchor_split.py`, `anchor_report.py`).** Every quantity is recomputed by a THIRD route
+independent of both the C++ engine and the spherical picture: `K \ C` is a union of six open
+convex pieces, so `#pi0` is 6 node-LPs + 15 edge-LPs, exact over `Fraction`. Checked, each
+counted separately: FIB (`Σ_C #pi0` must equal the ENGINE's `d_(n-1)`, and per subset its
+`d_(n-2)(T)`), ANCHOR (`#pi0 == #blocks` — every component carries an anchor), Lemma 2,
+Lemma 3, the per-cube theorem, and Theorem S.
+
+**Result: 591 configurations, ZERO violations of any of the six gates** (225 at n = 3, the
+complete pool; 264 at n = 4 including all five [P263] degenerate exceptions; 71 at n = 5 (that run finished) — the record-neighbourhood members at scale 16 carry large
+denominators and dominate its cost. **Lemma 3 is the thinnest part of the n = 5 evidence**,
+exercised in only 16 cube-instances there against 710 overall.)
+
+| gate | violations |
+|---|---|
+| FIB `Σ_C #pi0 == engine d_(n-1)` | **0** |
+| FIB `Σ_(C in T) #pi0 == engine d_(n-2)(T)` | **0** |
+| ANCHOR `#pi0 == #blocks` | **0** |
+| Lemma 2 (m subadditive) | **0** |
+| Lemma 3 (s monotone) | **0** |
+| per-cube theorem | **0** |
+| Theorem S | **0** |
+
+**And the steps were EXERCISED, which is the number that makes the zeros mean anything**
+(cube-instances): Lemma 2 in 912, Lemma 3 in 710, a nonzero deficit somewhere in 1 505, the
+per-cube inequality tight in 775.
+
+**Tested at the boundary, not only in the interior.** The per-cube inequality is tight with a
+NONZERO deficit in **79** cube-instances — so the slack accounting is checked where the lemmas
+actually do work, not only at the record's all-zeros case where they are vacuous. Lemma 2 is
+BINDING (equality with its own two-term bound) in 175 instances, Lemma 3 in 53.
+
+**The theorem is strictly stronger than the trivial per-subset bound in 179 of 263 n=4
+configurations** (`Σ_T d2(T) <= 4 x 18 = 72` is free; `48 + d3` beats it whenever `d3 < 24`,
+by up to 24). It is precisely the strictly-stronger part that [P262]'s chain needs, so the
+gate is not passing on a restatement of what was already known.
+
+The pool (`anchor_pool.py`, `anchor_pool_n.py`) is weighted AWAY from the easy case on purpose:
+the record and generic high-height configurations have `#pi0 = k = 6` everywhere and exercise
+none of the three steps, so a pool of those is a pass that means nothing (FAILURE_MODES 29).
+It is low-height (anchors eaten, components merged), the shared-normal locus ([P33]'s
+self-exclusion case, hardest for ANCHOR), and record neighbourhoods at four scales.
+
+**Including the degenerate control.** The five [P263] exception configurations — the ones where
+`W1 != 2(d3-2)`, i.e. exactly where the CHAIN to `W0 <= 84` breaks — satisfy Theorem S and are
+`72 = 72` tight. The theorem covers the residue; the chain is what does not.
+
+**WHAT THIS DOES NOT CLOSE, stated before the part it does.** `max(4) <= 195` is NOT yet a
+theorem. Two steps of [P262]/[P263]'s chain from here are not Theorem S's to give:
+
+- `W1 = 2(d3-2)` is used as an EQUALITY to reach `W0 <= 84`. It is exact on 1 441 of 1 449
+  budget-attaining configurations and **fails on the degenerate residue** — `exceptions.log`
+  has `W1 = 40` with `d3 = 24`, where `2(d3-2) = 44`. There `W0 = 82 <= 84` anyway because the
+  budget dropped too, but the implication as written needs `W1 >= 2(d3-2)`, which is false at
+  that point. **New [OQ 32].**
+- `d2 <= 66` and `d1 <= 104` both assume `c_ell <= 1`, which is [OQ 30].
+
+So [OQ 31]'s inequality is proved; [OQ 31]'s *consequence* `V3(1) <= 84` is not, and what is
+left of it is narrower than what was.
+
+**At n >= 5 the theorem is a coupling statement, not a new bound.** `d_(n-2)(T) <= 6(n-1)` per
+subset already gives `Σ_T <= 6n(n-1)`, and Theorem S plus `d_(n-1) <= 6n` gives the same
+number. Its content is that the two sides move TOGETHER — which is exactly the content that
+was needed at n = 4, and is why it was worth stating for all n rather than for 4.
+
+Files: `PROOF_SUBSET.md`, `anchor_split.py`, `anchor_split_n.py`, `anchor_pool.py`,
+`anchor_pool_n.py`, `anchor_report.py`, `anchor_gate_*.jsonl`.
+
+### Postscript 266 addendum: the same technique CANNOT give the l=2 ceiling law — a counting fact, not a failed attempt
+
+Asked of the result at the moment it was obtained ("what else uses this method"): depth `n-2`
+regions fiber too. Being outside exactly cubes `C` and `C'` means
+`max(r_C, r_C') < min over the rest`, so
+
+    d_(n-2)(S) = Σ over the C(n,2) pairs of #pi0(S_{C,C'}).
+
+The natural generalisation of ANCHOR would say every component of `S_{C,C'}` contains a face
+direction of `C` or of `C'`, giving `#pi0 <= 12` per pair. **Even if that is true it is
+useless**, because it is QUADRATIC in n while the conjectured law is linear:
+
+| n | 12·C(n,2) | l=2 law 18n−6 |
+|---|---|---|
+| 4 | 72 | 66 |
+| 5 | 120 | 84 |
+| 6 | 180 | 102 |
+| 7 | 252 | 120 |
+| 8 | 336 | 138 |
+
+The two agree in shape only at n = 4, where the gap is 6. **So the linearity of the l=2 law
+cannot come from an anchor count per pair**, at any n, and no amount of sharpening the
+per-pair bound reaches it — the deficit that must be found is Θ(n²), not a constant.
+[OQ 29] should not be attacked this way. This is a bound on what a method can yield,
+established before spending anything on it ("search yields lower bounds forever" applied to
+proof techniques).
+
+
+<a id="p267"></a>
+
+## [VERIFIED] Postscript 267: an incremental depth profile gives an ADMISSIBLE branch-and-bound bound that never binds — and every record from n=3 to n=8 saturates `d_(n-1) = 6n`
+
+*2026-09-07.* User question: *"Would an incremental Euler depth profile be useful to branch
+and bound?"* Measured rather than argued (`anchor_bb.py`, `anchor_bb.log`).
+
+**The Euler profile itself is not admissible, and cannot be made so.** `d_l = E_l - V_l +
+c_l + 1` ([P243]) is an identity about the FINISHED arrangement. `E`, `V` and `c_l` all move
+unboundedly when a cube is added, and `c_l` is precisely the term no prefix pins down
+([OQ 30]). The profile of a prefix bounds the completion from BELOW (adding a cube only
+refines, so `TOTAL` is monotone increasing) — the wrong direction for pruning.
+
+**But one term IS monotone, and [P266] is what identifies it.** A face-centre anchor killed by
+some cube stays killed (Lemma 1: `u in S_C(R)` iff `u in S_C({i})` for every `i`). So with
+`m_P(C)` the anchors of `C` already dead in the partial configuration `P`, and ANCHOR ([P33]),
+
+    d_(n-1)(S)  <=  A(P) + 6(n-k),     A(P) = Σ_(C in P) (6 - m_P(C)),   k = |P|
+
+for EVERY completion `S ⊇ P`. Admissible, monotone non-increasing along a branch, and free:
+`alpha_i(C)` depends only on the PAIR, so it is a **6-bit mask per ordered pair** and `m_P(C)`
+is a popcount of an OR. Branching becomes maximum-coverage on 6-bit masks.
+
+**And it never binds.** Two measurements kill it:
+
+| configuration | total | `d_(n-1)` | `6n` | `A(S)` | dead anchors per cube |
+|---|---|---|---|---|---|
+| n=3 (3-subset of 183) | 63 | 18 | 18 | 18 | 0 0 0 |
+| n=4 record | 183 | **24** | 24 | 24 | 0 0 0 0 |
+| n=5 record | 393 | **30** | 30 | 30 | 0 ×5 |
+| n=6 record | 727 | **36** | 36 | 36 | 0 ×6 |
+| n=7 record | 1217 | **42** | 42 | 42 | 0 ×7 |
+| n=8 record | 1895 | **48** | 48 | 48 | 0 ×8 |
+
+**Every record has ZERO dead anchors**, so `A(S) = 6n` and the bound equals the trivial one at
+exactly the configurations a search is trying to reach. Along the n=8 record's own build
+chain the bound is **48 at every prefix from k=2 to k=8** — flat, never informative.
+
+And the event it depends on is vanishingly rare off the coincidence locus. Dead anchors per
+ordered pair, 4 000 random pairs per height:
+
+| height | mean dead | P(mask = 0) |
+|---|---|---|
+| 1 | 2.38 | 60.3 % |
+| 2 | 0.52 | 85.9 % |
+| 3 | 0.17 | 95.0 % |
+| 6 | 0.02 | **99.2 %** |
+| 12, 60 | 0.00 | **100 %** |
+
+Search menus live at heights of tens to hundreds. **The bound is exactly tight and therefore
+useless**, which is the one case a B&B bound cannot survive.
+
+**The real finding is the row it came from.** `d_(n-1) = 6n` at EVERY record n = 3..8 — the
+l=1 ceiling law is not merely respected, it is SATURATED by every record known. The deepest
+level is always maximal, so it is not where a record is won or lost, and a search that spends
+effort there is spending it on a level that is already full. Corollary, free and pairwise:
+`all pair-masks zero` is a NECESSARY condition for `d_(n-1) = 6n` (not sufficient — `m = 0`
+still permits `s > 0`, and [P266]'s gate has instances with `k = 6, #pi0 = 4`). It is a
+menu filter costing one popcount per pair, though on the evidence above it will reject almost
+nothing.
+
+**The other route, and what it needs.** The PROVED increment bound [P56] does bound the
+TOTAL: `U(P) = TOTAL(P) + Σ Bmax(m)` over the cubes still to come, with `Bmax(m)` the maximum
+cells that `m` cubes' `6m` face planes can cut on the new cube's surface — a max over
+PLACEMENTS, which [P56] does not supply (it bounds the increment at a placement, slack
+1.00–1.11). A crude cap derived here (two planes meet `∂C_new` in <= 2 points; <= 6 vertices
+per plane curve on the 12 edges; degrees <= 4; components <= 6m+1) gives:
+
+| m | crude `Bmax(m)` | actual increment | ratio |
+|---|---|---|---|
+| 3 | 442 | 120 | 3.7x |
+| 5 | 1090 | 334 | 3.3x |
+| 7 | 2026 | 678 | 3.0x |
+
+A cap 3x the achieved increment, compounding over every remaining cube, prunes nothing near
+the record. **The framework is fine; the missing piece is a tight `Bmax`.** That is a concrete
+open item and it is about one cube's surface, not about n cubes.
+
+**The circularity to state plainly.** A branch-and-bound on the TOTAL needs upper bounds at
+shallow levels, and those are exactly the ceiling law for `l >= 2` — which is the conjecture
+the search exists to test. Pruning with it would make the search blind to precisely the
+counterexample that would be worth finding. Either prove the law first, or prune only with
+[P56]-style bounds that do not assume it.
+
+Files: `anchor_bb.py`, `anchor_bb.log`.
+
+<a id="p268"></a>
+
+## [VERIFIED] Postscript 268: `c_ell = 3` — never once validly, allowed by parity, and the degenerate cases are visibly invalid because the IDENTITY fails there
+
+*2026-09-08.* User question: *"when is c_ell == 3?"* Asked before about `c_ell = 1` vs `2`
+([P259]), so re-derived from source rather than restated — and the producing script for
+`c_check.log` / `c_recheck.log` / `bylevel.log` had never been saved, only the logs, so the
+level-graph code was rebuilt (`c_level.py`) and **gated against those logs' recorded V, E and
+c separately**, not just against `c_ell`: n=4 record, `ell=1 V=150 E=240 c=1`,
+`ell=2 V=128 E=192 c=1`, `ell=3 V=44 E=66 c=1`, all reproduced exactly.
+
+**Answer: never, in any valid measurement.** `c_ell >= 3` on non-degenerate configurations:
+**0** here (418 level-instances), consistent with [P245]'s 0 in 1 389.
+
+| | c=1 | c=2 | c=3 | c=4 | … | c=30 |
+|---|---|---|---|---|---|---|
+| pipeline VALID (no shared face plane) | 417 | 1 | **0** | 0 | | 0 |
+| plane-degenerate (pipeline invalid) | 235 | 34 | 29 | 28 | | 3 |
+
+**The degenerate cases are not weak evidence of `c=3` — they are self-refuting.** On
+`1,0,0,0;1,4,-4,12;3,-1,1,-3;5,-1,1,-3`, the case `c_check.log` recorded as `ell=2, c=3`, the
+per-level Euler identity **FAILS AT EVERY LEVEL**:
+
+| ell | E−V+c+1 | engine `d_ell` |
+|---|---|---|
+| 1 | 66 | **34** |
+| 2 | 50 | **52** |
+| 3 | 14 | **20** |
+
+So the "3" is not a component count of anything the identity describes. [P246] recorded the
+pipeline as invalid on that locus; this shows it invalid by its own output, which is a
+stronger and cheaper statement than the locus argument.
+
+**But `c = 3` is NOT forbidden by parity, and it is worth being precise about why.** Every
+cube is centrally symmetric about the common centre, so the arrangement, every depth level and
+every level graph are `-I`-invariant, and components come in antipodal PAIRS or are
+SELF-ANTIPODAL:
+
+    c_ell  =  (# self-antipodal)  +  2 * (# pairs)
+
+Verified on actual components, negating node sets exactly (`c_antipodal.py`), with **zero
+unmatched components** in every case:
+
+| case | c | self | pairs | component sizes |
+|---|---|---|---|---|
+| n=4 record, ell=1 | 1 | 1 | 0 | [150] |
+| [P245]'s non-degenerate c=2 | 2 | 0 | 1 | [65, 65] |
+| degenerate ell=2 "c=3" | 3 | **1** | **1** | [84, **4, 4**] |
+| degenerate n=5 ell=3 "c=3" | 3 | **1** | **1** | [130, **6, 6**] |
+
+`3 = 1 self + 1 pair` is a legal shape, and it is exactly the shape both degenerate instances
+take: one big self-antipodal component plus a small antipodal pair broken off. **So [P259]'s
+dichotomy `c in {1,2}` cannot be a parity argument** — parity permits 3 (and 5, and any odd
+value). It has to be a CONNECTIVITY claim about the quotient arrangement mod `+-`, which is
+exactly [OQ 30] and is open.
+
+**So: `c_ell = 3` when a small antipodal PAIR of components detaches from the main
+self-antipodal one.** In every instance found, what detaches is 4 or 6 nodes and the cause is
+a shared face plane — the same coincidence that invalidates the pipeline. Whether a genuine
+detachment can occur off that locus is [OQ 30], and this narrows it: the question is not "can
+`c` be large" but **"can a level graph's quotient disconnect without a shared face plane"**,
+and the observed detachments are all tiny, which is the shape a proof should try to exclude.
+
+Files: `c_level.py`, `c_antipodal.py`, `c3search.log`, `c3antipodal.log`.
+
+<a id="p269"></a>
+
+## [VERIFIED] Postscript 269: degeneracies do NOT create `c > 1` — they destroy the instrument, and the two shapes of `c > 1` have different causes
+
+*2026-09-08.* User question: *"Do degeneracies create c>1?"* Follow-up to [P268]. **No — and
+the honest answer needs the two shapes kept apart**, because a single
+`P(c>1 | degenerate)` would average two opposite findings.
+
+**Shape 1, `c = 2` = 0 self-antipodal + 1 antipodal pair.** All **37** known `c > 1`
+level-instances (from `c_lever.log` and `c_recheck.log`, re-measured with the gated
+`c_level.py`) are:
+
+- **non-degenerate** — no pair shares a face plane;
+- **identity-valid** — `E − V + c + 1` equals the engine's `d_ell` on every one;
+- shape `(self = 0, pairs = 1)` with the two components of **exactly equal size** — [88,88],
+  [62,62], [82,82], [86,86], [70,70], [64,64], [69,69], [57,57], …;
+- carrying **no coincidence of any kind tested**: no shared face plane, no face normal
+  perpendicular to a face normal, no face normal parallel to a body diagonal, no shared body
+  diagonal. Printed per configuration as `other coincidences: NONE`.
+
+So `c = 2` is not a coincidence phenomenon. Structurally it is a Z/2 monodromy fact: the level
+graph is an antipodal double cover of its quotient, `c = 2` is that cover being TRIVIAL (every
+loop downstairs lifts to a loop), and `c = 1` is it being nontrivial. Nothing is broken and
+nothing is degenerate — which is exactly why no metric coincidence test detects it.
+
+**Shape 2, `c >= 3` = a component DETACHES.** Never once off the degenerate locus, and on it
+the identity always fails ([P268]).
+
+**The rate table, 675 level-instances:**
+
+| | c=1 | c=2 (0 self + 1 pair) | c>=3 (detachment) |
+|---|---|---|---|
+| **non-degenerate** (478) | 476 (99.58 %), identity OK | **2 (0.42 %), identity OK** | **0** |
+| **plane-degenerate** (197) | 116, identity fails in 114 | 7, identity **fails** in all 7 | 74 (37.6 %), identity **fails** in all 74 |
+
+**The decisive row is the one that is not about `c` at all.** On plane-degenerate
+configurations the per-level Euler identity fails in **195 of 197** level-instances — 99 % —
+**including where `c = 1`.** Degeneracy does not selectively inflate `c`; it invalidates the
+whole computation, and a `c` read off a degenerate configuration is not a large value of `c`,
+it is not a value of `c`.
+
+**So, to the question directly:**
+
+- Degeneracy is **not necessary** for `c > 1`: all 37 valid `c = 2` instances are
+  non-degenerate, and 2 more turned up in a blind random sweep.
+- Degeneracy is **not sufficient**: 116 of 197 degenerate level-instances still report `c = 1`.
+- Degeneracy is the only place `c >= 3` appears, but not as a cause — as an artefact, since
+  the identity that gives `c` its meaning has failed there.
+
+**Consequence for [OQ 30].** Bounding `c_ell` is not a matter of excluding coincidences. The
+`c = 2` cases are generic, so `c <= 2` must be proved as a connectivity statement about the
+QUOTIENT graph, and `c = 2` versus `c = 1` is a separate, topological question that no
+non-degeneracy hypothesis will settle. Any argument of the form "assume general position,
+therefore `c = 1`" is refuted by the 37 instances above.
+
+Files: `c_cause.py`, `c_cause.log`, `c2_configs.txt`.
+
+### Postscript 269 addendum: yes, every cube is antipodal to itself — that is the hypothesis, not a contradiction
+
+*2026-09-08.* User challenge: *"isn't every cube antipodal to itself?"* It is, and that is
+precisely why the level graph is `-I`-invariant. The step the challenge probes is the one from
+the WHOLE to the PARTS, and it is worth exhibiting rather than asserting.
+
+`-I` maps each cube to itself, hence each curve `dA_i n dA_j` to itself, hence the whole level
+graph to itself. But `-I` has **no fixed point on the graph**: `p = -p` forces `p = 0`, and the
+origin is interior to every cube, so it lies on no boundary curve. A free involution makes the
+graph a genuine **double cover** of its quotient, and a double cover PERMUTES components: over
+each quotient component the preimage is one component or two swapped ones. Invariance of a set
+is not invariance of its components.
+
+Checked directly (`c_freeaction.py`), by negating each node and asking which component it
+lands in — not by a set-equality lookup:
+
+| configuration (none shares a face plane) | components | `-I` fixed points | `-p` in SAME | `-p` in OTHER |
+|---|---|---|---|---|
+| n=4 record, ell=1 | [150] | 0 | **150** | 0 |
+| non-degenerate c=2 | [88, 88] | 0 | 0 | **176** |
+| non-degenerate c=2 | [65, 65] | 0 | 0 | **130** |
+
+The vertex set is `-I`-closed and even in every case, with zero fixed points — the free-action
+prediction. Witnesses exhibited, e.g. `p = (-4706245/4310269, 837419/4310269,
+4012755/4310269)` in component 0 with `-p` in component 1.
+
+**And the outcome is ALL-OR-NOTHING, which is a prediction confirmed rather than an
+observation collected.** Over a connected quotient a double cover is trivial or not; there is
+no mixture. The counts are 150/0, 0/176, 0/130 — never a configuration with some nodes
+self-paired and others swapped. That is the double-cover structure showing itself in the data,
+and it is why `c = 2` cannot be argued away by general position: it is a Z/2 monodromy class,
+and both classes are realised at configurations differing in no coincidence at all.
+
+Files: `c_freeaction.py`, `c_freeaction.log`.
+
+### Postscript 269 addendum 2: `c_ell = 2` is OPEN, not degenerate — decided by perturbation, and the earlier evidence for it was not sufficient
+
+*2026-09-08.* User: *"so c_ℓ>1 is degenerate"*. **No — and the challenge is right that the
+evidence given for the opposite was too weak**, which is worth stating first.
+
+**Why the counting was not evidence.** [P269] argued from "37 instances share no face plane"
+and "0.42 % of random draws". Those instances were found by sampling INTEGER quaternions, and
+integer sampling lands on rational measure-zero loci with positive probability. A count of
+integer-sampled instances therefore says nothing about whether the condition has positive
+measure. The shared-face-plane test excludes ONE degeneracy, not the class.
+
+**The test that does decide it.** A degeneracy is closed and measure-zero: a generic
+arbitrarily small move destroys it. So perturb and see. Prediction from the double-cover
+reading: Z/2 monodromy of a free involution is LOCALLY CONSTANT, so `c = 2` must survive.
+
+Three independent `c = 2` seeds, 12 random integer perturbations at each scale
+(`c_perturb.py`):
+
+| perturbation | seed 1 | seed 2 | seed 3 |
+|---|---|---|---|
+| 1/10 | 9/12 | 12/12 | 6/12 |
+| **1/100** | **12/12** | **12/12** | **12/12** |
+| **1/1 000** | **12/12** | **12/12** | **12/12** |
+| **1/10 000** | **12/12** | **12/12** | **12/12** |
+
+**108 of 108 kept `c = 2` at 1/100 and finer, with zero unevaluated.** The 1/10 row is not a
+perturbation — a 10 % move crosses walls, and the drops to `c = 1` there are the monodromy
+class genuinely changing, exactly as a locally-constant invariant should behave.
+
+**So `c = 2` holds on an OPEN set.** That settles it against every definition of degeneracy as
+a closed condition, not merely against the shared-face-plane one, and it does so without
+needing to enumerate what "degenerate" might mean.
+
+**A representative, not an object, produced the first version's gap.** The first run reported
+26 draws as `error` at fine scales and would have scored them against the hypothesis. They were
+the C++ engine's `|component| <= 512` budget refusing large integer quaternions — while `c`
+itself is computed in exact `Fraction` arithmetic in Python and has no size limit at all. Only
+the identity CHECK needed the engine. Dropping the check at fine scales removed the limit
+entirely: 26 unevaluated became 0. The engine's refusal was about the height of the integer
+representative and said nothing about the configuration.
+
+Files: `c_perturb.py`, `c_perturb.log`.
+
+<a id="p270"></a>
+
+## [VERIFIED] Postscript 270: what causes `c = 2` — a Z/2 monodromy class, per LEVEL, and a geometric prediction of mine that is refuted
+
+*2026-09-08.* User question: *"So what causes c = 2?"* Completing [P268]/[P269].
+
+**WHAT IT IS — exact, and gated by an independent computation.** The level graph `G` carries
+the free involution `-I`, so `G -> G/±` is a double cover and
+
+    c_ell = 2  <=>  no path in G joins any vertex p to its antipode -p
+           <=>  the sheet-swap signing of the quotient graph is BALANCED
+                (every cycle crosses the swap an even number of times, Harary)
+           <=>  at ell=1, where G lives on d(union) ≅ S^2: NO cycle of the
+                arrangement is essential in the quotient RP^2.
+
+Not asserted — `c_balance.py` computes `c` a second way that **never counts `G`'s
+components**: it forms the quotient, signs each edge by whether its lift swaps sheets, and
+2-colours. Agreement on all 9 level-instances tested (record `ell=1,2,3`; three `c=2` cases at
+`ell=1,2`).
+
+**It is a property of a LEVEL, not of a configuration.** `1,0,0,0;1,5,10,15;1,2,4,6;8,7,14,21`
+has `c=2` at `ell=1` and `c=1` at `ell=2`; `1,0,0,0;1,14,-21,-7;8,10,-15,-5;1,16,-24,-8` has
+`c=2` at both. Each level's graph carries its own monodromy class. This is why `c_ell` had to
+be carried as a per-level term in [P243] and cannot be set once per configuration.
+
+**A GEOMETRIC PREDICTION I MADE, AND IT IS REFUTED.** From the RP² reading — an arc chain
+fails to reach halfway around when the seams `dA_i n dA_j` are localised, and two cubes at a
+small relative angle meet in small loops — `c=2` should go with SMALL O-reduced pair angles.
+Measured, and it does not:
+
+| | mean pair angle | mean max-per-config | largest max |
+|---|---|---|---|
+| c=2 (32 configs, 192 pairs) | 36.8° | 51.0° | 60.0° |
+| c=1 (60 configs, 448 pairs) | 39.7° | 53.5° | 61.5° |
+
+Heavily overlapping; the difference is not a cause. The MINIMUM pair angle is a weak correlate
+— mean 15.7° (c=2) against 22.5° (c=1), and 50 % of `c=2` configurations have a pair below 15°
+against 21 % of `c=1` — but the ranges overlap almost completely (`c=2` reaches 34.2°, `c=1`
+descends to 4.7°). **No angle condition characterises `c=2`.** That is consistent with it being
+a monodromy class: a discrete invariant of the arrangement's topology, locally constant, and so
+NOT a function of any single continuous quantity.
+
+**WHAT MATTERS FOR [OQ 30], with its evidential status stated.** [OQ 30] needs `c_ell <= 1` at
+MAXIMISERS, not everywhere. Directed hill-climbing on `d1` subject to `c=2`, from four
+independent n=4 seeds:
+
+| seed | best `d1` under c=2 | total |
+|---|---|---|
+| A | 35 | 114 |
+| B | **47** | 134 |
+| C | 43 | 120 |
+| D | 43 | 132 |
+
+**Best `d1` reachable under `c=2` was 47, against the n=4 record's `d1 = 92`, total 183.**
+That is what [OQ 30] would want — but it is a SEARCH result and therefore a LOWER bound on what
+`c=2` can achieve, not a cap on it. It does not prove `c=2` cannot reach a maximiser.
+
+**A correction to my own earlier framing.** Setting the 32 known `c=2` configurations (all
+n=4, `d1` range 21–41) beside a `c=1` sample drawn from n=4 AND n=5 was confounded by `n`, and
+the gap it showed was partly `n`. A blind sweep of 308 valid `ell=1` instances found only **2**
+with `c=2`, mean `d1` 49.0 against `c=1`'s 50.6 — indistinguishable, on a sample far too small
+to say anything. **The directed climb is the only clean evidence here**; the distribution
+comparison is not, and the earlier version of this claim over-read it.
+
+Files: `c_balance.py`, `c_angle.py`, `c_cause2.py`, `c_cause2.log`.
+
+<a id="p271"></a>
+
+## [SUPERSEDED IN PART] Postscript 271: [OQ 32] is wider than recorded — the chain step fails ~~on 6.9 % of GENERIC configurations~~ (**that rate was the POOL; corrected to 0.9 % simple / 41.7 % coincident by [P272](#p272)**), and a restatement of mine was void
+
+*2026-09-08.* Following the `c_ell` thread to where it touches [OQ 32]. Three findings, the
+first two against earlier entries of mine.
+
+**1. `c_ell = 2` occurs at the DEEPEST level, generically.** The 32 previously known `c=2`
+configurations all showed it at `ell=1`, but they were SELECTED on depth-1 connectivity
+(`c_lever.log` measured `c1` only), so that pattern was a selection artefact and said nothing
+about deep levels. A blind sweep — 1 501 valid level-instances, `c>1` in 5 (0.33 %) — put one
+at `ell = n-1`:
+
+    n=4  ell=3  c=2  d3=21  total=84  component sizes [22,22]
+    1,0,0,0;76,86,80,-95;113,-103,44,-53;98,-87,23,53
+
+Non-degenerate, identity HOLDS (`E-V+c+1 = 62-44+2+1 = 21` = engine `d3`), and
+perturbation-stable: `c=2` kept in 10/10 at 1/100 and 10/10 at 1/1000. **Theorem S and the
+l=1 ceiling law are untouched** — both come from FIB plus the anchor theorem, neither of which
+mentions `c_ell`. Only the Euler-identity chain is affected.
+
+**2. A restatement of mine was VOID, and its numbers with it.** I had rewritten [OQ 32] as
+`SUM over deepest-level vertices of (3 - deg) >= 2(c-1)`, using `W1 = V3(3) = V`, the deepest
+level graph's vertex count — and reported 15 violations from it. `w1_gate.py` computes `W1` a
+second way, from tagged triple points, and **refutes the identification on 4 of 16
+configurations**: `V` counts arc endpoints lying on cube EDGES as well as triple points, so
+`V = 44` at n=4 in every case measured while `W1` takes 44, 40 and 36. **The restatement and
+its 15 violations are withdrawn.** It was asserted, not gated, and the gate took ten minutes.
+
+**3. The real test, with `W1` computed directly — and [OQ 32] is far wider than [P266] said.**
+247 blind non-degenerate n=4 configurations:
+
+| | result |
+|---|---|
+| STEP `W1 >= 2(d3-2)` | ~~**fails in 17 (6.9 %)**, deficits −4 (×14), −8, −12, **−16**~~ **CORRECTED 2026-09-08, see [P272](#p272): that rate is the POOL. Split by genuine simplicity it is 2 of 211 (0.9 %) worst −4 on simple configurations, and 15 of 36 (41.7 %) worst −16 on coincident ones.** |
+| CONCLUSION `W0 <= 84` | **fails in 0**; max `W0` = 84, attained |
+
+| | W0 | W1 | d3 | c3 | step | conclusion |
+|---|---|---|---|---|---|---|
+| n=4 record | 84 | 44 | 24 | 1 | **0 — tight** | **0 — tight** |
+| deep c=2 witness | 40 | 36 | 21 | 2 | **−2 FAILS** | +44 OK |
+| worst found | 48 | 28 | 24 | **1** | **−16 FAILS** | +36 OK |
+
+**And `c3 = 2` is NOT the driver**: the worst step failure has `c3 = 1`. The step breaks from
+the genericity/degree side, not the component side. *(2026-09-08: and that worst case is
+COINCIDENT — eight 4-body vertices — see [P272](#p272).)*
+
+**CORRECTION to [P266]'s "what this does not close".** I wrote there that `W1 = 2(d3-2)` "is
+exact on 1 441 of the 1 449 budget-attaining configurations and fails on the degenerate
+residue". That figure is real but was measured on a SELECTED slice — [P263]'s configurations
+with all four triples at `d2 = 18` — which is not generic. On generic configurations the step
+fails 6.9 % of the time and at `c3 = 1` *(that rate corrected to 0.9 % simple / 41.7 %
+coincident by [P272](#p272))*. **[OQ 32] is not a degenerate-residue tidy-up; the
+route from Theorem S to `W0 <= 84` through `W1` is broken generically.**
+
+**What survives, and it is the encouraging half.** The CONCLUSION `W0 <= 84` was not violated
+once in 247 blind draws and is exactly attained at the record, alongside Theorem S being
+exactly tight there. So the target is unharmed and well-supported; what is gone is one
+particular route to it.
+
+Files: `w1_gate.py`, `w1_gate.log`, `oq32_test.py`, `oq32_test.log`, `c_deep.py`,
+`c_deep.log`, `c_deep_check.py`.
+
+<a id="p272"></a>
+
+## [VERIFIED] Postscript 272: what determines `W0` — an exact anatomy, a reduction to `budget <= 128`, and [P271]'s rate corrected (my second correction of it today)
+
+*2026-09-08.* User: *"I'm still wondering what causes c>1, but it now seems it may not matter
+if we can find what determines W0."* Correct call, and `W0` yields where `c` did not.
+
+**1. THE ANATOMY — `W0` named exactly inside the level-1 graph.** Classifying every level-1
+vertex by (cube boundaries it lies on, degree), the n=4 record splits with nothing left over:
+
+    (2,2): 24     (2,4): 36     (2,6): 6     (3,3): 84        V=150  E=240
+
+`W0` **is** the `(3,3)` class — transversal triple points on the outer boundary. And
+
+    d1  =  W0/2  +  (n24 + 2*n26)  +  c  +  1          exact on 12 of 12
+
+with `n2k` the two-body vertices of degree `k`; degree-2 ones contribute nothing. At the record
+`W0/2 = 42` and `n24 + 2*n26 = 36 + 12 = 48`, **reproducing [P243]'s 3-body/2-body split
+independently from graph degrees alone**, and confirming [P237]'s classification: degree-4
+two-body vertices are edge-edge (weight 1), degree-6 are corner-sharing (weight 2). The whole
+identity is `Σ_v (deg/2 − 1) + c + 1`, which is [P243]'s form with its vertex classes named.
+
+**2. THE REDUCTION.** Gating `W0 = budget − W1` DIRECTLY — both sides raw triple-point counts,
+no `d2`/`d3` conversion and no genericity assumption — it is exact on 11 of 12, failing only on
+the coincident configuration. And `W1 = 44`, its proved cap, in **10 of 12**. So:
+
+> whenever `W1 = 44`, `W0 <= 84` follows at once from `budget <= 128`, which is
+> PROOF_67 Lemma 1a (`<= 32` per triple).
+
+Everything therefore hangs on when `W1 < 44`, and that restates as
+
+    Σ_T (32 − V3(T))   >=   44 − W1
+
+**the budget deficit must dominate the swallowing deficit** — the same DEFICIT-DOMINATION shape
+as Theorem S ([P266]: `Σ_T (18 − d2(T)) >= 24 − d3`), one level down in the vertex/region
+correspondence. That is the lead worth taking: [P266]'s technique (a fixed witness set that
+survives intersection, plus monotonicity) is what made the region version go through.
+
+**3. CORRECTION TO [P271], and it is the SECOND correction to this claim today.** [P271]
+reported the step `W1 >= 2(d3-2)` failing on "6.9 % of GENERIC configurations, deficits to
+−16". Re-tested with genuine simplicity (no vertex on >= 4 cube boundaries; every 3-body vertex
+of degree 3) instead of `shares_plane` alone:
+
+| class | n | step fails | conclusion `W0 <= 84` fails | max `W0` | worst step |
+|---|---|---|---|---|---|
+| **SIMPLE** | 211 | **2 (0.9 %)** | 0 | 84 | **−4** |
+| coincident | 36 | **15 (41.7 %)** | 0 | 80 | −16 |
+
+**The 6.9 % was the pool.** [P271]'s worst case has eight 4-body vertices and four degree-6
+triple points — four cube boundaries through one point, which `shares_plane` does not catch.
+But the step still fails **2 of 211** on genuinely simple configurations, so it is not purely
+an artefact either. **Both my earlier framings were wrong, in opposite directions**: [P266]
+said "fails only on a degenerate residue" (too narrow, measured on [P263]'s budget-attaining
+slice), [P271] said "6.9 % of generic" (too wide, measured on a coincidence-rich pool). The
+truth is rare-but-real: 0.9 %, worst deficit −4.
+
+**The methodological failure is exactly the one recorded earlier in the same session.**
+FAILURE_MODES 31 says integer sampling hits rational coincidence loci with positive
+probability and that excluding one named coincidence excludes one, not the class. [P271] then
+sampled at heights 3, 9, 30, 120 and called the survivors generic. **Writing the rule down did
+not prevent the next instance of it**, which is worth more than the rule.
+
+**What survives, and it is the useful part.** `W0 <= 84` was violated **0 times in all 247**
+configurations, simple and coincident alike, with `W0 = 84` attained. The target is unharmed
+and now has a cleaner route: `budget <= 128` plus deficit domination.
+
+Files: `w0_anatomy.py`, `oq32_simple.py`, `oq32_simple.log`.
+
+<a id="p273"></a>
+
+## [VERIFIED] Postscript 273: what a `W0 > 84` violation requires — derived, not searched; and a [P263] regularity is upgraded to a theorem
+
+*2026-09-08.* User: *"What would be required to violate `W0 <= 84`?"* Derivable now, because
+Theorem S closes most of the chain.
+
+**THE DERIVATION.** Four ingredients, three of them proved:
+
+| | status |
+|---|---|
+| (i) `W0 = budget − W1`, `budget = Σ_T V3(T)` | exact, gated ([P272]); FAILS where four cube boundaries meet |
+| (ii) `V3(T) <= 2(d2(T) − 2)` | **PROVED** (Euler + `c >= 1`, [P262]) |
+| (iii) `Σ_T d2(T) <= 48 + d3` (Theorem S) | **PROVED** ([P266]) |
+| (iv) `d2(T) <= 18`, `d3 <= 24` | **PROVED** (l=1 ceiling law) |
+
+Chaining (ii) then (iii):
+
+    budget  <=  2 Σ_T d2(T) − 16  <=  2(48 + d3) − 16  =  80 + 2 d3
+
+so `W0 = budget − W1 <= 80 + 2 d3 − W1`, and therefore
+
+    **W0 <= 84   <=>   W1 >= 2(d3 − 2).**
+
+Everything else in the chain is already proved. **One inequality is all that is left**, and it
+is a LOWER bound on the number of triple points the fourth cube swallows.
+
+**WHAT A VIOLATION REQUIRES, exactly.** Triple points come in antipodal pairs (every cube is
+centrally symmetric about the common centre), so `W0`, `W1` and `budget` are all EVEN. Hence
+`W0 >= 85` means `W0 >= 86`, and `W1 <= budget − 86 <= 2d3 − 6`. So a violation needs **both**:
+
+    (A)  W1 <= 2(d3 − 3)      -- the depth-3 level short of its Euler-generic
+                                 count by at least one WHOLE ANTIPODAL PAIR
+    (B)  budget >= 86 + W1    -- while the four triples keep their own budgets high
+
+**or** (C) a non-simple configuration, where (i) itself breaks — four cube boundaries through
+one point ([P272]).
+
+**And (A) and (B) pull against each other.** (A) wants non-transversality at depth 3; (B) wants
+the triples generic enough to keep `V3(T)` near 32. The coincidence that costs `W1` a pair
+typically costs the triples' own budgets more — which is the same coupling Theorem S is about,
+now one level down.
+
+**COROLLARY — [P263]'s regularity is a THEOREM.** [P263] observed that every budget-attaining
+configuration has `d3 = 24` and called it the generic value. It is forced:
+
+    budget = 128  =>  128 <= 2 Σ_T d2(T) − 16  =>  Σ_T d2(T) >= 72,
+    and Σ_T d2(T) <= 4 x 18 = 72,  so  Σ_T d2(T) = 72;
+    Theorem S then gives d3 >= 72 − 48 = 24, and d3 <= 24,  so  **d3 = 24 exactly.**
+
+Uses only proved inequalities. **The budget-maximal case is not fully closed by this**, to be
+precise about it: with `d3 = 24` the requirement becomes `W1 >= 44`, and `W1 <= 44` is proved,
+so what remains is that `W1` ATTAINS its cap whenever the budget does. That is a joint-maximality
+statement of exactly the shape Theorem S already is — and the shape [P250] flagged as tractable.
+
+**Status of the one open link.** `W1 >= 2(d3 − 2)` fails 2 of 211 on genuinely simple
+configurations (worst deficit −4) and 15 of 36 on coincident ones (worst −16) ([P272]). So
+condition (A) is MET by real configurations; what has never been met is (A) and (B) together.
+`W0 <= 84` itself survived all 247 draws, attained at the record.
+
+### Postscript 273 addendum: the exchange rate, measured — a violation needs the swallowing deficit to EXCEED the budget deficit, and it runs 5–19x the wrong way
+
+*2026-09-08.* Writing the requirement in deficits from the two caps makes it one comparison.
+With `w = 44 − W1` (swallowing deficit) and `B = 128 − budget` (budget deficit),
+
+    W0 = budget − W1 = 84 − B + w,     so     **W0 <= 84  <=>  w <= B**
+
+and since both are even (antipodal pairs), **a violation needs `w >= B + 2`: the depth-3 level
+must lose MORE triple points than the four triples' own budgets lose.**
+
+Of 299 configurations swept, **9 meet the necessary condition `W1 <= 2(d3−3)`** — so condition
+(A) is genuinely attainable, on 4 simple ones as well as 5 coincident. But every one of them
+pays far more in budget than it gains in `W1`:
+
+| W0 | budget | W1 | `w` | `B` | `w − B` | `B/w` | class | identity `W0 = budget − W1` |
+|---|---|---|---|---|---|---|---|---|
+| 74 | 122 | 40 | 4 | 6 | **−2** | 1.5 | coincident | **FAILS** (4-body) |
+| 60 | 100 | 40 | 4 | 28 | −24 | 7.0 | simple | holds |
+| 56 | 94 | 38 | 6 | 34 | −28 | 5.7 | coincident | holds |
+| 52 | 92 | 40 | 4 | 36 | −32 | 9.0 | simple | holds |
+| 48 | 90 | 42 | 2 | 38 | −36 | **19.0** | coincident | holds |
+| 44 | 80 | 36 | 8 | 48 | −40 | 6.0 | simple | holds |
+
+**The exchange rate is 5–19x against.** Every antipodal pair removed from `W1` costs the budget
+5 to 19 pairs. The closest approach is `w − B = −2`, and it is on a configuration where the
+identity `W0 = budget − W1` FAILS anyway (four cube boundaries through a point, `122 − 40 = 82`
+against a measured `W0 = 74`). **Among simple configurations the minimum budget deficit is 28
+against a maximum `W1` deficit of 8, and the best `W0` reached is 60 — short of 86 by 26.**
+
+**The record sits at the other end of the same trade.** `budget = 128`, `W1 = 44`: both caps
+attained, `w = B = 0`, `W0 = 84` — the boundary case of `w <= B`, from the equality side.
+
+So the open inequality `W1 >= 2(d3−2)` is, in these terms, exactly `w <= B`, and it is a
+DEFICIT-DOMINATION statement of the same shape as Theorem S ([P266]:
+`Σ_T (18 − d2(T)) >= 24 − d3`). Theorem S is proved by a fixed witness set that survives
+intersection plus a monotone merge term; the vertex version is the natural next target, and the
+measured 5–19x margin says it is not a near thing.
+
+Files: `w0_violate.py`, `w0_violate.log`.
+
+<a id="p274"></a>
+
+## [VERIFIED] Postscript 274: `W0 <= 82 + 2(tau3 + c3)` PROVED — and both conjuncts the route needed are FALSE, one of them refuting [P243]
+
+*2026-09-08.* Proceeding on [P273]'s open link `W1 >= 2(d3 - 2)`. It is not a new inequality
+— it dissolves — and what it dissolves into is refuted.
+
+**1. THE EXACT RESTATEMENT.** Apply [P272]'s anatomy at level 3, splitting vertices into
+transversal triple points (degree 3, weight 1/2 each — these ARE `W1`) and two-body vertices
+(weight `deg/2 - 1`, so degree 2 counts 0). Writing `tau3` for the two-body weight:
+
+    d3 = W1/2 + tau3 + c3 + 1        =>        W1 = 2(d3 - tau3 - c3 - 1)
+
+exact on 12 of 12, and since `c3 >= 1`, `tau3 >= 0`:
+
+    **W1 >= 2(d3 - 2)   <=>   tau3 + c3 <= 1   <=>   tau3 = 0 AND c3 = 1.**
+
+**2. A PROVED QUANTITATIVE BOUND.** Feeding that back through Theorem S
+(`d3 >= Σ_T d2(T) - 48`) and `V3(T) <= 2(d2(T) - 2)`:
+
+    W0 = budget - W1 <= (2 Σ_T d2(T) - 16) - 2(Σ_T d2(T) - 48 - tau3 - c3 - 1)
+
+    **W0  <=  82 + 2 (tau3 + c3)**       0 violations in 263 configurations
+
+giving **84** at `tau3 = 0, c3 = 1` — exactly attained, and not only by the record:
+`1,0,0,0;-3,-19,-8,-23;-26,-10,-23,-2;-12,-11,-5,-26` is simple with `W0 = 84`, slack 0.
+
+**3. BOTH CONJUNCTS ARE FALSE.**
+
+- **`c3 = 1` fails** — the [P271] witness, `c3 = 2`, non-degenerate, perturbation-stable.
+- **`tau3 = 0` fails, and this REFUTES [P243].** [P243] recorded "at every level `ell >= 2`
+  the two-body term is identically ZERO", from 22 checks on records and Haar draws. A blind
+  sweep finds `tau3 = 2` in **3 of 263**, two of them SIMPLE. Verified in full on
+  `1,0,0,0;-4,4,-6,5;1,-1,-5,2;1,4,6,3`: `shares_plane` false, simple, and at `ell = 3`
+  `V=42 E=64 c=1`, `E-V+c+1 = 24 = d3` (identity holds), vertex classes
+  `{triple deg3: 40, 2-body deg4: 2}` — **two two-body vertices of degree 4 at the deepest
+  level**, weight form `40/2 + 2 + 1 + 1 = 24` also checking. Its `ell = 2` level has
+  `tau2 = 0`, so this is specifically a depth-3 phenomenon. [P243] corrected in place.
+
+**4. AND IT EXPLAINS [P272]'s TWO SIMPLE FAILURES.** The worst simple step deficit there was
+−4, and its mechanism was open. It is `tau3 = 2`: `d3 = 24` (maximal), `c3 = 1`,
+`W1 = 2(24-2-1-1) = 40` against `2(d3-2) = 44`. **Not `c3` at all.** So of the two conjuncts,
+the one that actually breaks on simple configurations is the one [P243] had recorded as
+identically zero.
+
+**WHERE THIS LEAVES `W0 <= 84`.** It cannot be proved by establishing `tau3 = 0` and `c3 = 1`,
+because both are false. What is true is the bound above, plus the observation that the excess
+cases do not use their headroom: at `tau3 = 2` the bound permits 88 and the measured `W0` is
+56, 60, 60. **So the remaining task is a trade, not a conjunct**: show that whenever
+`tau3 + c3 >= 2` the budget is depressed by at least the `2(tau3 + c3 - 1)` the bound gives
+away. That is the same deficit-domination shape as Theorem S and [P273]'s `w <= B`, now with
+the source of the slack named exactly.
+
+Files: `w1_tau.py`, `w0_bound.py`, `w0_bound.log`.
+
+<a id="p275"></a>
+
+## [VERIFIED] Postscript 275: the EXACT accounting for `W0` — `W0 <= 84` is one domination between measurable non-negative quantities, and it is tight exactly where Theorem S is tight
+
+*2026-09-08.* Continuing [P274]. Its bound `W0 <= 82 + 2(tau3 + c3)` came from relaxing two
+identities into inequalities. Keeping both as identities discards nothing.
+
+**THE IDENTITY.** With the level anatomy at the triples' deep level and at `ell = 3`, Theorem S
+written with its slack `S = d3 − Σ_T d2(T) + 48 >= 0`, `gamma = Σ_T (c2(T) − 1) >= 0` and
+`Ttau = Σ_T tau2(T) >= 0`:
+
+    **  W0  =  84  +  2[ tau3 + (c3 − 1) ]  −  2[ Ttau + gamma + S ]  **
+
+hence, exactly,
+
+    **  W0 <= 84   <=>   tau3 + (c3 − 1)   <=   Ttau + gamma + S.  **
+
+Both sides are non-negative sums of directly measurable quantities. `W0 <= 84` is therefore
+ONE domination — the depth-3 anomalies against the triples' own anomalies plus the Theorem S
+slack — with nothing left implicit. **Gated on 13 configurations, two gates, 0 failures**:
+`V3(T) = 2(d2(T) − tau2 − c2 − 1)` per triple, and the identity reproducing `W0` exactly.
+
+| case | W0 | tau3 | c3 | Ttau | gamma | S | LHS | RHS |
+|---|---|---|---|---|---|---|---|---|
+| **n=4 record** | **84** | 0 | 1 | 0 | 0 | **0** | **0** | **0** |
+| **W0=84 non-record** | **84** | 0 | 1 | 0 | 0 | **0** | **0** | **0** |
+| tau3=2 (simple) | 60 | 2 | 1 | 4 | 0 | 10 | 2 | 14 |
+| tau3=2 (simple) | 56 | 2 | 1 | 6 | 0 | 10 | 2 | 16 |
+| c3=2 witness | 40 | 0 | 2 | 0 | 4 | 19 | 1 | 23 |
+| eight random | 64–72 | 0 | 1 | 0–4 | 0 | 6–10 | 0 | 6–10 |
+
+**THE STRUCTURAL FACT THIS EXPOSES.** `RHS = 0` occurs exactly at the two configurations with
+`W0 = 84`, and in particular `S = 0` there and **`S >= 6` everywhere else**. So
+
+> `W0 = 84`  <=>  Theorem S is TIGHT and every anomaly term vanishes,
+
+and the moment Theorem S has any slack at all it has at least 6 — three antipodal pairs of
+headroom — while the largest LHS observed anywhere is 2. **The two sides are not close.** That
+is the same coupling [P265] measured from outside and [P266] proved: a configuration cannot
+lose at depth 3 without the triples losing more.
+
+**What is left is now a single directed question**, and it is a search over a gap of at least
+4: can `tau3 + (c3 − 1)` be pushed above `Ttau + gamma + S`? Equivalently — can a depth-3
+anomaly occur WITHOUT forcing Theorem S slack? Every instance so far says no, and says it by
+a factor of 7 to 23.
+
+Files: `w0_exact.py`, `w0_exact.log`.
+
+<a id="p276"></a>
+
+## [VERIFIED] Postscript 276: 183's margin over 135 is ENTIRELY two-body — and the gap to the conjectured 195 is exactly the unclaimed two-body budget, split hub/non-hub
+
+*2026-09-08.* Fallout from [P275]'s directed attack, which found no violation (best
+`LHS − RHS = 0`) but landed on a NEW `W0 = 84` configuration. Counting it was the useful part.
+
+**THREE configurations, identical three-body structure, counts 183, 135, 135.**
+
+| configuration | total | `d1` | `W0` | `d2` | `d3` | two-body `T` |
+|---|---|---|---|---|---|---|
+| record | **183** | 92 | 84 | 66 | 24 | **48** |
+| `1,0,0,0;-49,60,-97,43;13,-18,-59,27;15,47,58,37` | 135 | 44 | 84 | 66 | 24 | **0** |
+| `1,0,0,0;-3,-19,-8,-23;-26,-10,-23,-2;-12,-11,-5,-26` | 135 | 44 | 84 | 66 | 24 | **0** |
+
+`W0 = 84`, `d2 = 66`, `d3 = 24` — the entire three-body structure SATURATED, identically, in
+all three. By the level-1 anatomy `d1 = W0/2 + T + c + 1 = 42 + T + 2`, so the whole difference
+is `T`, and `183 − 135 = 48` exactly. **The record's advantage over a saturated three-body
+configuration is 100 % two-body coincidence.**
+
+**AND THE GAP TO 195 IS EXACTLY THE UNCLAIMED TWO-BODY BUDGET.** [P237] proves `T <= 10` per
+pair, so `T <= 60` at n=4, giving `d1 <= 42 + 60 + 2 = 104` and `max(4) <= 195`. The record
+sits at `T = 48`. **`60 − 48 = 12` and `183 + 12 = 195`** — the conjectured maximum is the
+record plus precisely the two-body headroom, nothing else.
+
+**THE SPLIT IS HUB / NON-HUB, AND IT MATCHES THE PAIR TYPES.** Attributing `T` to the pair each
+two-body vertex lies on, the record gives
+
+    (0,1) (0,2) (0,3) | (1,2) (1,3) (2,3)
+      10    10    10  |   6     6     6          = 48
+
+**The three HUB pairs attain the cap of 10; the three mutual pairs give 6.** That is exactly
+the record's known construction — hub cube plus three cubes at `t = ±1/4` about three body
+diagonals ([P224]) — and exactly its known pair label `(9,9,9,13,13,13)` with three O-reduced
+angles at 43.004° and three at 46.826° (MAXIMISERS.md). The 13-pairs are the hub pairs and
+carry weight 10; the 9-pairs are the mutual ones and carry 6.
+
+**WHICH TURNS `max(4) <= 195` INTO A CONCRETE GEOMETRIC QUESTION.** A 195 needs all SIX pairs
+at weight 10 while `W0 = 84`, `d2 = 66`, `d3 = 24` hold. *(**The mechanism proposed in the rest
+of this paragraph is REFUTED by [P277](#p277)**: weight 10 does NOT require a body-diagonal
+axis — 9 of 45 weight-10 pairs sit more than 1° off, including an exact edge axis `(1,1,0)`.
+The concrete question stands; this answer to it does not.)* But the hub structure that produces
+weight 10 uses BODY DIAGONALS, and **a cube has only four of them** — the same finiteness that
+[P224] recorded as saturating at n=5 ("393 = hub + one cube on each of the four body
+diagonals"). If weight 10 requires a body-diagonal axis, three hub pairs is what four cubes can
+buy, and `T = 60` is unreachable — which would put the true `max(4)` BELOW 195.
+
+**This is the first time the 183-to-195 gap has had a named mechanism** rather than being the
+residue of a chain of inequalities. Next: measure the maximum number of pairs simultaneously at
+weight 10, and whether weight 10 requires a body-diagonal axis.
+
+Files: `twobody_pairs.py`, `twobody_pairs.log`, `w0_attack.py`, `w0_attack.log`.
+
+<a id="p277"></a>
+
+## [VERIFIED] Postscript 277: the four-diagonal obstruction is REFUTED — weight 10 does not need a body diagonal, and there are TWO families of weight-10 pair
+
+*2026-09-08.* Testing [P276]'s proposed mechanism. **It is wrong**, and the way it is wrong
+opens a search direction rather than closing one.
+
+**[P276] speculated** that two-body weight 10 requires a body-diagonal relative axis, so that a
+cube's four diagonals would cap the number of weight-10 pairs, make `T = 60` impossible and put
+`max(4)` below 195. Measured by printing the actual O-reduced axes and their angular distance
+from `(1,1,1)` rather than a tolerance label:
+
+**9 of 45 weight-10 pairs are more than 1° from any body diagonal**, up to 38.94°:
+
+| dist from diagonal | O-reduced angle | axis (sorted, unsigned) |
+|---|---|---|
+| **38.94°** | 17.897° | [0.9623, 0.1925, 0.1925] |
+| **35.26°** | 26.525° | [0.7071, 0.7071, 0.0000] — an EDGE axis `(1,1,0)` |
+| 15.79° | 61.928° | [0.6667, 0.6667, 0.3333] — `(2,2,1)` |
+| 13.26° | 61.350° | [0.6556, 0.6556, 0.3746] |
+| 12.27° ×3 | 61.154° | [0.6509, 0.6509, 0.3906] |
+| 10.02° | 60.766° | [0.6396, 0.6396, 0.4264] |
+| 4.76° | 60.171° | [0.6092, 0.6092, 0.5077] |
+| 0.00° ×3 | **46.826°** | [0.5774, 0.5774, 0.5774] — the record's hub pairs |
+
+These are not near-misses: an edge axis `(1,1,0)` and a `(2,2,1)` axis are exact rational
+directions nowhere near a diagonal. **The four-diagonal obstruction does not exist, `T = 60` is
+not blocked by it, and `max(4) <= 195` stays live.**
+
+**AND THE REAL STRUCTURE IS TWO FAMILIES.** The weight-10 pairs split by O-reduced angle:
+
+- **~46.8° on body diagonals** — the record's three hub pairs, [P224]'s construction;
+- **~60–62° on axes tilted 5–16° off the diagonal** — six of the nine, clustered tightly at
+  60.17, 60.77, 61.15 (×3), 61.35, 61.93, i.e. near the TOP of the O-reduced angular range;
+- plus two outliers at 17.9° and 26.5° on quite different axes.
+
+**Why this is the better outcome.** The record reaches `T = 48` using one family only, three
+pairs of it, and a cube's four diagonals genuinely do cap that family. The second family is not
+so capped. **So the route to `T > 48` — and to a count above 183 — is a configuration whose
+pairs are drawn from the ~61° family rather than the record's 46.8° one**, which is a concrete
+target and one no previous search has aimed at.
+
+**Status, honestly.** `T = 48` was still the maximum found (only the record reached three
+weight-10 pairs; two configurations reached two, 38 reached one). *(**VOIDED 2026-09-08 by
+[P278](#p278)**: weight 10 is a measure-zero WALL condition, so a random pool cannot survey it
+and these counts describe the lattice, not the geometry. They are not evidence about `T`.)*
+But that pool was seeded from record neighbourhoods, so it was built to find the 46.8° family
+and could hardly have found the other. **The co-occurrence question is untested, not answered** — a pool built to
+maximise simultaneous weight-10 pairs is what would answer it.
+
+**Correction:** [P276]'s closing paragraph proposed the four-diagonal mechanism as the likely
+explanation of the 183–195 gap. It is refuted here, one postscript later. The finiteness
+argument it borrowed ([P224]'s "a cube has only four body diagonals", which genuinely does
+saturate the n=5 hub construction) does not transfer, because weight 10 is not a
+body-diagonal phenomenon.
+
+Files: `pair10.py`, `pair10.log`, `pair10_axes.py`, `pair10_axes.log`.
+
+<a id="p278"></a>
+
+## [VERIFIED] Postscript 278: two-body weight is a WALL COUNT — weight 10 has exactly two realisations, and every sampled statement about `T` is void
+
+*2026-09-08.* User: *"should this be more a solve than a sample?"* Yes, and the reason is
+stronger than pool bias.
+
+**TWO-BODY WEIGHT IS A COINCIDENCE COUNT.** A degree-4 two-body vertex at level 1 lies on an
+EDGE of cube `i` and an EDGE of cube `j` at once — four seam segments `(a1,b1) (a1,b2) (a2,b1)
+(a2,b2)` meet there. Two skew lines meet only in codimension 1, so **every such vertex is a
+wall, not a generic feature**; degree 6 is the corner-contact case, weight 2. So
+
+    two-body weight of a pair  =  (edge-edge coincidences) + 2 x (corner contacts)
+
+and the histogram is the proof: **1 373 of 2 046 pairs have weight 0**, a generic pair sitting
+on no wall at all.
+
+**WEIGHT 10 HAS EXACTLY TWO REALISATIONS**, and they are the two angle families of [P277]:
+
+| configuration | pair decomposition `(deg2, deg4, deg6)` | weight | family |
+|---|---|---|---|
+| **record**, hub pairs (×3) | `(0, 6, 2)` | 6 + 4 = **10** | 46.826°, body diagonal |
+| record, mutual pairs (×3) | `(8, 6, 0)` | 6 + 0 = 6 | 43.004° |
+| edge-axis `(1,1,0)` | `(0, 6, 2)` | **10** | 26.5° |
+| `(2,2,1)`-axis | `(0, 10, 0)` | 0 + 10 = **10** | 61.9° |
+| 61.15° family | `(0, 10, 0)` | **10** | ~61° |
+
+    weight 10  =  (6 edge-edge + 2 corner)   or   (10 edge-edge + 0 corner)
+
+**and in every weight-10 pair the degree-2 count is ZERO** — the seam carries no ordinary
+crossings at all, every two-body vertex is a coincidence. Low-weight pairs have 8–20 of them.
+
+**WHAT THIS VOIDS.** [P277] reported "`T = 48` was still the maximum found". That is a
+statement about which walls integer quaternions happen to land on, **not about what `T` can
+be**, and it should carry no evidential weight. The same goes for "only the record reached
+three weight-10 pairs" and for the `#pairs at weight >= 10` census. Weight 10 is a measure-zero
+condition; a random pool cannot survey it, and the hits it produced are the rational lattice
+meeting walls — FAILURE_MODES 31 for the third time this session, now caught by the user
+rather than by me.
+
+**WHAT THE SOLVE MUST BE ASKED.** `T = 60` needs all six pairs at weight 10, i.e. each pair
+carrying 8 or 10 coincidences. A pair of concentric cubes has 3 degrees of freedom; three free
+cubes after gauge-fixing have 9. The coincidences are not independent — each cube's octahedral
+symmetry makes them come in orbits, which is why the record's hub pairs get 8 at once from far
+fewer independent conditions — so the real question is **the CODIMENSION of the weight-10 locus
+in the 3-dimensional pair space**, and then whether six such conditions are simultaneously
+satisfiable in 9 dimensions. Both are algebra, not search.
+
+**The machinery exists**: coincidence conditions are quadrics in Cayley coordinates with
+edge-edge ones factoring into pairs of rational planes (RESULTS), `quad_walls.py` /
+`wall_params.py` parameterise them, and `multiwall_m4.py` already solves several at once —
+"three-wall intersection is the best search method found" is a recorded result. Nothing new
+needs building; the weight-10 locus needs to be *solved for* rather than stumbled upon.
+
+Files: `twobody_solve.py`, `twobody_solve.log`.
+
+<a id="p279"></a>
+
+## [VERIFIED] Postscript 279: weight 10 is CODIMENSION 2 in both realisations — so `T = 60` is overdetermined by 3; plus a control failure (two seeds, one pair)
+
+*2026-09-08.* Solving the weight-10 locus rather than sampling it, following the user's
+*"should this be more a solve than a sample?"*
+
+**REALISATION 1, `(0, 6, 2)` — codimension 2, SOLVED.** Its content is a single CORNER
+COINCIDENCE (two concentric equal cubes sharing a corner, i.e. `R` mapping a corner direction
+to a corner direction), which is codimension 2 in the 3-dimensional pair space. The 6 edge-edge
+crossings come FREE with it. Walked exactly along the rational family `q = (w,1,1,1)` —
+rotation about a body diagonal, which fixes the corner `(1,1,1)`:
+
+    w = 0..24,  theta = 180 deg down to 8.256 deg:   (0,6,2), weight 10, EVERY member
+    w = 1,      theta = 120 deg:                     (0,0,8), weight 16, cube maps to
+                                                     itself, count 1 -- degenerate
+
+**Weight 10 along the whole curve.** Slices at other axes show it only at isolated angles —
+`(1,1,0)` at 109.47° and 70.53° (the tetrahedral angles), `(2,2,1)` at 112.62° — because those
+axes cut the same 1-dimensional variety TRANSVERSALLY; they are `R` mapping one corner to a
+DIFFERENT corner, other components of the same locus. *(An intermediate reading of mine took
+those isolated points as codimension 3. That was the slice talking, not the geometry.)*
+
+**REALISATION 2, `(0, 10, 0)` — also positive-dimensional.** No corner coincidence, so a
+different variety and nothing above pins it. Probed from `q = (5,2,2,1)` over a `±3` lattice box
+in all four components (2 401 points): **77 neighbours keep `(0,10,0)`**, spread through the box
+— `(2,-1,5,-2)`, `(2,0,2,3)`, `(2,2,0,3)`, … — not scaled copies of the seed. **Positive-
+dimensional, codimension <= 2.**
+
+**THE DIMENSION COUNT, which is the point of all this.** Three free cubes, gauge-fixed, have 9
+degrees of freedom. Weight 10 costs **2 conditions per pair** in either realisation:
+
+| target | pairs at weight 10 | conditions | DOF | |
+|---|---|---|---|---|
+| `T = 48` (the record) | 3 (its hub pairs) | 6 | 9 | **3 left** — a positive-dimensional family, matching 183 being a plateau |
+| `T = 60` (`max(4) = 195`) | 6 | **12** | 9 | **overdetermined by 3** |
+
+So `T = 60` is non-generic — not proved impossible, since overdetermined systems can have
+special solutions, but it is a 12-condition demand on 9 parameters and no longer a plausible
+accident. **This is the first dimension-based statement about the 183–195 gap.**
+
+**CONTROL FAILURE, recorded because the tell nearly passed.** The dimension probe was run from
+two "independent" seeds, `(5,2,2,1)` and `(1,-5,-2,2)`. They returned **identical** neighbour
+counts (77 and 77) and identical signature tallies down to the last unit — 885/356/317/305/240/
+198. That is not agreement, it is one measurement printed twice: the two are octahedrally
+equivalent two-sided, witness `g = (0,1,-1,0)`, `h = (0,0,1,1)`, and their absolute-value
+multisets are both `{1,2,2,5}`. **So realisation 2's codimension rests on ONE pair, not two.**
+Same failure as [P228]'s six n=5 bases that were one compound, and the same tell — two results
+agreeing exactly rather than approximately.
+
+Files: `wall_types.py`, `wall_types.log`, `diag_family.py`, `family2.py`, `family2_dim.py`,
+`family2_dim.log`.
+
+<a id="p280"></a>
+
+## [VERIFIED] Postscript 280: the second weight-10 family SOLVED — an exact rational curve, codimension 2 confirmed, and a codimension-1 guess of mine refuted immediately
+
+*2026-09-08.* Closing [P279]'s control gap and the dimension question for realisation 2.
+
+**AN INDEPENDENT SEED, VERIFIED BEFORE USE.** [P279]'s two seeds were octahedrally equivalent.
+A fresh one, `(4,7,-7,-18)`, was checked first — absolute-value multiset `{4,7,7,18}` against
+`{1,2,2,5}`, and the full two-sided octahedral test False — and gave **28** `(0,10,0)`
+neighbours in a `±3` box against the original's 77, with a completely different signature census
+(`(0,(20,0,0)): 1524` dominant, against `(2,(14,2,0)): 885`). Different numbers, so a genuinely
+independent measurement, and `(0,10,0)` is positive-dimensional on two inequivalent pairs.
+
+**A GUESS OF MINE, AND ITS IMMEDIATE REFUTATION.** Every neighbour had `x = -y`, i.e. axis
+proportional to `(a,-a,c)`, perpendicular to `(1,1,0)`. I read that as one condition on the
+axis plus a free angle — a 2-dimensional locus, codimension 1 — which would have made `T = 60`
+cost 6 conditions of 9 and `max(4) = 195` plausible, overturning [P279]. Walking the family
+`q = (w, a, -a, c)` over 120 members refuted it: **`(0,10,0)` in 2 of 120.** The `x = -y`
+family is rich in weight-10 pairs, but almost all of them are the OTHER realisation, `(0,6,2)`,
+26 of 120.
+
+**THE ACTUAL CONDITION, SOLVED.** The neighbours carry a second relation the eye missed:
+`c = -(2a + w)`, exact on all nine. Walking that curve:
+
+    q = (w, a, -a, -(2a+w))
+
+| | signature | weight | count |
+|---|---|---|---|
+| `a > w` | **`(0,10,0)`** | **10** | 51 |
+| `a = w` | `(0,6,2)` | 10 | 6 |
+| `a < w` | `(6,6,0)` | 6 | 15 |
+
+**Two integer parameters, so projectively a CURVE: codimension 2.** [P279]'s count stands:
+weight 10 costs 2 conditions per pair in both realisations, `T = 60` needs 12 against 9 degrees
+of freedom, **overdetermined by 3**.
+
+**And the two realisations MEET.** At `a = w` the curve passes through `(0,6,2)` —
+`q ∝ (1,1,-1,-3)` — so the corner-coincidence family and the ten-crossing family are not
+separate components but joined along this curve. The transition `a < w` drops to weight 6.
+
+**What this closes.** The weight-10 locus is now given by explicit rational parameterisations in
+both realisations — `q = (w,1,1,1)` for the corner family and `q = (w,a,-a,-(2a+w))` for the
+crossing family — rather than by whatever a sweep happened to land on. That is the "solve, not
+sample" version the user asked for, and it is what makes the dimension count meaningful.
+
+Files: `family2_dim2.py`, `family2_dim2.log`, `family2_codim.py`, `family2_codim.log`.
+
+<a id="p281"></a>
+
+## [VERIFIED] Postscript 281: `T` is a sum of IN-CONTEXT weights, not standalone ones — my premise was wrong, and the correction makes `T = 60` harder, not easier
+
+*2026-09-08.* Solving `T = 60` over the record's own construction. The run returned the answer
+and refuted the assumption it was built on.
+
+**THE PREMISE, AND WHY IT IS FALSE.** I asserted that putting all three cubes on BODY DIAGONALS
+makes every hub pair weight 10 "automatically, at any angle", since `q = (w,1,1,1)` sits on the
+corner-coincidence curve ([P280]). The run printed hub weights of `[0,0,0]`, `[8,0,0]`,
+`[6,8,8]` — not 10.
+
+The reason is structural and I had missed it throughout: **a pair's two-body weight inside a
+4-cube configuration is not its standalone weight.** The level-1 vertices are those lying
+outside ALL other cubes, so the other two cubes can SWALLOW a pair's coincidence vertices. In
+context,
+
+    weight(i,j | configuration)  <=  weight(i,j | standalone)  <=  10
+
+and `T` is the sum of the IN-CONTEXT weights. `q = (2,1,1,1)` has standalone weight 10 and
+in-context weight 6 in the configuration tested.
+
+**THE ANSWER, over the body-diagonal construction.** All three diagonal-triples, all angle
+combinations `w in 1..5`:
+
+| best found | mutual weights | `T` | count |
+|---|---|---|---|
+| `1,0,0,0;2,1,1,1;4,1,1,-1;4,1,-1,1` | `[6,6,6]` | **48** | 179 |
+
+**`T = 48` is the maximum and `[10,10,10]` mutual never occurs** — the census of mutual weight
+triples tops out at `(6,6,6)`, with `(0,0,0)` the most common (176). The record's `T = 48` is
+attained by this family but never beaten by it.
+
+**AND THE CORRECTION STRENGTHENS [P279].** `T = 60` now requires *both* all six pairs on a
+weight-10 locus — 12 conditions against 9 degrees of freedom — *and* that no cube swallows any
+of the 60 coincidence vertices. The second demand is not a condition on the pairs at all; it is
+a containment condition on the whole configuration, and it is what the body-diagonal family
+fails: its hub pairs sit on the right curve and still lose weight to swallowing. **So the
+dimension count was, if anything, generous.**
+
+**What is still not proved.** That `T <= 48`, or that `T = 60` is impossible. This searched one
+construction — the record's own — exhaustively over a bounded angle range, and the `K4`
+formulation ([P280]: three weight-10 quaternions whose pairwise quotients are also weight 10)
+remains the general question. But the family that produces three weight-10 pairs cannot produce
+six, and it fails for a reason — swallowing — that no amount of choosing better angles addresses.
+
+Files: `t60_solve.py`, `t60_solve.log`.

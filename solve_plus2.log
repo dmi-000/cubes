@@ -1,0 +1,10 @@
+A +2 VIOLATION AT n=4 NEEDS  V3(depth 1) >= 88   (record 84, cap-implied 84)
+
+standalone V3 = 32 for a triple  <=>  that triple attains d2 = 18 (its l=1 cap)
+so: find configurations where ALL FOUR 3-subsets attain d2 = 18, then measure retention.
+
+2101 configurations; 1449 have ALL FOUR triples at d2 = 18
+V3(depth 1) among them: {84: 1441, 82: 1, 80: 7}
+best V3(depth 1) = 84   (need >= 88 for a +2 violation; record = 84)
+
+no configuration reaches 88; 84 stands as the observed ceiling

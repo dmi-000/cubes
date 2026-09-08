@@ -1,0 +1,14 @@
+PRESSURE TEST on  own <= 24  and  cuts <= 32 per other body
+
+ensemble                        draws    max own   max cuts
+Haar n=3, height 64               300         24         32 
+Haar n=3, height 4096             200         20         32 
+random height 30, n=3             300         20         32 
+random height 200, n=3            200         20         32 
+shared-axis n=3                   300         24         32 
+near-identity pairs n=3           300         24         32 
+record-neighbourhood n=5          200         20         32 
+Haar n=6                          120         24         32 
+
+GLOBAL: max own = 24 (cap 24?), max cuts = 32 (cap 32?)
+crude derivable caps were 48 and 96.

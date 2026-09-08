@@ -1,0 +1,12 @@
+CLAIM:  m_v = b_v - 1   (m = levels spanned, b = bodies whose boundary contains v)
+
+n=4 haar         violations of m=b-1: 0     (b,m) pairs {(2, 1): 116, (3, 2): 104}
+                 E=430 V=220 sum_b=544 sum_m=324   E-sum_b+V+2L+1 = 113   engine 113 OK
+n=4 record 183   violations of m=b-1: 0     (b,m) pairs {(2, 1): 66, (3, 2): 128}
+                 E=498 V=194 sum_b=516 sum_m=322   E-sum_b+V+2L+1 = 183   engine 183 OK
+n=5 record 393   violations of m=b-1: 0     (b,m) pairs {(2, 1): 116, (3, 2): 272, (4, 3): 12}
+                 E=1080 V=400 sum_b=1096 sum_m=696   E-sum_b+V+2L+1 = 393   engine 393 OK
+n=5 haar         violations of m=b-1: 0     (b,m) pairs {(2, 1): 186, (3, 2): 276, (4, 3): 2}
+                 E=1036 V=464 sum_b=1208 sum_m=744   E-sum_b+V+2L+1 = 301   engine 301 OK
+n=6 record 727   violations of m=b-1: 0     (b,m) pairs {(2, 1): 192, (3, 2): 586, (4, 3): 12}
+                 E=2116 V=790 sum_b=2190 sum_m=1400   E-sum_b+V+2L+1 = 727   engine 727 OK

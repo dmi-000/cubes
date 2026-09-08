@@ -1,0 +1,16 @@
+record 183:
+   degree  2  edge     x face      count  24   faces-product predicts degree 2 OK
+   degree  4  edge     x edge      count  36   faces-product predicts degree 4 OK
+   degree  6  corner   x corner    count   6   faces-product predicts degree 9 <-- MISMATCH
+
+(2,2,1)-axis w10:
+   degree  2  edge     x edge      count   2   faces-product predicts degree 4 <-- MISMATCH
+   degree  2  edge     x face      count  80   faces-product predicts degree 2 OK
+   degree  4  edge     x edge      count  12   faces-product predicts degree 4 OK
+
+edge-axis w10:
+   degree  2  edge     x edge      count   4   faces-product predicts degree 4 <-- MISMATCH
+   degree  2  edge     x face      count  60   faces-product predicts degree 2 OK
+   degree  4  edge     x edge      count  16   faces-product predicts degree 4 OK
+   degree  6  corner   x corner    count   4   faces-product predicts degree 9 <-- MISMATCH
+

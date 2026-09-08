@@ -1,0 +1,13 @@
+COUPLING:  d1+d2 = (E1+E2) - |V1 u V2| - |V1 n V2| + c1 + c2 + 2
+           and  V1 n V2  =  the depth-1 triple points (3-body, contained in nothing)
+
+case               d1     d2    E1+E2  |V1uV2|  |V1nV2|  c1,c2     pred ok
+n=4 record         92     66      432      194       84    1,1      158 EXACT
+n=4 haar           34     56      366      216       64    1,1       90 EXACT
+n=5 record        156    128      786      356      150    1,1      284 EXACT
+n=6 record        214    220     1282      612      240    1,1      434 EXACT
+n=4 haar rnd       36     50      344      206       56    1,1       86 EXACT
+n=4 haar rnd       26     46      320      204       48    1,1       72 EXACT
+
+|V1 n V2| is subtracted TWICE: sharing a vertex between levels COSTS a region.
+And those shared vertices are exactly the depth-1 triple points, which RAISE d1.

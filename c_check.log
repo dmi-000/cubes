@@ -1,0 +1,17 @@
+c_ell over 500 census configurations, all levels:
+   c = 1   :   1453 level-instances
+   c = 2   :     10 level-instances
+   c = 3   :     10 level-instances
+   c = 4   :      3 level-instances
+   c = 8   :      7 level-instances
+   c = 10  :      3 level-instances
+   c = 12  :      6 level-instances
+   c = 14  :      1 level-instances
+   c = 16  :      7 level-instances
+
+*** c != 1 DOES occur.  P243/P245 assume c=1 and would need the general form:
+    ell=1  c=2  count=94  1,0,0,0;1,5,10,15;1,2,4,6;8,7,14,21
+    ell=2  c=2  count=55  1,0,0,0;5,-2,-2,-2;1,7,7,7;1,-4,-4,-4
+    ell=3  c=8  count=55  1,0,0,0;5,-2,-2,-2;1,7,7,7;1,-4,-4,-4
+    ell=2  c=3  count=107  1,0,0,0;1,4,-4,12;3,-1,1,-3;5,-1,1,-3
+    ell=2  c=8  count=25  1,0,0,0;1,0,0,-1;4,0,0,-3;3,0,0,-5

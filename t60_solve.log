@@ -1,0 +1,31 @@
+two-body weight decomposed: deg4 = edge-edge coincidence (wt 1),
+                            deg6 = corner contact      (wt 2)
+
+case                total  per pair: (deg2, deg4, deg6) -> weight
+record 183            183  (0,6,2)=10  (0,6,2)=10  (0,6,2)=10  (8,6,0)=6  (8,6,0)=6  (8,6,0)=6
+edge-axis w10         155  (12,2,0)=2  (0,6,2)=10  (18,0,0)=0  (14,2,0)=2  (20,0,0)=0  (0,6,2)=10
+(2,2,1)-axis w10      135  (14,2,0)=2  (0,10,0)=10  (14,0,0)=0  (18,0,0)=0  (16,0,0)=0  (20,0,0)=0
+61.15 family          147  (18,0,0)=0  (8,6,0)=6  (0,10,0)=10  (20,0,0)=0  (18,0,0)=0  (20,0,0)=0
+17.9deg outlier       149  (18,0,0)=0  (6,6,0)=6  (0,4,2)=8  (14,0,0)=0  (0,6,2)=10  (10,2,0)=2
+
+weight 10 = how many simultaneous walls?  read off the deg4/deg6 columns:
+that count is what a multiwall SOLVE must be asked for, per pair.
+hub pairs are weight 10 automatically (body-diagonal curve, [P280]).
+so T = 6*10 = 60 iff the three MUTUAL pairs also reach 10.
+
+   diagonals  w1  w2  w3    mutual weights    T  count
+   (0, 1, 2)   1   1   1         [0, 0, 0]    0      1   hub [0, 0, 0]
+   (0, 1, 2)   1   2   2         [0, 0, 2]   10     59   hub [8, 0, 0]
+   (0, 1, 2)   1   3   3         [0, 0, 4]   12     57   hub [8, 0, 0]
+   (0, 1, 2)   1   4   4         [0, 0, 6]   14     63   hub [8, 0, 0]
+   (0, 1, 2)   2   2   2         [0, 0, 0]   22    151   hub [6, 8, 8]
+   (0, 1, 2)   2   2   3         [0, 2, 2]   30    153   hub [8, 8, 10]
+   (0, 1, 2)   2   3   3         [2, 2, 4]   34    161   hub [10, 8, 8]
+   (0, 1, 2)   2   3   4         [2, 6, 0]   38    169   hub [10, 10, 10]
+   (0, 1, 2)   2   4   4         [6, 6, 6]   48    179   hub [10, 10, 10]
+
+census of mutual-pair weight triples: {(0, 0, 0): 176, (0, 0, 2): 96, (0, 0, 6): 66, (0, 0, 4): 39, (2, 2, 2): 32, (0, 2, 2): 24, (2, 2, 4): 24, (0, 2, 6): 24}
+
+best T over the body-diagonal construction: 48  (count 179)
+  1,0,0,0;2,1,1,1;4,1,1,-1;4,1,-1,1
+T = 60 needs mutual weights [10,10,10].

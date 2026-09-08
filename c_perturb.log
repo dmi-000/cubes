@@ -1,0 +1,24 @@
+==========================================================================
+seed  1,0,0,0;1,5,10,15;1,2,4,6;8,7,14,21
+  ell=1  c=2  identity_ok=True  shares_plane=False
+  perturb 1/10     (12 draws): kept c=2 in 9/12   -> {'(1, True, False)': 3, '(2, True, False)': 9}
+  perturb 1/100    (12 draws): kept c=2 in 12/12   -> {'(2, None, False)': 12}
+  perturb 1/1000   (12 draws): kept c=2 in 12/12   -> {'(2, None, False)': 12}
+  perturb 1/10000  (12 draws): kept c=2 in 12/12   -> {'(2, None, False)': 12}
+==========================================================================
+seed  1,0,0,0;-23,-90,43,22;72,-37,-17,-2;-4,4,-79,25
+  ell=1  c=2  identity_ok=True  shares_plane=False
+  perturb 1/10     (12 draws): kept c=2 in 12/12   -> {'(2, None, False)': 12}
+  perturb 1/100    (12 draws): kept c=2 in 12/12   -> {'(2, None, False)': 12}
+  perturb 1/1000   (12 draws): kept c=2 in 12/12   -> {'(2, None, False)': 12}
+  perturb 1/10000  (12 draws): kept c=2 in 12/12   -> {'(2, None, False)': 12}
+==========================================================================
+seed  1,0,0,0;1,14,-21,-7;8,10,-15,-5;1,16,-24,-8
+  ell=1  c=2  identity_ok=True  shares_plane=False
+  perturb 1/10     (12 draws): kept c=2 in 6/12   -> {'(1, True, False)': 6, '(2, True, False)': 6}
+  perturb 1/100    (12 draws): kept c=2 in 12/12   -> {'(2, None, False)': 12}
+  perturb 1/1000   (12 draws): kept c=2 in 12/12   -> {'(2, None, False)': 12}
+  perturb 1/10000  (12 draws): kept c=2 in 12/12   -> {'(2, None, False)': 12}
+
+A condition that survives a generic perturbation at every scale is OPEN,
+hence not a degeneracy.  A condition destroyed by the first perturbation is.

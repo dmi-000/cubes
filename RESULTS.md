@@ -127,6 +127,25 @@ unchanged — so the increment is entirely shallow, the same signature by which
   polytopes). One caveat remains, inherited from the contact analysis: two
   cells meeting *tangentially* rather than transversally, a higher-codimension
   degeneracy.
+- **max(n) ≤ 263 (n=4), 649 (n=5), 1 291 (n=6), … 6 019 (n=10)** — *derived 2026-09-07,
+  [P261](LEDGER.md#p261), and NOT yet independently verified.* From
+  `TOTAL = X + Σ μ_v + Σ(c+1) + 1` with `X ≤ min(48·C(n,2), 32·C(n,3))` and
+  `Σ μ_v ≤ 32·C(n,3)`. Supersedes [P260]'s 423 and the layer-sum 953.* One-step bound from
+  `TOTAL = Σ own − V₂ + Σ μ_v + Σ(c+1) + 1` with `Σ own ≤ 48·C(n,2)` (one-line convexity),
+  `Σ μ_v ≤ 32·C(n,3)` (PROOF_67 Lemma 1a per 3-subset, proved), and `c_ℓ = 1`
+  — **the last is not proved** ([OQ 30]); with `c_ℓ ≤ 2` the values rise by n−1.
+- **max(n) ≤ 953 (n=4), 3 377 (n=5), 8 835 (n=6), … 104 207 (n=10).** PROVED
+  ([P249](LEDGER.md#p249), 2026-09-07) — **the first upper bounds this project has on the
+  TOTAL count above n = 3**, obtained by summing the per-layer bounds below. Crude: 5.2× the
+  record at n = 4, widening to 26.5× at n = 10. The conjectured ceiling law would give 195 at
+  n = 4 — the records sit at 1.07–1.10× the conjectured cap sum at every n from 4 to 10 — so
+  proving it collapses the n = 4 interval from [183, 953] to [183, 195].
+- **d_ℓ ≤ 108·C(n,3) + 2 for every n and every ℓ ≥ 2, at EVERY configuration.** PROVED
+  ([P243](LEDGER.md#p243), 2026-09-07). The two-body term that invalidates the depth-1 bound at
+  coincident configurations is identically **zero** at every deeper level — verified at n = 4,
+  5, 6 on records and Haar draws — so the plane-triple count applies there unmodified. The
+  by-level identity `d_ℓ = E_ℓ − V_ℓ + c_ℓ + 1` is exact on 22 of 22 checks, and reduces the
+  conjectured ceiling law for l ≥ 2 to `3-body gain ≤ C(n−ℓ,n) − 2`.
 - **d₁ ≤ 108·C(n,3) + 10·C(n,2) + 2 for every n and EVERY configuration.** PROVED
   ([P237](LEDGER.md#p237), 2026-09-07). Gives 494 at n = 4 and 2312 at n = 6. The two-body
   term is the part a three-cube plane count cannot see — edge-edge coincidences and shared
@@ -227,6 +246,21 @@ unchanged — so the increment is entirely shallow, the same signature by which
 - **d_{n−1} ≤ 6n for every n.** PROVED (the l = 1 ceiling law, Postscripts [24](LEDGER.md#p24) anchor lemma and [33](LEDGER.md#p33) unconditional, via the anchor
   lemma: the radial envelope of any n-cube configuration has local minima only
   at the 6n face centres).
+- **Theorem S: the (n−1)-subsets bound the whole.** PROVED for all n ≥ 3
+  (Postscript [266](LEDGER.md#p266), `PROOF_SUBSET.md`):
+
+      Σ over the (n−1)-subsets T of d_{n−2}(T)  ≤  6n(n−2) + d_{n−1}(S).
+
+  At n = 4 this is `Σ_T d₂(T) ≤ 48 + d₃`, the inequality [P262]–[P265] isolated as
+  the last one between the project and the n = 4 ceiling law, and it is exactly
+  tight at the 183 record (72 = 72). No new geometry: it follows from the
+  fibration lemma and [P33]'s anchor theorem, by splitting each count's deficit
+  from 6 into anchors LOST (subadditive, because a fixed six-point witness set
+  survives intersection) and anchors SHARED (monotone, because it is a partition
+  matroid rank). **Caveat, stated because the chain is what people will quote:
+  this does NOT yet give `max(4) ≤ 195`** — the conversion to `V3(1) ≤ 84` uses
+  `W₁ = 2(d₃−2)` as an equality, which fails on a degenerate residue ([OQ 32]),
+  and `d₂ ≤ 66` / `d₁ ≤ 104` still assume `c_ℓ ≤ 1` ([OQ 30]).
 - **The one-cube increment is bounded by an Euler count on the added cube's own
   surface.** PROVED. With G the region adjacency graph including the outside
   region and G_j its bit-j subgraph, Δ_j = |V(G)| − #components(G_j) exactly,

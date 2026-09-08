@@ -1,0 +1,62 @@
+==============================================================================
+1. THE RECORDS: does the bound bind at the configurations that matter?
+==============================================================================
+ n  total  d_(n-1)   6n  A(S)      dead anchors per cube
+ 3     63       18   18    18   [0, 0, 0]
+ 4    183       24   24    24   [0, 0, 0, 0]
+ 5    393       30   30    30   [0, 0, 0, 0, 0]
+ 6    727       36   36    36   [0, 0, 0, 0, 0, 0]
+ 7   1217       42   42    42   [0, 0, 0, 0, 0, 0, 0]
+ 8   1895       48   48    48   [0, 0, 0, 0, 0, 0, 0, 0]
+
+==============================================================================
+2. ALONG A BRANCH: the bound at each prefix of the n=8 record chain
+   U(P) = A(P) + 6(n-k) must be >= the final d_(n-1) at every k (admissible)
+   and non-increasing in k (monotone).  n = 8, target d_7.
+==============================================================================
+  k=2  A(P)= 12  U(P)=A+6(8-k)= 48   (final d_7 = 48)
+  k=3  A(P)= 18  U(P)=A+6(8-k)= 48   (final d_7 = 48)
+  k=4  A(P)= 24  U(P)=A+6(8-k)= 48   (final d_7 = 48)
+  k=5  A(P)= 30  U(P)=A+6(8-k)= 48   (final d_7 = 48)
+  k=6  A(P)= 36  U(P)=A+6(8-k)= 48   (final d_7 = 48)
+  k=7  A(P)= 42  U(P)=A+6(8-k)= 48   (final d_7 = 48)
+  k=8  A(P)= 48  U(P)=A+6(8-k)= 48   (final d_7 = 48)
+
+==============================================================================
+3. DOES IT BIND AT ALL?  distribution of dead anchors per ORDERED PAIR
+   (popcount of the 6-bit mask; 0 means that pair costs the bound nothing)
+==============================================================================
+  height   1: mean dead  2.38   P(mask=0) =  60.3%   {0: 2345, 6: 1547}
+  height   2: mean dead  0.52   P(mask=0) =  85.9%   {0: 3427, 2: 326, 6: 237}
+  height   3: mean dead  0.17   P(mask=0) =  95.0%   {0: 3797, 2: 135, 6: 65}
+  height   6: mean dead  0.02   P(mask=0) =  99.2%   {0: 3969, 2: 28, 6: 3}
+  height  12: mean dead  0.00   P(mask=0) = 100.0%   {0: 3998, 2: 1, 6: 1}
+  height  60: mean dead  0.00   P(mask=0) = 100.0%   {0: 4000}
+
+==============================================================================
+5. THE OTHER ROUTE: the PROVED increment bound [P56], maximised over
+   placements.  U(P) = TOTAL(P) + sum of Bmax(m) for the cubes still to
+   come.  Bmax(m) = max cells that m other cubes' 6m face planes can cut
+   on the new cube's surface.  CRUDE cap derived here, NOT from the
+   project's own Lemma 1a -- two planes meet ∂C_new in <= 2 points, each
+   plane curve has <= 6 vertices on the cube's 12 edges, degrees <= 4,
+   components <= 6m+1.  Every step is generous; this is an upper bound on
+   an upper bound and is quoted only to see whether the ROUTE could prune.
+==============================================================================
+   m  crude Bmax(m)  actual increment   ratio
+   3            442               120     3.7x
+   4            730               210     3.5x
+   5           1090               334     3.3x
+   6           1522               490     3.1x
+   7           2026               678     3.0x
+
+  A bound 3-5x above the achieved increment, compounding over every
+  remaining cube, cannot prune a branch whose completion is near the
+  record.  The route is not refuted -- it needs a TIGHT Bmax, which is
+  the open item, not the framework.
+
+==============================================================================
+4. THE PAIRWISE NECESSARY CONDITION for d_(n-1) = 6n
+   all masks zero is NECESSARY (not sufficient: m=0 still allows s>0).
+   Checked on the records above -- see column A(S) vs 6n.
+==============================================================================

@@ -1,0 +1,16 @@
+DIRECTED REFUTATION of  sum_T d2(T) <= 48 + d3   (needs sum=72 with d3<24)
+
+3339 configurations
+violations: 0
+
+configurations with d3 < 24: 357
+  their (sum, d3), max sum per d3:
+     d3=22   max sum = 66    bound 48+d3 = 70   SLACK 4
+     d3=20   max sum = 62    bound 48+d3 = 68   SLACK 6
+     d3=19   max sum = 48    bound 48+d3 = 67   SLACK 19
+     d3=18   max sum = 55    bound 48+d3 = 66   SLACK 11
+     d3=17   max sum = 47    bound 48+d3 = 65   SLACK 18
+     d3=16   max sum = 42    bound 48+d3 = 64   SLACK 22
+     d3=12   max sum = 42    bound 48+d3 = 60   SLACK 18
+     d3=10   max sum = 31    bound 48+d3 = 58   SLACK 27
+     d3=8    max sum = 33    bound 48+d3 = 56   SLACK 23

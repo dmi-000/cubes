@@ -1,0 +1,9 @@
+V3 vs the GENERIC formula over 1110 non-degenerate census configurations (n=4)
+
+ell   l       generic       exceed       attain        below
+1     3           204            0            0         1110
+2     2           128            0           10         1100
+3     1            44            0          696          414
+
+NO configuration exceeds the generic V3 at any level (3330 instances).
+=> coincidence only reduces V3; the conjecture binds only in general position.

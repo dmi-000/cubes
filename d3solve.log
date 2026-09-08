@@ -1,0 +1,19 @@
+TEST:  sum over the four 3-subsets of d2(T)  <=  48 + d3(full)
+
+3599 configurations
+  violations : 0
+  tight      : 2351
+  max (sum - d3) observed: 48   (bound says <= 48)
+
+configurations with sum = 72 (all four subsets at d2=18): 2351
+  their d3 values: {24: 2351}
+
+most common (sum d2, d3) pairs:
+   sum=72  d3=24  : 2351
+   sum=64  d3=24  : 201
+   sum=66  d3=24  : 188
+   sum=68  d3=24  : 178
+   sum=70  d3=24  : 151
+   sum=62  d3=24  : 116
+   sum=60  d3=24  : 64
+   sum=58  d3=24  : 43

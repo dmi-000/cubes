@@ -1,0 +1,18 @@
+DOES SUBSET DATA DETERMINE E?   claim:  E = sum_pairs(own) + 3*T
+
+case                 E   sum own T(full)         own+3T ok
+n=4 record         498       114     128            498 EXACT
+n=4 haar           430       118     104            430 EXACT
+n=5 record        1080       192     284           1044 differs
+n=6 record        2116       292     596           2080 differs
+n=4 haar rnd       492       120     124            492 EXACT
+n=4 haar rnd       432       120     104            432 EXACT
+
+and are those two computable from SUBSETS?
+case            own(full) own(pairs)    T(full)  T(3-subs)
+n=4 record            114        114        128        128
+n=4 haar              118        118        104        104
+n=5 record            192        192        284        320
+n=6 record            292        292        596        632
+n=4 haar rnd          120        120        124        124
+n=4 haar rnd          120        120        104        104

@@ -1,0 +1,17 @@
+CANDIDATE:  TOTAL = sum(own) - V2 + sum_{b>=3} (b-1)(b-2)/2 + 2L + 1
+
+case             own     V2 mobius     pred   actual b-spectrum
+n=4 record       114     66    128      183      183 EXACT  {2: 66, 3: 128}
+n=4 haar         118    116    104      113      113 EXACT  {2: 116, 3: 104}
+n=5 record       192    116    308      393      393 EXACT  {2: 116, 3: 272, 4: 12}
+n=6 record       292    192    622      733      727 differs  {2: 192, 3: 586, 4: 12}
+n=4 rnd          120    114    116      129      129 EXACT  {2: 114, 3: 116}
+n=4 rnd          120    120    108      115      115 EXACT  {2: 120, 3: 108}
+
+AGGREGATE COMPARISON at each n:
+n    PROVED sum V3 <=   ceiling law allows      ratio
+4                 256                  376       1.47
+5                 640                  840       1.31
+6                1280                 1580       1.23
+7                2240                 2660       1.19
+8                3584                 4144       1.16

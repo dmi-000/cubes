@@ -1,0 +1,18 @@
+GENERIC V3 AT DEPTH 1 -- the level the ceiling law fits worst
+
+n     draws    max V3   60n-160 matched max all values
+4        40        84        80         no {84: 1, 80: 2, 76: 3, 72: 8}
+5        40       140       140        YES {140: 1, 132: 1, 128: 6, 124: 3}
+6        40       200       200        YES {200: 1, 192: 1, 180: 3, 176: 5}
+7        40       252       260         no {252: 1, 248: 1, 244: 2, 240: 2}
+8        40       320       320        YES {320: 3, 316: 2, 308: 2, 300: 3}
+
+IF max V3(depth 1) = 60n-160 and the two-body term is <= 10*C(n,2) [P237], then
+   d1 <= (60n-160)/2 + 10*C(n,2) + 2  =  5n^2 + 25n - 78
+
+n     ceiling law  refined bound  better by  record d1
+4             104            102          2         92
+5             180            172          8        156
+6             276            252         24        214
+7             392            342         50        246
+8             528            442         86          -

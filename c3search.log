@@ -1,0 +1,44 @@
+GATE against [P243]/bylevel.log recorded V, E and c -- intermediates, not just c
+  n=4 record 183 ell=1: V=150 (want 150)  E=240 (want 240)  c=1 (want 1)  E-V+c+1=92 vs engine d=92  OK
+  n=4 record 183 ell=2: V=128 (want 128)  E=192 (want 192)  c=1 (want 1)  E-V+c+1=66 vs engine d=66  OK
+  n=4 record 183 ell=3: V=44 (want 44)  E=66 (want 66)  c=1 (want 1)  E-V+c+1=24 vs engine d=24  OK
+
+==============================================================================
+THE RECORDED c=3 CASE (c_check.log): is it degenerate, and is c still 3?
+==============================================================================
+  c_check's ell=2 c=3  total=107  shares a face plane: True
+    1,0,0,0;1,4,-4,12;3,-1,1,-3;5,-1,1,-3
+      ell=1  V= 112 E= 176 c=  1  E-V+c+1=  66  engine d=  34   <-- IDENTITY FAILS   component sizes [112]
+      ell=2  V=  92 E= 138 c=  3  E-V+c+1=  50  engine d=  52   <-- IDENTITY FAILS   component sizes [84, 4, 4]
+      ell=3  V=  38 E=  50 c=  1  E-V+c+1=  14  engine d=  20   <-- IDENTITY FAILS   component sizes [38]
+
+==============================================================================
+SEARCH: c_ell >= 3, split by whether the pipeline is VALID there
+==============================================================================
+level-instances by (shares a face plane, c):
+   degenerate=False c=1   : 417
+   degenerate=False c=2   : 1
+   degenerate=True  c=1   : 235
+   degenerate=True  c=2   : 34
+   degenerate=True  c=3   : 29
+   degenerate=True  c=4   : 28
+   degenerate=True  c=5   : 2
+   degenerate=True  c=6   : 34
+   degenerate=True  c=8   : 59
+   degenerate=True  c=10  : 36
+   degenerate=True  c=11  : 1
+   degenerate=True  c=12  : 30
+   degenerate=True  c=14  : 21
+   degenerate=True  c=16  : 10
+   degenerate=True  c=18  : 2
+   degenerate=True  c=20  : 2
+   degenerate=True  c=22  : 2
+   degenerate=True  c=26  : 1
+   degenerate=True  c=28  : 2
+   degenerate=True  c=30  : 3
+
+c >= 3 on NON-degenerate configurations : 0
+c >= 3 on plane-degenerate configurations : 262
+   ell=3 c=3 sizes=[130, 6, 6]   1,0,0,0;-1,2,-1,3;2,3,2,2;1,-3,3,0;3,-2,2,-3
+   ell=2 c=6 sizes=[4, 4, 2, 2, 2, 2]   1,0,0,0;2,0,0,-6;2,0,0,0;2,0,6,0
+   ell=3 c=8 sizes=[2, 2, 2, 2, 2, 2, 2, 2]   1,0,0,0;2,0,0,-6;2,0,0,0;2,0,6,0
