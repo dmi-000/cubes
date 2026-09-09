@@ -540,7 +540,10 @@ The other three arcs, now measured. All pairwise skew with A; none wraps.
 | B | (4/35, 2/5, −41/35) | (1,1,−4) | s ∈ [**43/105**, ≈0.579411] — SOLVED | 0.1699 | ≥13 |
 | A | (19/3, −7, −11) | (1,−3,−6) | s ∈ [≈2.063979, **19/6**] — SOLVED | 1.103 | 10 |
 | C | (245/29, −295/29, 428/29) | (1,−3/2,9/4) | s ∈ [≈1.167462, ≈47.772089] — SOLVED | 46.605 | ≥13 |
-| D | (2, 1/7, −5/7) — the record | two tangents, see below | widths 1/4 and 5/16 | — | — |
+| D | (2, 1/7, −5/7) — the record | two tangents, see below | **one tangent SOLVED 2026-09-09** ([P296](LEDGER.md#p296)): s ∈ (−2/19, 10695/1007 − 7√2248773/1007) | 0.301751 | — |
+
+*The other tangent of arc D remains SWEPT — its "1/4" is subject to the same warning as arc A's was, and arc A's sweep proved 17% wrong with both ends misplaced.*
+
 
 **All bounds are now solved, not swept** — each is a root of a wall equation on
 the arc's line (quadratic for W4, quartic for W3). Two are exactly rational,

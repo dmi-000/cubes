@@ -359,6 +359,9 @@ with `index_ledger.py` after appending.
 - [Postscript 291](#p291) — the two 67s sit differently: octahedral inside a uniform region, golden ON a wall
 - [Postscript 292](#p292) — the smallest arrangement scale is a staircase in n, finer than every step used
 - [Postscript 293](#p293) — the 727 node has one structural class: the record is the special point, not…
+- [Postscript 294](#p294) — the node's special points solved: the record lies on three of the four arcs…
+- [Postscript 295](#p295) — the 1217 plateau is a SEGMENT, not a point: my step was 14x too coarse to see it
+- [Postscript 296](#p296) — arc D's extent SOLVED; the bracket → wall → polynomial → root chain closed
 
 <!-- INDEX:END -->
 
@@ -20788,3 +20791,221 @@ than the one-class answer, and it was already in hand. That is the condition und
 which a confound survives — so the rule that earned this one is to ask what ELSE
 differs between the things being compared before reporting that they differ, and
 here the answer was sitting in plain sight in the `s` column.
+
+## [VERIFIED] Postscript 294: the 727 node's special points, SOLVED — the record lies on THREE of the four arcs, and nine special points are six compounds
+
+[P293](#p293) established that the four arcs of the 727 node are structurally
+identical at a generic point, and predicted that arcs A, B and C hold special
+points of their own. They do. `src/arc_special.py` finds them by SOLVING rather
+than walking: each arc is an affine line in the ambient Cayley coordinates
+(verified — the arc moves only the sixth cube, whose coordinates are ambient
+12–14), a condition restricted to a line is an exact univariate polynomial, and
+the parameters where extra conditions go tight are its ROOTS.
+
+**CONTROL FIRST.** Arc D's special point is known: `s = 0`, the record. The method
+rediscovers it from the polynomials, along with two others nobody had looked for.
+A method that could not return `s = 0` would have made every number below
+meaningless.
+
+**THE NINE SPECIAL POINTS** (baseline at a generic point of any arc: 192 tight):
+
+    arc   s          tight   count   sixth cube
+    D     -2/19       216     725    (19, 40,  3, -14)
+    D      0          216     727    ( 7, 14,  1,  -5)    the record
+    D      2/9        238     713    ( 9, 16,  1,  -6)
+    A     13/6        216     725    ( 2, 17, -27, -48)
+    A     19/6        216     725    ( 2, 19, -33, -60)
+    B     43/105      216     725    (21, 11, 17, -59)
+    B     16/35       216     727    ( 7,  4,  6, -21)
+    C     164/87      208     723    ( 3, 31, -39,  57)
+    C     132/29      216     727    ( 1, 13, -17,  25)
+
+**AND THEY ARE SIX COMPOUNDS, NOT NINE.** `congruent.py` is a constructive test —
+it returns the witnessing rotation, rather than an invariant that returns
+agreement:
+
+    class 0   725   D@-2/19,  B@43/105
+    class 1   727   D@0,      B@16/35,   C@132/29
+    class 2   713   D@2/9
+    class 3   725   A@13/6
+    class 4   725   A@19/6
+    class 5   723   C@164/87
+
+**THE RECORD LIES ON THREE OF THE FOUR ARCS.** Class 1 is the 727 record, and D, B
+and C each carry a spelling of it. That is what makes the node a node: the arcs
+CROSS at the record. Arc A does not pass through it — solving for where the
+record's sixth cube would sit on arc A's line gives `s = -13/3`, far outside its
+extent (2.0639, 3.1667) — and arc A's two special points are compounds found on no
+other arc. Arc A is the odd one out twice over.
+
+**A PREDICTION MADE AND REFUTED.** Before arc C ran I predicted, on the strength of
+D being congruent to B, that the arcs pair up and that C would partner A with two
+725 points congruent to A's classes. Wrong in every part: C's points are 723 and
+727, one of them the record, and neither is congruent to anything of A's. The
+pairing story was built on a single pair.
+
+**TWO WRONG REPORTS, BOTH CORRECTED BY THE SAME CONTROL.** I reported that arc A's
+special points do not hold the count, concluding the record's arc was unique in
+keeping 727 — then arc B produced a 727 point. I reported THAT as "arc D's `s = 0`
+is not unique" — then `congruent.py` showed it IS the record, respelled, witnessed
+by `g = (1,-1,-1,-1)`. Both times I published the measurement and ran the control
+afterwards. The congruence test is what collapses nine points to six compounds,
+and its own docstring records the same lesson from 2026-09-07: six "top" n = 5
+bases were six spellings of ONE compound, and a sweep extending all six would have
+done six times the work for one answer.
+
+**WHAT IS NOT COVERED, per arc.** Size-2 groups with an INTERIOR minimiser have no
+active coordinate, and `branch_numerator` implements only the breakpoint branch:
+**134 unevaluated on D, 132 on A, 134 on B, 134 on C**. Irrational roots inside the
+extents — algebraic, not testable by evaluating at a rational — number **10, 6, 0,
+4**. A special point could hide in either category. One is already predicted: arc
+D's 713 point (class 2) has no partner on arc B, though B pairs with D on both
+other points and has ZERO irrational roots, so if that partner exists it is among
+B's 134 unevaluated groups.
+
+**THE SAMPLED SWEEP IS NEARLY POWERLESS, AND IS RECORDED AS SUCH.** Special points
+are measure zero in the parameter, so a 41-point rational sweep finds one only by
+landing on it. Measured: 0 of 3 on arc D, 1 of 2 on arc A — and that one is the
+extent's endpoint, which the sweep samples by construction. "No rises the solve did
+not propose" is therefore close to uninformative and must not be read as coverage.
+
+**METHOD NOTE, and it cost two hours.** `dimension._rational_roots` found divisors
+by scanning to `m` rather than `sqrt(m)`: a 9-digit constant term meant 10^9
+iterations, one polynomial took 9.7 s, and the first run burned an hour of CPU
+without finishing. Fixed by pairing divisors around the square root — same sets,
+verified — and that polynomial now takes 0.004 s. `_rational_roots` is also called
+inside `variety_incremental`'s GCD chain, so this had been slowing every variety
+solve in the project, [P289](#p289)'s included. Two guesses at the bottleneck
+preceded the measurement, and both came from profiling the FIRST 30 groups, which
+projected one minute for the whole run; sampling ACROSS the list showed 8% of
+groups timing out. The failures separated by input size, which is the tell that the
+method chose badly rather than that the problem is hard.
+
+## [VERIFIED] Postscript 295: the 1217 count plateau is a SEGMENT, not a point — and the claim that it was a point was a step-size artefact of my own making
+
+**THE CORRECTION FIRST.** In [P288](#p288) and again while drawing the tower I
+reported that the count plateau at 1217 is a single point, on the evidence that
+the count falls 1217 → 1213 at `t = 1/64` along the surviving direction. That step
+is **14× coarser than the minimum feature at n = 7**, which [P292](#p292) measured
+at 1.08e−3 the same day. At 1/1024 and below the count is 1217 again:
+
+    t       1/64   1/256   1/1024   1/4096   1/16384   1/65536
+    count   1213   1213     1217     1217      1217      1217
+
+The plateau was there the whole time; the probe could not see it. This is the
+project's own recorded lesson — "an infinitesimal is exact; a small number is a
+sample" — applied to a number I had measured myself hours earlier and did not
+carry across.
+
+**THE MEASUREMENT.** `src/fibre_boundary.py` brackets the plateau inside the FIBRE
+over 727 — the seventh cube's three coordinates, ambient 15, 16, 17 — with the
+count taken exactly at every step, and re-taken with the wide engine wherever the
+height passes the narrow engine's 512 budget (they agree where both apply).
+
+    direction        inside at        outside at       verdict
+    +e15             t = 1/512        t = 1/266        boundary in between
+    -e15             t = 4/89         t = 1/22         boundary in between
+    +-e16, +-e17     none             --               no plateau point at all
+    +-(1,1,1)        none             --               "
+    (1,-1,0), (0,1,-1), (2,1,-3), (1,-3,2)             "
+
+Ten of the twelve directions — including six that are NOT axis-aligned, because an
+axis-only probe is the failure FAILURE_MODES 11d records — contain no point of the
+plateau down to `1/2^22`, i.e. 2.4e−7. Checked directly: along `e16` the count is
+**1207 at 1/1024, at 1/65536 and at 1/4 194 304** — constant across four orders of
+magnitude, so the record sits on that chamber's boundary rather than inside it.
+
+**SO THE PLATEAU IS ONE-DIMENSIONAL, AND THE RECORD IS NOT AT ITS CENTRE.** The
+segment runs from about `t = -0.0455` to about `t = +0.0020`: roughly **23× further
+in one direction than the other**, with 1217 sitting close to its positive end.
+Nothing predicted that asymmetry and nothing here explains it.
+
+**AN INDEPENDENT CROSS-CHECK, BY A DIFFERENT INSTRUMENT.** `arc_eps.tangents_eps`
+found exactly **1** verified tangent at n = 7, in direction `(1,0,0)` of the
+last-cube slice — that is `e15`. It reaches that by an INFINITESIMAL engine and no
+step size at all, while this measurement reaches the same direction by exact
+rational stepping. Two instruments with different failure modes, one answer.
+
+**AND THE TIGHT SET IS NOT THE COUNT.** Along `e15` the tight set is constant at
+300 while the count changes; off-axis it collapses to 220 immediately. Two
+configurations can hold exactly the same coincidences and count differently, so
+the coincidence variety is a strictly coarser object than the count plateau — the
+two dimensions CONTINUUM_MAP insists on separating, here separated at one point by
+direct measurement rather than by argument.
+
+**A VOID MEASUREMENT, RECORDED BECAUSE IT ALMOST PASSED.** The first version of
+this returned, for all twelve directions, the identical interval "holds to t = 0,
+lost by t = 1/18". Twelve different directions cannot honestly agree to the digit,
+and they did not: `simplest_between(0, x)` returns the largest unit fraction below
+`x`, so the descent walked `hi` down 1/5, 1/6, … 1/18 while the boundary sat near
+1/1024, three orders of magnitude below. The scale was unknown across decades and
+I searched it linearly. Replaced by a two-stage bracket — GEOMETRIC halving to
+find the octave, then simplest-rational refinement inside it. The tell was
+uniformity, which is the same tell as a gate whose two sides are identical strings.
+
+**WHAT THIS DOES NOT ESTABLISH.** These are BRACKETS containing algebraic
+boundaries, not the boundaries; turning one into a root needs the wall polynomial
+restricted to the ray, which `wall_keys.on_line` now supplies and this file does
+not use. And every probe is a STRAIGHT ray: a curved plateau would read as
+lower-dimensional than it is, so "no plateau point off `e15`" is a statement about
+straight lines through the record. The independent evidence that it is genuinely
+1-dimensional is `tangents_eps`'s first-order count of one, not this.
+
+## [VERIFIED] Postscript 296: arc D's extent SOLVED — the last swept row in the table, and the first time the chain bracket → wall → polynomial → root has been closed end to end
+
+**THE DISCREPANCY THAT STARTED IT.** Measuring the 1217 plateau along arc D gave
+the 727 extent as roughly (−0.105, 0.196). `arcs_extend.py` carries (−1/8, 1/4),
+width 0.375, and at `s = 1/5` — inside that interval — the count is 723, not 727.
+
+**WHERE THE RECORDED NUMBER CAME FROM.** MAXIMISER_TAXONOMY's arc table has four
+rows. Three are marked **SOLVED**; arc D's is not — it reads "widths 1/4 and 5/16"
+and was SWEPT. The same file already records why that matters: solving arc A's
+ends "corrected arc A's extent, which the 1/32 sweep had underestimated by 17%
+with both ends misplaced; **every swept extent in this file is suspect to the same
+degree**". Arc D was the row that warning had not yet reached.
+
+**SOLVED, along the tangent `arcs_extend` parameterises:**
+
+    lower   s = -2/19                              = -0.105263157895   exactly rational
+    upper   s = 10695/1007 - 7*sqrt(2248773)/1007  =  0.196487974607   quadratic irrational
+            (root of  1007 x^2 - 21390 x + 4164)
+    width   0.301751        against swept 0.3125 (5/16) and arcs_extend's 0.375
+
+The exact root lies inside the independently obtained bracket (179/911, 56/285) =
+(0.196487377, 0.196491228), which is the check that the two routes describe the
+same wall. The upper end is carried by TWO conditions at once — frame 0, groups
+`((1,2,1),(5,1,-1))` and `((1,2,-1),(5,1,1))`, a ± pair — as a wall reached from
+both sides should be.
+
+**THE CHAIN IS NOW CLOSED, AND THIS IS THE FIRST TIME.** SESSION_STATE has carried
+`bracket → wall → polynomial → root` as unbuilt at every link. Today
+[P288](#p288) supplied the wall keys and `on_line`; [P294](#p294) used them to
+solve special points; this closes the last link on a real boundary:
+
+    bracket      count-stepping puts the end in (179/911, 56/285)
+    wall         the conditions whose polynomials have a root there
+    polynomial   1007 t^2 - 21390 t + 4164 restricted to the arc's line
+    root         10695/1007 - 7 sqrt(2248773)/1007
+
+**AND THE LOWER END IS A POINT WE ALREADY HAD.** `s = -2/19` is one of the special
+points [P294](#p294) returned by solving the wall polynomials — the one where 727
+drops to 725. Solving found it as a root; bracketing found it as a boundary. Same
+point, two roles, two methods.
+
+**WHY THE SOLVE MISSED THE UPPER END, AND WHY THAT IS THE HONEST ACCOUNTING PAYING
+OFF.** `arc_special` searches for RATIONAL roots and reported, for arc D, "10 roots
+IRRATIONAL (algebraic, not testable by rational evaluation)". The upper boundary is
+a quadratic irrational, so it was one of those ten. The gap was recorded rather
+than papered over, and the missing object turned up exactly inside it.
+
+**WHAT IS AND IS NOT SOLVED.** Arc D is TWO crossing arcs — that is why n = 6 has
+two count-plateau tangents. This solves the extent along the tangent
+`arcs_extend.py` parameterises. **The other crossing arc is still swept**, and by
+the same argument its recorded width is suspect. The three other arcs' extents were
+already solved and are untouched by this.
+
+**PROPAGATION.** `arcs_extend.py`'s `(-1/8, 1/4)` is not a bound of the 727
+plateau: it is wider at both ends and contains parameters counting 723 and 719.
+Any chamber enumeration that took it as the arc's extent sampled outside the
+plateau, and `arc_special`'s sweep and candidate filtering used it as the range to
+search.

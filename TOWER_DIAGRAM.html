@@ -1,0 +1,634 @@
+<title>Tower of Cube Compounds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,400&display=swap">
+
+<style>
+  :root{
+    --paper:#eceff0; --card:#f8fafa; --sunk:#e2e8e8;
+    --ink:#13191a; --muted:#5b696b; --faint:#7d8b8d;
+    --rule:#c9d4d5; --rule-soft:#dde5e6;
+    --accent:#0e6a6f; --accent-soft:#d2e6e6; --accent-ink:#0a4f53;
+    --warn:#9a3c2d; --warn-soft:#f2dcd7;
+    --gold:#856418; --gold-soft:#efe4c8;
+    --shadow:0 1px 2px rgba(19,25,26,.06),0 4px 14px rgba(19,25,26,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#0c1011; --card:#141b1c; --sunk:#101718;
+      --ink:#e2e8e8; --muted:#93a3a5; --faint:#758688;
+      --rule:#25302f; --rule-soft:#1c2526;
+      --accent:#54b6ba; --accent-soft:#16302f; --accent-ink:#7fcfd2;
+      --warn:#dd8878; --warn-soft:#2e1c19; --gold:#cba64f; --gold-soft:#2b2415;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0c1011; --card:#141b1c; --sunk:#101718;
+    --ink:#e2e8e8; --muted:#93a3a5; --faint:#758688;
+    --rule:#25302f; --rule-soft:#1c2526;
+    --accent:#54b6ba; --accent-soft:#16302f; --accent-ink:#7fcfd2;
+    --warn:#dd8878; --warn-soft:#2e1c19; --gold:#cba64f; --gold-soft:#2b2415;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.3);
+  }
+
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+    line-height:1.55; margin:0;
+    padding:clamp(1.5rem,4vw,4rem) clamp(1rem,4vw,2rem) 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:66rem;margin:0 auto;}
+  .num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;}
+
+  header{max-width:44rem;margin-bottom:3rem;}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 .9rem;
+  }
+  h1{
+    font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;
+    font-size:clamp(1.9rem,4.6vw,2.9rem);line-height:1.1;margin:0 0 .8rem;
+    text-wrap:balance;letter-spacing:-.015em;
+  }
+  .stand{font-size:1.02rem;color:var(--muted);margin:0;max-width:38rem;}
+
+  h2{
+    font-family:"IBM Plex Serif",Georgia,serif;font-weight:600;
+    font-size:1.3rem;margin:3.5rem 0 .4rem;text-wrap:balance;
+  }
+  h2 + .sub{color:var(--muted);font-size:.92rem;margin:0 0 1.4rem;max-width:44rem;}
+
+  /* ---------- the spine ---------- */
+  .tower{display:flex;flex-direction:column;gap:0;}
+  .rung{
+    display:grid;
+    grid-template-columns:3.4rem minmax(0,1fr);
+    gap:0 1rem;
+  }
+  .gutter{position:relative;display:flex;flex-direction:column;align-items:center;}
+  .gutter::before{
+    content:"";position:absolute;top:0;bottom:0;width:2px;background:var(--rule);
+  }
+  .rung:first-child .gutter::before{top:1.6rem;}
+  .rung:last-child .gutter::before{bottom:calc(100% - 1.6rem);}
+  .node{
+    position:relative;margin-top:1.05rem;width:1.15rem;height:1.15rem;border-radius:50%;
+    background:var(--card);border:2px solid var(--accent);flex:none;
+  }
+  .node.solid{background:var(--accent);}
+  .lvl{
+    font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--faint);
+    margin-top:.45rem;letter-spacing:.04em;
+  }
+
+  .card{
+    background:var(--card);border:1px solid var(--rule-soft);border-radius:.5rem;
+    padding:.95rem 1.1rem;margin-bottom:.7rem;box-shadow:var(--shadow);
+  }
+  .card.pivot{border-color:var(--accent);}
+  .card.break{border-color:var(--warn);}
+
+  .head{display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem .85rem;}
+  .count{
+    font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+    font-size:1.55rem;font-weight:600;letter-spacing:-.02em;line-height:1;
+  }
+  .delta{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--faint);}
+  .adds{font-size:.82rem;color:var(--muted);}
+  .adds code{
+    font-family:"IBM Plex Mono",monospace;font-size:.95em;
+    background:var(--sunk);padding:.1rem .35rem;border-radius:.2rem;
+  }
+  .tag{
+    font-family:"IBM Plex Mono",monospace;font-size:.63rem;letter-spacing:.09em;
+    text-transform:uppercase;padding:.16rem .45rem;border-radius:.2rem;white-space:nowrap;
+  }
+  .tag.iso{background:var(--accent-soft);color:var(--accent-ink);}
+  .tag.free{background:var(--gold-soft);color:var(--gold);}
+  .tag.brk{background:var(--warn-soft);color:var(--warn);}
+
+  .strip{
+    display:flex;flex-wrap:wrap;gap:.35rem 1.5rem;margin-top:.7rem;
+    padding-top:.65rem;border-top:1px solid var(--rule-soft);
+  }
+  .cell{display:flex;flex-direction:column;gap:.05rem;}
+  .cell .k{
+    font-family:"IBM Plex Mono",monospace;font-size:.61rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--faint);
+  }
+  .cell .v{font-family:"IBM Plex Mono",monospace;font-size:.88rem;font-variant-numeric:tabular-nums;}
+  .cell .v.hl{color:var(--accent);font-weight:600;}
+  .cell .v.wr{color:var(--warn);font-weight:600;}
+
+  .glyphs{display:flex;gap:1.15rem;margin-top:.75rem;flex-wrap:wrap;}
+  .gl{display:flex;align-items:center;gap:.45rem;}
+  .gl svg{display:block;flex:none;}
+  .gl .lab{font-size:.72rem;color:var(--muted);line-height:1.25;}
+  .gl .lab b{font-weight:600;color:var(--ink);}
+
+  .note{
+    font-size:.82rem;color:var(--muted);margin:.6rem 0 0;padding-left:.7rem;
+    border-left:2px solid var(--rule);
+  }
+  .note.warn{border-left-color:var(--warn);}
+
+  /* ---------- insets ---------- */
+  .insets{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:1rem;}
+  .inset{
+    background:var(--card);border:1px solid var(--rule-soft);border-radius:.5rem;
+    padding:1.1rem 1.2rem 1.2rem;box-shadow:var(--shadow);
+  }
+  .inset h3{
+    font-family:"IBM Plex Serif",Georgia,serif;font-size:1rem;font-weight:600;
+    margin:0 0 .15rem;
+  }
+  .inset .who{font-family:"IBM Plex Mono",monospace;font-size:.65rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--faint);margin:0 0 .85rem;}
+  .inset p{font-size:.85rem;color:var(--muted);margin:.75rem 0 0;}
+  .inset svg{width:100%;height:auto;display:block;}
+
+  table{border-collapse:collapse;width:100%;font-size:.82rem;}
+  .scroll{overflow-x:auto;}
+  th,td{padding:.32rem .6rem;text-align:right;border-bottom:1px solid var(--rule-soft);
+    font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;}
+  th:first-child,td:first-child{text-align:left;}
+  th{font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);
+    font-weight:500;border-bottom-color:var(--rule);}
+  tr.sup td{color:var(--gold);}
+
+  .legend{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.9rem 1.6rem;
+    background:var(--sunk);border-radius:.5rem;padding:1.1rem 1.25rem;margin-top:1rem;
+  }
+  .legend .gl .lab{font-size:.78rem;}
+
+  footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--rule);
+    font-size:.82rem;color:var(--muted);max-width:44rem;}
+  footer b{color:var(--ink);font-weight:600;}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Exact region counts · n concentric cubes</p>
+  <h1>Tower of Cube Compounds</h1>
+  <p class="stand">Each rung is the best configuration known at its level, and the shape of the
+  region it sits in. The rungs are not merely a list of numbers: one contains the next, until
+  n&nbsp;=&nbsp;9, where the chain breaks and then forks.</p>
+</header>
+
+<h2>The spine</h2>
+<p class="sub">Reading down the page climbs the tower. A solid node marks a record whose
+coincidence variety is a single isolated point; a hollow node marks one that lies on a curve.</p>
+
+<div class="tower">
+
+  <!-- n=3 -->
+  <div class="rung">
+    <div class="gutter"><div class="node solid"></div><div class="lvl">n=3</div></div>
+    <div class="card">
+      <div class="head">
+        <span class="count">67</span>
+        <span class="tag iso">isolated · rank = ambient</span>
+        <span class="adds">two <em>non-congruent</em> maximisers — octahedral in ℚ(√2), golden in ℚ(√5)</span>
+      </div>
+      <div class="strip">
+        <div class="cell"><span class="k">ambient</span><span class="v">6</span></div>
+        <div class="cell"><span class="k">tight</span><span class="v">60 / 72</span></div>
+        <div class="cell"><span class="k">walls</span><span class="v">6 / 9</span></div>
+        <div class="cell"><span class="k">lineality</span><span class="v hl">0</span></div>
+        <div class="cell"><span class="k">free dirs</span><span class="v">0</span></div>
+      </div>
+      <p class="note">The only level pinned at <em>first</em> order — rank 6 equals the ambient
+      dimension. Every rational record below needs second order to be pinned. Both are
+      irrational, so no rational search reaches either: they are punctures, not peaks.</p>
+    </div>
+  </div>
+
+  <!-- n=4 -->
+  <div class="rung">
+    <div class="gutter"><div class="node solid"></div><div class="lvl">n=4</div></div>
+    <div class="card">
+      <div class="head">
+        <span class="count">183</span>
+        <span class="tag iso">isolated in both senses</span>
+        <span class="adds">a plateau in the <em>climb</em>, a point in the variety</span>
+      </div>
+      <div class="strip">
+        <div class="cell"><span class="k">ambient</span><span class="v">9</span></div>
+        <div class="cell"><span class="k">tight</span><span class="v">108</span></div>
+        <div class="cell"><span class="k">walls</span><span class="v">12</span></div>
+        <div class="cell"><span class="k">lineality</span><span class="v">1</span></div>
+        <div class="cell"><span class="k">free dirs</span><span class="v hl">0</span></div>
+        <div class="cell"><span class="k">min feature</span><span class="v">1.58 × 10⁻²</span></div>
+      </div>
+      <p class="note">A cube here is a half-turn, so the record sits at Cayley infinity: this
+      chart has no point for it, and an earlier reading of “3-dimensional plateau” was a
+      no-op artefact of probing a coordinate that cannot move.</p>
+    </div>
+  </div>
+
+  <!-- n=5 -->
+  <div class="rung">
+    <div class="gutter"><div class="node solid"></div><div class="lvl">n=5</div></div>
+    <div class="card">
+      <div class="head">
+        <span class="count">393</span>
+        <span class="delta">+210</span>
+        <span class="tag iso">isolated</span>
+        <span class="adds">adds <code>2,1,1,1</code></span>
+      </div>
+      <div class="strip">
+        <div class="cell"><span class="k">ambient</span><span class="v">12</span></div>
+        <div class="cell"><span class="k">tight</span><span class="v">168</span></div>
+        <div class="cell"><span class="k">walls</span><span class="v">18</span></div>
+        <div class="cell"><span class="k">lineality</span><span class="v">1</span></div>
+        <div class="cell"><span class="k">free dirs</span><span class="v hl">0</span></div>
+        <div class="cell"><span class="k">min feature</span><span class="v">1.58 × 10⁻²</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- n=6 -->
+  <div class="rung">
+    <div class="gutter"><div class="node solid"></div><div class="lvl">n=6</div></div>
+    <div class="card pivot">
+      <div class="head">
+        <span class="count">727</span>
+        <span class="delta">+334</span>
+        <span class="tag iso">isolated</span>
+        <span class="adds">adds <code>7,14,1,−5</code> — and sits where <em>four arcs cross</em></span>
+      </div>
+      <div class="strip">
+        <div class="cell"><span class="k">ambient</span><span class="v">15</span></div>
+        <div class="cell"><span class="k">tight</span><span class="v">216</span></div>
+        <div class="cell"><span class="k">walls</span><span class="v">27</span></div>
+        <div class="cell"><span class="k">lineality</span><span class="v">1</span></div>
+        <div class="cell"><span class="k">free dirs</span><span class="v hl">0</span></div>
+        <div class="cell"><span class="k">count tangents</span><span class="v">2 — a node</span></div>
+        <div class="cell"><span class="k">min feature</span><span class="v">6.91 × 10⁻³</span></div>
+      </div>
+      <p class="note">The pivot of the whole tower: everything above extends <em>this one point</em>.
+      See the node inset below.</p>
+    </div>
+  </div>
+
+  <!-- n=7 -->
+  <div class="rung">
+    <div class="gutter"><div class="node"></div><div class="lvl">n=7</div></div>
+    <div class="card">
+      <div class="head">
+        <span class="count">1217</span>
+        <span class="delta">+490</span>
+        <span class="tag free">on a curve · 1 direction</span>
+        <span class="adds">adds <code>4,−3,−4,−4</code></span>
+      </div>
+      <div class="strip">
+        <div class="cell"><span class="k">ambient</span><span class="v">18</span></div>
+        <div class="cell"><span class="k">tight</span><span class="v">300</span></div>
+        <div class="cell"><span class="k">walls</span><span class="v">51</span></div>
+        <div class="cell"><span class="k">lineality</span><span class="v wr">2</span></div>
+        <div class="cell"><span class="k">free dirs</span><span class="v wr">1</span></div>
+        <div class="cell"><span class="k">min feature</span><span class="v">1.08 × 10⁻³</span></div>
+      </div>
+      <p class="note warn"><b>The rigidity ends here.</b> Rank stops keeping up with ambient — each
+      added cube brings 3 coordinates but only 2 rank from now on — so lineality reaches 2 and a
+      direction survives to all orders. The curve preserves every coincidence but <em>not</em> the
+      count, which falls 1217 → 1213 immediately. The record is still pinned as a maximiser.</p>
+    </div>
+  </div>
+
+  <!-- n=8 -->
+  <div class="rung">
+    <div class="gutter"><div class="node"></div><div class="lvl">n=8</div></div>
+    <div class="card">
+      <div class="head">
+        <span class="count">1895</span>
+        <span class="delta">+678</span>
+        <span class="tag free">2 directions</span>
+        <span class="adds">adds <code>24,−24,24,−61</code></span>
+      </div>
+      <div class="strip">
+        <div class="cell"><span class="k">ambient</span><span class="v">21</span></div>
+        <div class="cell"><span class="k">tight</span><span class="v">384</span></div>
+        <div class="cell"><span class="k">walls</span><span class="v">75</span></div>
+        <div class="cell"><span class="k">lineality</span><span class="v wr">3</span></div>
+        <div class="cell"><span class="k">free dirs</span><span class="v wr">2</span></div>
+        <div class="cell"><span class="k">min feature</span><span class="v">1.08 × 10⁻³</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- n=9 -->
+  <div class="rung">
+    <div class="gutter"><div class="node"></div><div class="lvl">n=9</div></div>
+    <div class="card break">
+      <div class="head">
+        <span class="count">2787</span>
+        <span class="delta">+892</span>
+        <span class="tag brk">the chain breaks</span>
+        <span class="adds"><em>drops</em> <code>24,−24,24,−61</code>, adds two cubes</span>
+      </div>
+      <p class="note warn"><b>Not an extension.</b> Every rung below is the one before it plus a
+      cube. This one is the <em>seven</em> of 1217 plus two new cubes — the eighth cube of 1895 is
+      discarded. The tower is not a nested chain after n = 8.</p>
+      <div class="strip">
+        <div class="cell"><span class="k">ambient</span><span class="v">24</span></div>
+        <div class="cell"><span class="k">tight</span><span class="v">420 / 396</span></div>
+        <div class="cell"><span class="k">walls</span><span class="v">83 / 76</span></div>
+        <div class="cell"><span class="k">lineality</span><span class="v wr">4 / 5</span></div>
+        <div class="cell"><span class="k">free dirs</span><span class="v wr">11 / 15</span></div>
+        <div class="cell"><span class="k">min feature</span><span class="v">2.23 × 10⁻⁴</span></div>
+      </div>
+      <p class="note">Two values in every column, because two <em>different</em> representatives both
+      count 2787 with identical depth profiles. See the fork inset.</p>
+    </div>
+  </div>
+
+  <!-- n=10 -->
+  <div class="rung">
+    <div class="gutter"><div class="node"></div><div class="lvl">n=10</div></div>
+    <div class="card">
+      <div class="head">
+        <span class="count">3925</span>
+        <span class="delta">+1138</span>
+        <span class="tag brk">representative-dependent</span>
+        <span class="adds">adds <code>6555,6555,6497,6555</code></span>
+      </div>
+      <p class="note warn">Reached only from the <em>original</em> n = 9 representative. The
+      simplified one — same count, same profile at every depth — gives <b>3921</b>.</p>
+    </div>
+  </div>
+
+</div>
+
+<h2>Two different shapes, which must not be conflated</h2>
+<p class="sub">A record sits in two regions at once, and they have different dimensions. Confusing
+them is the single easiest mistake to make here.</p>
+
+<div class="legend">
+  <div class="gl">
+    <svg width="62" height="46" viewBox="0 0 62 46" aria-hidden="true">
+      <g stroke="var(--rule)" stroke-width="1.2">
+        <line x1="31" y1="23" x2="58" y2="10"/><line x1="31" y1="23" x2="56" y2="34"/>
+        <line x1="31" y1="23" x2="8"  y2="6"/> <line x1="31" y1="23" x2="6"  y2="28"/>
+        <line x1="31" y1="23" x2="34" y2="44"/>
+      </g>
+      <circle cx="31" cy="23" r="4.2" fill="var(--accent)"/>
+    </svg>
+    <span class="lab"><b>Coincidence variety.</b> Configurations holding the same tight
+    conditions. Walls meet at a point — nothing can move.</span>
+  </div>
+  <div class="gl">
+    <svg width="62" height="46" viewBox="0 0 62 46" aria-hidden="true">
+      <path d="M4 38 C 22 6, 42 40, 58 9" fill="none" stroke="var(--gold)" stroke-width="2"/>
+      <g stroke="var(--rule)" stroke-width="1.2">
+        <line x1="31" y1="23" x2="56" y2="35"/><line x1="31" y1="23" x2="7" y2="10"/>
+      </g>
+      <circle cx="31" cy="23" r="4.2" fill="var(--gold)"/>
+    </svg>
+    <span class="lab"><b>A surviving direction.</b> From n = 7 the variety is a curve: coincidences
+    are preserved along it, the count is not.</span>
+  </div>
+  <div class="gl">
+    <svg width="62" height="46" viewBox="0 0 62 46" aria-hidden="true">
+      <ellipse cx="31" cy="23" rx="25" ry="13" fill="var(--accent-soft)" stroke="var(--accent)"
+               stroke-width="1.4"/>
+      <circle cx="31" cy="23" r="4.2" fill="var(--accent)"/>
+    </svg>
+    <span class="lab"><b>Count plateau.</b> Configurations with the same region count. A different
+    object with different boundaries — 0, 0, 2, 1, 1 tangents at n = 4…8.</span>
+  </div>
+</div>
+
+<h2>Two structures worth drawing</h2>
+<p class="sub">The 727 node explains why the tower has a single trunk; the n = 9 fork explains why
+it stops being a chain.</p>
+
+<div class="inset" style="margin-top:1rem">
+  <h3>The 727 node: its extents, and what stands over it</h3>
+  <p class="who">n = 5 base · n = 6 arcs, arc D to scale in s · n = 7 fibres</p>
+<svg viewBox="0 0 880 512" role="img" aria-label="Three layers: the 393 base, four arcs with arc D to scale in its parameter carrying the nested 727 and 1217 extents, and the n=7 fibres above.">
+
+  <!-- ===================== n = 7 ===================== -->
+  <text x="4" y="14" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--faint)">n = 7 — a fibre over each copy of 727: the added cube's three coordinates, drawn as one line</text>
+  <defs>
+    <linearGradient id="fade2" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="var(--accent)" stop-opacity="1"/>
+      <stop offset=".6" stop-color="var(--accent)" stop-opacity="1"/>
+      <stop offset="1" stop-color="var(--accent)" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#fade2)" stroke-width="1.8" stroke-linecap="round">
+    <line x1="200" y1="300" x2="252" y2="40"/>
+    <line x1="470" y1="300" x2="522" y2="40"/>
+    <line x1="590" y1="300" x2="642" y2="40"/>
+  </g>
+  <!-- the 1217 plateau: one direction inside the fibre, asymmetric about the record -->
+  <line x1="222" y1="191" x2="250" y2="51" stroke="var(--gold)" stroke-width="6"
+        stroke-linecap="round" opacity=".85"/>
+  <path d="M240 82 L 204 268" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="4 3"
+        opacity=".75" fill="none"/>
+  <path d="M247 66 L 636 66" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="4 3"
+        opacity=".8" fill="none"/>
+  <circle cx="247" cy="66" r="7" fill="var(--accent)"/>
+  <circle cx="247" cy="66" r="12" fill="none" stroke="var(--gold)" stroke-width="1.6"/>
+  <circle cx="516" cy="66" r="7" fill="var(--accent)"/>
+  <circle cx="636" cy="66" r="7" fill="var(--accent)"/>
+  <g font-family="IBM Plex Mono, monospace" text-anchor="middle">
+    <text x="247" y="48" font-size="11" fill="var(--ink)" font-weight="600">1217</text>
+    <text x="247" y="90" font-size="9" fill="var(--muted)">4,−3,−4,−4</text>
+    <text x="516" y="90" font-size="9" fill="var(--muted)">7,7,9,7</text>
+    <text x="636" y="90" font-size="9" fill="var(--muted)">15,1,1,−1</text>
+    <text x="430" y="56" font-size="9.5" fill="var(--muted)">≅ the same extension, lifted</text>
+    <text x="760" y="62" font-size="10" fill="var(--warn)">no fibre</text>
+    <text x="760" y="75" font-size="9" fill="var(--warn)">nothing to lift</text>
+  </g>
+  <text x="266" y="126" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--gold)">plateau in the fibre: (1/512, 1/266) up · (4/89, 1/22) down</text>
+
+  <!-- ===================== n = 6 ===================== -->
+  <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--faint)">
+    <text x="4" y="100">n = 6 — four arcs. ARC D IS TO SCALE in s;</text>
+    <text x="4" y="112">the other three each use their own scale.</text>
+  </g>
+
+  <!-- arc D: metric, with the three nested extents drawn ON it -->
+  <line x1="200" y1="120" x2="200" y2="400" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="200" y1="390" x2="200" y2="134" stroke="var(--warn)" stroke-width="22" opacity=".22"/>
+  <line x1="200" y1="376" x2="200" y2="170" stroke="var(--accent)" stroke-width="12"/>
+  <line x1="200" y1="376" x2="200" y2="270" stroke="var(--gold)" stroke-width="5"/>
+  <text x="166" y="262" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--warn)"
+        text-anchor="middle" transform="rotate(-90 166 262)">SWEPT — not a bound</text>
+  <g font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--warn)" text-anchor="end">
+    <text x="186" y="132">1/4</text><text x="186" y="398">−1/8</text>
+  </g>
+  <circle cx="200" cy="376" r="6" fill="var(--warn)"/>
+  <circle cx="200" cy="304" r="6.5" fill="var(--accent)"/>
+  <circle cx="200" cy="304" r="12" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity=".6"/>
+  <circle cx="200" cy="153" r="6" fill="var(--muted)"/>
+  <g font-family="IBM Plex Mono, monospace" font-size="10">
+    <text x="220" y="150" fill="var(--muted)">713 · s = 2/9 — outside the plateau</text>
+    <text x="220" y="176" fill="var(--accent)">727 plateau ends 0.19648797…</text>
+    <text x="220" y="274" fill="var(--gold)">1217 shadow ends ≈ 0.0497</text>
+    <text x="220" y="298" fill="var(--ink)" font-weight="600">727 · s = 0 · the record</text>
+    <text x="220" y="382" fill="var(--warn)">725 · s = −2/19 · shared wall</text>
+  </g>
+
+  <!-- the congruence tie: three points of ONE compound, at three different parameters -->
+  <path d="M200 304 L 590 304" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="4 3"
+        opacity=".8" fill="none"/>
+  <text x="530" y="296" font-family="IBM Plex Mono, monospace" font-size="9.5"
+        fill="var(--muted)" text-anchor="middle">≅ one compound, three spellings</text>
+
+  <!-- the other three arcs, each on its own scale -->
+  <g stroke-width="2" fill="none">
+    <line x1="470" y1="150" x2="470" y2="400" stroke="var(--accent)"/>
+    <line x1="590" y1="150" x2="590" y2="400" stroke="var(--accent)"/>
+    <line x1="760" y1="150" x2="760" y2="400" stroke="var(--warn)" stroke-dasharray="6 4"/>
+  </g>
+  <circle cx="470" cy="304" r="6.5" fill="var(--accent)"/>
+  <circle cx="470" cy="304" r="12" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity=".6"/>
+  <circle cx="590" cy="304" r="6.5" fill="var(--accent)"/>
+  <circle cx="590" cy="304" r="12" fill="none" stroke="var(--accent)" stroke-width="1.2" opacity=".6"/>
+  <circle cx="470" cy="372" r="5" fill="var(--muted)"/>
+  <circle cx="590" cy="366" r="5" fill="var(--muted)"/>
+  <circle cx="760" cy="240" r="5" fill="var(--warn)"/>
+  <circle cx="760" cy="350" r="5" fill="var(--warn)"/>
+  <g font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)">
+    <text x="482" y="376">725</text><text x="602" y="370">723</text>
+    <text x="772" y="244" fill="var(--warn)">725</text>
+    <text x="772" y="354" fill="var(--warn)">725</text>
+  </g>
+  <g font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">
+    <text x="200" y="422" fill="var(--ink)">arc D</text>
+    <text x="470" y="422" fill="var(--faint)">arc B</text>
+    <text x="590" y="422" fill="var(--faint)">arc C</text>
+    <text x="760" y="422" fill="var(--warn)">arc A</text>
+  </g>
+  <g font-family="IBM Plex Mono, monospace" font-size="9" text-anchor="middle">
+    <text x="200" y="435" fill="var(--accent)">TO SCALE in s</text>
+    <text x="470" y="435" fill="var(--faint)">own scale · s = 16/35</text>
+    <text x="590" y="435" fill="var(--faint)">own scale · s = 132/29</text>
+    <text x="760" y="435" fill="var(--warn)">own scale · s = 13/6, 19/6</text>
+  </g>
+
+  <!-- ===================== n = 5 ===================== -->
+  <path d="M160 462 L 160 470 L 800 470 L 800 462" fill="none" stroke="var(--rule)" stroke-width="1.4"/>
+  <path d="M480 470 L 480 484" fill="none" stroke="var(--rule)" stroke-width="1.4"/>
+  <circle cx="480" cy="492" r="6.5" fill="var(--accent)"/>
+  <g font-family="IBM Plex Mono, monospace">
+    <text x="498" y="490" font-size="11" fill="var(--ink)" font-weight="600">393</text>
+    <text x="498" y="503" font-size="9" fill="var(--muted)">n = 5 — all four arcs lie in ONE fibre over it</text>
+  </g>
+</svg>
+
+<p>Nine special points across the four arcs collapse to <b>six compounds</b> under a constructive
+congruence test. Ringed points are the record's class, joined by the dashed tie: arcs D, B and C
+each carry a <em>different</em> configuration congruent to it — at s = 0, 16/35 and 132/29
+respectively — and arc A carries none. <b>The tie is a congruence, not a coincidence of parameter</b>:
+the three are drawn at one height for legibility, and since arc D's height is metric while B's and
+C's are not, each point's own s is printed beneath its arc.</p>
+<p><b>Arc D is drawn to scale, so its three extents can be read off directly.</b> The 727 plateau
+runs from <span class="num">s = −2/19</span>, exactly rational, to
+<span class="num">0.196487974607…</span> — a quadratic irrational, root of
+<span class="num">1007x² − 21390x + 4164</span>. The 1217 plateau nests inside it, sharing the
+lower wall and ending about four times earlier. The pale bar is the figure that was on file: it
+is wider at both ends, and the 713 special point at <span class="num">s = 2/9</span> sits inside
+it but <em>outside</em> the plateau, counting 713 rather than 727.</p>
+<p><b>The chain closes here for the first time.</b> Count-stepping brackets the upper end in
+(179/911, 56/285); the wall keys name the two conditions — a ± pair — whose polynomials have a
+root there; restricted to the arc's line that polynomial is the quadratic above; its root lies
+inside the bracket that found it. The solve had missed this end because it is irrational and the
+search looks for rational roots — it was one of the ten the run reported as "irrational, not
+testable". <em>Arc D's other crossing tangent is still swept.</em></p>
+<p><b>The three extents are sub-segments of arc D, drawn on it.</b> They are nested — 1217
+inside 727 inside the swept figure — so they appear as concentric strokes on the one line rather
+than as bars beside it. Each is a set of parameters <em>on</em> the arc; setting them side by side
+would place them somewhere the arc is not.</p>
+<p><b>The gold stroke and the gold dot are one object.</b> The 1217 plateau is at least
+<em>2-dimensional</em>: it runs one way inside the fibre — bracketed at (1/512, 1/266) upward and
+(4/89, 1/22) downward, about 23× longer down than up — and the other way along arc D itself, which
+is the bar. The bar is the plateau's shadow on the arc, not a second thing; the dashed line is the
+projection. That the plateau has a base direction at all was invisible until it was looked for:
+the instrument that reported "one tangent" at n = 7 searches the last-cube slice only.</p>
+<p><b>1217 is above the picture, not on it.</b> Its first six cubes are exactly the record, so it
+projects onto arc D's ringed point, and the seventh cube's three coordinates are the fibre over
+it. The upper dashed tie is the lower one lifted: applying each witnessing rotation to 1217's
+seventh cube gives <code>7,7,9,7</code> over arc B and <code>15,1,1,−1</code> over arc C, both
+counting 1217 and both congruent to it. Fibres fade rather than stop — a fibre has no end.</p>
+</div>
+
+
+<div class="insets">
+  <div class="inset">
+    <h3>The n = 9 fork — one count, two compounds</h3>
+    <p class="who">identical at every depth · not interchangeable</p>
+    <svg viewBox="0 0 300 172" role="img" aria-label="One node splitting into two representatives that extend differently.">
+      <g fill="none" stroke="var(--rule)" stroke-width="1.6">
+        <path d="M40 86 C 90 86, 100 40, 150 40"/>
+        <path d="M40 86 C 90 86, 100 132, 150 132"/>
+        <path d="M186 40 L 246 40"/><path d="M186 132 L 246 132"/>
+      </g>
+      <circle cx="40" cy="86" r="6" fill="var(--accent)"/>
+      <circle cx="168" cy="40" r="6" fill="var(--accent)"/>
+      <circle cx="168" cy="132" r="6" fill="var(--warn)"/>
+      <g font-family="IBM Plex Mono, monospace" font-size="10">
+        <text x="14" y="108" fill="var(--muted)">2787</text>
+        <text x="120" y="26" fill="var(--muted)">original</text>
+        <text x="112" y="156" fill="var(--muted)">simplified</text>
+        <text x="252" y="44" fill="var(--ink)" font-weight="600">3925</text>
+        <text x="252" y="136" fill="var(--warn)" font-weight="600">3921</text>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--faint)">
+        <text x="120" y="60">h = 113 786</text>
+        <text x="120" y="120">h = 140</text>
+      </g>
+    </svg>
+    <p>Both count 2787 with the same depth profile at all nine depths, and were treated as one
+    configuration. They are not: <b>396 vs 420</b> tight conditions, <b>76 vs 83</b> walls,
+    lineality <b>5 vs 4</b>. Simplifying the representative moved the point, and the n = 10 chain
+    broke with it.</p>
+  </div>
+</div>
+
+<h2>The columns, side by side</h2>
+<p class="sub">Ambient dimension is 3(n−1) throughout. Rank is what the walls actually pin.</p>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>n</th><th>count</th><th>ambient</th><th>tight</th><th>walls</th><th>rank</th>
+        <th>lineality</th><th>free dirs</th><th>min feature</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>3</td><td>67</td><td>6</td><td>60 / 72</td><td>6 / 9</td><td>6</td><td>0</td><td>0</td><td>—</td></tr>
+    <tr><td>4</td><td>183</td><td>9</td><td>108</td><td>12</td><td>8</td><td>1</td><td>0</td><td>1.58e−2</td></tr>
+    <tr><td>5</td><td>393</td><td>12</td><td>168</td><td>18</td><td>11</td><td>1</td><td>0</td><td>1.58e−2</td></tr>
+    <tr><td>6</td><td>727</td><td>15</td><td>216</td><td>27</td><td>14</td><td>1</td><td>0</td><td>6.91e−3</td></tr>
+    <tr><td>7</td><td>1217</td><td>18</td><td>300</td><td>51</td><td>16</td><td>2</td><td>1</td><td>1.08e−3</td></tr>
+    <tr><td>8</td><td>1895</td><td>21</td><td>384</td><td>75</td><td>18</td><td>3</td><td>2</td><td>1.08e−3</td></tr>
+    <tr><td>9</td><td>2787</td><td>24</td><td>420 / 396</td><td>83 / 76</td><td>20 / 19</td><td>4 / 5</td><td>11 / 15</td><td>2.23e−4</td></tr>
+    <tr class="sup"><td>9</td><td>2785 †</td><td>24</td><td>468</td><td>99</td><td>20</td><td>4</td><td>—</td><td>—</td></tr>
+    <tr><td>10</td><td>3925</td><td>27</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  </tbody>
+</table>
+</div>
+<p class="note">† 2785 is <em>superseded</em> — 2787 replaced it — but it is the configuration the
+linear law <span class="num">walls = 24n − 117</span> was fitted to at n = 9, and it reproduces
+that law exactly. Neither 2787 representative does, so the law describes n = 6…8 of the
+<em>current</em> records, not n = 6…9.</p>
+
+<footer>
+  <p><b>What this does not show.</b> The min-feature row is the closest pair of arrangement
+  vertices lying on two-cube intersection curves; a vertex off those curves is not enumerated,
+  so a smaller feature could exist. The “free dirs” column counts isolated directions in a
+  projective space — it is <em>not</em> a dimension, and the sequence 0, 0, 0, 1, 2, 11 has no
+  known law: a fitted one was predicted and refuted. The n = 6 and n = 7 entries were recomputed
+  after a defect was found in the polynomial used to test them.</p>
+  <p>Every number here is exact rational or field arithmetic — no floating point, no sampling
+  except where a bracket is explicitly stated.</p>
+</footer>
+
+</div>

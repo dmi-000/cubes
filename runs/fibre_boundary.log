@@ -1,0 +1,14 @@
+record count 1217, ambient 18, fibre = coords 15,16,17
+  +e15        inside at t=1/512          outside at t=1/266          (ratio 1.92)
+  -e15        inside at t=4/89           outside at t=1/22           (ratio 1.01)
+  +e16        no point of the plateau found down to 1/2^22
+  -e16        no point of the plateau found down to 1/2^22
+  +e17        no point of the plateau found down to 1/2^22
+  -e17        no point of the plateau found down to 1/2^22
+  +d(1,1,1)   no point of the plateau found down to 1/2^22
+  -d(1,1,1)   no point of the plateau found down to 1/2^22
+  +d(1,-1,0)  no point of the plateau found down to 1/2^22
+  +d(0,1,-1)  no point of the plateau found down to 1/2^22
+  +d(2,1,-3)  no point of the plateau found down to 1/2^22
+  +d(1,-3,2)  no point of the plateau found down to 1/2^22
+written data/fibre_boundary.json

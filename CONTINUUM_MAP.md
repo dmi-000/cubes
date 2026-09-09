@@ -393,9 +393,27 @@ record itself while the others are interior points, so the table confounds *whic
 extent, gives **20 / 2 / 2, identical to A, B and C**.
 
 **So the node has one structural class, and the record is the special POINT, not the special
-ARC.** That predicts arcs A, B and C each hold their own special points. It does not say those
-points reach 727 or that any of them extends — [OQ 17](OPEN_QUESTIONS.md)'s extension question
-is untouched, since nothing here was extended to n = 7.
+ARC.** That predicted arcs A, B and C each hold their own special points.
+
+**They do, and the prediction's payoff was negative — [P294](LEDGER.md#p294).** Solving each
+arc's wall polynomials (rather than walking `s`) gives nine special points, with arc D's `s = 0`
+rediscovered as the control. `congruent.py` collapses the nine to **six compounds**:
+
+    class 0   725   D@-2/19,  B@43/105
+    class 1   727   D@0,      B@16/35,   C@132/29      <- the record
+    class 2   713   D@2/9
+    class 3   725   A@13/6
+    class 4   725   A@19/6
+    class 5   723   C@164/87
+
+**The record lies on three of the four arcs** — which is what makes the node a node: the arcs
+cross there. Arc A does not reach it (the record's sixth cube would sit at `s = -13/3`, far
+outside A's extent) and carries two compounds found on no other arc.
+
+So there is **no new extension base here**: every 727 among the special points is the record
+respelled. [OQ 17](OPEN_QUESTIONS.md)'s extension question stays open, and is now sharper —
+the tower extends one point of one arc because the other arcs' special points are either that
+same compound or count less.
 
 ## Not yet mapped
 

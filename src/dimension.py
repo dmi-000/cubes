@@ -529,7 +529,21 @@ def _rational_roots(poly):
         return {F(0)}
     a0, an = abs(ic[0]), abs(ic[-1])
     def divisors(m):
-        return [d for d in range(1, abs(m) + 1) if m % d == 0] or [1]
+        # Pair divisors around sqrt(m) instead of scanning to m.  The scan was
+        # O(m): a 9-digit constant term cost 10^9 iterations for what needs
+        # ~3x10^4, and one polynomial took 9.7 s where the whole arc campaign
+        # should take a minute.  Same set, same order of magnitude of divisors --
+        # only the search is different, so no result changes.
+        m = abs(m)
+        if m == 0:
+            return [1]
+        out, i = set(), 1
+        while i * i <= m:
+            if m % i == 0:
+                out.add(i)
+                out.add(m // i)
+            i += 1
+        return sorted(out) or [1]
     for pnum in divisors(a0):
         for q in divisors(an):
             for sgn in (1, -1):

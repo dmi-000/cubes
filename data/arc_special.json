@@ -1,0 +1,202 @@
+{
+ "what": "special points of the 727 arcs, by solving the wall polynomials",
+ "control": "arc D must return s = 0, the 727 record",
+ "method": "roots of each loose condition restricted to the arc line, then VERIFIED by recomputing min_l1_argmin -- a frozen branch locates candidates, not answers",
+ "arcs": {
+  "D": {
+   "arc": "D",
+   "s0": "1/8",
+   "extent": [
+    "-1/8",
+    "1/4"
+   ],
+   "baseline_tight": 192,
+   "n_loose_evaluated": 1102,
+   "n_unevaluated": 134,
+   "n_irrational_roots_in_extent": 10,
+   "irrational_note": "a special point at an irrational parameter cannot be verified by evaluating there with rational arithmetic. Counted, not ignored.",
+   "unevaluated_note": "size-2 groups with an interior minimiser; branch_numerator covers only the breakpoint branch. These could hide a special point.",
+   "candidates_in_extent": [
+    {
+     "s": "-2/19",
+     "predicted_by": 24,
+     "tight": 216,
+     "baseline": 192,
+     "rises": true,
+     "region_count": "725"
+    },
+    {
+     "s": "0",
+     "predicted_by": 22,
+     "tight": 216,
+     "baseline": 192,
+     "rises": true,
+     "region_count": "727"
+    },
+    {
+     "s": "2/9",
+     "predicted_by": 46,
+     "tight": 238,
+     "baseline": 192,
+     "rises": true,
+     "region_count": "713"
+    }
+   ],
+   "special": [
+    "-2/19",
+    "0",
+    "2/9"
+   ],
+   "sampled_crosscheck": {
+    "points": 41,
+    "rises_found": [],
+    "not_proposed_by_solve": [],
+    "IS_NOT_THE_METHOD": "a sample can find a miss, never rule one out"
+   }
+  },
+  "A": {
+   "arc": "A",
+   "s0": "3",
+   "extent": [
+    "20639/10000",
+    "19/6"
+   ],
+   "baseline_tight": 192,
+   "n_loose_evaluated": 1104,
+   "n_unevaluated": 132,
+   "n_irrational_roots_in_extent": 6,
+   "irrational_note": "a special point at an irrational parameter cannot be verified by evaluating there with rational arithmetic. Counted, not ignored.",
+   "unevaluated_note": "size-2 groups with an interior minimiser; branch_numerator covers only the breakpoint branch. These could hide a special point.",
+   "candidates_in_extent": [
+    {
+     "s": "13/6",
+     "predicted_by": 24,
+     "tight": 216,
+     "baseline": 192,
+     "rises": true,
+     "region_count": "725"
+    },
+    {
+     "s": "253/114",
+     "predicted_by": 4,
+     "tight": 192,
+     "baseline": 192,
+     "rises": false,
+     "region_count": "727"
+    },
+    {
+     "s": "19/6",
+     "predicted_by": 24,
+     "tight": 216,
+     "baseline": 192,
+     "rises": true,
+     "region_count": "725"
+    }
+   ],
+   "special": [
+    "13/6",
+    "19/6"
+   ],
+   "sampled_crosscheck": {
+    "points": 41,
+    "rises_found": [
+     {
+      "s": "19/6",
+      "tight": 216
+     }
+    ],
+    "not_proposed_by_solve": [],
+    "IS_NOT_THE_METHOD": "a sample can find a miss, never rule one out"
+   }
+  },
+  "B": {
+   "arc": "B",
+   "s0": "1/2",
+   "extent": [
+    "43/105",
+    "2897/5000"
+   ],
+   "baseline_tight": 192,
+   "n_loose_evaluated": 1102,
+   "n_unevaluated": 134,
+   "n_irrational_roots_in_extent": 0,
+   "irrational_note": "a special point at an irrational parameter cannot be verified by evaluating there with rational arithmetic. Counted, not ignored.",
+   "unevaluated_note": "size-2 groups with an interior minimiser; branch_numerator covers only the breakpoint branch. These could hide a special point.",
+   "candidates_in_extent": [
+    {
+     "s": "43/105",
+     "predicted_by": 24,
+     "tight": 216,
+     "baseline": 192,
+     "rises": true,
+     "region_count": "725"
+    },
+    {
+     "s": "16/35",
+     "predicted_by": 24,
+     "tight": 216,
+     "baseline": 192,
+     "rises": true,
+     "region_count": "727"
+    }
+   ],
+   "special": [
+    "43/105",
+    "16/35"
+   ],
+   "sampled_crosscheck": {
+    "points": 41,
+    "rises_found": [
+     {
+      "s": "43/105",
+      "tight": 216
+     }
+    ],
+    "not_proposed_by_solve": [],
+    "IS_NOT_THE_METHOD": "a sample can find a miss, never rule one out"
+   }
+  },
+  "C": {
+   "arc": "C",
+   "s0": "2",
+   "extent": [
+    "467/400",
+    "11943/250"
+   ],
+   "baseline_tight": 192,
+   "n_loose_evaluated": 1102,
+   "n_unevaluated": 134,
+   "n_irrational_roots_in_extent": 4,
+   "irrational_note": "a special point at an irrational parameter cannot be verified by evaluating there with rational arithmetic. Counted, not ignored.",
+   "unevaluated_note": "size-2 groups with an interior minimiser; branch_numerator covers only the breakpoint branch. These could hide a special point.",
+   "candidates_in_extent": [
+    {
+     "s": "164/87",
+     "predicted_by": 16,
+     "tight": 208,
+     "baseline": 192,
+     "rises": true,
+     "region_count": "723"
+    },
+    {
+     "s": "132/29",
+     "predicted_by": 22,
+     "tight": 216,
+     "baseline": 192,
+     "rises": true,
+     "region_count": "727"
+    }
+   ],
+   "special": [
+    "164/87",
+    "132/29"
+   ],
+   "sampled_crosscheck": {
+    "points": 41,
+    "rises_found": [],
+    "not_proposed_by_solve": [],
+    "IS_NOT_THE_METHOD": "a sample can find a miss, never rule one out"
+   }
+  }
+ }
+}

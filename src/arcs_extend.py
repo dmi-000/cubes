@@ -29,7 +29,15 @@ ARCS={
  # arc D's documented extent is width 1/4 and 5/16, NOT a 1/100 window: a narrow
  # window forces chamber representatives with large denominators (s=1/128 gives
  # a height-3598 cube) which the height filter then discards, emptying the arc.
- 'D (the recorded 727)': ([F(2),F(1,7),F(-5,7)], [F(-1),F(-1,7),F(3,14)], F(-1,8), F(1,4)),
+ # CORRECTED 2026-09-09 [P296]: (-1/8, 1/4) was a SWEPT figure and is not a bound
+ # of the 727 plateau -- it is wider at both ends and contains s = 1/5 (count 723)
+ # and s = 1/4 (count 719). The extent along this tangent is now SOLVED:
+ #     lower  s = -2/19                              exactly rational
+ #     upper  s = 10695/1007 - 7*sqrt(2248773)/1007  root of 1007x^2 - 21390x + 4164
+ # The upper end is irrational, so it is kept here as the largest rational strictly
+ # inside it; anything needing the true end must use the root, not this.
+ 'D (the recorded 727)': ([F(2),F(1,7),F(-5,7)], [F(-1),F(-1,7),F(3,14)],
+                          F(-2,19), F(179,911)),
  'A': ([F(19,3),F(-7),F(-11)], [F(1),F(-3),F(-6)], F(20639,10000), F(19,6)),
  'B': ([F(4,35),F(2,5),F(-41,35)], [F(1),F(1),F(-4)], F(43,105), F(5794,10000)),
  'C': ([F(245,29),F(-295,29),F(428,29)], [F(1),F(-3,2),F(9,4)], F(11675,10000), F(477720,10000)),

@@ -1,0 +1,18 @@
+D  s0=1/8       groups 2592 | tight 192 | loose-on-moving-cube 1102 | UNEVALUATED 134 (interior minimiser, no branch)
+   1102 polynomials | 102 with a real root inside the extent | 3 distinct rational candidates | 10 roots IRRATIONAL (algebraic, not testable by rational evaluation)
+   s=-2/19      tight 216 (baseline 192)  <== SPECIAL
+   s=0          tight 216 (baseline 192)  <== SPECIAL
+   s=2/9        tight 238 (baseline 192)  <== SPECIAL
+A  s0=3         groups 2592 | tight 192 | loose-on-moving-cube 1104 | UNEVALUATED 132 (interior minimiser, no branch)
+   1104 polynomials | 58 with a real root inside the extent | 3 distinct rational candidates | 6 roots IRRATIONAL (algebraic, not testable by rational evaluation)
+   s=13/6       tight 216 (baseline 192)  <== SPECIAL
+   s=19/6       tight 216 (baseline 192)  <== SPECIAL
+B  s0=1/2       groups 2592 | tight 192 | loose-on-moving-cube 1102 | UNEVALUATED 134 (interior minimiser, no branch)
+   1102 polynomials | 48 with a real root inside the extent | 2 distinct rational candidates | 0 roots IRRATIONAL (algebraic, not testable by rational evaluation)
+   s=43/105     tight 216 (baseline 192)  <== SPECIAL
+   s=16/35      tight 216 (baseline 192)  <== SPECIAL
+C  s0=2         groups 2592 | tight 192 | loose-on-moving-cube 1102 | UNEVALUATED 134 (interior minimiser, no branch)
+   1102 polynomials | 42 with a real root inside the extent | 2 distinct rational candidates | 4 roots IRRATIONAL (algebraic, not testable by rational evaluation)
+   s=164/87     tight 208 (baseline 192)  <== SPECIAL
+   s=132/29     tight 216 (baseline 192)  <== SPECIAL
+written data/arc_special.json
