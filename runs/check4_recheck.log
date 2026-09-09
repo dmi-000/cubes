@@ -1,0 +1,13 @@
+n=6: 822 REAL concurrence points
+     3 planes / 1 cubes: 32
+     3 planes / 2 cubes: 112
+     3 planes / 3 cubes: 584
+     4 planes / 2 cubes: 72
+     4 planes / 4 cubes: 12
+     6 planes / 2 cubes: 8
+     6 planes / 3 cubes: 2
+   (1,1,1,1)-type points [>=4 planes from >=4 distinct cubes]: 12
+      ['1', '-11/19', '-1/19']  cubes [0, 2, 3, 4]
+      ['-1', '11/19', '1/19']  cubes [0, 2, 3, 4]
+      ['0', '1', '2/3']  cubes [0, 2, 3, 4]
+      ['0', '-1', '-2/3']  cubes [0, 2, 3, 4]

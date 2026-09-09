@@ -22,14 +22,14 @@
 ## Prompt as sent
 
 ```text
-Build a fast exact region counter in C++ and run a falsification campaign against the region-count ceiling conjectures. Work in /Users/dmi/carroll. All context you need is on disk; read these first, in this order:
+Build a fast exact region counter in C++ and run a falsification campaign against the region-count ceiling conjectures. Work in ~/carroll. All context you need is on disk; read these first, in this order:
 
-1. /Users/dmi/carroll/CPP_SPEC.md — the complete spec for what you're building (number system, algorithm, validation gates, campaign phases, conjectures). Follow it exactly; the design decisions there (integer homogeneous coordinates via plane-triple Cramer, int128 with a small 256-bit helper for centroids, canonical gcd-reduced vertex keys) are deliberate and analyzed for overflow — do not substitute floating point or chained interpolation.
-2. /Users/dmi/carroll/certify_six.py — the reference implementation your C++ must match: `exact_count_config` is the exact algorithm to port 1:1 including every assert (facet groups of exactly 2, phantom facets join equal labels, real facets flip exactly the owning cubes' bits, single outside region, coincident-plane owner classes). These asserts caught real bugs during development; they are the correctness net.
-3. /Users/dmi/carroll/mt_sim.py — the validated seed chain (numpy MT19937 + legacy polar gaussian + scipy quaternion conventions + rationalization). Port bit-exactly.
-4. /Users/dmi/carroll/breakdown.py and the tail of /Users/dmi/carroll/six_cube_search_results.md — background on what's being tested and the per-subset structure found so far.
+1. ~/carroll/CPP_SPEC.md — the complete spec for what you're building (number system, algorithm, validation gates, campaign phases, conjectures). Follow it exactly; the design decisions there (integer homogeneous coordinates via plane-triple Cramer, int128 with a small 256-bit helper for centroids, canonical gcd-reduced vertex keys) are deliberate and analyzed for overflow — do not substitute floating point or chained interpolation.
+2. ~/carroll/certify_six.py — the reference implementation your C++ must match: `exact_count_config` is the exact algorithm to port 1:1 including every assert (facet groups of exactly 2, phantom facets join equal labels, real facets flip exactly the owning cubes' bits, single outside region, coincident-plane owner classes). These asserts caught real bugs during development; they are the correctness net.
+3. ~/carroll/mt_sim.py — the validated seed chain (numpy MT19937 + legacy polar gaussian + scipy quaternion conventions + rationalization). Port bit-exactly.
+4. ~/carroll/breakdown.py and the tail of ~/carroll/six_cube_search_results.md — background on what's being tested and the per-subset structure found so far.
 
-Ground truth oracle: /Users/dmi/carroll/exact_search_results.jsonl (seeds 40+, counts and depth histograms from the validated Python pipeline; the user's background search may still be appending to it — read-only for you). Seeds 0-39 counts are the BATCH list inside /Users/dmi/carroll/make_seed_viewer.py.
+Ground truth oracle: ~/carroll/exact_search_results.jsonl (seeds 40+, counts and depth histograms from the validated Python pipeline; the user's background search may still be appending to it — read-only for you). Seeds 0-39 counts are the BATCH list inside ~/carroll/make_seed_viewer.py.
 
 HARD GATES, in order — do not start any campaign until all pass:
   G1: --selftest axial case returns exactly 121 with depth histogram {1:24,...,5:24,6:1} (see spec for the integer (p,0,0,r) quaternion construction).
@@ -43,10 +43,10 @@ Then, per the spec:
   Phase C: breakdown analysis (per-cube depth-1 and per-pair depth-2 distributions of the top configs; identify whether the depth-3=164 / depth-4=102 sums are ever exceeded or are conserved-at-max; summarize the evidence for/against each conjecture C1-C6).
 
 Deliverables:
-  /Users/dmi/carroll/cube_regions.cpp (single file, C++17, no external deps; build with clang++ -O2 -std=c++17)
-  /Users/dmi/carroll/run_campaign.py (parallel driver + merge + violation watch)
-  campaign shard outputs merged to /Users/dmi/carroll/campaign_results.jsonl (do NOT touch exact_search_results.jsonl)
-  an appended section in /Users/dmi/carroll/six_cube_search_results.md with the campaign findings
+  ~/carroll/cube_regions.cpp (single file, C++17, no external deps; build with clang++ -O2 -std=c++17)
+  ~/carroll/run_campaign.py (parallel driver + merge + violation watch)
+  campaign shard outputs merged to ~/carroll/campaign_results.jsonl (do NOT touch exact_search_results.jsonl)
+  an appended section in ~/carroll/six_cube_search_results.md with the campaign findings
 Do not modify any existing validated Python file. Budget: a few hours of compute is fine; prioritize gate-passing correctness over campaign breadth.
 
 Your final message must state: gate results (exact numbers), configs/second achieved, seeds covered, new records with their quats and breakdowns, whether ANY conjecture was violated (with the violating config's quats if so), and where every deliverable lives.

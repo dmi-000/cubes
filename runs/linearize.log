@@ -1,0 +1,18 @@
+k5: 252 polys built in 121s, lineality 8
+   chart 1/8: 236 monomials, 252 eqs -> EMPTY (no constant monomial column)                              7.3s
+   chart 2/8: 236 monomials, 252 eqs -> EMPTY (no constant monomial column)                              6.7s
+   chart 3/8: 121 monomials, 252 eqs -> inconclusive (kernel dim 82 admits constant=1)                   15.9s
+   chart 4/8: 121 monomials, 252 eqs -> inconclusive (kernel dim 82 admits constant=1)                   16.1s
+   chart 5/8: 345 monomials, 252 eqs -> EMPTY (no constant monomial column)                              6.7s
+   chart 6/8: 439 monomials, 252 eqs -> EMPTY (no constant monomial column)                              3.0s
+   chart 7/8: 439 monomials, 252 eqs -> EMPTY (no constant monomial column)                              2.0s
+   chart 8/8: 439 monomials, 252 eqs -> EMPTY (no constant monomial column)                              2.0s
+k6: 252 polys built in 121s, lineality 8
+   chart 1/8: 140 monomials, 252 eqs -> EMPTY (no constant monomial column)                              3.2s
+   chart 2/8: 234 monomials, 252 eqs -> EMPTY (no constant monomial column)                              1.8s
+   chart 3/8: 234 monomials, 252 eqs -> EMPTY (no constant monomial column)                              1.4s
+   chart 4/8: 234 monomials, 252 eqs -> EMPTY (no constant monomial column)                              1.5s
+   chart 5/8:  61 monomials, 252 eqs -> inconclusive (kernel dim 22 admits constant=1)                   5.8s
+   chart 6/8:  61 monomials, 252 eqs -> inconclusive (kernel dim 22 admits constant=1)                   6.4s
+   chart 7/8: 140 monomials, 252 eqs -> EMPTY (no constant monomial column)                              3.8s
+   chart 8/8: 234 monomials, 252 eqs -> EMPTY (no constant monomial column)                              2.6s

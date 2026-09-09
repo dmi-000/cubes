@@ -1,0 +1,21 @@
+=== arc B : through ('4/35', '2/5', '-41/35') along ('1', '1', '-4') ===
+  727 on 1 run(s) over s in [-30,30] at step 1/16; total 3 of 961 samples
+     [7/16, 9/16]  width 1/8
+  endpoints of the widest run, bisected to 2^-14:
+     lower  727 down to s=0.409545898   then None
+     upper  727 up   to s=0.579345703   then None
+  chambers inside the widest run: 11
+     first walls at s = 7/16, 439/960, 31/64, 473/960, 1/2, 65/128
+  wrap test: s=+1000 -> 691, s=-1000 -> 691, s=INF -> 693   does not wrap
+
+=== arc C : through ('245/29', '-295/29', '428/29') along ('1', '-3/2', '9/4') ===
+  727 on 2 run(s) over s in [-30,30] at step 1/16; total 463 of 961 samples
+     [19/16, 30]  width 461/16
+     [-75/16, -75/16]  width 0
+  endpoints of the widest run, bisected to 2^-14:
+     lower  727 down to s=1.167549133   then None
+     upper  727 up   to s=30.056304932   then None
+  chambers inside the widest run: 12
+     first walls at s = 19/16, 1221/640, 17929/3840, 12883/1920, 139/20, 3797/480
+  wrap test: s=+1000 -> 715, s=-1000 -> 707, s=INF -> 689   does not wrap
+

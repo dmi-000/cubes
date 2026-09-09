@@ -1,0 +1,12 @@
+  count A/B     stat A        stat B          stat C (principled)
+    123/119     240/218       -272/-258           -8/-10     
+    123/131     240/248       -272/-280           -8/-8      
+    123/119     240/224       -272/-256           -8/-8      
+    123/115     240/230       -272/-270           -8/-10     
+    123/103     240/248       -272/-280           -8/-8      
+    119/123     218/244       -258/-276          -10/-8      
+
+  stat A: orders 17 of 27 non-tied (63%)   [3 ties]
+  stat B: orders 10 of 27 non-tied (37%)   [3 ties]
+  stat C: orders  7 of  9 non-tied (78%)   [21 ties]
+  baseline 50%; raw real-incidence count scored 57%

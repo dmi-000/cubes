@@ -1,0 +1,37 @@
+727: 27 walls, ambient 15 -- parallel streaming, 12 workers
+   stage  1/27: on disk, 2 chambers -- skipped
+   stage  2/27: on disk, 4 chambers -- skipped
+   stage  3/27: on disk, 8 chambers -- skipped
+   stage  4/27: on disk, 16 chambers -- skipped
+   stage  5/27: on disk, 32 chambers -- skipped
+   stage  6/27: on disk, 64 chambers -- skipped
+   stage  7/27: on disk, 128 chambers -- skipped
+   stage  8/27: on disk, 192 chambers -- skipped
+   stage  9/27: on disk, 336 chambers -- skipped
+   stage 10/27: on disk, 480 chambers -- skipped
+   stage 11/27: on disk, 672 chambers -- skipped
+   stage 12/27: on disk, 1,344 chambers -- skipped
+   stage 13/27: on disk, 2,688 chambers -- skipped
+   stage 14/27: on disk, 5,376 chambers -- skipped
+   stage 15/27: on disk, 10,752 chambers -- skipped
+   stage 16/27: on disk, 16,128 chambers -- skipped
+   stage 17/27: on disk, 23,040 chambers -- skipped
+   stage 18/27: on disk, 46,080 chambers -- skipped
+   stage 19/27: on disk, 92,160 chambers -- skipped
+   stage 20/27: on disk, 183,040 chambers -- skipped
+   stage 21/27: on disk, 273,920 chambers -- skipped
+   stage 22/27: on disk, 528,960 chambers -- skipped
+   stage 23/27: on disk, 1,009,920 chambers -- skipped
+   stage 24/27: on disk, 1,490,880 chambers -- skipped
+   stage 25/27: on disk, 2,981,760 chambers -- skipped
+   stage 26/27: on disk, 3,727,200 chambers -- skipped
+   stage 27: 12/96 shards done (35750s)
+   stage 27: 24/96 shards done (70330s)
+   stage 27: 36/96 shards done (104956s)
+   stage 27: 48/96 shards done (142112s)
+   stage 27: 60/96 shards done (181698s)
+   stage 27: 72/96 shards done (221704s)
+   stage 27: 84/96 shards done (262405s)
+   stage 27: 96/96 shards done (303350s)
+   stage 27/27: 4,621,728 chambers  (303364s, 12 workers)
+727: 4,621,728 chambers after 27 stages

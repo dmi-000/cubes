@@ -1,0 +1,6 @@
+n=6 record 727: 27 walls, rank 14 of 15
+   k=2:   351 subsets ->   0 crossable | beyond {} | best None (DROP -) | 0 uneval | 1s
+   k=3:  2925 subsets ->   9 crossable | beyond {723: 2, 719: 2, 717: 2} | best 723 (DROP 4) | 12 uneval | 5s
+n=7 record 1217: 51 walls, rank 16 of 18
+   k=2:  1275 subsets ->   0 crossable | beyond {} | best None (DROP -) | 0 uneval | 4s
+   k=3: 20825 subsets exceeds the cap, skipped

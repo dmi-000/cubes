@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Execute /Users/dmi/carroll/CENSUS_BOUND_SPEC.md in FEASIBILITY-FIRST mode — this is the last gap in max(3)=67, the inequality Σ_v(deg_v−2) ≤ 92 on the top diagram (equivalently d1 ≤ 48). Working directory /Users/dmi/carroll. Read the spec first, and READ PROOF_67.md §5 AND §5.1 (the reduction lead) — they are the analytic context.
+Execute ~/carroll/CENSUS_BOUND_SPEC.md in FEASIBILITY-FIRST mode — this is the last gap in max(3)=67, the inequality Σ_v(deg_v−2) ≤ 92 on the top diagram (equivalently d1 ≤ 48). Working directory ~/carroll. Read the spec first, and READ PROOF_67.md §5 AND §5.1 (the reduction lead) — they are the analytic context.
 
 Your PRIMARY deliverable this run is a feasibility verdict with concrete numbers, NOT a completed proof. Do NOT burn large compute on a full classification or 6-D certified covering before the estimates say it will terminate. Specifically produce:
 - Approach 1 (Euler weight classification): count the realizable active-face triples (a,b,c) that can be simultaneously equi-projected + active + top, over a large random config scan — how far below the naive 3·3·3·2 does the activity/top restriction cut, and does it plausibly cap Σ(deg−2) at 92?

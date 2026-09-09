@@ -1,0 +1,5 @@
+candidate conditions: 720
+GATE: conditions active at the known 727 cube: 36
+Q1: Groebner basis of the 727 pattern has 3 elements; is_zero_dimensional=True
+Q1b: 1 real solution point(s) of the 727 pattern
+Q2: 684 infeasible, 0 feasible augmentations

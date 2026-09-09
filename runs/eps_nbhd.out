@@ -1,0 +1,16 @@
+line 9, defining normals [2, 0, 3] and [3, 2, 0]
+chambers along the line at step 1/8: 11
+
+chamber  0  letter  0  t=2          counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+chamber  1  letter  1  t=39/16      counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+chamber  2  letter  2  t=49/16      counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+chamber  3  letter  3  t=55/16      counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+chamber  4  letter  4  t=61/16      counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+chamber  5  letter  5  t=17/4       counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+chamber  6  letter  6  t=9/2        counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+chamber  7  letter  7  t=37/8       counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+chamber  8  letter  8  t=43/8       counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+chamber  9  letter  9  t=119/16     counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+chamber 10  letter 10  t=179/16     counts by (s1,s2): (715, 721, 715, 721, 727, 721, 715, 721, 715)  
+
+letters occurring more than once, and whether their neighbourhoods agree:

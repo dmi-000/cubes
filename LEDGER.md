@@ -347,6 +347,18 @@ with `index_ledger.py` after appending.
 - [Postscript 279](#p279) — weight 10 is CODIMENSION 2 in both realisations — so `T = 60` is overdetermined by 3; plus a…
 - [Postscript 280](#p280) — the second weight-10 family SOLVED — an exact rational curve, codimension 2 confirmed, and a…
 - [Postscript 281](#p281) — `T` is a sum of IN-CONTEXT weights, not standalone ones — my premise was wrong, and the…
+- [Postscript 282](#p282) — `T <= 48` is the LAST BRICK of max(4) = 183 — the star property that would prove it is…
+- [Postscript 283](#p283) — the tower carries EXACTLY ONE optimal 4-core, at every level from n=4 to n=8
+- [Postscript 284](#p284) — the two-body term grows SUBLINEARLY while the three-body term grows quadratically — `k <= 4`…
+- [Postscript 285](#p285) — the n=10 provenance gap resolved — a "simplified representative" that is identical at n=9 is…
+- [Postscript 286](#p286) — continua are plateaus in the COUNT with wall structure underneath — extension varies along…
+- [Postscript 287](#p287) — the 183's "3-dimensional plateau" is a NO-OP ARTEFACT — it is isolated in both senses
+- [Postscript 288](#p288) — the wall polynomials were reconstructible all along — and asking for the key found a wrong…
+- [Postscript 289](#p289) — nothing happens "at n = 7": lineality crosses 2. Its `lineality − 1` law was REFUTED…
+- [Postscript 290](#p290) — the "24 walls per cube" window rests its n = 9 rung on a superseded record; the two…
+- [Postscript 291](#p291) — the two 67s sit differently: octahedral inside a uniform region, golden ON a wall
+- [Postscript 292](#p292) — the smallest arrangement scale is a staircase in n, finer than every step used
+- [Postscript 293](#p293) — the 727 node has one structural class: the record is the special point, not…
 
 <!-- INDEX:END -->
 
@@ -6084,8 +6096,10 @@ spike has ZERO WIDTH: the signal at every finite distance is exactly zero, so
 no refinement schedule converts a rational climb into the irrational optimum.
 This is not "the climb needs smaller steps" — there is no gradient to follow at
 any scale. Contrast n=4, where the record sits on a 3-DIMENSIONAL continuum
-(lattice probe: 26 = 3^3 - 1 neighbours keep 183, identical at steps 1/32 and
-1/128, so the local structure is conical).
+*(**WITHDRAWN 2026-09-08, [P287](#p287)**: those 26 neighbours are NO-OPS — cube 1 of the
+183 is a half-turn with `w = 0`, and the probe multiplies its deltas by `w`. All 26 are
+byte-identical to the record. The 183 count plateau is 0-dimensional.)* ~~(lattice probe: 26 = 3^3 - 1 neighbours keep 183, identical at steps 1/32 and
+1/128, so the local structure is conical).~~
 
 **BASIN SIZE AS A CLASSIFICATION AXIS.** It works, with one caveat that must
 be stated or the number is meaningless: a basin is not a property of a
@@ -6100,8 +6114,13 @@ wide restarts) and log-uniform height seeding, measured:
                                         census-informed seeds
 
 That is a genuine third axis alongside count and dimension, and it is the one
-that predicts findability. Note it does not track dimension: 183 sits on a
-3-dimensional set and still has a basin under 1/24, because 3 dimensions
+that predicts findability. Note it does not track dimension: ~~183 sits on a
+3-dimensional set and still has a basin under 1/24, because 3 dimensions~~
+*(**CORRECTED 2026-09-08, [P287](#p287): the 183 is 0-dimensional; the
+3-dimensional reading was a no-op artefact. The basin observation stands on its
+own measurement, but this SENTENCE's reasoning does not — a tiny basin on a
+0-dimensional set is unremarkable, so 183 is no longer evidence that basin size
+is independent of dimension.**) because 3 dimensions
 inside 9 is thin.
 
 **BETTER SEEDING, demonstrated rather than argued.** What actually found 183
@@ -14049,7 +14068,7 @@ That census was taken at the outer-component walls. It remains true of those wal
 but it is **no longer a statement about the records' own plateau boundaries**, and at
 the corrected boundaries only n=7's upper (1215) and n=9's lower (2783) have been
 evaluated exactly — both still -2. The other three are W3 quartic roots whose exact
-Z[sqrt d] form needs the quartic factored ([`n8_lower.py`](n8_lower.py) shows the
+Z[sqrt d] form needs the quartic factored ([`n8_lower.py`](src/n8_lower.py) shows the
 1895 lower quartic does factor). **Four of six data points are now unverified; the
 census is not withdrawn, it is unfinished.**
 
@@ -19796,3 +19815,976 @@ remains the general question. But the family that produces three weight-10 pairs
 six, and it fails for a reason — swallowing — that no amount of choosing better angles addresses.
 
 Files: `t60_solve.py`, `t60_solve.log`.
+
+<a id="p282"></a>
+
+## [VERIFIED] Postscript 282: `T <= 48` is the LAST BRICK of max(4) = 183 — the star property that would prove it is refuted, but breaking the star costs more than it buys
+
+*2026-09-08.* User: *"assume it is true and see where it leads — maybe somewhere useful, maybe
+a contradiction."* Both happened.
+
+**1. WHERE IT LEADS: the whole conjecture.** The level-1 anatomy `d1 = W0/2 + T + c1 + 1`
+([P272]) is exact. With `W0 <= 84` ([P275], open), `c1 = 1`, and **`T <= 48` assumed**:
+
+    d1  <=  42 + 48 + 1 + 1  =  92          exactly the record's d1
+    max(4)  <=  92 + 66 + 24 + 1  =  183    exactly the record
+
+**`T <= 48` is the last brick.** With the other caps it closes `max(4) = 183`.
+
+**2. NO CONTRADICTION AT HIGHER n, and an exact structure instead.** At every record
+`T = 10k + 6m` exactly, `k` = pairs at weight 10:
+
+| n | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|
+| `T` | **48** | 76 | 88 | 96 | 104 |
+| `8*C(n,2)` | **48 — tight** | 80 | 120 | 168 | 224 |
+| `k` | 3 | **4** | **4** | 3 | 2 |
+
+`T <= 8*C(n,2)` holds everywhere but binds ONLY at n = 4, so "8 per pair" is an n=4 accident,
+not a law — higher n cannot refute the assumption. `k` peaks at 4 and falls while pairs grow
+6 → 28: [P225]'s frustration, now with a count.
+
+**3. THE CHEAPEST REFUTATION ATTEMPT FAILS.** Two-body weight is IN CONTEXT and removing cubes
+only UNSWALLOWS, so a 4-subset's weights are `>=` the parent's — making record 4-subsets
+strictly favourable ground for a violation. Over all 4-subsets of the n=5..8 records:
+**0 violations, max `T` = 48**, attained by the subset that IS the 183.
+
+**4. THE STAR PROPERTY — perfect at every record.** The weight-10 pairs always share a cube:
+
+| n | weight-10 pairs | degree sequence | hub | weight-8 pairs |
+|---|---|---|---|---|
+| 4 | (0,1)(0,2)(0,3) | {0:3, 1:1, 2:1, 3:1} | **0** | none |
+| 5 | (0,4)(1,4)(2,4)(3,4) | {4:4, rest 1} | **4** | none |
+| 6 | (0,4)(1,4)(2,4)(3,4) | {4:4, rest 1} | **4** | none |
+| 7 | (0,4)(1,4)(3,4) | {4:3, rest 1} | **4** | none |
+| 8 | (0,4)(1,4) | {4:2, rest 1} | **4** | none |
+
+Never a triangle, never a disjoint pair, and **no weight-8 pair anywhere**. A star on n vertices
+has `<= n-1` edges, so this would give `k <= 3` at n=4 — most of the way to `T <= 48`.
+
+**5. AND THE STAR IS REFUTED.** It cannot be a theorem: `(0,1)` and `(2,3)` are disjoint, so
+weight 10 on each constrains `q1` and `q3*conj(q2)` independently — 2 + 2 conditions on 9
+degrees of freedom, no obstruction. Built directly, with both disjoint pairs placed on [P280]'s
+curves by construction: **5 configurations have both at weight 10 in context.** The star holds
+at every maximiser and is not a property of configurations.
+
+*(An earlier run of this construction returned 0 and I read it as "swallowing collapses
+disjoint weight-10 pairs, the star has a mechanism". That lasted one message: the candidate
+list for `r2` was too narrow. Standalone `(10,10)` occurs 7 times and 5 survive assembly. A
+null result from a hand-picked candidate set is a statement about the candidate set.)*
+
+**6. BUT BREAKING THE STAR COSTS MORE THAN IT BUYS.** On those 5:
+
+    record (star)          [10, 10, 10, 6, 6, 6]  T = 48
+    disjoint pair, best    [10,  2,  2, 2, 6, 10]  T = 32
+
+The second weight-10 pair is bought by collapsing the other four to 2, 2, 2, 6. **`T` maxes at
+32 there, against 48 for the star.** So the star is a BUDGET, not a prohibition — the same
+trade-off shape as [P273]'s `w <= B` and Theorem S.
+
+**Status.** `T <= 48` survived every test run today: higher-n records, all record 4-subsets, and
+the construction built to break it. Max `T` found anywhere remains **48**, at the record and at
+the 4-subset of the 393 that is the record. The `k <= 3` route to proving it is closed.
+
+**Caveat, stated because it is load-bearing:** the 5 star-refuting configurations share one
+`(q2, q3)` and differ only in cube 1 — so the refutation rests on ONE witness family, not five
+independent ones.
+
+Files: `assume_T48.py`, `subset_T.py`, `star_test.py`, `disjoint10.py`, `disjoint10_why.py`,
+`disjoint10_T.py`, and their `.log`s.
+
+<a id="p283"></a>
+
+## [VERIFIED] Postscript 283: the tower carries EXACTLY ONE optimal 4-core, at every level from n=4 to n=8
+
+*2026-09-08.* User: *"what could we say about the tower and its supporting structures if we
+proceed assuming [T <= 48] were true."*
+
+**Measured, unconditionally.** The 4-subset counts of every tower record:
+
+| n | record | #4-subsets | best | # attaining 183 | spread |
+|---|---|---|---|---|---|
+| 4 | 183 | 1 | 183 | **1** | {183} |
+| 5 | 393 | 5 | 183 | **1** | 183, 179x3, 171 |
+| 6 | 727 | 15 | 183 | **1** | 183 … 159 |
+| 7 | 1217 | 35 | 183 | **1** | 183 … 147 |
+| 8 | 1895 | 70 | 183 | **1** | 183 … 141 |
+
+**183 is the best 4-subset at every level, and exactly ONE subset attains it — never zero,
+never two — while the number of available subsets grows 1 → 70.**
+
+**Conditionally on Hypothesis T** (`max(4) = 183`), that reads: the tower carries a UNIQUE
+OPTIMAL 4-CORE, preserved unchanged from n = 4 to n = 8, and **no cube added anywhere up the
+tower ever forms a second optimal 4-layer with any three others**. The second-best is 179 at
+every level (three of them), a gap of 4 that never closes.
+
+**Why this is worth having.** It converts the tower from a sequence of counts into a structure
+with a distinguished core plus a decorated remainder, and it makes a sharp prediction: any
+n = 9 or n = 10 record built by extension should still contain exactly one 183. A record with
+TWO would say the extension strategy had found a genuinely different foundation; a record with
+none would say the tower had left its own core behind. Both are cheap to check on
+`n9_hunt`/`extend_n10` output and neither has been looked for.
+
+**Scope, stated plainly.** Hypothesis T is n=4-specific — `T <= 8*C(n,2)` binds only at n = 4
+([P282]) — so it constrains the tower's FOUNDATION, not its growth. The natural generalisation
+that would constrain growth is `k <= 4`: at most four pairs at two-body weight 10, at any n.
+Records give k = 3, 4, 4, 3, 2, and [P282] showed extra weight-10 pairs are purchasable but
+ruinously expensive (T = 32 against 48). That is the conjecture to test next, not this one.
+
+Files: `tower_conditional.py`, `tower_conditional.log`.
+
+<a id="p284"></a>
+
+## [VERIFIED] Postscript 284: the two-body term grows SUBLINEARLY while the three-body term grows quadratically — `k <= 4` holds, `T = 8n+40` is refuted
+
+*2026-09-08.* User: *"let's explore the consequences of assuming `k <= 4`."* Measured across
+every record, `W0` and `T` computed directly rather than inferred.
+
+| n | total | `d1` | `W0` | `T` | `k` | nonzero pairs | `C(n,2)` | `T/d1` |
+|---|---|---|---|---|---|---|---|---|
+| 4 | 183 | 92 | 84 | 48 | 3 | 6 | 6 | **52 %** |
+| 5 | 393 | 156 | 156 | 76 | **4** | 10 | 10 | 49 % |
+| 6 | 727 | 214 | 248 | 88 | **4** | 13 | 15 | 41 % |
+| 7 | 1217 | 278 | 360 | 96 | 3 | 15 | 21 | 35 % |
+| 8 | 1895 | 350 | 488 | 104 | 2 | 17 | 28 | 30 % |
+| 9 | 2787 | 426 | 628 | **110** | 2 | 19 | 36 | **26 %** |
+
+**`k <= 4` HOLDS** at every record — the sequence is 3, 4, 4, 3, 2, 2, peaking at 4 and
+declining while `C(n,2)` grows 6 → 36.
+
+**`T = 8n + 40` IS REFUTED.** It fit n = 6, 7, 8 exactly (88, 96, 104) and predicted **112** at
+n = 9. The measured value is **110**. The differences of `T` are 28, 12, 8, 8, **6** — still
+falling, so `T` grows SUBLINEARLY, not linearly. A three-point fit extrapolated one step and
+missed; the fit was mine and the prediction was wrong.
+
+**THE CONSEQUENCE, which is stronger than the refuted version.** `W0` runs 84, 156, 248, 360,
+488, 628 — differences 72, 92, 112, 128, 140, i.e. roughly quadratic — while `T` runs 48 … 110
+with shrinking increments. So **the two-body share of `d1` falls monotonically: 52 %, 49 %,
+41 %, 35 %, 30 %, 26 %**. The two-body term, which is 52 % of the n=4 record's depth-1 count
+and the entire difference between 183 and the 135s ([P276]), is asymptotically negligible.
+
+`d1` is therefore governed by `W0` at large n, and the frustration [P225] measured has a form:
+**the cube's geometry caps coincidence-carrying pairs at a sublinear budget however many pairs
+exist** — nonzero pairs 6, 10, 13, 15, 17, 19 against `C(n,2)` = 6, 10, 15, 21, 28, 36, a
+share falling 100 %, 100 %, 87 %, 71 %, 61 %, 53 %.
+
+**TWO ERRORS OF MINE, both caught by the numbers not matching the records.**
+
+1. The first run built n = 9 as the EIGHT-cube 1895 plus two — ten cubes, counting 3869 — and
+   enumerated pairs over `range(label)` rather than `range(len(qs))`, so the histogram covered
+   only the first `label` cubes. Both n=9 and n=10 rows were void. Caught because the totals
+   were not 2787 and 3925.
+2. RESULTS records n=9 as "1895's SEVEN + two", and which seven is not stated. Solved rather
+   than guessed: of the eight single-cube drops, only dropping cube 7 gives 2787 (the others
+   give 2703–2727). That reconstruction is now explicit.
+
+**STILL MISSING: the n = 10 record.** That nine plus `6555,6555,6497,6555` counts **3921**,
+which RESULTS lists as SUPERSEDED by 3925. So the published n=10 provenance does not
+reconstruct from the n=9 nine by appending that cube, and the n=10 row is omitted above rather
+than reported wrong. Worth resolving separately — it is a provenance gap in a VERIFIED record.
+
+**Caveat on all of it:** records are best-known, not proven maxima, so these are properties of
+the best configurations found, not of maximisers.
+
+Files: `src/k4_explore.py`, `src/k4_fix.py`, `runs/k4_explore.log`, `runs/k4_fix.log`.
+
+<a id="p285"></a>
+
+## [VERIFIED] Postscript 285: the n=10 provenance gap resolved — a "simplified representative" that is identical at n=9 is NOT interchangeable under extension
+
+*2026-09-08.* [P284] found that RESULTS' n=10 provenance does not reconstruct. Chased to
+ground; the cause is general and worth more than the correction.
+
+**THE MEASUREMENT.** All four counted with `cube_regions_n`:
+
+| configuration | count | `d1` | `d2` |
+|---|---|---|---|
+| [P200]'s exact n=10, with `88787,-9061,74275,113786` | **3925** | 508 | 752 |
+| the same, with the simplified `109,-11,91,140` | **3921** | 506 | 750 |
+| n=9 with `88787,…` | **2787** | 426 | 596 |
+| n=9 with `109,-11,91,140` | **2787** | 426 | 596 |
+
+**The two n = 9 representatives are indistinguishable at n = 9** — same count and the same
+`by_depth` at every one of nine depths — and **give different n = 10 counts under the same
+extension**, 3925 against 3921. The whole difference is `d1` (+2) and `d2` (+2); depths 3–10
+are identical, exactly the pattern [P200] recorded for its four successive records.
+
+**THE DEFECT IN RESULTS.** RESULTS lists n=9 as `1895's seven + 168,-168,168,-415 +
+109,-11,91,140` and n=10 as "**the 2787 nine** + `6555,6555,6497,6555`". Those two statements
+are inconsistent: the 2787 nine as listed, plus that cube, is **3921**, which RESULTS itself
+records as SUPERSEDED. The n=10 record requires the OLD representative. The n=9 entry and the
+n=10 entry are each correct in isolation and cannot both be read as written.
+
+**THE GENERAL POINT, which is the reason this matters.** [P218] simplified the n=9
+representative from height 113 786 to height 140 because the tall one made the record's
+neighbourhood largely unevaluable — a good move, and valid for everything about n = 9. But
+**a representative chosen for cheapness is a different POINT of a positive-dimensional region,
+and extension is sensitive to the point, not just the region.** Same count, same profile at
+every depth, different children.
+
+This is the same shape as [P276]: the record 183 and two 135s share `W0 = 84`, `d2 = 66`,
+`d3 = 24` — the entire three-body structure — and differ only in two-body weight. Agreement on
+every measured invariant is not identity, and here the unmeasured difference propagates to the
+next level of the tower.
+
+**Transferable rule.** When a representative is simplified, the count and profile are not
+sufficient evidence that the substitution is safe. If anything is built ON the configuration —
+an extension, a climb base, a neighbourhood census — the substitution must be re-verified at
+that level too. The n=9 simplification was verified at n=9 and silently broke the n=10 chain.
+
+Files: `runs/k4_fix.log`.
+
+<a id="p286"></a>
+
+## [VERIFIED] Postscript 286: continua are plateaus in the COUNT with wall structure underneath — extension varies along them, at two independent levels
+
+*2026-09-08.* Chasing [P285]'s n=10 provenance gap to its cause. The result changes how
+extension search should be framed.
+
+**1. WHERE THE SUBSTITUTION FAILS.** Walking the n=9 continuum between the two
+representatives — `q(t) = (12-t)A + tB`, `A = (88787,-9061,74275,113786)`,
+`B = (88726,-8954,74074,113960)` (the simplified one scaled by 814; the two are 0.2 % apart) —
+the n=9 count is **2787 throughout `t in [0,24]`** while the n=10 extension by
+`6555,6555,6497,6555` **flips 3925 -> 3921 between `t=3` and `t=6`**. The flip is mid-arc,
+nowhere near either endpoint.
+
+**2. NO n=9 INVARIANT PREDICTS IT.** Count and `by_depth`: constant. Outer-vertex count: 1126
+on BOTH sides of the flip (1108 only at the far endpoint). Radius signature: **differs at
+every step**, including between points that extend identically — it is essentially injective on
+the continuum, so it flags every substitution and never says "safe". Two failures in opposite
+directions, too coarse and too fine. *(Correcting my own earlier claim that the radii signature
+"would have caught it": it catches everything, so catching this was uninformative.)*
+
+There is a reason: **the flip is a property of the PAIR (base, added cube), not of the base.**
+An n=9-only invariant cannot resolve it in principle.
+
+**3. THE DOWNWARD PROJECTION** (user's construction). A continuum does not extend upward — the
+n=10 count is not constant on it — but the n=10 region PROJECTS DOWN: delete the tenth cube and
+its image is exactly the set of safe bases. Mapping both boundaries in one pass:
+
+| | extent along the line |
+|---|---|
+| n=9 continuum (count 2787) | `t in [0, 24]` |
+| n=10 = 3925 region projected down | `t in [0, ~5]` |
+
+**about 22 % of the continuum**. And the structure is an INTERSECTION OF TWO PLATEAUS with
+boundaries in different places: outside the continuum the n=10 count tracks `n=9 + 1138`
+exactly (2775->3913, 2779->3917, 2783->3921), while on `t in [6,24]` the increment is **1134**.
+So the count plateau and the INCREMENT plateau are different objects, and the safe base region
+is where they overlap. The original representative sits at `t=0`, on the continuum's own edge
+([P200] found it by "automated boundary climb" — the climb stopped at a boundary).
+
+**4. THE WALL IS PER-PAIR, AND THE GOOD CUBES ARE THE SENSITIVE ONES.** Six genuinely different
+tenth cubes (heights 3 to 6555, unrelated directions):
+
+| cube | n=10 count | walls along the arc |
+|---|---|---|
+| `6555,6555,6497,6555` | **3925** | 3–6 |
+| `1000,-997,13,5` | 3881 | 3–6 |
+| `5,-2,3,1` | 3791 | **0–3 and 6–9** |
+| `41,17,-23,9` | 3845 | none — flat |
+| `3,1,-2,1` | 3835 | none — flat |
+| `7,0,0,-3` | 3483 | none — flat |
+
+So the continuum carries an ARRANGEMENT of walls and each cube activates a subset. **The
+high-scoring extensions are the sensitive ones**: a cube reaching 3925 interacts richly with the
+base and feels its geometry; one reaching 3483 barely interacts and is blind to position. Base
+position becomes a live parameter exactly for the extensions worth having.
+
+*(An earlier 11-cube run showed all cubes walling at the same place — but those differed by 1–2
+in components of ~6555, 0.03 % apart. It tested one cube eleven times and established nothing.)*
+
+**5. THE SAME STRUCTURE AT ANOTHER LEVEL.** The 727 arc, `P(s) = (1, 19/3+s, -7-3s, -11-6s)`,
+whose bounds come from MAXIMISERS rather than from this construction (verified: `s=5/2` and
+`s=3` reproduce its listed members exactly):
+
+| s | 7/3 | 5/2 | 8/3 | 17/6 | 3 |
+|---|---|---|---|---|---|
+| n=6 | 727 | 727 | 727 | 727 | 727 |
+| n=7 with `4,-3,-4,-4` | **1213** | 1209 | 1209 | 1209 | 1209 |
+
+**n=6 constant, n=7 varying, wall inside the arc** — one of five sampled points is the good one.
+Not specific to n=9 -> n=10. (1213 < 1217 is expected: the tower's own sixth cube `7,14,1,-5` is
+not on this arc.)
+
+**OBSERVED, needs a finer walk before it is a correction:** MAXIMISERS records 727 for
+`s in [9/4, 3]`, but this run measures 725 at `s=19/6`, **727 again at `s=10/3`**, 719 at
+`s=7/2`. The region may extend past the documented upper bound and may not be a single interval
+— or the sampled rationals may sit on coincidence values. Not concluded.
+
+**CONSEQUENCE FOR METHOD.** "Record X is a plateau" never licensed "any member of X is an
+equally good base". Every extension campaign picked a representative by CHEAPNESS (height drives
+cost) along a parameter that demonstrably matters — and matters most for the best extensions.
+Arc position should be an explicit search dimension.
+
+Files: `src/continuum_walk.py`, `src/flip_predict.py`, `src/project_down.py`,
+`src/extend_across_continuum.py`, `src/wall_vs_cube.py`, `src/wall_other_levels.py`, and their
+logs in `runs/`.
+
+<a id="p287"></a>
+
+## [VERIFIED] Postscript 287: the 183's "3-dimensional plateau" is a NO-OP ARTEFACT — it is isolated in both senses
+
+*2026-09-08.* Mapping the unmapped shapes of [CONTINUUM_MAP.md]. The n=4 gate disagreed with
+the recorded measurement, and the recorded measurement is the one that is wrong.
+
+**THE ARTEFACT.** `n4_183_extent.py` probes all `3^9 - 1 = 19 682` signed Cayley directions and
+reports **26 still counting 183**, read against the reference line `3^d - 1` as **dimension 3**.
+Its perturbation is
+
+    num = (w*den,  x*den + d0*w,  y*den + d1*w,  z*den + d2*w)
+
+— the deltas are multiplied by `w`. **Cube 1 of the 183 is `(0,5,3,2)`, a HALF-TURN with
+`w = 0`**, so its three deltas are multiplied by zero and change nothing. Verified directly: of
+the 19 682 probes, exactly **26 are byte-identical to the record**, and they are precisely the
+26 directions touching only cube 1 — `3^3 - 1 = 26` no-ops.
+
+**`26 = 3^3 - 1` and `26 = 27 - 1` are the same number for unrelated reasons**, and the
+coincidence read as a dimension.
+
+**THE CORRECTED FACT: the 183 count plateau is 0-DIMENSIONAL.** No genuine neighbour retains
+183, at step 1/32, 1/128 or 1/512. Four independent lines agree:
+
+- `isolate183.log` — second-order variety empty, ISOLATED (the coincidence sense);
+- a straight-line walk between the two 183 classes leaves 183 at the first step;
+- a quaternion-axis probe (`src/map_all_shapes.py`), a different basis and a different
+  construction, finds **0 of 12** axes holding at two step sizes;
+- the no-op count above, which explains the only evidence that ever pointed the other way.
+
+**AND `isolate183.py` NAMED THE HAZARD IN ITS OWN DOCSTRING**: *"BOTH 183s CONTAIN A HALF-TURN
+(w = 0), which is at Cayley infinity."* It reordered so the half-turn became the frozen gauge
+cube. `n4_183_extent.py` did not, and probed it anyway.
+
+**What this costs.** [CONTINUUM_MAP.md] carried the 3-dimensional reading for about an hour
+after I put it there, and the map's claim that "the shape's dimension grows up the tower"
+(0 at n=4, 1 at n=6, 4 at n=9) was built on it. Both are corrected. The 183 is isolated in
+BOTH senses, so n=4 is not the low end of a trend — it is a record with no freedom at all.
+
+**Transferable rule.** A probe that multiplies a step by a configuration-dependent quantity is
+INERT wherever that quantity vanishes, and inert probes return the unperturbed value — which
+scores as "the property holds". Before reading a survivor count as a dimension, check how many
+survivors are the original point. Here that check is one line and it was never run.
+
+Files: `src/map_all_shapes.py`, `runs/map_all_shapes.log`, `runs/n4_183_dim.out`.
+
+## [VERIFIED] Postscript 288: the wall polynomials were reconstructible all along — and asking for the reconstruction key found a wrong formula that had been silently reporting ISOLATED
+
+**The question.** "If we don't have wall polynomials recorded, we want to at least
+record enough to easily reconstruct them." `data/record_walls.json` records wall
+GRADIENTS, and its own docstring says a gradient is a linearisation and cannot be
+solved for a locus. So the `bracket -> wall -> polynomial -> root` chain had no
+second link.
+
+**What was already true.** A wall is completely determined by
+
+    (frame i, group ((j,k,sgn),...), sig, c0)
+
+together with the configuration it sits at. That tuple is the entire argument
+list of `dimension.branch_numerator`, which returns the exact polynomial `P` with
+`f = 1  <=>  P = 0`. Those tuples were already being computed AND cached —
+`dimension_cache`, 587 entries — but the cache is content-keyed by a hash of the
+configuration, so nothing tied an entry to a NAMED record and no reader could
+find the wall of a record they cared about. The polynomials were not missing;
+the INDEX was. `src/wall_keys.py` writes it: `data/wall_keys.json`, per record,
+every distinct wall's full key plus its gradient plus the record quaternions.
+
+**Two things the export found on the way.**
+
+**(1) The reorg orphaned two caches.** `dimension.py` and `catcache.py` resolved
+their cache directories as `HERE + '/...'`. The 2026-09-08 move into `src/`
+silently repointed both at empty directories: no error, just every expensive step
+recomputed. `dimension_cache` (587 entries, 15 MB) and `catalogue_cache` (219)
+had been invisible since the move. Every one of the six entries recomputed in the
+hours since was a DUPLICATE of one already in the root cache — the recomputation
+bought nothing at all. Fixed with the same `ROOT` shim `doc_audit.py` needed;
+after it, `solve_shapes.py` reports `setup 0s` where it had been running for an
+hour. This is the third file broken by the same move, and the first where the
+breakage was silent rather than an exception.
+
+**(2) `branch_numerator` was WRONG whenever a condition's two normals came from
+DIFFERENT cubes.** With `n_a = m_a / d_a` and `d_a = N_i N_{j_a}`, the code
+computed
+
+    P = sum_c sig_c (m2[c0] m1[c] - m1[c0] m2[c])  -  (m2[c0] - m1[c0]) * d1
+
+which is the correct expression only when `d1 == d2`, i.e. only when both normals
+belong to the same cube `j`. The docstring asserted exactly that condition —
+`assert sp.simplify(d1 - d2) == 0 or True` — and the trailing `or True` disabled
+the assert, so the assumption was documented, tested for, and never checked. The
+correct form does not cancel:
+
+    lambda* = m2[c0] d1 / (m2[c0] d1 - m1[c0] d2)
+    P = sum_c sig_c (m2[c0] m1[c] - m1[c0] m2[c])  -  (m2[c0] d1 - m1[c0] d2)
+
+which REDUCES to the old expression when `d1 == d2`, so every case that was right
+stays bit-identical.
+
+**How it was caught, and why only now.** `wall_keys.gate` checks three things,
+none of which is agreement between two runs of the same code:
+
+    G1  P(record) == 0                 -- absolute: a wall contains its own point
+    G2  dP/dt|0 == s * (grad . d)      -- ONE scale s across independent probe
+                                          directions; `grad` comes from sympy
+                                          differentiation of `f`, `P` from the
+                                          cancelled-numerator formula
+    G3  corrupt the key (flip a sign in `sig`); G1 must then FAIL
+
+G1 is the theorem-as-oracle: it made the wrong values impossible rather than
+merely suspicious. Before the fix:
+
+    n=4  12/12 vanish     n=5  18/18     n=6  21/27     n=7  27/51     n=8  33/75
+
+and **every single failure had two distinct cubes in its group; every pass had
+one.** After the fix, 12/18/27/51/75 vanish, G2 passes on all of them, and G3
+catches all of them — the control fires, so the gate is not vacuous. The wall
+counts 12/18/27/51 also match `export_walls.py`'s independent count.
+
+The reason nothing caught it earlier is that the failure is invisible from inside
+the consumer. `variety_incremental` asks "which directions make `P == 0`
+identically in `t`". A `P` that is wrongly nonzero simply admits no direction, so
+the wall over-constrains and the answer comes back **ISOLATED** — a plausible,
+publishable, wrong answer.
+
+**CORRECTED 2026-09-09 — I overstated the direction of the bias.** I first wrote
+that the bug "can only ever have caused a false ISOLATED or a too-small variety,
+never a false continuum". That is not true, and the algebra says so in one line:
+
+    wrong_P = correct_P + m1[c0] * (d1 - d2)          (verified symbolically)
+
+So `wrong_P` vanishes wherever `correct_P = -m1[c0](d1 - d2)`. That is a
+codimension-1 condition, not an impossibility — a FALSE ZERO, which admits a
+direction that does not lie in the wall and so produces a false NOT-isolated.
+The bias toward false ISOLATED is **generic, not guaranteed**, and "only ever"
+was a claim about all points made from an argument about typical ones.
+
+Nothing measured changes: at the record points every cross-cube condition had
+`wrong_P != 0` — that is how the gate caught it — so no false zero was observed.
+But the withdrawal of the n = 6 and n = 7 verdicts rested partly on knowing which
+way the error could push, and it could push both ways.
+
+**AUDIT — what this invalidates.** The affected consumers are
+`variety_incremental` and `variety_fast` (and `linearize_test.py`, `modtest.py`,
+`verify_chart.py`). Exposure, measured rather than assumed — conditions in `good`
+whose group spans two cubes:
+
+    n=4  0 of 108  (0%)      n=6   12 of 216  ( 6%)
+    n=5  0 of 168  (0%)      n=7   48 of 300  (16%)
+
+- **n=4 and n=5 are UNAFFECTED**, exactly, not approximately: zero cross-cube
+  conditions means the fix is bit-identical there. **P287's verdict that both
+  183s are ISOLATED in the coincidence sense therefore stands**, and was
+  re-confirmed under the fixed code (`183 class 1`, `183 class 2`, `393 n=5`, all
+  ISOLATED, all `setup 0s`).
+- **n=6 and n=7 ISOLATED verdicts were withdrawn pending re-run.** `solve_shapes.py`
+  was killed mid-flight on n=8 and relaunched under the fix; its previous log is
+  kept as `runs/solve_shapes.VOID_prefix_bug.log`.
+
+  **CORRECTION, same day, once the re-run finished — the bug DID change a
+  conclusion.** Under the fixed formula:
+
+      183 class 1   lineality 1 of  9   second-order empty        -> ISOLATED
+      183 class 2   lineality 1 of  9   second-order empty        -> ISOLATED
+      393  n=5      lineality 1 of 12   second-order empty        -> ISOLATED
+      727  n=6      lineality 1 of 15   second-order empty        -> ISOLATED
+     1217  n=7      lineality 2 of 18   second-order 1 direction  -> NOT ISOLATED
+     1895  n=8      lineality 3 of 21   second-order 2 directions -> NOT ISOLATED
+
+  n=6 survives; **n=7 does not**. The 1217 record is NOT an isolated point of the
+  coincidence variety — it lies on a curve — and the previous run said the
+  opposite, in exactly the direction the bug's shape predicted. n=8 had never
+  been reached before and reads 2 directions. So the coincidence-variety
+  dimension along the tower is
+
+  **IMMEDIATE QUALIFICATION, before this propagates anywhere — it does NOT
+  overturn [P117](#p117).** The n=7 direction was checked by a route independent
+  of the bug: `branch_value` evaluates each condition's frozen branch exactly from
+  the true normals (`mat_num` has already divided out the denominators) and never
+  performs the cancellation that was wrong. All **300 of 300** conditions stay
+  exactly tight at `t = 0, 1/64, 1/8, 1/2, 1, -3/7`, and the direction is not a
+  no-op (84 of the 300 conditions involve the moved cube, and every entry of
+  `R_0^T R_6` moves along it). But the COUNT does not
+  follow it:
+
+      t      0     1/64    1/8     1/2      1
+      count  1217  1213    1209    1203     1177
+
+  So the curve preserves the TIGHT SET and loses the count at once. P117 says
+  "second-order variety EMPTY" but also "engine-verifying every direction
+  returned", and an engine check is a COUNT check, which this direction fails.
+  The two results are therefore about different objects and only one of them has
+  been corrected:
+
+  - **coincidence variety** (locus with the same tight set): surviving
+    directions 0,0,0,1,2 at n=4..8 (and 12 at n=9). n=7 and n=8 CORRECTED from
+    isolated. *(Wording fixed [P289](#p289): these are COUNTS OF ISOLATED
+    DIRECTIONS, not dimensions — I called them dimensions here first.)*
+  - **records as maximisers** (count preserved): untouched. Every record still
+    sits at a strict local maximum along this curve.
+
+  `solve_shapes.py` prints `NOT isolated` from the variety alone, with no engine
+  step, so its label is the weaker claim and should be read as such.
+
+  **AND A CORRECTION TO THE PARAGRAPH ABOVE, made the same day.** I first wrote
+  that the conditions hold at `t = 1`, "which is not a perturbation". That
+  overstates what was measured. `branch_value` evaluates the FROZEN branch — sign
+  pattern and active coordinate held at their record values — which is the right
+  object for the variety but is an analytic continuation, not the condition
+  itself. Recomputing the UNFROZEN question at the moved point
+  (`min_l1_argmin` on each recorded group: is it still genuinely the minimiser at
+  value 1?) gives
+
+      t          0      1/64    1/8      1
+      tight    300     300     300     288
+      broken     0       0       0      12
+
+  So the curve is real and the record is genuinely not isolated — the 300 at
+  `t = 1/64` and `t = 1/8` are unfrozen, not continuations — but its EXTENT ends
+  before `t = 1`, where 12 conditions have switched branch. A frozen-branch test
+  cannot see that, by construction. The verdict stands; the reach I claimed for
+  it does not.
+
+  Also checked, because it would have made the verdict an artefact of an
+  exclusion: **n=7 has ZERO degenerate conditions**, `300 tight = 300
+  nondegenerate + 0 degenerate`. Nothing tight was dropped by the kink rule
+  before the variety was solved. This is the
+  same conflation [P286](#p286) warned about — count plateau versus coincidence
+  variety, "two different dimensions which must not be conflated" — and I made it
+  in the first version of this postscript, one screen after citing it.
+
+      n =  4   5   6   7   8
+      dim  0   0   0   1   2
+
+  which is a rising sequence starting at n=7, not the flat "isolated everywhere"
+  the tower was believed to show. *(Corrected [P289](#p289): "dimension" is the
+  wrong word — these count isolated directions — and the sequence does not
+  continue, reaching 12 at n=9.)* Whether the records stop being rigid exactly
+  where the tower's records stop being unique is a question this opens and does
+  not answer. Note that lineality (1,1,1,2,3) is UNAFFECTED by the bug — it comes
+  from the gradients — and had already been rising; the second-order verdict is
+  what changed.
+- **NOT affected: the count-plateau tangents.** `map_continua.py` /
+  `arc_eps.tangents_eps` reach `dimension` only through `cached_conditions`,
+  `nullspace` and `count_at`, none of which touches `branch_numerator`. The
+  0/0/2/1 tangent counts at n=4..7 stand.
+- **NOT affected: lineality.** Lineality is the null space of the GRADIENTS, and
+  gradients come from `sp.diff` of `expr`, not from `branch_numerator`. n=7's
+  lineality 2 of 18 stands.
+
+**The chain link, built.** `wall_keys.on_line` restricts a wall to a Cayley line;
+`wall_keys.on_quat_line` restricts it to a QUATERNION line, which is what the
+project's brackets actually are — `solve_wall.py` moves the tenth cube along
+`q(t) = (12-t)A + tB`, and a quaternion line is a Moebius curve in Cayley
+coordinates, not a line. Both return exact univariate coefficients. Demonstrated
+on the n=6 record moving cube 5 along a quaternion ray, with `t = 0` as the
+known-answer anchor:
+
+    P(0) == 0 on 27/27 walls, 0 violations
+    degrees 2 and 4; 8 of 27 walls have a nonzero rational root
+    (nearest crossings -17/4, -47/10, -79/6, -59/4)
+
+So a bracket can now be turned into a root rather than narrowed forever by
+bisection. What remains for the n=9 wall specifically is not machinery but cost:
+the conditions at a 10-cube configuration have never been built.
+
+**Cross-route anchor.** `wall_keys.numerator_MN` rebuilds the same formula over
+explicit `(M, N)` pairs so quaternion families can be handled. `gate_mn` compares
+it against `dimension.branch_numerator` along a Cayley line where BOTH routes
+apply, as coefficient VECTORS up to proportionality — not as strings, and not as
+equality, since the two use different normalisations (`N = 1 + |c|^2` versus
+`N = |q|^2`) and a hypersurface is defined up to scale. 12 of 12 agree at n=4.
+
+**What this does not close.** `n4_183` is exported as UNEVALUABLE, not skipped:
+cube 1 is a half-turn, the record sits at Cayley infinity, and this chart has no
+point for it (P287). The keys are recorded for n=4..8 and arcA; the 727 arcs
+A/B/C and the 67-67 dihedral family are not yet in the index.
+
+## [REFUTED IN PART] Postscript 289: nothing happens "at n = 7" — lineality is what crosses 2. The `lineality − 1` law stated in this title was PREDICTED, TESTED AND REFUTED below; the column it described is a count of directions, not a dimension
+
+[P288](#p288) left the question "why does the coincidence variety start having
+dimension at n = 7" open, and CONTINUUM_MAP listed it as unmapped. Tabulating
+what is now measured at every level answers it, and the answer is that the
+threshold is an artefact of where a different sequence crosses 2.
+
+      n   ambient  tight  walls  rank  lineality  variety  lineality-1
+      4       9     108     12      8      1         0          0
+      5      12     168     18     11      1         0          0
+      6      15     216     27     14      1         0          0
+      7      18     300     51     16      2         1          1
+      8      21     384     75     18      3         2          2
+      9      24     420     83     20      4         ?          3
+
+**`variety = lineality − 1` at every level measured.** Read projectively this is
+the natural statement: lineality `d` gives a `P^(d−1)` of directions to test, and
+what the second-order conditions cut out is a single point of it, leaving
+`P^(d−2)`. At `d = 1` that is empty, which is the ISOLATED verdict at n = 4, 5, 6.
+Nothing changes at n = 7 except that `d` reaches 2.
+
+**What actually moves is the rank increment.** Each added cube brings 3 new
+coordinates. The rank it adds is
+
+      3, 3, 2, 2, 2      (n = 4→5, 5→6, 6→7, 7→8, 8→9)
+
+so from n = 7 the walls a new cube joins pin only two of its three degrees of
+freedom, and lineality grows by one per cube from then on. THAT is the event, and
+it is at n = 6→7. Why the increment drops from 3 to 2 there is not answered here
+and is the sharper form of the original question.
+
+**PREDICTION, recorded before the computation returns.** `map_n9.py` is solving
+the n = 9 variety now (ambient 24, lineality 4). The pattern predicts **3
+directions**. Recorded here first so that agreement is a test rather than a
+description — the n = 9 point is the only one available that the pattern was not
+fitted to, and it is the one whose lineality is largest.
+
+### THE PREDICTION FAILED. Measured: 12, not 3.
+
+    simplified_h140: second-order variety nonempty, 12 directions
+
+**And the failure exposes an error in the postscript above, not merely a bad
+fit: the column is not a dimension.** `variety_incremental`'s own docstring says
+what it returns — "a handful of polynomials already cut the variety to FINITELY
+MANY POINTS, and the remaining hundreds are then checked by evaluation". It
+returns a COUNT OF ISOLATED DIRECTIONS in `P(null(J))`, each a point, and the
+variety is 0-dimensional in every case measured. So
+
+- the sequence `0, 0, 0, 1, 2, 12` counts POINTS, not dimensions;
+- `variety = lineality − 1` was a coincidence of two small numbers (1 point at
+  lineality 2, 2 points at lineality 3) fitted on three levels of which two were
+  identically zero, and it is refuted at the first level it was asked to predict;
+- the claim "the tower's coincidence-variety dimension is a rising sequence" —
+  written in this postscript and copied into CONTINUUM_MAP — is wrong twice over:
+  the quantity is not a dimension, and 12 does not continue 0,0,0,1,2.
+
+**What survives.** The VERDICTS are unaffected, because they depend only on
+whether the count is zero: n = 4, 5, 6 isolated; n = 7, 8, 9 not. And so does the
+rank observation, which was measured rather than fitted: rank increments per
+added cube are 3, 3, 2, 2, 2, so from n = 7 a new cube's walls pin only two of
+its three degrees of freedom, and lineality grows by one per cube from there.
+That remains the answer to "why does anything happen at n = 7" — the threshold is
+lineality reaching 2, and 2 is where a `P(null(J))` first has room for a point to
+survive.
+
+**The chart check, run immediately.** Of the 12 returned directions only **11
+are distinct up to scale** — `variety_incremental` solves each `u_i = 1` chart
+separately and unions the results without deduplicating projectively, so one
+direction was reported twice. n = 7 and n = 8 were re-checked the same way and
+are clean (1 of 1, 2 of 2), so only the n = 9 report was inflated. The corrected
+sequence of DISTINCT surviving directions is
+
+    n           4   5   6   7   8    9
+    directions  0   0   0   1   2   11
+
+**Where the freedom lives.** The surviving directions occupy only these ambient
+coordinates:
+
+    n = 7   [15]                    cube 6, component 0
+    n = 8   [15, 20]                cube 6 component 0; cube 7 component 2
+    n = 9   [15, 20, 21, 22, 23]    the same two, plus cube 8 ENTIRELY
+
+At n = 7 and n = 8 the surviving directions are single coordinate axes. At n = 9
+the newest cube contributes all three of its coordinates, and that — not a change
+in the older cubes — is where the jump from 2 to 11 comes from. Why the ninth
+cube is free in all three components when the seventh and eighth were each free
+in one is the open question, and it is now a question about ONE cube rather than
+about a sequence.
+
+**AND THE n = 9 ENTRY IS NOT EVEN A SINGLE NUMBER.** `map_n9.py` ran both
+representatives of 2787, and they disagree:
+
+    representative        walls  tight  lineality  returned  distinct  coordinates
+    simplified (h 140)      83    420       4         12        11     15,20,21,22,23
+    original (h 113 786)    76    396       5         17        15     15,20,21,22,23
+
+Both are the n = 9 record; both count 2787; both are NOT isolated. So "the number
+of surviving directions at n = 9" is 11 or 15 depending on which valid
+representative is chosen, which retires the fitted sequence a second time and for
+an independent reason. Both also carry chart duplicates (12 -> 11, 17 -> 15).
+
+**What IS invariant between them is the more interesting half — as a CONJECTURE.**
+The two representatives differ in wall count, tight count and lineality — the
+three observables [P290](#p290) used to separate them — yet the surviving
+directions occupy **exactly the same five ambient coordinates**, `15, 20, 21, 22,
+23`.
+
+*Conjecture:* where the freedom lives is a property of the tower's structure
+(cube 6 in one component, cube 7 in one, cube 8 in all three) rather than of the
+point chosen to represent the level.
+
+*Evidence:* two representatives at ONE level, plus single points at n = 7
+(`[15]`) and n = 8 (`[15, 20]`) which are consistent with it but are not
+independent tests, since each is one point. **Two agreeing representatives is a
+weak base for an invariance claim** — the ledger's own lesson is that two things
+agreeing can mean they share an assumption, and these two share the whole tower
+below the ninth cube. The test that would count is a THIRD representative of
+n = 9 drawn from elsewhere in the 4-dimensional region, or the same comparison at
+n = 8. Neither has been run.
+
+**Why 11, or 15.** Not established. A `P^3` holding 12 isolated surviving directions
+where a `P^2` held 2 is a jump that the per-cube framing does not predict, and it
+is now the open question in place of the fitted one. Note the count is of points
+found in charts and unioned, so a first check should be whether 12 is 12 distinct
+directions or a chart artefact — `variety_incremental` solves each `u_i = 1`
+chart separately and unions the results.
+
+**The lesson, which the ledger has recorded before.** I wrote a formula across a
+column I had not checked the meaning of, and the check that caught it was the
+prediction — made only because the pattern looked clean enough to be worth
+betting on. Recording the prediction is what converted a plausible description
+into a refuted one within the hour.
+
+Also worth noting against the pattern: the wall count `12, 18, 27, 51, 75, 83`
+does NOT continue the linear `walls = 24n − 117` recorded in RESULTS for
+n = 6..9, which predicts 99 at n = 9. The measurement here is 83 — but on the
+SIMPLIFIED n = 9 representative (height 140), whereas the 99 was measured on the
+ORIGINAL (height 113 786). [P285](#p285) showed those two are not
+interchangeable under extension despite identical count and identical `by_depth`
+at every depth. `map_n9.py` runs both, so this is about to become a direct
+comparison rather than a discrepancy: **if 83 vs 99 holds, the wall count is an
+observable that separates two representatives every previous observable called
+identical**, and that would be the mechanism P285 could only describe.
+
+## [VERIFIED] Postscript 290: the "24 walls per added cube" window rests its n = 9 rung on a SUPERSEDED record — and the two 2787 representatives are structurally different points
+
+Mapping the n = 9 region ([P289](#p289) predicted its variety; this is about its
+walls) produced a number that did not match the one on file, and chasing that
+settled two separate questions.
+
+**THE MEASUREMENTS.** All four configurations count what they claim, engine-verified,
+and all have ZERO degenerate conditions:
+
+    configuration                       count   tight   walls   rank  lineality
+    2785  = the 1895 eight + 56,56,55,56  2785    468      99     20      4
+    2787  original,   h = 113 786         2787    396      76     19      5
+    2787  simplified, h = 140             2787    420      83     20      4
+    fit `24n-117`, `84n-288` at n = 9      --     468      99     20      4
+
+**(1) The fit's n = 9 rung is 2785's, exactly — and 2785 is not the record.**
+[P122](#p122) established `walls = 24n − 117`, `tight = 84n − 288`,
+`rank = 2(n+1)`, `lineality = n − 5` for n = 6..9, with 24 = the order of the
+cube's rotation group, one wall per self-symmetry of the added cube. That is far
+too clean to be coincidence and it is not: 2785 reproduces all four columns to
+the digit. But **2787 superseded 2785 as the n = 9 record**, and neither of its
+representatives reproduces the rung:
+
+    predicted 99 walls / 468 tight   ->   measured 83 / 420 (simplified)
+                                                   76 / 396 (original)
+
+So the regime is a window over the CURRENT records of **n = 6..8**, with its
+right-hand rung belonging to a configuration that no longer holds the level.
+[OQ 4](OPEN_QUESTIONS.md) calls it "a WINDOW n = 6..9, broken at both ends" and
+that description now needs its left end moved. This also softens
+[P185](#p185)'s n = 10 failure: a window whose last measured rung was on a
+superseded record was never four rungs long.
+
+The mechanism of the error is the one this project has recorded before and keeps
+paying for: **a record was superseded and a derived table was not re-measured.**
+The supersession is documented in the RESULTS n = 9 row itself; the wall table
+three sections above it was left alone. Corrections propagate inside a record and
+not out of it.
+
+**(2) The two 2787 representatives are NOT the same point in any structural
+sense.** [P285](#p285) established that they are not interchangeable under
+extension (3925 versus 3921) while agreeing in count and in `by_depth` at every
+one of nine depths, and could name no observable that separated them. There are
+three, and they are not subtle:
+
+    tight conditions   396  vs  420
+    distinct walls      76  vs   83
+    lineality            5  vs    4      (rank 19 vs 20)
+
+They are different points of a 4-dimensional region that happen to share a count
+and a depth profile — which is exactly what a positive-dimensional region does.
+Calling one a "simplification" of the other was the conflation; the height was
+reduced by 813-fold and the point moved. **This answers the mechanism question
+P285 left open**, and it does so with the cheapest possible observable: a wall
+count that was already being computed.
+
+Note which way the asymmetry runs. The simplified representative is the MORE
+constrained one (420 tight, rank 20) and the original is the more degenerate
+(396 tight, rank 19, lineality 5) — so the extension that reaches 3925 starts
+from the point with the LARGER tangent space, not the smaller. Whether that is
+the reason it extends further is not established here.
+
+**WHAT IS NOT CLAIMED.** That either 2787 representative is wrong; both count
+2787 and both are valid records. That the fit was mis-measured; it was not, and
+2785 confirms it exactly. And no re-derivation of the n = 10 chain: P285's
+warning stands, and nothing here transfers to n = 10 without redoing it.
+
+## [VERIFIED] Postscript 291: the two n = 3 maximisers sit in structurally DIFFERENT places — the octahedral 67 is a puncture inside a uniform region, the golden 67 is a puncture ON a wall
+
+CONTINUUM_MAP listed the 67 ↔ 67 dihedral family as unmapped. `region_shape.py`
+had sampled two hand-placed windows around where the edges were believed to be,
+and its LOWER window returns 55 at all nine points — not an edge, a window that
+missed. `src/map_dihedral.py` scans the family instead: 1 278 distinct ψ from
+1.29° to 88.71°, every count change reported.
+
+**THE FAMILY IS FIVE RUNS, AND IT IS SYMMETRIC.**
+
+    count  31   psi in [ 1.28749,  9.72903]   139 samples
+    count  43   psi in [ 9.79818, 20.87495]   158 samples
+    count  55   psi in [20.98295, 69.01705]   684 samples
+    count  43   psi in [69.12505, 80.20182]   158 samples
+    count  31   psi in [80.27097, 88.71251]   139 samples
+
+Every mirrored edge pair sums to **exactly 90.000000** under ψ → 90 − ψ. That is
+a check the scan had to pass and did; it is also the reason the two 67s cannot
+both be generic points of the family, since only ψ = 45° is its own mirror.
+
+**WHERE THE TWO MAXIMISERS SIT — and they do not sit alike.**
+
+- The **octahedral 67** (ψ = arcsin(1/√3) = 35.26439°) is **deep inside the 55
+  run**, 14° from either edge. This is [P25](#p25)'s picture and `climb_limit.py`'s:
+  a puncture in a uniform region, 55 at every rational approach over twelve
+  orders of magnitude.
+- The **golden 67** (ψ = 69.09484°) is **NOT inside the 55 run at all.** It falls
+  in the 55 → 43 boundary bracket (69.01705, 69.12505). Its mirror at 20.90516°
+  lands in the mirrored 43 → 55 bracket, as the symmetry requires.
+
+**A BRACKET IS NOT AN ANSWER, so it was closed.** The 55 run's edge is a sampled
+value; the region could have extended past it and contained the golden angle
+after all. `src/golden_edge.py` approaches from both sides with triples up to
+r = 60 000:
+
+    BELOW  psi = 69.09032984   gap 0.00451   (54526,20832,58370)   count 55
+    ABOVE  psi = 69.09673411   gap 0.00189   (10248, 3914,10970)   count 43
+
+six approaches on each side, **55 on every one below and 43 on every one above**.
+The counts differ across the golden angle, so **the golden 67 sits on the wall**,
+and the wall is bracketed to (69.09032984, 69.09673411) — width 0.0064° — which
+contains 69.09484255.
+
+**WHAT IS NOT CLAIMED.** That the wall passes EXACTLY through the golden angle.
+Sampling cannot decide that: it establishes that the transition happens inside a
+0.0064° bracket containing the angle, not that the wall's algebraic locus meets
+it. Proving that needs the wall condition solved, which is now possible — both
+67s are in `data/wall_keys.json` (6 and 9 distinct walls, rank 6 = ambient,
+lineality 0) and `wall_keys.numerator` runs over ℚ(√2) and ℚ(√5) once
+`dimension`'s own `_sp = qf_to_sp` is used in place of `sympify`. And no rational
+scan can ever land on either angle — both are irrational, which is exactly what
+makes them punctures rather than peaks.
+
+**WHY THIS MATTERS BEYOND THE FAMILY.** [P121](#p121) recorded a neighbourhood
+asymmetry between the two 67s — 728 faces against 2 196 — and [P122](#p122)
+recorded that they need 6 and 9 independent walls respectively. A point sitting
+ON a wall of the ambient family and a point sitting 14° inside a uniform region
+are not the same kind of object, and that is a candidate explanation for an
+asymmetry previously recorded as a bare fact. It is a candidate, not a
+derivation: nothing here connects the family's wall to the 9 walls of the golden
+67's own local arrangement.
+
+## [VERIFIED] Postscript 292: the smallest length scale in the arrangement is a STAIRCASE in n, not a curve — and it is finer than every perturbation step the project has used
+
+A question about scale: how close do two vertices of a region get?
+`c_level.level_graph` was already building every arrangement vertex on the
+two-cube intersection curves, keyed by exact rational coordinates, and keeping
+only `V`, `E`, `c`. `src/vertex_scale.py` keeps the coordinates.
+
+**TWO QUANTITIES, deliberately both.** The shortest EDGE — the two endpoints of
+one arc, which are therefore both vertices of the regions that arc borders, an
+UPPER bound on "the closest two vertices of a region". And the closest PAIR —
+the nearest two vertices anywhere on the level, which need not share a region, a
+LOWER bound. **They are equal at every level of every record measured**, so the
+answer is pinned rather than bracketed. Squared distances are exact rationals
+throughout; floats are display only. Free control: `V = 150, E = 240` at n = 4,
+ℓ = 1 reproduces the values [P243](#p243)/`bylevel.log` recorded, so the
+coordinate-keeping rewrite is the same graph.
+
+**THE MINIMUM OVER LEVELS, per record** (cube = [−1,1]³, so 1.0 is a half-edge):
+
+     n    min d          at    ratio to prev   added cube's height
+     4    1.58396e-02    l=2       --
+     5    1.58396e-02    l=2      1.000         2
+     6    6.91020e-03    l=1      0.436        14
+     7    1.08103e-03    l=3      0.156         4
+     8    1.08103e-03    l=3      1.000        61
+     9    2.22779e-04    l=4      0.206       415
+
+The smallest feature anywhere in the tower is `d² = 2176/8673025` at n = 4,
+ℓ = 2 — that is `d = 16√34/2945`, about 1.6% of a half-edge — falling to
+2.2e−4 at n = 9.
+
+**IT IS NOT A SMOOTH FUNCTION OF n.** Fitting both candidates:
+
+    exponential   d ~ 0.410^n     log-residual rms 0.43
+    power law     d ~ n^-5.38     log-residual rms 0.54
+
+The exponential wins but **neither describes the data**, and the residuals are
+large for a structural reason rather than a noisy one: the two flat steps are
+exact repeats, not near-misses. The tower's records are NESTED — each is the
+previous plus a cube — so the minimum is INHERITED and can only fall when the
+newly added cube makes a closer pair than any already present. At n = 5 and n = 8
+it did not. The three real drops are ×0.436, ×0.156, ×0.206, geometric mean
+×0.24: when it moves it moves by a factor of about four. Quoting "×0.41 per
+cube" would describe a curve that is not there.
+
+**AND IT DOES NOT TRACK QUATERNION HEIGHT.** n = 7 adds `(4,-3,-4,-4)`, the
+smallest cube in the tower, and produces the largest single drop (6.4×); n = 8
+adds height 61 and changes nothing. What sets the scale is near-coincidence
+between the new cube and the existing ones, not the size of what is added. This
+is worth keeping because the opposite is the natural guess — these are rational
+points whose denominators are built from the quaternion norms, so an arithmetic
+explanation looked likely and is refuted by two of the five steps.
+
+**THE STEP-SIZE COMPARISON, and its caveat.** Against the perturbation steps this
+project has actually used:
+
+    1/64   = 1.56e-02    70.1x coarser than the n=9 feature
+    1/256  = 3.91e-03    17.5x coarser
+    1/1024 = 9.77e-04     4.4x coarser
+
+Even the finest step ever used is 4.4× too coarse to resolve the n = 9 geometry.
+**CAVEAT, stated because the comparison is easy to over-read:** these are
+distances in DIFFERENT SPACES — the features are in R³, the steps were in
+configuration coordinates. Cubes here are unit-scale and rotations unit-norm, so
+the two should agree within an order of magnitude, but that is an expectation and
+not a demonstration, and this is not a bound on anything. It is, with that
+caveat, a measured number sitting alongside the experience that cost 333
+disagreeing faces and produced "an infinitesimal is exact; a small number is a
+sample".
+
+**SCOPE.** Level-graph vertices only: 0-cells lying on two-cube intersection
+curves. An arrangement vertex not on any such curve — a cube's own corner sitting
+free inside another cube — is not enumerated, so a smaller feature could exist
+outside this class. Six tower records, not a survey.
+
+## [VERIFIED] Postscript 293: the 727 node has ONE structural class — the record is the special POINT, not the special ARC
+
+[OQ 17](OPEN_QUESTIONS.md) and CONTINUUM_MAP recorded that the whole tower above
+n = 6 extends one point of one arc of a four-arc node, with arcs A, B, C never
+used as an extension base and never mapped. `src/map_arcs.py` maps them, taking
+the simplest rational strictly inside each SOLVED extent as representative rather
+than a midpoint ([METHODS 15]), and gating every one on counting 727.
+
+    arc   s      count   walls   lineality   variety
+    D     0       727      27        1       empty
+    A     3       727      20        2       2 directions
+    B     1/2     727      20        2       2 directions
+    C     2       727      20        2       2 directions
+
+Three arcs identical, one different — which reads as "the record's arc is the
+constrained one" and **would have been the wrong conclusion**. Arc D's
+representative is `s = 0`, and `s = 0` IS the 727 record, while A, B and C were
+sampled at interior points. The comparison confounds *which arc* with *where on
+the arc*.
+
+**THE CONTROL.** `src/arcD_control.py` measures arc D at non-record parameters
+inside its own extent (−1/8, 1/4):
+
+    D   s = 1/8     cube (16,30,2,-11)        727   20 walls   lineality 2   variety 2
+    D   s = -1/16   cube (224,462,34,-163)    727   20 walls   lineality 2   variety 2
+
+Identical to A, B and C. **So the node has one structural class**: a generic
+point of any of the four arcs is 20 walls / lineality 2 / two surviving
+directions, and the 27 / 1 / empty reading belongs to the RECORD, which happens
+to sit on arc D. The arcs are not distinguishable by these observables.
+
+**What this predicts, and what it does not.** It predicts that arcs A, B and C
+each contain their own special points, since nothing about arc D's arc makes it
+special — only its point. It does NOT say those special points reach 727 or
+above, or that any of them extends. The extension question ([OQ 17](OPEN_QUESTIONS.md))
+is untouched by this: nothing here was extended to n = 7.
+
+**Why the control was run at all.** The two-class table above is more interesting
+than the one-class answer, and it was already in hand. That is the condition under
+which a confound survives — so the rule that earned this one is to ask what ELSE
+differs between the things being compared before reporting that they differ, and
+here the answer was sitting in plain sight in the `s` column.

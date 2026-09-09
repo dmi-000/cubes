@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Read first: six_cube_search_results.md Postscripts 4–5 (state: record 635 for six congruent concentric unit cubes under RATIONAL rotations; deep ceilings d3≤164/d4≤102/d5≤36), cube_compound_exact.py (Q5 = exact ℚ(√5) arithmetic; build_axes/find_cubes give the compound-of-five-cubes orientations as 5 orthonormal triples of exact unit Q5 vectors; run(5) counts 351), certify_six.py (exact_count_config already computes over CN-wrapped Q5 internally; takes objects R with R.m a 3×3 matrix of Q5 entries, columns = face normals).
+Working directory: ~/carroll. Exact cube-compound region-counting project. Read first: six_cube_search_results.md Postscripts 4–5 (state: record 635 for six congruent concentric unit cubes under RATIONAL rotations; deep ceilings d3≤164/d4≤102/d5≤36), cube_compound_exact.py (Q5 = exact ℚ(√5) arithmetic; build_axes/find_cubes give the compound-of-five-cubes orientations as 5 orthonormal triples of exact unit Q5 vectors; run(5) counts 351), certify_six.py (exact_count_config already computes over CN-wrapped Q5 internally; takes objects R with R.m a 3×3 matrix of Q5 entries, columns = face normals).
 
 Goal: extend the 6-cube maximum search to ℚ(√5) rotations by searching the neighborhood of the golden wall: configurations = the five golden cubes (fixed) + a sixth congruent cube, exactly counted. Does anything here beat 635?
 

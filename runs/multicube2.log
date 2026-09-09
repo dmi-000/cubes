@@ -1,0 +1,9 @@
+n4_183     base 183  params 9  active 180  rank 8  full-null 1  peel 16  VERIFIED 0 (0 multi-cube)  96s
+n5_393     base 393  params 12  active 294  rank 11  full-null 1  peel 22  VERIFIED 0 (0 multi-cube)  537s
+n6_727r    base 727  params 15  active 358  rank 15  full-null 0  peel 15  VERIFIED 0 (0 multi-cube)  915s
+n6_727a    base 727  params 15  active 320  rank 14  full-null 1  peel 28  VERIFIED 0 (0 multi-cube)  1039s
+n6_723     base 723  params 15  active 558  rank 14  full-null 1  peel 28  VERIFIED 0 (0 multi-cube)  2951s
+n7_1217    base 1217  params 18  active 616  rank 17  full-null 1  peel 34  VERIFIED 0 (0 multi-cube)  2697s
+n8_1891    base 1891  params 21  active 886  rank 20  full-null 1  peel 40  VERIFIED 0 (0 multi-cube)  7946s
+n3_67oct   base 67  params 6  active 66  rank 6  full-null 0  peel 6  VERIFIED 0 (0 multi-cube)  34s
+n3_67gold  base 67  params 6  active 144  rank 6  full-null 0  peel 6  VERIFIED 0 (0 multi-cube)  34s

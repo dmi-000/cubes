@@ -1,0 +1,5 @@
+menu: 405 distinct cubes; contains (2,1,1,1): True
+TOWER 183 (asymmetric)   best n=5 = 391  with cube (2, 1, -1, 1)   (405 candidates, 22s)
+     top counts: [391, 389, 387, 385, 383, 381]
+C3 183 (symmetric)       best n=5 = 393  with cube (2, 1, -1, -1)   (405 candidates, 19s)
+     top counts: [393, 387, 385, 383, 381, 379]

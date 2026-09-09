@@ -1,0 +1,8 @@
+n=9 record: count 2787, preserving rank 4 in ambient 24
+common denominator of the Cayley point: L = 74581080
+factorisation of L: {2: 3, 3: 1, 5: 1, 7: 1, 19: 1, 4673: 1}
+
+For the height to DROP, some m>1 must divide out: need integers c with
+P + sum c_i b_i == 0 (mod m) in all 24 coordinates.  4 unknowns, 24 congruences.
+
+primes m<400 for which the tangent space can cancel a factor m: [2, 19]

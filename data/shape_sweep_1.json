@@ -1,0 +1,102 @@
+{
+ "seed": 1,
+ "tested": 50,
+ "violations": [],
+ "by_shape": {
+  "cube|hex_prism|cube": {
+   "n": 1,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 2,
+   "F_i": 6
+  },
+  "hex_prism|hex_prism|hex_prism": {
+   "n": 14,
+   "viol": 0,
+   "eq": 1,
+   "max_s": 12,
+   "F_i": 8
+  },
+  "cube|hex_prism|hex_prism": {
+   "n": 1,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 4,
+   "F_i": 6
+  },
+  "cube|cube|cube": {
+   "n": 9,
+   "viol": 0,
+   "eq": 2,
+   "max_s": 12,
+   "F_i": 6
+  },
+  "oct_prism|oct_prism|cube": {
+   "n": 2,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 6,
+   "F_i": 10
+  },
+  "oct_prism|oct_prism|oct_prism": {
+   "n": 16,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 14,
+   "F_i": 10
+  },
+  "oct_prism|hex_prism|oct_prism": {
+   "n": 1,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 6,
+   "F_i": 10
+  },
+  "oct_prism|oct_prism|hex_prism": {
+   "n": 1,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 12,
+   "F_i": 10
+  },
+  "cube|hex_prism|oct_prism": {
+   "n": 1,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 6,
+   "F_i": 6
+  },
+  "cube|cube|oct_prism": {
+   "n": 1,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 4,
+   "F_i": 6
+  },
+  "hex_prism|cube|cube": {
+   "n": 1,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 6,
+   "F_i": 8
+  },
+  "oct_prism|cube|oct_prism": {
+   "n": 1,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 14,
+   "F_i": 10
+  },
+  "cube|oct_prism|oct_prism": {
+   "n": 1,
+   "viol": 0,
+   "eq": 0,
+   "max_s": 2,
+   "F_i": 6
+  }
+ },
+ "equalities": 3,
+ "m_equals_F": 45,
+ "m_less_F": 5,
+ "elapsed_s": 1037.3
+}

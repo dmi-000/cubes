@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Read first: PROJECT.md (self-contained overview), certify_six.py (the Python exact counter `exact_count_config` — study how it builds planes and counts, but do NOT modify it), README.md.
+Working directory: ~/carroll. Exact cube-compound region-counting project. Read first: PROJECT.md (self-contained overview), certify_six.py (the Python exact counter `exact_count_config` — study how it builds planes and counts, but do NOT modify it), README.md.
 
 GOAL: prototype a NON-CONCENTRIC (translation-capable) exact region counter and use it to test whether moving cubes off-center can increase the region count of the record 723.
 

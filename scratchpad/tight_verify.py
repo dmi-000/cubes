@@ -13,12 +13,12 @@ walk is exact, not a float round-trip.
 import json, subprocess, sys
 from fractions import Fraction as F
 from math import gcd
-sys.path.insert(0, "/Users/dmi/cube-compounds")
+sys.path.insert(0, ".")
 import numpy as np
 from tight_set import quantities
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = "cube_regions_n"
+ENGW = "cube_regions_q2w"
 
 def qmulf(p, q):
     w,x,y,z = p; e,f,g,h = q

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: specs/GLUE_SPEC.md. Project index: README.md
 """Glued family-clique search (specs/GLUE_SPEC.md): does gluing two dihedral-
 family cliques on DIFFERENT axes (clique A on axis/tilt psiA, clique B on
@@ -37,7 +38,7 @@ from certify_six import exact_count_config
 from golden_rotations import rot_from_quat
 
 ENGINE = './cube_regions_n'
-RESULTS_PATH = '/Users/dmi/carroll/glue_results.jsonl'
+RESULTS_PATH = os.path.expanduser('~/carroll/glue_results.jsonl')
 RECORDS = {4: 183, 5: 393, 6: 723}
 RECORD_QUATS = {
     4: [(1, 0, 0, 0), (0, 5, 3, 2), (1, -4, -1, 1), (1, 1, -1, -4)],
@@ -322,7 +323,7 @@ def q0_report():
             emit('  no (n-1)-of-n single-axis sub-clique found')
         emit('')
 
-    with open('/Users/dmi/carroll/glue_q0.json', 'w') as f:
+    with open(os.path.expanduser('~/carroll/glue_q0.json'), 'w') as f:
         json.dump(results, f, indent=1, default=str)
     return '\n'.join(lines)
 
@@ -768,7 +769,7 @@ def sweep_main(args):
         print(f'  n={n} sizes=({sizeA},{sizeB}): best={total}  record={RECORDS[n]}  '
               f'{"** BEATS OR TIES RECORD **" if total >= RECORDS[n] else ""}')
         print(f'    quats={rec["quats"]}  by_depth={rec["by_depth"]}')
-    with open('/Users/dmi/carroll/glue_best.json', 'w') as f:
+    with open(os.path.expanduser('~/carroll/glue_best.json'), 'w') as f:
         json.dump({f'{n}_{a}_{b}': {'total': t, 'rec': r} for (n, a, b), (t, r) in best_tracker.items()},
                    f, indent=1, default=str)
 

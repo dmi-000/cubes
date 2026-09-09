@@ -1,0 +1,212 @@
+[
+ {
+  "direction": [
+   "365",
+   "-747",
+   "-1074"
+  ],
+  "chambers": 425,
+  "longest_run": 86,
+  "fraction": 0.2023529411764706,
+  "value": 707,
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": true
+ },
+ {
+  "direction": [
+   "2",
+   "-3",
+   "-5"
+  ],
+  "chambers": 160,
+  "longest_run": 99,
+  "fraction": 0.61875,
+  "value": 725,
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": true
+ },
+ {
+  "direction": [
+   "507",
+   "-1093",
+   "-2018"
+  ],
+  "chambers": 271,
+  "longest_run": 57,
+  "fraction": 0.21033210332103322,
+  "value": 715,
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": true
+ },
+ {
+  "direction": [
+   "2",
+   "-3",
+   "-5"
+  ],
+  "chambers": 160,
+  "longest_run": 99,
+  "fraction": 0.61875,
+  "value": 725,
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": true
+ },
+ {
+  "direction": [
+   "1",
+   "2",
+   "6"
+  ],
+  "chambers": 1148,
+  "longest_run": 52,
+  "fraction": 0.04529616724738676,
+  "value": 703,
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": false
+ },
+ {
+  "direction": [
+   "1",
+   "1",
+   "2"
+  ],
+  "chambers": 1472,
+  "longest_run": 66,
+  "fraction": 0.04483695652173913,
+  "value": 697,
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": false
+ },
+ {
+  "direction": [
+   "3",
+   "-3",
+   "-4"
+  ],
+  "chambers": 1457,
+  "longest_run": 58,
+  "fraction": 0.03980782429649966,
+  "value": 689,
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": false
+ },
+ {
+  "direction": [
+   "53",
+   "351",
+   "282"
+  ],
+  "chambers": 3241,
+  "longest_run": 61,
+  "fraction": 0.018821351434742364,
+  "value": 679,
+  "kind": "high_m",
+  "s": "-68/15",
+  "m_own": 3,
+  "is_ruling": true
+ },
+ {
+  "direction": [
+   "1",
+   "2",
+   "4"
+  ],
+  "chambers": 3259,
+  "longest_run": 54,
+  "fraction": 0.016569499846578704,
+  "value": 701,
+  "kind": "high_m",
+  "s": "-68/15",
+  "m_own": 3,
+  "is_ruling": true
+ },
+ {
+  "direction": [
+   "1",
+   "2",
+   "4"
+  ],
+  "chambers": 3259,
+  "longest_run": 54,
+  "fraction": 0.016569499846578704,
+  "value": 701,
+  "kind": "high_m",
+  "s": "-68/15",
+  "m_own": 3,
+  "is_ruling": true
+ },
+ {
+  "direction": [
+   "54",
+   "-557",
+   "-1359"
+  ],
+  "chambers": 3652,
+  "longest_run": 50,
+  "fraction": 0.013691128148959474,
+  "value": 687,
+  "kind": "high_m",
+  "s": "-68/15",
+  "m_own": 3,
+  "is_ruling": true
+ },
+ {
+  "direction": [
+   "6",
+   "2",
+   "1"
+  ],
+  "chambers": 2770,
+  "longest_run": 67,
+  "fraction": 0.024187725631768953,
+  "value": 691,
+  "kind": "high_m",
+  "s": "-68/15",
+  "m_own": 3,
+  "is_ruling": false
+ },
+ {
+  "direction": [
+   "4",
+   "3",
+   "6"
+  ],
+  "chambers": 3339,
+  "longest_run": 66,
+  "fraction": 0.019766397124887692,
+  "value": 701,
+  "kind": "high_m",
+  "s": "-68/15",
+  "m_own": 3,
+  "is_ruling": false
+ },
+ {
+  "direction": [
+   "4",
+   "5",
+   "-1"
+  ],
+  "chambers": 3034,
+  "longest_run": 82,
+  "fraction": 0.02702702702702703,
+  "value": 679,
+  "kind": "high_m",
+  "s": "-68/15",
+  "m_own": 3,
+  "is_ruling": false
+ }
+]

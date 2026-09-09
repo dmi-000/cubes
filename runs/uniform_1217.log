@@ -1,0 +1,6 @@
+1217: 51 walls ambient 18 | inner(727) 27 | new 24 | target 279
+Traceback (most recent call last):
+  File "uniform_test.py", line 38, in <module>
+    with open(paths[0]) as fh:
+              ~~~~~^^^
+IndexError: list index out of range

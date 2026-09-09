@@ -1,0 +1,5 @@
+[    83s] 10 tested, 0 violations, 0 equalities, m=F in 9
+[   242s] 20 tested, 0 violations, 3 equalities, m=F in 17
+[   402s] 30 tested, 0 violations, 3 equalities, m=F in 25
+[   526s] 40 tested, 0 violations, 3 equalities, m=F in 35
+[  1037s] 50 tested, 0 violations, 3 equalities, m=F in 45

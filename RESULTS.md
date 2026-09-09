@@ -20,6 +20,7 @@ Status tags:
 | **VERIFIED** | an exact count of a specific configuration, agreed by two independent engines |
 | **EXHAUSTED** | a search that was complete over a stated family, not a sample |
 | **CONJECTURE** | consistent with all evidence, not proved |
+| **CONDITIONAL** | follows from a NAMED hypothesis in section 3b, which is itself unproved. The hypothesis is always cited, and every conditional result is listed in that hypothesis's DEPENDENTS block, so a refutation propagates instead of leaving orphans |
 | **OBSERVED** | a PATTERN noticed, not yet checked against anything outside the sweeps that produced it. The discovery state: not a result, and the thing most likely to be retracted — 4 of the 17 ledger entries written on 2026-08-31 were retracted or superseded the same day, and **all four were pattern claims while every survivor was a measurement**. A hypothesis with a leading candidate belongs in [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md), not here. |
 
 Last updated 2026-08-11.  Open questions and what has been RULED OUT: [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md).  Run data: see [DATA_MANIFEST.md](DATA_MANIFEST.md) for which .json files are current, superseded, or wrong.
@@ -48,7 +49,7 @@ enters any decision.
 | 7 | **1217** | VERIFIED | the 727 six + `4,-3,-4,-4` |
 | 8 | **1895** | VERIFIED | the 1217 seven + `24,-24,24,-61` |
 | 9 | **2787** | VERIFIED | 1895's seven + `168,-168,168,-415` + `109,-11,91,140` — [P198](LEDGER.md#p198), representative simplified [P218](LEDGER.md#p218). Supersedes 2785. *The first published representative used `88787,-9061,74275,113786` (height 113 786); the region is 4-dimensional and contains this one at height 415, same count, same by_depth profile at every depth, both engines and three rotations. The old one remains valid — it is the same region — but costs 274x the height and is why the record's neighbourhood was largely unevaluable.* |
-| 10 | **3925** | VERIFIED | the 2787 nine + `6555,6555,6497,6555` — found by the automated boundary climb, [P200](LEDGER.md#p200). Supersedes 3921, 3917, 3913 |
+| 10 | **3925** | VERIFIED | **CORRECTED 2026-09-08 ([P285](LEDGER.md#p285)):** the 2787 nine **in its ORIGINAL representative** (`…;168,-168,168,-415;88787,-9061,74275,113786`) + `6555,6555,6497,6555`, per [P200](LEDGER.md#p200)'s listed configuration. ~~the 2787 nine + `6555,6555,6497,6555`~~ — with the SIMPLIFIED n=9 representative (`109,-11,91,140`, the one listed in the n=9 row above) the same extension counts **3921**, not 3925. The two n=9 representatives agree in count and in `by_depth` at every depth and are still NOT interchangeable here. Found by the automated boundary climb, [P200](LEDGER.md#p200). Supersedes 3921, 3917, 3913 |
 
 **GAP IN THE RECORD, found 2026-08-18 — CLOSED 2026-08-29.** Every other row of this
 table traces to a Postscript, but n=9 = 2785 had no establishing entry in `LEDGER.md`
@@ -206,8 +207,16 @@ unchanged — so the increment is entirely shallow, the same signature by which
   lie on walls of FULL RANK — 6 and 9 walls, rank 6 = ambient, lineality 0 — so
   they are pinned at FIRST order. No rational record is: 727, 1217, 1895, 2785
   lie on 27, 51, 75, 99 walls of rank 14, 16, 18, 20 in ambient 15, 18, 21, 24,
+  *(N.B. 2026-09-08, [P290](LEDGER.md#p290): the n = 9 entry is **2785**, which
+  2787 superseded. On the current record the numbers are 83 walls / 420 tight
+  (simplified representative) or 76 / 396 (original), so `walls = 24n − 117` is a
+  window over n = 6..8, not n = 6..9.)*
   keeping tangent spaces of dimension 1, 2, 3, 4, and are isolated only because
-  the second-order variety is empty. More walls is not more constrained;
+  the second-order variety is empty. *(CORRECTED 2026-09-08, [P288](LEDGER.md#p288):
+  the second-order variety is NOT empty at n = 7 and n = 8 — 1 and 2 directions —
+  under the fixed `branch_numerator`. Those records are pinned by the COUNT, not by
+  the variety. n = 4, 5, 6 are unaffected: they have zero cross-cube conditions, so
+  the fix is bit-identical there.)* More walls is not more constrained;
   independence is what pins a point. For n = 6..9 the counts are linear —
   `walls = 24n − 117`, `lineality = n − 5`, one wall per self-symmetry of each
   added cube — but the fit FAILS at n = 5 (predicted 3 walls, measured 18), so it
@@ -217,13 +226,28 @@ unchanged — so the increment is entirely shallow, the same signature by which
   δ — the rank they add — was measured at **0** for all four levels.* Both 67s lie on walls of FULL RANK — 6 and 9 walls,
   rank 6 = ambient, lineality 0 — so they are pinned at FIRST order. No rational
   record is: 727, 1217, 1895, 2785 lie on 27, 51, 75, 99 walls of rank 14, 16,
+  *(N.B. 2026-09-08, [P290](LEDGER.md#p290): the n = 9 entry is **2785**, which
+  2787 superseded. On the current record the numbers are 83 walls / 420 tight
+  (simplified representative) or 76 / 396 (original), so `walls = 24n − 117` is a
+  window over n = 6..8, not n = 6..9.)*
   18, 20 in ambient 15, 18, 21, 24, keeping tangent spaces of dimension 1, 2, 3,
-  4, and are isolated only because the second-order variety is empty. More walls
+  4, and are isolated only because the second-order variety is empty. *(Same
+  correction as above, [P288](LEDGER.md#p288): not empty at n = 7, 8. This
+  paragraph is an accidental near-duplicate of the one preceding it, left in place
+  and corrected in both copies rather than deleted, since deleting would silently
+  change what the document said.)* More walls
   is not more constrained; independence is what pins a point. For n = 6..9 the
   counts are linear — `walls = 24n − 117`, `tight = 84n − 288`, one wall per
   self-symmetry of each added cube — but the fit FAILS at n = 5 (predicted 3
   walls, measured 18), so it is a regime beginning at n = 6, not a law.
 - **Every record is an ISOLATED POINT in the full moduli space.** VERIFIED
+  *(SHARPENED 2026-09-08, [P288](LEDGER.md#p288) — the sense matters and was not
+  stated. This holds in the COUNT sense: no direction preserves the count, and
+  P117's engine verification is a count check. It does NOT hold in the
+  coincidence-variety sense at n = 7 and n = 8, where a curve preserving all
+  tight conditions exists — 300/300 conditions still tight at t = 1, confirmed by
+  a route independent of the `branch_numerator` bug — while the count falls
+  1217 → 1213 at t = 1/64. The claim below is the count one and stands.)*
   (Postscript [117](LEDGER.md#p117)), for 63, 183, 393, 727, 1217 and 1895 — and
   since 2026-08-17 for **both n = 3 maximizers as well** (Postscript
   [118](LEDGER.md#p118)), which every crossing-based census had skipped because
@@ -275,6 +299,57 @@ unchanged — so the increment is entirely shallow, the same signature by which
   that space to exactly one real point, and all 684 remaining conditions are
   inconsistent with them (Gröbner basis {1} in each case). Caveat: the Cayley
   chart used omits the 180° rotations.
+
+## 3b. Named hypotheses, and what rests on them
+
+Three separate unproved statements stand between the project and `max(4) = 183`. They are named
+INDIVIDUALLY rather than bundled, so a refutation says which brick fell. Nothing here is proved.
+
+### Hypothesis T — `T ≤ 48` at n = 4
+
+`T` = the two-body weight, `Σ over pairs of (edge-edge coincidences + 2·corner contacts)`,
+equivalently `Σ_v (deg/2 − 1)` over level-1 two-body vertices ([P272](LEDGER.md#p272)).
+
+**Evidence** ([P282](LEDGER.md#p282)): max `T` found anywhere is 48 — at the record, and at the
+single 4-subset of the 393 that IS the record. Survived every test: all record 4-subsets at
+n = 5..8 (ground strictly favourable to a violation, since removing cubes only unswallows), the
+higher-n records (`T = 10k + 6m` exactly; `8·C(n,2)` binds only at n = 4, so higher n cannot
+refute it), and a construction built to break it. **The `k ≤ 3` route to proving it is CLOSED** —
+the star property it rested on is refuted, though breaking the star costs more than it buys
+(`T = 32` against 48).
+
+**DEPENDENTS:**
+- `d₁ ≤ 92` at n = 4, hence `max(4) ≤ 183` (jointly with W and C)
+- [P283](LEDGER.md#p283)'s reading of the tower's unique 183 as an OPTIMAL 4-core. The
+  measurement — exactly one 4-subset at 183 in every record, n = 4..8 — is UNCONDITIONAL; only
+  the word "optimal" depends on T.
+
+### Hypothesis W — `W₀ ≤ 84` at n = 4
+
+`W₀` = transversal triple points on the outer boundary, the `(3,3)` vertex class ([P272]).
+**Evidence:** 0 violations in 247 blind configurations; attained at the record. Reduces exactly
+([P275](LEDGER.md#p275)) to `τ₃ + (c₃ − 1) ≤ Tτ + γ + S`, measured running 7–23× the safe way.
+Open as [OQ 32].
+
+**DEPENDENTS:** `d₁ ≤ 92`, hence `max(4) ≤ 183`.
+
+### Hypothesis C — `c₁ = c₂ = 1` at the maximiser
+
+**Evidence:** `c = 2` DOES occur generically ([P269](LEDGER.md#p269)) — so this is a claim about
+MAXIMISERS only, not configurations. Directed climbing under `c = 2` stalled at `d₁ = 47`
+against the record's 92 ([P270](LEDGER.md#p270)). Open as [OQ 30].
+
+**DEPENDENTS:** `d₁ ≤ 92` and `d₂ ≤ 66`, hence `max(4) ≤ 183`. With `c₁ = 2` the bound is 184.
+
+### CONDITIONAL — `max(4) = 183`
+
+Follows from T **and** W **and** C together, through the exact anatomy
+`d₁ = W₀/2 + T + c₁ + 1` ([P272](LEDGER.md#p272)):
+
+    d₁ ≤ 42 + 48 + 1 + 1 = 92        and        92 + 66 + 24 + 1 = 183
+
+with the lower bound exhibited by the record. `d₃ ≤ 24` (l=1 ceiling law) and Theorem S
+([P266](LEDGER.md#p266)) are PROVED and are not hypotheses.
 
 ## 4. Structure
 

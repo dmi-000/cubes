@@ -1,0 +1,5 @@
+252 polynomials built in 116s
+chart 1: 252 polys, degrees [2, 2, 2, 2, 2, 2, 2, 2]
+   max coefficient digits in the seed: 24
+mod 32003    FAILED CoercionFailed after 0s
+mod 1000003  FAILED CoercionFailed after 0s

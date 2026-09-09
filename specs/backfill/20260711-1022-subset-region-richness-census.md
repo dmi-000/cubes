@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. This is a read-only DATA ANALYSIS task over an existing log. Do NOT modify any .py, .cpp, or the validated files; only READ campaign_results.jsonl and WRITE one new report file. No searching, no counting engine needed — pure JSON aggregation in Python.
+Working directory: ~/carroll. This is a read-only DATA ANALYSIS task over an existing log. Do NOT modify any .py, .cpp, or the validated files; only READ campaign_results.jsonl and WRITE one new report file. No searching, no counting engine needed — pure JSON aggregation in Python.
 
 INPUT: campaign_results.jsonl — one JSON object per line, ~278,000 lines. Each has:
   - "bounded": int (total bounded regions of a 6-cube config)
@@ -43,5 +43,5 @@ ANSWER THESE, with numbers:
   (C) Balance vs total: among the top 1% of configs by total, report mean spread_d1 and spread_d2; compare to the median-total configs and bottom 1%. Are top-total configs more balanced (smaller spread) than typical? Quantify.
   (D) Are singleton-richness and pair-richness coupled? Report correlation of max_d1 vs max_d2 across configs.
 
-OUTPUT: write /Users/dmi/carroll/subset_richness_report.md — a concise report (numbers first, one short interpreting sentence each for A/B/C/D), plus a 3-5 line "categorization" summarizing the distinct region-rich-subset signatures you actually observe in the data (e.g. "balanced-moderate high-total type" vs "one-spiky-subset mid-total type"). Keep the analysis script inline in the report (a fenced code block) OR save it as subset_richness.py with a module docstring and a "# Working principles: README.md" comment — your choice, but if you save a .py it must parse and run. State the skipped-line count. Do not overstate: this is one campaign's random-seed ensemble (generic stratum), so say so. Final message: the four headline numbers (A correlation signs, B the rich-subset totals' percentiles, C the balance comparison, D coupling correlation) in 4 lines.
+OUTPUT: write ~/carroll/subset_richness_report.md — a concise report (numbers first, one short interpreting sentence each for A/B/C/D), plus a 3-5 line "categorization" summarizing the distinct region-rich-subset signatures you actually observe in the data (e.g. "balanced-moderate high-total type" vs "one-spiky-subset mid-total type"). Keep the analysis script inline in the report (a fenced code block) OR save it as subset_richness.py with a module docstring and a "# Working principles: README.md" comment — your choice, but if you save a .py it must parse and run. State the skipped-line count. Do not overstate: this is one campaign's random-seed ensemble (generic stratum), so say so. Final message: the four headline numbers (A correlation signs, B the rich-subset totals' percentiles, C the balance comparison, D coupling correlation) in 4 lines.
 ```

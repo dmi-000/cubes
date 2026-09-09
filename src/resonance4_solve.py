@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: specs/RESONANCE4_SPEC.md. Project index: README.md
 """Exact algebraic solver + counter for n=4 dihedral-family cross-class
 RESONANCES (specs/RESONANCE4_SPEC.md).
@@ -39,7 +40,7 @@ import sympy as sp
 
 from golden_rotations import Rot
 
-CARROLL = '/Users/dmi/carroll'
+CARROLL = os.path.expanduser('~/carroll')
 
 
 # =====================================================================

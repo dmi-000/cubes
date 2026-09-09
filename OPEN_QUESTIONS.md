@@ -112,7 +112,23 @@ the idea.
 **Suggested by the project's own rule** (a census returning few distinct values
 wants factoring, not more counting) and answerable from data already on disk.
 
-## 4. Why 24 walls per added cube? — a WINDOW n = 6..9, broken at both ends
+## 4. Why 24 walls per added cube? — a WINDOW n = 6..8, broken at both ends
+
+**CORRECTED 2026-09-08 ([P290](LEDGER.md#p290)): the n = 9 rung belongs to 2785,
+which is no longer the record.** 2785 reproduces `walls = 24n − 117`,
+`tight = 84n − 288`, `rank = 2(n+1)`, `lineality = n − 5` exactly — 468 tight, 99
+walls, rank 20, lineality 4. But **2787 superseded it**, and neither of 2787's
+representatives does:
+
+    n = 9                        tight  walls  rank  lineality
+    fit / 2785 (superseded)        468     99    20      4
+    2787 simplified (h 140)        420     83    20      4
+    2787 original   (h 113 786)    396     76    19      5
+
+So the window is three rungs over the current records, not four, and the n = 10
+failure below is less of a surprise than it was. The heading and the table below
+are left as written and corrected here rather than rewritten, so what the
+question said before stays readable.
 
 For n = 6..9: `walls = 24n − 117`, `tight = 84n − 288`, `rank = 2(n+1)`,
 `lineality = n − 5` ([P122](LEDGER.md#p122)). The 24 is the order of the cube's

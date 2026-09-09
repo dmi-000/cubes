@@ -1,0 +1,19 @@
+{
+ "output": "flat_ranks_727_par.json",
+ "argv": [
+  "flat_ranks_par.py",
+  "727",
+  "4"
+ ],
+ "rerun": "python3 flat_ranks_par.py 727 4",
+ "script": "flat_ranks_par.py",
+ "script_sha1": "60c1124c83a0a4c01e039f5d6e03f3276d912f47",
+ "script_logic_sha1": "89a7082253c8ea30cae1c5a9aa852d7653464a30",
+ "started": null,
+ "finished": "2026-08-30 05:08:05",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "retroactive": true,
+ "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
+ "note": "Parallel lattice BFS on cube64, 4 cores, 23241s, 2026-08-30. Per-rank counts identical to the 11.3h serial run (flat_ranks.py); rank-14 mask has all 27 bits. Recovered to the repository immediately per P164."
+}

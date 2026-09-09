@@ -1,0 +1,12 @@
+record shapes: axis probe then pair probe (n4_183_dim reference: n=4 is dim 3)
+
+183 n=4 GATE           K=64    count=183   axes holding  0/12  pair-combos holding 0/0    -> isolated along axes
+183 n=4 GATE           K=256   count=183   axes holding  0/12  pair-combos holding 0/0    -> isolated along axes
+393 n=5                K=64    count=393   axes holding  0/16  pair-combos holding 0/0    -> isolated along axes
+393 n=5                K=256   count=393   axes holding  0/16  pair-combos holding 0/0    -> isolated along axes
+727 n=6                K=64    count=727   axes holding  0/20  pair-combos holding 0/0    -> isolated along axes
+727 n=6                K=256   count=727   axes holding  0/20  pair-combos holding 0/0    -> isolated along axes
+1217 n=7               K=64    count=1217  axes holding  0/24  pair-combos holding 0/0    -> isolated along axes
+1217 n=7               K=256   count=1217  axes holding  1/24  pair-combos holding 0/0    -> isolated along axes
+1895 n=8               K=64    count=1895  axes holding  1/28  pair-combos holding 0/0    -> isolated along axes
+1895 n=8               K=256   count=1895  axes holding  2/28  pair-combos holding 2/2    -> subspace

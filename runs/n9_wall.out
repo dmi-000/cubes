@@ -1,0 +1,15 @@
+building the 8-cube catalogue ...
+   2158 real triple points, 1008 crossing lines
+   4181 W4 + 6455 W3 roots on the line (1, t, 1)
+   99 roots in t in (9/10, 1)
+
+   count 2777   from t = 0.900000000000  (W4)   k = 9.0000
+   count 2781   from t = 0.927467440298  (W3)   k = 12.7869
+   count 2777   from t = 0.933766785154  (W4)   k = 14.0982
+   count 2781   from t = 0.935878157018  (W4)   k = 14.5953
+   count None   from t = 0.964912280702  (W3)   k = 27.5000
+   count 2781   from t = 0.964912280702  (W3)   k = 27.5000
+   count 2785   from t = 0.982138827898  (W4)   k = 54.9874
+
+   55/56 = 0.982142857143  (k = 55)
+   the degeneracy t = 1 counts 1895

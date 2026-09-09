@@ -1,0 +1,43 @@
+=== GATES ===
+  GATE 183 (n=4, on-axis{(0,1),(1,4)} + spoke{(0,1),(-1,1)}): total=183 (want 183) PASS
+  GATE 723 (n=6, spoke{C3-locked} + on-axis{(1,2),(1,1),(2,5)}): total=723 (want 723) PASS
+  BOTH GATES PASS -- the family CONTAINS both records exactly.
+
+########## n=4 templates (record 183) ##########
+  [n4_onaxis2+spoke2] axis=(1,1,1) spec=([('onaxis', 2), ('spoke', 2)], 0) (record n=4=183)
+      locked=165  free=183  (record 183)   evals=4800  61s
+  [n4_onaxis1+spoke3] axis=(1,1,1) spec=([('onaxis', 1), ('spoke', 3)], 0) (record n=4=183)
+      locked=167  free=153  (record 183)   evals=4974  65s
+  [n4_onaxis3+spoke1] axis=(1,1,1) spec=([('onaxis', 3), ('spoke', 1)], 0) (record n=4=183)
+      locked=165  free=171  (record 183)   evals=6672  73s
+  [n4_spoke4_axis001] axis=(0,0,1) spec=([('spoke', 4)], 0) (record n=4=183)
+      locked=169  free=165  (record 183)   evals=5370  71s
+  [n4_control_4free] axis=(1,1,1) spec=([], 4) (record n=4=183)
+      locked=149  free=163  (record 183)   evals=4132  57s
+########## n=5 templates (record 393) ##########
+  [n5_onaxis2+spoke3] axis=(1,1,1) spec=([('onaxis', 2), ('spoke', 3)], 0) (record n=5=393)
+      locked=393  free=375  (record 393)   evals=8774  225s
+  [n5_onaxis1+spoke4] axis=(1,1,1) spec=([('onaxis', 1), ('spoke', 4)], 0) (record n=5=393)
+      locked=345  free=373  (record 393)   evals=8475  227s
+  [n5_spoke3+onaxis2(723sub)] axis=(1,1,1) spec=([('spoke', 3), ('onaxis', 2)], 0) (record n=5=393)
+      locked=375  free=393  (record 393)   evals=9369  259s
+  [n5_onaxis1+spoke3+free1] axis=(1,1,1) spec=([('onaxis', 1), ('spoke', 3)], 1) (record n=5=393)
+      locked=355  free=393  (record 393)   evals=9185  254s
+  [n5_control_5free] axis=(1,1,1) spec=([], 5) (record n=5=393)
+      locked=345  free=369  (record 393)   evals=8716  4767s
+########## n=6 templates (record 723) ##########
+  [n6_spoke3+onaxis3(=723)] axis=(1,1,1) spec=([('spoke', 3), ('onaxis', 3)], 0) (record n=6=723)
+      locked=679  free=723  (record 723)   evals=15855  1382s
+  [n6_onaxis1+spoke3+free2] axis=(1,1,1) spec=([('onaxis', 1), ('spoke', 3)], 2) (record n=6=723)
+      locked=677  free=709  (record 723)   evals=16598  797s
+  [n6_onaxis1+spoke4+free1] axis=(1,1,1) spec=([('onaxis', 1), ('spoke', 4)], 1) (record n=6=723)
+      locked=673  free=675  (record 723)   evals=12665  605s
+  [n6_spoke3+spoke3(twoclusters)] axis=(1,1,1) spec=([('spoke', 3), ('spoke', 3)], 0) (record n=6=723)
+      locked=693  free=717  (record 723)   evals=15389  942s
+  [n6_onaxis2+spoke4] axis=(1,1,1) spec=([('onaxis', 2), ('spoke', 4)], 0) (record n=6=723)
+      locked=679  free=691  (record 723)   evals=14233  664s
+  [n6_control_6free] axis=(1,1,1) spec=([], 6) (record n=6=723)
+      locked=669  free=691  (record 723)   evals=16132  783s
+
+Total wall time: 11231s
+Report -> ~/carroll/shared_axis_search_report.md

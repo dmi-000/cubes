@@ -1,0 +1,10 @@
+base 393: 424 real triple points, 360 crossing lines
+catalogue size: 2544 W4 + 4320 W3 = 6864 walls in the free cube's R^3
+
+WALLS INCIDENT AT THE 727 SIXTH CUBE:
+   W4 (free face plane through a base triple point): 4
+   W3 (free edge coplanar with a base crossing line): 8
+   TOTAL incident: 12 of 6864 catalogue walls
+
+local chamber bound: k surfaces through a point in R^3 give at most
+   k(k-1)+2 = 134 chambers if they were PLANES (they are quadrics, so more)

@@ -1,0 +1,82 @@
+[   50.0s] n=6 k=3 c=55    lineality 3 -> nonempty  12 dirs, 12 confirmed
+[   51.8s] n=6 k=4 c=183 CRASH GeneratorsNeeded
+[   78.6s] n=6 k=4 c=167   lineality 2 -> empty     0 dirs, 0 confirmed
+[   84.4s] n=6 k=5 c=385 CRASH GeneratorsNeeded
+[   86.7s] n=7 k=3 c=57    lineality 2 -> nonempty  1 dirs, 1 confirmed
+[   87.0s] n=7 k=3 c=47    lineality 4 -> nonempty  4 dirs, 4 confirmed
+[  110.5s] n=7 k=4 c=173   lineality 2 -> nonempty  2 dirs, 1 confirmed
+[  235.4s] n=7 k=4 c=165   lineality 3 -> empty     0 dirs, 0 confirmed
+[  313.3s] n=7 k=4 c=157   lineality 5 -> nonempty  40 dirs, 8 confirmed
+[  320.0s] n=7 k=5 c=385 CRASH GeneratorsNeeded
+[  341.0s] n=7 k=5 c=381   lineality 2 -> empty     0 dirs, 0 confirmed
+[  355.2s] n=7 k=5 c=371   lineality 3 -> nonempty  1 dirs, 1 confirmed
+[  369.3s] n=7 k=6 c=727 CRASH GeneratorsNeeded
+[  411.2s] n=7 k=6 c=715   lineality 3 -> nonempty  1 dirs, 1 confirmed
+[  415.2s] n=8 k=3 c=57    lineality 2 -> nonempty  1 dirs, 1 confirmed
+[  415.7s] n=8 k=3 c=47    lineality 4 -> nonempty  4 dirs, 4 confirmed
+[  418.6s] n=8 k=4 c=183 CRASH GeneratorsNeeded
+[  440.6s] n=8 k=4 c=169   lineality 2 -> empty     0 dirs, 0 confirmed
+[  449.6s] n=8 k=4 c=161   lineality 4 -> nonempty  15 dirs, 3 confirmed
+[  557.9s] n=8 k=4 c=157   lineality 5 -> nonempty  40 dirs, 8 confirmed
+[  709.4s] n=8 k=4 c=147   lineality 6 -> nonempty  41 dirs, 25 confirmed
+[  716.8s] n=8 k=5 c=393 CRASH GeneratorsNeeded
+[  726.3s] n=8 k=5 c=383   lineality 2 -> nonempty  1 dirs, 0 confirmed
+[ 1057.3s] n=8 k=5 c=377   lineality 3 -> empty     0 dirs, 0 confirmed
+[ 1078.5s] n=8 k=5 c=369   lineality 3 -> nonempty  1 dirs, 1 confirmed
+[ 1331.8s] n=8 k=5 c=363   lineality 5 -> nonempty  4 dirs, 4 confirmed
+[ 1428.8s] n=8 k=5 c=357   lineality 6 -> nonempty  2 dirs, 2 confirmed
+[ 1536.7s] n=8 k=5 c=351   lineality 8 -> nonempty  70 dirs, 11 confirmed
+[ 1556.7s] n=8 k=6 c=723   lineality 2 -> empty     0 dirs, 0 confirmed
+[ 1579.8s] n=8 k=6 c=715   lineality 3 -> nonempty  1 dirs, 0 confirmed
+[ 1602.2s] n=8 k=6 c=709   lineality 3 -> nonempty  1 dirs, 0 confirmed
+[ 2014.7s] n=8 k=6 c=703   lineality 5 -> nonempty  4 dirs, 2 confirmed
+[ 2047.9s] n=8 k=6 c=695   lineality 5 -> nonempty  2 dirs, 2 confirmed
+[ 2089.2s] n=8 k=7 c=1209  lineality 3 -> empty     0 dirs, 0 confirmed
+[ 2136.6s] n=8 k=7 c=1201  lineality 4 -> nonempty  1 dirs, 0 confirmed
+[ 2162.0s] n=9 k=3 c=55    lineality 3 -> nonempty  12 dirs, 12 confirmed
+[ 2162.3s] n=9 k=3 c=44    lineality 4 -> nonempty  4 dirs, 4 confirmed
+[ 2162.6s] n=9 k=3 c=38    lineality 6 -> nonempty  6 dirs, 4 confirmed
+[ 2191.6s] n=9 k=4 c=173   lineality 2 -> nonempty  2 dirs, 1 confirmed
+[ 2332.2s] n=9 k=4 c=165   lineality 3 -> empty     0 dirs, 0 confirmed
+[ 2530.9s] n=9 k=4 c=159   lineality 4 -> nonempty  2 dirs, 2 confirmed
+[ 2538.5s] n=9 k=4 c=153   lineality 4 -> nonempty  15 dirs, 14 confirmed
+[ 2547.1s] n=9 k=4 c=147   lineality 5 -> nonempty  20 dirs, 20 confirmed
+[ 2548.2s] n=9 k=4 c=141   lineality 7 -> nonempty  7 dirs, 7 confirmed
+[ 2553.5s] n=9 k=5 c=393 CRASH GeneratorsNeeded
+[ 2559.8s] n=9 k=5 c=383   lineality 2 -> nonempty  1 dirs, 0 confirmed
+[ 2581.0s] n=9 k=5 c=381   lineality 2 -> empty     0 dirs, 0 confirmed
+[ 2603.7s] n=9 k=5 c=373   lineality 3 -> nonempty  1 dirs, 1 confirmed
+[ 2851.6s] n=9 k=5 c=369   lineality 4 -> nonempty  1 dirs, 1 confirmed
+[ 2868.4s] n=9 k=5 c=365   lineality 5 -> nonempty  20 dirs, 4 confirmed
+[ 2895.5s] n=9 k=5 c=361   lineality 3 -> empty     0 dirs, 0 confirmed
+[ 2912.8s] n=9 k=5 c=357   lineality 5 -> nonempty  20 dirs, 3 confirmed
+[ 3016.8s] n=9 k=5 c=353   lineality 7 -> nonempty  9 dirs, 5 confirmed
+[ 3100.6s] n=9 k=5 c=351   lineality 7 -> nonempty  48 dirs, 22 confirmed
+[ 3152.6s] n=9 k=5 c=347   lineality 9 -> nonempty  42 dirs, 5 confirmed
+[ 3255.3s] n=9 k=5 c=341   lineality 9 -> nonempty  80 dirs, 45 confirmed
+[ 3258.6s] n=9 k=5 c=335   lineality 11 -> nonempty  11 dirs, 7 confirmed
+[ 3282.1s] n=9 k=6 c=723   lineality 2 -> empty     0 dirs, 0 confirmed
+[ 3309.1s] n=9 k=6 c=715   lineality 3 -> nonempty  1 dirs, 0 confirmed
+[ 3337.7s] n=9 k=6 c=713   lineality 3 -> empty     0 dirs, 0 confirmed
+[ 3362.8s] n=9 k=6 c=709   lineality 3 -> nonempty  1 dirs, 1 confirmed
+[ 3402.7s] n=9 k=6 c=707   lineality 3 -> empty     0 dirs, 0 confirmed
+[ 3432.1s] n=9 k=6 c=705   lineality 3 -> empty     0 dirs, 0 confirmed
+[ 3456.4s] n=9 k=6 c=701   lineality 4 -> nonempty  15 dirs, 5 confirmed
+[ 3485.8s] n=9 k=6 c=699   lineality 4 -> nonempty  1 dirs, 1 confirmed
+[ 3509.5s] n=9 k=6 c=695   lineality 5 -> nonempty  20 dirs, 5 confirmed
+[ 3538.3s] n=9 k=6 c=691   lineality 4 -> nonempty  1 dirs, 1 confirmed
+[ 3575.4s] n=9 k=6 c=689   lineality 6 -> nonempty  25 dirs, 4 confirmed
+[ 4011.8s] n=9 k=6 c=685   lineality 8 -> nonempty  14 dirs, 14 confirmed
+[ 4178.2s] n=9 k=6 c=679   lineality 9 -> nonempty  62 dirs, 24 confirmed
+[ 7902.3s] n=9 k=6 c=671   lineality 10 -> nonempty  102 dirs, 19 confirmed
+[ 7942.5s] n=9 k=7 c=1209  lineality 3 -> empty     0 dirs, 0 confirmed
+[ 7986.8s] n=9 k=7 c=1203  lineality 4 -> nonempty  1 dirs, 1 confirmed
+[ 8020.4s] n=9 k=7 c=1197  lineality 4 -> nonempty  1 dirs, 1 confirmed
+[ 8062.4s] n=9 k=7 c=1193  lineality 3 -> empty     0 dirs, 0 confirmed
+[ 8109.8s] n=9 k=7 c=1191  lineality 4 -> empty     0 dirs, 0 confirmed
+[ 8166.9s] n=9 k=7 c=1183  lineality 5 -> nonempty  15 dirs, 5 confirmed
+[ 8767.0s] n=9 k=7 c=1175  lineality 8 -> nonempty  25 dirs, 3 confirmed
+[ 8802.7s] n=9 k=8 c=1895  lineality 3 -> empty     0 dirs, 0 confirmed
+[ 8846.6s] n=9 k=8 c=1875  lineality 5 -> nonempty  1 dirs, 1 confirmed
+[ 8888.7s] n=9 k=8 c=1867  lineality 5 -> nonempty  1 dirs, 1 confirmed
+[ 8888.7s] done: 74 classes

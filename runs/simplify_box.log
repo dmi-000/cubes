@@ -1,0 +1,20 @@
+8 configurations that ENDED a climb by engine refusal
+
+n=4  count 119  dyadic representative height 44462
+   round 1: height 28768
+   round 2: height 2697
+   -> per-coordinate height 2697  (16x smaller)  count 119 OK
+   bits needed for a probe: 361 -> 293  (engines have 112 / 240)
+
+n=5  count 278  dyadic representative height 65468
+   round 1: height 25840
+   round 2: height 25840
+   -> per-coordinate height 25840  (3x smaller)  count 278 OK
+   bits needed for a probe: 370 -> 347  (engines have 112 / 240)
+
+n=4  count 137  dyadic representative height 2375689
+   round 1: height 333060
+   round 2: height 12126
+   -> per-coordinate height 12126  (196x smaller)  count 137 OK
+   bits needed for a probe: 457 -> 329  (engines have 112 / 240)
+

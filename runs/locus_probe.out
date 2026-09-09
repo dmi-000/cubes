@@ -1,0 +1,22 @@
+building conditions (cached afterwards)
+  cube 0: 144 conditions (19s)
+  cube 1: 144 conditions (18s)
+  cube 2: 144 conditions (19s)
+  cube 3: 144 conditions (19s)
+  cube 4: 144 conditions (9s)
+
+A. codimension of the 9-locus
+  cube 0: 12 active conditions, zero-dimensional=False, |G|=3
+  cube 1: 12 active conditions, zero-dimensional=False, |G|=1
+  cube 3: 12 active conditions, zero-dimensional=False, |G|=3
+
+B. sampled triple-wall intersections
+  *** cubes [1, 3, 0] -> total 725  q=(35, -61, 29, -25)
+  *** cubes [1, 3, 0] -> total 725  q=(16, 30, 5, -45)
+  *** cubes [3, 0, 2] -> total 723  q=(45, -35, -91, 39)
+  *** cubes [3, 0, 1] -> total 723  q=(42, -3, 28, -63)
+Traceback (most recent call last):
+  File "~/carroll/locus_probe.py", line 121, in <module>
+    vals = [s[a], s[b], s[c]]
+                  ~^^^
+KeyError: b

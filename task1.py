@@ -4,7 +4,7 @@
   P3d: (Farey(20)^2 \ Farey(16)^2) theta x farey(8) R  (only new-in-20 pairs)
 """
 import sys
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 sys.path.insert(0, '/tmp')
 from slide3_search import farey, gcd_reduce
 from sweep import run

@@ -1,0 +1,41 @@
+  base 0: 2 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0200 rad per extra cube
+  base 1: 4 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0200 rad per extra cube
+  base 2: 2 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0200 rad per extra cube
+  base 3: 5 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0200 rad per extra cube
+  scale=0.02: elapsed 18.6s
+
+  base 0: 8 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0500 rad per extra cube
+  base 1: 6 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0500 rad per extra cube
+  base 2: 2 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0500 rad per extra cube
+  base 3: 13 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0500 rad per extra cube
+  scale=0.05: elapsed 20.0s
+
+  base 0: 33 distinct combinatorial signatures among 61 configs in a box of angular radius 0.1500 rad per extra cube
+  base 1: 20 distinct combinatorial signatures among 61 configs in a box of angular radius 0.1500 rad per extra cube
+  base 2: 11 distinct combinatorial signatures among 61 configs in a box of angular radius 0.1500 rad per extra cube
+  base 3: 36 distinct combinatorial signatures among 61 configs in a box of angular radius 0.1500 rad per extra cube
+  scale=0.15: elapsed 17.1s
+
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+  File "~/carroll/census_bound.py", line 398, in pilot_chamber_estimate
+    sigs.add(config_signature(normals))
+             ~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "~/carroll/census_bound.py", line 366, in config_signature
+    res = analyze_top(normals)
+  File "~/carroll/census_bound.py", line 170, in analyze_top
+    top_edges, top_v, top_deg, top_flags, top_loops = build_graph(
+                                                      ~~~~~~~~~~~^
+        normals, verts, cross_circles, 'TOP')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/carroll/census_extract.py", line 457, in build_graph
+    kinds, act_gens = classify_sample(
+                      ~~~~~~~~~~~~~~~^
+        n, gens, sample, flags,
+        ^^^^^^^^^^^^^^^^^^^^^^^
+        f'arc {cr_i} .. {cr_j} of circle {ck}')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "~/carroll/census_extract.py", line 347, in classify_sample
+    assert (tied_val - tv2).sign() == 0, 'tied values disagree at sample'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: tied values disagree at sample

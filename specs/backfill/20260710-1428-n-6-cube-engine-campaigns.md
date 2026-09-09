@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. This is the exact cube-compound region-counting project.
+Working directory: ~/carroll. This is the exact cube-compound region-counting project.
 
 Your task: implement NPLUS_SPEC.md — generalize the exact search to n > 6 intersecting cubes. Read these first, in order: NPLUS_SPEC.md (your spec), CPP_SPEC.md (the engine design you're extending), and Postscripts 3–5 of six_cube_search_results.md (project state and methodology).
 

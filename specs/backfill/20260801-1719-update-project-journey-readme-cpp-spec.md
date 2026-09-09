@@ -22,9 +22,9 @@
 ## Prompt as sent
 
 ```text
-Documentation update in /Users/dmi/carroll. Add the 2026-07-31/08-01 results to `PROJECT.md`, `JOURNEY.md`, `README.md` and `CPP_SPEC.md`. Do NOT re-derive or re-run anything — all facts are below.
+Documentation update in ~/carroll. Add the 2026-07-31/08-01 results to `PROJECT.md`, `JOURNEY.md`, `README.md` and `CPP_SPEC.md`. Do NOT re-derive or re-run anything — all facts are below.
 
-HARD CONSTRAINTS: do not edit `six_cube_search_results.md` (the ledger — the main session maintains it) or `RESULTS.md` (already updated). Do not touch `/Users/dmi/carroll/cubes/` or `cb/` — the user syncs the mirror themselves now. Top-level files only. An earlier pass already covered results through Postscript 47; this pass adds what came after.
+HARD CONSTRAINTS: do not edit `six_cube_search_results.md` (the ledger — the main session maintains it) or `RESULTS.md` (already updated). Do not touch `~/carroll/cubes/` or `cb/` — the user syncs the mirror themselves now. Top-level files only. An earlier pass already covered results through Postscript 47; this pass adds what came after.
 
 ## Facts (source: ledger Postscripts 48-51 and their addenda)
 

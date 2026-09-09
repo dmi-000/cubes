@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Write `/Users/dmi/cube-compounds/quad_walls.py`. This is a fully specified task — do not redesign it, and do not explore alternatives. Work in that directory.
+Write `quad_walls.py`. This is a fully specified task — do not redesign it, and do not explore alternatives. Work in that directory.
 
 # GOAL
 
@@ -34,7 +34,7 @@ Compute one integer per n: **δ = rank added to the wall Jacobian by the (1,1,1,
 
 # INPUTS ALREADY COMPUTED — USE THEM, DO NOT RECOMPUTE
 
-`/Users/dmi/cube-compounds/check_4cube_walls.json` already lists the real (1,1,1,1) points: keys are n ("5".."9"), each has `quad`: a list of `{"point": [3 rational strings], "cubes": [4 cube indices]}`. There are 12 per n, identical across n. Load these; do NOT re-enumerate concurrency points.
+`check_4cube_walls.json` already lists the real (1,1,1,1) points: keys are n ("5".."9"), each has `quad`: a list of `{"point": [3 rational strings], "cubes": [4 cube indices]}`. There are 12 per n, identical across n. Load these; do NOT re-enumerate concurrency points.
 
 The record configurations (quaternion tuples, cube 0 first):
 '''python

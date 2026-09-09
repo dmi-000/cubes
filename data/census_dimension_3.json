@@ -1,0 +1,2750 @@
+[
+ {
+  "label": "n6 k3 c49",
+  "count": 49,
+  "tight": 48,
+  "cone": {
+   "facets": 9,
+   "lineality_dim": 3,
+   "ambient": 6,
+   "full_dimensional": true
+  },
+  "walls": 9,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 6,
+  "k": 3,
+  "subset_count": 49,
+  "profile": [
+   30,
+   18,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   5
+  ]
+ },
+ {
+  "label": "n6 k4 c173",
+  "count": 173,
+  "tight": 84,
+  "cone": {
+   "facets": 9,
+   "lineality_dim": 2,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 9,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 6,
+  "candidate_dim": 2,
+  "verified": 0,
+  "n": 6,
+  "k": 4,
+  "subset_count": 173,
+  "profile": [
+   82,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   3,
+   4,
+   5
+  ]
+ },
+ {
+  "label": "n6 k4 c159",
+  "count": 159,
+  "tight": 72,
+  "cone": {
+   "facets": 11,
+   "lineality_dim": 4,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 11,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 4,
+  "verified": 1,
+  "n": 6,
+  "k": 4,
+  "subset_count": 159,
+  "profile": [
+   68,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   5
+  ]
+ },
+ {
+  "label": "n6 k5 c377",
+  "count": 377,
+  "tight": 120,
+  "cone": {
+   "facets": 15,
+   "lineality_dim": 3,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 15,
+  "binding": 6,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 3,
+  "verified": 0,
+  "n": 6,
+  "k": 5,
+  "subset_count": 377,
+  "profile": [
+   128,
+   134,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   5
+  ]
+ },
+ {
+  "label": "n7 k3 c53",
+  "count": 53,
+  "tight": 36,
+  "cone": {
+   "facets": 4,
+   "lineality_dim": 3,
+   "ambient": 6,
+   "full_dimensional": true
+  },
+  "walls": 4,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 3,
+  "candidate_dim": 3,
+  "verified": 1,
+  "n": 7,
+  "k": 3,
+  "subset_count": 53,
+  "profile": [
+   34,
+   18,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   6
+  ]
+ },
+ {
+  "label": "n7 k4 c183",
+  "count": 183,
+  "tight": 108,
+  "cone": {
+   "facets": 12,
+   "lineality_dim": 1,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 12,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 12,
+  "candidate_dim": 1,
+  "verified": 0,
+  "n": 7,
+  "k": 4,
+  "subset_count": 183,
+  "profile": [
+   92,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   4
+  ]
+ },
+ {
+  "label": "n7 k4 c169",
+  "count": 169,
+  "tight": 144,
+  "cone": {
+   "facets": 31,
+   "lineality_dim": 2,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 31,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 30,
+  "candidate_dim": 2,
+  "verified": 1,
+  "n": 7,
+  "k": 4,
+  "subset_count": 169,
+  "profile": [
+   78,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   4,
+   6
+  ]
+ },
+ {
+  "label": "n7 k4 c161",
+  "count": 161,
+  "tight": 60,
+  "cone": {
+   "facets": 7,
+   "lineality_dim": 4,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 7,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 6,
+  "candidate_dim": 4,
+  "verified": 2,
+  "n": 7,
+  "k": 4,
+  "subset_count": 161,
+  "profile": [
+   70,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "label": "n7 k4 c147",
+  "count": 147,
+  "tight": 48,
+  "cone": {
+   "facets": 9,
+   "lineality_dim": 6,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 9,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 6,
+  "verified": 5,
+  "n": 7,
+  "k": 4,
+  "subset_count": 147,
+  "profile": [
+   56,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   5,
+   6
+  ]
+ },
+ {
+  "label": "n7 k5 c383",
+  "count": 383,
+  "tight": 132,
+  "cone": {
+   "facets": 15,
+   "lineality_dim": 2,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 15,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 15,
+  "candidate_dim": 2,
+  "verified": 0,
+  "n": 7,
+  "k": 5,
+  "subset_count": 383,
+  "profile": [
+   138,
+   134,
+   80,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   6
+  ]
+ },
+ {
+  "label": "n7 k5 c377",
+  "count": 377,
+  "tight": 120,
+  "cone": {
+   "facets": 15,
+   "lineality_dim": 3,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 15,
+  "binding": 6,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 3,
+  "verified": 0,
+  "n": 7,
+  "k": 5,
+  "subset_count": 377,
+  "profile": [
+   128,
+   134,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   5
+  ]
+ },
+ {
+  "label": "n7 k5 c363",
+  "count": 363,
+  "tight": 96,
+  "cone": {
+   "facets": 14,
+   "lineality_dim": 5,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 14,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 12,
+  "candidate_dim": 5,
+  "verified": 2,
+  "n": 7,
+  "k": 5,
+  "subset_count": 363,
+  "profile": [
+   114,
+   134,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   5,
+   6
+  ]
+ },
+ {
+  "label": "n7 k6 c717",
+  "count": 717,
+  "tight": 180,
+  "cone": {
+   "facets": 24,
+   "lineality_dim": 2,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 24,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 23,
+  "candidate_dim": 2,
+  "verified": 0,
+  "n": 7,
+  "k": 6,
+  "subset_count": 717,
+  "profile": [
+   196,
+   222,
+   162,
+   100,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "label": "n7 k6 c709",
+  "count": 709,
+  "tight": 144,
+  "cone": {
+   "facets": 18,
+   "lineality_dim": 4,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 18,
+  "binding": 6,
+  "inert": 0,
+  "entangled": 12,
+  "candidate_dim": 4,
+  "verified": 0,
+  "n": 7,
+  "k": 6,
+  "subset_count": 709,
+  "profile": [
+   184,
+   222,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   5,
+   6
+  ]
+ },
+ {
+  "label": "n8 k3 c53",
+  "count": 53,
+  "tight": 36,
+  "cone": {
+   "facets": 4,
+   "lineality_dim": 3,
+   "ambient": 6,
+   "full_dimensional": true
+  },
+  "walls": 4,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 3,
+  "candidate_dim": 3,
+  "verified": 1,
+  "n": 8,
+  "k": 3,
+  "subset_count": 53,
+  "profile": [
+   34,
+   18,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   6
+  ]
+ },
+ {
+  "label": "n8 k3 c43",
+  "count": 43,
+  "tight": 12,
+  "cone": {
+   "facets": 1,
+   "lineality_dim": 5,
+   "ambient": 6,
+   "full_dimensional": true
+  },
+  "walls": 1,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 0,
+  "candidate_dim": 5,
+  "verified": 5,
+  "n": 8,
+  "k": 3,
+  "subset_count": 43,
+  "profile": [
+   24,
+   18,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   6
+  ]
+ },
+ {
+  "label": "n8 k4 c173",
+  "count": 173,
+  "tight": 84,
+  "cone": {
+   "facets": 9,
+   "lineality_dim": 2,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 9,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 6,
+  "candidate_dim": 2,
+  "verified": 0,
+  "n": 8,
+  "k": 4,
+  "subset_count": 173,
+  "profile": [
+   82,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   3,
+   4,
+   5
+  ]
+ },
+ {
+  "label": "n8 k4 c165",
+  "count": 165,
+  "tight": 84,
+  "cone": {
+   "facets": 12,
+   "lineality_dim": 3,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 12,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 3,
+  "verified": 0,
+  "n": 8,
+  "k": 4,
+  "subset_count": 165,
+  "profile": [
+   74,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   5
+  ]
+ },
+ {
+  "label": "n8 k4 c159",
+  "count": 159,
+  "tight": 72,
+  "cone": {
+   "facets": 11,
+   "lineality_dim": 4,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 11,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 4,
+  "verified": 1,
+  "n": 8,
+  "k": 4,
+  "subset_count": 159,
+  "profile": [
+   68,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   5
+  ]
+ },
+ {
+  "label": "n8 k4 c153",
+  "count": 153,
+  "tight": 36,
+  "cone": {
+   "facets": 3,
+   "lineality_dim": 6,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 3,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 0,
+  "candidate_dim": 6,
+  "verified": 4,
+  "n": 8,
+  "k": 4,
+  "subset_count": 153,
+  "profile": [
+   62,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   7
+  ]
+ },
+ {
+  "label": "n8 k4 c145",
+  "count": 145,
+  "tight": 24,
+  "cone": {
+   "facets": 3,
+   "lineality_dim": 7,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 3,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 3,
+  "candidate_dim": 7,
+  "verified": 6,
+  "n": 8,
+  "k": 4,
+  "subset_count": 145,
+  "profile": [
+   54,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   2,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n8 k5 c385",
+  "count": 385,
+  "tight": 156,
+  "cone": {
+   "facets": 21,
+   "lineality_dim": 1,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 21,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 20,
+  "candidate_dim": 1,
+  "verified": 0,
+  "n": 8,
+  "k": 5,
+  "subset_count": 385,
+  "profile": [
+   140,
+   132,
+   82,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   5
+  ]
+ },
+ {
+  "label": "n8 k5 c381",
+  "count": 381,
+  "tight": 192,
+  "cone": {
+   "facets": 36,
+   "lineality_dim": 2,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 36,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 36,
+  "candidate_dim": 2,
+  "verified": 0,
+  "n": 8,
+  "k": 5,
+  "subset_count": 381,
+  "profile": [
+   136,
+   132,
+   82,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   7
+  ]
+ },
+ {
+  "label": "n8 k5 c373",
+  "count": 373,
+  "tight": 168,
+  "cone": {
+   "facets": 34,
+   "lineality_dim": 3,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 34,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 33,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 8,
+  "k": 5,
+  "subset_count": 373,
+  "profile": [
+   124,
+   134,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   4,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n8 k5 c367",
+  "count": 367,
+  "tight": 228,
+  "cone": {
+   "facets": 55,
+   "lineality_dim": 3,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 55,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 54,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 8,
+  "k": 5,
+  "subset_count": 367,
+  "profile": [
+   120,
+   132,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   2,
+   3,
+   4,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n8 k5 c359",
+  "count": 359,
+  "tight": 144,
+  "cone": {
+   "facets": 31,
+   "lineality_dim": 5,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 31,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 30,
+  "candidate_dim": 5,
+  "verified": 4,
+  "n": 8,
+  "k": 5,
+  "subset_count": 359,
+  "profile": [
+   112,
+   132,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n8 k5 c353",
+  "count": 353,
+  "tight": 60,
+  "cone": {
+   "facets": 6,
+   "lineality_dim": 7,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 6,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 3,
+  "candidate_dim": 7,
+  "verified": 1,
+  "n": 8,
+  "k": 5,
+  "subset_count": 353,
+  "profile": [
+   106,
+   132,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n8 k6 c727",
+  "count": 727,
+  "tight": 216,
+  "cone": {
+   "facets": 27,
+   "lineality_dim": 1,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 27,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 26,
+  "candidate_dim": 1,
+  "verified": 0,
+  "n": 8,
+  "k": 6,
+  "subset_count": 727,
+  "profile": [
+   214,
+   220,
+   156,
+   100,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ]
+ },
+ {
+  "label": "n8 k6 c717",
+  "count": 717,
+  "tight": 216,
+  "cone": {
+   "facets": 39,
+   "lineality_dim": 3,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 39,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 39,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 8,
+  "k": 6,
+  "subset_count": 717,
+  "profile": [
+   192,
+   222,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n8 k6 c715",
+  "count": 715,
+  "tight": 168,
+  "cone": {
+   "facets": 23,
+   "lineality_dim": 3,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 23,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 23,
+  "candidate_dim": 3,
+  "verified": 1,
+  "n": 8,
+  "k": 6,
+  "subset_count": 715,
+  "profile": [
+   190,
+   222,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   5,
+   7
+  ]
+ },
+ {
+  "label": "n8 k6 c707",
+  "count": 707,
+  "tight": 276,
+  "cone": {
+   "facets": 60,
+   "lineality_dim": 3,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 60,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 60,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 8,
+  "k": 6,
+  "subset_count": 707,
+  "profile": [
+   188,
+   218,
+   164,
+   100,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   3,
+   4,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n8 k6 c701",
+  "count": 701,
+  "tight": 180,
+  "cone": {
+   "facets": 35,
+   "lineality_dim": 5,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 35,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 33,
+  "candidate_dim": 5,
+  "verified": 3,
+  "n": 8,
+  "k": 6,
+  "subset_count": 701,
+  "profile": [
+   176,
+   222,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n8 k6 c685",
+  "count": 685,
+  "tight": 96,
+  "cone": {
+   "facets": 14,
+   "lineality_dim": 8,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 14,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 12,
+  "candidate_dim": 8,
+  "verified": 4,
+  "n": 8,
+  "k": 6,
+  "subset_count": 685,
+  "profile": [
+   160,
+   222,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n8 k7 c1203",
+  "count": 1203,
+  "tight": 264,
+  "cone": {
+   "facets": 48,
+   "lineality_dim": 3,
+   "ambient": 18,
+   "full_dimensional": true
+  },
+  "walls": 48,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 47,
+  "candidate_dim": 3,
+  "verified": 1,
+  "n": 8,
+  "k": 7,
+  "subset_count": 1203,
+  "profile": [
+   258,
+   328,
+   264,
+   190,
+   120,
+   42,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n9 k3 c63",
+  "count": 63,
+  "tight": 60,
+  "cone": {
+   "facets": 7,
+   "lineality_dim": 1,
+   "ambient": 6,
+   "full_dimensional": true
+  },
+  "walls": 7,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 6,
+  "candidate_dim": 1,
+  "verified": 0,
+  "n": 9,
+  "k": 3,
+  "subset_count": 63,
+  "profile": [
+   44,
+   18,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   4
+  ]
+ },
+ {
+  "label": "n9 k3 c49",
+  "count": 49,
+  "tight": 48,
+  "cone": {
+   "facets": 9,
+   "lineality_dim": 3,
+   "ambient": 6,
+   "full_dimensional": true
+  },
+  "walls": 9,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 9,
+  "k": 3,
+  "subset_count": 49,
+  "profile": [
+   30,
+   18,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   5
+  ]
+ },
+ {
+  "label": "n9 k3 c43",
+  "count": 43,
+  "tight": 12,
+  "cone": {
+   "facets": 1,
+   "lineality_dim": 5,
+   "ambient": 6,
+   "full_dimensional": true
+  },
+  "walls": 1,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 0,
+  "candidate_dim": 5,
+  "verified": 5,
+  "n": 9,
+  "k": 3,
+  "subset_count": 43,
+  "profile": [
+   24,
+   18,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   6
+  ]
+ },
+ {
+  "label": "n9 k4 c183",
+  "count": 183,
+  "tight": 108,
+  "cone": {
+   "facets": 12,
+   "lineality_dim": 1,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 12,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 12,
+  "candidate_dim": 1,
+  "verified": 0,
+  "n": 9,
+  "k": 4,
+  "subset_count": 183,
+  "profile": [
+   92,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   4
+  ]
+ },
+ {
+  "label": "n9 k4 c169",
+  "count": 169,
+  "tight": 144,
+  "cone": {
+   "facets": 31,
+   "lineality_dim": 2,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 31,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 30,
+  "candidate_dim": 2,
+  "verified": 1,
+  "n": 9,
+  "k": 4,
+  "subset_count": 169,
+  "profile": [
+   78,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   4,
+   8
+  ]
+ },
+ {
+  "label": "n9 k4 c161",
+  "count": 161,
+  "tight": 60,
+  "cone": {
+   "facets": 7,
+   "lineality_dim": 4,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 7,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 6,
+  "candidate_dim": 4,
+  "verified": 2,
+  "n": 9,
+  "k": 4,
+  "subset_count": 161,
+  "profile": [
+   70,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "label": "n9 k4 c157",
+  "count": 157,
+  "tight": 72,
+  "cone": {
+   "facets": 12,
+   "lineality_dim": 4,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 12,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 12,
+  "candidate_dim": 4,
+  "verified": 2,
+  "n": 9,
+  "k": 4,
+  "subset_count": 157,
+  "profile": [
+   66,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   5,
+   8
+  ]
+ },
+ {
+  "label": "n9 k4 c151",
+  "count": 151,
+  "tight": 120,
+  "cone": {
+   "facets": 28,
+   "lineality_dim": 4,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 28,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 27,
+  "candidate_dim": 4,
+  "verified": 4,
+  "n": 9,
+  "k": 4,
+  "subset_count": 151,
+  "profile": [
+   64,
+   62,
+   24,
+   1
+  ],
+  "idxs": [
+   1,
+   4,
+   5,
+   8
+  ]
+ },
+ {
+  "label": "n9 k4 c147",
+  "count": 147,
+  "tight": 48,
+  "cone": {
+   "facets": 9,
+   "lineality_dim": 6,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 9,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 6,
+  "verified": 5,
+  "n": 9,
+  "k": 4,
+  "subset_count": 147,
+  "profile": [
+   56,
+   66,
+   24,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   5,
+   6
+  ]
+ },
+ {
+  "label": "n9 k4 c138",
+  "count": 138,
+  "tight": 24,
+  "cone": {
+   "facets": 3,
+   "lineality_dim": 7,
+   "ambient": 9,
+   "full_dimensional": true
+  },
+  "walls": 3,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 3,
+  "candidate_dim": 7,
+  "verified": 5,
+  "n": 9,
+  "k": 4,
+  "subset_count": 138,
+  "profile": [
+   51,
+   62,
+   24,
+   1
+  ],
+  "idxs": [
+   3,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k5 c385",
+  "count": 385,
+  "tight": 156,
+  "cone": {
+   "facets": 21,
+   "lineality_dim": 1,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 21,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 20,
+  "candidate_dim": 1,
+  "verified": 0,
+  "n": 9,
+  "k": 5,
+  "subset_count": 385,
+  "profile": [
+   140,
+   132,
+   82,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   5
+  ]
+ },
+ {
+  "label": "n9 k5 c383",
+  "count": 383,
+  "tight": 144,
+  "cone": {
+   "facets": 20,
+   "lineality_dim": 2,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 20,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 20,
+  "candidate_dim": 2,
+  "verified": 0,
+  "n": 9,
+  "k": 5,
+  "subset_count": 383,
+  "profile": [
+   134,
+   134,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   5
+  ]
+ },
+ {
+  "label": "n9 k5 c377",
+  "count": 377,
+  "tight": 120,
+  "cone": {
+   "facets": 15,
+   "lineality_dim": 3,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 15,
+  "binding": 6,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 3,
+  "verified": 0,
+  "n": 9,
+  "k": 5,
+  "subset_count": 377,
+  "profile": [
+   128,
+   134,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   5
+  ]
+ },
+ {
+  "label": "n9 k5 c369",
+  "count": 369,
+  "tight": 108,
+  "cone": {
+   "facets": 12,
+   "lineality_dim": 3,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 12,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 9,
+  "k": 5,
+  "subset_count": 369,
+  "profile": [
+   124,
+   130,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   3,
+   4,
+   5,
+   8
+  ]
+ },
+ {
+  "label": "n9 k5 c367",
+  "count": 367,
+  "tight": 228,
+  "cone": {
+   "facets": 55,
+   "lineality_dim": 3,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 55,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 54,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 9,
+  "k": 5,
+  "subset_count": 367,
+  "profile": [
+   120,
+   132,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   1,
+   2,
+   4,
+   6,
+   8
+  ]
+ },
+ {
+  "label": "n9 k5 c363",
+  "count": 363,
+  "tight": 84,
+  "cone": {
+   "facets": 9,
+   "lineality_dim": 5,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 9,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 6,
+  "candidate_dim": 5,
+  "verified": 0,
+  "n": 9,
+  "k": 5,
+  "subset_count": 363,
+  "profile": [
+   116,
+   132,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   6,
+   8
+  ]
+ },
+ {
+  "label": "n9 k5 c359",
+  "count": 359,
+  "tight": 144,
+  "cone": {
+   "facets": 31,
+   "lineality_dim": 5,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 31,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 30,
+  "candidate_dim": 5,
+  "verified": 4,
+  "n": 9,
+  "k": 5,
+  "subset_count": 359,
+  "profile": [
+   112,
+   132,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n9 k5 c357",
+  "count": 357,
+  "tight": 60,
+  "cone": {
+   "facets": 6,
+   "lineality_dim": 7,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 6,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 3,
+  "candidate_dim": 7,
+  "verified": 5,
+  "n": 9,
+  "k": 5,
+  "subset_count": 357,
+  "profile": [
+   108,
+   134,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n9 k5 c351",
+  "count": 351,
+  "tight": 144,
+  "cone": {
+   "facets": 31,
+   "lineality_dim": 5,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 31,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 30,
+  "candidate_dim": 5,
+  "verified": 4,
+  "n": 9,
+  "k": 5,
+  "subset_count": 351,
+  "profile": [
+   108,
+   128,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   3,
+   4,
+   5,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k5 c347",
+  "count": 347,
+  "tight": 60,
+  "cone": {
+   "facets": 7,
+   "lineality_dim": 7,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 7,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 6,
+  "candidate_dim": 7,
+  "verified": 2,
+  "n": 9,
+  "k": 5,
+  "subset_count": 347,
+  "profile": [
+   102,
+   130,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   1,
+   3,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k5 c345",
+  "count": 345,
+  "tight": 36,
+  "cone": {
+   "facets": 4,
+   "lineality_dim": 9,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 4,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 3,
+  "candidate_dim": 9,
+  "verified": 3,
+  "n": 9,
+  "k": 5,
+  "subset_count": 345,
+  "profile": [
+   96,
+   134,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k5 c337",
+  "count": 337,
+  "tight": 36,
+  "cone": {
+   "facets": 4,
+   "lineality_dim": 9,
+   "ambient": 12,
+   "full_dimensional": true
+  },
+  "walls": 4,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 3,
+  "candidate_dim": 9,
+  "verified": 1,
+  "n": 9,
+  "k": 5,
+  "subset_count": 337,
+  "profile": [
+   92,
+   130,
+   84,
+   30,
+   1
+  ],
+  "idxs": [
+   0,
+   3,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k6 c723",
+  "count": 723,
+  "tight": 252,
+  "cone": {
+   "facets": 42,
+   "lineality_dim": 2,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 42,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 42,
+  "candidate_dim": 2,
+  "verified": 1,
+  "n": 9,
+  "k": 6,
+  "subset_count": 723,
+  "profile": [
+   210,
+   220,
+   156,
+   100,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   8
+  ]
+ },
+ {
+  "label": "n9 k6 c717",
+  "count": 717,
+  "tight": 216,
+  "cone": {
+   "facets": 39,
+   "lineality_dim": 3,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 39,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 39,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 9,
+  "k": 6,
+  "subset_count": 717,
+  "profile": [
+   192,
+   222,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n9 k6 c715",
+  "count": 715,
+  "tight": 168,
+  "cone": {
+   "facets": 23,
+   "lineality_dim": 3,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 23,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 23,
+  "candidate_dim": 3,
+  "verified": 1,
+  "n": 9,
+  "k": 6,
+  "subset_count": 715,
+  "profile": [
+   190,
+   222,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   5,
+   7
+  ]
+ },
+ {
+  "label": "n9 k6 c709",
+  "count": 709,
+  "tight": 156,
+  "cone": {
+   "facets": 17,
+   "lineality_dim": 3,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 17,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 15,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 9,
+  "k": 6,
+  "subset_count": 709,
+  "profile": [
+   192,
+   216,
+   162,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   8
+  ]
+ },
+ {
+  "label": "n9 k6 c707",
+  "count": 707,
+  "tight": 240,
+  "cone": {
+   "facets": 45,
+   "lineality_dim": 2,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 45,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 44,
+  "candidate_dim": 2,
+  "verified": 1,
+  "n": 9,
+  "k": 6,
+  "subset_count": 707,
+  "profile": [
+   190,
+   218,
+   162,
+   100,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   5,
+   8
+  ]
+ },
+ {
+  "label": "n9 k6 c707",
+  "count": 707,
+  "tight": 276,
+  "cone": {
+   "facets": 60,
+   "lineality_dim": 3,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 60,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 60,
+  "candidate_dim": 3,
+  "verified": 2,
+  "n": 9,
+  "k": 6,
+  "subset_count": 707,
+  "profile": [
+   188,
+   218,
+   164,
+   100,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   3,
+   4,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n9 k6 c703",
+  "count": 703,
+  "tight": 120,
+  "cone": {
+   "facets": 12,
+   "lineality_dim": 5,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 12,
+  "binding": 6,
+  "inert": 0,
+  "entangled": 6,
+  "candidate_dim": 5,
+  "verified": 1,
+  "n": 9,
+  "k": 6,
+  "subset_count": 703,
+  "profile": [
+   180,
+   220,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n9 k6 c701",
+  "count": 701,
+  "tight": 180,
+  "cone": {
+   "facets": 35,
+   "lineality_dim": 5,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 35,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 33,
+  "candidate_dim": 5,
+  "verified": 3,
+  "n": 9,
+  "k": 6,
+  "subset_count": 701,
+  "profile": [
+   176,
+   222,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n9 k6 c697",
+  "count": 697,
+  "tight": 132,
+  "cone": {
+   "facets": 18,
+   "lineality_dim": 5,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 18,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 15,
+  "candidate_dim": 5,
+  "verified": 2,
+  "n": 9,
+  "k": 6,
+  "subset_count": 697,
+  "profile": [
+   174,
+   220,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   5,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k6 c693",
+  "count": 693,
+  "tight": 252,
+  "cone": {
+   "facets": 57,
+   "lineality_dim": 4,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 57,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 54,
+  "candidate_dim": 4,
+  "verified": 3,
+  "n": 9,
+  "k": 6,
+  "subset_count": 693,
+  "profile": [
+   174,
+   216,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   1,
+   3,
+   4,
+   5,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k6 c691",
+  "count": 691,
+  "tight": 108,
+  "cone": {
+   "facets": 15,
+   "lineality_dim": 7,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 15,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 12,
+  "candidate_dim": 7,
+  "verified": 0,
+  "n": 9,
+  "k": 6,
+  "subset_count": 691,
+  "profile": [
+   166,
+   222,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "label": "n9 k6 c687",
+  "count": 687,
+  "tight": 168,
+  "cone": {
+   "facets": 34,
+   "lineality_dim": 6,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 34,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 33,
+  "candidate_dim": 6,
+  "verified": 5,
+  "n": 9,
+  "k": 6,
+  "subset_count": 687,
+  "profile": [
+   166,
+   218,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   1,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k6 c681",
+  "count": 681,
+  "tight": 84,
+  "cone": {
+   "facets": 9,
+   "lineality_dim": 8,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 9,
+  "binding": 3,
+  "inert": 0,
+  "entangled": 6,
+  "candidate_dim": 8,
+  "verified": 1,
+  "n": 9,
+  "k": 6,
+  "subset_count": 681,
+  "profile": [
+   160,
+   218,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k6 c673",
+  "count": 673,
+  "tight": 72,
+  "cone": {
+   "facets": 12,
+   "lineality_dim": 10,
+   "ambient": 15,
+   "full_dimensional": true
+  },
+  "walls": 12,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 12,
+  "candidate_dim": 10,
+  "verified": 3,
+  "n": 9,
+  "k": 6,
+  "subset_count": 673,
+  "profile": [
+   148,
+   222,
+   164,
+   102,
+   36,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k7 c1217",
+  "count": 1217,
+  "tight": 300,
+  "cone": {
+   "facets": 51,
+   "lineality_dim": 2,
+   "ambient": 18,
+   "full_dimensional": true
+  },
+  "walls": 51,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 50,
+  "candidate_dim": 2,
+  "verified": 0,
+  "n": 9,
+  "k": 7,
+  "subset_count": 1217,
+  "profile": [
+   278,
+   328,
+   260,
+   190,
+   118,
+   42,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "label": "n9 k7 c1205",
+  "count": 1205,
+  "tight": 252,
+  "cone": {
+   "facets": 47,
+   "lineality_dim": 4,
+   "ambient": 18,
+   "full_dimensional": true
+  },
+  "walls": 47,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 47,
+  "candidate_dim": 4,
+  "verified": 2,
+  "n": 9,
+  "k": 7,
+  "subset_count": 1205,
+  "profile": [
+   254,
+   330,
+   264,
+   194,
+   120,
+   42,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n9 k7 c1201",
+  "count": 1201,
+  "tight": 300,
+  "cone": {
+   "facets": 62,
+   "lineality_dim": 4,
+   "ambient": 18,
+   "full_dimensional": true
+  },
+  "walls": 62,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 60,
+  "candidate_dim": 4,
+  "verified": 2,
+  "n": 9,
+  "k": 7,
+  "subset_count": 1201,
+  "profile": [
+   256,
+   326,
+   264,
+   194,
+   118,
+   42,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "label": "n9 k7 c1195",
+  "count": 1195,
+  "tight": 240,
+  "cone": {
+   "facets": 41,
+   "lineality_dim": 4,
+   "ambient": 18,
+   "full_dimensional": true
+  },
+  "walls": 41,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 39,
+  "candidate_dim": 4,
+  "verified": 0,
+  "n": 9,
+  "k": 7,
+  "subset_count": 1195,
+  "profile": [
+   254,
+   322,
+   264,
+   192,
+   120,
+   42,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "label": "n9 k7 c1193",
+  "count": 1193,
+  "tight": 300,
+  "cone": {
+   "facets": 62,
+   "lineality_dim": 4,
+   "ambient": 18,
+   "full_dimensional": true
+  },
+  "walls": 62,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 60,
+  "candidate_dim": 4,
+  "verified": 2,
+  "n": 9,
+  "k": 7,
+  "subset_count": 1193,
+  "profile": [
+   252,
+   322,
+   264,
+   192,
+   120,
+   42,
+   1
+  ],
+  "idxs": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "label": "n9 k7 c1187",
+  "count": 1187,
+  "tight": 144,
+  "cone": {
+   "facets": 15,
+   "lineality_dim": 6,
+   "ambient": 18,
+   "full_dimensional": true
+  },
+  "walls": 15,
+  "binding": 6,
+  "inert": 0,
+  "entangled": 9,
+  "candidate_dim": 6,
+  "verified": 1,
+  "n": 9,
+  "k": 7,
+  "subset_count": 1187,
+  "profile": [
+   242,
+   324,
+   264,
+   194,
+   120,
+   42,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k7 c1181",
+  "count": 1181,
+  "tight": 204,
+  "cone": {
+   "facets": 38,
+   "lineality_dim": 6,
+   "ambient": 18,
+   "full_dimensional": true
+  },
+  "walls": 38,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 36,
+  "candidate_dim": 6,
+  "verified": 2,
+  "n": 9,
+  "k": 7,
+  "subset_count": 1181,
+  "profile": [
+   236,
+   324,
+   264,
+   194,
+   120,
+   42,
+   1
+  ],
+  "idxs": [
+   0,
+   2,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k7 c1171",
+  "count": 1171,
+  "tight": 264,
+  "cone": {
+   "facets": 59,
+   "lineality_dim": 6,
+   "ambient": 18,
+   "full_dimensional": true
+  },
+  "walls": 59,
+  "binding": 2,
+  "inert": 0,
+  "entangled": 57,
+  "candidate_dim": 6,
+  "verified": 5,
+  "n": 9,
+  "k": 7,
+  "subset_count": 1171,
+  "profile": [
+   230,
+   320,
+   264,
+   194,
+   120,
+   42,
+   1
+  ],
+  "idxs": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "label": "n9 k8 c1887",
+  "count": 1887,
+  "tight": 384,
+  "cone": {
+   "facets": 75,
+   "lineality_dim": 3,
+   "ambient": 21,
+   "full_dimensional": true
+  },
+  "walls": 75,
+  "binding": 1,
+  "inert": 0,
+  "entangled": 74,
+  "candidate_dim": 3,
+  "verified": 0,
+  "n": 9,
+  "k": 8,
+  "subset_count": 1887,
+  "profile": [
+   346,
+   450,
+   382,
+   304,
+   218,
+   138,
+   48,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "label": "n9 k8 c1873",
+  "count": 1873,
+  "tight": 192,
+  "cone": {
+   "facets": 24,
+   "lineality_dim": 6,
+   "ambient": 21,
+   "full_dimensional": true
+  },
+  "walls": 24,
+  "binding": 6,
+  "inert": 0,
+  "entangled": 18,
+  "candidate_dim": 6,
+  "verified": 1,
+  "n": 9,
+  "k": 8,
+  "subset_count": 1873,
+  "profile": [
+   320,
+   452,
+   384,
+   306,
+   224,
+   138,
+   48,
+   1
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   5,
+   6,
+   7,
+   8
+  ]
+ }
+]

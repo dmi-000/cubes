@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Read first: six_cube_search_results.md Postscripts 16–21 (the record tower, ceiling law, envelope bounds, blueprint program — this brief applies that whole apparatus at n=7), PROJECT.md, shared_axis_search.py and blueprint_enum.py/blueprint_search.py (REUSE their machinery), n4_search.py (the wide-perturbation deep-climb that broke records). Counter: ./cube_regions_n --n 7 (exact, ~0.3-1s/config at n=7); oracle certify_six.exact_count_config for verification of any record claim.
+Working directory: ~/carroll. Exact cube-compound region-counting project. Read first: six_cube_search_results.md Postscripts 16–21 (the record tower, ceiling law, envelope bounds, blueprint program — this brief applies that whole apparatus at n=7), PROJECT.md, shared_axis_search.py and blueprint_enum.py/blueprint_search.py (REUSE their machinery), n4_search.py (the wide-perturbation deep-climb that broke records). Counter: ./cube_regions_n --n 7 (exact, ~0.3-1s/config at n=7); oracle certify_six.exact_count_config for verification of any record claim.
 
 STATE: n=7 record = 1207, found by greedy extension (723's six cubes + seventh [5,4,-4,-4]), NEVER hill-climbed. Campaign best from 50k random seeds = 1085. The ceiling law predicts C(l,7) = (12l−6)·7 − 2(l²−1) = 42, 120, 194, 264, 330, 392 for l=1..6, and the summed max-total bound 1343. The l≤4 caps (42/120/194/264) are already attained in logged n=7 data.
 

@@ -1,0 +1,16 @@
+183 record: count 183 (gate: must be 183), ambient 9
+   12 distinct walls, rank 8 of 9
+   wall  0: ENTANGLED (no direction crosses it alone)
+   wall  1: ENTANGLED (no direction crosses it alone)
+   wall  2: ENTANGLED (no direction crosses it alone)
+   wall  3: ENTANGLED (no direction crosses it alone)
+   wall  4: ENTANGLED (no direction crosses it alone)
+   wall  5: ENTANGLED (no direction crosses it alone)
+   wall  6: ENTANGLED (no direction crosses it alone)
+   wall  7: ENTANGLED (no direction crosses it alone)
+   wall  8: ENTANGLED (no direction crosses it alone)
+   wall  9: ENTANGLED (no direction crosses it alone)
+   wall 10: ENTANGLED (no direction crosses it alone)
+   wall 11: ENTANGLED (no direction crosses it alone)
+
+   ONE-WALL NEIGHBOURS of 183: []

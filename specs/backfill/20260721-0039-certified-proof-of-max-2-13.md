@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Execute /Users/dmi/carroll/MAX2_SPEC.md — the certified computer-assisted proof that two concentric unit cubes make at most 13 bounded regions (the project's first complete maximum theorem). Working directory /Users/dmi/carroll. Read the spec first, and READ PROOF_67.md §3 — the analytic argument you are completing. This is proof-grade: correctness and honest error bars dominate speed; a partial covering with a precisely-named uncertified region is a valid honest outcome, a false "proved" is not.
+Execute ~/carroll/MAX2_SPEC.md — the certified computer-assisted proof that two concentric unit cubes make at most 13 bounded regions (the project's first complete maximum theorem). Working directory ~/carroll. Read the spec first, and READ PROOF_67.md §3 — the analytic argument you are completing. This is proof-grade: correctness and honest error bars dominate speed; a partial covering with a precisely-named uncertified region is a valid honest outcome, a false "proved" is not.
 
 Orientation:
 - The generic bound (d1 ≤ 12, hence ≤ 13) is ALREADY proved analytically off two codimension-≥1 degenerate loci: multi-face boundary kinks, and the shared-face-normal locus Σ = {R : some n_{1,a} = ±R·n_{2,b}}. Your job is ONLY to certify the bound on/near those loci, closing the theorem. Do not re-prove the generic case; certify the degeneracies.

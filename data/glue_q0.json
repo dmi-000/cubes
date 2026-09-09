@@ -1,0 +1,239 @@
+{
+ "183 (n=4)": {
+  "total": 183,
+  "full_intersection": [],
+  "subcliques": [
+   {
+    "cubes": [
+     0,
+     2,
+     3
+    ],
+    "axis": [
+     3,
+     5,
+     0
+    ],
+    "tan_psi": [
+     "-3/5",
+     "-5/3",
+     "3/5",
+     "5/3"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=34 not a perfect square)"
+   },
+   {
+    "cubes": [
+     0,
+     2,
+     3
+    ],
+    "axis": [
+     2,
+     -3,
+     0
+    ],
+    "tan_psi": [
+     "-2/3",
+     "-3/2",
+     "2/3",
+     "3/2"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=13 not a perfect square)"
+   },
+   {
+    "cubes": [
+     0,
+     1,
+     3
+    ],
+    "axis": [
+     3,
+     0,
+     2
+    ],
+    "tan_psi": [
+     "-2/3",
+     "-3/2",
+     "2/3",
+     "3/2"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=13 not a perfect square)"
+   },
+   {
+    "cubes": [
+     0,
+     1,
+     2
+    ],
+    "axis": [
+     0,
+     5,
+     2
+    ],
+    "tan_psi": [
+     "-2/5",
+     "-5/2",
+     "2/5",
+     "5/2"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=29 not a perfect square)"
+   },
+   {
+    "cubes": [
+     0,
+     2,
+     3
+    ],
+    "axis": [
+     5,
+     2,
+     0
+    ],
+    "tan_psi": [
+     "-2/5",
+     "-5/2",
+     "2/5",
+     "5/2"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=29 not a perfect square)"
+   }
+  ]
+ },
+ "393 (n=5)": {
+  "total": 393,
+  "full_intersection": [],
+  "subcliques": [
+   {
+    "cubes": [
+     0,
+     1,
+     3,
+     4
+    ],
+    "axis": [
+     2,
+     0,
+     3
+    ],
+    "tan_psi": [
+     "-2/3",
+     "-3/2",
+     "2/3",
+     "3/2"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=13 not a perfect square)"
+   },
+   {
+    "cubes": [
+     0,
+     2,
+     3,
+     4
+    ],
+    "axis": [
+     0,
+     3,
+     2
+    ],
+    "tan_psi": [
+     "-2/3",
+     "-3/2",
+     "2/3",
+     "3/2"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=13 not a perfect square)"
+   },
+   {
+    "cubes": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "axis": [
+     3,
+     2,
+     0
+    ],
+    "tan_psi": [
+     "-2/3",
+     "-3/2",
+     "2/3",
+     "3/2"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=13 not a perfect square)"
+   }
+  ]
+ },
+ "723 embedded 5-clique (n=6, cubes 0-4 = the 393)": {
+  "total": null,
+  "full_intersection": [],
+  "subcliques": [
+   {
+    "cubes": [
+     0,
+     1,
+     3,
+     4
+    ],
+    "axis": [
+     2,
+     0,
+     3
+    ],
+    "tan_psi": [
+     "-2/3",
+     "-3/2",
+     "2/3",
+     "3/2"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=13 not a perfect square)"
+   },
+   {
+    "cubes": [
+     0,
+     2,
+     3,
+     4
+    ],
+    "axis": [
+     0,
+     3,
+     2
+    ],
+    "tan_psi": [
+     "-2/3",
+     "-3/2",
+     "2/3",
+     "3/2"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=13 not a perfect square)"
+   },
+   {
+    "cubes": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "axis": [
+     3,
+     2,
+     0
+    ],
+    "tan_psi": [
+     "-2/3",
+     "-3/2",
+     "2/3",
+     "3/2"
+    ],
+    "nature": "IRRATIONAL sin,cos (hyp^2=13 not a perfect square)"
+   }
+  ]
+ },
+ "723 full (n=6)": {
+  "total": 723,
+  "full_intersection": []
+ }
+}

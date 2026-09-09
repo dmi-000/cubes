@@ -1,0 +1,36 @@
+{
+ "output": "result393_chambers.json",
+ "argv": [
+  "run393.py",
+  "7200"
+ ],
+ "rerun": "python3 run393.py 7200",
+ "script": "run393.py",
+ "script_sha1": "e0a17b3775f21223c213900626edaf15adc99b50",
+ "script_logic_sha1": "5656b0f074aeb37d0ca3c636c4914e017378413b",
+ "started": null,
+ "finished": "2026-08-20 10:18:59",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "retroactive": true,
+ "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
+ "note": "Counts extracted from ckpt_393 after supervise393.py carried run393.py through three multiprocessing deadlocks. Retroactive: the hash cannot certify the producer.",
+ "inputs": [
+  {
+   "path": "ckpt_393/worker_0.jsonl",
+   "sha1": "874b3925e80d2801fbb0800fe8540283dea7223b"
+  },
+  {
+   "path": "ckpt_393/worker_1.jsonl",
+   "sha1": "4d1479605bd88157a7f7d7a0bcf1a2b4a595895d"
+  },
+  {
+   "path": "ckpt_393/worker_2.jsonl",
+   "sha1": "5ad22bc87b50b054f59762cd347d0b1eea468f6c"
+  },
+  {
+   "path": "ckpt_393/worker_3.jsonl",
+   "sha1": "2071597a718ffbf48374dd3f0f5bc021be458078"
+  }
+ ]
+}

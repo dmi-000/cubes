@@ -1,0 +1,59 @@
+[    0.0s] === wideclimb_n4.py starting, budget=1800s, workers=8 ===
+[    0.1s] GATE PASSED: 1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4 counts 183 (by_depth={'0': 1, '1': 92, '2': 66, '3': 24, '4': 1})
+[  225.1s] restart    4 cap= 2: narrow=167 (2 steps) -> final peak=175  chain=1 escapes=16
+[  240.1s] restart    5 cap= 9: narrow=167 (4 steps) -> final peak=167  chain=0 escapes=15
+[  252.5s] restart    2 cap=20: narrow=141 (2 steps) -> final peak=165  chain=1 escapes=16
+[  264.8s] restart    7 cap= 6: narrow=167 (3 steps) -> final peak=173  chain=2 escapes=17
+[  270.1s] restart    3 cap= 2: narrow=167 (1 steps) -> final peak=173  chain=2 escapes=22
+[  323.9s] restart    1 cap= 3: narrow=171 (2 steps) -> final peak=175  chain=2 escapes=27
+[  446.8s] restart    8 cap= 6: narrow=169 (2 steps) -> final peak=173  chain=1 escapes=16
+[  449.3s] restart   12 cap= 6: narrow=175 (6 steps) -> final peak=175  chain=0 escapes=15
+[  513.2s] restart    0 cap= 4: narrow=169 (5 steps) -> final peak=183  chain=2 escapes=36  (matches record 183)
+[  526.5s] restart   10 cap= 4: narrow=167 (2 steps) -> final peak=171  chain=2 escapes=17
+[  532.7s] restart    6 cap= 3: narrow=167 (6 steps) -> final peak=177  chain=3 escapes=34
+[  578.3s] restart   13 cap= 6: narrow=173 (4 steps) -> final peak=173  chain=0 escapes=15
+[  587.8s] restart    9 cap= 2: narrow=163 (2 steps) -> final peak=179  chain=3 escapes=22
+[  670.8s] restart   11 cap= 9: narrow=169 (7 steps) -> final peak=173  chain=1 escapes=27
+[  684.2s] restart   15 cap=12: narrow=167 (3 steps) -> final peak=167  chain=0 escapes=15
+[  750.2s] restart   16 cap= 3: narrow=165 (2 steps) -> final peak=183  chain=2 escapes=17  (matches record 183)
+[  764.0s] restart   14 cap=12: narrow=167 (5 steps) -> final peak=171  chain=1 escapes=22
+[  806.9s] restart   19 cap= 3: narrow=169 (3 steps) -> final peak=171  chain=1 escapes=16
+[  865.9s] restart   18 cap= 6: narrow=165 (3 steps) -> final peak=171  chain=2 escapes=26
+[  872.1s] restart   20 cap= 9: narrow=165 (4 steps) -> final peak=175  chain=2 escapes=19
+[  881.0s] restart   21 cap=12: narrow=167 (3 steps) -> final peak=167  chain=0 escapes=15
+[  980.3s] restart   23 cap= 6: narrow=163 (2 steps) -> final peak=171  chain=1 escapes=16
+[  985.9s] restart   17 cap=12: narrow=169 (6 steps) -> final peak=171  chain=1 escapes=30
+[  995.8s] restart   22 cap= 4: narrow=165 (2 steps) -> final peak=179  chain=3 escapes=25
+[ 1009.0s] restart   24 cap=12: narrow=153 (4 steps) -> final peak=165  chain=1 escapes=16
+[ 1039.6s] restart   25 cap= 4: narrow=169 (3 steps) -> final peak=171  chain=1 escapes=16
+[ 1079.8s] restart   26 cap= 3: narrow=165 (3 steps) -> final peak=183  chain=1 escapes=18  (matches record 183)
+[ 1130.8s] restart   28 cap=12: narrow=159 (2 steps) -> final peak=169  chain=2 escapes=18
+[ 1188.9s] restart   29 cap=20: narrow=165 (6 steps) -> final peak=165  chain=0 escapes=15
+[ 1204.0s] restart   27 cap= 3: narrow=169 (3 steps) -> final peak=179  chain=2 escapes=25
+[ 1214.6s] restart   31 cap= 4: narrow=175 (3 steps) -> final peak=179  chain=1 escapes=21
+[ 1222.2s] restart   33 cap= 4: narrow=173 (3 steps) -> final peak=173  chain=0 escapes=15
+[ 1271.5s] restart   32 cap=12: narrow=161 (4 steps) -> final peak=183  chain=3 escapes=22  (matches record 183)
+[ 1331.9s] restart   30 cap= 4: narrow=169 (2 steps) -> final peak=179  chain=3 escapes=32
+[ 1335.2s] restart   34 cap= 6: narrow=165 (3 steps) -> final peak=175  chain=2 escapes=20
+[ 1372.5s] restart   35 cap=20: narrow=143 (3 steps) -> final peak=165  chain=2 escapes=18
+[ 1375.6s] restart   37 cap=20: narrow=165 (5 steps) -> final peak=165  chain=0 escapes=15
+[ 1443.2s] restart   39 cap= 4: narrow=171 (4 steps) -> final peak=175  chain=1 escapes=23
+[ 1446.4s] restart   36 cap= 4: narrow=167 (4 steps) -> final peak=173  chain=2 escapes=24
+[ 1457.3s] restart   38 cap=20: narrow=153 (3 steps) -> final peak=165  chain=1 escapes=19
+[ 1577.7s] restart   40 cap= 4: narrow=171 (3 steps) -> final peak=175  chain=2 escapes=31
+[ 1590.6s] restart   43 cap= 2: narrow=165 (3 steps) -> final peak=179  chain=3 escapes=23
+[ 1652.6s] restart   46 cap= 4: narrow=169 (2 steps) -> final peak=179  chain=2 escapes=21
+[ 1678.0s] restart   42 cap= 9: narrow=161 (4 steps) -> final peak=173  chain=3 escapes=30
+[ 1713.1s] restart   45 cap=20: narrow=157 (6 steps) -> final peak=167  chain=1 escapes=17
+[ 1745.1s] restart   47 cap= 2: narrow=167 (2 steps) -> final peak=179  chain=2 escapes=26
+[ 1778.4s] restart   41 cap= 6: narrow=167 (3 steps) -> final peak=179  chain=3 escapes=39
+[ 1806.3s] restart   44 cap= 9: narrow=145 (5 steps) -> final peak=173  chain=5 escapes=30
+[ 1844.5s] restart   51 cap=20: narrow=159 (9 steps) -> final peak=159  chain=0 escapes=15
+[ 1847.7s] restart   49 cap= 4: narrow=169 (4 steps) -> final peak=171  chain=1 escapes=24
+[ 1854.0s] restart   48 cap= 9: narrow=157 (7 steps) -> final peak=169  chain=3 escapes=21
+[ 1887.6s] restart   50 cap= 2: narrow=171 (4 steps) -> final peak=175  chain=2 escapes=22
+[ 1943.5s] restart   54 cap= 6: narrow=167 (3 steps) -> final peak=175  chain=1 escapes=17
+[ 1946.0s] restart   53 cap= 9: narrow=155 (4 steps) -> final peak=175  chain=2 escapes=18
+[ 1947.6s] restart   52 cap= 4: narrow=171 (3 steps) -> final peak=173  chain=1 escapes=26
+[ 1947.6s] === campaign done: 55 restarts, 264794 engine calls, 365 refusals, 1948s ===
+[ 1947.6s] wrote wideclimb_n4.json

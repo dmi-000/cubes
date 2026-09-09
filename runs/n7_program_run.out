@@ -1,0 +1,58 @@
+[     0.0s] n7_program starting. tasks=['task1', 'task2', 'task3', 'task4', 'task5']
+[     0.0s] === TASK 1: deep climb of 1207 ===
+[    13.9s]   base climb: 1207 (start 1207)
+[    27.6s]   radius-4 cert: confirmed local max
+[   151.1s]   restart 0 (nmoves=9): 1131
+[   753.2s]   restart 8 (nmoves=11): 1163
+[  1178.7s]   restart 16 (nmoves=9): 1161
+[  1682.6s]   restart 24 (nmoves=7): 1179
+[  2718.8s]   (d) 7th-cube swap/reoptimize pass
+[  2742.0s]   7th-cube sweep (300 candidates): best=1193
+[  2746.8s]   7th-cube climb (free_idx=6 only): 1199
+[  2754.1s] TASK 1 best: 1207  (record before task1: 1207)
+[  2754.1s] Report written -> ~/carroll/n7_program_report.md
+[  2754.1s] === TASK 2: blueprint search at n=7 ===
+[  2754.1s]   catalog: 100 blueprints (raw canonical x axis, no P2/P3 collapse applied -- N=7 generalization of blueprint_enum.py)
+[  2754.1s]   GATE blueprint: id=68 tag=n7_onaxis3+spoke3+free1_ax111 (onaxis3+spoke3+free1 on (1,1,1) -- 723's structure + the free 7th cube)
+[  3856.7s]   GATE result: free_best=1207 (want >=1207) PASS
+[  4015.8s]   [2/100] n7_onaxis2+spoke3+spoke2_ax111: locked=1095 free=1115
+[  4711.6s]   [7/100] n7_onaxis4+spoke3_ax111: locked=1139 free=1161
+[  9471.8s]   [30/100] n7_spoke5+free2_ax111: locked=1055 free=1113
+[  9471.8s]   time budget (5400s) exhausted; 30/100 blueprints run, stopping task2 sweep
+[  9471.8s] TASK 2 done: 30/100 blueprints run in 5615s
+[  9471.8s]   best blueprint overall: ('n7_onaxis3+spoke3+free1_ax111', 1207)
+[  9471.8s] Report written -> ~/carroll/n7_program_report.md
+[  9471.8s] === TASK 3: ceiling verification at n=7 ===
+[  9471.8s]   law: C(l,7) = {1: 42, 2: 120, 3: 194, 4: 264, 5: 330, 6: 392}
+[  9475.5s]   scanned campaign_n7.jsonl: 50000 n=7 records with by_depth
+[  9476.4s]   scanned n7_program.jsonl: 62864 n=7 records with by_depth
+[  9476.4s]   scanned exact_search_results.jsonl: 0 n=7 records with by_depth
+[  9476.4s]   attained caps so far (post-scan, incl. known records):
+[  9476.4s]     l=1 depth-6: max observed=42  cap=42  ATTAINED
+[  9476.4s]     l=2 depth-5: max observed=120  cap=120  ATTAINED
+[  9476.4s]     l=3 depth-4: max observed=194  cap=194  ATTAINED
+[  9476.4s]     l=4 depth-3: max observed=264  cap=264  ATTAINED
+[  9476.4s]     l=5 depth-2: max observed=328  cap=330  short by 2
+[  9476.4s]     l=6 depth-1: max observed=276  cap=392  short by 116
+[  9476.4s]   hunting depth-1 (l=6, cap=392, observed max so far=276) ...
+[ 10613.1s]   hunt l=6 (depth-1) best = 276 (cap 392)
+[ 10613.1s]   hunting depth-2 (l=5, cap=330, observed max so far=328) ...
+[ 12165.6s]   hunt l=5 (depth-2) best = 328 (cap 330)
+[ 12165.6s] TASK 3 done. Violations: 0. Final observed caps: {1: 42, 2: 120, 3: 194, 4: 264, 5: 328, 6: 276}
+[ 12165.6s] Report written -> ~/carroll/n7_program_report.md
+[ 12165.6s] === TASK 4: extend to n=8 ===
+[ 12165.6s]   base n=7 config: total=1207
+[ 12227.2s]   8th-cube sweep (300 candidates): best=1863
+[ 12245.2s]   climb (8th cube only): 1879
+[ 12273.9s]   short full climb: 1879
+[ 12273.9s]   FIRST n=8 RESULT: total=1879  by_depth={1: 340, 2: 450, 3: 380, 4: 302, 5: 222, 6: 136, 7: 48, 8: 1}
+[ 12273.9s]   n=8 ceiling check: no violations (predictions {1: 48, 2: 138, 3: 224, 4: 306, 5: 384, 6: 458, 7: 528})
+[ 12273.9s] TASK 4 done: first n=8 record = 1879
+[ 12273.9s] Report written -> ~/carroll/n7_program_report.md
+[ 12273.9s] === TASK 5: n=7 envelope (top configs -> 6-subsets) ===
+[ 12273.9s]   50 top n=7 configs gathered (best=1207)
+[ 12300.3s]   max(T - S_max) over top 50 n=7 configs = 484 (config total=1207)
+[ 12300.3s]   n=6 deep-cap saturation among all 350 6-subsets: depth3=164: 135/350, depth4=102: 178/350, depth5=36: 350/350
+[ 12300.3s] TASK 5 done.
+[ 12300.3s] Report written -> ~/carroll/n7_program_report.md
+[ 12300.3s] ALL DONE.

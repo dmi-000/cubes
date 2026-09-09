@@ -1,0 +1,16 @@
+gate: the family reproduces the 393 exactly
+n=5 family: hub + one cube per diagonal, 15 angles -> 50625 configurations
+    327  t ['-6', '-6', '-6', '-6']  (1 evaluated, 90s)
+    335  t ['-6', '-6', '-6', '-5']  (2 evaluated, 90s)
+    339  t ['-6', '-6', '-6', '-4']  (3 evaluated, 90s)
+    343  t ['-6', '-6', '-6', '-5/2']  (5 evaluated, 90s)
+    355  t ['-6', '-6', '-6', '-3/2']  (7 evaluated, 90s)
+    359  t ['-6', '-6', '-6', '3/2']  (9 evaluated, 90s)
+    365  t ['-6', '-5', '-5', '-3/2']  (247 evaluated, 90s)
+    367  t ['-6', '-5', '-5', '3/2']  (249 evaluated, 90s)
+    375  t ['-6', '-4', '6', '-6']  (661 evaluated, 90s)
+    387  t ['-6', '3/2', '6', '-6']  (2011 evaluated, 90s)
+    393  t ['-5', '3', '5', '-5']  (6047 evaluated, 177s)
+
+evaluated 50625 ; best 393 ; 76 bases at >=385
+kept bases written to n5family_keep.json

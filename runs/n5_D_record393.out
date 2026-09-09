@@ -1,0 +1,23 @@
+
+=== PHASE R: 723-record 5-subsets ===
+  drop cube 0 ((4, 1, 1, -1)): total=381 by_depth={'0': 1, '1': 136, '2': 132, '3': 82, '4': 30, '5': 1}
+  drop cube 1 ((3, 3, 7, 3)): total=381 by_depth={'0': 1, '1': 136, '2': 132, '3': 82, '4': 30, '5': 1}
+  drop cube 2 ((5, -1, -5, -5)): total=381 by_depth={'0': 1, '1': 136, '2': 132, '3': 82, '4': 30, '5': 1}
+  drop cube 3 ((2, 1, 1, 1)): total=387 by_depth={'0': 1, '1': 138, '2': 134, '3': 84, '4': 30, '5': 1}
+  drop cube 4 ((1, 1, 1, 1)): total=375 by_depth={'0': 1, '1': 126, '2': 134, '3': 84, '4': 30, '5': 1}
+  drop cube 5 ((5, 2, 2, 2)): total=393 by_depth={'0': 1, '1': 156, '2': 128, '3': 78, '4': 30, '5': 1}
+PHASE R best: drop=5 total=393 quats=[(4, 1, 1, -1), (3, 3, 7, 3), (5, -1, -5, -5), (2, 1, 1, 1), (1, 1, 1, 1)]
+
+=== PHASE D [record393]: deep multi-restart climb from [[4, 1, 1, -1], [3, 3, 7, 3], [5, -1, -5, -5], [2, 1, 1, 1], [1, 1, 1, 1]] ===
+  base climb: 393
+  radius-4 certification of base climb: confirmed local max
+PHASE D [record393] best: total=393 quats=[[4, 1, 1, -1], [3, 3, 7, 3], [5, -1, -5, -5], [2, 1, 1, 1], [1, 1, 1, 1]]
+
+=== PHASE D [record387]: deep multi-restart climb from [[4, 1, 1, -1], [3, 3, 7, 3], [5, -1, -5, -5], [1, 1, 1, 1], [5, 2, 2, 2]] ===
+  base climb: 393
+  radius-4 certification of base climb: confirmed local max
+PHASE D [record387] best: total=393 quats=[[4, 1, 1, -1], [3, 3, 7, 3], [5, -1, -5, -5], [1, 1, 1, 1], [2, 1, 1, 1]]
+
+=== PHASE D OVERALL BEST: total=393 tag=record393 quats=[[4, 1, 1, -1], [3, 3, 7, 3], [5, -1, -5, -5], [2, 1, 1, 1], [1, 1, 1, 1]] ===
+
+total rational evaluations this run: 16371

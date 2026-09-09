@@ -1,0 +1,31 @@
+--- G2: explicit maximizer witnesses ---
+  quat=(0, 1, 1, 1): total=13 d1=12 (#S1=6,#S2=6) d2=1  [PASS]
+  quat=(2, 1, 1, 0): total=13 d1=12 (#S1=6,#S2=6) d2=1  [PASS]
+  quat=(3, 1, 1, 1): total=13 d1=12 (#S1=6,#S2=6) d2=1  [PASS]
+  quat=(4, 1, 1, 1): total=13 d1=12 (#S1=6,#S2=6) d2=1  [PASS]
+  quat=(6, 1, 1, 1): total=13 d1=12 (#S1=6,#S2=6) d2=1  [PASS]
+  quat=(7, 1, 1, 1): total=13 d1=12 (#S1=6,#S2=6) d2=1  [PASS]
+  quat=(8, 1, 1, 1): total=13 d1=12 (#S1=6,#S2=6) d2=1  [PASS]
+--- G3: shared face-normal locus Sigma (exact) ---
+G3: 400 exact Sigma-configs (shared z-normal), worst per-cube component count observed = 4 (bound is 6), [PASS]
+--- G1: 10000 generic exact configs ---
+  1000/10000  (53s)
+  2000/10000  (105s)
+  3000/10000  (158s)
+  4000/10000  (222s)
+  5000/10000  (278s)
+  6000/10000  (329s)
+  7000/10000  (403s)
+  8000/10000  (481s)
+  9000/10000  (556s)
+  10000/10000  (620s)
+G1: 10000 configs, 620s, max d1 observed = 12, violations(d1>12) = 0, errors = 0
+    d1 distribution: {3: 7753, 4: 1415, 8: 795, 12: 37}
+
+=== SUMMARY ===
+G1 (generic, n=10000): PASS  (max d1 observed = 12, bound 12)
+G2 (maximizer witnesses):  PASS
+G3 (shared-normal Sigma):  PASS  (worst per-cube count = 4, bound 6)
+G4 (full domain coverage): discharged ANALYTICALLY -- see max2_report.md "The closing lemma". No box resisted certification because no box-covering was needed: the lemma's case split (matched/unmatched active face) is exhaustive at every R in SO(3).
+
+max(2) = 13

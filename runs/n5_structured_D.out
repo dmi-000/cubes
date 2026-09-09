@@ -1,0 +1,61 @@
+
+=== PHASE P: golden five, rationalized ===
+  oracle count of rationalized golden-5: total=369 by_depth={1: 128, 2: 128, 3: 82, 4: 30, 5: 1, 0: 1}
+  cube_regions_n cross-check: total=369 MATCH
+
+=== PHASE S1: octahedral-type 2-axis-pair (4 cubes) + 1 free ===
+  t=1 free=(1, 0, 0, 0): total=1  <-- NEW BEST
+  t=4 free=(1, 0, 0, 0): total=143  <-- NEW BEST
+  t=4 free=(3, 1, 1, 1): total=201  <-- NEW BEST
+  t=4 free=(-167, 235, -490, -276): total=217  <-- NEW BEST
+  t=4 free=(438, 203, -510, 174): total=231  <-- NEW BEST
+  S1 all-free climb -> total=339  <-- NEW BEST
+PHASE S1 best: total=339 quats=[[4, 1, 0, 0], [4, -1, 0, 2], [4, 0, 1, 0], [4, -2, -1, 0], [219, 101, -255, 87]]
+
+=== PHASE S2: shared-C4-axis orbit (4 cubes) + 1 free ===
+  q0=(1, 0, 0, 0) free=(1, 0, 0, 0): total=1  <-- NEW BEST
+  q0=(472, 487, -256, -241) free=(1, 1, 0, 0): total=271  <-- NEW BEST
+  q0=(-95, 225, -150, -39) free=(1, -1, 0, 0): total=287  <-- NEW BEST
+  q0=(-237, 98, -341, 164) free=(1, 0, 0, 0): total=319  <-- NEW BEST
+  cube_regions_n cross-check of best S2 config: total=321 (oracle 319)
+  S2 all-free climb -> total=321  <-- NEW BEST
+PHASE S2 best: q0=(-237, 98, -341, 164) free=(1, 0, 0, 0) total=321
+
+=== PHASE S3: shared-(1,1,1)-C3 orbit of 3 + 2 free ===
+  [s1] q0=(1, 0, 0, 0) f1=(1, 0, 0, 0) f2=ident: total=1  <-- NEW BEST
+  [s1] q0=(1, 0, 0, 0) f1=(-486, -494, -230, 275) f2=ident: total=4  <-- NEW BEST
+  [s1] q0=(422, 470, -83, -290) f1=(1, 0, 0, 0) f2=ident: total=123  <-- NEW BEST
+  [s1] q0=(422, 470, -83, -290) f1=(-486, -494, -230, 275) f2=ident: total=273  <-- NEW BEST
+  [s1] q0=(422, 470, -83, -290) f1=(-251, 411, -181, 382) f2=ident: total=293  <-- NEW BEST
+  [s1] q0=(422, 470, -83, -290) f1=(-181, -183, 273, -61) f2=ident: total=301  <-- NEW BEST
+  [s2] f2=(-486, -494, -230, 275): total=305  <-- NEW BEST
+  [s2] f2=(-251, 411, -181, 382): total=309  <-- NEW BEST
+  cube_regions_n cross-check of best S3 config: total=305 (oracle 309)
+PHASE S3 best: q0=(422, 470, -83, -290) f1=(-181, -183, 273, -61) f2=(-251, 411, -181, 382) total=309
+
+=== PHASE D [golden_rationalized]: deep multi-restart climb from [[1, 0, 0, 0], [237, 56, -56, 56], [207, 128, -79, 0], [0, 79, 128, 207], [-56, 56, 56, 237]] ===
+  base climb: 375
+  radius-4 certification of base climb: confirmed local max
+  restart 15: 377  <-- NEW BEST
+PHASE D [golden_rationalized] best: total=377 quats=[[0, 1, 1, 0], [237, 56, -56, 56], [207, 128, -80, 0], [0, 5, 8, 13], [56, -56, -56, -237]]
+
+=== PHASE D [S1]: deep multi-restart climb from [[4, 1, 0, 0], [4, -1, 0, 2], [4, 0, 1, 0], [4, -2, -1, 0], [219, 101, -255, 87]] ===
+  base climb: 339
+  radius-4 certification of base climb: IMPROVED
+  restart 1: 369  <-- NEW BEST
+PHASE D [S1] best: total=369 quats=[[4, 1, 0, -1], [2, -1, 0, 2], [3, 0, 1, 0], [4, 2, -1, 0], [219, 101, -255, 89]]
+
+=== PHASE D [S2]: deep multi-restart climb from [[265, -110, 382, -184], [159, -174, 96, 29], [184, -382, -110, 265], [29, 96, 174, -159], [1, 0, 0, 0]] ===
+  base climb: 321
+  radius-4 certification of base climb: confirmed local max
+  restart 2: 323  <-- NEW BEST
+PHASE D [S2] best: total=323 quats=[[265, -109, 382, -184], [159, -178, 96, 29], [184, -382, -109, 265], [12, 32, 58, -53], [0, 2, -1, 0]]
+
+=== PHASE D [S3]: deep multi-restart climb from [[309, 344, -61, -212], [119, 251, 402, -154], [-190, -93, 463, 58], [-122, -123, 184, -41], [-201, 328, -145, 305]] ===
+  base climb: 309
+  radius-4 certification of base climb: confirmed local max
+PHASE D [S3] best: total=309 quats=[[307, 344, -61, -212], [119, 251, 402, -154], [190, 93, -463, -58], [122, 123, -184, 41], [201, -328, 145, -305]]
+
+=== PHASE D OVERALL BEST: total=377 tag=golden_rationalized quats=[[0, 1, 1, 0], [237, 56, -56, 56], [207, 128, -80, 0], [0, 5, 8, 13], [56, -56, -56, -237]] ===
+
+total rational evaluations this run: 14355

@@ -637,7 +637,15 @@ def second_order_alphas(good, keep_idx, point, n, v0, v1, q0=None):
 
 
 
-CACHE = HERE + '/dimension_cache'
+import os
+# The data caches live at the REPO ROOT, not beside the code.  The 2026-09-08
+# reorg moved this file into src/, which silently repointed HERE-relative cache
+# paths at an empty directory: no error, just every expensive step recomputed.
+# INVARIANT: cache location must follow the DATA, not the code.  The cache KEY
+# is content-derived (see _cache_key) and path-independent, so an existing cache
+# stays valid across any future move -- provided the path resolves to the root.
+ROOT = os.path.dirname(HERE) if os.path.basename(HERE) == 'src' else HERE
+CACHE = ROOT + '/dimension_cache'
 
 
 def _cache_key(point, n, q0):
@@ -920,10 +928,23 @@ def branch_numerator(cond, cvecs):
         mm, den = m[g[0]]
         return sp.expand(sum(sig[c] * mm[c] for c in range(3) if c != c0) - den)
     (m1, d1), (m2, d2) = m[g[0]], m[g[1]]
-    assert sp.simplify(d1 - d2) == 0 or True     # same pair -> same denominator
-    lead = m2[c0] - m1[c0]
+    # d1 == d2 ONLY when both normals come from the same cube j.  A group whose
+    # two members are normals of DIFFERENT cubes has d1 = N_i N_j1 != N_i N_j2 =
+    # d2, and then lambda*'s denominators do NOT cancel.  The disabled assert
+    # ("or True") hid this; the wrong branch was
+    #     - (m2[c0] - m1[c0]) * d1
+    # which is right only under d1 == d2, and silently wrong otherwise -- P did
+    # not vanish at points ON the wall.  Caught 2026-09-08 by wall_keys.gate:
+    # 6 of 27 walls at n=6, 24 of 51 at n=7, 42 of 75 at n=8, and EVERY failure
+    # had |{j}| == 2 while every pass had |{j}| == 1.
+    # INVARIANT: with n_a = m_a / d_a,  lambda* = m2[c0] d1 / (m2[c0] d1 -
+    # m1[c0] d2), the numerators of v_c cancel to m2[c0] m1[c] - m1[c0] m2[c]
+    # over that same denominator, so P = num - (m2[c0] d1 - m1[c0] d2).  This
+    # REDUCES to the old expression when d1 == d2, so the cases that were right
+    # stay bit-identical.
     return sp.expand(sum(sig[c] * (m2[c0]*m1[c] - m1[c0]*m2[c])
-                         for c in range(3) if c != c0) - lead * d1)
+                         for c in range(3) if c != c0)
+                     - (m2[c0] * d1 - m1[c0] * d2))
 
 
 def variety_fast(good, keep_idx, point, n, ns, q0=None):

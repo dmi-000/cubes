@@ -12,7 +12,7 @@ import sys
 from fractions import Fraction as F
 sys.path.insert(0, "/private/tmp/claude-502/-Users-dmi-cube-compounds/88682f8c-0607-4f2d-8384-b3993c9c5ded/scratchpad")
 from solve_ends import catalogue, count, q_of, BASE
-sys.path.insert(0, "/Users/dmi/cube-compounds")
+sys.path.insert(0, ".")
 import wall_params as W
 
 def between(a, b):

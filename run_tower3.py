@@ -5,7 +5,7 @@ wall).  Tests whether the exact 90deg wall point BEATS the 699 tie found at
 60deg."""
 import sys, time
 from fractions import Fraction as Fr
-sys.path.insert(0, '/Users/dmi/carroll'); sys.path.insert(0, '/tmp')
+sys.path.insert(0, '~/carroll'); sys.path.insert(0, '/tmp')
 from slide3_q2 import Q2, ONE2, ZERO2, Rx45
 from golden_rotations import Rot, B
 from golden_six import golden_five

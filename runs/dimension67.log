@@ -1,0 +1,23 @@
+======================================================================
+octahedral 67 (Q(sqrt2))   Cayley point ['1+0√2', '0+1√2', '0+0√2', '-1+0√2', '0+-1√2', '0+0√2']
+   count_at -> 67 (must be 67)
+octahedral 67 (Q(sqrt2)): count 67 | 60 tight (0 degenerate, 174 loose) | full null dim 0
+   60 conditions -> 6 DISTINCT WALLS
+   walls: 6 BINDING (delta != 0), 0 inert (delta = 0), 0 entangled/unevaluable (kept)
+   binding rank 6 of 6 -> candidate dim 0
+octahedral 67 (Q(sqrt2)): candidate dim 0, VERIFIED 0 independent count-preserving directions
+
+   cone: 6 facets, lineality dim 0 of 6 ambient, full-dimensional True
+======================================================================
+golden 67 (Q(sqrt5))   Cayley point ['1/2+1/2√5', '-1/2+1/2√5', '0+0√5', '-1/2+-1/2√5', '1/2+-1/2√5', '0+0√5']
+   count_at -> 67 (must be 67)
+golden 67 (Q(sqrt5)): count 67 | 72 tight (0 degenerate, 162 loose) | full null dim 0
+   72 conditions -> 9 DISTINCT WALLS
+   walls: 0 BINDING (delta != 0), 0 inert (delta = 0), 9 entangled/unevaluable (kept)
+   binding rank 6 of 6 -> candidate dim 0
+golden 67 (Q(sqrt5)): candidate dim 0, VERIFIED 0 independent count-preserving directions
+
+   cone: 9 facets, lineality dim 0 of 6 ambient, full-dimensional True
+======================================================================
+octahedral 67 (Q(sqrt2))     count 67 | 6 walls (6 binding) | ISOLATED POINT | verified 0 | unevaluable 0 | 54s
+golden 67 (Q(sqrt5))         count 67 | 9 walls (0 binding) | ISOLATED POINT | verified 0 | unevaluable 0 | 156s

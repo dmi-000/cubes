@@ -1,0 +1,8 @@
+vertices: 80 of 60000 screened reach 365+ ; best [393, 393, 393, 393, 393, 393, 393, 393]
+edges: 3160 pairs, best [727, 727, 727, 725, 725, 723, 723, 723, 723, 723]
+edge climbed: 727
+edge climbed: 727
+edge climbed: 727
+edge climbed: 725
+triangles: 9880, best [1217, 1217, 1215, 1215, 1215, 1215, 1215, 1215, 1215, 1215]
+triangle climbed: 1217

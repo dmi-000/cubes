@@ -1,0 +1,15 @@
+CORNER TRIPLE: three cubes sharing one body-diagonal axis, fourth cube free.
+A 9-fold point is three cubes sharing a corner; the antipode gives the second.
+
+1500 configurations built
+  with two or more 9-FOLD points : 762 (50.8%)
+  exactly the RECORD signature   : 0
+  exactly the near-miss signature: 0
+
+  best counts and their signatures:
+     163   ((4, 72), (6, 2), (9, 2))
+     161   ((4, 78), (9, 2))
+     161   ((4, 68), (9, 2))
+     159   ((4, 76), (9, 2))
+     159   ((4, 74), (9, 2))
+     159   ((4, 66), (9, 2))

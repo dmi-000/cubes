@@ -1,0 +1,23 @@
+=== G0: exact rational round-trip (chain triple, no floats) ===
+  k=0 theta=0.0000deg  rotation_ok=True  quat=(1, 0, 0, 0)  round_trip_exact=True
+  k=1 theta=36.8699deg  rotation_ok=True  quat=(15, 4, 3, 0)  round_trip_exact=True
+  k=2 theta=73.7398deg  rotation_ok=True  quat=(20, 12, 9, 0)  round_trip_exact=True
+G0: PASS
+
+=== G1: two-engine agreement (n=3 chain, n=4 family) ===
+  n=3 chain quats=[(1, 0, 0, 0), (15, 4, 3, 0), (20, 12, 9, 0)]
+  cpp: total=43 depth={0: 1, 1: 26, 2: 16, 3: 1}
+  py:  total=43 depth={1: 26, 3: 1, 2: 16, 0: 1}
+  n=3 match: True
+  n=4 chain quats=[(1, 0, 0, 0), (15, 4, 3, 0), (20, 12, 9, 0), (45, 52, 39, 0)]
+  cpp: total=143 depth={0: 1, 1: 64, 2: 54, 3: 24, 4: 1}
+  py:  total=143 depth={3: 24, 1: 64, 2: 54, 4: 1, 0: 1}
+  n=4 match: True
+G1: PASS
+
+=== G2: record reproduction (n=6, 723 from ledger quats) ===
+  cpp: total=723 depth={1: 210, 2: 216, 3: 164, 4: 96, 5: 36, 6: 1}
+  expect: total=723 depth={1: 210, 2: 216, 3: 164, 4: 96, 5: 36, 6: 1}
+G2: PASS
+
+ALL GATES: PASS

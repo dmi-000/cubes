@@ -10,4 +10,4 @@
   C3:3+3           best= 705 evals=451 restarts=30+3expl climb_r=2x12 (full-quat, gated at 699)
 
 Total wall time: 48s
-Report -> /Users/dmi/carroll/symmetry_search_report2.md
+Report -> ~/carroll/symmetry_search_report2.md

@@ -1,0 +1,9 @@
+record height 113786, L=74581080, rank 4
+m=2   : 2 solutions of the congruence
+    c=(0, 1, 0, 0) -> height 7676376 (0.01x)  count 2787  STILL THE RECORD
+    c=(0, 1, 1, 1) -> height 47790127 (0.00x)  count 2787  STILL THE RECORD
+m=19  : 1 solutions of the congruence
+    c=(0, 0, 15, 7) -> height 2515275 (0.05x)  count 2787  STILL THE RECORD
+m=38  : 2 solutions of the congruence
+    c=(0, 19, 15, 7) -> height 2515275 (0.05x)  count 2787  STILL THE RECORD
+    c=(0, 19, 34, 26) -> height 1616079 (0.07x)  count 2787  STILL THE RECORD

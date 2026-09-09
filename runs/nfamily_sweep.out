@@ -1,0 +1,42 @@
+[0s] generating chain configs...
+  n=4: 120 chain configs
+  n=5: 70 chain configs
+  n=6: 44 chain configs
+[2s] n=6 chains done, best so far=615 (record 723)
+[2s] n=5 chains done, best so far=335 (record 393)
+[2s] n=4 chains done, best so far=175 (record 183)
+[2s] generating random configs...
+  n=4: 3000 random configs
+  n=5: 3000 random configs
+  n=6: 3000 random configs
+[46s] n=4 random done, best so far=175 (record 183)
+[76s] n=5 random done, best so far=335 (record 393)
+[113s] n=6 random done, best so far=615 (record 723)
+[113s] neighbor round 1...
+[113s] n=4 neighbor round 1 done, best so far=175
+[113s] n=5 neighbor round 1 done, best so far=335
+[113s] n=6 neighbor round 1 done, best so far=615
+[113s] neighbor round 2...
+[113s] n=4 neighbor round 2 done, best so far=175
+[113s] n=5 neighbor round 2 done, best so far=335
+[113s] n=6 neighbor round 2 done, best so far=615
+[113s] neighbor round 3...
+[113s] n=4 neighbor round 3 done, best so far=175
+[113s] n=5 neighbor round 3 done, best so far=335
+[113s] n=6 neighbor round 3 done, best so far=615
+[113s] neighbor round 4...
+[113s] n=4 neighbor round 4 done, best so far=175
+[113s] n=5 neighbor round 4 done, best so far=335
+[113s] n=6 neighbor round 4 done, best so far=615
+[113s] neighbor round 5...
+[113s] n=4 neighbor round 5 done, best so far=175
+[113s] n=5 neighbor round 5 done, best so far=335
+[113s] n=6 neighbor round 5 done, best so far=615
+[113s] neighbor round 6...
+[113s] n=4 neighbor round 6 done, best so far=175
+[113s] n=5 neighbor round 6 done, best so far=335
+[113s] n=6 neighbor round 6 done, best so far=615
+[113s] DONE. Best per n:
+  n=4: best=175  record=183  cap_sum=195  cfg={'n': 4, 'kind': 'chain', 'a_deg': 71.0754, 'psi_deg': 36.8699, 'quats': [(1, 0, 0, 0), (7, 3, 4, 0), (12, 21, 28, 0), (-91, 183, 244, 0)]}
+  n=5: best=335  record=393  cap_sum=429  cfg={'n': 5, 'kind': 'chain', 'a_deg': 67.3801, 'psi_deg': 36.8699, 'quats': [(1, 0, 0, 0), (15, 6, 8, 0), (25, 36, 48, 0), (-45, 138, 184, 0), (119, -72, -96, 0)]}
+  n=6: best=615  record=723  cap_sum=801  cfg={'n': 6, 'kind': 'chain', 'a_deg': 53.1301, 'psi_deg': 36.8699, 'quats': [(1, 0, 0, 0), (10, 3, 4, 0), (15, 12, 16, 0), (10, 33, 44, 0), (-35, 72, 96, 0), (190, -123, -164, 0)]}

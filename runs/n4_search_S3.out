@@ -1,0 +1,16 @@
+
+=== PHASE S3: shared-(1,1,1)-C3 orbit of 3 + 1 free cube ===
+  q0=(1, 0, 0, 0) qfree=(1, 0, 0, 0): total=1  <-- NEW BEST
+  q0=(1, 0, 0, 0) qfree=(3, 1, 1, 1): total=13  <-- NEW BEST
+  q0=(-417, -498, 271, -201) qfree=(1, 0, 0, 0): total=111  <-- NEW BEST
+  q0=(-417, -498, 271, -201) qfree=(3, -1, -1, 1): total=123  <-- NEW BEST
+  q0=(-417, -498, 271, -201) qfree=(-490, -353, -182, -54): total=127  <-- NEW BEST
+  q0=(-417, -498, 271, -201) qfree=(-177, 74, -171, 147): total=131  <-- NEW BEST
+  q0=(-448, -473, 62, 396) qfree=(-417, -260, -483, -237): total=132  <-- NEW BEST
+  q0=(-498, 355, 129, -476) qfree=(3, 1, 1, 1): total=135  <-- NEW BEST
+PHASE S3 best: q0=(-498, 355, 129, -476) qfree=(3, 1, 1, 1) total=135
+
+=== PHASE M: mod-4 parity check (this script's own log) ===
+  297 rational configs, predicted bounded == 3 (mod 4), 178 exceptions (59.93%)
+
+total rational evaluations this run: 0

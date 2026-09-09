@@ -1,6 +1,6 @@
 import subprocess, os, json, sys, tempfile, time
 
-BIN = '/Users/dmi/cube-compounds/cube_regions_n'
+BIN = 'cube_regions_n'
 TMP = '/private/tmp/claude-502/-Users-dmi-cube-compounds/88682f8c-0607-4f2d-8384-b3993c9c5ded/scratchpad'
 
 def run_batch(configs, workers=8, tag='batch'):

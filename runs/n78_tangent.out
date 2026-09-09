@@ -1,0 +1,11 @@
+n=7 1217 base 1217 : 2 of 36 single-axis moves preserve it
+    cube 6, Cayley coord x, +
+    cube 6, Cayley coord x, -
+    sweep cube 6 coord x : 1217 on [-1/32,0]
+n=8 1891 base 1891 : 4 of 42 single-axis moves preserve it
+    cube 6, Cayley coord x, +
+    cube 6, Cayley coord x, -
+    cube 7, Cayley coord z, +
+    cube 7, Cayley coord z, -
+    sweep cube 6 coord x : 1891 on [-1/32,0]
+    sweep cube 7 coord z : 1891 on [0,3/32]  1891 on [15/64,3/8]

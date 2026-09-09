@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: SLIDE3_SPEC_V2.md + slide3_report.md. Project index: README.md
 """specs/SLIDE3_SPEC.md Section 1, Phase P1: coarse (theta1, theta2, R) map.
 
@@ -102,7 +103,7 @@ def main():
               f"q2={r['q2']:3d} p2={r['p2']:3d}  R={r['R']} ({r['Rtag']})  "
               f"by_depth={r['by_depth']}")
 
-    with open('/Users/dmi/carroll/slide3_p1_top.json', 'w') as f:
+    with open(os.path.expanduser('~/carroll/slide3_p1_top.json'), 'w') as f:
         json.dump(all_records[:200], f)
     print('\nsaved top 200 to slide3_p1_top.json')
 

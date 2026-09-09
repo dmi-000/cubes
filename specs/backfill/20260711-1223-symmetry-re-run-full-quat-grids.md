@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Your complete brief is SYMMETRY_SEARCH_V2.md — read it and the files it lists (symmetry_search.py, symmetry_search_report.md, six_cube_search_results.md Postscript 10, README.md).
+Working directory: ~/carroll. Exact cube-compound region-counting project. Your complete brief is SYMMETRY_SEARCH_V2.md — read it and the files it lists (symmetry_search.py, symmetry_search_report.md, six_cube_search_results.md Postscript 10, README.md).
 
 This is a targeted re-run fixing a search-coverage gap in the first symmetry sweep. The first run's FRAMEWORK is validated (gates GA–GE pass, reproducing 67/681/699), but its per-family seed grids were too thin — the C₃:3+3 family, which provably contains the 699 record, was searched only to 399 because it used thin axis-angle seeds instead of general quaternions. REUSE symmetry_search.py's validated construction/orbit/O-dedup/dispatch/count functions unchanged; only replace the seed sampler and climber so seeds are FULL integer quaternions (w,x,y,z), gcd-reduced, |component|≤512.
 

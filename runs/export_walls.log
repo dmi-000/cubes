@@ -1,0 +1,6 @@
+n=4: 12 distinct walls, ambient 9, nullspace 1
+n=5: 18 distinct walls, ambient 12, nullspace 1
+n=6: 27 distinct walls, ambient 15, nullspace 1
+n=7: 51 distinct walls, ambient 18, nullspace 2
+n=8: 75 distinct walls, ambient 21, nullspace 3
+written data/record_walls.json

@@ -1,0 +1,16 @@
+{
+ "output": "isolation67_run1_fixed_eps.json",
+ "argv": [
+  "isolation67.py"
+ ],
+ "rerun": "python3 isolation67.py",
+ "script": "isolation67.py",
+ "script_sha1": "45237c2fdd8fd56929ef9951dc3c8680ec133088",
+ "started": null,
+ "finished": "2026-08-17 19:16:22",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "retroactive": true,
+ "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
+ "note": "superseded: fixed eps, 333 golden faces unresolved"
+}

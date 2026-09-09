@@ -1,0 +1,32 @@
+
+===== 2026-08-17 07:04:28
+octahedral 67 over Q(sqrt2): count_at -> 67
+   60 tight conditions -> 6 distinct walls
+   728 realizable non-zero faces of 6 walls in R^6
+   faces by count: {63: 2, 59: 18, 57: 10, 55: 22, 53: 56, 49: 140, 47: 66, 43: 280, 37: 134}
+   ISOLATED -- 0 faces reaching 67, 0 unresolved, 0 budget rejects, 44s
+   steps to stabilise (eps halvings from 1/64): {1: 728}
+golden 67 over Q(sqrt5): count_at -> 67
+   72 tight conditions -> 9 distinct walls
+   2196 realizable non-zero faces of 9 walls in R^6
+   faces by count: {63: 1, 59: 2, 57: 10, 55: 4, 53: 76, 51: 12, 49: 193, 48: 9, 47: 150, 45: 240, 44: 23, 43: 442, 41: 115, 40: 32, 39: 433, 38: 84, 37: 370}
+   ISOLATED -- 0 faces reaching 67, 0 unresolved, 0 budget rejects, 383s
+   steps to stabilise (eps halvings from 1/64): {1: 2196}
+octahedral   ISOLATED
+golden       ISOLATED
+
+===== 2026-08-18 12:53:13
+octahedral 67 over Q(sqrt2): count_at -> 67
+   60 tight conditions -> 6 distinct walls
+   728 realizable non-zero faces of 6 walls in R^6
+   faces by count: {63: 2, 59: 18, 57: 10, 55: 22, 53: 56, 49: 140, 47: 66, 43: 280, 37: 134}
+   ISOLATED -- 0 faces reaching 67, 0 unresolved, 0 budget rejects, 20s
+   steps to stabilise (eps halvings from 1/64): {1: 728}
+golden 67 over Q(sqrt5): count_at -> 67
+   72 tight conditions -> 9 distinct walls
+   2196 realizable non-zero faces of 9 walls in R^6
+   faces by count: {63: 1, 59: 2, 57: 10, 55: 4, 53: 76, 51: 12, 49: 193, 48: 9, 47: 150, 45: 240, 44: 23, 43: 442, 41: 115, 40: 32, 39: 433, 38: 84, 37: 370}
+   ISOLATED -- 0 faces reaching 67, 0 unresolved, 0 budget rejects, 151s
+   steps to stabilise (eps halvings from 1/64): {1: 2196}
+octahedral   ISOLATED
+golden       ISOLATED

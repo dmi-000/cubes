@@ -9,7 +9,7 @@ not see; constancy everywhere is evidence that walls and coincidences coincide.
 """
 import sys
 from fractions import Fraction as F
-sys.path.insert(0, "/Users/dmi/cube-compounds")
+sys.path.insert(0, ".")
 sys.path.insert(0, "/private/tmp/claude-502/-Users-dmi-cube-compounds/88682f8c-0607-4f2d-8384-b3993c9c5ded/scratchpad")
 import incidence2 as I, wall_params as W
 from maxline import q_of, evaluate, BASE

@@ -1,0 +1,45 @@
+// An element of Z[sqrt d][eps]/(eps^(EPSDEG+1)).  eps is a POSITIVE
+// INFINITESIMAL: smaller than every positive rational, which is what makes the
+// ordering below well defined and non-Archimedean.
+struct FieldElem {
+    Coef c[EPSDEG + 1];
+    FieldElem() {}
+    FieldElem(i128 p_, i128 q_ = 0) { c[0] = Coef(p_, q_); }
+};
+static inline FieldElem operator+(const FieldElem& a, const FieldElem& b) {
+    FieldElem r; for (int k = 0; k <= EPSDEG; k++) r.c[k] = a.c[k] + b.c[k]; return r;
+}
+static inline FieldElem operator-(const FieldElem& a, const FieldElem& b) {
+    FieldElem r; for (int k = 0; k <= EPSDEG; k++) r.c[k] = a.c[k] - b.c[k]; return r;
+}
+static inline FieldElem operator-(const FieldElem& a) {
+    FieldElem r; for (int k = 0; k <= EPSDEG; k++) r.c[k] = -a.c[k]; return r;
+}
+static inline FieldElem operator*(const FieldElem& a, const FieldElem& b) {
+    FieldElem r;
+    for (int i = 0; i <= EPSDEG; i++) {
+        if (coefIsZero(a.c[i])) continue;
+        for (int j = 0; i + j <= EPSDEG; j++) {
+            if (coefIsZero(b.c[j])) continue;
+            r.c[i + j] = r.c[i + j] + a.c[i] * b.c[j];
+        }
+    }
+    return r;
+}
+static inline bool feIsZero(const FieldElem& a) {
+    for (int k = 0; k <= EPSDEG; k++) if (!coefIsZero(a.c[k])) return false;
+    return true;
+}
+// THE ORDERING.  eps is a positive infinitesimal, so the lowest-degree nonzero
+// coefficient dominates every higher one absolutely -- no magnitude comparison
+// between degrees is ever needed, which is why this stays exact.
+static inline int feSign(const FieldElem& v) {
+    for (int k = 0; k <= EPSDEG; k++) {
+        int s = coefSign(v.c[k]);
+        if (s != 0) return s;
+    }
+    return 0;
+}
+'''
+
+# --------------------------------------------------------------- replacements

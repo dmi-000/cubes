@@ -1,0 +1,11 @@
+planes/cube [24, 24, 24, 24, 23] ; quadrics/cube [96, 96, 96, 96, 96]
+systems 1620000 -> 2856 distinct rational candidates; 688806 irrational (degree-2) solution pairs by squarefree class
+  counted 500/2856 best (721, (157, -478, -93, -57))
+  counted 1000/2856 best (725, (24, 101, -51, -6))
+  counted 1500/2856 best (725, (24, 101, -51, -6))
+  counted 2000/2856 best (725, (24, 101, -51, -6))
+  counted 2500/2856 best (725, (24, 101, -51, -6))
+  counted 2856/2856 best (725, (24, 101, -51, -6))
+
+DONE best=(725, (24, 101, -51, -6))
+top: {703: 102, 705: 88, 707: 129, 709: 57, 711: 37, 713: 39, 715: 54, 717: 27, 719: 9, 721: 12, 723: 15, 725: 3}

@@ -1,0 +1,423 @@
+{
+ "what": "Measured boundaries of record count-plateaus and of their extension regions.",
+ "recorded": "2026-09-08",
+ "provenance": "LEDGER P285-P287; CONTINUUM_MAP.md",
+ "IMPORTANT": "Every boundary is a BRACKET between two sampled parameter values, never an exact locus. The true boundary is a wall (an algebraic condition) and has not been solved for. Quoting a bracket endpoint as the boundary would be wrong.",
+ "regions": [
+  {
+   "id": "n9_line_A_to_B",
+   "level": 9,
+   "parameterisation": "q(t) = reduce((12-t)*A + t*B), integer, appended to eight fixed cubes",
+   "A": [
+    88787,
+    -9061,
+    74275,
+    113786
+   ],
+   "B": [
+    88726,
+    -8954,
+    74074,
+    113960
+   ],
+   "A_note": "the ORIGINAL n=9 representative; B is the simplified (109,-11,91,140) scaled by 814",
+   "fixed_cubes": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     3,
+     7,
+     3
+    ],
+    [
+     5,
+     -1,
+     -5,
+     -5
+    ],
+    [
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     7,
+     14,
+     1,
+     -5
+    ],
+    [
+     4,
+     -3,
+     -4,
+     -4
+    ],
+    [
+     168,
+     -168,
+     168,
+     -415
+    ]
+   ],
+   "sampled": {
+    "range": "t = -24..48 step 3, and t = 0..12 step 1"
+   },
+   "count_plateau": {
+    "value": 2787,
+    "lower_bracket": [
+     -3,
+     0
+    ],
+    "upper_bracket": [
+     24,
+     27
+    ],
+    "outside": {
+     "-24..-15": 2775,
+     "-12..-9": 2779,
+     "-6..-3": 2783,
+     "27..48": 2783
+    }
+   },
+   "extension": {
+    "tenth_cube": [
+     6555,
+     6555,
+     6497,
+     6555
+    ],
+    "record_value": 3925,
+    "record_region_bracket": [
+     "13/3",
+     "139/32"
+    ],
+    "value_beyond": 3921,
+    "increment": {
+     "inside_safe": 1138,
+     "beyond": 1134,
+     "note": "outside the count plateau the n=10 count tracks n=9 + 1138 exactly"
+    },
+    "safe_fraction_of_plateau": "about 22% along this line",
+    "bracket_history": {
+     "initial": [
+      3,
+      6
+     ],
+     "final": [
+      "13/3",
+      "139/32"
+     ],
+     "width": "1/96",
+     "narrowing": "288x",
+     "method": "simplest-rational (Stern-Brocot) bisection, not midpoint: a denominator q costs quaternion height ~q*1e5 on this line, so midpoint bisection prices itself out immediately. Cost of the representative is a free choice; the object is not.",
+     "engine": "cube_regions_q2w. cube_regions_n returns 'degenerate plane triple' at several of these points -- an engine refusal, NOT a budget limit and NOT a negative. An earlier pass recorded t=13/3 as budget-stopped; the wide engine counts it 3925, which MOVED the bracket. 'Unevaluable is not a negative result.'",
+     "still_a_bracket": "The wall is an algebraic number. 1/96 is 288x tighter, not exact. Closing it needs the wall POLYNOMIAL: identify which coincidence goes tight across this window and solve it. That is the remaining step."
+    }
+   },
+   "walls_by_added_cube": {
+    "6555,6555,6497,6555": {
+     "count": 3925,
+     "walls": [
+      [
+       3,
+       6
+      ]
+     ]
+    },
+    "1000,-997,13,5": {
+     "count": 3881,
+     "walls": [
+      [
+       3,
+       6
+      ]
+     ]
+    },
+    "5,-2,3,1": {
+     "count": 3791,
+     "walls": [
+      [
+       0,
+       3
+      ],
+      [
+       6,
+       9
+      ]
+     ]
+    },
+    "41,17,-23,9": {
+     "count": 3845,
+     "walls": []
+    },
+    "3,1,-2,1": {
+     "count": 3835,
+     "walls": []
+    },
+    "7,0,0,-3": {
+     "count": 3483,
+     "walls": []
+    }
+   },
+   "finding": "walls are per-PAIR; the high-scoring extensions are the sensitive ones"
+  },
+  {
+   "id": "n6_727_arc",
+   "level": 6,
+   "parameterisation": "sixth cube = clear_denominators(1, 19/3+s, -7-3s, -11-6s)",
+   "fixed_cubes": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     3,
+     7,
+     3
+    ],
+    [
+     5,
+     -1,
+     -5,
+     -5
+    ],
+    [
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "documented_extent": "s in [9/4, 3]  (MAXIMISERS.md)",
+   "sampled": {
+    "range": "s = k/6 for k = 14..29"
+   },
+   "count_plateau": {
+    "value": 727,
+    "measured_727_at": [
+     "7/3",
+     "5/2",
+     "8/3",
+     "17/6",
+     "3",
+     "10/3"
+    ],
+    "measured_other": {
+     "19/6": 725,
+     "7/2": 719,
+     "11/3 and beyond": 711
+    },
+    "ANOMALY": "727 measured at s=10/3, OUTSIDE the documented upper bound 3, with 725 at s=19/6 between. The region may extend past 3 and may not be one interval, OR the sampled rationals may sit on coincidence values. NOT concluded; needs a finer walk before amending MAXIMISERS."
+   },
+   "extension": {
+    "seventh_cube": [
+     4,
+     -3,
+     -4,
+     -4
+    ],
+    "best_value": 1213,
+    "best_at": "7/3",
+    "value_beyond": 1209,
+    "wall_bracket": [
+     "7/3",
+     "5/2"
+    ],
+    "note": "1213 < 1217 expected: the tower's own sixth cube 7,14,1,-5 is not on this arc"
+   }
+  },
+  {
+   "id": "n4_183",
+   "level": 4,
+   "count_plateau": {
+    "dimension": 0,
+    "note": "ISOLATED. The earlier 3-dimensional reading in n4_183_dim.out was an artefact: 26 'survivors' were no-ops, the probe multiplying Cayley deltas by w and cube 1 being a half-turn with w=0. See P287."
+   },
+   "coincidence_variety": {
+    "dimension": 0,
+    "source": "isolate183.log, both congruence classes"
+   }
+  }
+ ],
+ "not_yet_bounded": [
+  "the n=9 wall now needs no new MACHINERY -- wall_keys.on_quat_line turns a quaternion-line family into an exact univariate whose root is the wall, demonstrated on n=6 (P(0)=0 on 27/27, degrees 2 and 4, 8 walls with a nonzero rational root). What is missing is COST: the conditions at a 10-cube configuration have never been built.",
+  "the three other 727 arcs (A, B, C) -- representatives not yet recovered",
+  "the n=9 region away from this single line (RESULTS calls it 4-dimensional)",
+  "the 67<->67 dihedral family -- irrational, needs the Q(sqrt d) engine",
+  "no boundary has been solved for EXACTLY; the n=9 extension wall is now bracketed to width 1/96 in t, the others are unrefined"
+ ],
+ "count_plateau_dimensions": {
+  "method": "arc_eps.tangents_eps -- tangent candidates SOLVED from wall normals, each verified with eps in both signs, then combinations tested to separate a surface from a node. Controls on every row: zero displacement must reproduce the record, a wall-normal displacement must not. Both passed everywhere.",
+  "why_not_probing": "Three integer probes failed first. FAILURE_MODES 11d: a zero probe reading means 'not aligned', never 'isolated'; and a probe moving ONE cube cannot see a locus that is positive-dimensional only via multi-cube directions. A 1-dimensional plateau in a 3-dimensional tangent space is almost never axis-aligned. See P287 and the two postscripts after it.",
+  "results": {
+   "n4_183": {
+    "walls": 12,
+    "ambient": 9,
+    "controls": "zero->183 wall->161 OK",
+    "verified_tangents": 0,
+    "candidates": 30,
+    "unevaluated": 0,
+    "verdict": "count plateau 0-dimensional -- third independent confirmation of P287"
+   },
+   "n5_393": {
+    "walls": 18,
+    "ambient": 12,
+    "controls": "zero->393 wall->373 OK",
+    "verified_tangents": 0,
+    "candidates": 46,
+    "unevaluated": 0,
+    "verdict": "count plateau 0-dimensional -- NEW"
+   },
+   "n6_727": {
+    "walls": 27,
+    "ambient": 15,
+    "controls": "zero->727 wall->703 OK",
+    "verified_tangents": 2,
+    "candidates": 7,
+    "unevaluated": 0,
+    "verdict": "2 tangents; dim2785.log shows no combination holds -> NODE, two arcs crossing, not a surface. This row is the CONTROL: it reproduces a known result independently, which is what licenses the others."
+   },
+   "n7_1217": {
+    "walls": 51,
+    "ambient": 18,
+    "controls": "zero->1217 wall->1193 OK",
+    "verified_tangents": 1,
+    "candidates": 1,
+    "unevaluated": 0,
+    "verdict": "count plateau has ONE arc; candidates were exhaustively enumerated (1 of 1)"
+   }
+  },
+  "pending": "n=8 1895 running on both instruments",
+  "note_dimension_is_not_monotone": "n=5 has a 0-dimensional count plateau while n=6 has arcs and n=9 has a plateau walked across t in [0,24]. Shape is a property of the particular record, not of the level.",
+  "no_trend": "tangent counts across the tower are 0, 0, 2, 1 at n = 4,5,6,7 -- not monotone. 727 is the outlier, not the start of a progression. Shape is a property of the particular record, not of the level.",
+  "n8_1895": {
+   "tangents": 1,
+   "direction": "(0,0,1)",
+   "candidates": 1,
+   "unevaluated": 0,
+   "controls": "zero->1895 wall->1871 OK"
+  },
+  "sequence_2026_09_08": "verified count-plateau tangents n=4..8: 0, 0, 2 (node), 1, 1"
+ },
+ "coincidence_variety_dimensions": {
+  "method": "dimension.py -- Jacobian null space, solved not probed; lineality 1 everywhere is the global-rotation gauge",
+  "results": {
+   "n4_183_class1": "ISOLATED",
+   "n4_183_class2": "ISOLATED",
+   "n5_393": "ISOLATED (168 tight, lineality 1 of 12)",
+   "n6_727": "ISOLATED (216 tight, lineality 1 of 15)",
+   "n7_1217": "ISOLATED (300 tight, LINEALITY 2 of 18 -- first record with a non-gauge direction at first order, but the second-order variety is empty)"
+  },
+  "note": "727 is coincidence-ISOLATED and count-plateau 2-tangent simultaneously. The two objects are different and conflating them caused several wrong turns; see P287.",
+  "WITHDRAWN_2026_09_08": "n=6 and n=7 ISOLATED verdicts are withdrawn pending re-run: they came from variety_incremental, which used the wrong branch_numerator (P288). n=4 and n=5 have ZERO cross-cube conditions and are exactly unaffected -- the fix is bit-identical there -- so the 183 and 393 verdicts stand and were re-confirmed under the fixed code. The bug can only cause a FALSE ISOLATED, never a false continuum. Count-plateau tangents (map_continua/arc_eps) and lineality numbers are unaffected: neither path calls branch_numerator.",
+  "RERUN_2026_09_08_after_P288_fix": {
+   "note": "re-run of solve_shapes.py under the fixed branch_numerator. The bug DID change a conclusion: n=7 flipped from ISOLATED to NOT ISOLATED.",
+   "log": "runs/solve_shapes.log (pre-fix log kept as runs/solve_shapes.VOID_prefix_bug.log)",
+   "dimensions": {
+    "n4_183_class1": 0,
+    "n4_183_class2": 0,
+    "n5_393": 0,
+    "n6_727": 0,
+    "n7_1217": 1,
+    "n8_1895": 2,
+    "n9_2787_simplified": 12
+   },
+   "lineality": {
+    "n4": 1,
+    "n5": 1,
+    "n6": 1,
+    "n7": 2,
+    "n8": 3,
+    "note": "unaffected by the bug -- comes from the gradients"
+   },
+   "changed": [
+    "n7_1217: ISOLATED -> NOT ISOLATED (1 direction)",
+    "n8_1895: never reached before; NOT ISOLATED (2 directions)"
+   ],
+   "unchanged": [
+    "both 183s",
+    "393 n=5",
+    "727 n=6 -- re-confirmed under the fix"
+   ],
+   "QUALIFICATION": {
+    "does_not_overturn_P117": "the n=7 direction preserves all 300 tight conditions exactly (verified at t=0,1/64,1/8,1/2,1,-3/7 by branch_value, a route independent of the bug) but does NOT preserve the count: 1217,1213,1209,1203,1177. P117 engine-verified its directions, i.e. checked the COUNT. Different objects.",
+    "corrected": "coincidence variety (same tight set): n=7, n=8 are NOT isolated",
+    "untouched": "records as maximisers (count preserved): every record still a strict local max",
+    "caution": "solve_shapes.py prints NOT isolated from the variety alone with no engine step; its label is the weaker claim"
+   },
+   "CORRECTION_naming": "these are COUNTS OF ISOLATED DIRECTIONS in P(null(J)), not dimensions -- variety_incremental returns finitely many points. The variety is 0-dimensional at every level measured. See P289.",
+   "REFUTED": "the pattern 'variety = lineality - 1' was recorded as a prediction of 3 at n=9 and measured 12. Refuted. The verdicts (zero vs nonzero) are unaffected.",
+   "bias_direction_CORRECTED_2026_09_09": "wrong_P = correct_P + m1[c0]*(d1-d2), so the wrong polynomial can also have FALSE ZEROS on a codimension-1 set and admit a direction not in the wall. The bias toward false ISOLATED is GENERIC, not guaranteed. An earlier note here said 'can only cause a FALSE ISOLATED, never a false continuum' -- that was an overstatement."
+  }
+ },
+ "wall_data": {
+  "file": "data/record_walls.json",
+  "what": "distinct wall gradients per record, exported from dimension_cache",
+  "counts": {
+   "n4": 12,
+   "n5": 18,
+   "n6": 27,
+   "n7": 51,
+   "n8": 75
+  },
+  "cross_check": "these counts reproduce tangents_eps's independently-reported wall counts exactly",
+  "NOT_polynomials": "wall GRADIENTS are linearisations at the record point, not the conditions' polynomials. Superseded 2026-09-08 by data/wall_keys.json, which records the reconstruction KEY -- see wall_keys below. This field is kept because the gradients are still the right object for a tangent test.",
+  "why_it_was_missing": "the runs computed walls (880s at n=6, 1498s at n=7) and reported only summary counts, discarding them. dimension.cached_conditions caches the expensive step, so recovery was cheap -- but nothing had ever written them out in a usable form.",
+  "nullspace_dim": {
+   "n4": 1,
+   "n5": 1,
+   "n6": 1,
+   "n7": 2,
+   "n8": 3
+  }
+ },
+ "wall_keys": {
+  "file": "data/wall_keys.json",
+  "code": "src/wall_keys.py",
+  "what": "the RECONSTRUCTION KEY for every distinct wall at every named record: (frame, group, sig, c0) plus the record quaternions. That tuple is the complete argument list of dimension.branch_numerator, which returns the exact polynomial P with f = 1 <=> P = 0. The key IS the polynomial.",
+  "counts": {
+   "n4": 12,
+   "n5": 18,
+   "n6": 27,
+   "n7": 51,
+   "n8": 75,
+   "arcA": 20
+  },
+  "n4_183": "UNEVALUABLE, not skipped: cube 1 is a half-turn, the record is at Cayley infinity and this chart has no point for it (P287).",
+  "how_to_use": {
+   "polynomial": "import wall_keys as W; W.numerator(key, W.cvecs_of(quats))",
+   "on_a_cayley_line": "W.on_line(key, q0, pt, dir) -> exact coefficients in t, low degree first",
+   "on_a_quaternion_line": "W.on_quat_line(key, quats, moving, A, B, span) -> same, for q(t) = (span-t)A + tB. THIS is the form the project's brackets take (solve_wall.py); a quaternion line is a Moebius curve in Cayley coordinates, not a line, so on_line does not apply to it."
+  },
+  "gates": {
+   "G1": "P(record) == 0 -- a wall contains its own point. Absolute anchor, outside the code.",
+   "G2": "dP/dt|0 == s*(grad.d) with ONE scale s across independent directions; grad comes from sympy diff of f, P from the numerator formula -- two routes.",
+   "G3": "negative control: corrupt the key (flip a sign in sig); G1 must then FAIL.",
+   "gate_mn": "quaternion route vs Cayley route along a Cayley line, compared as coefficient VECTORS up to proportionality (a hypersurface is defined up to scale).",
+   "result": "after the P288 fix: 12/18/27/51/75/20 walls, G1 all vanish, G2 all pass, G3 catches all. gate_mn 12/12 at n=4."
+  },
+  "IMPORTANT": "a key is complete ONLY together with the record quaternions stored beside it: the same key at another configuration is a different polynomial.",
+  "found_a_bug": "G1 failed on 6/27 at n=6, 24/51 at n=7, 42/75 at n=8 before the fix, and EVERY failure had two distinct cubes in its group. See LEDGER P288 and FAILURE_MODES 32."
+ }
+}

@@ -7,5 +7,5 @@
 [   307.2s]   7th-cube sweep (300 candidates): best=1197
 [   309.2s]   7th-cube climb (free_idx=6 only): 1197
 [   320.9s] TASK 1 best: 1207  (record before task1: 1207)
-[   320.9s] Report written -> /Users/dmi/carroll/n7_program_report.md
+[   320.9s] Report written -> ~/carroll/n7_program_report.md
 [   320.9s] ALL DONE.

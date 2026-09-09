@@ -1,0 +1,16 @@
+n=5 family: hub + one cube per diagonal, 34 angles -> 66045 sorted tuples (S4-reduced)
+    327  t ['-7', '-7', '-7', '-7']  (1 evaluated, 518s)
+    335  t ['-7', '-7', '-7', '-6']  (2 evaluated, 518s)
+    343  t ['-7', '-7', '-7', '-3']  (5 evaluated, 518s)
+    349  t ['-7', '-7', '-7', '-2']  (8 evaluated, 518s)
+    355  t ['-7', '-7', '-7', '-3/2']  (9 evaluated, 518s)
+    359  t ['-7', '-7', '-7', '-4/3']  (10 evaluated, 518s)
+    361  t ['-7', '-7', '-3', '-5/6']  (135 evaluated, 518s)
+    363  t ['-7', '-7', '-5/2', '-5/6']  (163 evaluated, 518s)
+    367  t ['-7', '-7', '-6/5', '2']  (323 evaluated, 518s)
+    371  t ['-7', '-6', '-7/3', '6/5']  (727 evaluated, 518s)
+    373  t ['-6', '-5/6', '7/3', '5']  (10966 evaluated, 983s)
+    375  t ['-6', '-2/3', '-2/3', '2/3']  (11392 evaluated, 1203s)
+
+evaluated 58887 ; best 375 ; 0 bases at >=385
+kept bases written to n5family_keep.json

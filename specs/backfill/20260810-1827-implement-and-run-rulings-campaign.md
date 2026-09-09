@@ -22,9 +22,9 @@
 ## Prompt as sent
 
 ```text
-Work in /Users/dmi/cube-compounds (a mathematics research repo; run scripts in place, python3 with sympy 1.14 and numpy available).
+Work in . (a mathematics research repo; run scripts in place, python3 with sympy 1.14 and numpy available).
 
-Read /Users/dmi/cube-compounds/RULINGS_SPEC.md and implement it exactly. It is a complete specification: formulas, enumeration, gates, budget, and the report contents. Also read these existing files before writing code, and REUSE them rather than reimplementing: wall_params.py (the M/N entry layout and the W3 edge enumeration), exact_chambers.py (decompose — call it, do not rewrite it), solve_ends.py (catalogue, q_of, BASE), wall_stratum.py (how an active W4 condition at a parameter value is identified), base_points.py, incidence2.py. Skim METHODS.md §1 and §5 and FAILURE_MODES.md before starting.
+Read RULINGS_SPEC.md and implement it exactly. It is a complete specification: formulas, enumeration, gates, budget, and the report contents. Also read these existing files before writing code, and REUSE them rather than reimplementing: wall_params.py (the M/N entry layout and the W3 edge enumeration), exact_chambers.py (decompose — call it, do not rewrite it), solve_ends.py (catalogue, q_of, BASE), wall_stratum.py (how an active W4 condition at a parameter value is identified), base_points.py, incidence2.py. Skim METHODS.md §1 and §5 and FAILURE_MODES.md before starting.
 
 Hard requirements:
 - Exact rational arithmetic everywhere; no float decides anything.

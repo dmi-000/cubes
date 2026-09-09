@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import sys, math
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 sys.path.insert(0, '/tmp')
 from slide3_search import farey, gcd_reduce, theta_deg
 from sweep import run

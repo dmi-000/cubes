@@ -9,8 +9,8 @@ import subprocess
 import sys
 from fractions import Fraction as F
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = "cube_regions_n"
+ENGW = "cube_regions_q2w"
 
 
 def quat_of(cayley):

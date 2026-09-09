@@ -1,0 +1,11 @@
+=== deep wide-stratum n=6 sweep on 393 (is 729 reachable?)
+extend best: [727, 725, 725, 723, 723, 723, 723, 723, 723, 723]
+climbed 727
+climbed 725
+climbed 725
+climbed 723
+climbed 723
+climbed 723
+climbed 723
+climbed 723
+BEST 727 4,1,1,-1;3,3,7,3;5,-1,-5,-5;2,1,1,1;1,1,1,1;15,-12,-2,-13

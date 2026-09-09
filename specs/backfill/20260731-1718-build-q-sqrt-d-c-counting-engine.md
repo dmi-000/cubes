@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Engineering task in /Users/dmi/carroll: build a C++ exact region counter for cube compounds whose rotations have coordinates in a real quadratic field Q(sqrt d), by generalising the existing integer engine's scalar type.
+Engineering task in ~/carroll: build a C++ exact region counter for cube compounds whose rotations have coordinates in a real quadratic field Q(sqrt d), by generalising the existing integer engine's scalar type.
 
 ## Context you must read first
 

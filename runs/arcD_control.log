@@ -1,0 +1,5 @@
+      824 polynomials built (seed sized per chart)
+D s=1/8    cube (16, 30, 2, -11)       h=30    count 727   GATE OK | 20 walls | lineality 2 | variety nonempty 2
+      824 polynomials built (seed sized per chart)
+D s=-1/16  cube (224, 462, 34, -163)   h=462   count 727   GATE OK | 20 walls | lineality 2 | variety nonempty 2
+written data/arcD_control.json

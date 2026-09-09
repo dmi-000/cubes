@@ -1,0 +1,4 @@
+anchor_split.py:12: SyntaxWarning: "\ " is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\ "? A raw string is also an option.
+  K \ C is the union of the six open convex pieces K n {outside face f of C}, and
+anchor_split.py:64: SyntaxWarning: "\ " is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\ "? A raw string is also an option.
+  """#pi0 of (intersection of Mothers) \ (cube MC), and the component of each face.

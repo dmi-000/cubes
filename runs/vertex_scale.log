@@ -1,0 +1,31 @@
+n=6 (shares_plane=False)
+  n=6    ell=1  V=432   E=644    shortest EDGE 6.910e-03   closest PAIR 6.910e-03   [pinned]
+  n=6    ell=2  V=420   E=638    shortest EDGE 1.285e-02   closest PAIR 1.285e-02   [pinned]
+  n=6    ell=3  V=296   E=450    shortest EDGE 6.922e-03   closest PAIR 6.922e-03   [pinned]
+  n=6    ell=4  V=186   E=284    shortest EDGE 1.581e-02   closest PAIR 1.581e-02   [pinned]
+  n=6    ell=5  V=66    E=100    shortest EDGE 3.318e-02   closest PAIR 3.318e-02   [pinned]
+n=7 (shares_plane=False)
+  n=7    ell=1  V=622   E=898    shortest EDGE 2.201e-03   closest PAIR 2.201e-03   [pinned]
+  n=7    ell=2  V=628   E=954    shortest EDGE 5.480e-03   closest PAIR 5.480e-03   [pinned]
+  n=7    ell=3  V=506   E=764    shortest EDGE 1.081e-03   closest PAIR 1.081e-03   [pinned]
+  n=7    ell=4  V=366   E=554    shortest EDGE 2.638e-03   closest PAIR 2.638e-03   [pinned]
+  n=7    ell=5  V=226   E=342    shortest EDGE 1.714e-03   closest PAIR 1.714e-03   [pinned]
+  n=7    ell=6  V=78    E=118    shortest EDGE 2.582e-03   closest PAIR 2.582e-03   [pinned]
+n=8 (shares_plane=False)
+  n=8    ell=1  V=844   E=1192   shortest EDGE 2.201e-03   closest PAIR 2.201e-03   [pinned]
+  n=8    ell=2  V=874   E=1326   shortest EDGE 3.241e-03   closest PAIR 3.241e-03   [pinned]
+  n=8    ell=3  V=752   E=1132   shortest EDGE 1.081e-03   closest PAIR 1.081e-03   [pinned]
+  n=8    ell=4  V=592   E=892    shortest EDGE 2.638e-03   closest PAIR 2.638e-03   [pinned]
+  n=8    ell=5  V=432   E=652    shortest EDGE 1.714e-03   closest PAIR 1.714e-03   [pinned]
+  n=8    ell=6  V=264   E=398    shortest EDGE 2.582e-03   closest PAIR 2.582e-03   [pinned]
+  n=8    ell=7  V=90    E=136    shortest EDGE 1.118e-02   closest PAIR 1.118e-02   [pinned]
+n=9 (shares_plane=False)
+  n=9    ell=1  V=1108  E=1532   shortest EDGE 7.885e-04   closest PAIR 7.885e-04   [pinned]
+  n=9    ell=2  V=1166  E=1760   shortest EDGE 1.143e-03   closest PAIR 1.143e-03   [pinned]
+  n=9    ell=3  V=1038  E=1560   shortest EDGE 6.424e-04   closest PAIR 6.424e-04   [pinned]
+  n=9    ell=4  V=856   E=1288   shortest EDGE 2.228e-04   closest PAIR 2.228e-04   [pinned]
+  n=9    ell=5  V=676   E=1018   shortest EDGE 6.828e-04   closest PAIR 6.828e-04   [pinned]
+  n=9    ell=6  V=498   E=750    shortest EDGE 3.348e-04   closest PAIR 3.348e-04   [pinned]
+  n=9    ell=7  V=302   E=454    shortest EDGE 5.882e-04   closest PAIR 5.882e-04   [pinned]
+  n=9    ell=8  V=102   E=154    shortest EDGE 2.573e-02   closest PAIR 2.573e-02   [pinned]
+written data/vertex_scale.json

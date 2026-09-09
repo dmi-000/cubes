@@ -1,0 +1,4 @@
+huge   counts (13,9)  s=14  cells=16
+small  counts (13,9)  s=14  cells=20
+huge Cayley coords: -0.804650920 1.645114580 -0.000000000
+small witness: base (13, 9, 14)   neighbours keeping it: 26 of 728  (3^d-1 => d=3.00)

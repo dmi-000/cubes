@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Read first: PROJECT.md (self-contained overview), six_cube_search_results.md Postscript 14 (the trade-off structure — READ THIS, it defines the objective), README.md. Use the fast exact counter ./cube_regions (rational, concentric; ./cube_regions --quats 'w,x,y,z;...' prints JSON with bounded + by_depth). Current record total 723, by_depth {1:210,2:216,3:164,4:96,5:36,6:1}.
+Working directory: ~/carroll. Exact cube-compound region-counting project. Read first: PROJECT.md (self-contained overview), six_cube_search_results.md Postscript 14 (the trade-off structure — READ THIS, it defines the objective), README.md. Use the fast exact counter ./cube_regions (rational, concentric; ./cube_regions --quats 'w,x,y,z;...' prints JSON with bounded + by_depth). Current record total 723, by_depth {1:210,2:216,3:164,4:96,5:36,6:1}.
 
 REFRAMED OBJECTIVE (from Postscript 14): the deep layers d3/d4/d5 are CAPPED at 164/102/36 (quantized — a config either hits the cap or a lower merged value); the shallow layers d1/d2 are UNCAPPED and grow with complexity. The maximum total = saturate the deep caps AND maximize d1+d2, spending deep "sacrifices" only where they buy disproportionate shallow gain. 723 already sacrifices d4 (102→96) to gain ~45 in d1. YOUR TASK: map this deep-sacrifice trade-off surface and hunt configs beating 723.
 

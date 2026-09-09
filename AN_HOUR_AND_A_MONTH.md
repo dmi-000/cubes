@@ -178,7 +178,22 @@ Knuth proved it, classified the whole family (exactly 760 such decompositions wo
 odd *m*), and wrote the paper. Kim Morrison formalized the proof in Lean. Knuth's own
 verdict: *"Hats off to Claude!"*
 
-It is tempting to read that against a month of ours and conclude something about capability.
+There is a comparison to draw there that is not about speed. Their construction was checked
+by a person to m = 101 and then formalized in Lean by a third party. Ours had, for the whole
+month, exactly one form of validation: two independently written exact engines agreeing.
+That feels like verification and is not, for a reason written down in this project's own
+principles file — *two implementations agreeing proves they share assumptions, not that
+either is right*. The first time the region counter was checked against a **proved closed
+form** rather than against a second copy of itself was day thirty-three. It passed: N cubes
+about a shared four-fold axis have a proven `(2N−1)²` bounded regions, and the engine returns
+9, 25, 49, 81, 121. A pipeline built on top of it failed the same gate, on exactly the case
+that had been predicted to break it.
+
+So the counter is now externally anchored and was not before, and nothing that used it in
+the intervening month was wrong — but nobody knew that, and the thing standing in for
+knowing was two programs sharing a misconception's worth of assumptions.
+
+It is tempting to read the hour against the month and conclude something about capability.
 The comparison does not survive contact.
 
 **Their problem has a checker and ours does not.** Run the program, confirm three
@@ -205,6 +220,47 @@ one per two or three programs, is the same order as ours, roughly one per three 
 entries. The totals differ because the denominators differ by a hundredfold. One project
 built an instrument to count these and published the count; the other wrote a six-page
 success story. Guess which impression is that of a smoother collaboration.
+
+**And there is a reason those particular interventions and not others**, which the user of
+this project put better than the register does: *failing to find an answer is a fairly
+obvious prod to try something else; neglecting to document something carries no similar
+intrinsic prod, and other interventions fall somewhere in between.* Failures differ in
+whether the world pushes back on its own.
+
+Sorted that way, the recurring interventions here are not a random sample. Every theme that
+had to be raised more than three times sits at the no-prod end:
+
+| raised | theme | does the failure announce itself? |
+|---|---|---|
+| **13×** | solve, don't sample | no — a sampled count *is* a count |
+| 9× | unevaluated cases not counted | no — the total looks complete |
+| 8× | stale or wrong documents | no — a stale document reads perfectly well |
+| 5× | continua and their endpoints | no — the interior reports fine |
+| 5× | infinitesimal vs small step | no — 1/1000 returns a number |
+| 5× | "could you have asked that yourself?" | no, by construction |
+| 4× | reproducibility, don't work in scratch | no — until someone needs it again |
+
+Seven for seven. In each, the wrong action produces a plausible output and nothing
+contradicts it. The failures that *do* announce themselves were fixed once and stayed
+fixed; they never needed a second mention, because the work itself supplied the second
+mention. And Stappers' one recurring intervention — *remind Claude again and again that it
+was supposed to document its progress* — is the canonical zero-prod failure, the same
+category topping our list, in a session an hour long.
+
+Which locates the remedy somewhere other than diligence. If a failure mode has no
+intrinsic prod, the only substitute is a manufactured one: a check that fires without being
+invoked. This project's own register says as much without quite drawing the conclusion —
+*almost every unprompted catch came from a gate or a control, not from re-reading* — and
+the fix for the fifth illusion was not resolve but a line of code, an invariance gate that
+now runs on every invocation and is documented as not optional. Re-reading is a promise;
+a gate is a mechanism.
+
+It also predicts, exactly, the limit of Section V's experiment. *Keep going, do not stop to
+ask* is a remedy aimed at the prodded end of the scale — being stuck is precisely the
+failure that announces itself. It does nothing at the silent end, which is why a session
+under that mandate could spend two days and three million rows on a statistic computed from
+the wrong matrix. The mandate bought persistence. Persistence is not the thing that catches
+a plausible wrong answer.
 
 And the paper's own postscript is the control. Asked to continue onto even *m*, the same
 model *"seemed to get stuck. In the end, it was not even able to write and run explore

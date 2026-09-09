@@ -22,9 +22,9 @@
 ## Prompt as sent
 
 ```text
-Mechanical documentation-update task in /Users/dmi/carroll (math research project counting bounded regions of n concentric unit cubes). Two new records were found and two-engine certified today (2026-07-29) by the main session. Do NOT re-derive or re-verify them, do NOT run any search or counting program.
+Mechanical documentation-update task in ~/carroll (math research project counting bounded regions of n concentric unit cubes). Two new records were found and two-engine certified today (2026-07-29) by the main session. Do NOT re-derive or re-verify them, do NOT run any search or counting program.
 
-HARD CONSTRAINTS: do NOT edit `six_cube_search_results.md` (the ledger — already updated by the main session, in both the top level and the `cubes/` mirror). Do not edit date-prefixed transcript files, `.jsonl`/`.json` data, or anything under `cb/` (a frozen old snapshot). `/Users/dmi/carroll/cubes/` IS a live byte-identical mirror of the top level — apply every edit to both copies.
+HARD CONSTRAINTS: do NOT edit `six_cube_search_results.md` (the ledger — already updated by the main session, in both the top level and the `cubes/` mirror). Do not edit date-prefixed transcript files, `.jsonl`/`.json` data, or anything under `cb/` (a frozen old snapshot). `~/carroll/cubes/` IS a live byte-identical mirror of the top level — apply every edit to both copies.
 
 ## The new facts
 

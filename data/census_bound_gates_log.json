@@ -1,0 +1,28 @@
+{
+ "exact_gates": {
+  "W1 octahedral": {
+   "weight": 92,
+   "F": 48,
+   "n_triple": 32,
+   "n_kink": 30,
+   "n_anchor_triplepoints": 0,
+   "anchor_hist": {
+    "0": 32
+   },
+   "n_skipped": 0,
+   "n_degenerate": 0
+  },
+  "W2 golden": {
+   "weight": 92,
+   "F": 48,
+   "n_triple": 32,
+   "n_kink": 24,
+   "n_anchor_triplepoints": 0,
+   "anchor_hist": {
+    "0": 32
+   },
+   "n_skipped": 0,
+   "n_degenerate": 0
+  }
+ }
+}

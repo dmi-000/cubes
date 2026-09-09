@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Write `/Users/dmi/cube-compounds/arrangement.py`. Work in that directory. **Run it to completion in the foreground on the validation case and report the numbers. Do not background the work and wait for a monitor.**
+Write `arrangement.py`. Work in that directory. **Run it to completion in the foreground on the validation case and report the numbers. Do not background the work and wait for a monitor.**
 
 # WHAT IS WRONG WITH THE CURRENT CODE
 

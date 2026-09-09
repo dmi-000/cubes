@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Focused change to /Users/dmi/carroll/cube_regions_q2.cpp (the Z[sqrt d] exact region counter you can read; it was built earlier and all its gates pass).
+Focused change to ~/carroll/cube_regions_q2.cpp (the Z[sqrt d] exact region counter you can read; it was built earlier and all its gates pass).
 
 ## The problem
 

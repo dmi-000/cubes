@@ -1,0 +1,20 @@
+cell_4_4_9_13_13_13                seed 171 -> peak 175  in cell 5,9,9,13,13,13         (129s)
+cell_4_9_9_13_13_13                seed 171 -> peak 179  in cell 9,9,9,13,13,13         (104s)
+cell_5_5_5_13_13_13                seed 171 -> peak 183  in cell 9,9,9,13,13,13         (81s)   (ties the record)
+cell_5_5_9_13_13_13                seed 171 -> peak 173  in cell 4,9,9,9,13,13          (89s)
+cell_4_5_9_13_13_13                seed 169 -> peak 179  in cell 9,9,9,13,13,13         (93s)
+cell_4_5_9_9_13_13                 seed 169 -> peak 179  in cell 9,9,9,13,13,13         (84s)
+cell_4_9_9_9_13_13                 seed 169 -> peak 173  in cell 4,5,9,13,13,13         (102s)
+cell_5_9_9_9_13_13                 seed 169 -> peak 175  in cell 5,9,9,9,13,13          (72s)
+cell_9_9_13_13_13_13               seed 169 -> peak 183  in cell 9,9,9,13,13,13         (70s)   (ties the record)
+cell_4_4_5_13_13_13                seed 167 -> peak 179  in cell 9,9,9,13,13,13         (67s)
+cell_4_4_9_9_13_13                 seed 167 -> peak 173  in cell 4,9,9,9,13,13          (91s)
+cell_4_9_13_13_13_13               seed 167 -> peak 183  in cell 9,9,9,13,13,13         (85s)   (ties the record)
+cell_4_9_9_9_9_13                  seed 167 -> peak 179  in cell 9,9,9,13,13,13         (89s)
+cell_5_5_13_13_13_13               seed 167 -> peak 169  in cell 4,5,9,9,13,13          (66s)
+cell_5_5_9_9_13_13                 seed 167 -> peak 175  in cell 5,9,9,9,13,13          (107s)
+cell_5_5_9_9_9_13                  seed 167 -> peak 183  in cell 9,9,9,13,13,13         (115s)   (ties the record)
+control_183                        seed 183 -> peak 183  in cell 9,9,9,13,13,13         (137s)   (ties the record)
+
+best overall: 183 in cell 9,9,9,13,13,13
+quaternions: [[-1, 0, 0, 0], [-3, 2, -5, 0], [3, 0, 2, -5], [1, -4, -1, -1]]

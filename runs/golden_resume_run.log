@@ -1,6 +1,6 @@
 resume mode: gates were run and PASSED earlier this session (V1/V2/V3, see golden_wall_report.md); skipping straight to the deduped search.
 
-loaded 114 cached evaluations from /Users/dmi/carroll/golden_search.jsonl
+loaded 114 cached evaluations from ~/carroll/golden_search.jsonl
 === symmetric candidates (both families) ===
   [B] quat=(0, 1, 0, 0)  180deg_x                 total= 351  ( 11.4s)
   [B] quat=(1, 0, 0, 0)  identity                 total= 351  ( 11.5s)

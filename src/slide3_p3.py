@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: SLIDE3_SPEC_V2.md + slide3_report.md. Project index: README.md
 """specs/SLIDE3_SPEC.md Section 1, Phase P3: constraint-first fine map of the
 (1,1,1)-diagonal alignment wall.
@@ -99,7 +100,7 @@ def main():
     for r in good[:40]:
         print(f"  total={r['total']:4d}  th1=({r['p1']}/{r['q1']}) "
               f"th2=({r['p2']}/{r['q2']})  R={r['R']}  bd={r['by_depth']}")
-    with open('/Users/dmi/carroll/slide3_p3_top.json', 'w') as f:
+    with open(os.path.expanduser('~/carroll/slide3_p3_top.json'), 'w') as f:
         json.dump(good[:400], f)
 
 

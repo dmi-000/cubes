@@ -1,0 +1,42 @@
+[0s] generating configs...
+[p1] t5 plateau members at 387 (of 7 candidates): ['3/14', '4/19', '5/24', '6/29', '7/33', '7/34', '8/39']
+[2s] P1: 33510 configs so far
+[5s] P2: +34000
+[9s] P3: +4000; total 71510
+[9s] 240 shards
+[95s] shard 10/240, best: n=4:179, n=5:0, n=6:719
+[173s] shard 20/240, best: n=4:179, n=5:0, n=6:719
+[244s] shard 30/240, best: n=4:179, n=5:387, n=6:719
+[345s] shard 40/240, best: n=4:179, n=5:387, n=6:719
+*** RECORD-CLASS n=4 total=183 (record=183) profile=(92, 66, 24, 1) oracle=183 confirmed=True quats=[(1, 0, 0, 0), (1, -4, -1, 1), (1, 1, -1, -4), (-5, 0, 2, -3)] ***
+[412s] shard 50/240, best: n=4:183, n=5:387, n=6:719
+*** RECORD-CLASS n=4 total=183 (record=183) profile=(92, 66, 24, 1) oracle=183 confirmed=True quats=[(1, 0, 0, 0), (1, -4, -1, 1), (1, 1, -1, -4), (1, 1, 1, 4)] ***
+[490s] shard 60/240, best: n=4:183, n=5:387, n=6:719
+[555s] shard 70/240, best: n=4:183, n=5:387, n=6:719
+[619s] shard 80/240, best: n=4:183, n=5:387, n=6:719
+*** RECORD-CLASS n=4 total=183 profile=(92, 66, 24, 1) (profile seen 3x, oracle throttled) quats=[(1, 0, 0, 0), (1, -4, -1, 1), (1, 1, -1, -4), (-5, 5, 1, -5)] ***
+[693s] shard 90/240, best: n=4:183, n=5:387, n=6:719
+[797s] shard 100/240, best: n=4:183, n=5:387, n=6:719
+[885s] shard 110/240, best: n=4:183, n=5:387, n=6:719
+*** RECORD-CLASS n=4 total=183 profile=(92, 66, 24, 1) (profile seen 4x, oracle throttled) quats=[(1, 0, 0, 0), (1, -4, -1, 1), (1, 1, -1, -4), (0, -5, -3, 2)] ***
+[981s] shard 120/240, best: n=4:183, n=5:387, n=6:719
+[1107s] shard 130/240, best: n=4:183, n=5:387, n=6:719
+[1230s] shard 140/240, best: n=4:183, n=5:387, n=6:719
+[1348s] shard 150/240, best: n=4:183, n=5:387, n=6:719
+*** RECORD-CLASS n=4 total=183 profile=(92, 66, 24, 1) (profile seen 5x, oracle throttled) quats=[(1, 0, 0, 0), (1, -4, -1, 1), (1, 1, -1, -4), (-3, -3, 7, -3)] ***
+*** RECORD-CLASS n=4 total=183 profile=(92, 66, 24, 1) (profile seen 6x, oracle throttled) quats=[(1, 0, 0, 0), (1, -4, -1, 1), (1, 1, -1, -4), (-3, -5, 2, 0)] ***
+[1464s] shard 160/240, best: n=4:183, n=5:387, n=6:719
+[1596s] shard 170/240, best: n=4:183, n=5:387, n=6:719
+[1712s] shard 180/240, best: n=4:183, n=5:387, n=6:719
+[1855s] shard 190/240, best: n=4:183, n=5:387, n=6:719
+*** RECORD-CLASS n=4 total=183 profile=(92, 66, 24, 1) (profile seen 7x, oracle throttled) quats=[(1, 0, 0, 0), (1, -4, -1, 1), (1, 1, -1, -4), (0, 3, -2, 5)] ***
+[1979s] shard 200/240, best: n=4:183, n=5:387, n=6:719
+[2151s] shard 210/240, best: n=4:183, n=5:387, n=6:719
+[2264s] shard 220/240, best: n=4:183, n=5:387, n=6:719
+[2394s] shard 230/240, best: n=4:183, n=5:387, n=6:719
+*** RECORD-CLASS n=4 total=183 profile=(92, 66, 24, 1) (profile seen 8x, oracle throttled) quats=[(1, 0, 0, 0), (1, -4, -1, 1), (1, 1, -1, -4), (-2, -5, 0, -3)] ***
+[2542s] shard 240/240, best: n=4:183, n=5:387, n=6:721
+[2542s] n=4: best=183 cfg={'n': 4, 'kind': 'p2-183triple+intquat', 'quats': [(1, 0, 0, 0), (1, -4, -1, 1), (1, 1, -1, -4), (-5, 0, 2, -3)]}
+[2542s] n=5: best=387 cfg={'n': 5, 'kind': 'p3-387-perturb', 't_list': ['0', '-5/6', '3/4', '-1/5', '7/34'], 'quats': [(1, 0, 0, 0), (-6, -10, 15, 0), (4, -6, 9, 0), (5, 2, -3, 0), (34, -14, 21, 0)]}
+[2542s] n=6: best=721 cfg={'n': 6, 'kind': 'p1-387+6th-intquat', 't5': '7/34', 'quats': [(1, 0, 0, 0), (-6, -10, 15, 0), (4, -6, 9, 0), (5, 2, -3, 0), (34, -14, 21, 0), (10, -9, 9, -9)]}
+[2542s] DONE

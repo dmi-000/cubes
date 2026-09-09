@@ -1,0 +1,16 @@
+{
+ "output": "record_neighbours.json",
+ "argv": [
+  "record_neighbours.py",
+  "6",
+  "7"
+ ],
+ "rerun": "python3 record_neighbours.py 6 7",
+ "script": "record_neighbours.py",
+ "script_sha1": "c4c0b40d11048682416d2e2840c90b1a8c04fd20",
+ "started": null,
+ "finished": "2026-08-18 02:05:44",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "note": "codimension-1 neighbours of the records, infinitesimal eps"
+}

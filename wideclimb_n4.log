@@ -1,0 +1,122 @@
+[    0.0s] === wideclimb_n4.py starting, budget=2400s, workers=8 ===
+[    0.0s] GATE PASSED: 1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4 counts 183 (by_depth={'0': 1, '1': 92, '2': 66, '3': 24, '4': 1})
+[   88.2s] restart    4 cap= 2: narrow=167 (2 steps) -> final peak=175  chain=1 escapes=16
+[   88.2s] CFG peak=175 1,0,0,0;0,4,-3,7;2,2,-1,-2;-7,0,3,4
+[   93.3s] restart    5 cap= 9: narrow=167 (4 steps) -> final peak=167  chain=0 escapes=15
+[  101.2s] restart    2 cap=20: narrow=141 (2 steps) -> final peak=165  chain=1 escapes=16
+[  106.6s] restart    7 cap= 6: narrow=167 (3 steps) -> final peak=173  chain=2 escapes=17
+[  110.8s] restart    3 cap= 2: narrow=167 (1 steps) -> final peak=173  chain=2 escapes=22
+[  134.7s] restart    1 cap= 3: narrow=171 (2 steps) -> final peak=175  chain=2 escapes=27
+[  134.7s] CFG peak=175 1,0,0,0;-1,4,1,1;3,3,-1,3;0,2,-3,1
+[  191.5s] restart    8 cap= 6: narrow=169 (2 steps) -> final peak=173  chain=1 escapes=16
+[  194.4s] restart   12 cap= 6: narrow=175 (6 steps) -> final peak=175  chain=0 escapes=15
+[  194.4s] CFG peak=175 1,0,0,0;4,-4,-4,-2;-3,4,0,-7;3,-6,-6,-6
+[  228.2s] restart    0 cap= 4: narrow=169 (5 steps) -> final peak=183  chain=2 escapes=36  (matches record 183)
+[  228.3s] CFG peak=183 1,0,0,0;-2,-2,5,-2;3,11,-3,-3;0,-7,4,-3
+[  239.8s] restart   10 cap= 4: narrow=167 (2 steps) -> final peak=171  chain=2 escapes=17
+[  244.3s] restart    6 cap= 3: narrow=167 (6 steps) -> final peak=177  chain=3 escapes=34
+[  244.3s] CFG peak=177 1,0,0,0;-2,0,8,-6;2,2,5,2;0,3,-4,-6
+[  269.4s] restart   13 cap= 6: narrow=173 (4 steps) -> final peak=173  chain=0 escapes=15
+[  271.1s] restart    9 cap= 2: narrow=163 (2 steps) -> final peak=179  chain=3 escapes=22
+[  271.1s] CFG peak=179 1,0,0,0;5,10,5,5;-3,-5,0,-2;-1,-4,-1,1
+[  312.3s] restart   11 cap= 9: narrow=169 (7 steps) -> final peak=173  chain=1 escapes=27
+[  321.5s] restart   15 cap=12: narrow=167 (3 steps) -> final peak=167  chain=0 escapes=15
+[  361.5s] restart   16 cap= 3: narrow=165 (2 steps) -> final peak=183  chain=2 escapes=17  (matches record 183)
+[  361.5s] CFG peak=183 1,0,0,0;-2,0,3,-5;-1,4,1,-1;5,1,5,5
+[  369.7s] restart   14 cap=12: narrow=167 (5 steps) -> final peak=171  chain=1 escapes=22
+[  395.5s] restart   19 cap= 3: narrow=169 (3 steps) -> final peak=171  chain=1 escapes=16
+[  430.0s] restart   18 cap= 6: narrow=165 (3 steps) -> final peak=171  chain=2 escapes=26
+[  432.5s] restart   20 cap= 9: narrow=165 (4 steps) -> final peak=175  chain=2 escapes=19
+[  432.5s] CFG peak=175 1,0,0,0;0,3,6,-3;3,-3,-10,2;-3,-9,0,6
+[  437.7s] restart   21 cap=12: narrow=167 (3 steps) -> final peak=167  chain=0 escapes=15
+[  498.1s] restart   23 cap= 6: narrow=163 (2 steps) -> final peak=171  chain=1 escapes=16
+[  503.0s] restart   17 cap=12: narrow=169 (6 steps) -> final peak=171  chain=1 escapes=30
+[  510.2s] restart   22 cap= 4: narrow=165 (2 steps) -> final peak=179  chain=3 escapes=25
+[  510.2s] CFG peak=179 1,0,0,0;-6,-10,0,-4;4,2,2,2;-3,3,3,-7
+[  515.9s] restart   24 cap=12: narrow=153 (4 steps) -> final peak=165  chain=1 escapes=16
+[  536.3s] restart   25 cap= 4: narrow=169 (3 steps) -> final peak=171  chain=1 escapes=16
+[  559.8s] restart   26 cap= 3: narrow=165 (3 steps) -> final peak=183  chain=1 escapes=18  (matches record 183)
+[  559.8s] CFG peak=183 1,0,0,0;1,-1,-1,-4;-2,-5,-3,0;-5,0,-3,-2
+[  592.2s] restart   28 cap=12: narrow=159 (2 steps) -> final peak=169  chain=2 escapes=18
+[  639.1s] restart   29 cap=20: narrow=165 (6 steps) -> final peak=165  chain=0 escapes=15
+[  652.0s] restart   27 cap= 3: narrow=169 (3 steps) -> final peak=179  chain=2 escapes=25
+[  652.0s] CFG peak=179 1,0,0,0;-5,0,3,2;5,-5,1,5;4,-2,-6,0
+[  667.5s] restart   31 cap= 4: narrow=175 (3 steps) -> final peak=179  chain=1 escapes=21
+[  667.5s] CFG peak=179 1,0,0,0;-4,1,-1,1;0,3,2,5;0,-3,-2,-1
+[  682.8s] restart   33 cap= 4: narrow=173 (3 steps) -> final peak=173  chain=0 escapes=15
+[  738.1s] restart   32 cap=12: narrow=161 (4 steps) -> final peak=183  chain=3 escapes=22  (matches record 183)
+[  738.1s] CFG peak=183 1,0,0,0;4,0,-3,-7;0,14,-6,8;4,0,3,7
+[  803.5s] restart   30 cap= 4: narrow=169 (2 steps) -> final peak=179  chain=3 escapes=32
+[  803.5s] CFG peak=179 1,0,0,0;0,-12,8,4;4,-1,-1,1;0,-5,-3,-2
+[  808.7s] restart   34 cap= 6: narrow=165 (3 steps) -> final peak=175  chain=2 escapes=20
+[  808.7s] CFG peak=175 1,0,0,0;0,-4,-7,-8;-3,-3,6,2;6,-3,0,-3
+[  849.3s] restart   35 cap=20: narrow=143 (3 steps) -> final peak=165  chain=2 escapes=18
+[  850.5s] restart   37 cap=20: narrow=165 (5 steps) -> final peak=165  chain=0 escapes=15
+[  923.5s] restart   36 cap= 4: narrow=167 (4 steps) -> final peak=173  chain=2 escapes=24
+[  925.4s] restart   39 cap= 4: narrow=171 (4 steps) -> final peak=175  chain=1 escapes=23
+[  925.4s] CFG peak=175 1,0,0,0;-3,6,-4,0;5,-1,-1,-1;1,1,-1,4
+[  940.8s] restart   38 cap=20: narrow=153 (3 steps) -> final peak=165  chain=1 escapes=19
+[ 1063.0s] restart   40 cap= 4: narrow=171 (3 steps) -> final peak=175  chain=2 escapes=31
+[ 1063.1s] CFG peak=175 1,0,0,0;-1,2,0,3;-5,0,3,-2;-2,-6,-6,6
+[ 1078.3s] restart   43 cap= 2: narrow=165 (3 steps) -> final peak=179  chain=3 escapes=23
+[ 1078.3s] CFG peak=179 1,0,0,0;-1,1,-1,2;-3,-7,-3,-3;0,5,2,3
+[ 1147.3s] restart   46 cap= 4: narrow=169 (2 steps) -> final peak=179  chain=2 escapes=21
+[ 1147.3s] CFG peak=179 1,0,0,0;-2,-2,-2,4;-5,5,-1,5;0,-5,-3,-2
+[ 1172.0s] restart   42 cap= 9: narrow=161 (4 steps) -> final peak=173  chain=3 escapes=30
+[ 1211.7s] restart   45 cap=20: narrow=157 (6 steps) -> final peak=167  chain=1 escapes=17
+[ 1247.2s] restart   47 cap= 2: narrow=167 (2 steps) -> final peak=179  chain=2 escapes=26
+[ 1247.2s] CFG peak=179 1,0,0,0;3,0,1,2;3,7,3,-3;-2,-8,-2,-2
+[ 1285.1s] restart   41 cap= 6: narrow=167 (3 steps) -> final peak=179  chain=3 escapes=39
+[ 1285.1s] CFG peak=179 1,0,0,0;0,5,-7,3;0,-6,2,-4;-2,2,2,8
+[ 1312.4s] restart   44 cap= 9: narrow=145 (5 steps) -> final peak=173  chain=5 escapes=30
+[ 1362.9s] restart   51 cap=20: narrow=159 (9 steps) -> final peak=159  chain=0 escapes=15
+[ 1370.5s] restart   49 cap= 4: narrow=169 (4 steps) -> final peak=171  chain=1 escapes=24
+[ 1381.6s] restart   48 cap= 9: narrow=157 (7 steps) -> final peak=169  chain=3 escapes=21
+[ 1429.2s] restart   50 cap= 2: narrow=171 (4 steps) -> final peak=175  chain=2 escapes=22
+[ 1429.2s] CFG peak=175 1,0,0,0;0,5,2,-3;0,3,6,9;-3,-1,-3,3
+[ 1521.9s] restart   54 cap= 6: narrow=167 (3 steps) -> final peak=175  chain=1 escapes=17
+[ 1521.9s] CFG peak=175 1,0,0,0;-4,-4,2,-4;-3,0,-7,4;3,7,4,0
+[ 1528.5s] restart   53 cap= 9: narrow=155 (4 steps) -> final peak=175  chain=2 escapes=18
+[ 1528.5s] CFG peak=175 1,0,0,0;-3,0,-6,9;0,-5,-3,-7;3,12,-3,-3
+[ 1528.6s] restart   52 cap= 4: narrow=171 (3 steps) -> final peak=173  chain=1 escapes=26
+[ 1582.0s] restart   55 cap=20: narrow=155 (2 steps) -> final peak=167  chain=2 escapes=18
+[ 1586.9s] restart   58 cap= 2: narrow=167 (3 steps) -> final peak=175  chain=1 escapes=17
+[ 1586.9s] CFG peak=175 1,0,0,0;1,-1,-1,-7;-2,-5,-2,-2;1,3,0,4
+[ 1635.0s] restart   57 cap=12: narrow=159 (4 steps) -> final peak=169  chain=2 escapes=17
+[ 1668.3s] restart   59 cap= 2: narrow=167 (4 steps) -> final peak=173  chain=2 escapes=19
+[ 1852.8s] restart   61 cap=20: narrow=155 (5 steps) -> final peak=167  chain=2 escapes=20
+[ 1894.7s] restart   56 cap=20: narrow=135 (2 steps) -> final peak=163  chain=4 escapes=33
+[ 1918.5s] restart   60 cap= 9: narrow=169 (3 steps) -> final peak=175  chain=2 escapes=28
+[ 1918.5s] CFG peak=175 1,0,0,0;-4,-3,-4,-9;0,5,5,5;-6,0,4,2
+[ 1995.8s] restart   64 cap= 2: narrow=167 (4 steps) -> final peak=179  chain=2 escapes=30
+[ 1995.8s] CFG peak=179 1,0,0,0;2,3,-5,0;2,2,8,2;-6,-6,2,6
+[ 2032.6s] restart   62 cap= 6: narrow=159 (2 steps) -> final peak=173  chain=3 escapes=36
+[ 2045.3s] restart   63 cap= 3: narrow=167 (2 steps) -> final peak=175  chain=3 escapes=33
+[ 2045.3s] CFG peak=175 1,0,0,0;-7,0,5,4;0,-2,8,-10;-1,-4,6,-4
+[ 2062.5s] restart   67 cap= 2: narrow=167 (3 steps) -> final peak=173  chain=2 escapes=18
+[ 2081.1s] restart   65 cap=20: narrow=153 (6 steps) -> final peak=169  chain=3 escapes=28
+[ 2098.1s] restart   66 cap= 6: narrow=167 (2 steps) -> final peak=177  chain=2 escapes=29
+[ 2098.1s] CFG peak=177 1,0,0,0;7,0,-3,-4;1,-5,-13,-7;4,-2,4,-4
+[ 2212.5s] restart   69 cap= 9: narrow=161 (3 steps) -> final peak=175  chain=2 escapes=22
+[ 2212.6s] CFG peak=175 1,0,0,0;-3,-3,3,5;-8,-8,-8,4;0,7,3,4
+[ 2303.2s] restart   68 cap= 4: narrow=165 (3 steps) -> final peak=183  chain=3 escapes=29  (matches record 183)
+[ 2303.2s] CFG peak=183 1,0,0,0;1,-4,1,-1;-2,-3,-5,0;-3,-7,3,-3
+[ 2317.8s] restart   74 cap= 3: narrow=171 (4 steps) -> final peak=175  chain=1 escapes=18
+[ 2317.8s] CFG peak=175 1,0,0,0;1,1,-2,-1;-2,0,5,-3;-2,0,-1,-3
+[ 2345.6s] restart   71 cap= 6: narrow=163 (4 steps) -> final peak=175  chain=2 escapes=23
+[ 2345.6s] CFG peak=175 1,0,0,0;2,-2,4,-2;3,-3,-7,3;-6,-6,2,-6
+[ 2352.9s] restart   72 cap= 2: narrow=167 (4 steps) -> final peak=179  chain=2 escapes=23
+[ 2352.9s] CFG peak=179 1,0,0,0;2,-5,-3,0;-3,-7,3,3;1,0,-3,-2
+[ 2378.1s] restart   75 cap= 6: narrow=169 (4 steps) -> final peak=173  chain=1 escapes=24
+[ 2411.3s] restart   73 cap= 4: narrow=175 (3 steps) -> final peak=183  chain=2 escapes=30  (matches record 183)
+[ 2411.3s] CFG peak=183 1,0,0,0;-1,-1,-4,1;3,0,2,5;3,0,-2,5
+[ 2507.5s] restart   70 cap=20: narrow=143 (5 steps) -> final peak=163  chain=4 escapes=33
+[ 2537.8s] restart   77 cap= 3: narrow=163 (3 steps) -> final peak=175  chain=2 escapes=18
+[ 2537.8s] CFG peak=175 1,0,0,0;-8,2,-2,2;-9,0,3,6;-3,-1,2,0
+[ 2541.4s] restart   79 cap=20: narrow=163 (6 steps) -> final peak=167  chain=1 escapes=17
+[ 2552.8s] restart   80 cap=20: narrow=167 (9 steps) -> final peak=167  chain=0 escapes=15
+[ 2556.5s] restart   78 cap= 6: narrow=169 (5 steps) -> final peak=171  chain=1 escapes=21
+[ 2576.1s] restart   81 cap= 4: narrow=167 (4 steps) -> final peak=173  chain=3 escapes=18
+[ 2577.2s] restart   76 cap=20: narrow=165 (9 steps) -> final peak=169  chain=1 escapes=23
+[ 2577.2s] === campaign done: 82 restarts, 408021 engine calls, 578 refusals, 2577s ===
+[ 2577.2s] wrote wideclimb_n4.json

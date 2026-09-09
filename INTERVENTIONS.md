@@ -418,3 +418,37 @@ prediction of the double-cover framing rather than a further observation.
 **The pattern.** A challenge to a step you believe is correct still pays, because the
 demonstration is not the same object as the belief. Two of the three were answerable only
 because the first one forced the measuring code back into existence.
+
+## A10 (2026-09-08) — "record enough to reconstruct them" turned up a formula that had been answering ISOLATED
+
+**What the user asked.** "If we don't have wall polynomials recorded, we want to at least
+record enough to easily reconstruct them." A request for BOOKKEEPING, not for mathematics, and
+the second time in two turns the user had pressed on whether the polynomials were recorded.
+
+**What I would have done unprompted.** Written the keys out and stopped. The keys are small,
+the export is twenty lines, and `data/record_walls.json` already existed with a docstring
+politely explaining that gradients are not polynomials — which reads as the gap being known and
+therefore handled.
+
+**What the request forced.** "Enough to reconstruct" is only meaningful if the reconstruction is
+demonstrated, so the export needed a gate, and the only honest gate is one whose anchor sits
+outside the code being gated: a wall contains its own point, so `P(record) == 0`. That check —
+one substitution — failed on 6 of 27 walls at n = 6, 24 of 51 at n = 7, 42 of 75 at n = 8, and
+found a cancellation in `dimension.branch_numerator` valid only when a condition's two normals
+come from the same cube, guarded by an assert that `or True` had disabled. See FAILURE_MODES 32.
+
+**The cost of not having asked.** The wrong polynomial over-constrains, so its consumer returns
+ISOLATED — the shape of answer the project publishes. n = 4 and n = 5 have zero cross-cube
+conditions and are exactly unaffected (P287 stands, re-confirmed under the fix); n = 6 and n = 7
+had their ISOLATED verdicts withdrawn.
+
+**The pattern, which is now three for three.** A10, like A7 and A8, came from a user question
+aimed at the APPARATUS rather than the result — is it recorded, does the tool do what its name
+says, is that really the next step. My own audit questions arrive pointed at conclusions. The
+producer checks the answer; the reader checks the instrument, and the instrument is where the
+defects have been.
+
+**Second catch, same turn.** Locating the keys meant opening `dimension_cache` — which the
+repo reorganisation had orphaned a day earlier, along with `catalogue_cache`, silently
+(FAILURE_MODES 32a). I had checked HERE-relative paths for the ENGINES and for the DOCUMENTS
+after that move and twice reported the sweep complete. I had not checked them for the CACHES.

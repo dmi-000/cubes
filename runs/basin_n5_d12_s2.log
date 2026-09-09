@@ -1,0 +1,70 @@
+
+[basin n=5 s2 #5 r1 iter 1] count 281  menu 12 dirs  height 105
+   boundary crossing -> 285  (ABOVE 281)
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 7 distinct walls
+      cubes [0, 2, 3]        at 1.5922e-05   count outside 285
+      cubes [0, 1, 4]        at 3.7152e-05   count outside 285
+      cubes [1, 3, 4]        at 5.8381e-05   count outside 285
+      cubes [2]              at 0.00012472   count outside 285
+      cubes [1, 2, 3]        at 0.00014065   count outside 277
+      cubes []               at 0.00023618   count outside 285
+      cubes [3, 4]           at 0.0003954   count outside 285
+   NEW RECORD 285  height 187  gate: both engines + 3 rotations agree
+   1,0,0,0;16,57,5,88;8,-9,15,5;16,94,-44,-187;16,-9,13,-1
+
+[basin n=5 s2 #5 r1 iter 2] count 285  menu 12 dirs  height 187
+   boundary crossing -> 289  (ABOVE 285)
+   boundary crossing -> 293  (ABOVE 285)
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 6 distinct walls
+      cubes [0, 2, 3]        at 1.5259e-05   count outside 289
+      cubes [1, 2, 3]        at 1.5259e-05   count outside 281
+      cubes [0, 1, 4]        at 3.0518e-05   count outside 281
+      cubes [1, 3, 4]        at 3.0518e-05   count outside 289
+      cubes [4]              at 6.1035e-05   count outside 281
+      cubes [3, 4]           at 9.1553e-05   count outside 293
+   NEW RECORD 293  height 751  gate: both engines + 3 rotations agree
+   1,0,0,0;64,227,20,349;64,-75,121,40;64,372,-173,-751;64,-37,54,-4
+
+[basin n=5 s2 #5 r1 iter 3] count 293  menu 12 dirs  height 751
+   boundary crossing -> 297  (ABOVE 293)
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 5 distinct walls
+      cubes [0, 2, 3]        at 1.5259e-05   count outside 297
+      cubes [1, 2, 3]        at 3.0518e-05   count outside 289
+      cubes [1, 3, 4]        at 3.8147e-05   count outside 289
+      cubes [1, 3]           at 4.5776e-05   count outside 289
+      cubes [0, 2, 4]        at 0.00013733   count outside 289
+   NEW RECORD 297  height 1495  gate: both engines + 3 rotations agree
+   1,0,0,0;128,460,54,695;128,-149,246,74;128,754,-332,-1495;128,-82,114,1
+
+[basin n=5 s2 #5 r1 iter 4] count 297  menu 12 dirs  height 1495
+   boundary crossing -> 301  (ABOVE 297)
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 7 distinct walls
+      cubes [1, 2, 3]        at 1.1444e-05   count outside 293
+      cubes [0, 2, 3]        at 8.7738e-05   count outside 293
+      cubes [2, 3, 4]        at 9.346e-05   count outside 301
+      cubes [0, 1, 2]        at 0.00015259   count outside 301
+      cubes [0]              at 0.00018311   count outside 289
+      cubes [1, 3, 4]        at 0.00023651   count outside 293
+      cubes [1, 2, 4]        at 0.00024033   count outside 293
+   NEW RECORD 301  height 746  gate: both engines + 3 rotations agree
+   1,0,0,0;128,484,63,704;128,-130,250,61;64,377,-162,-746;128,-102,113,-18
+
+[basin n=5 s2 #5 r1 iter 5] count 301  menu 12 dirs  height 746
+   boundary crossing -> 305  (ABOVE 301)
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 6 distinct walls
+      cubes [0, 1, 4]        at 9.5367e-06   count outside 305
+      cubes [0, 1, 3]        at 1.7166e-05   count outside 305
+      cubes [0, 3, 4]        at 0.000103   count outside 297
+      cubes [1, 2, 3]        at 0.0001564   count outside 297
+      cubes [0, 1, 2]        at 0.00015831   count outside 297
+      cubes [0, 2, 4]        at 0.00018883   count outside 297
+   NEW RECORD 305  height 2985  gate: both engines + 3 rotations agree
+   1,0,0,0;256,971,129,1407;256,-255,504,123;256,1510,-648,-2985;256,-209,226,-32
+
+[basin n=5 s2 #5 r1 iter 6] count 305  menu 12 dirs  height 2985
+   boundary crossing -> 309  (ABOVE 305)

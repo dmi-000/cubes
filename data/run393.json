@@ -1,0 +1,7 @@
+{
+ "walls": 18,
+ "rank": 11,
+ "ambient": 12,
+ "bound": 218588,
+ "result": "{'label': '393-chambers', 'chambers': 74544, 'faces': 74544, 'zaslavsky_bound': 218588, 'rank': 11, 'walls': 18, 'ncols': 12, 'complete': True, 'secs': 211.5}"
+}

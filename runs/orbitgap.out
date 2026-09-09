@@ -1,0 +1,7 @@
+recovered set: 417 configurations
+C3-fixed configurations (orbit size 1)      : 0
+orbits fully present in the recovered set   : 351
+missing images whose components EXCEED 512  : 4
+missing images within the cap (other cause) : 84
+  missing-image component sizes: min 515, median 541, max 551
+  recovered-config component sizes: median 216, max 512

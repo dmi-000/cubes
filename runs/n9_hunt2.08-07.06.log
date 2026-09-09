@@ -1,0 +1,21 @@
+n=9 v2: near-symmetry family, k<=400 |P|<=1; the 1895 eight counts 1895
+*** NEW BEST n=9: 2695  ninth cube (2, 2, 2, 1) = 1*(-1, -1, -1, -1) + (-1, -1, -1, 0)  profile 3x13/0x9
+*** NEW BEST n=9: 2739  ninth cube (1, 1, 1, 0) = 1*(-1, -1, -1, -1) + (-1, -1, -1, 1)  profile 3x13/0x9
+*** NEW BEST n=9: 2741  ninth cube (1, 1, 2, 1) = 1*(-1, -1, -1, -1) + (0, 0, -1, 0)  profile 2x13/3x9
+*** NEW BEST n=9: 2745  ninth cube (1, 1, 1, 2) = 1*(-1, -1, -1, -1) + (0, 0, 0, -1)  profile 3x13/2x9
+*** NEW BEST n=9: 2755  ninth cube (2, 2, 2, -1) = 1*(-1, -1, -1, 1) + (-1, -1, -1, 0)  profile 3x13/1x9
+*** NEW BEST n=9: 2761  ninth cube (2, 2, 2, 3) = 2*(-1, -1, -1, -1) + (0, 0, 0, -1)  profile 3x13/0x9
+[   568s] enumerated    2000 | counted    2000 | best 2761 | 0x13/1x9 n=692 mean 2634.1 max 2737 | 0x13/0x9 n=389 mean 2691.4 max 2727 | 0x13/2x9 n=287 mean 2599.3 max 2743 | 2x13/0x9 n=226 mean 2706.9 max 2761
+*** NEW BEST n=9: 2769  ninth cube (6, 5, 6, 6) = 5*(-1, -1, -1, -1) + (-1, 0, -1, -1)  profile 2x13/0x9
+[  1124s] enumerated    4000 | counted    4000 | best 2769 | 0x13/1x9 n=1469 mean 2626.0 max 2749 | 0x13/0x9 n=909 mean 2697.2 max 2739 | 0x13/2x9 n=515 mean 2643.9 max 2753 | 2x13/0x9 n=423 mean 2720.1 max 2769
+*** NEW BEST n=9: 2771  ninth cube (6, 7, 7, -7) = 6*(-1, -1, -1, 1) + (0, -1, -1, 1)  profile 2x13/0x9
+*** NEW BEST n=9: 2773  ninth cube (8, 7, 8, 8) = 7*(-1, -1, -1, -1) + (-1, 0, -1, -1)  profile 2x13/0x9
+*** NEW BEST n=9: 2779  ninth cube (7, 7, 7, 8) = 7*(-1, -1, -1, -1) + (0, 0, 0, -1)  profile 3x13/1x9
+[  1702s] enumerated    6000 | counted    6000 | best 2779 | 0x13/1x9 n=2325 mean 2630.8 max 2753 | 0x13/0x9 n=1481 mean 2704.3 max 2751 | 0x13/2x9 n=670 mean 2638.5 max 2753 | 2x13/0x9 n=638 mean 2721.3 max 2773
+[  2229s] enumerated    8000 | counted    8000 | best 2779 | 0x13/1x9 n=3220 mean 2630.4 max 2753 | 0x13/0x9 n=2087 mean 2710.6 max 2755 | 2x13/0x9 n=860 mean 2718.7 max 2777 | 3x13/0x9 n=784 mean 2737.8 max 2777
+[ 22284s] enumerated   10000 | counted   10000 | best 2779 | 0x13/1x9 n=4086 mean 2630.4 max 2757 | 0x13/0x9 n=2691 mean 2715.1 max 2755 | 2x13/0x9 n=1069 mean 2726.4 max 2777 | 3x13/0x9 n=977 mean 2740.9 max 2777
+*** NEW BEST n=9: 2785  ninth cube (14, 14, 13, 14) = 13*(-1, -1, -1, -1) + (-1, -1, 0, -1)  profile 2x13/1x9
+[ 22832s] enumerated   12000 | counted   12000 | best 2785 | 0x13/1x9 n=4966 mean 2633.2 max 2763 | 0x13/0x9 n=3353 mean 2719.1 max 2759 | 2x13/0x9 n=1277 mean 2732.3 max 2777 | 3x13/0x9 n=1183 mean 2744.0 max 2777
+[ 23376s] enumerated   14000 | counted   14000 | best 2785 | 0x13/1x9 n=5866 mean 2634.5 max 2763 | 0x13/0x9 n=4001 mean 2722.3 max 2759 | 2x13/0x9 n=1490 mean 2734.9 max 2781 | 3x13/0x9 n=1374 mean 2746.1 max 2777
+[ 23917s] enumerated   16000 | counted   16000 | best 2785 | 0x13/1x9 n=6764 mean 2636.2 max 2763 | 0x13/0x9 n=4671 mean 2725.0 max 2767 | 2x13/0x9 n=1697 mean 2739.2 max 2781 | 3x13/0x9 n=1582 mean 2748.5 max 2777
+[ 24443s] enumerated   18000 | counted   18000 | best 2785 | 0x13/1x9 n=7671 mean 2637.6 max 2765 | 0x13/0x9 n=5340 mean 2727.5 max 2767 | 2x13/0x9 n=1906 mean 2742.8 max 2781 | 3x13/0x9 n=1790 mean 2750.5 max 2777

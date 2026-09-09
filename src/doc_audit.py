@@ -26,9 +26,13 @@ rather than cleared by it.
 import os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-LEDGER = os.path.join(HERE, 'LEDGER.md')
-RESULTS = os.path.join(HERE, 'RESULTS.md')
-OPENQ = os.path.join(HERE, 'OPEN_QUESTIONS.md')
+# ROOT is the repository root: the .md documents stayed there when the code moved
+# into src/ on 2026-09-08 (MOVE_LOG.json).  Resolves correctly whether this file is
+# run from src/ or from the root, so it needs no further change if the layout moves.
+ROOT = os.path.dirname(HERE) if os.path.basename(HERE) == 'src' else HERE
+LEDGER = os.path.join(ROOT, 'LEDGER.md')
+RESULTS = os.path.join(ROOT, 'RESULTS.md')
+OPENQ = os.path.join(ROOT, 'OPEN_QUESTIONS.md')
 
 
 def ledger_graph():

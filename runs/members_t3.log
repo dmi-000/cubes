@@ -1,0 +1,6 @@
+[    0.0s] 790 classes already completed by earlier shards -- skipping those
+[  200.6s] n=9 k=5 c=357   lin 5 -> nonempty  20 dirs: 20 confirmed, 0 unevaluable, 0 changed; wraps [165, 'multi-cube', 'multi-cube', 'multi-cube', 'multi-cube', 297]
+[  231.6s] n=9 k=6 c=715   lin 3 -> nonempty  1 dirs: 1 confirmed, 0 unevaluable, 0 changed; wraps [383]
+[  610.5s] n=9 k=6 c=691   lin 7 -> nonempty  20 dirs: 1 confirmed, 0 unevaluable, 19 changed; wraps [717]
+[ 1066.1s] n=9 k=6 c=687   lin 8 -> nonempty  11 dirs: 6 confirmed, 0 unevaluable, 5 changed; wraps [709, 709, 715, 715, 715, 715]
+[ 1103.7s] n=9 k=6 c=707   lin 3 -> empty     0 dirs: 0 confirmed, 0 unevaluable, 0 changed; wraps []

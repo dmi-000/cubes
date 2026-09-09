@@ -11,11 +11,11 @@ the engine are counted and reported, never silently skipped.
 import json, subprocess, sys
 from fractions import Fraction as F
 from math import gcd
-sys.path.insert(0, "/Users/dmi/cube-compounds")
+sys.path.insert(0, ".")
 import incidence2 as I, wall_params as W
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = "cube_regions_n"
+ENGW = "cube_regions_q2w"
 BASE = [(4,1,1,-1),(3,3,7,3),(5,-1,-5,-5),(2,1,1,1),(1,1,1,1)]
 
 def q_of(c):

@@ -1,0 +1,33 @@
+distinct lines: 216
+  ... 20/216   arcs 20  isolated 0  none 0
+  ... 40/216   arcs 38  isolated 2  none 0
+  ... 60/216   arcs 57  isolated 3  none 0
+  ... 80/216   arcs 74  isolated 6  none 0
+  ... 100/216   arcs 93  isolated 7  none 0
+  ... 120/216   arcs 112  isolated 8  none 0
+  ... 140/216   arcs 131  isolated 9  none 0
+  ... 160/216   arcs 151  isolated 9  none 0
+  ... 180/216   arcs 171  isolated 9  none 0
+  ... 200/216   arcs 189  isolated 11  none 0
+
+RESULT over 216 lines, sweeping t in sqrt(d) +- 2.5 at step 1/16:
+  genuine ARCS (727 on >=3 consecutive samples): 205
+  727 only at isolated samples:                  11
+  no 727 found on the swept range:               0
+
+widest arcs:
+  dir 1,-13/9,20/9             d=13     samples  81  runs [2211/2000,12211/2000]
+  dir 1,-20/13,-9/13           d=13     samples  81  runs [2211/2000,12211/2000]
+  dir 1,-4,1                   d=25561  samples  81  runs [78689/500,81189/500]
+  dir 1,1,-4                   d=25561  samples  81  runs [78689/500,81189/500]
+  dir 1,1/2,1                  d=25561  samples  81  runs [78689/500,81189/500]
+  dir 1,-5/3,-4/3              d=2741   samples  79  runs [99959/2000,109709/2000]
+  dir 1,2/5,4/5                d=226    samples  74  runs [129707/10000,43833/2500]
+  dir 1,5/4,1/2                d=226    samples  74  runs [129707/10000,43833/2500]
+  dir 1,-4/5,6/5               d=403    samples  72  runs [43937/2500,46437/2500] [93499/5000,94749/5000] [47687/2500,12078/625]
+  dir 1,-3/2,9/4               d=226    samples  68  runs [31333/2500,63291/5000] [15979/1250,15979/1250] [64541/5000,32583/2500]
+  dir 1,-4/5,6/5               d=25561  samples  68  runs [78689/500,78689/500] [157503/1000,39407/250] [157753/1000,157753/1000]
+  dir 1,5/6,-2/3               d=25561  samples  68  runs [78689/500,78689/500] [157503/1000,39407/250] [157753/1000,157753/1000]
+  dir 1,1/5,3/5                d=25561  samples  64  runs [78689/500,314881/2000] [315131/2000,79189/500] [158503/1000,79439/500]
+  dir 1,2,3/4                  d=1093   samples  64  runs [61121/2000,17249/500]
+  dir 1,3/8,1/2                d=1093   samples  64  runs [61121/2000,17249/500]

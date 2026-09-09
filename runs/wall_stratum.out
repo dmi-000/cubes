@@ -1,0 +1,15 @@
+W4 conditions exactly active at the arc A end s = 19/6: [(363, 0, 1), (363, 1, 1), (363, 2, -1), (366, 0, 1), (366, 2, 1), (374, 0, -1), (374, 1, -1), (374, 2, 1), (382, 0, -1), (382, 2, -1)]
+
+offsetting the line by delta*e=(0,1,0) and re-solving the SAME wall:
+   delta=0       s = 3.166666667 in Q(sqrt 1), max component 126    -> count 725
+   delta=1/64    s = 3.161125536 in Q(sqrt 848143921), max component 193494 -> count {"seed":null,"error":"quaternion component magnitude 193494 and d=8481
+   delta=1/32    s = 3.155569791 in Q(sqrt 211144753), max component 96726  -> count {"seed":null,"error":"quaternion component magnitude 96726 and d=21114
+   delta=1/16    s = 3.144414087 in Q(sqrt 52340017), max component 48342  -> count 715
+   delta=-1/32   s = 3.177705451 in Q(sqrt 214705201), max component 96810  -> count {"seed":null,"error":"quaternion component magnitude 96810 and d=21470
+
+offsetting the line by delta*e=(0,0,1) and re-solving the SAME wall:
+   delta=0       s = 3.166666667 in Q(sqrt 1), max component 126    -> count 725
+   delta=1/64    s = 3.173501635 in Q(sqrt 7056745), max component 193626 -> count {"seed":null,"error":"quaternion component magnitude 193626 and d=7056
+   delta=1/32    s = 3.180334670 in Q(sqrt 214006945), max component 96858  -> count {"seed":null,"error":"quaternion component magnitude 96858 and d=21400
+   delta=1/16    s = 3.193994968 in Q(sqrt 53772193), max component 48474  -> count 715
+   delta=-1/32   s = 3.152990900 in Q(sqrt 211847329), max component 96678  -> count {"seed":null,"error":"quaternion component magnitude 96678 and d=21184

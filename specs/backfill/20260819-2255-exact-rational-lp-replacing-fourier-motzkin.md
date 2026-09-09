@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Write `/Users/dmi/cube-compounds/exactlp.py`. Work in that directory. **Run the validation to completion in the FOREGROUND and report the numbers in your reply. Do not background the work and wait for a monitor — a status sentence is not a deliverable. Two previous attempts at this task were lost, so land the file and the numbers.**
+Write `exactlp.py`. Work in that directory. **Run the validation to completion in the FOREGROUND and report the numbers in your reply. Do not background the work and wait for a monitor — a status sentence is not a deliverable. Two previous attempts at this task were lost, so land the file and the numbers.**
 
 # THE PROBLEM, and it is currently blocking two live campaigns
 
@@ -45,9 +45,9 @@ A drop-in replacement for `isolation67._fm`, HOMOGENEOUS and STRICT. Derive the 
 **1. Random instances, including many INFEASIBLE ones.** Thousands: nv 2..15, rows 1..40, varied coefficient magnitudes. A suite of only feasible systems cannot distinguish a correct routine from one that always finds something. Both routines must agree. Every witness yours returns must be verified directly: each `c·y > 0` exactly.
 
 **2. The REAL decided candidates — the important test.** Live campaigns have checkpointed their decisions:
-   - `/Users/dmi/cube-compounds/ckpt_727/worker_*.jsonl` — 214 729 records, static now
-   - `/Users/dmi/cube-compounds/ckpt_393/worker_*.jsonl` — GROWING, a campaign is writing there
-   - `/Users/dmi/cube-compounds/arrangement_ckpt_183/worker_*.jsonl` — ~12 900, static
+   - `ckpt_727/worker_*.jsonl` — 214 729 records, static now
+   - `ckpt_393/worker_*.jsonl` — GROWING, a campaign is writing there
+   - `arrangement_ckpt_183/worker_*.jsonl` — ~12 900, static
 
 **READ ONLY. Never write, truncate or delete in those directories.** Inspect the JSONL to learn the schema (`arrangement.py` wrote it — read `run_parallel` and the worker function). Reconstruct the systems and confirm your routine reproduces **every recorded decision**. Report how many checked, how many disagreed. **One disagreement is a failure — report it with the offending system in full.**
 

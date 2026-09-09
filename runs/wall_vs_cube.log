@@ -1,0 +1,9 @@
+     cube  t=0    t=3    t=6    t=9    t=12   t=15   t=18   t=21   t=24     wall between
+   record  3925   3925   3921   3921   3921   3921   3921   3921   3921     3-6
+  small A  3835   3835   3835   3835   3835   3835   3835   3835   3835     NONE (flat)
+  small B  3791   3787   3787   3783   3783   3783   3783   3783   3783     0-3, 6-9
+      mid  3845   3845   3845   3845   3845   3845   3845   3845   3845     NONE (flat)
+      far  3881   3881   3877   3877   3877   3877   3877   3877   3877     3-6
+     axis  3483   3483   3483   3483   3483   3483   3483   3483   3483     NONE (flat)
+
+same wall position for unrelated cubes => the wall belongs to the BASE.

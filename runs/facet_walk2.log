@@ -1,0 +1,12 @@
+n=4 config 0
+   count 121, budget 160 probes each
+   boundary walk :   2 facets, best neighbour 121   {'crossed': 146, 'unevaluable': 14}
+   isotropic     :   1 facets, best neighbour 121   {'crossed': 160}
+n=4 config 1
+   count 111, budget 160 probes each
+   boundary walk :  10 facets, best neighbour 127   {'crossed': 84, 'unevaluable': 76}
+   isotropic     :   9 facets, best neighbour 119   {'crossed': 160}
+n=4 config 2
+   count 121, budget 160 probes each
+   boundary walk :   3 facets, best neighbour 121   {'crossed': 133, 'unevaluable': 27}
+   isotropic     :   1 facets, best neighbour 121   {'crossed': 160}

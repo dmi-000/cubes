@@ -1,0 +1,38 @@
+two-body weight decomposed: deg4 = edge-edge coincidence (wt 1),
+                            deg6 = corner contact      (wt 2)
+
+case                total  per pair: (deg2, deg4, deg6) -> weight
+record 183            183  (0,6,2)=10  (0,6,2)=10  (0,6,2)=10  (8,6,0)=6  (8,6,0)=6  (8,6,0)=6
+edge-axis w10         155  (12,2,0)=2  (0,6,2)=10  (18,0,0)=0  (14,2,0)=2  (20,0,0)=0  (0,6,2)=10
+(2,2,1)-axis w10      135  (14,2,0)=2  (0,10,0)=10  (14,0,0)=0  (18,0,0)=0  (16,0,0)=0  (20,0,0)=0
+61.15 family          147  (18,0,0)=0  (8,6,0)=6  (0,10,0)=10  (20,0,0)=0  (18,0,0)=0  (20,0,0)=0
+17.9deg outlier       149  (18,0,0)=0  (6,6,0)=6  (0,4,2)=8  (14,0,0)=0  (0,6,2)=10  (10,2,0)=2
+
+weight 10 = how many simultaneous walls?  read off the deg4/deg6 columns:
+that count is what a multiwall SOLVE must be asked for, per pair.
+configurations: 230
+  BOTH disjoint pairs weight 10 STANDALONE : 7
+  BOTH disjoint pairs weight 10 IN CONTEXT : 5
+
+if standalone is 10,10 but in-context is not, assembly is the cause (mechanism).
+if standalone is never 10,10, the construction failed and the run says nothing.
+
+drop (standalone - in-context) per pair, most common:
+   (0,1) dropped   0,  (2,3) dropped   0 : 124
+   (0,1) dropped   2,  (2,3) dropped   0 : 66
+   (0,1) dropped   4,  (2,3) dropped   0 : 14
+   (0,1) dropped   2,  (2,3) dropped   2 : 8
+   (0,1) dropped   0,  (2,3) dropped   2 : 5
+   (0,1) dropped   2,  (2,3) dropped   4 : 3
+   (0,1) dropped   4,  (2,3) dropped   4 : 2
+   (0,1) dropped   4,  (2,3) dropped   2 : 2
+
+joint (sa01, sa23, ic01, ic23), most common:
+   standalone (10, 0)  in-context (10, 0) : 77
+   standalone (10, 0)  in-context ( 8, 0) : 53
+   standalone (10, 2)  in-context (10, 2) : 42
+   standalone (10, 2)  in-context ( 8, 2) : 13
+   standalone (10, 0)  in-context ( 6, 0) : 8
+   standalone (10, 6)  in-context ( 8, 4) : 8
+   standalone (10, 2)  in-context ( 6, 2) : 6
+   standalone (10,10)  in-context (10,10) : 5

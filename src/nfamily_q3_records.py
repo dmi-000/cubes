@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: specs/NFAMILY_SPEC.md. Project index: README.md
 """Q3: do the EXISTING RECORDS already contain family structure?
 
@@ -159,6 +160,6 @@ if __name__ == '__main__':
     out = {}
     out['n3'] = n3_octahedral_report()
     out.update({str(k): v for k, v in n456_report().items()})
-    with open('/Users/dmi/carroll/nfamily_q3_records.json', 'w') as f:
+    with open(os.path.expanduser('~/carroll/nfamily_q3_records.json'), 'w') as f:
         json.dump(out, f, indent=1, default=str)
     print('\nwritten nfamily_q3_records.json')

@@ -6,9 +6,9 @@ so it merges with the rest of the record."""
 import json, math, random, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
 
-sys.path.insert(0, '/Users/dmi/carroll')
-BIN = '/Users/dmi/carroll/cube_regions_n'
-LOG = '/Users/dmi/carroll/n4_search.jsonl'
+sys.path.insert(0, '~/carroll')
+BIN = '~/carroll/cube_regions_n'
+LOG = '~/carroll/n4_search.jsonl'
 WORKERS = 4
 MAXC = 512
 

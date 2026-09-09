@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Read-only data archaeology in `/Users/dmi/cube-compounds`. **Do not edit or delete any file.** Produce one new report file and nothing else.
+Read-only data archaeology in `.`. **Do not edit or delete any file.** Produce one new report file and nothing else.
 
 # THE PROBLEM
 
@@ -51,7 +51,7 @@ Then:
 
 # WHAT TO REPORT
 
-Write `/Users/dmi/cube-compounds/census_variety_lineage.md` containing:
+Write `census_variety_lineage.md` containing:
 - A table: file, mtime, records, structure.
 - A supersession verdict per generation: which is newest, which is covered by which, whether any generation contains records found nowhere else (those cannot be discarded).
 - **Any DISAGREEMENT between generations on the same class — this is the most important output.** If two generations give different `status` or `lineality` for the same class, one of them is wrong, and that matters.

@@ -1,0 +1,32 @@
+=== 1. extent of the 183 set at the record ===
+  step 1/32   probed 19682  still 183:   26   top neighbours {183: 26, 173: 216, 171: 162, 169: 324, 167: 621}
+  step 1/128  probed 19682  still 183:   26   top neighbours {183: 26, 173: 216, 171: 162, 169: 324, 167: 621}
+  step 1/512  probed 19682  still 183:   26   top neighbours {183: 26, 173: 216, 171: 162, 169: 324, 167: 621}
+  reference: 3^d-1 is 0, 2, 8, 26, 80 for d = 0,1,2,3,4
+
+=== 2. do RANDOM-seeded climbs reach 183? ===
+  seed  0 (height   4) -> 179
+  seed  1 (height   8) -> 169
+  seed  2 (height  16) -> 167
+  seed  3 (height  40) -> 157
+  seed  4 (height 100) -> 137
+  seed  5 (height   4) -> 175
+  seed  6 (height   8) -> 175
+  seed  7 (height  16) -> 165
+  seed  8 (height  40) -> 157
+  seed  9 (height 100) -> 135
+  seed 10 (height   4) -> 171
+  seed 11 (height   8) -> 169
+  seed 12 (height  16) -> 173
+  seed 13 (height  40) -> 163
+  seed 14 (height 100) -> 147
+  seed 15 (height   4) -> 175
+  seed 16 (height   8) -> 169
+  seed 17 (height  16) -> 165
+  seed 18 (height  40) -> 153
+  seed 19 (height 100) -> 143
+  seed 20 (height   4) -> 179
+  seed 21 (height   8) -> 173
+  seed 22 (height  16) -> 167
+  seed 23 (height  40) -> 145
+  reached 183: 0 of 24   distribution 2×179 3×175 2×173 1×171 3×169 2×167 2×165 1×163 2×157 1×153 1×147 1×145 1×143 1×137 1×135

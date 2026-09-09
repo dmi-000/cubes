@@ -1,0 +1,17 @@
+re-testing the signature findings with the CORRECTED planes(), on 3000 of 2938001 rows
+
+1. PER-ENSEMBLE RICHNESS  (distinct signatures in this sample)
+   ensemble      broken corrected
+   axis              93       89
+   chain             34      102
+   haar               7        7
+   mixed             24       24
+   project           24       22
+   threeaxis        188      202
+   twoaxis          129      120
+
+2. DOES THE CORRECTED SIGNATURE PIN THE COUNT?
+   166 signatures seen >1 time; 8 pin the count exactly; median spread 22
+
+3. THE MOEBIUS-WEIGHT PREDICTOR (was r=0.562, ordered 77.6%% -- both from broken planes)
+   corrected: r = -0.184, orders 46/88 = 52.3%

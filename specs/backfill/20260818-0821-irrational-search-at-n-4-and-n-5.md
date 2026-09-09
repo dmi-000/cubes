@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Write and run `/Users/dmi/cube-compounds/irrational_n45.py`. Work in that directory. This is a search campaign — implement as specified, run it, report what it finds.
+Write and run `irrational_n45.py`. Work in that directory. This is a search campaign — implement as specified, run it, report what it finds.
 
 # THE LEAD
 

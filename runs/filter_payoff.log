@@ -1,0 +1,12 @@
+239 configurations counted (1 unevaluable/degenerate, reported not dropped silently)
+
+ threshold        skipped by filter      max count among skipped
+  concurrence <4     56/239 =  23.4%             135
+  concurrence <5    170/239 =  71.1%             149
+  concurrence <6    198/239 =  82.8%             149
+  concurrence <7    235/239 =  98.3%             155
+  concurrence <8    237/239 =  99.2%             155
+  concurrence <9    237/239 =  99.2%             155
+
+best count seen anywhere in this sample: 155   (n=4 record is 183)
+break-even skip rate if the filter costs one solve: 1/70 = 1.4%

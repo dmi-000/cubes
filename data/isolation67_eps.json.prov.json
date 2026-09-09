@@ -1,0 +1,21 @@
+{
+ "output": "isolation67_eps.json",
+ "argv": [
+  "isolation67.py",
+  "--eps"
+ ],
+ "rerun": "python3 isolation67.py --eps",
+ "script": "isolation67.py",
+ "script_sha1": "dd97b999b296536a4ba4ab1dc74ee7e95a666e8d",
+ "started": null,
+ "finished": "2026-08-18 12:56:04",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "note": "face enumeration of both 67s; --eps uses the infinitesimal engine and has no step size",
+ "inputs": [
+  {
+   "path": "cube_regions_eps",
+   "sha1": "e392a5fd76319f75fe7f9d5af16531b36b4c64ce"
+  }
+ ]
+}

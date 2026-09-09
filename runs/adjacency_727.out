@@ -1,0 +1,22 @@
+rational 727 configurations to classify: 417
+  25/417  (135s, depth=3 label=11 adjacency=11)
+  50/417  (273s, depth=3 label=15 adjacency=15)
+  75/417  (408s, depth=3 label=18 adjacency=18)
+  100/417  (544s, depth=3 label=24 adjacency=24)
+  125/417  (678s, depth=3 label=39 adjacency=39)
+  150/417  (813s, depth=3 label=49 adjacency=49)
+  175/417  (948s, depth=3 label=59 adjacency=59)
+  200/417  (1084s, depth=3 label=72 adjacency=72)
+  225/417  (1219s, depth=3 label=76 adjacency=76)
+  250/417  (1355s, depth=3 label=78 adjacency=78)
+  275/417  (1489s, depth=3 label=79 adjacency=79)
+  300/417  (1625s, depth=3 label=91 adjacency=91)
+  325/417  (1760s, depth=3 label=93 adjacency=93)
+  350/417  (1896s, depth=3 label=95 adjacency=95)
+  375/417  (2032s, depth=3 label=104 adjacency=104)
+  400/417  (2167s, depth=3 label=107 adjacency=107)
+
+classified 417 rational 727 configurations in 2260 s
+  distinct DEPTH profiles     : 3
+  distinct PER-LABEL vectors  : 109
+  distinct ADJACENCY profiles : 109   <- finest invariant available

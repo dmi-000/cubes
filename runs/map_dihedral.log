@@ -1,0 +1,10 @@
+1278 distinct psi sampled, 1.2875 to 88.7125 deg
+
+5 maximal runs of constant count:
+  count  31  psi in [  1.28749,   9.72903]    139 samples
+  count  43  psi in [  9.79818,  20.87495]    158 samples
+  count  55  psi in [ 20.98295,  69.01705]    684 samples   [contains octahedral 67]
+  count  43  psi in [ 69.12505,  80.20182]    158 samples
+  count  31  psi in [ 80.27097,  88.71251]    139 samples
+
+written data/dihedral_family_map.json

@@ -1,5 +1,5 @@
 import sys, json, itertools
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 import symmetry_search as ss
 
 D2 = ss.group_quats('D2')

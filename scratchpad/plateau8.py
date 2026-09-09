@@ -7,7 +7,7 @@ REC=BASE+[(7,14,1,-5),(4,-3,-4,-4),(24,-24,24,-61)]
 def cnt_pl(cfg):
     s=";".join(",".join(map(str,q)) for q in cfg)
     m=max(abs(v) for q in cfg for v in q)
-    cmd=["/Users/dmi/cube-compounds/cube_regions_n","--quats",s] if m<=512 else ["/Users/dmi/cube-compounds/cube_regions_q2w","--d","0","--quats",s]
+    cmd=["cube_regions_n","--quats",s] if m<=512 else ["cube_regions_q2w","--d","0","--quats",s]
     o=json.loads(subprocess.run(cmd,capture_output=True,text=True).stdout)
     pl=o["per_label"]
     return o["bounded"],tuple(pl.get(str(k),0) for k in range(2**len(cfg)))

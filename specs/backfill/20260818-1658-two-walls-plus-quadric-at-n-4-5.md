@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Write and run `/Users/dmi/cube-compounds/two_plus_quadric.py`. Work in that directory. **Run it to completion in the foreground and report the numbers — do not background the work and wait for a monitor.**
+Write and run `two_plus_quadric.py`. Work in that directory. **Run it to completion in the foreground and report the numbers — do not background the work and wait for a monitor.**
 
 # THE LEAD, AND WHY IT IS THE ONLY ONE LEFT
 

@@ -12,11 +12,11 @@ from fractions import Fraction as F
 from math import gcd
 sys.path.insert(0, "/private/tmp/claude-502/-Users-dmi-cube-compounds/88682f8c-0607-4f2d-8384-b3993c9c5ded/scratchpad")
 from solve_ends import catalogue, q_of, BASE
-sys.path.insert(0, "/Users/dmi/cube-compounds")
+sys.path.insert(0, ".")
 import wall_params as W
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = "cube_regions_n"
+ENGW = "cube_regions_q2w"
 
 def evaluate(cfgs):
     small = [c for c in cfgs if max(abs(v) for q in c for v in q) <= 512]

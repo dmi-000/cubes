@@ -22,9 +22,9 @@
 ## Prompt as sent
 
 ```text
-Work in /Users/dmi/cube-compounds (mathematics research repo; python3 with sympy/numpy; run scripts in place).
+Work in . (mathematics research repo; python3 with sympy/numpy; run scripts in place).
 
-Read /Users/dmi/cube-compounds/specs/STRUCTURED_RULINGS_SPEC.md and implement it exactly. Before writing code also read: rulings.py (you wrote it — reuse its enumeration, ruling-solve and normalize_dir), specs/RULINGS_SPEC.md §3 for the four line parameters, exact_chambers.py (call decompose, do not rewrite), rulings_report.md §1 (the corrected findings you are extending), and detq_check.py (the split-over-Q theorem — take it as given).
+Read specs/STRUCTURED_RULINGS_SPEC.md and implement it exactly. Before writing code also read: rulings.py (you wrote it — reuse its enumeration, ruling-solve and normalize_dir), specs/RULINGS_SPEC.md §3 for the four line parameters, exact_chambers.py (call decompose, do not rewrite), rulings_report.md §1 (the corrected findings you are extending), and detq_check.py (the split-over-Q theorem — take it as given).
 
 Hard requirements:
 - Exact rational arithmetic; no float decides anything.

@@ -1,0 +1,10 @@
+4-SUBSET counts of each tower record   (Hypothesis T => all are <= 183)
+ n  record  #4-subsets  best  #at best  at 183  spread
+ 4     183           1   183         1       1  {183: 1}
+ 5     393           5   183         1       1  {183: 1, 179: 3, 171: 1}
+ 6     727          15   183         1       1  {183: 1, 179: 3, 173: 2, 171: 1, 167: 4, 165: 3, 159: 1}
+ 7    1217          35   183         1       1  {183: 1, 179: 3, 173: 2, 171: 4, 169: 3, 167: 4, 165: 3, 163: 3, 161: 3, 159: 1, 157: 3, 153: 4, 147: 1}
+ 8    1895          70   183         1       1  {183: 1, 179: 3, 173: 2, 171: 7, 169: 6, 167: 4, 165: 5, 163: 9, 161: 5, 159: 3, 157: 5, 155: 2, 153: 5, 151: 2, 147: 7, 145: 1, 141: 3}
+
+a record whose best 4-subset is 183 passes through an OPTIMAL 4-layer
+(conditionally on Hypothesis T); one below 183 does not.

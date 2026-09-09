@@ -1,0 +1,12 @@
+menu: [-4,4]^4 -> 2928 primitive quaternions -> 405 distinct CUBES (7.2x fewer); class of (4,-3,-4,-4) present: True
+shard 0 of 999; 0 members already checkpointed in arcs_extend_s0.jsonl
+quotient control: 18 octahedral pairs, 0 disagreements 
+base catalogue: 424 triple points, 360 crossing lines
+
+arc D (the recorded 727)   85 roots inside, 86 chambers, 62 representatives count 727
+   [D (the recorded 727)] member 1/62 s=-1/10 -> best 1217 (51s elapsed)
+   best n=7 over this arc: 1217 at s=-1/10 with seventh cube (4, 4, 4, -3)   (51s)
+   GATE: arc D must reach 1217 -> OK
+arc A                      49 roots inside, 50 chambers, 49 representatives count 727
+   [A] member 1/49 s=31/15 -> best 1213 (48s elapsed)
+   best n=7 over this arc: 1213 at s=31/15 with seventh cube (4, 3, -3, 3)   (48s)

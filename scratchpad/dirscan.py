@@ -14,8 +14,8 @@ import itertools, json, subprocess, sys
 from fractions import Fraction as F
 from math import gcd
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = "cube_regions_n"
+ENGW = "cube_regions_q2w"
 
 def qmul(p, q):
     w,x,y,z = p; e,f,g,h = q

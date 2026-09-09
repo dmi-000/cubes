@@ -4,7 +4,7 @@ Reuses slide3_search infra. 4 workers max. Logs to slide3_search.jsonl.
 Usage: import and call run(jobs, phase) where jobs is list of (meta, (q1,p1,q2,p2,R)).
 """
 import sys, os, json, time, math
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 from concurrent.futures import ProcessPoolExecutor
 import multiprocessing as mp
 from slide3_search import overlay_quats, fits_cap, gcd_reduce, farey, theta_deg, LOG_PATH, ENGINE

@@ -1,0 +1,200 @@
+==============================================================================
+arrangement.py validation -- 2026-08-19 23:33:21
+==============================================================================
+
+1) coordinate arrangement e_1..e_n: 2^n chambers, 3^n-1 non-zero faces
+   n=2: chambers 4 (want 4)  faces 8 (want 8)  OK
+   n=3: chambers 8 (want 8)  faces 26 (want 26)  OK
+   n=4: chambers 16 (want 16)  faces 80 (want 80)  OK
+   n=5: chambers 32 (want 32)  faces 242 (want 242)  OK
+   n=6: chambers 64 (want 64)  faces 728 (want 728)  OK
+
+2) m lines through the origin in R^2: 2m chambers, 4m faces
+   m=2: chambers 4 (want 4)  faces 8 (want 8)  OK
+   m=3: chambers 6 (want 6)  faces 12 (want 12)  OK
+   m=4: chambers 8 (want 8)  faces 16 (want 16)  OK
+   m=5: chambers 10 (want 10)  faces 20 (want 20)  OK
+   m=6: chambers 12 (want 12)  faces 24 (want 24)  OK
+
+3) octahedral 67: 6 walls in ambient 6 -- must agree with the old enumerator (728 non-zero faces)
+   octahedral 67 over Q(sqrt2): count_at -> 67 (must be 67)
+   6 distinct walls, ambient 6
+   728 realizable non-zero faces of 6 walls in R^6
+   old enumerator: 728 faces in 7.8s
+   new enumerator: 728 faces in 3.5s
+   identical sign-vector sets: True
+   OK
+
+4) the 183 record: 12 walls, rank 8, ambient 9 -- the case that broke the old enumerator (3+ hours, did not finish)
+   183 record: count_at -> 183 (must be 183), ambient 9
+   12 distinct walls, ambient 9
+   --- restart demo: partial run with a short time budget ---
+183 (restart demo): 12 walls, rank 8, ambient 9 -- Zaslavsky/Buck chamber bound 3632
+   restart: 0 candidates already checkpointed in arrangement_ckpt_183_restart_demo
+   7 workers forked
+   [chamber-stage 9/12] tested=514 remaining=88 elapsed=0s rate=10072.1/s
+   [chamber-stage 10/12] tested=802 remaining=232 elapsed=0s rate=9326.8/s
+   [chamber-stage 10/12] tested=1002 remaining=32 elapsed=0s rate=11074.4/s
+   [chamber-stage 11/12] tested=1234 remaining=664 elapsed=0s rate=7454.1/s
+   [chamber-stage 11/12] tested=1434 remaining=464 elapsed=0s rate=8531.9/s
+   [chamber-stage 11/12] tested=1634 remaining=264 elapsed=0s rate=9554.9/s
+   [chamber-stage 11/12] tested=1834 remaining=64 elapsed=0s rate=10588.2/s
+   [chamber-stage 12/12] tested=2098 remaining=1528 elapsed=0s rate=6398.3/s
+   [chamber-stage 12/12] tested=2298 remaining=1328 elapsed=0s rate=6113.0/s
+   [chamber-stage 12/12] tested=2498 remaining=1128 elapsed=0s rate=6577.9/s
+   [chamber-stage 12/12] tested=2698 remaining=928 elapsed=0s rate=7044.6/s
+   [chamber-stage 12/12] tested=2898 remaining=728 elapsed=0s rate=7489.1/s
+   [chamber-stage 12/12] tested=3098 remaining=528 elapsed=0s rate=7953.0/s
+   [chamber-stage 12/12] tested=3298 remaining=328 elapsed=0s rate=8244.4/s
+   [chamber-stage 12/12] tested=3498 remaining=128 elapsed=0s rate=8696.8/s
+   [face-codim 1] tested=3826 remaining=12688 elapsed=1s rate=2743.3/s
+   [face-codim 1] tested=4026 remaining=12488 elapsed=3s rate=1477.9/s
+   [face-codim 1] tested=4226 remaining=12288 elapsed=4s rate=1008.4/s
+   [face-codim 1] tested=4426 remaining=12088 elapsed=6s rate=777.7/s
+   [face-codim 1] tested=4626 remaining=11888 elapsed=7s rate=648.6/s
+   TIME BUDGET (8s) EXCEEDED during face-codim 1 -- 11779/12888 still pending (stopping workers now, not draining the backlog)
+   DEBUG join pid=5071 alive=True took 5.00s
+   DEBUG join pid=5072 alive=True took 5.00s
+   DEBUG join pid=5073 alive=False took 0.00s
+   DEBUG join pid=5074 alive=True took 5.00s
+   DEBUG join pid=5075 alive=True took 5.00s
+   DEBUG join pid=5076 alive=True took 5.00s
+   DEBUG join pid=5077 alive=True took 5.00s
+   183 (restart demo): 1712 chambers / 3632 bound, 2374 non-zero faces, STOPPED (time budget), 38s
+   phase 1 stopped: 7247 lines checkpointed, complete=False
+   --- relaunching against the SAME checkpoint dir ---
+183 (restart demo, resumed): 12 walls, rank 8, ambient 9 -- Zaslavsky/Buck chamber bound 3632
+   restart: 7247 candidates already checkpointed in arrangement_ckpt_183_restart_demo
+   7 workers forked
+   [chamber-stage 1/12] all 2 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 2/12] all 4 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 3/12] all 8 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 4/12] all 12 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 5/12] all 24 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 6/12] all 48 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 7/12] all 72 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 8/12] all 144 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 9/12] all 288 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 10/12] all 432 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 11/12] all 864 candidates already checkpointed -- nothing to recompute
+   [chamber-stage 12/12] all 1728 candidates already checkpointed -- nothing to recompute
+   [face-codim 1] tested=7447 remaining=9067 elapsed=1s rate=7822.1/s
+   [face-codim 1] tested=7647 remaining=8867 elapsed=2s rate=3571.9/s
+   [face-codim 1] tested=7847 remaining=8667 elapsed=4s rate=2100.5/s
+   [face-codim 1] tested=8047 remaining=8467 elapsed=5s rate=1549.0/s
+   [face-codim 1] tested=8247 remaining=8267 elapsed=7s rate=1179.6/s
+   [face-codim 1] tested=8447 remaining=8067 elapsed=9s rate=960.1/s
+   [face-codim 1] tested=8647 remaining=7867 elapsed=11s rate=794.2/s
+   [face-codim 1] tested=8847 remaining=7667 elapsed=13s rate=698.4/s
+   [face-codim 1] tested=9047 remaining=7467 elapsed=14s rate=630.6/s
+   [face-codim 1] tested=9247 remaining=7267 elapsed=16s rate=564.5/s
+   [face-codim 1] tested=9447 remaining=7067 elapsed=18s rate=518.4/s
+   [face-codim 1] tested=9647 remaining=6867 elapsed=19s rate=508.1/s
+   [face-codim 1] tested=9847 remaining=6667 elapsed=27s rate=365.3/s
+   [face-codim 1] tested=10047 remaining=6467 elapsed=29s rate=350.6/s
+   [face-codim 1] tested=10247 remaining=6267 elapsed=30s rate=337.0/s
+   [face-codim 1] tested=10447 remaining=6067 elapsed=32s rate=325.2/s
+   [face-codim 1] tested=10570 remaining=5944 elapsed=62s rate=170.1/s
+   [face-codim 1] tested=10770 remaining=5744 elapsed=64s rate=168.7/s
+   [face-codim 1] tested=10970 remaining=5544 elapsed=67s rate=164.6/s
+   [face-codim 1] tested=11170 remaining=5344 elapsed=74s rate=150.4/s
+   [face-codim 1] tested=11370 remaining=5144 elapsed=76s rate=149.7/s
+   [face-codim 1] tested=11570 remaining=4944 elapsed=78s rate=149.0/s
+   [face-codim 1] tested=11770 remaining=4744 elapsed=79s rate=148.4/s
+   [face-codim 1] tested=11970 remaining=4544 elapsed=81s rate=147.2/s
+   [face-codim 1] tested=12170 remaining=4344 elapsed=83s rate=146.5/s
+   [face-codim 1] tested=12370 remaining=4144 elapsed=87s rate=142.8/s
+   [face-codim 1] tested=12570 remaining=3944 elapsed=94s rate=133.8/s
+   [face-codim 1] tested=12770 remaining=3744 elapsed=96s rate=133.5/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=127s rate=101.7/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=157s rate=82.2/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=187s rate=69.0/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=217s rate=59.5/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=247s rate=52.2/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=277s rate=46.6/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=307s rate=42.0/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=337s rate=38.3/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=367s rate=35.1/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=397s rate=32.5/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=427s rate=30.2/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=457s rate=28.2/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=487s rate=26.5/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=517s rate=24.9/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=547s rate=23.6/s
+   [face-codim 1] tested=12882 remaining=3632 elapsed=577s rate=22.3/s
+   TIME BUDGET (600s) EXCEEDED during face-codim 1 -- 3632/9267 still pending (stopping workers now, not draining the backlog)
+   DEBUG join pid=5136 alive=True took 5.00s
+   DEBUG join pid=5137 alive=True took 5.00s
+   DEBUG join pid=5138 alive=True took 5.00s
+   DEBUG join pid=5139 alive=True took 5.00s
+   DEBUG join pid=5140 alive=True took 5.00s
+   DEBUG join pid=5141 alive=True took 5.00s
+   DEBUG join pid=5142 alive=True took 5.00s
+   183 (restart demo, resumed): 1712 chambers / 3632 bound, 7209 non-zero faces, STOPPED (time budget), 637s
+   phase 2: checkpoint grew from 7247 to 12882 lines (net new work items 5635), complete=False
+   restart verdict: phase 1 left 7247 candidates on disk and phase 2 reused every one of them (no recomputation) before adding the rest
+   --- full run ---
+183: 12 walls, rank 8, ambient 9 -- Zaslavsky/Buck chamber bound 3632
+   restart: 0 candidates already checkpointed in arrangement_ckpt_183
+   7 workers forked
+   [chamber-stage 9/12] tested=514 remaining=88 elapsed=0s rate=8165.6/s
+   [chamber-stage 10/12] tested=802 remaining=232 elapsed=0s rate=7612.9/s
+   [chamber-stage 10/12] tested=1002 remaining=32 elapsed=0s rate=7231.1/s
+   [chamber-stage 11/12] tested=1234 remaining=664 elapsed=0s rate=6221.5/s
+   [chamber-stage 11/12] tested=1434 remaining=464 elapsed=0s rate=5573.0/s
+   [chamber-stage 11/12] tested=1634 remaining=264 elapsed=0s rate=6231.2/s
+   [chamber-stage 11/12] tested=1834 remaining=64 elapsed=0s rate=6880.4/s
+   [chamber-stage 12/12] tested=2098 remaining=1528 elapsed=0s rate=4316.5/s
+   [chamber-stage 12/12] tested=2298 remaining=1328 elapsed=1s rate=3693.4/s
+   [chamber-stage 12/12] tested=2498 remaining=1128 elapsed=1s rate=3978.8/s
+   [chamber-stage 12/12] tested=2698 remaining=928 elapsed=1s rate=4243.3/s
+   [chamber-stage 12/12] tested=2898 remaining=728 elapsed=1s rate=4515.4/s
+   [chamber-stage 12/12] tested=3098 remaining=528 elapsed=1s rate=4783.5/s
+   [chamber-stage 12/12] tested=3298 remaining=328 elapsed=1s rate=5047.7/s
+   [chamber-stage 12/12] tested=3498 remaining=128 elapsed=1s rate=5309.7/s
+   [face-codim 1] tested=3826 remaining=12688 elapsed=2s rate=2161.6/s
+   [face-codim 1] tested=4026 remaining=12488 elapsed=3s rate=1369.1/s
+   [face-codim 1] tested=4226 remaining=12288 elapsed=4s rate=986.3/s
+   [face-codim 1] tested=4426 remaining=12088 elapsed=6s rate=787.8/s
+   [face-codim 1] tested=4626 remaining=11888 elapsed=7s rate=645.0/s
+   [face-codim 1] tested=4826 remaining=11688 elapsed=9s rate=544.7/s
+   [face-codim 1] tested=5026 remaining=11488 elapsed=10s rate=481.6/s
+   [face-codim 1] tested=5226 remaining=11288 elapsed=12s rate=436.9/s
+   [face-codim 1] tested=5426 remaining=11088 elapsed=14s rate=401.8/s
+   [face-codim 1] tested=5626 remaining=10888 elapsed=15s rate=372.2/s
+   [face-codim 1] tested=5826 remaining=10688 elapsed=17s rate=346.1/s
+   [face-codim 1] tested=6026 remaining=10488 elapsed=19s rate=318.7/s
+   [face-codim 1] tested=6226 remaining=10288 elapsed=21s rate=300.0/s
+   [face-codim 1] tested=6426 remaining=10088 elapsed=23s rate=284.9/s
+   [face-codim 1] tested=6626 remaining=9888 elapsed=24s rate=274.2/s
+   [face-codim 1] tested=6826 remaining=9688 elapsed=26s rate=263.1/s
+   [face-codim 1] tested=7026 remaining=9488 elapsed=27s rate=257.7/s
+   [face-codim 1] tested=7226 remaining=9288 elapsed=29s rate=248.9/s
+   [face-codim 1] tested=7426 remaining=9088 elapsed=30s rate=243.9/s
+   [face-codim 1] tested=7626 remaining=8888 elapsed=32s rate=235.4/s
+   [face-codim 1] tested=7826 remaining=8688 elapsed=34s rate=230.0/s
+   [face-codim 1] tested=8026 remaining=8488 elapsed=36s rate=225.1/s
+   [face-codim 1] tested=8226 remaining=8288 elapsed=37s rate=221.2/s
+   [face-codim 1] tested=8426 remaining=8088 elapsed=39s rate=217.3/s
+   [face-codim 1] tested=8626 remaining=7888 elapsed=41s rate=211.6/s
+   [face-codim 1] tested=8826 remaining=7688 elapsed=43s rate=206.5/s
+   [face-codim 1] tested=9026 remaining=7488 elapsed=45s rate=201.2/s
+   [face-codim 1] tested=9226 remaining=7288 elapsed=47s rate=197.9/s
+   [face-codim 1] tested=9426 remaining=7088 elapsed=51s rate=186.0/s
+   [face-codim 1] tested=9622 remaining=6892 elapsed=81s rate=119.2/s
+   [face-codim 1] tested=9822 remaining=6692 elapsed=100s rate=98.4/s
+   [face-codim 1] tested=10022 remaining=6492 elapsed=102s rate=98.3/s
+   [face-codim 1] tested=10222 remaining=6292 elapsed=104s rate=98.2/s
+   [face-codim 1] tested=10422 remaining=6092 elapsed=106s rate=98.2/s
+   [face-codim 1] tested=10622 remaining=5892 elapsed=119s rate=89.5/s
+   [face-codim 1] tested=10822 remaining=5692 elapsed=122s rate=88.6/s
+   [face-codim 1] tested=11022 remaining=5492 elapsed=124s rate=88.7/s
+   [face-codim 1] tested=11222 remaining=5292 elapsed=134s rate=84.0/s
+   [face-codim 1] tested=11422 remaining=5092 elapsed=135s rate=84.3/s
+   [face-codim 1] tested=11622 remaining=4892 elapsed=137s rate=84.6/s
+   [face-codim 1] tested=11822 remaining=4692 elapsed=139s rate=84.8/s
+   [face-codim 1] tested=12022 remaining=4492 elapsed=142s rate=84.9/s
+   [face-codim 1] tested=12222 remaining=4292 elapsed=144s rate=85.0/s
+   [face-codim 1] tested=12422 remaining=4092 elapsed=148s rate=83.7/s
+   [face-codim 1] tested=12622 remaining=3892 elapsed=158s rate=79.9/s
+   [face-codim 1] tested=12822 remaining=3692 elapsed=160s rate=80.0/s

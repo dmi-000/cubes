@@ -51,4 +51,4 @@ GATES: ALL PASS
 -- I: 5(I-orbit, proper-frame-verified)+free  best=681 family=A quat=(2, 1, 1, 1)
 -- C5: 5(C5-orbit)+free  best=681 quat=(1, 0, 0, 0) (NOTE: small probe grid -- see report Sec "honest limits")
 
-Report written to /Users/dmi/carroll/symmetry_search_report.md
+Report written to ~/carroll/symmetry_search_report.md

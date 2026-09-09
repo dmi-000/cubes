@@ -9,7 +9,7 @@ A ZERO reading is only believable if the controls reproduce their known
 tangents, so every configuration with a verified tangent runs first.
 """
 import sys
-sys.path.insert(0, "/Users/dmi/cube-compounds")
+sys.path.insert(0, ".")
 import numpy as np
 from tight_set import quantities
 

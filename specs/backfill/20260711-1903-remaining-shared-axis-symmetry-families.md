@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Your complete brief is SYMMETRY_SEARCH_V3.md — read it and the files it lists (symmetry_search2.py, six_cube_search_results.md Postscripts 10–11 and the "11 addendum", README.md). REUSE symmetry_search2.py's validated build_blocks/orbit/O-dedup/dispatch/climber functions — do not rewrite them.
+Working directory: ~/carroll. Exact cube-compound region-counting project. Your complete brief is SYMMETRY_SEARCH_V3.md — read it and the files it lists (symmetry_search2.py, six_cube_search_results.md Postscripts 10–11 and the "11 addendum", README.md). REUSE symmetry_search2.py's validated build_blocks/orbit/O-dedup/dispatch/climber functions — do not rewrite them.
 
 Record to beat: 717 (D₂:4+free2). Two parts. Part A: full-quaternion sweep + deep climb of the rational families V2 never re-swept properly — C₄, D₄, D₆ (orbit-of-6 partitions incl. "core+free"), plus re-confirm D₃/T with full-quat free cubes. Part B (the main event): shared-axis "intersection" families — build the 6 cubes as a UNION of two orbits under DIFFERENT cyclic/dihedral groups about a COMMON axis (try (1,1,1), (0,0,1), (1,1,0)); partitions C₂⊕C₄, C₃⊕C₃, C₂⊕C₂⊕C₂, C₄⊕C₂, C₃⊕C₂+free, and the D₂-cluster+free+aligned template; full-quat seeds for free blocks, ~50 starts each + deep climb; vary which cubes are on-axis vs free vs aligned. Also test the true "intersection" reading: where a shared-axis pair generates a polyhedral group (e.g. C₂+C₃ → T), check whether forcing the full T/O/I orbit beats the looser union.
 

@@ -1,0 +1,55 @@
+
+[basin n=5 s0 #4 r1 iter 1] count 277  menu 12 dirs  height 98
+   boundary crossing -> 281  (ABOVE 277)
+   boundary crossing -> 285  (ABOVE 277)
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 9 distinct walls
+      cubes [0, 1, 3]        at 3.3908e-06   count outside 281
+      cubes [2, 3, 4]        at 6.7817e-06   count outside 273
+      cubes [1]              at 6.7817e-06   count outside 285
+      cubes [1, 2, 4]        at 1.3563e-05   count outside 281
+      cubes [0, 1]           at 2.0345e-05   count outside 281
+      cubes [2, 3]           at 2.7127e-05   count outside 273
+      cubes [2]              at 5.4253e-05   count outside 281
+      cubes []               at 9.4944e-05   count outside 273
+      cubes [0, 4]           at 0.00020345   count outside 269
+   NEW RECORD 285  height 2303  gate: both engines + 3 rotations agree
+   1,0,0,0;256,-171,-126,50;256,30,-49,-115;256,466,375,-269;256,-2303,-1025,-1057
+
+[basin n=5 s0 #4 r1 iter 2] count 285  menu 12 dirs  height 2303
+   boundary crossing -> 289  (ABOVE 285)
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 4 distinct walls
+      cubes [1, 2, 4]        at 1.0601e-07   count outside 281
+      cubes [0, 1, 3]        at 7.8447e-06   count outside 281
+      cubes [2, 3, 4]        at 9.1168e-06   count outside 281
+      cubes [1, 2, 3]        at 0.00016506   count outside 289
+   NEW RECORD 289  height 1161  gate: both engines + 3 rotations agree
+   1,0,0,0;128,-85,-63,24;128,10,-27,-60;128,239,191,-147;128,-1161,-519,-510
+
+[basin n=5 s0 #4 r1 iter 3] count 289  menu 12 dirs  height 1161
+   boundary crossing -> 293  (ABOVE 289)
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 6 distinct walls
+      cubes [0, 1, 2]        at 8.832e-06   count outside 293
+      cubes [1, 2, 3]        at 1.7243e-05   count outside 285
+      cubes [0, 1, 3]        at 2.944e-05   count outside 285
+      cubes [1, 3, 4]        at 3.68e-05   count outside 285
+      cubes [1, 2, 4]        at 3.8062e-05   count outside 285
+      cubes [2, 3, 4]        at 6.0141e-05   count outside 285
+   NEW RECORD 293  height 145  gate: both engines + 3 rotations agree
+   1,0,0,0;16,-11,-8,3;16,1,-3,-7;8,15,12,-9;16,-145,-65,-64
+
+[basin n=5 s0 #4 r1 iter 4] count 293  menu 12 dirs  height 145
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 1 distinct walls
+      cubes [0]              at 1.6837e-06   count outside 285
+   no crossing above the record; region is locally maximal OVER THE DIRECTIONS WALKED (not a proof — see facets.py for the saturation curve and vertex probes)
+   solved scan: 288 chambers along 24 lines, 0 UNEVALUATED, best 301 (from 293)
+
+[basin n=5 s0 #4 r2 iter 1] count 301  menu 12 dirs  height 14067
+   rays: 24 of 24 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 2 distinct walls
+      cubes []               at 6.7349e-06   count outside 285
+      cubes [0]              at 6.7349e-06   count outside 293
+   no crossing above the record; region is locally maximal OVER THE DIRECTIONS WALKED (not a proof — see facets.py for the saturation curve and vertex probes)

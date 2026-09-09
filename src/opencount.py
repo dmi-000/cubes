@@ -60,11 +60,11 @@ import time
 from fractions import Fraction as Fr
 from itertools import product as iproduct
 
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, os.path.expanduser('~/carroll'))
 from golden_rotations import Rot, rot_from_quat          # noqa: E402  (read-only reuse)
 from resonance4_solve import exact_count_field, rel_matrix_field, make_qd  # noqa: E402 (REUSE UNCHANGED)
 
-CARROLL = '/Users/dmi/carroll'
+CARROLL = os.path.expanduser('~/carroll')
 WL_DATA_PATH = f'{CARROLL}/opencount_wl_data.json'
 
 

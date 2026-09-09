@@ -9,8 +9,8 @@ import json, subprocess, sys
 from fractions import Fraction as F
 from math import gcd
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = "cube_regions_n"
+ENGW = "cube_regions_q2w"
 BASE = [(4,1,1,-1),(3,3,7,3),(5,-1,-5,-5),(2,1,1,1),(1,1,1,1)]
 C6 = (7,14,1,-5)
 C7 = (4,-3,-4,-4)

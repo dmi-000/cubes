@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Write `/Users/dmi/cube-compounds/exactlp.py`. Work in that directory. **Run the validation to completion in the FOREGROUND and report the numbers in your reply. Do not background the work and wait for a monitor — a status sentence is not a deliverable.**
+Write `exactlp.py`. Work in that directory. **Run the validation to completion in the FOREGROUND and report the numbers in your reply. Do not background the work and wait for a monitor — a status sentence is not a deliverable.**
 
 # THE PROBLEM
 
@@ -45,8 +45,8 @@ A drop-in replacement for `isolation67._fm`. It is HOMOGENEOUS and STRICT — de
 **1. Agreement on random instances.** Thousands of random rational systems: nv from 2 to 15, rows from 1 to 40, coefficient magnitudes varied. **Include many INFEASIBLE systems** — a suite of only feasible ones proves nothing. Both routines must agree on feasible/infeasible. Whenever yours returns a witness, verify it directly: every `c·y` must be exactly `> 0`.
 
 **2. Agreement on REAL decided candidates — the important one.** Two campaigns have checkpointed their decisions:
-   - `/Users/dmi/cube-compounds/ckpt_727/worker_*.jsonl` — **214 000+ records and GROWING; a campaign is actively writing there, so READ ONLY, never write or truncate**
-   - `/Users/dmi/cube-compounds/arrangement_ckpt_183/worker_*.jsonl` — ~12 900 records, static
+   - `ckpt_727/worker_*.jsonl` — **214 000+ records and GROWING; a campaign is actively writing there, so READ ONLY, never write or truncate**
+   - `arrangement_ckpt_183/worker_*.jsonl` — ~12 900 records, static
 
 Inspect the JSONL to learn the schema; `arrangement.py` wrote it (read `run_parallel` and the worker function). Reconstruct the systems and confirm your routine reproduces **every recorded decision**. Report how many were checked and how many disagreed. **One disagreement is a failure — report it with the offending system in full, do not average it away.**
 

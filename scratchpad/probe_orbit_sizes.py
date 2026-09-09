@@ -1,6 +1,6 @@
 import random
 import sys
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 import symmetry_search as ss
 
 rng = random.Random(123)

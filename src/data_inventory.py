@@ -26,9 +26,13 @@ import provenance
 from collections import OrderedDict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+# ROOT is the repository root: the .md documents stayed there when the code moved
+# into src/ on 2026-09-08 (MOVE_LOG.json).  Resolves correctly whether this file is
+# run from src/ or from the root, so it needs no further change if the layout moves.
+ROOT = os.path.dirname(HERE) if os.path.basename(HERE) == 'src' else HERE
 # ERE tail requiring the stem to sit inside a token ending in .json
 PATH_TAIL = "[^'\"[:space:]]*[.]json"
-OUT = os.path.join(HERE, 'DATA_INVENTORY.md')
+OUT = os.path.join(ROOT, 'DATA_INVENTORY.md')
 # '.claude' is editor/tool configuration, not run data; 'json/' and 'cb/' hold
 # older campaign output and are kept, since unlike the skipped dirs they are
 # results someone may still need to judge.
@@ -149,7 +153,7 @@ def main():
             unref.append(rel)
 
     man = ''
-    mp = os.path.join(HERE, 'DATA_MANIFEST.md')
+    mp = os.path.join(ROOT, 'DATA_MANIFEST.md')
     if os.path.exists(mp):
         man = open(mp).read()
     named = set(re.findall(r'`([A-Za-z0-9_/*]+\.json)`', man))

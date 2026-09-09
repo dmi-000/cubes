@@ -1,0 +1,17 @@
+{
+ "output": "dimension_gate.json",
+ "argv": [
+  "dimension_gate.py",
+  "2"
+ ],
+ "rerun": "python3 dimension_gate.py 2",
+ "script": "dimension_gate.py",
+ "script_sha1": "a6627630a66a89ecab8f5423204b708a4909b969",
+ "started": null,
+ "finished": "2026-08-17 19:16:22",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "retroactive": true,
+ "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
+ "note": "Q vs Q(sqrt2) port gate"
+}

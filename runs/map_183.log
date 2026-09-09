@@ -1,0 +1,14 @@
+    t   n=4   n=5 counts for five fifth cubes
+  0/10   183   [369, 183, 355, 359, 367]
+  1/10   125   [309, 125, 311, 303, 295]  << n=4 count leaves 183  << n=5 changes
+  2/10   103   [289, 103, 251, 281, 285]  << n=5 changes
+  3/10    93   [265, 93, 245, 263, 243]  << n=5 changes
+  4/10   133   [321, 133, 309, 295, 313]  << n=5 changes
+  5/10   139   [323, 139, 313, 323, 297]  << n=5 changes
+  6/10   125   [313, 125, 289, 299, 299]  << n=5 changes
+  7/10   113   [313, 113, 269, 271, 283]  << n=5 changes
+  8/10   137   [333, 137, 297, 283, 319]  << n=5 changes
+  9/10   137   [321, 137, 321, 289, 319]  << n=5 changes
+ 10/10   183   [363, 183, 371, 353, 375]  << n=4 count leaves 183  << n=5 changes
+
+183 throughout => one connected plateau; n=5 varying => extension depends on position.

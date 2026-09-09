@@ -1,0 +1,614 @@
+{
+ "what": "smallest vertex-to-vertex scale in the arrangement",
+ "edge_vs_pair": "shortest EDGE = two endpoints of one arc, so both are vertices of the regions that arc borders -- an UPPER bound on the closest two vertices of a region. closest PAIR = nearest two vertices anywhere, which need not share a region -- a LOWER bound. Equal means pinned.",
+ "scope": "level-graph vertices only: 0-cells on two-cube intersection curves. A cube corner free inside another cube is not enumerated.",
+ "exact": "squared distances are exact rationals; floats are display only",
+ "records": {
+  "4": {
+   "quats": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     3,
+     7,
+     3
+    ],
+    [
+     5,
+     -1,
+     -5,
+     -5
+    ],
+    [
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "shares_plane": false,
+   "levels": [
+    {
+     "level": 1,
+     "V": 150,
+     "E": 240,
+     "shortest_edge_sq": "832/1092025",
+     "shortest_edge": 0.027602306415035326,
+     "closest_pair_sq": "832/1092025",
+     "closest_pair": 0.027602306415035326,
+     "pinned": true
+    },
+    {
+     "level": 2,
+     "V": 128,
+     "E": 192,
+     "shortest_edge_sq": "2176/8673025",
+     "shortest_edge": 0.015839597676999117,
+     "closest_pair_sq": "2176/8673025",
+     "closest_pair": 0.015839597676999117,
+     "pinned": true
+    },
+    {
+     "level": 3,
+     "V": 44,
+     "E": 66,
+     "shortest_edge_sq": "7418944/10206858841",
+     "shortest_edge": 0.026960316865259244,
+     "closest_pair_sq": "7418944/10206858841",
+     "closest_pair": 0.026960316865259244,
+     "pinned": true
+    }
+   ]
+  },
+  "5": {
+   "quats": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     3,
+     7,
+     3
+    ],
+    [
+     5,
+     -1,
+     -5,
+     -5
+    ],
+    [
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "shares_plane": false,
+   "levels": [
+    {
+     "level": 1,
+     "V": 266,
+     "E": 420,
+     "shortest_edge_sq": "832/1092025",
+     "shortest_edge": 0.027602306415035326,
+     "closest_pair_sq": "832/1092025",
+     "closest_pair": 0.027602306415035326,
+     "pinned": true
+    },
+    {
+     "level": 2,
+     "V": 240,
+     "E": 366,
+     "shortest_edge_sq": "2176/8673025",
+     "shortest_edge": 0.015839597676999117,
+     "closest_pair_sq": "2176/8673025",
+     "closest_pair": 0.015839597676999117,
+     "pinned": true
+    },
+    {
+     "level": 3,
+     "V": 140,
+     "E": 216,
+     "shortest_edge_sq": "7418944/10206858841",
+     "shortest_edge": 0.026960316865259244,
+     "closest_pair_sq": "7418944/10206858841",
+     "closest_pair": 0.026960316865259244,
+     "pinned": true
+    },
+    {
+     "level": 4,
+     "V": 50,
+     "E": 78,
+     "shortest_edge_sq": "2501/353780",
+     "shortest_edge": 0.08407951678131098,
+     "closest_pair_sq": "2501/353780",
+     "closest_pair": 0.08407951678131098,
+     "pinned": true
+    }
+   ]
+  },
+  "6": {
+   "quats": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     3,
+     7,
+     3
+    ],
+    [
+     5,
+     -1,
+     -5,
+     -5
+    ],
+    [
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     7,
+     14,
+     1,
+     -5
+    ]
+   ],
+   "shares_plane": false,
+   "levels": [
+    {
+     "level": 1,
+     "V": 432,
+     "E": 644,
+     "shortest_edge_sq": "14382765/301204490041",
+     "shortest_edge": 0.006910197681304761,
+     "closest_pair_sq": "14382765/301204490041",
+     "closest_pair": 0.006910197681304761,
+     "pinned": true
+    },
+    {
+     "level": 2,
+     "V": 420,
+     "E": 638,
+     "shortest_edge_sq": "659321/3989940800",
+     "shortest_edge": 0.012854797165393117,
+     "closest_pair_sq": "659321/3989940800",
+     "closest_pair": 0.012854797165393117,
+     "pinned": true
+    },
+    {
+     "level": 3,
+     "V": 296,
+     "E": 450,
+     "shortest_edge_sq": "91936/1918702809",
+     "shortest_edge": 0.006922117173069325,
+     "closest_pair_sq": "91936/1918702809",
+     "closest_pair": 0.006922117173069325,
+     "pinned": true
+    },
+    {
+     "level": 4,
+     "V": 186,
+     "E": 284,
+     "shortest_edge_sq": "1198717/4793762169",
+     "shortest_edge": 0.015813211891008306,
+     "closest_pair_sq": "1198717/4793762169",
+     "closest_pair": 0.015813211891008306,
+     "pinned": true
+    },
+    {
+     "level": 5,
+     "V": 66,
+     "E": 100,
+     "shortest_edge_sq": "881289/800380681",
+     "shortest_edge": 0.03318263546244825,
+     "closest_pair_sq": "881289/800380681",
+     "closest_pair": 0.03318263546244825,
+     "pinned": true
+    }
+   ]
+  },
+  "7": {
+   "quats": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     3,
+     7,
+     3
+    ],
+    [
+     5,
+     -1,
+     -5,
+     -5
+    ],
+    [
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     7,
+     14,
+     1,
+     -5
+    ],
+    [
+     4,
+     -3,
+     -4,
+     -4
+    ]
+   ],
+   "shares_plane": false,
+   "levels": [
+    {
+     "level": 1,
+     "V": 622,
+     "E": 898,
+     "shortest_edge_sq": "1/206388",
+     "shortest_edge": 0.0022011912548620203,
+     "closest_pair_sq": "1/206388",
+     "closest_pair": 0.0022011912548620203,
+     "pinned": true
+    },
+    {
+     "level": 2,
+     "V": 628,
+     "E": 954,
+     "shortest_edge_sq": "538/17915625",
+     "shortest_edge": 0.005479931832312857,
+     "closest_pair_sq": "538/17915625",
+     "closest_pair": 0.005479931832312857,
+     "pinned": true
+    },
+    {
+     "level": 3,
+     "V": 506,
+     "E": 764,
+     "shortest_edge_sq": "964/824895841",
+     "shortest_edge": 0.0010810330208739266,
+     "closest_pair_sq": "964/824895841",
+     "closest_pair": 0.0010810330208739266,
+     "pinned": true
+    },
+    {
+     "level": 4,
+     "V": 366,
+     "E": 554,
+     "shortest_edge_sq": "2448025/351817432164",
+     "shortest_edge": 0.002637844843978124,
+     "closest_pair_sq": "2448025/351817432164",
+     "closest_pair": 0.002637844843978124,
+     "pinned": true
+    },
+    {
+     "level": 5,
+     "V": 226,
+     "E": 342,
+     "shortest_edge_sq": "13242125/4506381734976",
+     "shortest_edge": 0.0017142132694113804,
+     "closest_pair_sq": "13242125/4506381734976",
+     "closest_pair": 0.0017142132694113804,
+     "pinned": true
+    },
+    {
+     "level": 6,
+     "V": 78,
+     "E": 118,
+     "shortest_edge_sq": "121565/18237962304",
+     "shortest_edge": 0.0025817615009463167,
+     "closest_pair_sq": "121565/18237962304",
+     "closest_pair": 0.0025817615009463167,
+     "pinned": true
+    }
+   ]
+  },
+  "8": {
+   "quats": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     3,
+     7,
+     3
+    ],
+    [
+     5,
+     -1,
+     -5,
+     -5
+    ],
+    [
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     7,
+     14,
+     1,
+     -5
+    ],
+    [
+     4,
+     -3,
+     -4,
+     -4
+    ],
+    [
+     24,
+     -24,
+     24,
+     -61
+    ]
+   ],
+   "shares_plane": false,
+   "levels": [
+    {
+     "level": 1,
+     "V": 844,
+     "E": 1192,
+     "shortest_edge_sq": "1/206388",
+     "shortest_edge": 0.0022011912548620203,
+     "closest_pair_sq": "1/206388",
+     "closest_pair": 0.0022011912548620203,
+     "pinned": true
+    },
+    {
+     "level": 2,
+     "V": 874,
+     "E": 1326,
+     "shortest_edge_sq": "341236/32485376169",
+     "shortest_edge": 0.0032410331355975843,
+     "closest_pair_sq": "341236/32485376169",
+     "closest_pair": 0.0032410331355975843,
+     "pinned": true
+    },
+    {
+     "level": 3,
+     "V": 752,
+     "E": 1132,
+     "shortest_edge_sq": "964/824895841",
+     "shortest_edge": 0.0010810330208739266,
+     "closest_pair_sq": "964/824895841",
+     "closest_pair": 0.0010810330208739266,
+     "pinned": true
+    },
+    {
+     "level": 4,
+     "V": 592,
+     "E": 892,
+     "shortest_edge_sq": "2448025/351817432164",
+     "shortest_edge": 0.002637844843978124,
+     "closest_pair_sq": "2448025/351817432164",
+     "closest_pair": 0.002637844843978124,
+     "pinned": true
+    },
+    {
+     "level": 5,
+     "V": 432,
+     "E": 652,
+     "shortest_edge_sq": "13242125/4506381734976",
+     "shortest_edge": 0.0017142132694113804,
+     "closest_pair_sq": "13242125/4506381734976",
+     "closest_pair": 0.0017142132694113804,
+     "pinned": true
+    },
+    {
+     "level": 6,
+     "V": 264,
+     "E": 398,
+     "shortest_edge_sq": "121565/18237962304",
+     "shortest_edge": 0.0025817615009463167,
+     "closest_pair_sq": "121565/18237962304",
+     "closest_pair": 0.0025817615009463167,
+     "pinned": true
+    },
+    {
+     "level": 7,
+     "V": 90,
+     "E": 136,
+     "shortest_edge_sq": "5684/45495025",
+     "shortest_edge": 0.011177510348388889,
+     "closest_pair_sq": "5684/45495025",
+     "closest_pair": 0.011177510348388889,
+     "pinned": true
+    }
+   ]
+  },
+  "9": {
+   "quats": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     3,
+     7,
+     3
+    ],
+    [
+     5,
+     -1,
+     -5,
+     -5
+    ],
+    [
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     7,
+     14,
+     1,
+     -5
+    ],
+    [
+     4,
+     -3,
+     -4,
+     -4
+    ],
+    [
+     168,
+     -168,
+     168,
+     -415
+    ],
+    [
+     109,
+     -11,
+     91,
+     140
+    ]
+   ],
+   "shares_plane": false,
+   "levels": [
+    {
+     "level": 1,
+     "V": 1108,
+     "E": 1532,
+     "shortest_edge_sq": "3786845534682145/6091106774048112530704",
+     "shortest_edge": 0.0007884800131315472,
+     "closest_pair_sq": "3786845534682145/6091106774048112530704",
+     "closest_pair": 0.0007884800131315472,
+     "pinned": true
+    },
+    {
+     "level": 2,
+     "V": 1166,
+     "E": 1760,
+     "shortest_edge_sq": "41298729983563858248190081888237022237392/31638972339946085920279097392618502187628424241",
+     "shortest_edge": 0.0011425025125434017,
+     "closest_pair_sq": "41298729983563858248190081888237022237392/31638972339946085920279097392618502187628424241",
+     "closest_pair": 0.0011425025125434017,
+     "pinned": true
+    },
+    {
+     "level": 3,
+     "V": 1038,
+     "E": 1560,
+     "shortest_edge_sq": "2731655200/6619579939361601",
+     "shortest_edge": 0.0006423884509946972,
+     "closest_pair_sq": "2731655200/6619579939361601",
+     "closest_pair": 0.0006423884509946972,
+     "pinned": true
+    },
+    {
+     "level": 4,
+     "V": 856,
+     "E": 1288,
+     "shortest_edge_sq": "18125/365199036489",
+     "shortest_edge": 0.0002227789722585375,
+     "closest_pair_sq": "18125/365199036489",
+     "closest_pair": 0.0002227789722585375,
+     "pinned": true
+    },
+    {
+     "level": 5,
+     "V": 676,
+     "E": 1018,
+     "shortest_edge_sq": "503415518601932352/1079678498647319336308805",
+     "shortest_edge": 0.0006828354712079032,
+     "closest_pair_sq": "503415518601932352/1079678498647319336308805",
+     "closest_pair": 0.0006828354712079032,
+     "pinned": true
+    },
+    {
+     "level": 6,
+     "V": 498,
+     "E": 750,
+     "shortest_edge_sq": "304800412199859087454800/2718991440851209834429627263001",
+     "shortest_edge": 0.00033481418915523944,
+     "closest_pair_sq": "304800412199859087454800/2718991440851209834429627263001",
+     "closest_pair": 0.00033481418915523944,
+     "pinned": true
+    },
+    {
+     "level": 7,
+     "V": 302,
+     "E": 454,
+     "shortest_edge_sq": "21969404359316927136/63499299708551227751181125",
+     "shortest_edge": 0.0005881995301991543,
+     "closest_pair_sq": "21969404359316927136/63499299708551227751181125",
+     "closest_pair": 0.0005881995301991543,
+     "pinned": true
+    },
+    {
+     "level": 8,
+     "V": 102,
+     "E": 154,
+     "shortest_edge_sq": "1378196/2081093161",
+     "shortest_edge": 0.025734144281008394,
+     "closest_pair_sq": "1378196/2081093161",
+     "closest_pair": 0.025734144281008394,
+     "pinned": true
+    }
+   ]
+  }
+ }
+}

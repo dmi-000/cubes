@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: golden_wall_report.md + specs/QFIELD_SPEC.md. Project index: README.md
 """Golden five-cube compound + a RATIONAL sixth cube: does it beat/match/miss
 the six-all-rational-cube record of 635 bounded regions?
@@ -62,7 +63,7 @@ from certify_six import exact_count_config, rationalize
 from golden_rotations import Rot, rot_from_quat
 from six_cube_search import random_mats
 
-LOG_PATH = '/Users/dmi/carroll/golden_search.jsonl'
+LOG_PATH = os.path.expanduser('~/carroll/golden_search.jsonl')
 MAXC = 512          # |quaternion component| bound, matches exact_search.py's
                      # rationalize(..., N=512) convention (see certify_six.py)
 

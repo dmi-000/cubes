@@ -1,0 +1,28 @@
+[   0.4s] catalogue: 424 triple points
+[   9.5s] 192 rational W4 roots; own-multiplicity max 3, min 1
+[   9.5s] selected: [('terminus', '19/6', 'm_own=3'), ('high_m', '-68/15', 'm_own=3'), ('high_m', '-7/3', 'm_own=3'), ('high_m', '-133/66', 'm_own=3'), ('low_m', '79/15', 'm_own=1'), ('low_m', '-76/75', 'm_own=1'), ('low_m', '-19/21', 'm_own=1')]
+[   9.5s] terminus point s=19/6  m_own=3  triple point (Fraction(-11, 19), Fraction(-31, 19), Fraction(-1, 19))
+[  59.8s]    RULING i=0 sign=+1                 chambers=425   longest_run=86    (0.20) value=707
+[  74.8s]    RULING i=0 sign=+1                 chambers=160   longest_run=99    (0.62) value=725
+[ 106.4s]    RULING i=1 sign=+1                 chambers=271   longest_run=57    (0.21) value=715
+[ 120.8s]    RULING i=1 sign=+1                 chambers=160   longest_run=99    (0.62) value=725
+[ 244.0s]    control #0                         chambers=1148  longest_run=52    (0.05) value=703
+[ 395.1s]    control #1                         chambers=1472  longest_run=66    (0.04) value=697
+[ 539.2s]    control #2                         chambers=1457  longest_run=58    (0.04) value=689
+[ 539.3s] high_m point s=-68/15  m_own=3  triple point (Fraction(-5, 7), Fraction(11, 7), Fraction(1, 7))
+[ 896.9s]    RULING i=0 sign=+1                 chambers=3241  longest_run=61    (0.02) value=679
+[1198.6s]    RULING i=0 sign=+1                 chambers=3259  longest_run=54    (0.02) value=701
+[1500.3s]    RULING i=1 sign=-1                 chambers=3259  longest_run=54    (0.02) value=701
+[1898.6s]    RULING i=1 sign=-1                 chambers=3652  longest_run=50    (0.01) value=687
+[2209.2s]    control #0                         chambers=2770  longest_run=67    (0.02) value=691
+[2561.7s]    control #1                         chambers=3339  longest_run=66    (0.02) value=701
+[2900.2s]    control #2                         chambers=3034  longest_run=82    (0.03) value=679
+[2900.2s] budget reached
+[2900.2s] === SUMMARY: longest constant run as a fraction of chambers ===
+[2900.2s]   RULINGS   n=8   mean fraction=0.214  max=0.619
+[2900.2s]   controls  n=6   mean fraction=0.033  max=0.045
+[2900.2s]     terminus  ruling    n=4   mean=0.413
+[2900.2s]     terminus  control   n=3   mean=0.043
+[2900.2s]     high_m    ruling    n=4   mean=0.016
+[2900.2s]     high_m    control   n=3   mean=0.024
+[2900.2s] done, 14 measurements

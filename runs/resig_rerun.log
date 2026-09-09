@@ -1,0 +1,18 @@
+census: 3135491 rows in 20 files; re-signing a seeded sample of 3000
+(the `cfg` column was never void -- only `sig` -- so no search is repeated)
+
+1. PER-ENSEMBLE RICHNESS  (distinct signatures in this sample)
+   ensemble       broken corrected
+   axis               74        77
+   chain              47       114
+   haar                5         7
+   mixed              27        26
+   project            20        20
+   threeaxis         193       195
+   twoaxis           115       126
+
+2. DOES THE CORRECTED SIGNATURE PIN THE COUNT?
+   161 signatures seen >1 time; 6 pin the count exactly; median spread 22
+
+3. THE MOEBIUS-WEIGHT PREDICTOR  (was r=0.562, ordered 77.6%% -- both from broken planes)
+   corrected: r = -0.147, orders 1680/3320 = 50.6%  on 2997 configurations

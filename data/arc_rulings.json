@@ -1,0 +1,699 @@
+[
+ {
+  "chambers": 425,
+  "longest_run": 86,
+  "fraction": 0.2023529411764706,
+  "value": 707,
+  "direction": [
+   "365",
+   "-747",
+   "-1074"
+  ],
+  "line": "arcA_727",
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 727
+ },
+ {
+  "chambers": 160,
+  "longest_run": 99,
+  "fraction": 0.61875,
+  "value": 725,
+  "direction": [
+   "2",
+   "-3",
+   "-5"
+  ],
+  "line": "arcA_727",
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 727
+ },
+ {
+  "chambers": 271,
+  "longest_run": 57,
+  "fraction": 0.21033210332103322,
+  "value": 715,
+  "direction": [
+   "507",
+   "-1093",
+   "-2018"
+  ],
+  "line": "arcA_727",
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 727
+ },
+ {
+  "chambers": 160,
+  "longest_run": 99,
+  "fraction": 0.61875,
+  "value": 725,
+  "direction": [
+   "2",
+   "-3",
+   "-5"
+  ],
+  "line": "arcA_727",
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 727
+ },
+ {
+  "chambers": 2152,
+  "longest_run": 70,
+  "fraction": 0.032527881040892194,
+  "value": 687,
+  "direction": [
+   "2",
+   "-2",
+   "3"
+  ],
+  "line": "arcA_727",
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 727
+ },
+ {
+  "chambers": 2070,
+  "longest_run": 65,
+  "fraction": 0.03140096618357488,
+  "value": 687,
+  "direction": [
+   "4",
+   "-3",
+   "2"
+  ],
+  "line": "arcA_727",
+  "kind": "terminus",
+  "s": "19/6",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 727
+ },
+ {
+  "chambers": 1980,
+  "longest_run": 78,
+  "fraction": 0.03939393939393939,
+  "value": 695,
+  "direction": [
+   "5",
+   "2",
+   "0"
+  ],
+  "line": "arcA_727",
+  "kind": "ordinary",
+  "s": "4826/2073",
+  "m_own": 1,
+  "is_ruling": false,
+  "record": 727
+ },
+ {
+  "chambers": 1548,
+  "longest_run": 52,
+  "fraction": 0.03359173126614987,
+  "value": 695,
+  "direction": [
+   "1",
+   "2",
+   "5"
+  ],
+  "line": "arcA_727",
+  "kind": "ordinary",
+  "s": "4826/2073",
+  "m_own": 1,
+  "is_ruling": false,
+  "record": 727
+ },
+ {
+  "chambers": 669,
+  "longest_run": 46,
+  "fraction": 0.0687593423019432,
+  "value": 695,
+  "direction": [
+   "4",
+   "-5",
+   "-10"
+  ],
+  "line": "arcA_727",
+  "kind": "ordinary",
+  "s": "38/21",
+  "m_own": 1,
+  "is_ruling": true,
+  "record": 727
+ },
+ {
+  "chambers": 597,
+  "longest_run": 33,
+  "fraction": 0.05527638190954774,
+  "value": 681,
+  "direction": [
+   "4665",
+   "-6456",
+   "-11729"
+  ],
+  "line": "arcA_727",
+  "kind": "ordinary",
+  "s": "38/21",
+  "m_own": 1,
+  "is_ruling": true,
+  "record": 727
+ },
+ {
+  "chambers": 2057,
+  "longest_run": 73,
+  "fraction": 0.03548857559552747,
+  "value": 685,
+  "direction": [
+   "6",
+   "-1",
+   "-2"
+  ],
+  "line": "arcA_727",
+  "kind": "ordinary",
+  "s": "38/21",
+  "m_own": 1,
+  "is_ruling": false,
+  "record": 727
+ },
+ {
+  "chambers": 2309,
+  "longest_run": 97,
+  "fraction": 0.042009527934170635,
+  "value": 687,
+  "direction": [
+   "2",
+   "-1",
+   "-1"
+  ],
+  "line": "arcA_727",
+  "kind": "ordinary",
+  "s": "38/21",
+  "m_own": 1,
+  "is_ruling": false,
+  "record": 727
+ },
+ {
+  "chambers": 962,
+  "longest_run": 41,
+  "fraction": 0.04261954261954262,
+  "value": 699,
+  "direction": [
+   "1",
+   "1",
+   "1"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-5",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 3887,
+  "longest_run": 114,
+  "fraction": 0.029328531000771804,
+  "value": 697,
+  "direction": [
+   "13",
+   "10",
+   "15"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-5",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 3887,
+  "longest_run": 114,
+  "fraction": 0.029328531000771804,
+  "value": 697,
+  "direction": [
+   "15",
+   "13",
+   "10"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-5",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 962,
+  "longest_run": 41,
+  "fraction": 0.04261954261954262,
+  "value": 699,
+  "direction": [
+   "1",
+   "1",
+   "1"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-5",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 3301,
+  "longest_run": 105,
+  "fraction": 0.03180854286579824,
+  "value": 693,
+  "direction": [
+   "5",
+   "-2",
+   "-1"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-5",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 723
+ },
+ {
+  "chambers": 3903,
+  "longest_run": 56,
+  "fraction": 0.014347937483986677,
+  "value": 683,
+  "direction": [
+   "0",
+   "1",
+   "-1"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-5",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 723
+ },
+ {
+  "chambers": 907,
+  "longest_run": 41,
+  "fraction": 0.04520396912899669,
+  "value": 699,
+  "direction": [
+   "1",
+   "1",
+   "1"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-7/2",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 4357,
+  "longest_run": 67,
+  "fraction": 0.015377553362405325,
+  "value": 677,
+  "direction": [
+   "53",
+   "35",
+   "63"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-7/2",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 4357,
+  "longest_run": 67,
+  "fraction": 0.015377553362405325,
+  "value": 677,
+  "direction": [
+   "63",
+   "53",
+   "35"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-7/2",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 907,
+  "longest_run": 41,
+  "fraction": 0.04520396912899669,
+  "value": 699,
+  "direction": [
+   "1",
+   "1",
+   "1"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-7/2",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 4273,
+  "longest_run": 66,
+  "fraction": 0.015445822607067634,
+  "value": 687,
+  "direction": [
+   "6",
+   "-5",
+   "0"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-7/2",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 723
+ },
+ {
+  "chambers": 4376,
+  "longest_run": 76,
+  "fraction": 0.01736745886654479,
+  "value": 691,
+  "direction": [
+   "6",
+   "5",
+   "-3"
+  ],
+  "line": "loop723",
+  "kind": "terminus",
+  "s": "-7/2",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 723
+ },
+ {
+  "chambers": 872,
+  "longest_run": 41,
+  "fraction": 0.047018348623853214,
+  "value": 699,
+  "direction": [
+   "1",
+   "1",
+   "1"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-3",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 2715,
+  "longest_run": 34,
+  "fraction": 0.012523020257826888,
+  "value": 597,
+  "direction": [
+   "5",
+   "3",
+   "6"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-3",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 2715,
+  "longest_run": 34,
+  "fraction": 0.012523020257826888,
+  "value": 597,
+  "direction": [
+   "6",
+   "5",
+   "3"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-3",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 872,
+  "longest_run": 41,
+  "fraction": 0.047018348623853214,
+  "value": 699,
+  "direction": [
+   "1",
+   "1",
+   "1"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-3",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 4022,
+  "longest_run": 73,
+  "fraction": 0.018150174042764793,
+  "value": 683,
+  "direction": [
+   "5",
+   "0",
+   "6"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-3",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 723
+ },
+ {
+  "chambers": 3898,
+  "longest_run": 75,
+  "fraction": 0.019240636223704463,
+  "value": 683,
+  "direction": [
+   "0",
+   "1",
+   "4"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-3",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 723
+ },
+ {
+  "chambers": 1003,
+  "longest_run": 30,
+  "fraction": 0.02991026919242273,
+  "value": 723,
+  "direction": [
+   "1",
+   "1",
+   "1"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-25/7",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 4330,
+  "longest_run": 66,
+  "fraction": 0.015242494226327945,
+  "value": 677,
+  "direction": [
+   "337",
+   "225",
+   "400"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-25/7",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 4330,
+  "longest_run": 66,
+  "fraction": 0.015242494226327945,
+  "value": 677,
+  "direction": [
+   "400",
+   "337",
+   "225"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-25/7",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 1003,
+  "longest_run": 30,
+  "fraction": 0.02991026919242273,
+  "value": 723,
+  "direction": [
+   "1",
+   "1",
+   "1"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-25/7",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 723
+ },
+ {
+  "chambers": 4292,
+  "longest_run": 93,
+  "fraction": 0.021668219944082013,
+  "value": 687,
+  "direction": [
+   "2",
+   "-3",
+   "-2"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-25/7",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 723
+ },
+ {
+  "chambers": 4292,
+  "longest_run": 93,
+  "fraction": 0.021668219944082013,
+  "value": 687,
+  "direction": [
+   "2",
+   "-3",
+   "-2"
+  ],
+  "line": "loop723",
+  "kind": "ordinary",
+  "s": "-25/7",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 723
+ },
+ {
+  "chambers": 4144,
+  "longest_run": 55,
+  "fraction": 0.013272200772200772,
+  "value": 1213,
+  "direction": [
+   "1",
+   "0",
+   "0"
+  ],
+  "line": "n7_1217",
+  "kind": "ordinary",
+  "s": "-227/2156",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 1217
+ },
+ {
+  "chambers": 4144,
+  "longest_run": 55,
+  "fraction": 0.013272200772200772,
+  "value": 1213,
+  "direction": [
+   "1",
+   "0",
+   "0"
+  ],
+  "line": "n7_1217",
+  "kind": "ordinary",
+  "s": "-227/2156",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 1217
+ },
+ {
+  "chambers": 6978,
+  "longest_run": 19,
+  "fraction": 0.0027228432215534535,
+  "value": 1189,
+  "direction": [
+   "500",
+   "539",
+   "39"
+  ],
+  "line": "n7_1217",
+  "kind": "ordinary",
+  "s": "-227/2156",
+  "m_own": 3,
+  "is_ruling": true,
+  "record": 1217
+ },
+ {
+  "chambers": 7826,
+  "longest_run": 95,
+  "fraction": 0.012139023766930743,
+  "value": 1181,
+  "direction": [
+   "1",
+   "2",
+   "1"
+  ],
+  "line": "n7_1217",
+  "kind": "ordinary",
+  "s": "-227/2156",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 1217
+ },
+ {
+  "chambers": 7131,
+  "longest_run": 82,
+  "fraction": 0.011499088486888234,
+  "value": 1179,
+  "direction": [
+   "1",
+   "0",
+   "-2"
+  ],
+  "line": "n7_1217",
+  "kind": "ordinary",
+  "s": "-227/2156",
+  "m_own": 3,
+  "is_ruling": false,
+  "record": 1217
+ }
+]

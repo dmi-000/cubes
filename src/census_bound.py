@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: specs/CENSUS_BOUND_SPEC.md. Project index: README.md / PROOF_67.md sect.5,5.1
 """(bound) FEASIBILITY-FIRST investigation of (*) Sigma_v(deg_v-2) <= 92 on
 the n=3 TOP-1 diagram (equivalently d1 <= 48, the sole remaining gap in
@@ -489,7 +490,7 @@ def main():
     ap.add_argument('--procs', type=int, default=4)
     ap.add_argument('--pilot', action='store_true')
     ap.add_argument('--all', action='store_true')
-    ap.add_argument('--out', default='/Users/dmi/carroll/census_bound_log.json')
+    ap.add_argument('--out', default=os.path.expanduser('~/carroll/census_bound_log.json'))
     args = ap.parse_args()
 
     log = {}

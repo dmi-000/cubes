@@ -1,0 +1,9 @@
+base variant 1
+base: 3 fixed cubes, target n=4 record 183
+  cube 0: 23 planes, 96 quadrics
+  cube 1: 24 planes, 96 quadrics
+  cube 2: 24 planes, 96 quadrics
+systems 159840 -> 209 fields, 51892 candidate configs
+
+n=4: counted 25900 irrational configs, rejected 25992; best (173, 281, ((4, 0), (-53, -3), (-34, -2), (91, 5)))
+record is 183 -> irrational strata fall short of it

@@ -30,4 +30,4 @@
   golden best=681 quat=(2, 1, 1, 1) (717s, 350 evals)
 
 Total wall time: 1060s
-Report -> /Users/dmi/carroll/symmetry_search_report2.md
+Report -> ~/carroll/symmetry_search_report2.md

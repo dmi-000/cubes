@@ -1,0 +1,7 @@
+full statistic: 0.1771 s each  (a count is 0.047 s)
+  orders 60/76 = 78.9%
+
+  sample   30%: 0.0549 s each (1.2x a count)  orders  52/ 79 = 65.8%
+  sample   15%: 0.0320 s each (0.7x a count)  orders  47/ 77 = 61.0%
+  sample    8%: 0.0185 s each (0.4x a count)  orders  40/ 71 = 56.3%
+  sample    4%: 0.0162 s each (0.3x a count)  orders  44/ 74 = 59.5%

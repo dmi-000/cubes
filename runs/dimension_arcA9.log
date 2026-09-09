@@ -1,0 +1,6 @@
+arcA: count 727 | 192 tight (0 degenerate, 2598 loose) | full null dim 2
+   conditions: 0 BINDING (delta != 0), 0 inert (delta = 0), 192 entangled/unevaluable (kept)
+   binding rank 13 of 15 -> candidate dim 2
+   second order: 132 quadratics -> 1 common rational tangent direction(s)
+arcA: candidate dim 2, VERIFIED 1 independent count-preserving directions
+

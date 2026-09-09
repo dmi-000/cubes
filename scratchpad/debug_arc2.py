@@ -1,5 +1,5 @@
 import sys, math
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 from fractions import Fraction as Fr
 from census_extract import *
 from slide3_q2 import Q2

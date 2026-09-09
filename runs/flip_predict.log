@@ -1,0 +1,13 @@
+t= 0/12  outer V  1126  distinct r^2  438  n=10 3925
+t= 4/12  outer V  1126  distinct r^2  438  n=10 3925
+t= 5/12  outer V  1126  distinct r^2  438  n=10 3921
+t=11/12  outer V  1126  distinct r^2  438  n=10 3921
+t=12/12  outer V  1108  distinct r^2  428  n=10 3921
+
+signature t=0 vs t=4  (both 3925) : DIFFER
+signature t=4 vs t=5  (ACROSS FLIP): DIFFER
+signature t=5 vs t=11 (both 3921) : DIFFER
+signature t=11 vs t=12 (endpoint)  : DIFFER
+
+DIFFER across the flip and SAME within each side => radii signature PREDICTS it.
+SAME across the flip => no n=9 invariant tested resolves the n=10 change.

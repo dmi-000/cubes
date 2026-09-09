@@ -1,0 +1,24 @@
+KNOWN configurations and their constraint signatures:
+  n=4 record 183     count 183   signature ((4, 96), (6, 8), (9, 2))
+  shared-axis 161    count 161   signature ((4, 122), (6, 2), (8, 2))
+
+43 distinct signatures over 120 configurations
+
+DOES A SIGNATURE DETERMINE THE COUNT?  (groups with >1 member)
+  n=33  counts   83..127  spread  44   sig ()
+  n=19  counts   97..125  spread  28   sig ((4, 12),)
+  n=8   counts  109..141  spread  32   sig ((4, 36),)
+  n=7   counts  113..149  spread  36   sig ((4, 48),)
+  n=5   counts  107..139  spread  32   sig ((4, 24),)
+  n=4   counts  113..141  spread  28   sig ((4, 46),)
+  n=3   counts  129..137  spread   8   sig ((4, 34),)
+  n=2   counts  127..133  spread   6   sig ((4, 40), (5, 2))
+  -> 0 of 12 repeated signatures pin the count exactly
+
+SIGNATURES SEEN, ranked by best count -- the top ones are where to look next
+  best  157  (n= 1)  ((4, 74), (6, 4))
+  best  153  (n= 1)  ((4, 58), (5, 2), (6, 2))
+  best  149  (n= 7)  ((4, 48),)
+  best  147  (n= 1)  ((4, 60), (6, 2))
+  best  145  (n= 1)  ((4, 58), (5, 4), (6, 4))
+  best  145  (n= 1)  ((4, 42), (5, 2))

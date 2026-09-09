@@ -1,0 +1,153 @@
+G menu tier1 (|comp|<=3): 1120 rotations
+generating clique candidates for sizes [2, 3, 4, 5] ...
+  size=2: 848 candidates, best standalone total=13
+  size=3: 348 candidates, best standalone total=63
+  size=4: 120 candidates, best standalone total=175
+  size=5: 70 candidates, best standalone total=335
+coarse G menu size (this run): 400
+
+=== cell n=4 sizes=(3,1) (348x0 clique cands) ===
+  [12s] n=4 sizes=(3,1) coarse: 2000/3200 done, best=175 (record 183)
+  [21s] n=4 sizes=(3,1) coarse: 3200/3200 done, best=175 (record 183)
+
+=== cell n=4 sizes=(2,2) (848x848 clique cands) ===
+  [10s] n=4 sizes=(2,2) coarse: 2000/25600 done, best=171 (record 183)
+  [21s] n=4 sizes=(2,2) coarse: 4000/25600 done, best=171 (record 183)
+  [30s] n=4 sizes=(2,2) coarse: 6000/25600 done, best=171 (record 183)
+  [38s] n=4 sizes=(2,2) coarse: 8000/25600 done, best=171 (record 183)
+  [45s] n=4 sizes=(2,2) coarse: 10000/25600 done, best=171 (record 183)
+  [53s] n=4 sizes=(2,2) coarse: 12000/25600 done, best=171 (record 183)
+  [61s] n=4 sizes=(2,2) coarse: 14000/25600 done, best=171 (record 183)
+  [68s] n=4 sizes=(2,2) coarse: 16000/25600 done, best=171 (record 183)
+  [76s] n=4 sizes=(2,2) coarse: 18000/25600 done, best=171 (record 183)
+  [85s] n=4 sizes=(2,2) coarse: 20000/25600 done, best=171 (record 183)
+  [91s] n=4 sizes=(2,2) coarse: 22000/25600 done, best=171 (record 183)
+  [100s] n=4 sizes=(2,2) coarse: 24000/25600 done, best=171 (record 183)
+  [106s] n=4 sizes=(2,2) coarse: 25600/25600 done, best=171 (record 183)
+
+=== cell n=5 sizes=(4,1) (120x0 clique cands) ===
+  [25s] n=5 sizes=(4,1) coarse: 2000/3200 done, best=379 (record 393)
+  [46s] n=5 sizes=(4,1) coarse: 3200/3200 done, best=379 (record 393)
+
+=== cell n=5 sizes=(3,2) (348x848 clique cands) ===
+  [28s] n=5 sizes=(3,2) coarse: 2000/25600 done, best=373 (record 393)
+  [54s] n=5 sizes=(3,2) coarse: 4000/25600 done, best=373 (record 393)
+  [80s] n=5 sizes=(3,2) coarse: 6000/25600 done, best=373 (record 393)
+  [113s] n=5 sizes=(3,2) coarse: 8000/25600 done, best=373 (record 393)
+  [144s] n=5 sizes=(3,2) coarse: 10000/25600 done, best=373 (record 393)
+  [175s] n=5 sizes=(3,2) coarse: 12000/25600 done, best=373 (record 393)
+  [208s] n=5 sizes=(3,2) coarse: 14000/25600 done, best=373 (record 393)
+  [236s] n=5 sizes=(3,2) coarse: 16000/25600 done, best=373 (record 393)
+  [268s] n=5 sizes=(3,2) coarse: 18000/25600 done, best=377 (record 393)
+  [299s] n=5 sizes=(3,2) coarse: 20000/25600 done, best=377 (record 393)
+  [328s] n=5 sizes=(3,2) coarse: 22000/25600 done, best=377 (record 393)
+  [361s] n=5 sizes=(3,2) coarse: 24000/25600 done, best=377 (record 393)
+  [388s] n=5 sizes=(3,2) coarse: 25600/25600 done, best=377 (record 393)
+
+=== cell n=6 sizes=(5,1) (70x0 clique cands) ===
+  [92s] n=6 sizes=(5,1) coarse: 2000/3200 done, best=663 (record 723)
+  [156s] n=6 sizes=(5,1) coarse: 3200/3200 done, best=663 (record 723)
+
+=== cell n=6 sizes=(4,2) (120x848 clique cands) ===
+  [68s] n=6 sizes=(4,2) coarse: 2000/25600 done, best=709 (record 723)
+  [126s] n=6 sizes=(4,2) coarse: 4000/25600 done, best=709 (record 723)
+  [184s] n=6 sizes=(4,2) coarse: 6000/25600 done, best=709 (record 723)
+  [250s] n=6 sizes=(4,2) coarse: 8000/25600 done, best=709 (record 723)
+  [326s] n=6 sizes=(4,2) coarse: 10000/25600 done, best=709 (record 723)
+  [435s] n=6 sizes=(4,2) coarse: 12000/25600 done, best=709 (record 723)
+  [553s] n=6 sizes=(4,2) coarse: 14000/25600 done, best=709 (record 723)
+  [645s] n=6 sizes=(4,2) coarse: 16000/25600 done, best=709 (record 723)
+  [732s] n=6 sizes=(4,2) coarse: 18000/25600 done, best=709 (record 723)
+  [836s] n=6 sizes=(4,2) coarse: 20000/25600 done, best=709 (record 723)
+  [922s] n=6 sizes=(4,2) coarse: 22000/25600 done, best=709 (record 723)
+  [1005s] n=6 sizes=(4,2) coarse: 24000/25600 done, best=709 (record 723)
+  [1071s] n=6 sizes=(4,2) coarse: 25600/25600 done, best=709 (record 723)
+
+=== cell n=6 sizes=(3,3) (348x348 clique cands) ===
+  [65s] n=6 sizes=(3,3) coarse: 2000/25600 done, best=711 (record 723)
+  [128s] n=6 sizes=(3,3) coarse: 4000/25600 done, best=711 (record 723)
+  [175s] n=6 sizes=(3,3) coarse: 6000/25600 done, best=711 (record 723)
+  [235s] n=6 sizes=(3,3) coarse: 8000/25600 done, best=711 (record 723)
+  [282s] n=6 sizes=(3,3) coarse: 10000/25600 done, best=711 (record 723)
+  [339s] n=6 sizes=(3,3) coarse: 12000/25600 done, best=711 (record 723)
+  [402s] n=6 sizes=(3,3) coarse: 14000/25600 done, best=711 (record 723)
+  [435s] n=6 sizes=(3,3) coarse: 16000/25600 done, best=711 (record 723)
+  [497s] n=6 sizes=(3,3) coarse: 18000/25600 done, best=711 (record 723)
+  [560s] n=6 sizes=(3,3) coarse: 20000/25600 done, best=711 (record 723)
+  [609s] n=6 sizes=(3,3) coarse: 22000/25600 done, best=711 (record 723)
+  [704s] n=6 sizes=(3,3) coarse: 24000/25600 done, best=711 (record 723)
+  [767s] n=6 sizes=(3,3) coarse: 25600/25600 done, best=711 (record 723)
+
+widen G menu (|comp|<=4): 2928 rotations
+
+=== widen+hillclimb n=4 sizes=(3,1), 3 restart(s), incumbent=175 ===
+  restart 0 (start=175) after widen: best=175
+  hillclimb n=4 (3,1) round 1: best=175 improved=False
+  restart 1 (start=175) after widen: best=175
+  hillclimb n=4 (3,1) round 1: best=175 improved=False
+  restart 2 (start=173) after widen: best=175
+  hillclimb n=4 (3,1) round 1: best=175 improved=False
+
+=== widen+hillclimb n=4 sizes=(2,2), 3 restart(s), incumbent=171 ===
+  restart 0 (start=171) after widen: best=171
+  hillclimb n=4 (2,2) round 1: best=171 improved=False
+  restart 1 (start=171) after widen: best=171
+  hillclimb n=4 (2,2) round 1: best=171 improved=False
+  restart 2 (start=171) after widen: best=171
+  hillclimb n=4 (2,2) round 1: best=171 improved=False
+
+=== widen+hillclimb n=5 sizes=(4,1), 3 restart(s), incumbent=379 ===
+  restart 0 (start=379) after widen: best=381
+  hillclimb n=5 (4,1) round 1: best=381 improved=False
+  restart 1 (start=379) after widen: best=381
+  hillclimb n=5 (4,1) round 1: best=381 improved=False
+  restart 2 (start=379) after widen: best=381
+  hillclimb n=5 (4,1) round 1: best=381 improved=False
+
+=== widen+hillclimb n=5 sizes=(3,2), 3 restart(s), incumbent=377 ===
+  restart 0 (start=377) after widen: best=377
+  hillclimb n=5 (3,2) round 1: best=377 improved=False
+  restart 1 (start=377) after widen: best=381
+  hillclimb n=5 (3,2) round 1: best=381 improved=False
+  restart 2 (start=373) after widen: best=381
+  hillclimb n=5 (3,2) round 1: best=381 improved=False
+
+=== widen+hillclimb n=6 sizes=(5,1), 3 restart(s), incumbent=663 ===
+  restart 0 (start=663) after widen: best=663
+  hillclimb n=6 (5,1) round 1: best=663 improved=False
+  restart 1 (start=663) after widen: best=663
+  hillclimb n=6 (5,1) round 1: best=663 improved=False
+  restart 2 (start=663) after widen: best=663
+  hillclimb n=6 (5,1) round 1: best=663 improved=False
+
+=== widen+hillclimb n=6 sizes=(4,2), 3 restart(s), incumbent=709 ===
+  restart 0 (start=709) after widen: best=713
+  hillclimb n=6 (4,2) round 1: best=713 improved=False
+  restart 1 (start=709) after widen: best=713
+  hillclimb n=6 (4,2) round 1: best=713 improved=False
+  restart 2 (start=709) after widen: best=713
+  hillclimb n=6 (4,2) round 1: best=713 improved=False
+
+=== widen+hillclimb n=6 sizes=(3,3), 3 restart(s), incumbent=711 ===
+  restart 0 (start=711) after widen: best=711
+  hillclimb n=6 (3,3) round 1: best=711 improved=False
+  restart 1 (start=711) after widen: best=711
+  hillclimb n=6 (3,3) round 1: best=711 improved=False
+  restart 2 (start=711) after widen: best=711
+  hillclimb n=6 (3,3) round 1: best=711 improved=False
+
+=== SWEEP DONE. Best per cell: ===
+  n=4 sizes=(2,2): best=171  record=183  
+    quats=[[1, 0, 0, 0], [7, 3, 4, 0], [1, 2, 2, 2], [-7, 12, 25, 12]]  by_depth={1: 88, 2: 58, 3: 24, 4: 1}
+  n=4 sizes=(3,1): best=175  record=183  
+    quats=[[1, 0, 0, 0], [7, 3, 4, 0], [12, 21, 28, 0], [1, 2, 2, 2]]  by_depth={1: 88, 2: 62, 3: 24, 4: 1}
+  n=5 sizes=(3,2): best=381  record=393  
+    quats=[[1, 0, 0, 0], [45, 28, 21, 0], [80, 252, 189, 0], [2, -2, 2, 1], [12, -12, 25, -7]]  by_depth={1: 142, 2: 128, 3: 80, 4: 30, 5: 1}
+  n=5 sizes=(4,1): best=381  record=393  
+    quats=[[1, 0, 0, 0], [7, 3, 4, 0], [12, 21, 28, 0], [-91, 183, 244, 0], [0, -2, 4, 3]]  by_depth={1: 140, 2: 130, 3: 80, 4: 30, 5: 1}
+  n=6 sizes=(3,3): best=711  record=723  
+    quats=[[1, 0, 0, 0], [7, 3, 4, 0], [12, 21, 28, 0], [3, 0, -1, 2], [25, 1, 11, 17], [64, 7, 114, 45]]  by_depth={1: 186, 2: 222, 3: 164, 4: 102, 5: 36, 6: 1}
+  n=6 sizes=(4,2): best=713  record=723  
+    quats=[[1, 0, 0, 0], [7, 3, 4, 0], [12, 21, 28, 0], [-91, 183, 244, 0], [0, -2, 4, 3], [-10, -26, 37, 1]]  by_depth={1: 206, 2: 210, 3: 160, 4: 100, 5: 36, 6: 1}
+  n=6 sizes=(5,1): best=663  record=723  
+    quats=[[1, 0, 0, 0], [15, 6, 8, 0], [25, 36, 48, 0], [-45, 138, 184, 0], [119, -72, -96, 0], [3, 0, -1, -2]]  by_depth={1: 168, 2: 204, 3: 152, 4: 102, 5: 36, 6: 1}

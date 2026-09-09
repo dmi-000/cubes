@@ -1,0 +1,3 @@
+      908 polynomials built (seed sized per chart)
+C  s=2          cube (58, 606, -764, 1117)  h=1117   count 727   GATE OK | 20 walls | lineality 2 | variety nonempty 2
+written data/arc_node_map.json

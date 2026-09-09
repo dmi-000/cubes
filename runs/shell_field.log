@@ -1,0 +1,5 @@
+d=2:  3940 counted,  520 EVEN (13.20%)  even values [16, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
+d=5:  3931 counted,  507 EVEN (12.90%)  even values [18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
+
+Q(sqrt5) even rate / Q(sqrt2) even rate = 0.98
+field hypothesis predicts >> 1; null predicts ~1

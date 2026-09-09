@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Execute /Users/dmi/carroll/OPENCOUNT_SPEC.md — exactly count the ~160 open n=4 resonance candidates that resonance4 left uncounted (degree-4 nested-radical fields), settling whether any irrational n=4 family resonance reaches the record 183. Working directory /Users/dmi/carroll. Read the spec first; it is self-contained and names the six documented candidate classes plus the bulk unparsed set, with exact tan ψ minimal polynomials.
+Execute ~/carroll/OPENCOUNT_SPEC.md — exactly count the ~160 open n=4 resonance candidates that resonance4 left uncounted (degree-4 nested-radical fields), settling whether any irrational n=4 family resonance reaches the record 183. Working directory ~/carroll. Read the spec first; it is self-contained and names the six documented candidate classes plus the bulk unparsed set, with exact tan ψ minimal polynomials.
 
 Critical discipline:
 - The counter needs only exact SIGNS of field elements. The robust, degree-agnostic representation is a primitive-element number field ℚ(α) (element = zero iff its power-basis vector is zero — exact; sign otherwise by refining α's isolating interval — terminates for nonzero algebraic numbers). Use this to avoid the "interval arithmetic cannot certify =0" trap. The relative-quadratic tower ℚ(√a)(√b) is a faster optimization for the tower cases; where both apply, cross-check they agree (gate G4).

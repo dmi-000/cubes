@@ -1,0 +1,12 @@
+183 GATE       K=64    count=183    axes  0/9   combos 0/0    no-ops 0   -> 0-dimensional
+183 GATE       K=256   count=183    axes  0/9   combos 0/0    no-ops 0   -> 0-dimensional
+393 n=5        K=64    count=393    axes  0/12  combos 0/0    no-ops 0   -> 0-dimensional
+393 n=5        K=256   count=393    axes  0/12  combos 0/0    no-ops 0   -> 0-dimensional
+727 n=6        K=64    count=727    axes  0/15  combos 0/0    no-ops 0   -> 0-dimensional
+727 n=6        K=256   count=727    axes  0/15  combos 0/0    no-ops 0   -> 0-dimensional
+1217 n=7       K=64    count=1217   axes  0/18  combos 0/0    no-ops 0   -> 0-dimensional
+1217 n=7       K=256   count=1217   axes  0/18  combos 0/0    no-ops 0   -> 0-dimensional
+1895 n=8       K=64    count=1895   axes  0/21  combos 0/0    no-ops 0   -> 0-dimensional
+1895 n=8       K=256   count=1895   axes  0/21  combos 0/0    no-ops 0   -> 0-dimensional
+2787 n=9       K=64    count=2787   axes  0/24  combos 0/0    no-ops 0   -> 0-dimensional
+2787 n=9       K=256   count=2787   axes  0/24  combos 0/0    no-ops 0   -> 0-dimensional

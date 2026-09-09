@@ -1,0 +1,6 @@
+arcA: count 727 | 192 tight (0 degenerate, 2598 loose) | full null dim 2
+   conditions: 0 BINDING (delta != 0), 0 inert (delta = 0), 192 entangled/unevaluable (kept)
+   binding rank 13 of 15 -> candidate dim 2
+   direction space: 0 exact breakpoints -> 3 intervals to test
+arcA: candidate dim 2, VERIFIED 0 independent count-preserving directions
+

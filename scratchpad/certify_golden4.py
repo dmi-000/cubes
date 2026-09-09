@@ -7,7 +7,7 @@ We instead build each cube's rotation matrix directly: columns = the cube's own
 three orthogonal unit axes (a valid rotation up to a possible reflection, which
 we fix by forcing det=+1)."""
 import sys
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 from cube_compound_exact import build_axes, find_cubes, ONE, ZERO, Q5
 from certify_six import exact_count_config
 

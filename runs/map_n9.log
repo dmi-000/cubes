@@ -1,0 +1,9 @@
+simplified_h140: count 2787, ambient 24
+simplified_h140: 420 tight (0 degenerate, 10164 loose) | 83 distinct walls | lineality 4
+      2270 polynomials built (seed sized per chart)
+simplified_h140: second-order variety nonempty, 12 directions
+original_h113786: count 2787, ambient 24
+original_h113786: 396 tight (0 degenerate, 10188 loose) | 76 distinct walls | lineality 5
+      2218 polynomials built (seed sized per chart)
+original_h113786: second-order variety nonempty, 17 directions
+written data/n9_region_map.json

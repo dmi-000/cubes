@@ -1,0 +1,8 @@
+CONTROL: is "the smaller signed root counts higher" a rule, or this line only?
+Each row is an INDEPENDENT direction. Chance is 50%.
+
+  dv=['1', '-2', '3']       smaller-root-wins  47/ 70 =  67.1%   z=+2.9
+  dv=['2', '1', '-1']       smaller-root-wins  42/ 70 =  60.0%   z=+1.7
+  dv=['-3', '1', '2']       smaller-root-wins  26/ 70 =  37.1%   z=-2.2
+  dv=['1', '1', '1']        smaller-root-wins  34/ 70 =  48.6%   z=-0.2
+  dv=['0', '1', '-4']       smaller-root-wins  28/ 70 =  40.0%   z=-1.7

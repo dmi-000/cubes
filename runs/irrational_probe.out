@@ -1,0 +1,5 @@
+400 systems in 19s
+system kinds: {'systems-with-real-roots': 387, 'positive-dimensional': 13}
+root degree histogram (in the eliminated variable c): {1: 2451}
+
+real roots: 2451 total, 2451 rational, 0 IRRATIONAL (0.0%)

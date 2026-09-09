@@ -1,0 +1,79 @@
+============================================================
+TWO-CUBE SEARCH CAMPAIGN n=4
+============================================================
+Target to beat: 183
+
+KNOWN-ANSWER GATE
+PASS: expected 13, got 13
+PASS: expected 13, got 13
+PASS: expected 183, got 183
+All gates passed.
+
+Base: diagonal 3,1,1,1
+  mag_cap 2... tested  1600, valid  1600, refusals 0
+    NEW BEST: 13
+    NEW BEST: 57
+    NEW BEST: 147
+  mag_cap 3... tested  1600, valid     0, refusals 0
+  mag_cap 4... tested  1600, valid     0, refusals 0
+Base: diagonal 5,2,2,2
+  mag_cap 2... tested  1600, valid  1600, refusals 0
+    NEW BEST: 161
+  mag_cap 3... tested  1600, valid     0, refusals 0
+  mag_cap 4... tested  1600, valid     0, refusals 0
+Base: diagonal 5,3,3,3
+  mag_cap 2... tested  1600, valid  1600, refusals 0
+    NEW BEST: 163
+  mag_cap 3... tested  1600, valid     0, refusals 0
+  mag_cap 4... tested  1600, valid     0, refusals 0
+Base: diagonal 7,1,1,1
+  mag_cap 2... tested  1600, valid  1600, refusals 0
+  mag_cap 3... tested  1600, valid     0, refusals 0
+  mag_cap 4... tested  1600, valid  1600, refusals 0
+    NEW BEST: 167
+Base: edge 4,3,3,0
+  mag_cap 2... tested  1600, valid  1600, refusals 0
+  mag_cap 3... tested  1600, valid  1600, refusals 0
+  mag_cap 4... tested  1600, valid  1600, refusals 0
+Base: edge 5,3,3,0
+  mag_cap 2... tested  1600, valid  1600, refusals 0
+  mag_cap 3... tested  1600, valid  1600, refusals 0
+  mag_cap 4... tested  1600, valid  1600, refusals 0
+Base: edge 7,2,2,0
+  mag_cap 2... tested  1600, valid  1600, refusals 0
+  mag_cap 3... tested  1600, valid  1600, refusals 0
+  mag_cap 4... tested  1600, valid  1600, refusals 0
+Base: edge 8,1,1,0
+  mag_cap 2... tested  1600, valid  1600, refusals 0
+  mag_cap 3... tested  1600, valid  1600, refusals 0
+  mag_cap 4... tested  1600, valid  1600, refusals 0
+
+============================================================
+RESULTS
+============================================================
+Elapsed time: 1791.0s (29.9m)
+Best count: 167
+Best config: 1,0,0,0;7,1,1,1;-3,-2,-1,0;-3,-2,1,0
+
+Verification (cube_regions_q2w):
+  bounded: 167
+  by_depth: {'0': 1, '1': 76, '2': 66, '3': 24, '4': 1}
+
+Verification (cube_regions_n):
+  output: {"seed":null,"n":4,"quats":[[1,0,0,0],[7,1,1,1],[-3,-2,-1,0],[-3,-2,1,0]],"bound
+
+Count distribution (top 10):
+  167:     52
+  165:     60
+  163:    436
+  161:    458
+  159:    522
+  157:    844
+  155:    546
+  153:    672
+  151:    628
+  149:    612
+
+Did not reach target 183
+
+Logs written to twocube_n4.log and twocube_n4.json

@@ -1,0 +1,10 @@
+
+=== G3 random scan: 10000 configs, 4 procs (float) ===
+  done in 298.0s (29.80 ms/config); 2/10000 configs skipped (float-precision-limited exact-tie assertion in classify_sample -- see worker_scan docstring)
+  weight Sigma(deg-2): max=32  mean=27.02  >92 violations: 0
+  triple-point count: min=8 max=32 mean=27.02
+  anchoring triple-point count: min=0 max=0 mean=0.00  (target <=24)
+  occurring-elementary-triples per config: min=4 max=16 mean=13.51
+  DISTINCT occurring elementary triples seen across ALL 10000 configs: 108 (naive space size 3*3*3*2*2=108)
+
+wrote census_bound_scan_log.json

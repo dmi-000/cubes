@@ -1,0 +1,56 @@
+continua found: 21, endpoints to analyse: 42
+line   9 lower bracket width 9.54e-07  walls=W3                           -> W3, count 725 (Q(sqrt 70))
+line   9 upper bracket width 7.63e-06  walls=W4                           -> W4, count 725 (Q(sqrt 4111761))
+line  12 lower bracket width 9.54e-07  walls=W4                           -> W4, count 725 (Q(sqrt 4111761))
+line  12 upper bracket width 4.77e-07  walls=W3                           -> W3, count 725 (Q(sqrt 70))
+line  24 lower bracket width 2.38e-07  walls=W3                           -> W3, count 725 (Q(sqrt 70))
+line  24 upper bracket width 4.77e-07  walls=W4                           -> W4, count 725 (Q(sqrt 4111761))
+line  28 lower bracket width 1.19e-07  walls=W3,W4,corner-face,edge-edge  -> edge-edge, count 725 (rational)
+line  28 upper bracket width 1.19e-07  walls=W3,W4,edge-edge              -> edge-edge, count 725 (rational)
+line  30 lower bracket width 1.19e-07  walls=W3,W4,corner-face,edge-edge  -> edge-edge, count 725 (rational)
+line  30 upper bracket width 1.19e-07  walls=W3,W4,edge-edge              -> edge-edge, count 725 (rational)
+line  31 lower bracket width 5.96e-08  walls=W3,W4,corner-face,edge-edge  -> edge-edge, count 725 (rational)
+line  31 upper bracket width 5.96e-08  walls=W4                           -> W4, count 725 (Q(sqrt 2248773))
+line  32 lower bracket width 5.96e-08  walls=W3,W4,corner-face,edge-edge  -> edge-edge, count 725 (rational)
+line  32 upper bracket width 5.96e-08  walls=W4                           -> W4, count 725 (Q(sqrt 2248773))
+line  34 lower bracket width 1.19e-07  walls=W3,W4,corner-face,edge-edge  -> edge-edge, count 725 (rational)
+line  34 upper bracket width 1.19e-07  walls=W3,W4,edge-edge              -> edge-edge, count 725 (rational)
+line  35 lower bracket width 2.38e-07  walls=W3                           -> W3, count 725 (Q(sqrt 70))
+line  35 upper bracket width 4.77e-07  walls=W4                           -> W4, count 725 (Q(sqrt 4111761))
+line  37 lower bracket width 9.54e-07  walls=W3                           -> W3, count 725 (Q(sqrt 70))
+line  37 upper bracket width 7.63e-06  walls=W4                           -> W4, count 725 (Q(sqrt 4111761))
+line  38 lower bracket width 4.77e-07  walls=W3                           -> W3, count 725 (Q(sqrt 70))
+line  38 upper bracket width 9.54e-07  walls=W4                           -> W4, count 725 (Q(sqrt 4111761))
+line  69 lower bracket width 5.96e-08  walls=W4                           -> W4, count 725 (Q(sqrt 3711257))
+line  69 upper bracket width 5.96e-08  walls=W3,W4,edge-edge              -> edge-edge, count 727 (rational)
+line  73 lower bracket width 2.38e-07  walls=W4                           -> W4, count 725 (Q(sqrt 3711257))
+line  73 upper bracket width 1.19e-07  walls=W3,W4,corner-face,edge-edge  -> edge-edge, count 725 (rational)
+line  82 lower bracket width 4.77e-07  walls=W4                           -> W4, count 725 (Q(sqrt 4111761))
+line  82 upper bracket width 2.38e-07  walls=W3                           -> W3, count 725 (Q(sqrt 70))
+line  88 lower bracket width 9.54e-07  walls=W3                           -> W3, count 725 (Q(sqrt 70))
+line  88 upper bracket width 7.63e-06  walls=W4                           -> W4, count 725 (Q(sqrt 4111761))
+line  95 lower bracket width 4.77e-07  walls=W3                           -> W3, count 725 (Q(sqrt 70))
+line  95 upper bracket width 9.54e-07  walls=W4                           -> W4, count 725 (Q(sqrt 4111761))
+line 103 lower bracket width 5.96e-08  walls=W4                           -> W4, count 725 (Q(sqrt 2248773))
+line 103 upper bracket width 5.96e-08  walls=W3,W4,corner-face,edge-edge  -> edge-edge, count 725 (rational)
+line 106 lower bracket width 5.96e-08  walls=W4                           -> W4, count 725 (Q(sqrt 3711257))
+line 106 upper bracket width 5.96e-08  walls=W3,W4,edge-edge              -> edge-edge, count 727 (rational)
+line 116 lower bracket width 1.19e-07  walls=W3,W4,corner-face,edge-edge  -> edge-edge, count 725 (rational)
+line 116 upper bracket width 2.38e-07  walls=W4                           -> W4, count 725 (Q(sqrt 3711257))
+line 119 lower bracket width 5.96e-08  walls=W3,W4,edge-edge              -> edge-edge, count 727 (rational)
+line 119 upper bracket width 5.96e-08  walls=W4                           -> W4, count 725 (Q(sqrt 3711257))
+line 120 lower bracket width 2.38e-07  walls=W4                           -> W4, count 725 (Q(sqrt 3711257))
+line 120 upper bracket width 1.19e-07  walls=W3,W4,corner-face,edge-edge  -> edge-edge, count 725 (rational)
+
+summary (wall type, count at endpoint):
+   ('W3', 725)                  9
+   ('W4', 725)                  18
+   ('edge-edge', 725)           12
+   ('edge-edge', 727)           3
+upper bracket width 1.19e-07  walls=W3,W4,corner-face,edge-edge  -> edge-edge, count 725 (rational)
+
+summary (wall type, count at endpoint):
+   ('NONE', None)               9
+   ('W4', 725)                  18
+   ('edge-edge', 725)           12
+   ('edge-edge', 727)           3

@@ -1,0 +1,13 @@
+corner-sharing family, all 8 corner choices, 2000 configurations
+  two or more 9-fold points : 618 (30.9%)
+  the RECORD signature      : 0
+  distinct signatures       : 225
+
+     167   ((4, 88), (6, 2), (9, 2))
+     165   ((4, 74), (9, 2))
+     165   ((4, 70), (9, 2))
+     165   ((4, 66), (6, 6))
+     165   ((4, 60), (6, 4))
+     165   ((4, 58), (5, 2), (6, 6))
+
+  best configuration: 1,0,0,0;1,-7,7,7;1,-4,1,-1;1,1,1,-2

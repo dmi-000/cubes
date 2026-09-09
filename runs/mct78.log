@@ -1,0 +1,6 @@
+n=7 record 1217: 51 walls, rank 16 of 18
+   k=2:  1275 subsets ->   0 crossable | beyond {} | best None (DROP -) | 0 uneval | 4s
+   k=3: 20825 subsets ->   7 crossable | beyond {1213: 1, 1211: 2, 1209: 1, 1207: 4, 1205: 2} | best 1213 (DROP 4) | 4 uneval | 70s
+n=8 record 1895: 75 walls, rank 18 of 21
+   k=2:  2775 subsets ->   0 crossable | beyond {} | best None (DROP -) | 0 uneval | 15s
+   k=3: 67525 subsets ->   4 crossable | beyond {1891: 1, 1887: 1, 1885: 2, 1883: 2} | best 1891 (DROP 4) | 2 uneval | 384s

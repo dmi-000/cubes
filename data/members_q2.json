@@ -1,0 +1,51 @@
+[
+ {
+  "n": 9,
+  "k": 6,
+  "count": 701,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 15,
+  "confirmed": 5,
+  "unevaluable": 0,
+  "changed": 10,
+  "wraps": [
+   369,
+   "multi-cube",
+   377,
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   0,
+   3,
+   4,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 7,
+  "count": 1197,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 2,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [
+   1217
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   5,
+   6,
+   8
+  ]
+ }
+]

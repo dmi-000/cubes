@@ -1,0 +1,24 @@
+two-body weight decomposed: deg4 = edge-edge coincidence (wt 1),
+                            deg6 = corner contact      (wt 2)
+
+case                total  per pair: (deg2, deg4, deg6) -> weight
+record 183            183  (0,6,2)=10  (0,6,2)=10  (0,6,2)=10  (8,6,0)=6  (8,6,0)=6  (8,6,0)=6
+edge-axis w10         155  (12,2,0)=2  (0,6,2)=10  (18,0,0)=0  (14,2,0)=2  (20,0,0)=0  (0,6,2)=10
+(2,2,1)-axis w10      135  (14,2,0)=2  (0,10,0)=10  (14,0,0)=0  (18,0,0)=0  (16,0,0)=0  (20,0,0)=0
+61.15 family          147  (18,0,0)=0  (8,6,0)=6  (0,10,0)=10  (20,0,0)=0  (18,0,0)=0  (20,0,0)=0
+17.9deg outlier       149  (18,0,0)=0  (6,6,0)=6  (0,4,2)=8  (14,0,0)=0  (0,6,2)=10  (10,2,0)=2
+
+weight 10 = how many simultaneous walls?  read off the deg4/deg6 columns:
+that count is what a multiwall SOLVE must be asked for, per pair.
+constructing q1 = r1,  q3 = r2*q2   so pairs (0,1) and (2,3) are both
+weight-10 loci by construction.  measuring what survives in context.
+
+            r1               r2           q2  w(0,1)  w(2,3)    T  count
+
+configurations built: 167
+with BOTH disjoint pairs at weight 10 in context: 0
+max T: 36  (count 163)   weights [10, 10, 10, 6, 0, 0]
+  1,0,0,0;4,1,1,1;3,2,1,0;9,10,9,2
+
+both10 > 0 => star refuted as a general property
+both10 = 0 => swallowing collapses disjoint weight-10 pairs; the star has a mechanism

@@ -1,8 +1,8 @@
-import sys; sys.path.insert(0,"/Users/dmi/carroll")
+import sys; sys.path.insert(0,"~/carroll")
 import numpy as np, math
 from cube_compound_exact import build_axes, find_cubes, ONE
 from golden_rotations import Rot, A, B, closure
-import sys; sys.path.insert(0,'/Users/dmi/carroll')
+import sys; sys.path.insert(0,'~/carroll')
 from slide3_q2 import Rx45
 axes=build_axes(); triples=find_cubes(axes)
 g5=[Rot([[axes[t[j]][i] for j in range(3)] for i in range(3)]) for t in triples]

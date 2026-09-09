@@ -5,7 +5,7 @@ rational) both stay in Q(sqrt2), counted with slide3_q2.exact_count_q2.
 Plus gates.  90 deg (needs sqrt3) handled in run_tower.py."""
 import sys, time
 from fractions import Fraction as Fr
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 from slide3_q2 import Q2, ONE2, ZERO2, Rx45, exact_count_q2
 from golden_rotations import Rot
 

@@ -1,0 +1,11 @@
+UNEVALUABLE, now recorded with cause: 59
+  causes: [('other', 59)]
+  ensembles: [('twoaxis', 25), ('project', 23), ('haar', 9), ('axis', 2)]
+
+testing 413 same-signature/different-count pairs
+
+  stat A:  247/ 389 non-tied =  63.5%   [24 ties]
+  stat B:   84/ 397 non-tied =  21.2%   [16 ties]
+  stat C:  117/ 291 non-tied =  40.2%   [122 ties]
+  C-then-A lexicographic:  199/ 406 =  49.0%
+  baseline 50%

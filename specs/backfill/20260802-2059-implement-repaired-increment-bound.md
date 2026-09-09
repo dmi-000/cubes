@@ -22,9 +22,9 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll
+Working directory: ~/carroll
 
-Read /Users/dmi/carroll/INCREMENT_BOUND_SPEC.md in full and implement exactly what it specifies: a new file `increment_bound2.py` computing the bound B_j by formula (*), plus the four gates G1-G4, plus the report `increment_bound2_report.md`.
+Read ~/carroll/INCREMENT_BOUND_SPEC.md in full and implement exactly what it specifies: a new file `increment_bound2.py` computing the bound B_j by formula (*), plus the four gates G1-G4, plus the report `increment_bound2_report.md`.
 
 Context you need:
 - `increment_bound.py` in the same directory is the FAILED earlier attempt. Reuse its `mat()` (exact rational rotation matrix from an integer quaternion) and its CONFIGS dict and its `count()` helper (which shells out to `./cube_regions_n --quats "w,x,y,z;w,x,y,z;..."` and reads the `bounded` field of the JSON on stdout). Do NOT modify that file.

@@ -1,0 +1,17 @@
+
+===== 2026-08-18 11:42:39
+sanity: D.count_at(727 point) = 727 ; count_eps(zero direction) = 727
+incident walls found: 4 W4 + 8 W3 = 12
+GATE: all 12 incident-wall conditions evaluate to exactly 0 at the free point. all gradients nonzero: True
+realizable non-zero faces: 24
+   ... 24/24 faces counted (0 unevaluable so far)
+
+===== RESULTS =====
+incident walls: 12 (4 W4 + 8 W3)
+realizable faces: 24
+histogram (count -> #faces): {715: 8, 711: 16}
+best count found: 715
+exceeds 727: False
+unevaluable faces (engine None): 0 of 24
+best face: sigma=[1, -1, 1, -1, -1, 0, 1, 0, 1, -1, -1, 1] dir3=['-178/35', '0', '-1']
+elapsed: 3.6s

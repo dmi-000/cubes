@@ -1,0 +1,13 @@
+n=4  record is 183 ; best basin climb so far 141 (n=4)
+
+start 0: total 121, profile {'0': 1, '1': 38, '2': 58, '3': 24, '4': 1}
+Traceback (most recent call last):
+  File "frustrate.py", line 125, in <module>
+    a = walk(cfg, TOTAL, 'total,no-anneal', anneal=0, seed=k)
+  File "frustrate.py", line 83, in walk
+    cands.append((objective(dd), dd['bounded'], r['cfg']))
+                  ~~~~~~~~~^^^^
+  File "frustrate.py", line 46, in <lambda>
+    TOTAL = lambda d: d['bounded']
+                      ~^^^^^^^^^^^
+KeyError: 'bounded'

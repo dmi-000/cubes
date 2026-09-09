@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Read first: ALGEBRAIC_SEARCH.md, six_cube_search_results.md Postscripts 11-12, README.md, and slide3_q2.py (the exact ℚ(√2) counter). Current record: 723.
+Working directory: ~/carroll. Exact cube-compound region-counting project. Read first: ALGEBRAIC_SEARCH.md, six_cube_search_results.md Postscripts 11-12, README.md, and slide3_q2.py (the exact ℚ(√2) counter). Current record: 723.
 
 CONTEXT: We proved the two 3-cube maxima use different incidence modes — the OCTAHEDRAL 3-compound {Rx(45°),Ry(45°),Rz(45°)} uses EDGE concurrences (points where 4 planes meet = 2 from one cube + 2 from another = an edge crossing an edge, at |x|²≈2), while the DODECAHEDRAL/golden 3-compound uses CORNER concurrences (6 planes = 3+3 = corners coinciding, |x|²=3). Every 6-cube record we have (717, 723) is CORNER-dominated (top concurrence is 9-fold = three cubes sharing a corner). The open question: can an EDGE-dominated 6-cube config match or beat 723?
 

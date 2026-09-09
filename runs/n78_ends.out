@@ -1,0 +1,8 @@
+n=7 1217: 822 triple points, 4532 W4 quadratics on the line
+   lower    s = (337/364) + (-1/91)sqrt(7809) = -0.045258752093   max component 91
+            count AT the endpoint: 1215
+   upper    s = (-49/12) + (1/6)sqrt(601) = 0.002550224044   max component 29
+            count AT the endpoint: 1215
+n=8 1895 (lower end is a W3 quartic, out of reach): 1386 triple points, 7758 W4 quadratics on the line
+   upper    s = (253/24) + (-1)sqrt(109) = 0.101360157756   max component 8
+            count AT the endpoint: 1893

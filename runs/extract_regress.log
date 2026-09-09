@@ -1,0 +1,60 @@
+
+[post-extract iter 1] count 107  menu 6 dirs  height 214
+   boundary crossing -> 111  (ABOVE 107)
+   rays: 12 of 12 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 7 distinct walls
+      cubes [0, 1, 3]        at 6.7919e-05   count outside 103
+      cubes [0, 1]           at 9.7289e-05   count outside 103
+      cubes [0, 1, 2]        at 0.00011197   count outside 111
+      cubes [0, 2]           at 0.00012666   count outside 111
+      cubes [0, 2, 3]        at 0.00019825   count outside 111
+      cubes [2, 3]           at 0.00028269   count outside 103
+      cubes [0, 3]           at 0.00035979   count outside 103
+   NEW RECORD 111  height 301  gate: both engines + 3 rotations agree
+   1,0,0,0;32,-45,-301,139;32,-6,-12,69;32,-23,63,-41
+
+[post-extract iter 2] count 111  menu 6 dirs  height 301
+   boundary crossing -> 115  (ABOVE 111)
+   boundary crossing -> 119  (ABOVE 111)
+   rays: 12 of 12 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 4 distinct walls
+      cubes [0, 2, 3]        at 1.5501e-05   count outside 107
+      cubes [0, 1, 2]        at 1.5501e-05   count outside 115
+      cubes [0, 2]           at 1.5501e-05   count outside 107
+      cubes [0, 1, 3]        at 4.2628e-05   count outside 107
+   NEW RECORD 119  height 301  gate: both engines + 3 rotations agree
+   1,0,0,0;32,-46,-301,140;32,-5,-13,70;32,-26,63,-40
+
+[post-extract iter 3] count 119  menu 6 dirs  height 301
+   boundary crossing -> 123  (ABOVE 119)
+   rays: 12 of 12 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 5 distinct walls
+      cubes [0, 2, 3]        at 0.00010076   count outside 115
+      cubes [0, 1, 2]        at 0.00011626   count outside 115
+      cubes [0, 1, 3]        at 0.00012401   count outside 123
+      cubes [0, 1]           at 0.00016664   count outside 123
+      cubes [0]              at 0.00027127   count outside 115
+   NEW RECORD 123  height 75  gate: both engines + 3 rotations agree
+   1,0,0,0;8,-11,-75,35;8,-1,-4,19;8,-7,16,-9
+
+[post-extract iter 4] count 123  menu 6 dirs  height 75
+   boundary crossing -> 127  (ABOVE 123)
+   rays: 12 of 12 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 4 distinct walls
+      cubes [1, 2, 3]        at 7.6294e-05   count outside 127
+      cubes [0, 1]           at 0.00012207   count outside 119
+      cubes [0, 1, 2]        at 0.00013733   count outside 119
+      cubes [0, 1, 3]        at 0.00013733   count outside 119
+   NEW RECORD 127  height 75  gate: both engines + 3 rotations agree
+   1,0,0,0;8,-12,-75,35;8,-1,-4,19;8,-7,16,-9
+
+[post-extract iter 5] count 127  menu 6 dirs  height 75
+   rays: 12 of 12 crossed, 0 found no wall within t<=8, 0 UNEVALUABLE  (after bisection: 0 back at count, 0 unevaluable)
+   FACET CENSUS of this region: 5 distinct walls
+      cubes [0, 2, 3]        at 7.6294e-05   count outside 123
+      cubes [0, 1, 2]        at 7.6294e-05   count outside 123
+      cubes [2, 3]           at 0.00010681   count outside 123
+      cubes [0, 1, 3]        at 0.00010681   count outside 123
+      cubes [1, 2, 3]        at 0.00013733   count outside 123
+   no crossing above the record; region is locally maximal OVER THE DIRECTIONS WALKED (not a proof — see facets.py for the saturation curve and vertex probes)
+REGRESSION: start 107 end 127 (pre-extraction run gave 107 -> 127)

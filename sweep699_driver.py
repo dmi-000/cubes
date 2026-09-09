@@ -1,8 +1,8 @@
 import sys, subprocess, json, time
-sys.path.insert(0,'/Users/dmi/carroll')
+sys.path.insert(0,'~/carroll')
 from concurrent.futures import ProcessPoolExecutor
 from slide3_search import overlay_quats, farey, fits_cap, LOG_PATH
-ENGINE='/Users/dmi/carroll/cube_regions'
+ENGINE='~/carroll/cube_regions'
 thetas=farey(16)
 diagR=[(1,1,1,1),(2,1,1,1),(3,1,1,1),(4,1,1,1),(5,1,1,1),(5,2,2,2),(7,2,2,2),(7,3,3,3),(8,3,3,3),(9,4,4,4),(4,3,3,3),(3,2,2,2)]
 jobs=[]

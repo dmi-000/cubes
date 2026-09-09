@@ -1,0 +1,6 @@
+
+=== PHASE D [record393_extra]: deep multi-restart climb from [[4, 1, 1, -1], [3, 3, 7, 3], [5, -1, -5, -5], [2, 1, 1, 1], [1, 1, 1, 1]] ===
+  base climb: 393
+  radius-4 certification of base climb: confirmed local max
+PHASE D [record393_extra] best: total=393 quats=[[4, 1, 1, -1], [3, 3, 7, 3], [5, -1, -5, -5], [2, 1, 1, 1], [1, 1, 1, 1]]
+EXTRA RUN FINAL: {'total': 393, 'quats': [[4, 1, 1, -1], [3, 3, 7, 3], [5, -1, -5, -5], [2, 1, 1, 1], [1, 1, 1, 1]]}

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: specs/MULTIWALL_SPEC.md + multiwall_report.md. Project index: README.md
 """M1 (mechanism A): within-Q(sqrt5) stacked walls, existing Q5 engine only.
 Logs to multiwall_search.jsonl. Does NOT modify certify_six.py / golden_six.py.
@@ -11,7 +12,7 @@ from golden_six import golden_five
 from golden_rotations import rot_from_quat, Rot
 from certify_six import exact_count_config
 
-LOG = '/Users/dmi/carroll/multiwall_search.jsonl'
+LOG = os.path.expanduser('~/carroll/multiwall_search.jsonl')
 
 
 def log(rec):

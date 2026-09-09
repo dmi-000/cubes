@@ -1,0 +1,177 @@
+[    0.0s] irrational_n45.py starting, budget=30.0 min
+[    0.0s] ======================================================================
+[    0.0s] KNOWN-ANSWER GATE (mandatory)
+[    0.0s]   PASS  d=2 octahedral 67            -> 67
+[    0.0s]   PASS  d=5 golden 67                -> 67
+[    0.1s]   PASS  d=0 rational n=4 record      -> 183
+[    0.1s] GATE PASSED (67, 67, 183 all reproduced exactly).
+[    0.1s] ======================================================================
+[    0.1s] PHASE 1: random search -- 14 pairs, 77.1s/pair, 25.7s/tier
+[   33.0s]   n=4 d=2 h=3: 3 batches, running best=151 counted=443 refused=7
+[   71.3s]   n=4 d=2 h=6: 3 batches, running best=151 counted=893 refused=7
+[   85.2s]   n=4 d=2 h=12: 1 batches, running best=151 counted=1043 refused=7
+[   85.2s]  n=4 d=2 DONE random: best=151 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((-1, 1), (1, -3), (-1, 0), (1, 0)), ((3, -2), (0, -3), (0, -3), (3, 2)), ((3, -3), (3, -3), (0, -3), (-3, -2)))
+[  118.6s]   n=4 d=3 h=3: 3 batches, running best=147 counted=442 refused=8
+[  144.4s]   n=4 d=3 h=6: 2 batches, running best=147 counted=742 refused=8
+[  168.5s]   n=4 d=3 h=12: 2 batches, running best=147 counted=1042 refused=8
+[  168.5s]  n=4 d=3 DONE random: best=147 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((-3, 0), (3, 0), (3, 0), (-1, 3)), ((1, 1), (0, 2), (-3, -2), (-1, -2)), ((-3, -3), (0, 0), (2, -3), (2, 2)))
+[  199.7s]   n=4 d=5 h=3: 3 batches, running best=149 counted=437 refused=13
+[  234.0s]   n=4 d=5 h=6: 3 batches, running best=149 counted=885 refused=15
+[  256.9s]   n=4 d=5 h=12: 2 batches, running best=149 counted=1185 refused=15
+[  256.9s]  n=4 d=5 DONE random: best=149 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((-2, 1), (0, -1), (1, 3), (0, 1)), ((-3, -2), (-3, 3), (1, 3), (-3, -2)), ((0, 3), (0, 3), (0, 3), (3, 0)))
+[  288.2s]   n=4 d=6 h=3: 3 batches, running best=153 counted=443 refused=7
+[  320.4s]   n=4 d=6 h=6: 3 batches, running best=153 counted=893 refused=7
+[  342.8s]   n=4 d=6 h=12: 2 batches, running best=153 counted=1193 refused=7
+[  342.8s]  n=4 d=6 DONE random: best=153 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((3, 1), (-3, -1), (2, 0), (-1, -2)), ((-3, -1), (0, 0), (0, 3), (3, 3)), ((-3, 2), (-2, 1), (0, 2), (1, 3)))
+[  373.8s]   n=4 d=7 h=3: 3 batches, running best=157 counted=442 refused=8
+[  407.2s]   n=4 d=7 h=6: 3 batches, running best=157 counted=890 refused=10
+[  430.0s]   n=4 d=7 h=12: 2 batches, running best=157 counted=1190 refused=10
+[  430.0s]  n=4 d=7 DONE random: best=157 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((-1, 2), (0, 0), (0, -1), (1, -3)), ((0, 1), (2, 2), (1, 0), (0, -1)), ((0, 0), (1, -3), (0, -2), (-1, 1)))
+[  462.4s]   n=4 d=10 h=3: 3 batches, running best=147 counted=442 refused=8
+[  497.6s]   n=4 d=10 h=6: 3 batches, running best=147 counted=890 refused=10
+[  513.8s]   n=4 d=10 h=12: 2 batches, running best=147 counted=1189 refused=11
+[  513.8s]  n=4 d=10 DONE random: best=147 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((2, 2), (2, 1), (-2, -1), (-1, -1)), ((1, -1), (2, 0), (-1, 1), (-2, -2)), ((-2, -2), (-2, 0), (-3, 3), (3, 2)))
+[  544.4s]   n=4 d=13 h=3: 5 batches, running best=153 counted=741 refused=9
+[  590.7s]   n=4 d=13 h=6: 2 batches, running best=153 counted=1040 refused=10
+[  615.1s]   n=4 d=13 h=12: 1 batches, running best=153 counted=1190 refused=10
+[  615.1s]  n=4 d=13 DONE random: best=153 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((1, 0), (0, -1), (-1, 1), (0, 0)), ((-3, -3), (2, 0), (0, 1), (1, 2)), ((-3, -2), (2, 3), (2, 1), (-3, -2)))
+[  654.3s]   n=5 d=2 h=3: 1 batches, running best=329 counted=146 refused=4
+[  694.5s]   n=5 d=2 h=6: 1 batches, running best=329 counted=296 refused=4
+[  694.5s]  n=5 d=2 DONE random: best=329 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((-3, -3), (0, -3), (-2, -2), (0, -3)), ((-3, -2), (0, 2), (-1, 1), (-1, 3)), ((0, -3), (2, 1), (-1, 3), (3, -2)), ((0, 1), (2, -3), (2, 3), (2, -3)))
+[  730.6s]   n=5 d=3 h=3: 1 batches, running best=325 counted=144 refused=6
+[  769.5s]   n=5 d=3 h=6: 1 batches, running best=325 counted=294 refused=6
+[  810.3s]   n=5 d=3 h=12: 1 batches, running best=325 counted=444 refused=6
+[  810.3s]  n=5 d=3 DONE random: best=325 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((-1, -1), (3, 3), (3, 0), (0, 3)), ((-3, -3), (-3, -2), (-1, 1), (3, -3)), ((-2, 2), (-1, -1), (0, 0), (-1, 3)), ((-2, -3), (-1, 3), (-3, 2), (0, 2)))
+[  846.5s]   n=5 d=5 h=3: 1 batches, running best=327 counted=148 refused=2
+[  885.8s]   n=5 d=5 h=6: 1 batches, running best=327 counted=298 refused=2
+[  926.9s]   n=5 d=5 h=12: 1 batches, running best=327 counted=448 refused=2
+[  926.9s]  n=5 d=5 DONE random: best=327 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((-1, 0), (3, 3), (1, 1), (-1, -1)), ((-1, -2), (2, -3), (0, -3), (-1, 0)), ((2, -1), (-1, 3), (-2, 3), (-3, 2)), ((3, 0), (2, -1), (1, -2), (-2, 2)))
+[  963.4s]   n=5 d=6 h=3: 1 batches, running best=325 counted=145 refused=5
+[ 1003.4s]   n=5 d=6 h=6: 1 batches, running best=325 counted=295 refused=5
+[ 1046.4s]   n=5 d=6 h=12: 1 batches, running best=325 counted=445 refused=5
+[ 1046.4s]  n=5 d=6 DONE random: best=325 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((2, -1), (-1, -1), (-3, 1), (1, 0)), ((3, 1), (3, 0), (-2, 0), (0, 0)), ((3, 1), (-3, -2), (3, -2), (-1, -1)), ((-1, 0), (-1, 1), (-1, 3), (2, -3)))
+[ 1085.0s]   n=5 d=7 h=3: 1 batches, running best=321 counted=149 refused=1
+[ 1125.9s]   n=5 d=7 h=6: 1 batches, running best=321 counted=299 refused=1
+[ 1125.9s]  n=5 d=7 DONE random: best=321 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((1, -2), (0, 0), (1, 2), (1, 1)), ((-1, 0), (-2, -3), (-1, 1), (3, 3)), ((2, -2), (-2, 2), (-2, 2), (0, 0)), ((0, -1), (1, -3), (-2, -3), (2, 3)))
+[ 1165.2s]   n=5 d=10 h=3: 1 batches, running best=329 counted=148 refused=2
+[ 1207.2s]   n=5 d=10 h=6: 1 batches, running best=329 counted=296 refused=4
+[ 1207.2s]  n=5 d=10 DONE random: best=329 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((3, 3), (-1, -1), (0, 0), (3, 1)), ((-2, -2), (-1, -3), (0, 3), (3, -2)), ((1, -1), (1, -1), (1, 0), (2, 3)), ((-1, 0), (-3, 3), (-2, -2), (-2, 2)))
+[ 1246.3s]   n=5 d=13 h=3: 1 batches, running best=323 counted=146 refused=4
+[ 1287.9s]   n=5 d=13 h=6: 1 batches, running best=325 counted=296 refused=4
+[ 1287.9s]  n=5 d=13 DONE random: best=325 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((1, -1), (-6, -1), (5, 1), (-3, -6)), ((-1, -3), (0, 1), (1, 1), (1, -1)), ((-6, 3), (4, -6), (0, -1), (-6, -2)), ((2, 3), (5, -3), (2, -2), (-6, 1)))
+[ 1287.9s] ======================================================================
+[ 1287.9s] FINAL REPORT written to irrational_n45.json
+[ 1287.9s] TOTALS: counted=10556 refused=94 unparseable=0
+[ 1287.9s] refusal reasons: {'phantom facet label mismatch': 76, 'real facet flip mismatch': 18}
+[ 1287.9s] --- n=4 ---
+[ 1287.9s]   d= 2: counted= 1043 refused=   7 best= 151
+[ 1287.9s]   d= 3: counted= 1042 refused=   8 best= 147
+[ 1287.9s]   d= 5: counted= 1185 refused=  15 best= 149
+[ 1287.9s]   d= 6: counted= 1193 refused=   7 best= 153
+[ 1287.9s]   d= 7: counted= 1190 refused=  10 best= 157
+[ 1287.9s]   d=10: counted= 1189 refused=  11 best= 147
+[ 1287.9s]   d=13: counted= 1190 refused=  10 best= 153
+[ 1287.9s] --- n=5 ---
+[ 1287.9s]   d= 2: counted=  296 refused=   4 best= 329
+[ 1287.9s]   d= 3: counted=  444 refused=   6 best= 325
+[ 1287.9s]   d= 5: counted=  448 refused=   2 best= 327
+[ 1287.9s]   d= 6: counted=  445 refused=   5 best= 325
+[ 1287.9s]   d= 7: counted=  299 refused=   1 best= 321
+[ 1287.9s]   d=10: counted=  296 refused=   4 best= 329
+[ 1287.9s]   d=13: counted=  296 refused=   4 best= 325
+[ 1287.9s] record_beaten: {'n=4': False, 'n=5': False}
+[ 1287.9s] ======================================================================
+[ 1287.9s] PHASE 2: seeded from the two 67s -- 4 combos, 81.0s/combo
+[ 1318.8s]   seeded n=4 d=2 h=3: 2 batches, running best=175
+[ 1351.1s]   seeded n=4 d=2 h=6: 2 batches, running best=175
+[ 1383.9s]   seeded n=4 d=2 h=12: 2 batches, running best=175
+[ 1383.9s]  n=4 d=2 DONE seeded: best=175 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((1, 0), (1, 0), (0, 1), (0, 0)), ((-1, 0), (1, 0), (0, 1), (0, 0)), ((-3, -3), (-3, -3), (3, 3), (-2, -2)))
+[ 1417.5s]   seeded n=5 d=2 h=3: 1 batches, running best=363
+[ 1453.5s]   seeded n=5 d=2 h=6: 1 batches, running best=363
+[ 1491.1s]   seeded n=5 d=2 h=12: 1 batches, running best=363
+[ 1491.1s]  n=5 d=2 DONE seeded: best=363 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((1, 0), (1, 0), (0, 1), (0, 0)), ((-1, 0), (1, 0), (0, 1), (0, 0)), ((2, 0), (1, -2), (3, -3), (0, -3)), ((-2, -2), (3, -1), (0, 3), (0, 0)))
+[ 1523.1s]   seeded n=4 d=5 h=3: 2 batches, running best=173
+[ 1556.5s]   seeded n=4 d=5 h=6: 2 batches, running best=173
+[ 1573.5s]   seeded n=4 d=5 h=12: 1 batches, running best=173
+[ 1573.5s]  n=4 d=5 DONE seeded: best=173 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((2, 0), (1, 1), (-1, 1), (0, 0)), ((-2, 0), (1, 1), (-1, 1), (0, 0)), ((3, -3), (0, 0), (1, 1), (-1, 1)))
+[ 1609.5s]   seeded n=5 d=5 h=3: 1 batches, running best=359
+[ 1646.8s]   seeded n=5 d=5 h=6: 1 batches, running best=359
+[ 1685.7s]   seeded n=5 d=5 h=12: 1 batches, running best=361
+[ 1685.7s]  n=5 d=5 DONE seeded: best=361 cfg=(((1, 0), (0, 0), (0, 0), (0, 0)), ((2, 0), (1, 1), (-1, 1), (0, 0)), ((-2, 0), (1, 1), (-1, 1), (0, 0)), ((-11, 10), (-9, 12), (11, -10), (10, 0)), ((-9, 7), (5, 5), (-11, -5), (-10, 5)))
+[ 1685.7s] ======================================================================
+[ 1685.7s] FINAL REPORT written to irrational_n45.json
+[ 1685.7s] TOTALS: counted=13094 refused=106 unparseable=0
+[ 1685.7s] refusal reasons: {'phantom facet label mismatch': 82, 'real facet flip mismatch': 24}
+[ 1685.7s] --- n=4 ---
+[ 1685.7s]   d= 2: counted= 1942 refused=   8 best= 175
+[ 1685.7s]   d= 3: counted= 1042 refused=   8 best= 147
+[ 1685.7s]   d= 5: counted= 1932 refused=  18 best= 173
+[ 1685.7s]   d= 6: counted= 1193 refused=   7 best= 153
+[ 1685.7s]   d= 7: counted= 1190 refused=  10 best= 157
+[ 1685.7s]   d=10: counted= 1189 refused=  11 best= 147
+[ 1685.7s]   d=13: counted= 1190 refused=  10 best= 153
+[ 1685.7s] --- n=5 ---
+[ 1685.7s]   d= 2: counted=  740 refused=  10 best= 363
+[ 1685.7s]   d= 3: counted=  444 refused=   6 best= 325
+[ 1685.7s]   d= 5: counted=  896 refused=   4 best= 361
+[ 1685.7s]   d= 6: counted=  445 refused=   5 best= 325
+[ 1685.7s]   d= 7: counted=  299 refused=   1 best= 321
+[ 1685.7s]   d=10: counted=  296 refused=   4 best= 329
+[ 1685.7s]   d=13: counted=  296 refused=   4 best= 325
+[ 1685.7s] record_beaten: {'n=4': False, 'n=5': False}
+[ 1685.7s] ======================================================================
+[ 1685.7s] PHASE 3: hillclimb -- single-component climb, then wide perturbation + re-climb
+[ 1685.7s]   climbing 6 candidates, 66.0s each: [(4, 2, 175), (4, 5, 173), (4, 7, 157), (5, 2, 363), (5, 5, 361), (5, 10, 329)]
+[ 1685.7s]  -- climbing n=4 d=2 from 175 --
+[ 1690.3s]    local max after single-component climb: 175
+[ 1717.9s]    round 1: kicks=80 best now 175
+[ 1741.0s]    round 2: kicks=80 best now 175
+[ 1755.4s]    round 3: kicks=80 best now 175
+[ 1755.4s]  -- done n=4 d=2: hillclimb best=175 (started from 175)
+[ 1755.4s]  -- climbing n=4 d=5 from 173 --
+[ 1761.4s]    local max after single-component climb: 173
+[ 1788.4s]    round 1: kicks=80 best now 177 (improved)
+[ 1815.7s]    round 2: kicks=80 best now 177
+[ 1825.4s]    round 3: kicks=80 best now 177
+[ 1825.4s]  -- done n=4 d=5: hillclimb best=177 (started from 173)
+[ 1825.4s]  -- climbing n=4 d=7 from 157 --
+[ 1837.3s]    local max after single-component climb: 161
+[ 1860.0s]    round 1: kicks=80 best now 161
+[ 1883.0s]    round 2: kicks=80 best now 163 (improved)
+[ 1893.9s]    round 3: kicks=80 best now 163
+[ 1893.9s]  -- done n=4 d=7: hillclimb best=163 (started from 157)
+[ 1893.9s]  -- climbing n=5 d=2 from 363 --
+[ 1923.6s]    local max after single-component climb: 371
+[ 1974.0s]    round 1: kicks=80 best now 371
+[ 1974.0s]  -- done n=5 d=2: hillclimb best=371 (started from 363)
+[ 1974.0s]  -- climbing n=5 d=5 from 361 --
+[ 1991.4s]    local max after single-component climb: 361
+[ 2048.8s]    round 1: kicks=80 best now 365 (improved)
+[ 2048.8s]  -- done n=5 d=5: hillclimb best=365 (started from 361)
+[ 2048.8s]  -- climbing n=5 d=10 from 329 --
+[ 2099.8s]    local max after single-component climb: 343
+[ 2116.3s]    round 1: kicks=80 best now 343
+[ 2116.3s]  -- done n=5 d=10: hillclimb best=343 (started from 329)
+[ 2116.3s] ======================================================================
+[ 2116.3s] FINAL REPORT written to irrational_n45.json
+[ 2116.3s] TOTALS: counted=15663 refused=183 unparseable=0
+[ 2116.3s] refusal reasons: {'phantom facet label mismatch': 144, 'real facet flip mismatch': 39}
+[ 2116.3s] --- n=4 ---
+[ 2116.3s]   d= 2: counted= 2581 refused=  38 best= 175
+[ 2116.3s]   d= 3: counted= 1042 refused=   8 best= 147
+[ 2116.3s]   d= 5: counted= 2484 refused=  40 best= 177
+[ 2116.3s]   d= 6: counted= 1193 refused=   7 best= 153
+[ 2116.3s]   d= 7: counted= 1698 refused=  29 best= 163
+[ 2116.3s]   d=10: counted= 1189 refused=  11 best= 147
+[ 2116.3s]   d=13: counted= 1190 refused=  10 best= 153
+[ 2116.3s] --- n=5 ---
+[ 2116.3s]   d= 2: counted= 1074 refused=  11 best= 371
+[ 2116.3s]   d= 3: counted=  444 refused=   6 best= 325
+[ 2116.3s]   d= 5: counted= 1165 refused=   7 best= 365
+[ 2116.3s]   d= 6: counted=  445 refused=   5 best= 325
+[ 2116.3s]   d= 7: counted=  299 refused=   1 best= 321
+[ 2116.3s]   d=10: counted=  563 refused=   6 best= 343
+[ 2116.3s]   d=13: counted=  296 refused=   4 best= 325
+[ 2116.3s] record_beaten: {'n=4': False, 'n=5': False}
+[ 2116.3s] No (n,d) pair reached its record (183 for n=4, 393 for n=5). Best-found values are reported above and in irrational_n45.json.
+[ 2116.3s] DONE. Total elapsed 2116.3s (35.3 min).

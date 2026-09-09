@@ -1,0 +1,62 @@
+total starts: s148785=137, s40889=136, s50337=136, s79234=136, s135282=136, s152607=136, s173874=136, s185635=136, s194896=136, s61=135, s86=135, s189=135, s258=135, s275=135, s279=135, s637=135, s654=135, s683=135, s1002=135, s1045=135
+d1 starts: s148785=48, s76819=46, s94878=46, s109292=46, s179595=46, s40889=45, s50337=45, s79234=45
+d2 starts: s61=66, s86=66, s189=66, s258=66, s275=66, s279=66, s637=66, s654=66
+preloaded 0 memoized evals
+== climb seed148785:total (rank 0, start total=137)
+== climb seed40889:total (rank 1, start total=136)
+  seed40889:total:restart0 it1: total=137 bounded=137 d={0: 1, 1: 46, 2: 66, 3: 24, 4: 1}
+  seed40889:total:restart1 it1: total=136 bounded=136 d={0: 1, 1: 45, 2: 66, 3: 24, 4: 1}
+== climb seed50337:total (rank 2, start total=136)
+== climb seed79234:total (rank 3, start total=136)
+  seed79234:total:restart0 it1: total=136 bounded=136 d={0: 1, 1: 45, 2: 66, 3: 24, 4: 1}
+== climb seed135282:total (rank 4, start total=136)
+  seed135282:total:restart0 it1: total=136 bounded=136 d={0: 1, 1: 45, 2: 66, 3: 24, 4: 1}
+  seed135282:total:restart0 it2: total=142 bounded=142 d={0: 1, 1: 51, 2: 66, 3: 24, 4: 1}
+== climb seed152607:total (rank 5, start total=136)
+== climb seed173874:total (rank 6, start total=136)
+== climb seed185635:total (rank 7, start total=136)
+  seed185635:total:restart1 it1: total=136 bounded=136 d={0: 1, 1: 45, 2: 66, 3: 24, 4: 1}
+== climb seed194896:total (rank 8, start total=136)
+== climb seed61:total (rank 9, start total=135)
+== climb seed86:total (rank 10, start total=135)
+  seed86:total:restart1 it1: total=135 bounded=135 d={0: 1, 1: 44, 2: 66, 3: 24, 4: 1}
+== climb seed189:total (rank 11, start total=135)
+== climb seed258:total (rank 12, start total=135)
+== climb seed275:total (rank 13, start total=135)
+== climb seed279:total (rank 14, start total=135)
+== climb seed637:total (rank 15, start total=135)
+== climb seed654:total (rank 16, start total=135)
+== climb seed683:total (rank 17, start total=135)
+== climb seed1002:total (rank 18, start total=135)
+== climb seed1045:total (rank 19, start total=135)
+== climb seed148785:d1 (rank 0, start d1=48)
+  seed148785:d1:restart0 it1: d1=(48, 137) bounded=137 d={0: 1, 1: 48, 2: 64, 3: 24, 4: 1}
+== climb seed76819:d1 (rank 1, start d1=46)
+== climb seed94878:d1 (rank 2, start d1=46)
+  seed94878:d1:restart0 it1: d1=(46, 133) bounded=133 d={0: 1, 1: 46, 2: 62, 3: 24, 4: 1}
+== climb seed109292:d1 (rank 3, start d1=46)
+== climb seed179595:d1 (rank 4, start d1=46)
+== climb seed40889:d1 (rank 5, start d1=45)
+  seed40889:d1:restart0 it1: d1=(47, 138) bounded=138 d={0: 1, 1: 47, 2: 66, 3: 24, 4: 1}
+== climb seed50337:d1 (rank 6, start d1=45)
+== climb seed79234:d1 (rank 7, start d1=45)
+  seed79234:d1:restart0 it1: d1=(45, 136) bounded=136 d={0: 1, 1: 45, 2: 66, 3: 24, 4: 1}
+  seed79234:d1:restart1 it1: d1=(45, 136) bounded=136 d={0: 1, 1: 45, 2: 66, 3: 24, 4: 1}
+== climb seed61:d2 (rank 0, start d2=66)
+== climb seed86:d2 (rank 1, start d2=66)
+  seed86:d2:restart1 it1: d2=(66, 135) bounded=135 d={0: 1, 1: 44, 2: 66, 3: 24, 4: 1}
+== climb seed189:d2 (rank 2, start d2=66)
+== climb seed258:d2 (rank 3, start d2=66)
+== climb seed275:d2 (rank 4, start d2=66)
+== climb seed279:d2 (rank 5, start d2=66)
+== climb seed637:d2 (rank 6, start d2=66)
+== climb seed654:d2 (rank 7, start d2=66)
+
+=== CHAMPIONS ===
+total: score=142 bounded=142 by_depth={0: 1, 1: 51, 2: 66, 3: 24, 4: 1}
+  quats=[[313, -61, -34, 399], [285, -70, 385, 169], [96, 209, -456, -31], [112, -359, 342, -48]]
+d1: score=(48, 137) bounded=137 by_depth={0: 1, 1: 48, 2: 64, 3: 24, 4: 1}
+  quats=[[450, 195, 121, 81], [293, 95, -387, -130], [223, 0, -212, -409], [493, 74, 37, -109]]
+d2: score=(66, 135) bounded=135 by_depth={0: 1, 1: 44, 2: 66, 3: 24, 4: 1}
+  quats=[[443, -180, 183, -1], [183, -29, -95, 149], [339, -14, -381, -42], [101, 433, -28, -252]]
+total exact evaluations: 7023

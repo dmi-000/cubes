@@ -1,0 +1,43 @@
+36 distinct configurations
+   peak 175: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175: 100 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175: 100 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 183: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 177:  96 tight, 10 DISTINCT WALLS, rank 7 of 9, lineality 2
+   peak 179: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 183: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175:  88 tight, 10 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 179: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 183: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 179: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 179: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 183: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 179: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175:  84 tight,  8 DISTINCT WALLS, rank 7 of 9, lineality 2
+   peak 175:  88 tight, 10 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175: 100 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 179: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 179: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 179: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 179:  96 tight, 10 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175: 100 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175:  88 tight, 10 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175: 100 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175:  88 tight,  9 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 179: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175:  84 tight,  8 DISTINCT WALLS, rank 7 of 9, lineality 2
+   peak 177:  96 tight, 10 DISTINCT WALLS, rank 7 of 9, lineality 2
+   peak 175: 100 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 183: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175: 100 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175: 100 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 179: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 183: 108 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+   peak 175: 100 tight, 12 DISTINCT WALLS, rank 8 of 9, lineality 1
+
+peak | n | mean tight | mean distinct walls | mean rank | mean lineality
+ 175 |17 |     96.2   |       11.00        |   7.88   |     1.12
+ 177 | 2 |     96.0   |       10.00        |   7.00   |     2.00
+ 179 |11 |    106.9   |       11.82        |   8.00   |     1.00
+ 183 | 6 |    108.0   |       12.00        |   8.00   |     1.00

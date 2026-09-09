@@ -1,0 +1,10 @@
+Same plane-incidence signature, DIFFERENT count: do the SUBSET counts differ?
+If they do, subset structure is part of what the incidence signature is missing.
+
+  counts 131 vs 143   pairs (4, 4, 5, 5, 5, 13) vs (4, 4, 5, 5, 9, 9)   SEPARATED
+  counts 109 vs 125   pairs (4, 4, 4, 4, 4, 5) vs (4, 4, 4, 4, 4, 9)   SEPARATED
+  counts 109 vs 123   pairs (4, 4, 4, 4, 4, 5) vs (4, 4, 4, 4, 5, 9)   SEPARATED
+  counts 109 vs 129   pairs (4, 4, 4, 4, 4, 5) vs (4, 4, 4, 4, 4, 9)   SEPARATED
+  counts 109 vs  97   pairs (4, 4, 4, 4, 4, 5) vs (4, 4, 4, 4, 4, 5)   SEPARATED
+
+subset counts separate 40 of 40 same-signature/different-count pairs (100%)

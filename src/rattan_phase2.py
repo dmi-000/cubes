@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: specs/RATTAN_SPEC.md. Project index: README.md
 """RATTAN phase 2 -- the targeted completion runs, per main-session
 priorities after run 1:
@@ -46,7 +47,7 @@ from nfamily_common import quat_to_matrix_exact
 from golden_rotations import rot_from_quat
 from certify_six import exact_count_config
 
-FLAG_PATH = '/Users/dmi/carroll/rattan_flagged.jsonl'
+FLAG_PATH = os.path.expanduser('~/carroll/rattan_flagged.jsonl')
 ORACLE_CAP_PER_PROFILE = 2
 
 CLIQUE_T = [Fr(0), Fr(-5, 6), Fr(3, 4), Fr(-1, 5)]  # G1's exact t-values

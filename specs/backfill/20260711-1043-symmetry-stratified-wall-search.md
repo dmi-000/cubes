@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Your complete brief is SYMMETRY_SEARCH_SPEC.md — read it and the files it lists (README.md, six_cube_search_results.md Postscripts 4-9, QFIELD_SPEC.md, golden_six.py, slide3_q2.py, qtower.py, cube_regions.cpp). 
+Working directory: ~/carroll. Exact cube-compound region-counting project. Your complete brief is SYMMETRY_SEARCH_SPEC.md — read it and the files it lists (README.md, six_cube_search_results.md Postscripts 4-9, QFIELD_SPEC.md, golden_six.py, slide3_q2.py, qtower.py, cube_regions.cpp). 
 
 Build a systematic symmetry-stratified search of the region-rich walls: enumerate the finite catalog of symmetry-constrained 6-cube subspaces (finite subgroup G of SO(3) × orbit-partition of 6 × seed orientations), and exact-count each family in its proper field, dispatching to the fast C++ engine for rational G and the Python field engines (ℚ(√5), ℚ(√2), ℚ(√3), towers) otherwise. The goal is to cover the symmetry walls where records live (655/681/699 were all such walls, found ad hoc) and hunt a config beating 699.
 

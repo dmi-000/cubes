@@ -1,0 +1,79 @@
+[   0.5s] arcA_727: catalogue 424 triple points; locating the arc
+[  20.3s]   arcA_727: record 727 on this window; termini ['2025964649509/981581934976', '19/6']
+[  20.4s]   arcA_727 terminus s=2025964649509/981581934976: no W4 wall active (W3-only root), skipped
+[  20.5s]   arcA_727 terminus s=19/6  m_own=3
+[  87.8s]    RULING terminus                chambers=425   longest=86    (0.202) value=707
+[ 108.3s]    RULING terminus                chambers=160   longest=99    (0.619) value=725
+[ 151.6s]    RULING terminus                chambers=271   longest=57    (0.210) value=715
+[ 171.8s]    RULING terminus                chambers=160   longest=99    (0.619) value=725
+[ 690.7s]    control terminus               chambers=2152  longest=70    (0.033) value=687
+[1168.2s]    control terminus               chambers=2070  longest=65    (0.031) value=687
+[1168.2s]   arcA_727 ordinary s=4826/2073  m_own=1
+[1188.6s]    RULING ordinary CRASH IndexError
+[1189.9s]    RULING ordinary CRASH IndexError
+[1422.0s]    control ordinary               chambers=1980  longest=78    (0.039) value=695
+[1763.7s]    control ordinary               chambers=1548  longest=52    (0.034) value=695
+[1763.8s]   arcA_727 ordinary s=38/21  m_own=1
+[1908.1s]    RULING ordinary                chambers=669   longest=46    (0.069) value=695
+[2048.9s]    RULING ordinary                chambers=597   longest=33    (0.055) value=681
+[2570.9s]    control ordinary               chambers=2057  longest=73    (0.035) value=685
+[3200.6s]    control ordinary               chambers=2309  longest=97    (0.042) value=687
+[3201.7s] loop723: catalogue 424 triple points; locating the arc
+[3205.3s]   loop723: record 723 on this window; termini ['-5', '-7/2']
+[3205.5s]   loop723 terminus s=-5  m_own=3
+[3314.2s]    RULING terminus                chambers=962   longest=41    (0.043) value=699
+[4164.5s]    RULING terminus                chambers=3887  longest=114   (0.029) value=697
+[4877.4s]    RULING terminus                chambers=3887  longest=114   (0.029) value=697
+[4962.5s]    RULING terminus                chambers=962   longest=41    (0.043) value=699
+[5731.8s]    control terminus               chambers=3301  longest=105   (0.032) value=693
+[6563.2s]    control terminus               chambers=3903  longest=56    (0.014) value=683
+[6563.3s]   loop723 terminus s=-7/2  m_own=3
+[6658.9s]    RULING terminus                chambers=907   longest=41    (0.045) value=699
+[7640.6s]    RULING terminus                chambers=4357  longest=67    (0.015) value=677
+[8495.5s]    RULING terminus                chambers=4357  longest=67    (0.015) value=677
+[8583.9s]    RULING terminus                chambers=907   longest=41    (0.045) value=699
+[9395.9s]    control terminus               chambers=4273  longest=66    (0.015) value=687
+[10228.6s]    control terminus               chambers=4376  longest=76    (0.017) value=691
+[10228.7s]   loop723 ordinary s=-3  m_own=3
+[10312.8s]    RULING ordinary                chambers=872   longest=41    (0.047) value=699
+[10703.6s]    RULING ordinary                chambers=2715  longest=34    (0.013) value=597
+[11091.7s]    RULING ordinary                chambers=2715  longest=34    (0.013) value=597
+[11174.6s]    RULING ordinary                chambers=872   longest=41    (0.047) value=699
+[11962.2s]    control ordinary               chambers=4022  longest=73    (0.018) value=683
+[12690.9s]    control ordinary               chambers=3898  longest=75    (0.019) value=683
+[12691.0s]   loop723 ordinary s=-25/7  m_own=3
+[12806.8s]    RULING ordinary                chambers=1003  longest=30    (0.030) value=723
+[13606.7s]    RULING ordinary                chambers=4330  longest=66    (0.015) value=677
+[14284.6s]    RULING ordinary                chambers=4330  longest=66    (0.015) value=677
+[14378.1s]    RULING ordinary                chambers=1003  longest=30    (0.030) value=723
+[15057.0s]    control ordinary               chambers=4292  longest=93    (0.022) value=687
+[15746.2s]    control ordinary               chambers=4292  longest=93    (0.022) value=687
+[15747.6s] n7_1217: catalogue 822 triple points; locating the arc
+[15765.5s]   n7_1217: record 1217 on this window; termini ['-44474263966/982666598377', '1778190034/697268162911']
+[15765.7s]   n7_1217 terminus s=-44474263966/982666598377  m_own=3
+[15769.1s]    RULING terminus CRASH IndexError
+[15772.2s]    RULING terminus CRASH IndexError
+[15775.5s]    RULING terminus CRASH IndexError
+[15778.7s]    RULING terminus CRASH IndexError
+[15782.4s]    control terminus CRASH IndexError
+[15786.1s]    control terminus CRASH IndexError
+[15786.3s]   n7_1217 terminus s=1778190034/697268162911  m_own=3
+[15789.6s]    RULING terminus CRASH IndexError
+[15792.7s]    RULING terminus CRASH IndexError
+[15795.9s]    RULING terminus CRASH IndexError
+[15799.1s]    RULING terminus CRASH IndexError
+[15802.9s]    control terminus CRASH IndexError
+[15806.6s]    control terminus CRASH IndexError
+[15806.8s]   n7_1217 ordinary s=-227/2156  m_own=3
+[16743.9s]    RULING ordinary                chambers=4144  longest=55    (0.013) value=1213
+[16749.0s]    RULING ordinary CRASH IndexError
+[17677.7s]    RULING ordinary                chambers=4144  longest=55    (0.013) value=1213
+[18182.3s]    RULING ordinary                chambers=6978  longest=19    (0.003) value=1189
+[20032.7s]    control ordinary               chambers=7826  longest=95    (0.012) value=1181
+[21341.9s]    control ordinary               chambers=7131  longest=82    (0.011) value=1179
+[21341.9s] === SUMMARY: mean longest-run fraction ===
+[21341.9s]   terminus  ruling   n=12  mean=0.160 max=0.619
+[21341.9s]   terminus  control  n=6   mean=0.024 max=0.033
+[21341.9s]   ordinary  ruling   n=13  mean=0.028 max=0.069
+[21341.9s]   ordinary  control  n=10  mean=0.025 max=0.042
+[21341.9s] done, 41 measurements

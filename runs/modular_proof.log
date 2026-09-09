@@ -1,0 +1,20 @@
+727: 27 walls, ambient 15 | old(393) walls: 18
+enumerating flats via the chamber recursion...
+727: chambers = 4,621,728   (3390547 states, 1192678 flats, 9871.0s)
+  chamber gate PASS (4,621,728); 1192678 flats reachable
+X = closure(old walls): 18 walls, rank 11
+1192678 flats collected (19742s)
+   100000/1192678 checked, 0 violations (653s)
+   200000/1192678 checked, 0 violations (1313s)
+   300000/1192678 checked, 0 violations (1980s)
+   400000/1192678 checked, 0 violations (2666s)
+   500000/1192678 checked, 0 violations (3366s)
+   600000/1192678 checked, 0 violations (4074s)
+   700000/1192678 checked, 0 violations (4790s)
+   800000/1192678 checked, 0 violations (5489s)
+   900000/1192678 checked, 0 violations (6218s)
+   1000000/1192678 checked, 0 violations (6918s)
+   1100000/1192678 checked, 0 violations (7643s)
+
+1192678 flats checked, 0 violations
+X IS MODULAR: PROVED

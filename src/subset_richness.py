@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 """
 Subset richness analysis: correlate bounded region counts with subset-level distribution.
 
@@ -16,7 +17,7 @@ from scipy.stats import pearsonr
 import numpy as np
 
 def main():
-    filepath = "/Users/dmi/carroll/campaign_results.jsonl"
+    filepath = os.path.expanduser("~/carroll/campaign_results.jsonl")
 
     configs = []
     skipped_no_per_label = 0

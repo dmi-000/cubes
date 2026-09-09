@@ -2,7 +2,7 @@
 """Task 3: radius-3/4 single-component + two-component hill-climb from the
 699 plateau states. gcd-reduce (q1,p1),(q2,p2),R; cap 512."""
 import sys, math, itertools
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 sys.path.insert(0, '/tmp')
 from slide3_search import gcd_reduce
 from sweep import run

@@ -1,0 +1,571 @@
+[
+ {
+  "n": 6,
+  "k": 3,
+  "count": 53,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 3,
+  "confirmed": 3,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   null,
+   null,
+   null
+  ],
+  "idxs": [
+   0,
+   4,
+   5
+  ]
+ },
+ {
+  "n": 6,
+  "k": 4,
+  "count": 179,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4
+  ]
+ },
+ {
+  "n": 6,
+  "k": 4,
+  "count": 165,
+  "lineality": 3,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   5
+  ]
+ },
+ {
+  "n": 6,
+  "k": 5,
+  "count": 383,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   5
+  ]
+ },
+ {
+  "n": 7,
+  "k": 3,
+  "count": 55,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 12,
+  "confirmed": 12,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "idxs": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "n": 7,
+  "k": 3,
+  "count": 43,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 5,
+  "confirmed": 5,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "idxs": [
+   0,
+   1,
+   6
+  ]
+ },
+ {
+  "n": 7,
+  "k": 4,
+  "count": 171,
+  "lineality": 3,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3
+  ]
+ },
+ {
+  "n": 7,
+  "k": 4,
+  "count": 163,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 3,
+  "confirmed": 3,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   null,
+   null,
+   null
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   6
+  ]
+ },
+ {
+  "n": 7,
+  "k": 4,
+  "count": 153,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 60,
+  "confirmed": 42,
+  "unevaluable": 0,
+  "changed": 18,
+  "wraps": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   6
+  ]
+ },
+ {
+  "n": 7,
+  "k": 5,
+  "count": 385,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   6
+  ]
+ },
+ {
+  "n": 7,
+  "k": 5,
+  "count": 381,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   1,
+   2,
+   3,
+   4,
+   6
+  ]
+ },
+ {
+  "n": 7,
+  "k": 5,
+  "count": 369,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 4,
+  "confirmed": 2,
+  "unevaluable": 0,
+  "changed": 2,
+  "wraps": [
+   null,
+   null
+  ],
+  "idxs": [
+   0,
+   2,
+   3,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 7,
+  "k": 6,
+  "count": 723,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   6
+  ]
+ },
+ {
+  "n": 7,
+  "k": 6,
+  "count": 713,
+  "lineality": 3,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 3,
+  "count": 55,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 12,
+  "confirmed": 12,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "idxs": [
+   0,
+   1,
+   2
+  ]
+ },
+ {
+  "n": 8,
+  "k": 3,
+  "count": 44,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 4,
+  "confirmed": 4,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   null,
+   null,
+   null,
+   null
+  ],
+  "idxs": [
+   3,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 179,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4
+  ]
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 167,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   4,
+   5
+  ]
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 159,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   null
+  ],
+  "idxs": [
+   3,
+   4,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 155,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 20,
+  "confirmed": 19,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "idxs": [
+   2,
+   4,
+   5,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 147,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 15,
+  "confirmed": 15,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "idxs": [
+   0,
+   1,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 387,
+  "lineality": 2,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   null
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 383,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   5
+  ]
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 375,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   6
+  ]
+ }
+]

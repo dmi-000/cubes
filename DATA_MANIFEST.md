@@ -88,3 +88,38 @@ crashed with `GeneratorsNeeded` and were rerun, so at least one generation
 corrects an earlier one — but which file supersedes which is unverified, and is
 stated as unverified rather than guessed. All other `.json` files in the
 repository are likewise unaudited.
+
+## `data/continuum_boundaries.json` — CURRENT (2026-09-08)
+
+Measured boundaries of record count-plateaus and their extension regions
+([P285](LEDGER.md#p285)–[P287](LEDGER.md#p287), [CONTINUUM_MAP.md](CONTINUUM_MAP.md)).
+Three regions: the n=9 line, the n=6 727 arc, the n=4 183 (isolated).
+
+**Every boundary is a BRACKET between two sampled parameter values, not an exact locus.**
+The file says so in its own `IMPORTANT` field. It also carries one unresolved ANOMALY —
+727 measured at `s = 10/3`, outside the extent MAXIMISERS documents — recorded as not
+concluded rather than as a correction.
+
+### `data/wall_keys.json` (2026-09-08)
+
+Per named record, every distinct wall's **reconstruction key** —
+`(frame, group, sig, c0)` — plus its gradient, the record quaternions, and the
+record point. The key is the complete argument list of
+`dimension.branch_numerator`, so the key *is* the polynomial; expanding it in
+3(n−1) variables is a choice the reader makes, not something that had to be
+stored. Written by `src/wall_keys.py`, which also provides `on_line` (Cayley
+line) and `on_quat_line` (quaternion line — the form the project's brackets take).
+
+n = 4..8 give 12 / 18 / 27 / 51 / 75 distinct walls, and arcA 20. `n4_183` is
+recorded as **UNEVALUABLE, not skipped**: cube 1 is a half-turn, so the record is
+at Cayley infinity and this chart has no point for it.
+
+Gated by `P(record) == 0`, by two-route agreement between the gradient and the
+polynomial's directional derivative, and by a corrupted-key negative control that
+fires on every wall. That first gate found the `branch_numerator` defect of
+[P288](LEDGER.md#p288); before the fix it failed on 6/27 at n = 6, 24/51 at
+n = 7, 42/75 at n = 8, with every failure having two distinct cubes in its group.
+
+Supersedes `data/record_walls.json` for reconstruction purposes. That file is
+still the right one for tangent tests, and still carries the `nullspace_dim`
+per record (1, 1, 1, 2, 3 at n = 4..8) which this one does not.

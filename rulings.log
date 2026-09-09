@@ -1,0 +1,107 @@
+[    0.0s] === RULINGS run start ===
+[    0.0s] budget: 400 seconds (6.7 minutes)
+[    0.0s] G1: regression against yesterday's arc-A end-point ruling
+[    0.5s]   G1: conditions of triple point (Fraction(-11, 19), Fraction(-31, 19), Fraction(-1, 19)) active at s=19/6: [(0, 1), (1, 1), (2, -1)]
+[    0.5s]   G1: axis i=0 sign=+1  signature=(2, 2, 0)  ruling tags=['rational', 'rational']  rational dirs=[(365, -747, -1074), (2, -3, -5)]
+[    0.5s]   G1: axis i=1 sign=+1  signature=(2, 2, 0)  ruling tags=['rational', 'rational']  rational dirs=[(507, -1093, -2018), (2, -3, -5)]
+[    0.5s]   G1: axis i=2 sign=-1  signature=(2, 2, 0)  ruling tags=['rational', 'rational']  rational dirs=[(603, -971, -1802), (2, -3, -5)]
+[    3.2s]   G1: decompose took 2.03s, W4=863 W3=3184 chambers=11 counts_all_725=True
+[    3.2s] G1 (numeric regression: 863 W4 + 3184 W3 roots, 10 inside, 11 chambers, count 725 in all eleven): PASS
+[    3.2s] G1 discrepancy vs RULINGS_SPEC.md text: the spec predicts the arc-A wall has "one rational, one irrational" ruling. This is algebraically IMPOSSIBLE for this construction: the two ruling directions at a rational point are the two roots of a binary quadratic a*t^2+b*t+c=0 with a,b,c all RATIONAL (Q and the null-space basis e1,e2 are rational), and a rational quadratic can never have exactly one rational root -- dividing out a rational linear factor from a rational quadratic always leaves a rational linear quotient, so the roots are always BOTH rational (perfect-square discriminant) or a Galois-conjugate IRRATIONAL PAIR (non-square discriminant), never one of each. Confirmed both ways on synthetic quadrics (a hand-built non-split example correctly returns two irrational roots). For the actual arc-A wall, all three active (i,sign) branches at this triple point in fact give BOTH rulings rational (discriminants 64/729, 64/961, 16/841 -- all perfect squares), including the target (-2/5,3/5,1). Numeric regression (the counts, which is what the spec calls "the important one") passes exactly, so the run continues; the rationality-split prediction is reported as wrong, not silently dropped.
+[    3.2s] G1 per-axis detail: [{'i': 0, 'sign': 1, 'signature': (2, 2, 0), 'dir_tags': ['rational', 'rational'], 'rational_dirs': [(365, -747, -1074), (2, -3, -5)]}, {'i': 1, 'sign': 1, 'signature': (2, 2, 0), 'dir_tags': ['rational', 'rational'], 'rational_dirs': [(507, -1093, -2018), (2, -3, -5)]}, {'i': 2, 'sign': -1, 'signature': (2, 2, 0), 'dir_tags': ['rational', 'rational'], 'rational_dirs': [(603, -971, -1802), (2, -3, -5)]}]
+[    3.2s] G3 self-test: signature() correctly distinguishes (4,0,0) from (2,2,0) -- not a gate that cannot fail.
+[    3.2s] arcA_727: building catalogue for a 5-cube base
+[    3.6s] arcA_727: catalogue 424 triple points, 360 crossing lines (2544 W4-cond candidates, 4320 W3-cond candidates)
+[   12.1s] arcA_727: 2544 W4 + 4320 W3 conditions carry a polynomial on the line; exact rational roots (denominator<=1e6): 360 distinct s-values, 3590 (wall,point) pairs
+[   28.0s] arcA_727: rulings solved (algebra only, no engine calls yet): 7180 rational, 0 irrational, 0 degenerate points, 3640 DISTINCT walls with a rational ruling
+[   28.2s] elapsed so far: 0.5 min
+[   28.2s] loop723: building catalogue for a 5-cube base
+[   28.6s] loop723: catalogue 424 triple points, 360 crossing lines (2544 W4-cond candidates, 4320 W3-cond candidates)
+[   33.9s] loop723: 2538 W4 + 4266 W3 conditions carry a polynomial on the line; exact rational roots (denominator<=1e6): 167 distinct s-values, 7044 (wall,point) pairs
+[   54.5s] loop723: rulings solved (algebra only, no engine calls yet): 14088 rational, 0 irrational, 0 degenerate points, 7200 DISTINCT walls with a rational ruling
+[   55.0s] elapsed so far: 0.9 min
+[   55.0s] n7_1217: building catalogue for a 6-cube base
+[   56.0s] n7_1217: catalogue 822 triple points, 540 crossing lines (4932 W4-cond candidates, 6480 W3-cond candidates)
+[   67.9s] n7_1217: 4920 W4 + 6426 W3 conditions carry a polynomial on the line; exact rational roots (denominator<=1e6): 740 distinct s-values, 8982 (wall,point) pairs
+[   87.6s] n7_1217: rulings solved (algebra only, no engine calls yet): 17964 rational, 0 irrational, 0 degenerate points, 10176 DISTINCT walls with a rational ruling
+[   88.6s] elapsed so far: 1.5 min
+[   88.6s] n8_1895: building catalogue for a 7-cube base
+[   90.5s] n8_1895: catalogue 1386 triple points, 756 crossing lines (8316 W4-cond candidates, 9072 W3-cond candidates)
+[  109.5s] n8_1895: 8304 W4 + 9018 W3 conditions carry a polynomial on the line; exact rational roots (denominator<=1e6): 1022 distinct s-values, 12100 (wall,point) pairs
+[  132.5s] n8_1895: rulings solved (algebra only, no engine calls yet): 24200 rational, 0 irrational, 0 degenerate points, 13680 DISTINCT walls with a rational ruling
+[  134.0s] elapsed so far: 2.2 min
+[  134.0s] TOTALS across all 4 lines: 31716 (wall,point) pairs, 63432 rational rulings, 0 irrational rulings, 34696 DISTINCT walls with >=1 rational ruling
+[  136.2s]   arcA_727 ruling #1 solved in 1.50s (window +-20/10425): 1176 W4+3480 W3 roots on ruling line, 2 chambers, max=691 constant=True unevaluable=0
+[  145.1s]   loop723 ruling #1 solved in 8.09s (window +-20/171): 1062 W4+3725 W3 roots on ruling line, 56 chambers, max=719 constant=False unevaluable=0
+[  151.8s]   n7_1217 ruling #1 solved in 5.50s (window +-20/115243): 2287 W4+5453 W3 roots on ruling line, 20 chambers, max=1197 constant=False unevaluable=5
+[  170.3s]   n8_1895 ruling #1: EXCEPTION IndexError('list index out of range') -- skipping this ruling and continuing
+[  172.2s]   arcA_727 ruling #2 solved in 1.25s (window +-20/97): 1018 W4+3643 W3 roots on ruling line, 1 chambers, max=699 constant=True unevaluable=0
+[  184.7s]   loop723 ruling #2 solved in 11.70s (window +-20/22572): 1020 W4+3467 W3 roots on ruling line, 86 chambers, max=709 constant=False unevaluable=1
+[  193.2s]   n7_1217 ruling #2 solved in 7.31s (window +-20/532): 2047 W4+5568 W3 roots on ruling line, 26 chambers, max=1207 constant=False unevaluable=0
+[  209.8s]   n8_1895 ruling #2 solved in 14.85s (window +-20/3289): 3909 W4+7815 W3 roots on ruling line, 43 chambers, max=1879 constant=False unevaluable=7
+[  209.8s] report written to rulings_report.md (partial: 7 rulings solved so far)
+[  211.8s]   arcA_727 ruling #3 solved in 1.30s (window +-20/97): 1018 W4+3643 W3 roots on ruling line, 1 chambers, max=699 constant=True unevaluable=0
+[  224.7s]   loop723 ruling #3 solved in 12.16s (window +-20/22572): 1020 W4+3467 W3 roots on ruling line, 86 chambers, max=709 constant=False unevaluable=1
+[  233.4s]   n7_1217 ruling #3 solved in 7.40s (window +-20/532): 2047 W4+5568 W3 roots on ruling line, 26 chambers, max=1207 constant=False unevaluable=0
+[  251.9s]   n8_1895 ruling #3 solved in 15.23s (window +-20/3289): 3909 W4+7815 W3 roots on ruling line, 43 chambers, max=1879 constant=False unevaluable=7
+[  254.1s]   arcA_727 ruling #4 solved in 1.49s (window +-20/10425): 1176 W4+3480 W3 roots on ruling line, 2 chambers, max=691 constant=True unevaluable=0
+[  262.9s]   loop723 ruling #4 solved in 8.02s (window +-20/171): 1062 W4+3725 W3 roots on ruling line, 56 chambers, max=719 constant=False unevaluable=0
+[  269.5s]   n7_1217 ruling #4 solved in 5.42s (window +-20/115243): 2287 W4+5453 W3 roots on ruling line, 20 chambers, max=1197 constant=False unevaluable=5
+[  288.0s]   n8_1895 ruling #4: EXCEPTION IndexError('list index out of range') -- skipping this ruling and continuing
+[  288.0s] report written to rulings_report.md (partial: 14 rulings solved so far)
+[  290.1s]   arcA_727 ruling #5 solved in 1.30s (window +-20/97): 1018 W4+3643 W3 roots on ruling line, 1 chambers, max=699 constant=True unevaluable=0
+[  302.6s]   loop723 ruling #5 solved in 11.75s (window +-20/22572): 1020 W4+3467 W3 roots on ruling line, 86 chambers, max=709 constant=False unevaluable=1
+[  311.1s]   n7_1217 ruling #5 solved in 7.30s (window +-20/532): 2047 W4+5568 W3 roots on ruling line, 26 chambers, max=1207 constant=False unevaluable=0
+[  311.1s] decompose phase done: 17 rulings solved out of 34696 distinct walls sampled from (of 63432 rational rulings / 31716 (wall,point) pairs total), elapsed 5.2 min
+[  312.6s] G3 (signature (2,2) for every wall built: 10250 checked, 0 exceptions): PASS
+[  312.6s] G4 (W3 division by N exact: 5640 checked, 0 fails): PASS
+[  312.6s] G2 (F_h(p0+s d) coefficients exactly zero for every ruling used: 19 checked, 0 fails): PASS
+[  312.6s] report written to rulings_report.md (partial: 17 rulings solved so far)
+[  312.6s] === RULINGS run complete, elapsed 5.2 min ===
+[   17.5s]   arcA_727 ruling #100 solved in 2.08s (window +-20/51521): 1048 W4+3576 W3 roots on ruling line, 1 chambers, max=697 constant=True unevaluable=0
+[   20.4s]   arcA_727 ruling #101 solved in 1.89s (window +-20/54): 1043 W4+3731 W3 roots on ruling line, 1 chambers, max=697 constant=True unevaluable=0
+[  509.7s]   arcA_727 ruling #100 solved in 488.04s (window +-20/29): 711 W4+2511 W3 roots on ruling line, 3074 chambers, max=611 constant=False unevaluable=371
+[ 1380.1s]   arcA_727 ruling #101 solved in 868.93s (window +-20/3615): 1170 W4+3507 W3 roots on ruling line, 4245 chambers, max=705 constant=False unevaluable=1100
+[  203.8s]   arcA_727 ruling #1 solved in 97.61s (window +-20/1074): 1056 W4+3528 W3 roots on ruling line, 425 chambers, max=711 constant=False unevaluable=0
+[  236.7s]   arcA_727 ruling #2 solved in 31.33s (window +-20/5): 863 W4+3059 W3 roots on ruling line, 160 chambers, max=725 constant=False unevaluable=7
+[  315.8s]   arcA_727 ruling #3 solved in 77.58s (window +-20/2018): 1028 W4+3538 W3 roots on ruling line, 271 chambers, max=715 constant=False unevaluable=2
+[  351.2s]   arcA_727 ruling #4 solved in 33.97s (window +-20/5): 863 W4+3059 W3 roots on ruling line, 160 chambers, max=725 constant=False unevaluable=7
+[  195.5s]   arcA_727 ruling #1 solved in 96.95s (window +-20/1074): 1056 W4+3528 W3 roots on ruling line, 425 chambers, max=711 constant=False unevaluable=0
+[   97.5s]   arcA_727 ruling #1 solved in 48.00s (window +-20/1074): 1056 W4+3528 W3 roots on ruling line, 425 chambers, max=711 constant=False unevaluable=0
+[  112.6s]   arcA_727 ruling #2 solved in 14.42s (window +-20/5): 863 W4+3059 W3 roots on ruling line, 160 chambers, max=725 constant=False unevaluable=7
+[  144.3s]   arcA_727 ruling #3 solved in 31.05s (window +-20/2018): 1028 W4+3538 W3 roots on ruling line, 271 chambers, max=715 constant=False unevaluable=2
+[  159.3s]   arcA_727 ruling #4 solved in 14.36s (window +-20/5): 863 W4+3059 W3 roots on ruling line, 160 chambers, max=725 constant=False unevaluable=7
+[  173.6s]   arcA_727 ruling #5 solved in 13.59s (window +-20/1802): 1040 W4+3512 W3 roots on ruling line, 116 chambers, max=711 constant=False unevaluable=0
+[  188.6s]   arcA_727 ruling #6 solved in 14.41s (window +-20/5): 863 W4+3059 W3 roots on ruling line, 160 chambers, max=725 constant=False unevaluable=7
+[  201.8s]   arcA_727 ruling #7 solved in 12.48s (window +-20/10): 820 W4+3340 W3 roots on ruling line, 127 chambers, max=721 constant=False unevaluable=2
+[  260.1s]   arcA_727 ruling #8 solved in 57.65s (window +-20/478): 1243 W4+3526 W3 roots on ruling line, 504 chambers, max=715 constant=False unevaluable=1
+[  273.1s]   arcA_727 ruling #9 solved in 12.35s (window +-20/10): 820 W4+3340 W3 roots on ruling line, 127 chambers, max=721 constant=False unevaluable=2
+[  287.2s]   arcA_727 ruling #10 solved in 13.46s (window +-20/3034): 1101 W4+3530 W3 roots on ruling line, 109 chambers, max=711 constant=False unevaluable=1
+[  289.0s]   arcA_727 ruling #11 solved in 1.16s (window +-20/54): 1043 W4+3731 W3 roots on ruling line, 1 chambers, max=697 constant=True unevaluable=0
+[  290.9s]   arcA_727 ruling #12 solved in 1.19s (window +-20/51521): 1048 W4+3576 W3 roots on ruling line, 1 chambers, max=697 constant=True unevaluable=0
+[  292.8s]   arcA_727 ruling #13 solved in 1.17s (window +-20/51521): 1048 W4+3576 W3 roots on ruling line, 1 chambers, max=697 constant=True unevaluable=0
+[  294.6s]   arcA_727 ruling #14 solved in 1.14s (window +-20/54): 1043 W4+3731 W3 roots on ruling line, 1 chambers, max=697 constant=True unevaluable=0
+[  306.3s]   loop723 ruling #1 solved in 11.04s (window +-20/22572): 1020 W4+3467 W3 roots on ruling line, 86 chambers, max=709 constant=False unevaluable=1
+[  314.4s]   loop723 ruling #2 solved in 7.39s (window +-20/171): 1062 W4+3725 W3 roots on ruling line, 56 chambers, max=719 constant=False unevaluable=0
+[  322.5s]   loop723 ruling #3 solved in 7.40s (window +-20/171): 1062 W4+3725 W3 roots on ruling line, 56 chambers, max=719 constant=False unevaluable=0
+[  334.0s]   loop723 ruling #4 solved in 10.90s (window +-20/22572): 1020 W4+3467 W3 roots on ruling line, 86 chambers, max=709 constant=False unevaluable=1
+[  340.8s]   n7_1217 ruling #1 solved in 5.74s (window +-20/8837): 2068 W4+5289 W3 roots on ruling line, 21 chambers, max=1195 constant=False unevaluable=0
+[  347.8s]   n7_1217 ruling #2 solved in 5.96s (window +-20/63): 2082 W4+5427 W3 roots on ruling line, 23 chambers, max=1205 constant=False unevaluable=0
+[  354.7s]   n7_1217 ruling #3 solved in 5.90s (window +-20/63): 2082 W4+5427 W3 roots on ruling line, 23 chambers, max=1205 constant=False unevaluable=0
+[  361.5s]   n7_1217 ruling #4 solved in 5.73s (window +-20/8837): 2068 W4+5289 W3 roots on ruling line, 21 chambers, max=1195 constant=False unevaluable=0
+[  376.8s]   n8_1895 ruling #1 solved in 13.71s (window +-20/3289): 3909 W4+7815 W3 roots on ruling line, 43 chambers, max=1879 constant=False unevaluable=7
+[  426.2s]   n8_1895 ruling #4 solved in 13.83s (window +-20/3289): 3909 W4+7815 W3 roots on ruling line, 43 chambers, max=1879 constant=False unevaluable=7
+[  428.1s]   arcA_727 ruling #15 solved in 1.27s (window +-20/55): 997 W4+3792 W3 roots on ruling line, 2 chambers, max=697 constant=False unevaluable=0
+[  430.0s]   arcA_727 ruling #16 solved in 1.16s (window +-20/23981): 1064 W4+3576 W3 roots on ruling line, 1 chambers, max=697 constant=True unevaluable=0
+[  431.8s]   arcA_727 ruling #17 solved in 1.15s (window +-20/23981): 1064 W4+3576 W3 roots on ruling line, 1 chambers, max=697 constant=True unevaluable=0
+[  433.7s]   arcA_727 ruling #18 solved in 1.25s (window +-20/55): 997 W4+3792 W3 roots on ruling line, 2 chambers, max=697 constant=False unevaluable=0
+[  794.9s]   loop723 ruling #5 solved in 360.45s (window +-20/3619): 1036 W4+3452 W3 roots on ruling line, 4285 chambers, max=709 constant=False unevaluable=1165
+[ 1200.1s]   loop723 ruling #6 solved in 404.54s (window +-20/35): 993 W4+3127 W3 roots on ruling line, 3774 chambers, max=719 constant=False unevaluable=238
+[ 1562.2s]   loop723 ruling #7 solved in 361.48s (window +-20/3619): 1036 W4+3452 W3 roots on ruling line, 4285 chambers, max=709 constant=False unevaluable=1165
+[ 1968.1s]   loop723 ruling #8 solved in 405.22s (window +-20/35): 993 W4+3127 W3 roots on ruling line, 3774 chambers, max=719 constant=False unevaluable=238
+[ 1979.7s]   n7_1217 ruling #5 solved in 10.44s (window +-20/4622): 2192 W4+5781 W3 roots on ruling line, 46 chambers, max=1205 constant=False unevaluable=2
+[ 1996.1s]   n7_1217 ruling #8 solved in 10.50s (window +-20/4622): 2192 W4+5781 W3 roots on ruling line, 46 chambers, max=1205 constant=False unevaluable=2
+[ 2410.5s]   n8_1895 ruling #5 solved in 412.87s (window +-20/637): 3515 W4+7607 W3 roots on ruling line, 1861 chambers, max=1877 constant=False unevaluable=424
+[ 2439.0s]   n8_1895 ruling #6 solved in 26.90s (window +-20/2227): 3845 W4+8060 W3 roots on ruling line, 83 chambers, max=1875 constant=False unevaluable=1
+[ 2467.4s]   n8_1895 ruling #7 solved in 26.83s (window +-20/2227): 3845 W4+8060 W3 roots on ruling line, 83 chambers, max=1875 constant=False unevaluable=1
+[ 2880.9s]   n8_1895 ruling #8 solved in 412.00s (window +-20/637): 3515 W4+7607 W3 roots on ruling line, 1861 chambers, max=1877 constant=False unevaluable=424

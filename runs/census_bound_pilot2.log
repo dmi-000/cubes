@@ -1,0 +1,37 @@
+  base 0: 2 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0200 rad per extra cube
+  base 1: 4 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0200 rad per extra cube
+  base 2: 2 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0200 rad per extra cube
+  base 3: 5 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0200 rad per extra cube
+  scale=0.02: elapsed 16.8s
+
+  base 0: 8 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0500 rad per extra cube
+  base 1: 6 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0500 rad per extra cube
+  base 2: 2 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0500 rad per extra cube
+  base 3: 13 distinct combinatorial signatures among 61 configs in a box of angular radius 0.0500 rad per extra cube
+  scale=0.05: elapsed 17.0s
+
+  base 0: 33 distinct combinatorial signatures among 61 configs in a box of angular radius 0.1500 rad per extra cube
+  base 1: 20 distinct combinatorial signatures among 61 configs in a box of angular radius 0.1500 rad per extra cube
+  base 2: 11 distinct combinatorial signatures among 61 configs in a box of angular radius 0.1500 rad per extra cube
+  base 3: 36 distinct combinatorial signatures among 61 configs in a box of angular radius 0.1500 rad per extra cube
+  scale=0.15: elapsed 16.9s
+
+  base 0: 45 distinct combinatorial signatures among 61 configs in a box of angular radius 0.3000 rad per extra cube
+  base 1: 30 distinct combinatorial signatures among 61 configs in a box of angular radius 0.3000 rad per extra cube
+  base 2: 27 distinct combinatorial signatures among 61 configs in a box of angular radius 0.3000 rad per extra cube
+  base 3: 48 distinct combinatorial signatures among 61 configs in a box of angular radius 0.3000 rad per extra cube
+  scale=0.3: elapsed 16.7s
+
+  base 0: 51 distinct combinatorial signatures among 61 configs in a box of angular radius 0.6000 rad per extra cube
+  base 1: 46 distinct combinatorial signatures among 61 configs in a box of angular radius 0.6000 rad per extra cube
+  base 2: 47 distinct combinatorial signatures among 61 configs in a box of angular radius 0.6000 rad per extra cube
+  base 3: 59 distinct combinatorial signatures among 61 configs in a box of angular radius 0.6000 rad per extra cube
+  scale=0.6: elapsed 17.0s
+
+  base 0: 60 distinct combinatorial signatures among 61 configs in a box of angular radius 1.0000 rad per extra cube
+  base 1: 59 distinct combinatorial signatures among 61 configs in a box of angular radius 1.0000 rad per extra cube
+  base 2: 55 distinct combinatorial signatures among 61 configs in a box of angular radius 1.0000 rad per extra cube
+  base 3: 61 distinct combinatorial signatures among 61 configs in a box of angular radius 1.0000 rad per extra cube
+  scale=1.0: elapsed 16.9s
+
+wrote census_bound_pilot_log.json

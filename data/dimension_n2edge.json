@@ -1,0 +1,12 @@
+[
+ {
+  "label": "n2edge",
+  "count": 13,
+  "tight": 20,
+  "degenerate": 0,
+  "rank": 2,
+  "ncols": 3,
+  "candidate_dim": 1,
+  "verified_dim": 1
+ }
+]

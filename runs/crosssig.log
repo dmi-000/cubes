@@ -1,0 +1,8 @@
+ACROSS signatures, 300 random census configurations:
+  correlation(Moebius weight of real incidences, count) = 0.562
+  orders random pairs 104/134 = 77.6%   (within-signature it was 78.8%)
+
+DEGENERACIES the signature cannot see:
+  configs with a plane shared between cubes : 17 of 300
+  configs with cross-cube PARALLEL planes   : 17 of 300
+  mean parallel-classes: count>=150 -> 0.0 ; count<130 -> 0.1

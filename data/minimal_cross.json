@@ -1,0 +1,16 @@
+{
+ "base": 183,
+ "walls": 12,
+ "levels": [
+  {
+   "k": 2,
+   "subsets": 66,
+   "crossable": 3,
+   "hist": {
+    "171": 4,
+    "165": 2
+   },
+   "uneval": 0
+  }
+ ]
+}

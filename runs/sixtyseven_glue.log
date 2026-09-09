@@ -1,0 +1,7 @@
+octahedral quaternion candidates: 48
+d=2: 576 distinct candidate third/fourth cubes
+d=2: 576 counted, 0 REFUSED, best 149 (record 183)
+   distribution {149: 384, 67: 192}
+d=5: 384 distinct candidate third/fourth cubes
+d=5: 384 counted, 0 REFUSED, best 177 (record 183)
+   distribution {177: 96, 169: 96, 159: 96, 67: 96}

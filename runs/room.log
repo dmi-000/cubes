@@ -1,0 +1,24 @@
+5990 signatures with counts
+
+1. IS THE RECORD'S OWN SIGNATURE IN THE CENSUS?
+   NO -- 2.58M configurations never produced ((4,96),(6,8),(9,2))
+
+2. DOES A SIGNATURE'S OBSERVED MAX GROW WITH SAMPLING? (room among SEEN)
+   samples   n_sigs   median observed max   best observed max
+       1-1        1873            109                169
+       2-5        1889            117                169
+       6-20       1064            125                175
+      21-100       627            141                175
+     101-1000      380            157                177
+    1001-1000000000    157            163                173
+
+3. HOW MUCH ROOM IS THERE IN SEEN SIGNATURES?
+   max 177  (seen    836 times)  ((4, 88), (6, 4))
+   max 175  (seen     42 times)  ((4, 90), (6, 2), (9, 2))
+   max 175  (seen     29 times)  ((4, 100), (6, 6))
+   max 175  (seen      6 times)  ((4, 102), (5, 2), (6, 6))
+   max 173  (seen   5658 times)  ((4, 82), (6, 2))
+   max 173  (seen    678 times)  ((4, 66), (6, 4))
+   max 173  (seen    525 times)  ((4, 90), (6, 4))
+   max 173  (seen    212 times)  ((4, 90), (5, 2), (6, 4))
+   median spread within a signature: 20 ; max spread: 163

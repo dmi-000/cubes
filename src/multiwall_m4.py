@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: specs/MULTIWALL_SPEC.md + multiwall_report.md. Project index: README.md
 """M4 (control): purely-rational double wall -- two independent 60-deg-about-
 own-body-diagonal pair relations among 6 otherwise-free rational cubes,
@@ -11,8 +12,8 @@ import math
 import random
 import subprocess
 
-LOG = '/Users/dmi/carroll/multiwall_search.jsonl'
-ENGINE = '/Users/dmi/carroll/cube_regions_n'
+LOG = os.path.expanduser('~/carroll/multiwall_search.jsonl')
+ENGINE = os.path.expanduser('~/carroll/cube_regions_n')
 MAXC = 512
 QD = (3, 1, 1, 1)   # 60deg about (1,1,1): exact rational quaternion
 

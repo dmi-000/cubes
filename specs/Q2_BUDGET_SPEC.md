@@ -4,7 +4,7 @@
 > (the d*m^2 guard was REFUTED — see the superseded-claims table).
 > Renamed from `joint_bound.md` 2026-08-11.
 
-Focused change to /Users/dmi/carroll/cube_regions_q2.cpp (the Z[sqrt d] exact region counter you can read; it was  
+Focused change to ~/carroll/cube_regions_q2.cpp (the Z[sqrt d] exact region counter you can read; it was  
   built earlier and all its gates pass).                                                                             
                                                                                                                      
   ## The problem                                                                                                     

@@ -1,0 +1,14 @@
+{
+ "output": "extension_chambers.json",
+ "argv": [
+  "extension_chambers.py"
+ ],
+ "rerun": "python3 extension_chambers.py",
+ "script": "extension_chambers.py",
+ "script_sha1": "0b9d35c051c1c5827f60e6d86a941b7e84046efa",
+ "started": null,
+ "finished": "2026-08-18 11:42:43",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "note": "local chambers of the 727 sixth cube in its own R^3 Cayley space; exact incidence, exact gradients, Fourier-Motzkin face enumeration, infinitesimal count_eps -- no sampling, no step size"
+}

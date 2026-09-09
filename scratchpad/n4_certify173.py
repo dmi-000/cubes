@@ -4,8 +4,8 @@ bigger perturbed restarts from it to see if the basin goes higher."""
 import json, math, random, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
 
-BIN = '/Users/dmi/carroll/cube_regions_n'
-LOG = '/Users/dmi/carroll/n4_search.jsonl'
+BIN = '~/carroll/cube_regions_n'
+LOG = '~/carroll/n4_search.jsonl'
 WORKERS = 4
 MAXC = 512
 

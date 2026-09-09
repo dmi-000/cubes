@@ -1,0 +1,16 @@
+cube 0: 24 distinct planes
+cube 1: 24 distinct planes
+cube 2: 24 distinct planes
+cube 3: 24 distinct planes
+cube 4: 23 distinct planes
+systems to solve: 134784
+distinct candidates: 2733 (singular systems: 8199)
+  counted 500/2733, best so far (723, (31, 59, 1, 19))
+  counted 1000/2733, best so far (727, (12, 15, -13, 2))
+  counted 1500/2733, best so far (727, (12, 15, -13, 2))
+  counted 2000/2733, best so far (727, (12, 15, -13, 2))
+  counted 2500/2733, best so far (727, (12, 15, -13, 2))
+  counted 2733/2733, best so far (727, (12, 15, -13, 2))
+
+DONE. best = (727, (12, 15, -13, 2))
+top of the distribution: {705: 97, 707: 69, 709: 72, 711: 87, 713: 81, 715: 45, 717: 22, 719: 9, 721: 18, 723: 24, 725: 12, 727: 6}

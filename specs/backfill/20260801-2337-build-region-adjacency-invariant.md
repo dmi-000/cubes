@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Engineering task in /Users/dmi/carroll: compute the REGION ADJACENCY GRAPH of a cube compound, so configurations can be classified topologically rather than merely by region counts.
+Engineering task in ~/carroll: compute the REGION ADJACENCY GRAPH of a cube compound, so configurations can be classified topologically rather than merely by region counts.
 
 ## Background you must read
 

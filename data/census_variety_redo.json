@@ -1,0 +1,236 @@
+[
+ {
+  "n": 6,
+  "k": 3,
+  "count": 63,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 6,
+  "k": 4,
+  "count": 183,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 6,
+  "k": 4,
+  "count": 179,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 6,
+  "k": 5,
+  "count": 393,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 6,
+  "k": 5,
+  "count": 385,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 7,
+  "k": 3,
+  "count": 63,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 7,
+  "k": 4,
+  "count": 183,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 7,
+  "k": 4,
+  "count": 179,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 7,
+  "k": 5,
+  "count": 393,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 7,
+  "k": 5,
+  "count": 385,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 7,
+  "k": 5,
+  "count": 385,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 7,
+  "k": 6,
+  "count": 727,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 8,
+  "k": 3,
+  "count": 63,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 183,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 179,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 393,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 385,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 385,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 8,
+  "k": 6,
+  "count": 727,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 9,
+  "k": 3,
+  "count": 63,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 9,
+  "k": 4,
+  "count": 183,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 9,
+  "k": 4,
+  "count": 179,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 393,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 385,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 385,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 727,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0
+ }
+]

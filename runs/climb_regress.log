@@ -1,0 +1,9 @@
+
+[n=9 REGRESSION iter 1] record 2787  deficit 5  height 113786
+   preserving rank 4
+   FACET CENSUS of this region: 4 distinct walls
+      cubes [1, 3, 6]        at 0.0025502   count outside 2783
+      cubes [5, 7, 8]        at 0.0033597   count outside 2783
+      cubes [3, 6, 7]        at 0.029932   count outside 2783
+      cubes [0, 5, 6]        at 0.045259   count outside 2783
+   no crossing above the record; region is locally maximal OVER THE DIRECTIONS WALKED (not a proof — see facets.py for the saturation curve and vertex probes)

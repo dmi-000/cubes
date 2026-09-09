@@ -1,0 +1,46 @@
+{
+ "what": "arc D at non-record parameters, controlling for record-vs-generic",
+ "extent": [
+  "-1/8",
+  "1/4"
+ ],
+ "record_s": "0",
+ "points": {
+  "1/8": {
+   "count": "727",
+   "tight": 192,
+   "nondegenerate": 192,
+   "lineality": 2,
+   "variety": "nonempty",
+   "variety_dirs": 2,
+   "distinct_walls": 20,
+   "s": "1/8",
+   "sixth_cube": [
+    16,
+    30,
+    2,
+    -11
+   ],
+   "height": 30,
+   "GATE_727": true
+  },
+  "-1/16": {
+   "count": "727",
+   "tight": 192,
+   "nondegenerate": 192,
+   "lineality": 2,
+   "variety": "nonempty",
+   "variety_dirs": 2,
+   "distinct_walls": 20,
+   "s": "-1/16",
+   "sixth_cube": [
+    224,
+    462,
+    34,
+    -163
+   ],
+   "height": 462,
+   "GATE_727": true
+  }
+ }
+}

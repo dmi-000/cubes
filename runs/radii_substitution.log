@@ -1,0 +1,29 @@
+n=9 record, two representatives -- identical count (2787) and by_depth at all 9 depths
+
+ORIGINAL  88787,-9061,74275,113786
+   outer vertices        : 1126
+   distinct r^2 values   : 438
+   edge-edge (2,2) radii : ((Fraction(687699, 339889), 6), (Fraction(73, 36), 2), (Fraction(51, 25), 18), (Fraction(166, 81), 6), (Fraction(466, 225), 6), (Fraction(19, 9), 6), (Fraction(2963, 1369), 6), (Fraction(13707, 6241), 2), (Fraction(1347, 529), 2), (Fraction(41, 16), 12), (Fraction(5196547, 1996569), 6), (Fraction(7382, 2809), 2), (Fraction(2547, 961), 2), (Fraction(10391847751538, 3915795872569), 2), (Fraction(97, 36), 10), (Fraction(281, 100), 6), (Fraction(9987, 3481), 2), (Fraction(108419864713, 36682208676), 2), (Fraction(6817, 2304), 2), (Fraction(9614184729193, 3209852059236), 2))
+   corner-corner (3,3)   : ((Fraction(3, 1), 4),)
+
+SIMPLIFIED 109,-11,91,140
+   outer vertices        : 1108
+   distinct r^2 values   : 428
+   edge-edge (2,2) radii : ((Fraction(687699, 339889), 6), (Fraction(73, 36), 2), (Fraction(51, 25), 18), (Fraction(166, 81), 6), (Fraction(466, 225), 6), (Fraction(19, 9), 6), (Fraction(2963, 1369), 6), (Fraction(13707, 6241), 2), (Fraction(2111427, 889249), 2), (Fraction(1347, 529), 2), (Fraction(41, 16), 12), (Fraction(5196547, 1996569), 6), (Fraction(7382, 2809), 2), (Fraction(15672742, 5919489), 2), (Fraction(2547, 961), 2), (Fraction(97, 36), 10), (Fraction(281, 100), 6), (Fraction(103587, 36481), 2), (Fraction(9987, 3481), 2), (Fraction(14471657, 4831204), 2))
+   corner-corner (3,3)   : ((Fraction(3, 1), 4),)
+
+FULL radius signature   : DIFFER
+edge-edge radii         : DIFFER
+corner-corner radii     : IDENTICAL
+
+first differences (r^2 -> old count, new count), 362 of 614 radii:
+   r^2 = 30636287282277265980099/19114186496489944510729   old 2, new 0
+   r^2 = 69884441379/43525225129   old 0, new 2
+   r^2 = 208163346743258244884243589771149/128321577205740682154828533183684   old 2, new 0
+   r^2 = 87260359483807519981/53711075886055492356   old 0, new 2
+   r^2 = 68290003713389648417926/41553698934911180086161   old 2, new 0
+   r^2 = 156460247494/95023611081   old 0, new 2
+   r^2 = 2336327569673580330866947/1407467577879183474435609   old 2, new 0
+   r^2 = 5525089736359178921621/3323217580693888993956   old 2, new 0
+
+=> the radii signature WOULD have caught the substitution.

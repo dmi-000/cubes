@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Read first: PROJECT.md (self-contained overview), six_cube_search_results.md Postscripts 12, 16, 17 and the "17 addendum" (the DOF hierarchy + hub-and-spoke structure — READ these, they define the idea), symmetry_search.py / symmetry_search3.py (existing shared-axis/orbit machinery to reuse), slide3_q2.py. Tools: ./cube_regions_n --n K (fast exact rational counter; --quats 'q;q;...' → JSON bounded+by_depth). Records to reproduce/beat: n=4 183, n=5 393, n=6 723 (quats in the postscripts).
+Working directory: ~/carroll. Exact cube-compound region-counting project. Read first: PROJECT.md (self-contained overview), six_cube_search_results.md Postscripts 12, 16, 17 and the "17 addendum" (the DOF hierarchy + hub-and-spoke structure — READ these, they define the idea), symmetry_search.py / symmetry_search3.py (existing shared-axis/orbit machinery to reuse), slide3_q2.py. Tools: ./cube_regions_n --n K (fast exact rational counter; --quats 'q;q;...' → JSON bounded+by_depth). Records to reproduce/beat: n=4 183, n=5 393, n=6 723 (quats in the postscripts).
 
 HYPOTHESIS TO TEST: the region maxima are "hub-and-spoke / shared-axis-cluster" configurations — a hub cube optimally paired to a cluster of SPOKE cubes that share a common axis (making mutual 9-pairs), where the SPOKE ANGLES about that axis are a CONTINUOUS, tunable degree of freedom. The known maxima are C₃-symmetric instances (spokes locked at 120°); the idea is that FREEING the spoke angles — searching that flexible 9-DOF directly — is the natural constructive family, and may reach or beat the records.
 

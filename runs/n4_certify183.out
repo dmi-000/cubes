@@ -1,0 +1,43 @@
+radius-4 check from 173: improved=False
+restart173 0: 159
+restart173 1: 183
+restart173 2: 161
+restart173 3: 171
+restart173 4: 183
+restart173 5: 173
+restart173 6: 159
+restart173 7: 167
+restart173 8: 183
+restart173 9: 183
+restart173 10: 183
+restart173 11: 173
+restart173 12: 169
+restart173 13: 183
+restart173 14: 161
+restart173 15: 183
+restart173 16: 183
+restart173 17: 171
+restart173 18: 163
+restart173 19: 165
+restart173 20: 179
+restart173 21: 183
+restart173 22: 183
+restart173 23: 173
+restart173 24: 163
+restart173 25: 179
+restart173 26: 169
+restart173 27: 161
+restart173 28: 179
+restart173 29: 169
+restart173 30: 167
+restart173 31: 183
+restart173 32: 173
+restart173 33: 173
+restart173 34: 183
+restart173 35: 183
+restart173 36: 165
+restart173 37: 183
+restart173 38: 171
+restart173 39: 167
+
+=== FINAL: best=183 quats=[[1, 0, 0, 0], [0, 5, 3, 2], [1, -4, -1, 1], [1, 1, -1, -4]] ===

@@ -1,0 +1,105 @@
+{
+ "what": "the 67<->67 dihedral family, full scan",
+ "IMPORTANT": "every edge is a BRACKET between adjacent sampled psi; the true edge is algebraic and lies inside. A sampled edge is a lower bound on extent. The two 67s are exact and irrational -- no rational scan lands on them.",
+ "samples": 1278,
+ "octahedral_67_psi": 35.26438968,
+ "golden_67_psi": 69.09484255,
+ "runs": [
+  {
+   "count": 31,
+   "from_psi": 1.2874914283507617,
+   "to_psi": 9.72902887552105,
+   "from_triple": [
+    89,
+    3960,
+    3961
+   ],
+   "to_triple": [
+    376,
+    2193,
+    2225
+   ],
+   "n": 139
+  },
+  {
+   "count": 43,
+   "from_psi": 9.79818490757553,
+   "to_psi": 20.87495070223636,
+   "from_triple": [
+    525,
+    3040,
+    3085
+   ],
+   "to_triple": [
+    1064,
+    2790,
+    2986
+   ],
+   "n": 158
+  },
+  {
+   "count": 55,
+   "from_psi": 20.982954024663197,
+   "to_psi": 69.01704597533681,
+   "from_triple": [
+    540,
+    1408,
+    1508
+   ],
+   "to_triple": [
+    2464,
+    945,
+    2639
+   ],
+   "n": 684
+  },
+  {
+   "count": 43,
+   "from_psi": 69.12504929776365,
+   "to_psi": 80.20181509242445,
+   "from_triple": [
+    1395,
+    532,
+    1493
+   ],
+   "to_triple": [
+    1824,
+    315,
+    1851
+   ],
+   "n": 158
+  },
+  {
+   "count": 31,
+   "from_psi": 80.27097112447895,
+   "to_psi": 88.7125085716492,
+   "from_triple": [
+    2193,
+    376,
+    2225
+   ],
+   "to_triple": [
+    3960,
+    89,
+    3961
+   ],
+   "n": 139
+  }
+ ],
+ "largest_run": {
+  "count": 55,
+  "from_psi": 20.982954024663197,
+  "to_psi": 69.01704597533681,
+  "from_triple": [
+   540,
+   1408,
+   1508
+  ],
+  "to_triple": [
+   2464,
+   945,
+   2639
+  ],
+  "n": 684
+ }
+}

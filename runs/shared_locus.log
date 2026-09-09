@@ -1,0 +1,8 @@
+183 class 1: 108 non-degenerate conditions, 108 distinct labels
+183 class 2: 108 non-degenerate conditions, 108 distinct labels
+shared labels among NON-DEGENERATE conditions: 88
+class 1: the 88 shared conditions have rank 8 of 9 -> their common locus has dimension 1 THERE
+class 2: the 88 shared conditions have rank 8 of 9 -> their common locus has dimension 1 THERE
+
+shared labels whose GRADIENT DIRECTION agrees at both points: 6 of 88
+(agreement would mean the same hypersurface locally; disagreement means the same CONDITION realised at different points of moduli space)

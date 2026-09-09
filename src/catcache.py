@@ -13,7 +13,14 @@ import hashlib, json, os, pickle, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-DIR = os.path.join(HERE, 'catalogue_cache')
+# The data caches live at the REPO ROOT, not beside the code.  The 2026-09-08
+# reorg moved this file into src/, which silently repointed HERE-relative cache
+# paths at an empty directory: no error, just every expensive step recomputed.
+# INVARIANT: cache location must follow the DATA, not the code.  The cache KEY
+# is content-derived (see _cache_key) and path-independent, so an existing cache
+# stays valid across any future move -- provided the path resolves to the root.
+ROOT = os.path.dirname(HERE) if os.path.basename(HERE) == 'src' else HERE
+DIR = os.path.join(ROOT, 'catalogue_cache')
 
 
 def catalogue(cubes, bound=4):

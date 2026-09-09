@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Write and run `/Users/dmi/cube-compounds/wideclimb_n4.py`. Work in that directory. A search campaign — implement as specified, run it, report findings.
+Write and run `wideclimb_n4.py`. Work in that directory. A search campaign — implement as specified, run it, report findings.
 
 # THE LEAD
 

@@ -4,21 +4,21 @@ best clique pair for the near-record cells found in the main sweep, append
 to the same glue_results.jsonl. Bounded (no clique-candidate regeneration)."""
 import json
 import sys
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 from glue_search import (gen_G_menu, build_glued_quats, run_batch_parallel,
                           quat_to_matrix_exact, mat_mul, mat_transpose,
                           mats_to_quats, RECORDS)
 
 
 def main():
-    with open('/Users/dmi/carroll/glue_best.json') as f:
+    with open('~/carroll/glue_best.json') as f:
         best = json.load(f)
 
     CELLS = ['4_3_1', '4_2_2', '5_4_1', '5_3_2', '6_4_2', '6_3_3', '6_5_1']
     G6 = gen_G_menu(6)
     print(f'widen menu |comp|<=6: {len(G6)}')
 
-    log_fh = open('/Users/dmi/carroll/glue_results.jsonl', 'a')
+    log_fh = open('~/carroll/glue_results.jsonl', 'a')
     final = {}
     for key in CELLS:
         n, a, b = map(int, key.split('_'))
@@ -58,7 +58,7 @@ def main():
         final[key] = {'total': best_total, 'rec': best_rec}
 
     log_fh.close()
-    with open('/Users/dmi/carroll/glue_best.json', 'w') as f:
+    with open('~/carroll/glue_best.json', 'w') as f:
         json.dump(final, f, indent=1, default=str)
     print('done')
 

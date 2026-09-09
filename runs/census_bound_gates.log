@@ -1,0 +1,19 @@
+--- census_extract GATE G1 (exact, reused unchanged) ---
+=== GATE G1: reproduce both 67 = {48,18,1} counts ===
+  W1 octahedral (slide3_q2.exact_count_q2, Q(sqrt2)): total=67 by_depth={0: 1, 1: 48, 2: 18, 3: 1}  (0.5s)
+  W2 golden (certify_six.exact_count_config, Q(sqrt5), Q5-wrapped .m): total=67 by_depth={0: 1, 1: 48, 2: 18, 3: 1}  (0.5s)
+GATE G1: PASS (both witnesses reproduce 67 = {48,18,1})
+
+=== Exact gate checks on both 67-maximizers (Q(sqrt2), Q(sqrt5)) ===
+  W1 octahedral: weight Sigma(deg-2) = 92  (target 92, PASS)
+    F=48 V=62 E=108 C=1 triples=32 kinks=30 flags=0
+    anchoring triple points: 0 / 32 (target <=24; octahedral reference value 24)
+    anchor-count histogram (per triple point, #components it anchors): {0: 32}
+    skipped (multi-active-face) triple points: 0, degenerate cone tests: 0
+  W2 golden: weight Sigma(deg-2) = 92  (target 92, PASS)
+    F=48 V=56 E=102 C=1 triples=32 kinks=24 flags=0
+    anchoring triple points: 0 / 32 (target <=24; octahedral reference value 24)
+    anchor-count histogram (per triple point, #components it anchors): {0: 32}
+    skipped (multi-active-face) triple points: 0, degenerate cone tests: 0
+
+wrote census_bound_gates_log.json

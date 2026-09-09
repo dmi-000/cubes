@@ -1,4 +1,4 @@
-import sys; sys.path.insert(0,"/Users/dmi/carroll")
+import sys; sys.path.insert(0,"~/carroll")
 import time
 from cube_compound_exact import build_axes, find_cubes, ONE
 from golden_rotations import Rot, rot_from_quat

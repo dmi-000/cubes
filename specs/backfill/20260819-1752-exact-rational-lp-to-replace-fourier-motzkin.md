@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Write `/Users/dmi/cube-compounds/exactlp.py`. Work in that directory. **Run the validation to completion in the foreground and report the numbers. Do not background the work and wait for a monitor.**
+Write `exactlp.py`. Work in that directory. **Run the validation to completion in the foreground and report the numbers. Do not background the work and wait for a monitor.**
 
 # THE PROBLEM
 
@@ -44,7 +44,7 @@ It must be a drop-in replacement for `isolation67._fm`. Note `_fm` is homogeneou
 
 **1. Agreement with `_fm` on random instances.** Generate thousands of random rational systems across a range of sizes (nv from 2 to 15, rows from 1 to 40, coefficients of varied magnitude, including many INFEASIBLE ones — a test set of only feasible systems proves nothing). For each, both must agree on feasible/infeasible. When your routine returns a witness, **verify it directly**: every `c·y` must be `> 0` exactly.
 
-**2. Agreement on the REAL decided candidates — the important one.** A running campaign has checkpointed ~146 000 already-decided candidates at `/Users/dmi/cube-compounds/ckpt_727/worker_*.jsonl`, and ~12 900 more at `/Users/dmi/cube-compounds/arrangement_ckpt_183/worker_*.jsonl`. Read them, reconstruct the systems they represent (inspect the JSONL to learn the schema; `arrangement.py` wrote it — read `run_parallel` and the worker function to see exactly what a record contains), and confirm your routine reproduces **every recorded decision**. Report the number checked and the number of disagreements. **A single disagreement is a failure — report it with the offending system, do not average it away.**
+**2. Agreement on the REAL decided candidates — the important one.** A running campaign has checkpointed ~146 000 already-decided candidates at `ckpt_727/worker_*.jsonl`, and ~12 900 more at `arrangement_ckpt_183/worker_*.jsonl`. Read them, reconstruct the systems they represent (inspect the JSONL to learn the schema; `arrangement.py` wrote it — read `run_parallel` and the worker function to see exactly what a record contains), and confirm your routine reproduces **every recorded decision**. Report the number checked and the number of disagreements. **A single disagreement is a failure — report it with the offending system, do not average it away.**
 
 If the checkpoint schema does not retain enough to reconstruct the system, say so plainly and fall back to validating on systems you regenerate from the same walls (`growth727.walls_of`), reporting what you could and could not check.
 

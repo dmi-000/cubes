@@ -1,0 +1,8 @@
+120 pairs where the two roots of ONE constraint give DIFFERENT counts
+Baseline for any rule: 50%% (guessing).
+
+  larger |root|                      picks the higher count  55/120 =  45.8%
+  root is positive                   picks the higher count  30/ 70 =  42.9%
+  larger root (signed)               picks the higher count  44/120 =  36.7%
+  rational root (d==1)               no discriminating cases
+  smaller representative height      no discriminating cases

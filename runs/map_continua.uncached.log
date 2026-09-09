@@ -1,0 +1,19 @@
+
+n=4 183 (P287: count plateau expected 0-dimensional): record 183, 12 walls, ambient 9   CONTROLS zero->183 wall->161  OK
+   10 distinct wall normals in the last-cube slice, 30 rank-2 candidates
+   VERIFIED tangents: 0   (30 candidates, 0 UNEVALUATED — not negatives)
+
+n=5 393: record 393, 18 walls, ambient 12   CONTROLS zero->393 wall->373  OK
+   13 distinct wall normals in the last-cube slice, 46 rank-2 candidates
+   VERIFIED tangents: 0   (46 candidates, 0 UNEVALUATED — not negatives)
+
+n=6 727 (CONTROL: known arcs / node): record 727, 27 walls, ambient 15   CONTROLS zero->727 wall->703  OK
+   8 distinct wall normals in the last-cube slice, 7 rank-2 candidates
+   VERIFIED tangents: 2   (7 candidates, 0 UNEVALUATED — not negatives)
+      (14, 2, -3)
+      (21, 4, -6)
+
+n=7 1217: record 1217, 51 walls, ambient 18   CONTROLS zero->1217 wall->1193  OK
+   16 distinct wall normals in the last-cube slice, 1 rank-2 candidates
+   VERIFIED tangents: 1   (1 candidates, 0 UNEVALUATED — not negatives)
+      (1, 0, 0)

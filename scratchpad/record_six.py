@@ -10,7 +10,7 @@ decodes to exactly which condition it is.
 """
 import itertools, sys
 import numpy as np
-sys.path.insert(0, "/Users/dmi/cube-compounds")
+sys.path.insert(0, ".")
 sys.path.insert(0, "/private/tmp/claude-502/-Users-dmi-cube-compounds/88682f8c-0607-4f2d-8384-b3993c9c5ded/scratchpad")
 from tight_set import quantities
 from tight2 import qmul, rot, chart_dir, BASE, I

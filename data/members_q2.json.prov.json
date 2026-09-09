@@ -1,0 +1,18 @@
+{
+ "output": "members_q2.json",
+ "argv": [
+  "census_members.py",
+  "2",
+  "5",
+  "300000",
+  "q"
+ ],
+ "rerun": "python3 census_members.py 2 5 300000 q",
+ "script": "census_members.py",
+ "script_sha1": "617acb9a5c5cd8381d029e82824aaecdbca02542",
+ "started": "2026-08-17 19:27:59",
+ "finished": "2026-08-17 19:53:37",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "note": "all-members census; (count,profile) class is an equivalence by INVARIANT not by congruence, so every member is run"
+}

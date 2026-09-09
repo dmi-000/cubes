@@ -1,0 +1,16 @@
+727: 27 walls, ambient 15
+   rank  1:        27 flats   (total        28, 0s)
+   rank  2:       331 flats   (total       359, 0s)
+   rank  3:      2430 flats   (total      2789, 6s)
+   rank  4:     11910 flats   (total     14699, 53s)
+   rank  5:     41214 flats   (total     55913, 278s)
+   rank  6:    103884 flats   (total    159797, 1239s)
+   rank  7:    193688 flats   (total    353485, 4236s)
+   rank  8:    267550 flats   (total    621035, 10079s)
+   rank  9:    269779 flats   (total    890814, 18051s)
+   rank 10:    190768 flats   (total   1081582, 27705s)
+   rank 11:     87157 flats   (total   1168739, 35535s)
+   rank 12:     21894 flats   (total   1190633, 39717s)
+   rank 13:      2044 flats   (total   1192677, 40779s)
+   rank 14:         1 flats   (total   1192678, 40854s)
+TOTAL 1192678 flats in 40854s

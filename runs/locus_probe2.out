@@ -1,0 +1,88 @@
+loaded cached conditions
+
+A. codimension of the 9-locus
+  cube 0: 12 active conditions, zero-dimensional=False, |G|=3
+  cube 1: 12 active conditions, zero-dimensional=False, |G|=1
+  cube 3: 12 active conditions, zero-dimensional=False, |G|=3
+
+B. sampled triple-wall intersections
+  *** cubes [1, 3, 0] -> total 725  q=(35, -61, 29, -25)
+  *** cubes [1, 3, 0] -> total 725  q=(16, 30, 5, -45)
+  *** cubes [3, 0, 2] -> total 723  q=(45, -35, -91, 39)
+  *** cubes [3, 0, 1] -> total 723  q=(42, -3, 28, -63)
+  *** cubes [0, 2, 3] -> total 723  q=(105, 31, -21, 25)
+  *** cubes [2, 1, 3] -> total 723  q=(25, -27, -62, 30)
+  *** cubes [2, 3, 1] -> total 725  q=(28, 25, 33, -120)
+  *** cubes [3, 2, 0] -> total 723  q=(35, -4, -30, -27)
+  *** cubes [0, 3, 1] -> total 727  q=(3, -51, -93, 29)
+  *** cubes [0, 3, 1] -> total 727  q=(40, 48, -11, 45)
+  *** cubes [3, 2, 0] -> total 723  q=(45, -35, -91, 39)
+  *** cubes [3, 1, 0] -> total 723  q=(10, -42, 47, 45)
+  *** cubes [2, 1, 3] -> total 725  q=(23, 5, 25, -22)
+  *** cubes [0, 2, 3] -> total 723  q=(31, -17, -13, 4)
+  *** cubes [4, 0, 2] -> total 723  q=(51, -19, -1, 31)
+  *** cubes [1, 3, 0] -> total 727  q=(17, 1, 13, -25)
+  *** cubes [0, 3, 2] -> total 725  q=(19, 15, 21, -75)
+  *** cubes [3, 1, 0] -> total 723  q=(17, -2, 15, 20)
+  *** cubes [2, 4, 1] -> total 723  q=(10, 9, 41, -10)
+  *** cubes [0, 2, 4] -> total 723  q=(6, -25, -25, -26)
+  *** cubes [1, 2, 3] -> total 725  q=(5, -30, -45, -16)
+  *** cubes [1, 0, 3] -> total 723  q=(55, -89, 5, 35)
+  *** cubes [1, 3, 2] -> total 725  q=(53, -3, 153, -87)
+  *** cubes [0, 1, 3] -> total 727  q=(7, 14, 1, -5)
+  *** cubes [1, 0, 3] -> total 723  q=(3, 57, -87, -37)
+  *** cubes [0, 3, 2] -> total 727  q=(3, 11, -15, -27)
+  *** cubes [4, 1, 0] -> total 723  q=(19, 51, 31, -1)
+  *** cubes [1, 3, 0] -> total 723  q=(20, 15, -72, 17)
+  *** cubes [0, 2, 3] -> total 725  q=(153, 3, -87, -53)
+  *** cubes [3, 1, 2] -> total 725  q=(5, -30, -45, -16)
+  *** cubes [0, 2, 3] -> total 727  q=(59, -5, 37, -85)
+  *** cubes [2, 1, 3] -> total 723  q=(45, -91, 39, -35)
+  *** cubes [2, 3, 0] -> total 723  q=(26, -65, 40, 5)
+  *** cubes [1, 2, 3] -> total 723  q=(31, 19, 59, 1)
+  *** cubes [1, 3, 2] -> total 723  q=(105, -21, 25, 31)
+  *** cubes [2, 0, 3] -> total 723  q=(68, -37, -23, 2)
+
+solution-point census over 500 sampled wall triples:
+   393                      434
+   587                      32
+   589                      7
+   591                      4
+   593                      21
+   595                      43
+   597                      8
+   599                      15
+   601                      12
+   603                      17
+   605                      3
+   609                      7
+   671                      2
+   673                      1
+   675                      3
+   677                      34
+   679                      43
+   681                      81
+   683                      132
+   685                      140
+   687                      193
+   689                      243
+   691                      210
+   693                      217
+   695                      297
+   697                      179
+   699                      227
+   701                      263
+   703                      89
+   705                      167
+   707                      63
+   709                      72
+   711                      71
+   713                      92
+   715                      29
+   717                      86
+   719                      8
+   721                      21
+   723                      21
+   725                      9
+   727                      6
+   positive-dimensional     15

@@ -1,0 +1,73 @@
+[
+ {
+  "name": "octahedral",
+  "d": 2,
+  "count": 67,
+  "walls": 6,
+  "faces": 728,
+  "verdict": "ISOLATED",
+  "hits": [],
+  "n_hits": 0,
+  "unresolved": 0,
+  "steps_to_stabilise": {
+   "2": 728
+  },
+  "unresolved_detail": [],
+  "budget_rejects": 0,
+  "by_count": {
+   "37": 134,
+   "43": 280,
+   "47": 66,
+   "49": 140,
+   "53": 56,
+   "55": 22,
+   "57": 10,
+   "59": 18,
+   "63": 2
+  },
+  "secs": 157.0
+ },
+ {
+  "name": "golden",
+  "d": 5,
+  "count": 67,
+  "walls": 9,
+  "faces": 2196,
+  "verdict": "ISOLATED",
+  "hits": [],
+  "n_hits": 0,
+  "unresolved": 0,
+  "steps_to_stabilise": {
+   "2": 1896,
+   "3": 209,
+   "4": 77,
+   "5": 12,
+   "6": 2
+  },
+  "unresolved_detail": [],
+  "budget_rejects": 0,
+  "by_count": {
+   "33": 7,
+   "34": 1,
+   "35": 19,
+   "37": 367,
+   "38": 84,
+   "39": 429,
+   "40": 33,
+   "41": 123,
+   "43": 426,
+   "44": 23,
+   "45": 231,
+   "47": 150,
+   "48": 9,
+   "49": 189,
+   "51": 12,
+   "53": 76,
+   "55": 4,
+   "57": 10,
+   "59": 2,
+   "63": 1
+  },
+  "secs": 640.6
+ }
+]

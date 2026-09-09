@@ -8,7 +8,7 @@ import subprocess
 import sys
 from fractions import Fraction as Fr
 
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 sys.path.insert(0, '.')
 
 import sympy as sp
@@ -65,7 +65,7 @@ def rational_quats(vals):
 
 def run_cpp(quats):
     qstr = ';'.join(','.join(str(x) for x in q) for q in quats)
-    out = subprocess.run(['/Users/dmi/carroll/cube_regions_n', '--n', '4', '--quats', qstr],
+    out = subprocess.run(['~/carroll/cube_regions_n', '--n', '4', '--quats', qstr],
                           capture_output=True, text=True, timeout=60)
     return out.stdout
 

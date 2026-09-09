@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Read first: PROJECT.md (self-contained overview), six_cube_search_results.md Postscripts 4-8 (the n=6 methodology this mirrors), README.md. Tools: ./cube_regions_n --n 4 (fast exact rational counter for 4 cubes; ./cube_regions_n --n 4 --seed S or --quats 'w,x,y,z;w,x,y,z;w,x,y,z;w,x,y,z' → JSON with bounded + by_depth), cube_compound_exact.py (golden ℚ(√5) engine; run(4) gives the golden four-cube compound = 177), certify_six.py exact_count_config (Python oracle, any n), phase_b_hillclimb_n.py, run_campaign_n.py.
+Working directory: ~/carroll. Exact cube-compound region-counting project. Read first: PROJECT.md (self-contained overview), six_cube_search_results.md Postscripts 4-8 (the n=6 methodology this mirrors), README.md. Tools: ./cube_regions_n --n 4 (fast exact rational counter for 4 cubes; ./cube_regions_n --n 4 --seed S or --quats 'w,x,y,z;w,x,y,z;w,x,y,z;w,x,y,z' → JSON with bounded + by_depth), cube_compound_exact.py (golden ℚ(√5) engine; run(4) gives the golden four-cube compound = 177), certify_six.py exact_count_config (Python oracle, any n), phase_b_hillclimb_n.py, run_campaign_n.py.
 
 BACKGROUND: The best known 4-cube configuration is the golden four-cube sub-compound (4 of the 5 cubes inscribed in a dodecahedron) = 177 exactly, by_depth {1:104,2:48,3:24,4:1} (ℚ(√5)). A prior rational-only search topped out at "135+", far below 177, because rational rotations can't reach the golden wall — the growth table was corrected to n=4 ≥ 177. OPEN QUESTION: is 177 the true 4-cube maximum, or can it be beaten? (At n=6, the best rational config 723 beat the golden-based 681, so 177 is not obviously the ceiling.)
 

@@ -1,0 +1,20 @@
+[
+ {
+  "label": "n2",
+  "count": 13,
+  "tight": 24,
+  "cone": {
+   "facets": 3,
+   "lineality_dim": 1,
+   "ambient": 3,
+   "full_dimensional": true,
+   "beyond_each_facet": []
+  },
+  "walls": 3,
+  "binding": 0,
+  "inert": 0,
+  "entangled": 3,
+  "candidate_dim": 1,
+  "verified": 1
+ }
+]

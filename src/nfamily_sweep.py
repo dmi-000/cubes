@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: specs/NFAMILY_SPEC.md. Project index: README.md
 """Sweep driver for the n-cube BIG/DIHEDRAL FAMILY (specs/NFAMILY_SPEC.md).
 
@@ -27,7 +28,7 @@ import time
 from nfamily_common import (PyAngle, IDENTITY_ANGLE, build_family_quats,
                              PQR_MENU, SMALL_PQR)
 
-RESULTS_PATH = '/Users/dmi/carroll/nfamily_results.jsonl'
+RESULTS_PATH = os.path.expanduser('~/carroll/nfamily_results.jsonl')
 ENGINE = './cube_regions_n'
 
 CAP_SUM = {4: 195, 5: 429, 6: 801}

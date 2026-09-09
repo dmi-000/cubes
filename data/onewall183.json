@@ -1,0 +1,57 @@
+{
+ "base": 183,
+ "walls": 12,
+ "entangled": 12,
+ "unevaluable": 0,
+ "neighbours": [],
+ "detail": [
+  {
+   "wall": 0,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 1,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 2,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 3,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 4,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 5,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 6,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 7,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 8,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 9,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 10,
+   "status": "ENTANGLED"
+  },
+  {
+   "wall": 11,
+   "status": "ENTANGLED"
+  }
+ ]
+}

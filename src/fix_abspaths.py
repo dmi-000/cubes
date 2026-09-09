@@ -3,9 +3,9 @@
 location.  Reversible, verified by the project's gates, and it does not move a
 single byte of data.
 
-WHY.  103 .py files hard-code /Users/dmi/cube-compounds, which ties the whole
-repository to one machine: a clone elsewhere fails at import, and the engine
-paths silently point at nothing.  The producer->output path is this project's
+WHY.  Many .py files hard-coded the repository's own resolved path, which ties
+the whole repository to one machine: a clone elsewhere fails at import, and the
+engine paths silently point at nothing.  The producer->output path is this project's
 reproducibility record, so it must survive relocation to remain one.
 
 WHAT IT DOES NOT DO.  It does not touch the DATA files or their names, and it
@@ -17,9 +17,15 @@ isolation_gate.py.  A path rewrite that breaks an engine call shows up there.
 """
 import os, re, sys
 
-ROOT = os.path.dirname(os.path.abspath(__file__))
-OLD = '/Users/dmi/cube-compounds'
-SKIP_DIRS = {'bak', 'tmp', '__pycache__', 'github', 'scratchpad',
+HERE = os.path.dirname(os.path.abspath(__file__))
+# The repository root, and the string to remove, are DERIVED from this file's
+# own location rather than written down.  A tool that carries a literal copy of
+# what it exists to remove reintroduces it on every read, and stops working the
+# moment the tree moves -- as it did when this file was moved into src/, which
+# left the old hard-coded root pointing one level above where it now sits.
+ROOT = os.path.dirname(HERE) if os.path.basename(HERE) == 'src' else HERE
+OLD = ROOT
+SKIP_DIRS = {'bak', 'tmp', '__pycache__', 'github', 'scratchpad', 'transcripts',
              'dimension_cache', 'runs', 'census_run1'}
 # quoted string literal containing the absolute path
 PAT = re.compile(r"(['\"])" + re.escape(OLD) + r"(/[^'\"]*)?\1")

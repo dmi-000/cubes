@@ -1,0 +1,27 @@
+   t    n=9  best n=10  by cube  counts across the 11 tenth cubes
+   0   2787       3925        0  [3925, 3919, 3907, 3915, 3907, 3925, 3925, 3915, 3911, 3909, 3905]
+   3   2787       3925        0  [3925, 3919, 3907, 3915, 3907, 3925, 3925, 3915, 3911, 3909, 3905]
+   6   2787       3921        0  [3921, 3915, 3903, 3911, 3903, 3921, 3921, 3911, 3907, 3905, 3901]
+   9   2787       3921        0  [3921, 3915, 3903, 3911, 3903, 3921, 3921, 3911, 3907, 3905, 3901]
+  12   2787       3921        0  [3921, 3915, 3903, 3911, 3903, 3921, 3921, 3911, 3907, 3905, 3901]
+  15   2787       3921        0  [3921, 3915, 3903, 3911, 3903, 3921, 3921, 3911, 3907, 3905, 3901]
+  18   2787       3921        0  [3921, 3915, 3903, 3911, 3903, 3921, 3921, 3911, 3907, 3905, 3901]
+  21   2787       3921        0  [3921, 3915, 3903, 3911, 3903, 3921, 3921, 3911, 3907, 3905, 3901]
+  24   2787       3921        0  [3921, 3915, 3903, 3911, 3903, 3921, 3921, 3911, 3907, 3905, 3901]
+
+best overall: 3925 at t=0 with tenth cube (6555, 6555, 6497, 6555)
+  (the published n=10 record is 3925)
+
+CONTINUUM SHRINKAGE -- for each tenth cube, how many of the 9 sampled t
+values reach that cube's own maximum:
+  cube (6555, 6555, 6497, 6555)     max 3925  attained at 2/9 points (22% of the continuum sampled)
+  cube (6556, 6555, 6497, 6555)     max 3919  attained at 2/9 points (22% of the continuum sampled)
+  cube (6554, 6555, 6497, 6555)     max 3907  attained at 2/9 points (22% of the continuum sampled)
+  cube (6555, 6556, 6497, 6555)     max 3915  attained at 2/9 points (22% of the continuum sampled)
+  cube (6555, 6554, 6497, 6555)     max 3907  attained at 2/9 points (22% of the continuum sampled)
+  cube (6555, 6555, 6498, 6555)     max 3925  attained at 2/9 points (22% of the continuum sampled)
+  cube (6555, 6555, 6496, 6555)     max 3925  attained at 2/9 points (22% of the continuum sampled)
+  cube (6555, 6555, 6497, 6556)     max 3915  attained at 2/9 points (22% of the continuum sampled)
+  cube (6555, 6555, 6497, 6554)     max 3911  attained at 2/9 points (22% of the continuum sampled)
+  cube (6557, 6555, 6497, 6553)     max 3909  attained at 2/9 points (22% of the continuum sampled)
+  cube (6553, 6557, 6497, 6555)     max 3905  attained at 2/9 points (22% of the continuum sampled)

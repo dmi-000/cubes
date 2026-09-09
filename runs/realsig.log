@@ -1,0 +1,13 @@
+Same plane-incidence signature, different count: do the REAL incidences differ?
+
+  count A  count B   total A/B      REAL A/B      real explains it?
+    123     119      1688/1688      256/238       YES
+    123     131      1688/1688      256/264       YES
+    123     119      1688/1688      256/240       YES
+    123     115      1688/1688      256/250       YES
+    123     103      1688/1688      256/264       no
+    119     123      1688/1688      238/260       YES
+    119     131      1688/1688      238/264       YES
+    119     115      1688/1688      238/250       no
+
+real-incidence count orders the pair correctly in 17 of 30 (57%)

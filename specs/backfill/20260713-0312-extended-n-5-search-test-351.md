@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Working directory: /Users/dmi/carroll. Exact cube-compound region-counting project. Read first: n4_search_report.md and n4_search.py (the n=4 search that just beat the golden 177 with a rational 183 — mirror its methodology), six_cube_search_results.md Postscript 15, PROJECT.md. Tools: ./cube_regions_n --n 5 (fast exact rational counter; --seed S or --quats 'q;q;q;q;q' → JSON bounded + by_depth), cube_compound_exact.py (golden ℚ(√5); run(5)=351), certify_six.py exact_count_config (oracle, any n), phase_b_hillclimb_n.py, run_campaign_n.py, golden_six.py (golden+extra-cube machinery).
+Working directory: ~/carroll. Exact cube-compound region-counting project. Read first: n4_search_report.md and n4_search.py (the n=4 search that just beat the golden 177 with a rational 183 — mirror its methodology), six_cube_search_results.md Postscript 15, PROJECT.md. Tools: ./cube_regions_n --n 5 (fast exact rational counter; --seed S or --quats 'q;q;q;q;q' → JSON bounded + by_depth), cube_compound_exact.py (golden ℚ(√5); run(5)=351), certify_six.py exact_count_config (oracle, any n), phase_b_hillclimb_n.py, run_campaign_n.py, golden_six.py (golden+extra-cube machinery).
 
 MOTIVATING QUESTION (from Chris Cole): the golden four-cube compound (177) turned out NOT to be the n=4 maximum — a rational config reaches 183. Does the same hold for FIVE cubes? Is the golden five-cube compound (351, the complete icosahedral compound) the true n=5 maximum, or can it be beaten?
 

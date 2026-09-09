@@ -1,0 +1,4 @@
+n=9 record at height 140, steering cube 8 again: count 2787, preserving rank 2, ambient 24, height 140
+   cube 8 occupies coordinates [21, 22, 23]; the tangent basis has rank 0 there (3 needed to steer it freely)
+   its Cayley coords now: ['-11/109', '91/109', '140/109']
+   nothing simpler found

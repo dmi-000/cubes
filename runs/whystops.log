@@ -1,0 +1,7 @@
+393 c 727      walls=27  old=18  new=9   new-only=1  | rX=11 rA=14 deg=3 | comp=53 viol=0
+727 c 1217     walls=51  old=27  new=24  new-only=0  | rX=14 rA=16 deg=2 | comp=263 viol=11
+   violation ranks: Counter({2: 11})   deficiencies: Counter({1: 11})
+   new walls involved (index:count): {24: 3, 35: 3, 21: 2, 36: 2, 22: 2, 34: 2, 26: 2, 37: 2}
+1217 c 1895    walls=75  old=51  new=24  new-only=0  | rX=16 rA=18 deg=2 | comp=263 viol=11
+   violation ranks: Counter({2: 11})   deficiencies: Counter({1: 11})
+   new walls involved (index:count): {33: 3, 51: 3, 35: 2, 53: 2, 34: 2, 50: 2, 36: 2, 49: 2}

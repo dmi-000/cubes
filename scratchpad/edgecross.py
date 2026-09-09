@@ -24,8 +24,8 @@ from fractions import Fraction as F
 from math import gcd
 import numpy as np
 
-ENG = "/Users/dmi/cube-compounds/cube_regions_n"
-ENGW = "/Users/dmi/cube-compounds/cube_regions_q2w"
+ENG = "cube_regions_n"
+ENGW = "cube_regions_q2w"
 
 # ---------- rotations ----------
 

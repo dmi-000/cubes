@@ -1,0 +1,19 @@
+src/step_a2.py:7: SyntaxWarning: "\ " is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\ "? A raw string is also an option.
+  THE ARGUMENT.  A \ B is covered by the six slabs A ^ {n_i . x > 1}, one per
+183 class 1 (canonical)    (rotated by (2, 1, 0, 0) to clear half-turns)
+183 class 1 (canonical)    count 183 | 108 tight | lineality 1 of 9 | setup 53s
+      244 polynomials built (seed sized per chart)
+                             second-order variety: empty, 0 directions -> ISOLATED
+183 class 2 (wide climb)   (rotated by (2, 1, 0, 0) to clear half-turns)
+183 class 2 (wide climb)   count 183 | 108 tight | lineality 1 of 9 | setup 53s
+      244 polynomials built (seed sized per chart)
+                             second-order variety: empty, 0 directions -> ISOLATED
+393 n=5      count 393 | 168 tight | LINEALITY 1 of 12 | setup 313s
+      740 polynomials built (seed sized per chart)
+                second-order: empty, 0 directions -> ISOLATED
+727 n=6      count 727 | 216 tight | LINEALITY 1 of 15 | setup 880s
+      972 polynomials built (seed sized per chart)
+                second-order: empty, 0 directions -> ISOLATED
+1217 n=7     count 1217 | 300 tight | LINEALITY 2 of 18 | setup 1498s
+      1596 polynomials built (seed sized per chart)
+                second-order: empty, 0 directions -> ISOLATED

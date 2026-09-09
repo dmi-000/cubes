@@ -1,0 +1,28 @@
+exact solutions of the two-simultaneous-13-pair system: 12 distinct ninth cubes
+
+   count  ninth cube             pair profile
+   2737   (9, 0, 6, 4)           2x13 1x9
+   2717   (11, 7, 19, 1)         2x13 2x9
+   1895   (133, -37, -37, -37)   2x13 0x9
+   1895   (11, -85, -85, -85)    2x13 0x9
+   1895   (7, 7, 7, 9)           2x13 0x9
+   1895   (4, -3, -4, -4)        2x13 0x9
+   1895   (1, 1, 1, 1)           6x13 0x9
+   1895   (1, 1, 1, -1)          6x13 0x9
+   1895   (1, 1, 1, -15)         2x13 0x9
+   1895   (1, 0, 0, 0)           6x13 0x9
+   1895   (1, -1, -1, -1)        6x13 0x9
+   1895   (0, 1, 0, 0)           6x13 0x9
+
+best from the solve: 2737   (random near-symmetry search reached 2785)
+n=4 183 -> 5th : 0 of 96 systems coincident -> 0 distinct families
+n=5 393 -> 6th : 2 of 160 systems coincident -> 2 distinct families
+      family on cube 1, axis (-1, -1, 1)   best 723 at t=1/20  (67, 67, 131, 67)
+      family on cube 3, axis (1, 1, 1)     best 723 at t=3/140  (271, 146, 146, 146)
+n=6 727 -> 7th : 2 of 240 systems coincident -> 2 distinct families
+      family on cube 1, axis (-1, -1, 1)   best 1213 at t=1/35  (28, 28, 59, 28)
+      family on cube 3, axis (1, 1, 1)     best 1217 at t=3/140  (271, 146, 146, 146)
+n=7 1217 -> 8th : 3 of 336 systems coincident -> 3 distinct families
+      family on cube 1, axis (-1, -1, 1)   best 1887 at t=43/175  (413, 413, 419, 413)
+      family on cube 2, axis (-1, -1, 1)   best 1879 at t=1/20  (99, -35, -99, -99)
+      family on cube 3, axis (1, 1, 1)     best 1895 at t=77/100  (31, -254, -254, -254)

@@ -1237,3 +1237,70 @@ named boolean that answers a narrower question than its name suggests is worse t
 because it stops the question being asked. Check what the predicate actually excludes against
 the coincidences the argument needs excluded — here, four boundaries through a point, which no
 pair of parallel normals ever produces.
+
+## 32. An assertion disabled by `or True` — the assumption documented, tested for, and never checked
+
+`dimension.branch_numerator` cancelled a pair of denominators that only cancel when a
+condition's two normals belong to the same cube. The code said so:
+
+    assert sp.simplify(d1 - d2) == 0 or True     # same pair -> same denominator
+
+The comment is correct, the assert is correct, and `or True` makes the whole line a no-op.
+The result: for every condition whose two normals came from DIFFERENT cubes, `P` was a
+different polynomial from the wall it claimed to be, and nothing said so. 6% of conditions at
+n = 6, 16% at n = 7.
+
+**Why the shape matters more than the algebra.** The consumer, `variety_incremental`, asks
+"which directions make `P == 0` identically in `t`". A wrongly-nonzero `P` admits no
+direction, so the over-constrained system returns **ISOLATED** — a plausible answer, of a kind
+the project already publishes, in the same format as the right one. The bug had no failure
+signature at all: no exception, no unevaluable, no implausible number. It could only ever cause
+a false ISOLATED, never a false continuum, which is exactly the direction that reads as a
+strong result.
+
+**What found it** was not a consumer but an oracle: `P(record) == 0` must hold because a wall
+contains its own point. That made the wrong values impossible rather than merely unexamined,
+and the failures then sorted themselves perfectly by `|{j}| == 2` versus `|{j}| == 1` — the
+clean split by a property of the INPUT that says the method chose badly, not that the objects
+differ.
+
+**The rule.** A disabled assertion is worse than a missing one, because the comment beside it
+persuades every later reader that the case was handled. Grep for `or True`, `if False`, `pass
+ # TODO`, and bare `except: pass` in any file that produces a number. And when an assumption is
+worth writing an assert for, it is worth a gate that runs: this one was one line —
+substitute the record point and demand zero.
+
+## 32a. A cache path that follows the CODE instead of the DATA
+
+`CACHE = HERE + '/dimension_cache'` and `DIR = os.path.join(HERE, 'catalogue_cache')`. Moving
+the code into `src/` repointed both at empty directories. Nothing failed: `os.makedirs(...,
+exist_ok=True)` created the new empty one and every expensive step was recomputed in silence.
+587 condition sets (15 MB) and 219 catalogue entries went invisible for a day, and the six
+entries recomputed in that time were all DUPLICATES of entries already sitting in the orphaned
+cache — the recomputation produced no new information whatsoever, at a cost of hours.
+
+This is failure mode 11's shape one level up: a probe that reads zero because it is pointed at
+the wrong place, not because there is nothing there. A cache miss and an empty cache are
+indistinguishable from inside the program, so the check has to be external — assert the
+directory is non-empty at import, or print the resolved path and the entry count once per run.
+The third file broken by that move, and the first where the breakage raised nothing.
+
+## 33. A selective run that rebuilds the whole index — a deletion wearing a write's clothes
+
+`wall_keys.py` accepts record labels on the command line and exports only those. Its `main`
+built a fresh `out` dict, filled in the selected records, and dumped it — so `wall_keys.py 4`,
+run as a one-record regression check, silently reduced a six-record index to one. No error, no
+warning; the file was rewritten smaller and looked perfectly well-formed.
+
+I did not notice at the time. It surfaced only because a LATER selective run was about to do it
+again and I checked the file first — so the detection was luck, not a gate.
+
+**The shape.** A write that produces a valid file is invisible to every check that asks whether
+the file is valid. The only checks that would have caught it ask about CONTENT: does the file
+still contain what it contained before, and did this run measure everything it is about to
+write? Both are cheap and neither was there.
+
+**The rule, now the file's stated invariant.** An export that is allowed to run on a subset must
+MERGE into what exists, never replace it. Removing a record has to be a separate deliberate act,
+not a side effect of measuring a different one. Same family as 32a: the failure is silent because
+the mechanism cannot distinguish "nothing there" from "not asked for".

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: README.md, ALGEBRAIC_SEARCH.md, LEDGER.md
 # Postscripts 9/11/12, slide3_q2.py, SLIDE3_SPEC_V2.md. Project index: README.md
 """Edge-concurrence-rich 6-cube search (task: substitute EDGE concurrences
@@ -67,7 +68,7 @@ from fractions import Fraction as Fr
 from golden_rotations import Rot, rot_from_quat
 from cube_compound_exact import Q5, ZERO as ZERO5, ONE as ONE5
 
-ENGINE = '/Users/dmi/carroll/cube_regions'
+ENGINE = os.path.expanduser('~/carroll/cube_regions')
 MAXC = 512
 
 # ----------------------------------------------------------- Q2 field, copied
@@ -660,7 +661,7 @@ def count_quats_batch(quat_list):
     return recs
 
 
-LOG_PATH = '/Users/dmi/carroll/edge_search.jsonl'
+LOG_PATH = os.path.expanduser('~/carroll/edge_search.jsonl')
 
 
 def log_record(rec):

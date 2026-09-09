@@ -1,0 +1,7 @@
+worker 0: seeds [0,25000)
+worker 1: seeds [25000,50000)
+worker 2: seeds [50000,75000)
+worker 3: seeds [75000,100000)
+
+n=5: 100000 new configs in 1603s (62.40/s total), best total = 329 depth={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+n=5: no established ceiling to check against (n=6-specific C1-C6 do not apply) -- record this range's best in the per-n census table instead

@@ -1,0 +1,66 @@
+[
+ {
+  "name": "octahedral",
+  "d": 2,
+  "count": 67,
+  "walls": 6,
+  "faces": 728,
+  "verdict": "ISOLATED",
+  "hits": [],
+  "n_hits": 0,
+  "unresolved": 0,
+  "steps_to_stabilise": {
+   "1": 728
+  },
+  "unresolved_detail": [],
+  "budget_rejects": 0,
+  "by_count": {
+   "37": 134,
+   "43": 280,
+   "47": 66,
+   "49": 140,
+   "53": 56,
+   "55": 22,
+   "57": 10,
+   "59": 18,
+   "63": 2
+  },
+  "secs": 43.6
+ },
+ {
+  "name": "golden",
+  "d": 5,
+  "count": 67,
+  "walls": 9,
+  "faces": 2196,
+  "verdict": "ISOLATED",
+  "hits": [],
+  "n_hits": 0,
+  "unresolved": 0,
+  "steps_to_stabilise": {
+   "1": 2196
+  },
+  "unresolved_detail": [],
+  "budget_rejects": 0,
+  "by_count": {
+   "37": 370,
+   "38": 84,
+   "39": 433,
+   "40": 32,
+   "41": 115,
+   "43": 442,
+   "44": 23,
+   "45": 240,
+   "47": 150,
+   "48": 9,
+   "49": 193,
+   "51": 12,
+   "53": 76,
+   "55": 4,
+   "57": 10,
+   "59": 2,
+   "63": 1
+  },
+  "secs": 382.8
+ }
+]

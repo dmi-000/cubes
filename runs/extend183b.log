@@ -1,0 +1,4 @@
+TOWER 183 (asymmetric)   best n=5 = 393  cube (2, 1, 1, 1)  (22s)   GATE (must recover 393 by re-adding the dropped cube): 393
+     top counts: [393, 387, 385, 383, 381, 379]
+C3 183 (symmetric)       best n=5 = 393  cube (2, 1, -1, -1)  (19s)
+     top counts: [393, 387, 385, 383, 381, 379]

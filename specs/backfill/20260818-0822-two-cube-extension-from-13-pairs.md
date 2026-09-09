@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Write and run `/Users/dmi/cube-compounds/twocube_n4.py`. Work in `/Users/dmi/cube-compounds`. A search campaign — implement as specified, run it, report findings.
+Write and run `twocube_n4.py`. Work in `.`. A search campaign — implement as specified, run it, report findings.
 
 # THE LEAD
 

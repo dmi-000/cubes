@@ -10,7 +10,7 @@ import re
 import sys
 import numpy as np
 
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 from six_cube_search import count_mats
 
 

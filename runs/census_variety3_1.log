@@ -1,0 +1,7 @@
+[  119.2s] n=6 k=3 c=55    lin 3 -> nonempty  12 dirs: 12 confirmed, 0 unevaluable, 0 changed; wraps [None, None, None, None]
+[  123.4s] n=6 k=4 c=183   lin 1 -> empty     0 dirs: 0 confirmed, 0 unevaluable, 0 changed; wraps []
+[  184.8s] n=6 k=4 c=167   lin 2 -> empty     0 dirs: 0 confirmed, 0 unevaluable, 0 changed; wraps []
+[  196.5s] n=6 k=5 c=385   lin 1 -> empty     0 dirs: 0 confirmed, 0 unevaluable, 0 changed; wraps []
+[  201.5s] n=7 k=3 c=57    lin 2 -> nonempty  1 dirs: 1 confirmed, 0 unevaluable, 0 changed; wraps [None]
+[  202.6s] n=7 k=3 c=47    lin 4 -> nonempty  4 dirs: 4 confirmed, 0 unevaluable, 0 changed; wraps [None, None, None, None]
+[  257.9s] n=7 k=4 c=173   lin 2 -> nonempty  2 dirs: 1 confirmed, 0 unevaluable, 1 changed; wraps [None]

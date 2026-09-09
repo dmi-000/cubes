@@ -1,0 +1,53 @@
+total starts: s29390=631, s30108=631, s33098=627, s2228=623, s4048=623, s6647=623, s151276=623, s155146=623, s156045=623, s29371=623, s31985=623, s32223=623, s80478=623, s177366=623, s127236=623, s128802=623, s132448=623, s1026=619, s4529=619, s6303=619
+d1 starts: s29390=116, s30108=116, s33098=114, s2228=112, s4048=112, s6647=112, s56567=112, s151276=112
+d2 starts: s29390=212, s30108=212, s33098=210, s2228=208, s4048=208, s6647=208, s151276=208, s155146=208
+== climb seed29390:total (rank 0, start total=631)
+  seed29390:total:restart0 it1: total=631 bounded=631 d={0: 1, 1: 116, 2: 212, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed30108:total (rank 1, start total=631)
+  seed30108:total it1: total=635 bounded=635 d={0: 1, 1: 118, 2: 214, 3: 164, 4: 102, 5: 36, 6: 1}
+  seed30108:total:restart0 it1: total=635 bounded=635 d={0: 1, 1: 118, 2: 214, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed33098:total (rank 2, start total=627)
+== climb seed2228:total (rank 3, start total=623)
+  seed2228:total:restart0 it1: total=623 bounded=623 d={0: 1, 1: 112, 2: 208, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed4048:total (rank 4, start total=623)
+  seed4048:total it1: total=627 bounded=627 d={0: 1, 1: 114, 2: 210, 3: 164, 4: 102, 5: 36, 6: 1}
+  seed4048:total:restart0 it1: total=627 bounded=627 d={0: 1, 1: 114, 2: 210, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed6647:total (rank 5, start total=623)
+  seed6647:total it1: total=627 bounded=627 d={0: 1, 1: 114, 2: 210, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed151276:total (rank 6, start total=623)
+  seed151276:total it1: total=627 bounded=627 d={0: 1, 1: 114, 2: 210, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed155146:total (rank 7, start total=623)
+  seed155146:total:restart0 it1: total=623 bounded=623 d={0: 1, 1: 112, 2: 208, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed156045:total (rank 8, start total=623)
+  seed156045:total it1: total=627 bounded=627 d={0: 1, 1: 114, 2: 210, 3: 164, 4: 102, 5: 36, 6: 1}
+  seed156045:total:restart0 it1: total=627 bounded=627 d={0: 1, 1: 114, 2: 210, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed29371:total (rank 9, start total=623)
+  seed29371:total:restart0 it1: total=619 bounded=619 d={0: 1, 1: 110, 2: 206, 3: 164, 4: 102, 5: 36, 6: 1}
+  seed29371:total:restart0 it2: total=625 bounded=625 d={0: 1, 1: 116, 2: 206, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed31985:total (rank 10, start total=623)
+  seed31985:total it1: total=627 bounded=627 d={0: 1, 1: 114, 2: 210, 3: 164, 4: 102, 5: 36, 6: 1}
+  seed31985:total it2: total=631 bounded=631 d={0: 1, 1: 116, 2: 212, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed32223:total (rank 11, start total=623)
+  seed32223:total it1: total=629 bounded=629 d={0: 1, 1: 118, 2: 208, 3: 164, 4: 102, 5: 36, 6: 1}
+  seed32223:total:restart0 it1: total=629 bounded=629 d={0: 1, 1: 118, 2: 208, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed80478:total (rank 12, start total=623)
+  seed80478:total it1: total=629 bounded=629 d={0: 1, 1: 118, 2: 208, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed177366:total (rank 13, start total=623)
+== climb seed127236:total (rank 14, start total=623)
+== climb seed128802:total (rank 15, start total=623)
+  seed128802:total:restart0 it1: total=627 bounded=627 d={0: 1, 1: 114, 2: 210, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed132448:total (rank 16, start total=623)
+== climb seed1026:total (rank 17, start total=619)
+  seed1026:total:restart0 it1: total=619 bounded=619 d={0: 1, 1: 110, 2: 206, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed4529:total (rank 18, start total=619)
+== climb seed6303:total (rank 19, start total=619)
+  seed6303:total:restart0 it1: total=619 bounded=619 d={0: 1, 1: 110, 2: 206, 3: 164, 4: 102, 5: 36, 6: 1}
+== climb seed29390:d1 (rank 0, start d1=116)
+Traceback (most recent call last):
+  File "~/carroll/phase_b_hillclimb.py", line 291, in <module>
+    main()
+    ~~~~^^
+  File "~/carroll/phase_b_hillclimb.py", line 265, in main
+    if score > champions[obj_name][2] or \
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>' not supported between instances of 'tuple' and 'int'

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: SLIDE3_SPEC_V2.md + slide3_report.md. Project index: README.md
 """specs/SLIDE3_SPEC.md Section 1: overlay search over two sliding 3-cube triples.
 
@@ -36,8 +37,8 @@ import subprocess
 import sys
 import time
 
-LOG_PATH = '/Users/dmi/carroll/slide3_search.jsonl'
-ENGINE = '/Users/dmi/carroll/cube_regions'   # fixed 6-quat-group engine
+LOG_PATH = os.path.expanduser('~/carroll/slide3_search.jsonl')
+ENGINE = os.path.expanduser('~/carroll/cube_regions')   # fixed 6-quat-group engine
 MAXC = 512
 
 

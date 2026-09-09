@@ -1,0 +1,1991 @@
+[
+ {
+  "n": 6,
+  "k": 3,
+  "count": 63,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   4
+  ]
+ },
+ {
+  "n": 6,
+  "k": 3,
+  "count": 47,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 4,
+  "confirmed": 4,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   47,
+   13,
+   13,
+   13
+  ],
+  "idxs": [
+   2,
+   4,
+   5
+  ]
+ },
+ {
+  "n": 6,
+  "k": 4,
+  "count": 171,
+  "lineality": 3,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3
+  ]
+ },
+ {
+  "n": 6,
+  "k": 5,
+  "count": 393,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "n": 7,
+  "k": 3,
+  "count": 63,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   4
+  ]
+ },
+ {
+  "n": 7,
+  "k": 3,
+  "count": 49,
+  "lineality": 3,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   5
+  ]
+ },
+ {
+  "n": 7,
+  "k": 4,
+  "count": 179,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4
+  ]
+ },
+ {
+  "n": 7,
+  "k": 4,
+  "count": 167,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   4,
+   5
+  ]
+ },
+ {
+  "n": 7,
+  "k": 4,
+  "count": 159,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 2,
+  "confirmed": 2,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   159,
+   159
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   5
+  ]
+ },
+ {
+  "n": 7,
+  "k": 5,
+  "count": 393,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ]
+ },
+ {
+  "n": 7,
+  "k": 5,
+  "count": 383,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   5
+  ]
+ },
+ {
+  "n": 7,
+  "k": 5,
+  "count": 375,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   6
+  ]
+ },
+ {
+  "n": 7,
+  "k": 5,
+  "count": 359,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 15,
+  "confirmed": 4,
+  "unevaluable": 0,
+  "changed": 11,
+  "wraps": [
+   325,
+   385,
+   349,
+   349
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 7,
+  "k": 6,
+  "count": 715,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [],
+  "idxs": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 3,
+  "count": 63,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   4
+  ]
+ },
+ {
+  "n": 8,
+  "k": 3,
+  "count": 49,
+  "lineality": 3,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   5
+  ]
+ },
+ {
+  "n": 8,
+  "k": 3,
+  "count": 37,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 6,
+  "confirmed": 6,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   57,
+   57,
+   57,
+   57,
+   57,
+   57
+  ],
+  "idxs": [
+   0,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 171,
+  "lineality": 3,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3
+  ]
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 163,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 3,
+  "confirmed": 3,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   157,
+   183,
+   "multi-cube"
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 157,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 27,
+  "confirmed": 22,
+  "unevaluable": 0,
+  "changed": 5,
+  "wraps": [
+   169,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   169,
+   169,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   169,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   2,
+   3,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 151,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 50,
+  "confirmed": 50,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   171,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   169,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   169,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   169,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   169,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   169,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   169,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   0,
+   2,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 4,
+  "count": 141,
+  "lineality": 8,
+  "status": "nonempty",
+  "dirs": 8,
+  "confirmed": 8,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   165,
+   165,
+   171,
+   171,
+   171,
+   171,
+   171,
+   171
+  ],
+  "idxs": [
+   0,
+   1,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 385,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 381,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   1,
+   2,
+   3,
+   4,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 371,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   167
+  ],
+  "idxs": [
+   0,
+   1,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 365,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 20,
+  "confirmed": 4,
+  "unevaluable": 0,
+  "changed": 16,
+  "wraps": [
+   165,
+   "multi-cube",
+   161,
+   161
+  ],
+  "idxs": [
+   0,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 359,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 15,
+  "confirmed": 4,
+  "unevaluable": 0,
+  "changed": 11,
+  "wraps": [
+   325,
+   385,
+   349,
+   349
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 5,
+  "count": 353,
+  "lineality": 7,
+  "status": "nonempty",
+  "dirs": 25,
+  "confirmed": 11,
+  "unevaluable": 0,
+  "changed": 14,
+  "wraps": [
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   383,
+   "multi-cube",
+   383,
+   "multi-cube",
+   "multi-cube",
+   383,
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   5,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 6,
+  "count": 723,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 6,
+  "count": 715,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   5,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 6,
+  "count": 713,
+  "lineality": 3,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 6,
+  "count": 707,
+  "lineality": 3,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   1,
+   2,
+   3,
+   4,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 6,
+  "count": 697,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 6,
+  "confirmed": 4,
+  "unevaluable": 0,
+  "changed": 2,
+  "wraps": [
+   715,
+   715,
+   715,
+   715
+  ],
+  "idxs": [
+   0,
+   2,
+   3,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 8,
+  "k": 7,
+  "count": 1217,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 8,
+  "k": 7,
+  "count": 1201,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   1141
+  ],
+  "idxs": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 9,
+  "k": 3,
+  "count": 57,
+  "lineality": 2,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   13
+  ],
+  "idxs": [
+   0,
+   4,
+   6
+  ]
+ },
+ {
+  "n": 9,
+  "k": 3,
+  "count": 47,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 4,
+  "confirmed": 3,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [
+   55,
+   55,
+   57
+  ],
+  "idxs": [
+   1,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 3,
+  "count": 40,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 4,
+  "confirmed": 4,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   13,
+   13,
+   13,
+   4
+  ],
+  "idxs": [
+   4,
+   5,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 4,
+  "count": 179,
+  "lineality": 1,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4
+  ]
+ },
+ {
+  "n": 9,
+  "k": 4,
+  "count": 167,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   4,
+   5
+  ]
+ },
+ {
+  "n": 9,
+  "k": 4,
+  "count": 159,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   55
+  ],
+  "idxs": [
+   2,
+   4,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 4,
+  "count": 155,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 20,
+  "confirmed": 19,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [
+   57,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   57,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   57,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   47,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   2,
+   4,
+   5,
+   7
+  ]
+ },
+ {
+  "n": 9,
+  "k": 4,
+  "count": 151,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 50,
+  "confirmed": 16,
+  "unevaluable": 0,
+  "changed": 34,
+  "wraps": [
+   169,
+   "multi-cube",
+   169,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   171,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   0,
+   1,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 4,
+  "count": 145,
+  "lineality": 7,
+  "status": "nonempty",
+  "dirs": 7,
+  "confirmed": 6,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [
+   163,
+   163,
+   163,
+   163,
+   163,
+   165
+  ],
+  "idxs": [
+   1,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 4,
+  "count": 135,
+  "lineality": 9,
+  "status": "nonempty",
+  "dirs": 9,
+  "confirmed": 6,
+  "unevaluable": 0,
+  "changed": 3,
+  "wraps": [
+   165,
+   165,
+   165,
+   165,
+   165,
+   165
+  ],
+  "idxs": [
+   0,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 385,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   4,
+   6
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 381,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 375,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   6
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 369,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   169
+  ],
+  "idxs": [
+   0,
+   2,
+   4,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 367,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 10,
+  "confirmed": 10,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   163,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   163,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   1,
+   4,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 363,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   383
+  ],
+  "idxs": [
+   0,
+   1,
+   2,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 359,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 15,
+  "confirmed": 4,
+  "unevaluable": 0,
+  "changed": 11,
+  "wraps": [
+   325,
+   385,
+   349,
+   349
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   5,
+   6
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 355,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 15,
+  "confirmed": 15,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   297,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   295,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   151,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   1,
+   4,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 351,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 25,
+  "confirmed": 24,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [
+   165,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   165,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   165,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   147,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   155,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   2,
+   4,
+   5,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 347,
+  "lineality": 8,
+  "status": "nonempty",
+  "dirs": 70,
+  "confirmed": 10,
+  "unevaluable": 0,
+  "changed": 60,
+  "wraps": [
+   369,
+   "multi-cube",
+   369,
+   "multi-cube",
+   "multi-cube",
+   363,
+   369,
+   369,
+   369,
+   369
+  ],
+  "idxs": [
+   0,
+   2,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 343,
+  "lineality": 7,
+  "status": "nonempty",
+  "dirs": 48,
+  "confirmed": 28,
+  "unevaluable": 0,
+  "changed": 20,
+  "wraps": [
+   369,
+   "multi-cube",
+   "multi-cube",
+   369,
+   369,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   369,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   367,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   367,
+   367,
+   367,
+   "multi-cube",
+   "multi-cube",
+   367,
+   367
+  ],
+  "idxs": [
+   2,
+   3,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 5,
+  "count": 335,
+  "lineality": 10,
+  "status": "nonempty",
+  "dirs": 10,
+  "confirmed": 10,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   363,
+   363,
+   363,
+   351,
+   345,
+   345,
+   345,
+   357,
+   357,
+   357
+  ],
+  "idxs": [
+   2,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 723,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   6
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 715,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   5,
+   7
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 713,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 709,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 707,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 2,
+  "confirmed": 2,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   675,
+   675
+  ],
+  "idxs": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 707,
+  "lineality": 3,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   1,
+   2,
+   3,
+   4,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 703,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 10,
+  "confirmed": 10,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   371,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   371,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   0,
+   1,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 699,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 10,
+  "confirmed": 2,
+  "unevaluable": 0,
+  "changed": 8,
+  "wraps": [
+   669,
+   "multi-cube"
+  ],
+  "idxs": [
+   1,
+   3,
+   4,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 695,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 10,
+  "confirmed": 3,
+  "unevaluable": 0,
+  "changed": 7,
+  "wraps": [
+   375,
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   0,
+   3,
+   4,
+   5,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 693,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   361
+  ],
+  "idxs": [
+   0,
+   1,
+   4,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 689,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 15,
+  "confirmed": 2,
+  "unevaluable": 0,
+  "changed": 13,
+  "wraps": [
+   369,
+   369
+  ],
+  "idxs": [
+   0,
+   2,
+   4,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 687,
+  "lineality": 7,
+  "status": "nonempty",
+  "dirs": 20,
+  "confirmed": 6,
+  "unevaluable": 0,
+  "changed": 14,
+  "wraps": [
+   "multi-cube",
+   715,
+   "multi-cube",
+   "multi-cube",
+   717,
+   "multi-cube"
+  ],
+  "idxs": [
+   0,
+   1,
+   3,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 679,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 20,
+  "confirmed": 20,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   359,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   565,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   351,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   359,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 6,
+  "count": 671,
+  "lineality": 9,
+  "status": "nonempty",
+  "dirs": 88,
+  "confirmed": 40,
+  "unevaluable": 24,
+  "changed": 24,
+  "wraps": [
+   343,
+   691,
+   "multi-cube",
+   "multi-cube",
+   343,
+   "multi-cube",
+   633,
+   "multi-cube",
+   "multi-cube",
+   689,
+   689,
+   689,
+   689,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   689,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   695,
+   695,
+   695,
+   695,
+   "multi-cube",
+   "multi-cube",
+   "multi-cube",
+   695,
+   695,
+   695,
+   695,
+   "multi-cube",
+   "multi-cube"
+  ],
+  "idxs": [
+   2,
+   3,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 7,
+  "count": 1209,
+  "lineality": 2,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 7,
+  "count": 1203,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   5,
+   6,
+   7
+  ]
+ },
+ {
+  "n": 9,
+  "k": 7,
+  "count": 1199,
+  "lineality": 3,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   5,
+   6,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 7,
+  "count": 1195,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   3,
+   4,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 7,
+  "count": 1191,
+  "lineality": 4,
+  "status": "nonempty",
+  "dirs": 1,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   707
+  ],
+  "idxs": [
+   0,
+   2,
+   3,
+   4,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 7,
+  "count": 1185,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 2,
+  "confirmed": 2,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [
+   693,
+   693
+  ],
+  "idxs": [
+   0,
+   1,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 7,
+  "count": 1179,
+  "lineality": 6,
+  "status": "nonempty",
+  "dirs": 3,
+  "confirmed": 2,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [
+   995,
+   687
+  ],
+  "idxs": [
+   1,
+   2,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 7,
+  "count": 1171,
+  "lineality": 9,
+  "status": "nonempty",
+  "dirs": 48,
+  "confirmed": 20,
+  "unevaluable": 0,
+  "changed": 28,
+  "wraps": [
+   "multi-cube",
+   1195,
+   1195,
+   "multi-cube",
+   1195,
+   1195,
+   1195,
+   1195,
+   "multi-cube",
+   "multi-cube",
+   1201,
+   1201,
+   1201,
+   1201,
+   "multi-cube",
+   1201,
+   1201,
+   1201,
+   1201,
+   "multi-cube"
+  ],
+  "idxs": [
+   0,
+   2,
+   3,
+   5,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 8,
+  "count": 1883,
+  "lineality": 4,
+  "status": "empty",
+  "dirs": 0,
+  "confirmed": 0,
+  "unevaluable": 0,
+  "changed": 0,
+  "wraps": [],
+  "idxs": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   6,
+   7,
+   8
+  ]
+ },
+ {
+  "n": 9,
+  "k": 8,
+  "count": 1869,
+  "lineality": 5,
+  "status": "nonempty",
+  "dirs": 2,
+  "confirmed": 1,
+  "unevaluable": 0,
+  "changed": 1,
+  "wraps": [
+   1201
+  ],
+  "idxs": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ]
+ }
+]

@@ -1,0 +1,19 @@
+k5: n=9 k=5 ambient 12 | 48 tight | lineality 8 | setup 0.0s
+      252 polynomials built (seed sized per chart)
+      chart 1/8 (7 unknowns)
+      chart 1: ORIGIN SOLVES ALL 252 polynomials -- ns[0] is a candidate, no solve needed
+      chart 2/8 (7 unknowns)
+      chart 2: ORIGIN SOLVES ALL 252 polynomials -- ns[1] is a candidate, no solve needed
+      chart 3/8 (7 unknowns)
+      chart 3: 1 seed solutions in 4s
+      chart 4/8 (7 unknowns)
+      chart 4: 1 seed solutions in 4s
+      chart 5/8 (7 unknowns)
+      chart 5: ORIGIN SOLVES ALL 252 polynomials -- ns[4] is a candidate, no solve needed
+      chart 6/8 (7 unknowns)
+      chart 6: ORIGIN SOLVES ALL 252 polynomials -- ns[5] is a candidate, no solve needed
+      chart 7/8 (7 unknowns)
+      chart 7: ORIGIN SOLVES ALL 252 polynomials -- ns[6] is a candidate, no solve needed
+      chart 8/8 (7 unknowns)
+      chart 8: ORIGIN SOLVES ALL 252 polynomials -- ns[7] is a candidate, no solve needed
+RESULT k5: status=nonempty dirs=6 total 120s

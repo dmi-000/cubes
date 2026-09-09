@@ -1,0 +1,6 @@
+arcA: count 727 | 192 tight conditions (0 degenerate, 2598 loose) | rank 13 of 15 | candidate dim 2
+   direction ['-257544/1772149', '61320/1772149', '-1 count preserved: False
+   direction ['167097/1772149', '-39785/1772149', '12 count preserved: False
+   no verified tangent; testing which tight conditions actually BIND
+arcA: VERIFIED DIMENSION >= 0
+

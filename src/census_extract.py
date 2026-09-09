@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: specs/CENSUS_SPEC.md. Project index: README.md / C45_notes.md sect.13
 """(c1) exact census extraction from both n=3 max(3)=67 witnesses.
 
@@ -952,8 +953,8 @@ if __name__ == '__main__':
     cen2 = census_tables('W2 golden Q(sqrt5)', n2, verts2, te2, be2,
                          td2, bd2, sigma=0)
     write_report(res1, cen1, res2, cen2,
-                 '/Users/dmi/carroll/census_report.md',
-                 '/Users/dmi/carroll/census_data.json')
+                 os.path.expanduser('~/carroll/census_report.md'),
+                 os.path.expanduser('~/carroll/census_data.json'))
     print('wrote census_report.md and census_data.json')
     print(f'  W1: {cen1["n_triple"]} triples, {cen1["n_kink"]} kinks, '
           f'top weight {cen1["weight_top_triples"]}, '

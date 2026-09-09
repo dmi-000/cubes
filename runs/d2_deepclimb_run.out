@@ -1,0 +1,90 @@
+=== GATE: rebuild 717 through build_blocks and check by_depth ===
+  quats=[[5, 2, 2, 2], [-2, -2, 2, 5], [-2, 5, -2, 2], [-2, 2, 5, -2], [2, 1, 1, 1], [1, 0, 0, 0]]
+  total=717 (want 717)  by_depth={1: 210, 2: 210, 3: 158, 4: 102, 5: 36, 6: 1}
+  want_bd={1: 210, 2: 210, 3: 158, 4: 102, 5: 36, 6: 1}
+  GATE PASS
+  known-B: quats=[[4, 1, 1, 1], [-1, -1, 1, 4], [-1, 4, -1, 1], [-1, 1, 4, -1], [1, 0, 0, 0], [3, 1, 1, 1]] total=717 by_depth={1: 210, 2: 216, 3: 152, 4: 102, 5: 36, 6: 1}
+
+=== TASK 1: deep-climb the two known 717 configs, LARGER neighborhood (single +-1..+-6, two-component +-1/+-2 same-block, cross-block escape) ===
+  direct climb from known-A: [(5, 2, 2, 2), (2, 1, 1, 1), (1, 0, 0, 0)] -> total=717 steps=1 escapes=0 local_max=True budget_used=589/20000
+  direct climb from known-B: [(4, 1, 1, 1), (1, 0, 0, 0), (3, 1, 1, 1)] -> total=717 steps=1 escapes=0 local_max=True budget_used=1156/20000
+Traceback (most recent call last):
+  File "~/carroll/d2_deepclimb.py", line 600, in <module>
+    main()
+    ~~~~^^
+  File "~/carroll/d2_deepclimb.py", line 591, in main
+    t1 = run_task1()
+  File "~/carroll/d2_deepclimb.py", line 320, in run_task1
+    seeds0 = perturb(base, 3, RNG, nmoves)
+  File "~/carroll/d2_deepclimb.py", line 276, in perturb
+    cur[i][comp] += d
+    ~~~~~~^^^^^^
+TypeError: 'tuple' object does not support item assignment
+=== GATE: rebuild 717 through build_blocks and check by_depth ===
+  quats=[[5, 2, 2, 2], [-2, -2, 2, 5], [-2, 5, -2, 2], [-2, 2, 5, -2], [2, 1, 1, 1], [1, 0, 0, 0]]
+  total=717 (want 717)  by_depth={1: 210, 2: 210, 3: 158, 4: 102, 5: 36, 6: 1}
+  want_bd={1: 210, 2: 210, 3: 158, 4: 102, 5: 36, 6: 1}
+  GATE PASS
+  known-B: quats=[[4, 1, 1, 1], [-1, -1, 1, 4], [-1, 4, -1, 1], [-1, 1, 4, -1], [1, 0, 0, 0], [3, 1, 1, 1]] total=717 by_depth={1: 210, 2: 216, 3: 152, 4: 102, 5: 36, 6: 1}
+
+=== TASK 1: deep-climb the two known 717 configs, LARGER neighborhood (single +-1..+-6, two-component +-1/+-2 same-block, cross-block escape) ===
+  direct climb from known-A: [(5, 2, 2, 2), (2, 1, 1, 1), (1, 0, 0, 0)] -> total=717 steps=1 escapes=0 local_max=True budget_used=589/20000
+  direct climb from known-B: [(4, 1, 1, 1), (1, 0, 0, 0), (3, 1, 1, 1)] -> total=717 steps=1 escapes=0 local_max=True budget_used=1156/20000
+  restart  0 (base A, 10 moves off): total=717 local_max=True budget=2572/20000
+  restart  1 (base B, 5 moves off): total=717 local_max=True budget=3535/20000
+  restart  2 (base A, 6 moves off): total=717 local_max=True budget=5268/20000
+  restart  3 (base B, 9 moves off): total=717 local_max=True budget=6625/20000
+  restart  4 (base A, 7 moves off): total=717 local_max=True budget=8047/20000
+  restart  5 (base B, 5 moves off): total=717 local_max=True budget=9832/20000
+Traceback (most recent call last):
+  File "~/carroll/d2_deepclimb.py", line 600, in <module>
+    main()
+    ~~~~^^
+  File "~/carroll/d2_deepclimb.py", line 591, in main
+    t1 = run_task1()
+  File "~/carroll/d2_deepclimb.py", line 321, in run_task1
+    r = climb(seeds0, 3, BLOCKS_D2_4F2,
+              f'deepclimb-restart{k}-from{base_tag}', max_steps=5,
+              budget=budget, flagged=flagged)
+  File "~/carroll/d2_deepclimb.py", line 225, in climb
+    assert cfg0 is not None, f'climb: bad start seeds {cur}'
+           ^^^^^^^^^^^^^^^^
+AssertionError: climb: bad start seeds [(3, 1, 1, 1), (0, 2, 1, 1), (0, 2, 1, 0)]
+=== GATE: rebuild 717 through build_blocks and check by_depth ===
+  quats=[[5, 2, 2, 2], [-2, -2, 2, 5], [-2, 5, -2, 2], [-2, 2, 5, -2], [2, 1, 1, 1], [1, 0, 0, 0]]
+  total=717 (want 717)  by_depth={1: 210, 2: 210, 3: 158, 4: 102, 5: 36, 6: 1}
+  want_bd={1: 210, 2: 210, 3: 158, 4: 102, 5: 36, 6: 1}
+  GATE PASS
+  known-B: quats=[[4, 1, 1, 1], [-1, -1, 1, 4], [-1, 4, -1, 1], [-1, 1, 4, -1], [1, 0, 0, 0], [3, 1, 1, 1]] total=717 by_depth={1: 210, 2: 216, 3: 152, 4: 102, 5: 36, 6: 1}
+
+=== TASK 1: deep-climb the two known 717 configs, LARGER neighborhood (single +-1..+-6, two-component +-1/+-2 same-block, cross-block escape) ===
+  direct climb from known-A: [(5, 2, 2, 2), (2, 1, 1, 1), (1, 0, 0, 0)] -> total=717 steps=1 escapes=0 local_max=True budget_used=589/20000
+  direct climb from known-B: [(4, 1, 1, 1), (1, 0, 0, 0), (3, 1, 1, 1)] -> total=717 steps=1 escapes=0 local_max=True budget_used=1156/20000
+  restart  0 (base A, 10 moves off): total=717 local_max=True budget=2572/20000
+  restart  1 (base B, 5 moves off): total=717 local_max=True budget=3535/20000
+  restart  2 (base A, 6 moves off): total=717 local_max=True budget=5268/20000
+  restart  3 (base B, 9 moves off): total=717 local_max=True budget=6625/20000
+  restart  4 (base A, 7 moves off): total=717 local_max=True budget=8047/20000
+  restart  5 (base B, 5 moves off): total=717 local_max=True budget=9832/20000
+  restart  6 (base A, 8 moves off): total=-1 local_max=False budget=9832/20000
+  restart  7 (base B, 5 moves off): total=717 local_max=True budget=11207/20000
+  restart  8 (base A, 9 moves off): total=705 local_max=False budget=13515/20000
+  restart  9 (base B, 5 moves off): total=717 local_max=True budget=14878/20000
+  restart 10 (base A, 5 moves off): total=717 local_max=True budget=16706/20000
+  restart 11 (base B, 6 moves off): total=-1 local_max=False budget=16706/20000
+  restart 12 (base A, 6 moves off): total=717 local_max=True budget=17731/20000
+  restart 13 (base B, 8 moves off): total=717 local_max=True budget=19174/20000
+  restart 14 (base A, 8 moves off): total=717 local_max=False budget=20321/20000
+
+  TASK1 done: 20321 evals, 2201s, 15/30 restarts completed.
+  best: total=717 from A
+
+=== TASK 2: broad D2 family resweep (60 restarts) + siblings (D2:2+4, D2:2+2+2) at full-quat resolution ===
+  D2:4+free2-resweep best= 717 evals=1179 restarts=60+142expl climb_r=2x16 (broad resweep, 60 restarts + 2 known-717 anchors, r2 x16)
+  2a D2:4+free2 resweep: best=717 evals=1179 budget=1179/16000
+  D2:2+4           best= 547 evals=700 restarts=0+194expl climb_r=2x14 (orbit-2 aligned x orbit-4, 2 blocks)
+  2b D2:2+4: best=547 evals=700 budget=1879/16000
+  D2:2+2+2         best=  -1 evals=0 restarts=20+120expl climb_r=2x10 (three orbit-2 D2 blocks)
+  2c D2:2+2+2: best=-1 evals=0 budget=1879/16000
+
+Report -> ~/carroll/d2_deepclimb_report.md

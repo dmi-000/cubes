@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: specs/RATTAN_SPEC.md. Project index: README.md
 """The rational-tangent sweep (specs/RATTAN_SPEC.md): tilts tan psi = q/p with
 d = p^2+q^2 NON-SQUARE (irrational sin/cos), phase steps parametrized by
@@ -45,8 +46,8 @@ from golden_rotations import rot_from_quat
 from certify_six import exact_count_config
 
 ENGINE = './cube_regions_n'
-RESULTS_PATH = '/Users/dmi/carroll/rattan_results.jsonl'
-REPORT_PATH = '/Users/dmi/carroll/rattan_report.md'
+RESULTS_PATH = os.path.expanduser('~/carroll/rattan_results.jsonl')
+REPORT_PATH = os.path.expanduser('~/carroll/rattan_report.md')
 RECORDS = {4: 183, 5: 393, 6: 723}
 RECORD_QUATS = {
     4: [(1, 0, 0, 0), (0, 5, 3, 2), (1, -4, -1, 1), (1, 1, -1, -4)],

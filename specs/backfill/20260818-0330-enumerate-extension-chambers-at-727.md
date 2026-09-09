@@ -22,7 +22,7 @@
 ## Prompt as sent
 
 ```text
-Write `/Users/dmi/cube-compounds/extension_chambers.py`. Fully specified — implement it, do not redesign. Work in that directory.
+Write `extension_chambers.py`. Fully specified — implement it, do not redesign. Work in that directory.
 
 # GOAL
 

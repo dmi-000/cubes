@@ -1,0 +1,30 @@
+727: 27 walls | old(=393) 18 | new 9 | ambient 15
+74544 complete 393 chambers on disk; sampling 25
+   chamber  1/25 -> 62 sub-chambers  (23s)
+   chamber  2/25 -> 62 sub-chambers  (45s)
+   chamber  3/25 -> 62 sub-chambers  (69s)
+   chamber  4/25 -> 62 sub-chambers  (106s)
+   chamber  5/25 -> 62 sub-chambers  (126s)
+   chamber  6/25 -> 62 sub-chambers  (150s)
+   chamber  7/25 -> 62 sub-chambers  (172s)
+   chamber  8/25 -> 62 sub-chambers  (197s)
+   chamber  9/25 -> 62 sub-chambers  (220s)
+   chamber 10/25 -> 62 sub-chambers  (240s)
+   chamber 11/25 -> 62 sub-chambers  (265s)
+   chamber 12/25 -> 62 sub-chambers  (288s)
+   chamber 13/25 -> 62 sub-chambers  (310s)
+   chamber 14/25 -> 62 sub-chambers  (334s)
+   chamber 15/25 -> 62 sub-chambers  (358s)
+   chamber 16/25 -> 62 sub-chambers  (383s)
+   chamber 17/25 -> 62 sub-chambers  (408s)
+   chamber 18/25 -> 62 sub-chambers  (431s)
+   chamber 19/25 -> 62 sub-chambers  (461s)
+   chamber 20/25 -> 62 sub-chambers  (491s)
+   chamber 21/25 -> 62 sub-chambers  (519s)
+   chamber 22/25 -> 62 sub-chambers  (551s)
+   chamber 23/25 -> 62 sub-chambers  (575s)
+   chamber 24/25 -> 62 sub-chambers  (618s)
+   chamber 25/25 -> 62 sub-chambers  (651s)
+
+25 chambers tested; distinct subdivision counts: [62]
+UNIFORM 62: CONFIRMED

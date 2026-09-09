@@ -1,0 +1,8 @@
+{
+ "label": "727",
+ "chambers": 4621728,
+ "states": 3390547,
+ "flats": 1192678,
+ "secs": 7572.284326791763,
+ "method": "memoised NBC recursion (Zaslavsky/Whitney)"
+}

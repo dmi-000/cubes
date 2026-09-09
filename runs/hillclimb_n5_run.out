@@ -1,0 +1,86 @@
+total starts: s22375=329, s60616=329, s275=325, s4529=325, s24264=325, s30108=325, s32223=325, s35504=325, s58094=325, s77200=325, s85258=325, s87648=325, s90068=325, s403=321, s637=321, s1435=321, s1998=321, s2501=321, s2701=321, s4739=321
+d1 starts: s22375=80, s60616=80, s275=78, s4529=78, s24264=78, s30108=78, s32223=78, s35504=78
+d2 starts: s22375=134, s60616=134, s275=132, s4529=132, s24264=132, s30108=132, s32223=132, s35504=132
+preloaded 0 memoized evals
+== climb seed22375:total (rank 0, start total=329)
+== climb seed60616:total (rank 1, start total=329)
+== climb seed275:total (rank 2, start total=325)
+== climb seed4529:total (rank 3, start total=325)
+== climb seed24264:total (rank 4, start total=325)
+  seed24264:total it1: total=329 bounded=329 d={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+  seed24264:total:restart0 it1: total=329 bounded=329 d={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+  seed24264:total:restart1 it1: total=325 bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+  seed24264:total:restart1 it2: total=329 bounded=329 d={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+== climb seed30108:total (rank 5, start total=325)
+  seed30108:total:restart1 it1: total=325 bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+== climb seed32223:total (rank 6, start total=325)
+  seed32223:total it1: total=331 bounded=331 d={0: 1, 1: 84, 2: 132, 3: 84, 4: 30, 5: 1}
+  seed32223:total:restart1 it1: total=325 bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+== climb seed35504:total (rank 7, start total=325)
+== climb seed58094:total (rank 8, start total=325)
+== climb seed77200:total (rank 9, start total=325)
+== climb seed85258:total (rank 10, start total=325)
+  seed85258:total:restart1 it1: total=325 bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+== climb seed87648:total (rank 11, start total=325)
+  seed87648:total:restart1 it1: total=325 bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+== climb seed90068:total (rank 12, start total=325)
+== climb seed403:total (rank 13, start total=321)
+  seed403:total:restart0 it1: total=327 bounded=327 d={0: 1, 1: 82, 2: 130, 3: 84, 4: 30, 5: 1}
+== climb seed637:total (rank 14, start total=321)
+  seed637:total it1: total=325 bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+  seed637:total:restart0 it1: total=325 bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+  seed637:total:restart1 it1: total=325 bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+== climb seed1435:total (rank 15, start total=321)
+  seed1435:total:restart0 it1: total=325 bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+  seed1435:total:restart1 it1: total=323 bounded=323 d={0: 1, 1: 80, 2: 128, 3: 84, 4: 30, 5: 1}
+  seed1435:total:restart1 it2: total=327 bounded=327 d={0: 1, 1: 82, 2: 130, 3: 84, 4: 30, 5: 1}
+== climb seed1998:total (rank 16, start total=321)
+== climb seed2501:total (rank 17, start total=321)
+== climb seed2701:total (rank 18, start total=321)
+  seed2701:total it1: total=323 bounded=323 d={0: 1, 1: 78, 2: 130, 3: 84, 4: 30, 5: 1}
+== climb seed4739:total (rank 19, start total=321)
+  seed4739:total:restart1 it1: total=321 bounded=321 d={0: 1, 1: 76, 2: 130, 3: 84, 4: 30, 5: 1}
+== climb seed22375:d1 (rank 0, start d1=80)
+== climb seed60616:d1 (rank 1, start d1=80)
+  seed60616:d1:restart1 it1: d1=(80, 329) bounded=329 d={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+== climb seed275:d1 (rank 2, start d1=78)
+== climb seed4529:d1 (rank 3, start d1=78)
+== climb seed24264:d1 (rank 4, start d1=78)
+  seed24264:d1 it1: d1=(80, 329) bounded=329 d={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+  seed24264:d1:restart0 it1: d1=(80, 329) bounded=329 d={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+  seed24264:d1:restart1 it1: d1=(80, 329) bounded=329 d={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+== climb seed30108:d1 (rank 5, start d1=78)
+  seed30108:d1:restart0 it1: d1=(78, 325) bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+  seed30108:d1:restart1 it1: d1=(78, 325) bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+== climb seed32223:d1 (rank 6, start d1=78)
+  seed32223:d1 it1: d1=(84, 331) bounded=331 d={0: 1, 1: 84, 2: 132, 3: 84, 4: 30, 5: 1}
+  seed32223:d1:restart1 it1: d1=(76, 321) bounded=321 d={0: 1, 1: 76, 2: 130, 3: 84, 4: 30, 5: 1}
+  seed32223:d1:restart1 it2: d1=(78, 325) bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+== climb seed35504:d1 (rank 7, start d1=78)
+== climb seed22375:d2 (rank 0, start d2=134)
+  seed22375:d2:restart0 it1: d2=(134, 335) bounded=335 d={0: 1, 1: 86, 2: 134, 3: 84, 4: 30, 5: 1}
+  seed22375:d2:restart1 it1: d2=(134, 335) bounded=335 d={0: 1, 1: 86, 2: 134, 3: 84, 4: 30, 5: 1}
+== climb seed60616:d2 (rank 1, start d2=134)
+== climb seed275:d2 (rank 2, start d2=132)
+== climb seed4529:d2 (rank 3, start d2=132)
+  seed4529:d2:restart0 it1: d2=(132, 331) bounded=331 d={0: 1, 1: 84, 2: 132, 3: 84, 4: 30, 5: 1}
+  seed4529:d2:restart1 it1: d2=(132, 325) bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+== climb seed24264:d2 (rank 4, start d2=132)
+  seed24264:d2 it1: d2=(134, 329) bounded=329 d={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+  seed24264:d2:restart0 it1: d2=(134, 329) bounded=329 d={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+  seed24264:d2:restart1 it1: d2=(134, 329) bounded=329 d={0: 1, 1: 80, 2: 134, 3: 84, 4: 30, 5: 1}
+== climb seed30108:d2 (rank 5, start d2=132)
+  seed30108:d2:restart0 it1: d2=(132, 325) bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+== climb seed32223:d2 (rank 6, start d2=132)
+  seed32223:d2 it1: d2=(132, 331) bounded=331 d={0: 1, 1: 84, 2: 132, 3: 84, 4: 30, 5: 1}
+  seed32223:d2:restart1 it1: d2=(132, 325) bounded=325 d={0: 1, 1: 78, 2: 132, 3: 84, 4: 30, 5: 1}
+== climb seed35504:d2 (rank 7, start d2=132)
+
+=== CHAMPIONS ===
+total: score=331 bounded=331 by_depth={0: 1, 1: 84, 2: 132, 3: 84, 4: 30, 5: 1}
+  quats=[[88, -148, 97, 163], [240, 277, -178, -310], [248, -310, 207, 248], [174, 242, -401, -116], [199, -186, -54, 430]]
+d1: score=(84, 331) bounded=331 by_depth={0: 1, 1: 84, 2: 132, 3: 84, 4: 30, 5: 1}
+  quats=[[88, -148, 97, 163], [240, 277, -178, -310], [248, -310, 207, 248], [174, 242, -401, -116], [199, -186, -54, 430]]
+d2: score=(134, 335) bounded=335 by_depth={0: 1, 1: 86, 2: 134, 3: 84, 4: 30, 5: 1}
+  quats=[[43, -132, 195, -92], [36, 497, 99, 60], [322, 242, -261, -173], [33, -23, -27, 116], [429, -149, -225, -73]]
+total exact evaluations: 10012

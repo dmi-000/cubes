@@ -1,0 +1,8 @@
+183 class 1 (canonical)    (rotated by (2, 1, 0, 0) to clear half-turns)
+183 class 1 (canonical)    count 183 | 108 tight | lineality 1 of 9 | setup 49s
+      244 polynomials built (seed sized per chart)
+                             second-order variety: empty, 0 directions -> ISOLATED
+183 class 2 (wide climb)   (rotated by (2, 1, 0, 0) to clear half-turns)
+183 class 2 (wide climb)   count 183 | 108 tight | lineality 1 of 9 | setup 48s
+      244 polynomials built (seed sized per chart)
+                             second-order variety: empty, 0 directions -> ISOLATED

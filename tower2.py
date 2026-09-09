@@ -19,7 +19,7 @@ import math
 from fractions import Fraction as Fr
 from itertools import product
 
-sys.path.insert(0, '/Users/dmi/carroll')
+sys.path.insert(0, '~/carroll')
 from cube_compound_exact import dot, vadd, vsub, vscale, clip
 from slide3_q2 import Q2
 from golden_rotations import Rot

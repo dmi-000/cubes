@@ -1,0 +1,12 @@
+arc B: 960 W4 + 2919 W3 crossings; 131 samples at denom 512, counts {727: 87, 723: 27, 719: 17}
+   727 from s=105/256 to s=37/64
+   lower end in (209/512, 105/256): 2 crossing(s) ['W3 0.409310214', 'W4 0.409523810']
+   upper end in (37/64, 297/512): 2 crossing(s) ['W3 0.578745724', 'W4 0.579411080']
+   chambers: 12 transitions, 12 bracket a W3/W4 crossing; 62 crossings inside the arc
+
+arc C: 943 W4 + 3649 W3 crossings; 754 samples at denom 16, counts {727: 746, 723: 8}
+   727 from s=19/16 to s=191/4
+   lower end in (9/8, 19/16): 1 crossing(s) ['W3 1.167462397']
+   upper end in (191/4, 765/16): 1 crossing(s) ['W4 47.772089472']
+   chambers: 12 transitions, 12 bracket a W3/W4 crossing; 77 crossings inside the arc
+

@@ -1,0 +1,5 @@
+[    0.0s] 813 classes already completed by earlier shards -- skipping those
+[    0.0s] restricted to 11 explicit todo indices
+[   39.1s] n=9 k=6 c=715   lin 3 -> nonempty  1 dirs: 0 confirmed, 0 unevaluable, 1 changed; wraps []
+[  104.1s] n=9 k=7 c=1189  lin 4 -> empty     0 dirs: 0 confirmed, 0 unevaluable, 0 changed; wraps []
+[  104.1s] done: 2 classes

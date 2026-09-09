@@ -1,0 +1,10 @@
+4         walls  12 | G1  12/ 12 | G2  12 | G3 caught  12/ 12
+5         walls  18 | G1  18/ 18 | G2  18 | G3 caught  18/ 18
+6         walls  27 | G1  27/ 27 | G2  27 | G3 caught  27/ 27
+7         walls  51 | G1  51/ 51 | G2  51 | G3 caught  51/ 51
+8         walls  75 | G1  75/ 75 | G2  75 | G3 caught  75/ 75
+arcA      walls  20 | G1  20/ 20 | G2  20 | G3 caught  20/ 20
+n4_183    UNEVALUABLE (Cayley infinity)
+golden67  walls   9 | G1   9/  9 | G2   0 | G3 caught   9/  9
+oct67     walls   6 | G1   6/  6 | G2   0 | G3 caught   6/  6
+written data/wall_keys.json

@@ -1,0 +1,54 @@
+[    0.0s] === STRUCTURED_RULINGS run start ===
+[    0.0s] budget: 2280 seconds (38.0 minutes)
+[    0.0s] REGRESSION: arcA terminus s=19/6, target ruling (-2/5,3/5,1)
+[    0.9s]   own-point (triple point (Fraction(-11, 19), Fraction(-31, 19), Fraction(-1, 19))) conditions active at s=19/6: [(0, 1), (1, 1), (2, -1)] -- m_own_point = 3 (Postscript 96 claims 3)
+[    5.8s]   regression: W4=863 W3=3184 chambers=11 counts=[725] all_725=True elapsed=3.67s -- PASS
+[    5.8s] SPEC ISSUE: specs/STRUCTURED_RULINGS_SPEC.md sec 4 asks for m "at the known arc termini across all four lines", but only arc A has a documented terminus in LEDGER.md (Postscript 96, s=19/6). loop723, n7_1217 and n8_1895 are catalogue LINES through record configurations, not documented two-terminus arcs -- grepping LEDGER.md for their endpoints found none. Only arc A's terminus is tested below; this is a data gap, not something this script can resolve without re-deriving those lines' arc structure, which is out of scope.
+[    5.8s] arcA_727: catalogue + find_wall_roots_on_line (multiplicity enumeration)
+[   22.9s] arcA_727: 360 distinct s, 3590 (wall,point) pairs, mean m=9.97, min m=2, max m=304 (17.0s)
+[   22.9s] loop723: catalogue + find_wall_roots_on_line (multiplicity enumeration)
+[   33.9s] loop723: 167 distinct s, 7044 (wall,point) pairs, mean m=42.18, min m=6, max m=828 (11.0s)
+[   33.9s] n7_1217: catalogue + find_wall_roots_on_line (multiplicity enumeration)
+[   58.2s] n7_1217: 740 distinct s, 8982 (wall,point) pairs, mean m=12.14, min m=2, max m=1134 (24.3s)
+[   58.2s] n8_1895: catalogue + find_wall_roots_on_line (multiplicity enumeration)
+[   97.2s] n8_1895: 1022 distinct s, 12100 (wall,point) pairs, mean m=11.84, min m=2, max m=1508 (39.0s)
+[   97.2s] arcA terminus s=19/6: m_aggregate=18 (whole-line definition) vs m_own_point=3 (Postscript 96, restricted to the one triple point) -- MISMATCH with the spec's literal "m=3 by Postscript 96" claim
+[   97.2s] SPEC ISSUE: specs/STRUCTURED_RULINGS_SPEC.md sec 1 states "arc A's is s = 19/6, m = 3 by Postscript 96 -- it must come out that way". Under the spec's OWN operational definition of m(s) (validated here: this run reproduces the spec's own "3590 pairs over 360 distinct s, mean ~10" figures for arcA_727 exactly), m_aggregate(19/6) = 18, not 3. Postscript 96's "3" counts only the ONE triple point (-11/19,-31/19,-1/19)'s own 6 W4 conditions (3 of which are active there); the aggregate root_map additionally counts other triple points and crossing lines that happen to also vanish at the same s (including the C2-mirror triple point (11/19,31/19,1/19), another unrelated triple point pair, and 8 W3 conditions). These are two different, both legitimate, notions of "multiplicity at a point" that the spec conflates. Per the hard instruction not to adjust the expectation, this is reported as a spec inconsistency rather than silently resolved -- both readings (m_aggregate=18, m_own_point=3) are used below.
+[   97.2s] arcA terminus deep dive: terminus_own_point (Postscript 96's 3 axes) and terminus_aggregate (up to 2 representative walls from the 18 aggregate conditions)
+[    0.0s] === STRUCTURED_RULINGS run start ===
+[    0.0s] budget: 2400 seconds (40.0 minutes)
+[    0.0s] REGRESSION: arcA terminus s=19/6, target ruling (-2/5,3/5,1)
+[    0.4s]   own-point (triple point (Fraction(-11, 19), Fraction(-31, 19), Fraction(-1, 19))) conditions active at s=19/6: [(0, 1), (1, 1), (2, -1)] -- m_own_point = 3 (Postscript 96 claims 3)
+[    3.0s]   regression: W4=863 W3=3184 chambers=11 counts=[725] all_725=True elapsed=1.90s -- PASS
+[    3.0s] SPEC ISSUE: specs/STRUCTURED_RULINGS_SPEC.md sec 4 asks for m "at the known arc termini across all four lines", but only arc A has a documented terminus in LEDGER.md (Postscript 96, s=19/6). loop723, n7_1217 and n8_1895 are catalogue LINES through record configurations, not documented two-terminus arcs -- grepping LEDGER.md for their endpoints found none. Only arc A's terminus is tested below; this is a data gap, not something this script can resolve without re-deriving those lines' arc structure, which is out of scope.
+[    3.0s] arcA_727: catalogue + find_wall_roots_on_line (multiplicity enumeration)
+[   11.8s] arcA_727: 360 distinct s, 3590 (wall,point) pairs, mean m=9.97, min m=2, max m=304 (8.8s)
+[   11.8s] loop723: catalogue + find_wall_roots_on_line (multiplicity enumeration)
+[   17.3s] loop723: 167 distinct s, 7044 (wall,point) pairs, mean m=42.18, min m=6, max m=828 (5.5s)
+[   17.3s] n7_1217: catalogue + find_wall_roots_on_line (multiplicity enumeration)
+[   29.5s] n7_1217: 740 distinct s, 8982 (wall,point) pairs, mean m=12.14, min m=2, max m=1134 (12.2s)
+[   29.5s] n8_1895: catalogue + find_wall_roots_on_line (multiplicity enumeration)
+[   48.8s] n8_1895: 1022 distinct s, 12100 (wall,point) pairs, mean m=11.84, min m=2, max m=1508 (19.4s)
+[   48.8s] arcA terminus s=19/6: m_aggregate=18 (whole-line definition) vs m_own_point=3 (Postscript 96, restricted to the one triple point) -- MISMATCH with the spec's literal "m=3 by Postscript 96" claim
+[   48.8s] SPEC ISSUE: specs/STRUCTURED_RULINGS_SPEC.md sec 1 states "arc A's is s = 19/6, m = 3 by Postscript 96 -- it must come out that way". Under the spec's OWN operational definition of m(s) (validated here: this run reproduces the spec's own "3590 pairs over 360 distinct s, mean ~10" figures for arcA_727 exactly), m_aggregate(19/6) = 18, not 3. Postscript 96's "3" counts only the ONE triple point (-11/19,-31/19,-1/19)'s own 6 W4 conditions (3 of which are active there); the aggregate root_map additionally counts other triple points and crossing lines that happen to also vanish at the same s (including the C2-mirror triple point (11/19,31/19,1/19), another unrelated triple point pair, and 8 W3 conditions). These are two different, both legitimate, notions of "multiplicity at a point" that the spec conflates. Per the hard instruction not to adjust the expectation, this is reported as a spec inconsistency rather than silently resolved -- both readings (m_aggregate=18, m_own_point=3) are used below.
+[   48.8s] arcA terminus deep dive: terminus_own_point (Postscript 96's 3 axes) and terminus_aggregate (up to 2 representative walls from the 18 aggregate conditions)
+[  287.2s] report written to structured_rulings_report.md (partial=True, 10 solved, 0 crashed)
+[  287.2s] arcA_727: selected lowest-m points [('-166/3', 2), ('-115/3', 2), ('-64/3', 2), ('-43/3', 2), ('-2356/213', 2)]
+[  287.2s] arcA_727: selected highest-m points [('-29/24', 296), ('0', 298), ('-19/12', 300), ('-8/3', 302), ('-152/51', 304)]
+[  287.2s] loop723: selected lowest-m points [('-209/7', 6), ('-77/17', 6), ('-25/7', 6), ('-7/2', 6), ('-5/2', 6)]
+[  287.2s] loop723: selected highest-m points [('-1/5', 810), ('1/2', 810), ('-1', 828), ('0', 828), ('1', 828)]
+[  287.2s] n7_1217: selected lowest-m points [('-373/4', 2), ('-6247/92', 2), ('-261/4', 2), ('-707/12', 2), ('-6511/156', 2)]
+[  287.2s] n7_1217: selected highest-m points [('-13/4', 1122), ('11/20', 1122), ('37/12', 1122), ('-1/4', 1134), ('7/4', 1134)]
+[  287.2s] n8_1895: selected lowest-m points [('-199793/1032', 2), ('-9767/120', 2), ('-1883/24', 2), ('-38867/600', 2), ('-2167/36', 2)]
+[  287.2s] n8_1895: selected highest-m points [('13/24', 1442), ('23/8', 1442), ('181/24', 1442), ('37/24', 1508), ('85/24', 1508)]
+[  361.4s] report written to structured_rulings_report.md (partial=True, 22 solved, 0 crashed)
+[  393.7s]   n8_1895 s0=-199793/1032 ident={'kind': 'W4', 'triple_point': ['-2551/2594', '-1', '3289/5188'], 'i': 0, 'sign': 1} dir=(86, -8477, 8391): CRASHED (IndexError in exact_chambers.decompose) -- recorded, continuing
+[  410.7s]   n8_1895 s0=-199793/1032 ident={'kind': 'W4', 'triple_point': ['2551/2594', '1', '-3289/5188'], 'i': 0, 'sign': -1} dir=(86, -8477, 8391): CRASHED (IndexError in exact_chambers.decompose) -- recorded, continuing
+[  426.2s] report written to structured_rulings_report.md (partial=True, 24 solved, 2 crashed)
+[ 1968.1s] report written to structured_rulings_report.md (partial=True, 32 solved, 2 crashed)
+[ 1982.1s]   n7_1217 s0=-6247/92 ident={'kind': 'W4', 'triple_point': ['-1144/1167', '-557/778', '0'], 'i': 0, 'sign': -1} dir=(1246885, 17894, 18423): CRASHED (IndexError in exact_chambers.decompose) -- recorded, continuing
+[ 1984.5s]   n7_1217 s0=-6247/92 ident={'kind': 'W4', 'triple_point': ['1144/1167', '557/778', '0'], 'i': 0, 'sign': 1} dir=(1246885, 17894, 18423): CRASHED (IndexError in exact_chambers.decompose) -- recorded, continuing
+[ 2880.9s] report written to structured_rulings_report.md (partial=True, 38 solved, 4 crashed)
+[ 2880.9s] budget exhausted -- stopping point loop (4 line(s) still had unsolved selected points)
+[ 2881.0s] report written to structured_rulings_report.md (partial=False, 38 solved, 4 crashed)
+[ 2881.0s] === STRUCTURED_RULINGS run complete, elapsed 48.0 min, 38 solved, 4 crashed ===

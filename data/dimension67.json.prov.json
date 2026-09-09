@@ -1,0 +1,16 @@
+{
+ "output": "dimension67.json",
+ "argv": [
+  "dimension67.py"
+ ],
+ "rerun": "python3 dimension67.py",
+ "script": "dimension67.py",
+ "script_sha1": "2d965c2b1365db52b9ff2b8e6ffa746f61689f6e",
+ "started": null,
+ "finished": "2026-08-17 19:16:22",
+ "host": "Dean-MacBook-Air",
+ "python": "3.14.2",
+ "retroactive": true,
+ "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
+ "note": "first-order wall data for both 67s"
+}

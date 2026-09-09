@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 # Working principles: SLIDE3_SPEC_V2.md + slide3_report.md. Project index: README.md
 """specs/SLIDE3_SPEC.md Section 1, Phase P2: exact hill-climb from the top P1
 candidates over all 8 free integers (q1, p1, q2, p2, Rw, Rx, Ry, Rz).
@@ -102,7 +103,7 @@ def hillclimb(start_state, max_steps=12):
 
 
 def main():
-    with open('/Users/dmi/carroll/slide3_p1_top.json') as f:
+    with open(os.path.expanduser('~/carroll/slide3_p1_top.json')) as f:
         top = json.load(f)
     # dedupe by (q1,p1,q2,p2,R) state, keep top ~12 distinct starts
     seen = set()
@@ -130,7 +131,7 @@ def main():
     print(f'\n=== P2 DONE in {dt:.1f}s ===')
     print(f'best overall: total={best_overall[0]} state={best_overall[1]} '
           f'by_depth={best_overall[2]}')
-    with open('/Users/dmi/carroll/slide3_p2_best.json', 'w') as f:
+    with open(os.path.expanduser('~/carroll/slide3_p2_best.json'), 'w') as f:
         json.dump({'total': best_overall[0], 'state': best_overall[1],
                    'by_depth': best_overall[2]}, f)
 

@@ -1,0 +1,21 @@
+44 triples with psi in (68.90, 69.30), r <= 60000
+golden angle 69.09484255
+
+  BELOW psi= 69.05594331  gap 0.03889924  (43000,16458,46042)  count 55
+  BELOW psi= 69.06165148  gap 0.03319107  (16350,6256,17506)  count 55
+  BELOW psi= 69.06932314  gap 0.02551941  (23808,9106,25490)  count 55
+  BELOW psi= 69.08018181  gap 0.01466074  (8162,3120,8738)  count 55
+  BELOW psi= 69.08749882  gap 0.00734373  (52440,20038,56138)  count 55
+  BELOW psi= 69.09032984  gap 0.00451271  (54526,20832,58370)  count 55
+  ABOVE psi= 69.09673411  gap 0.00189156  (10248,3914,10970)  count 43
+  ABOVE psi= 69.10436490  gap 0.00952235  (38410,14664,41114)  count 43
+  ABOVE psi= 69.10875589  gap 0.01391334  (30952,11814,33130)  count 43
+  ABOVE psi= 69.12504930  gap 0.03020675  (2790,1064,2986)  count 43
+  ABOVE psi= 69.13956007  gap 0.04471752  (39032,14874,41770)  count 43
+  ABOVE psi= 69.14294305  gap 0.04810050  (51338,19560,54938)  count 43
+
+below the golden angle: counts [55]
+above the golden angle: counts [43]
+
+VERDICT: the golden 67 sits ON the 55/43 wall: rational approaches give different counts on the two sides
+written data/golden_edge.json

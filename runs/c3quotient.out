@@ -1,0 +1,5 @@
+free-cube-symmetry dedup only : 417 configurations
+after quotienting by the base C3 too: 161 configurations
+orbit sizes under C3: {1: 22, 2: 22, 3: 117}
+distinct per-label types among the quotiented set: 54
+configurations per type: {1: 19, 2: 15, 3: 9, 4: 2, 5: 4, 6: 1, 10: 1, 12: 1, 14: 1, 15: 1}
