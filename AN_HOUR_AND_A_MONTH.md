@@ -457,9 +457,12 @@ so small it had stopped being mentioned.
 
 The interesting number is no longer a record. It is an **interval**: max(4) lies in
 [183, 263], where a day earlier it lay in (183, ∞) and a week earlier there was no upper
-end to write. The value everyone believes is 195. So the whole remaining question at n = 4
-is a gap of sixty-eight between what is proved and what is expected, and it has been
-compressed to a single inequality about triple points.
+end to write. Eighty of those regions are the open question: 183 is achieved and 263 is
+proved, and which end the truth sits at is not known. A conjectured ceiling law would pull
+the top down to 195 — but that law is not proved, the conversion to it does not yet follow,
+and its own caps have been shown to be unattainable all at once, so 195 is a target rather
+than an expectation. What has been achieved is narrower and better than a guess: the whole
+n = 4 question now compresses to a single inequality about triple points.
 
 Knuth's hour produced a construction and a theorem about it. Our month produced a tower of
 records, eight ways of being wrong about our own instruments, and — on the thirty-fourth
