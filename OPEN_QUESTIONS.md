@@ -114,6 +114,11 @@ wants factoring, not more counting) and answerable from data already on disk.
 
 ## 4. Why 24 walls per added cube? — a WINDOW n = 6..8, broken at both ends
 
+**CLOSED at the top end 2026-09-12 ([P300](LEDGER.md#p300)):** n = 10 is now measured —
+480 tight, **100 distinct walls**, rank 21, lineality 6 — against the law's prediction of
+123. The window is n = 6..8 on the current records, shut at both ends by measurement
+rather than by inference.
+
 **CORRECTED 2026-09-08 ([P290](LEDGER.md#p290)): the n = 9 rung belongs to 2785,
 which is no longer the record.** 2785 reproduces `walls = 24n − 117`,
 `tight = 84n − 288`, `rank = 2(n+1)`, `lineality = n − 5` exactly — 468 tight, 99
@@ -1158,3 +1163,43 @@ not `c₃` cases.
 budget is depressed by at least the `2(τ₃ + c₃ − 1)` the bound gives away. Measured, it is
 depressed by far more — at `τ₃ = 2` the bound permits 88 and `W₀` comes in at 56, 60, 60. Same
 deficit-domination shape as Theorem S, with the source of the slack now named exactly.
+
+## 33. Which walls bound the count plateau? — the question every dimensional claim rests on
+
+**Opened 2026-09-12 by [P298](LEDGER.md#p298), and it is the most load-bearing open
+question in the project.**
+
+Every count-plateau tangent search here builds its candidates from the wall gradients,
+assuming a first-order tangent must lie in every wall. **That premise is false.** At
+n = 7 a direction crossing **7 of 51 walls** preserves the count; of the wall crossings
+examined since, **4 of 6 leave the count unchanged** ([P303](LEDGER.md#p303)). A wall
+is a COINCIDENCE condition — crossing one changes the coincidence structure, and need
+not create or destroy a region.
+
+**What this invalidates.** Every count-plateau dimension in this project is a LOWER
+BOUND from a method whose candidate space cannot contain the answer:
+`arc_eps.tangents_eps` (also restricted to the last-cube slice) and
+`tangents_full.py` (which removed that restriction and kept the premise). The
+published 0, 0, 2, 1, 1 at n = 4..8 are last-cube counts; n = 7 and n = 8 are known
+≥ 2-dimensional, and **n = 4, 5, 6 are unresolved, not zero**.
+
+**The question, precisely.** Given a configuration and a tight condition, does
+crossing that condition change the region count? Equivalently: which subset of the
+walls bounds the count plateau, and is there a readable criterion — from the group's
+cube indices, from the condition type, from the deficit — that predicts membership?
+
+**Why it is answerable.** The count change on crossing is what `cube_regions_inc`'s
+`--base` path already models: it computes the arrangement with and without a cube.
+[P265](LEDGER.md#p265) established that a count change is a statement about which
+walls disappear. And every wall is now available as an exact polynomial
+(`data/wall_polynomials.json`), so a wall can be crossed deliberately at a solved
+parameter rather than stumbled over.
+
+**A cheap first experiment.** Along one ray, solve every wall root, and for each root
+count just inside and just outside. That has been done twice (P301, P303) and gives
+4 of 6 unchanged. Doing it systematically over many rays at one record would give the
+first census of count-changing versus count-preserving walls, and the group indices of
+each are already recorded.
+
+**Until it is answered**, no plateau dimension in this project is more than a lower
+bound, and that includes every "ISOLATED" verdict whose sense is the count.

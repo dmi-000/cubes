@@ -1304,3 +1304,57 @@ write? Both are cheap and neither was there.
 MERGE into what exists, never replace it. Removing a record has to be a separate deliberate act,
 not a side effect of measuring a different one. Same family as 32a: the failure is silent because
 the mechanism cannot distinguish "nothing there" from "not asked for".
+
+## 34. A PREMISE read as a theorem — the candidate space that could not contain the answer
+
+Every count-plateau tangent search in this project builds its candidates from the wall
+gradients: a tangent is assumed to lie in every wall, so the candidates are their null space.
+The assumption is never stated as one, and it is **false**. At n = 7 a direction that crosses
+**7 of the 51 walls** preserves the count, and of the wall crossings measured since, **4 of 6
+change nothing**. A wall is a coincidence condition; crossing one need not create or destroy
+a region.
+
+**Why it survived so long.** The method never returns a wrong direction — everything it finds
+does hold the count. It only fails to find, and a search that returns fewer answers than exist
+looks like a rigorous search returning a small true answer. `tangents_full.py`, written to
+remove a DIFFERENT restriction in the same code (the last-cube slice), inherited the premise
+without noticing and reproduced the same blindness in a wider space.
+
+**What caught it** was not a gate but a CONTRADICTION between two measurements made for
+unrelated reasons: a full-ambient search found no base direction at n = 7, while a direction
+measured days earlier — for a drawing — demonstrably held the count over five orders of
+magnitude. Neither measurement was wrong; they could not both be about the same thing.
+
+**The rule.** When a search defines its candidate space by a mathematical argument rather than
+by enumeration, write the argument down as an assumption and test it on one known answer. Here
+the test is one line: take a direction known to hold the count and check whether it is
+orthogonal to every wall gradient. It is not.
+
+## 35. Comparing keys across contexts where the same index names different objects
+
+Condition keys here are `(frame, group, sig, c0)` and the group names cubes by INDEX. Comparing
+keys between levels is therefore only meaningful when those indices denote the same cubes.
+
+Met concretely: n = 8 and n = 9 each have a wall with frame 7 and group `((0,2,1),(5,2,1))` —
+identical keys, at parameters differing by a factor of two. They are different walls, because
+cube 7 is `(24,-24,24,-61)` at n = 8 and `(168,-168,168,-415)` at n = 9. Reading the match as
+one shared wall would have produced exactly the inheritance story the data refutes.
+
+**What made it safe elsewhere.** The inheritance count in the same postscript compares only
+conditions on cubes 0..6, which ARE the same cubes at both levels, so that comparison stands.
+The distinction is not "keys are unreliable" but "a key is a name in a context" — check that
+the contexts agree before intersecting sets of them.
+
+## 36. Sampling correctly, then interpolating wrongly
+
+A 5x5 grid located a plateau boundary and every one of its brackets was right. The error came
+after: two boundary points were joined with a straight line and the line was recorded as the
+boundary. Solving the wall showed a curve of total degree 4 — successive differences 0.225,
+0.240, 0.255, 0.272, not constant — and the straight fit was wrong by ~0.17 at mid-range, which
+is 17% of the region's width.
+
+The sampling was sound and the conclusion was not, because the step between "here are points
+on the boundary" and "here is the boundary" is an interpolation, and an interpolation is a
+model. Two points determine a line only if you already know it is a line. Where the boundary is
+an algebraic curve, the honest options are to record the bracketed points as points, or to
+solve the wall — which the wall-key machinery makes cheap, and which took one substitution.

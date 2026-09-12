@@ -1,0 +1,235 @@
+{
+ "what": "the 1217 count plateau: its two directions, its three walls, and their status",
+ "record": "n=7, 1217; the 727 six plus (4,-3,-4,-4)",
+ "dimension": 2,
+ "directions": {
+  "fibre": {
+   "ambient_coord": 15,
+   "meaning": "moves the added 7th cube",
+   "extent_bracket": {
+    "up": "(1/512, 1/266)",
+    "down": "(4/89, 1/22)"
+   }
+  },
+  "base": {
+   "ambient_coords": [
+    12,
+    13,
+    14
+   ],
+   "meaning": "the arc D lift; moves the 6th cube",
+   "extent_bracket": {
+    "up": "ends ~0.0497",
+    "down": "-2/19 (exact, shared with the 727 plateau)"
+   }
+  }
+ },
+ "is_the_span": false,
+ "third_wall": {
+  "frame": 0,
+  "group": [
+   [
+    5,
+    1,
+    1
+   ],
+   [
+    6,
+    0,
+    1
+   ]
+  ],
+  "sig": [
+   0,
+   -1,
+   1
+  ],
+  "c0": 0,
+  "tight_at_record": false,
+  "restricted_to_the_plane": {
+   "total_degree": 4,
+   "degree_in_each": 2,
+   "terms": 9
+  },
+  "positions": {
+   "b=0": -1.041,
+   "b=1/4": -0.8155,
+   "b=1/2": -0.5758,
+   "b=3/4": -0.3205,
+   "b=1": -0.0487
+  },
+  "straight": false,
+  "note": "successive differences 0.225,0.240,0.255,0.272 -- not constant. An earlier straight-line fit from two grid points was wrong by ~0.17 at b=1/2.",
+  "provenance_down": "CANNOT exist at n=6: the group needs cube 6, which is absent",
+  "provenance_up": "present and bounding at n=8 in the same place -- 1895 at tau=53/100, 1891 at 54/100, the same bracket and the same drop of 4 as at n=7",
+  "mechanism": "the group mentions only cubes 0,5,6, so cubes added later neither move it nor change its cost"
+ },
+ "a_wall_crossed_with_no_count_change": {
+  "tau": 0.3655,
+  "frame": 5,
+  "group": [
+   [
+    0,
+    2,
+    1
+   ],
+   [
+    6,
+    2,
+    -1
+   ]
+  ],
+  "note": "the same ray crosses this first; the count does not change. See P298."
+ },
+ "CAVEATS": [
+  "the two direction extents are brackets, not solved",
+  "combination extents beyond the solved cut are not measured",
+  "whether n=8 has further walls of its own was not tested",
+  "condition keys name cube INDICES; they are comparable across levels only when those indices denote the same cubes (cube 7 differs at n=8 and n=9)"
+ ],
+ "inheritance": {
+  "measured": "n=7 -> n=8 -> n=9 (n=9 keeps the 1217 seven, dropping n=8 eighth cube)",
+  "tight_conditions": {
+   "n8": "300 of 300 kept, 84 new",
+   "n9_simplified": "300 of 300 kept, 120 new",
+   "n9_original": "300 of 300 kept, 96 new",
+   "note": "near-automatic: tightness depends only on the cubes in the group, so extension cannot disturb it"
+  },
+  "boundaries": {
+   "fibre_+e15": {
+    "bracket": "(1/512, 1/266)",
+    "n7": "1217->1213",
+    "n8": "1895->1891",
+    "n9": "2787->2783",
+    "inherited": true,
+    "cost": "exactly 4 regions at every level"
+   },
+   "third_wall": {
+    "bracket": "(53/100, 54/100)",
+    "n7": "1217->1213",
+    "n8": "1895->1891",
+    "n9": "2787->2783",
+    "inherited": true,
+    "cost": "exactly 4 regions at every level"
+   },
+   "base_arcD": {
+    "n7_wall": "-2/19",
+    "n8_bracket": "(-1/50, -1/25)",
+    "n9_bracket": "(-1/50, -1/25)",
+    "inherited": false,
+    "note": "the shared bracket (-1/50,-1/25) was coarseness; the walls differ by 60% in t",
+    "n7": "no wall in (-0.06,-0.012); the plateau runs to -2/19",
+    "n8_boundary": {
+     "t": -0.0236342201,
+     "frame": 7,
+     "group": [
+      [
+       2,
+       1,
+       1
+      ],
+      [
+       5,
+       1,
+       1
+      ]
+     ],
+     "caused_by": "cube 7 = (24,-24,24,-61)",
+     "verified": "1895 at -11/500, 1891 at -1/40"
+    },
+    "n9_boundary": {
+     "t": -0.0384318724,
+     "frame": 2,
+     "group": [
+      [
+       5,
+       0,
+       1
+      ],
+      [
+       8,
+       0,
+       -1
+      ]
+     ],
+     "caused_by": "cube 8 = (109,-11,91,140)",
+     "verified": "2787 -> 2783 across it"
+    },
+    "same_wall": false
+   }
+  },
+  "criterion": "a boundary is inherited iff no new condition is crossed earlier in that direction; readable from which cubes the direction moves versus which the added cubes constrain",
+  "open": "whether n=8 and n=9 share the same contracting wall -- same bracket (-1/50,-1/25), different added cubes, neither solved"
+ },
+ "walls_crossed_without_count_change": {
+  "n9_ray": [
+   {
+    "t": -0.0213867422,
+    "frame": 7,
+    "group": [
+     [
+      0,
+      2,
+      1
+     ],
+     [
+      5,
+      2,
+      1
+     ]
+    ]
+   },
+   {
+    "t": -0.0282414084,
+    "frame": 5,
+    "group": [
+     [
+      2,
+      0,
+      1
+     ],
+     [
+      7,
+      2,
+      1
+     ]
+    ]
+   },
+   {
+    "t": -0.0483091787,
+    "frame": 0,
+    "group": [
+     [
+      5,
+      1,
+      1
+     ],
+     [
+      8,
+      2,
+      1
+     ]
+    ]
+   }
+  ],
+  "n7_ray": [
+   {
+    "t": 0.3655111,
+    "frame": 5,
+    "group": [
+     [
+      0,
+      2,
+      1
+     ],
+     [
+      6,
+      2,
+      -1
+     ]
+    ]
+   }
+  ],
+  "tally": "4 of 6 wall crossings measured leave the count unchanged (see P298)"
+ }
+}

@@ -415,6 +415,41 @@ respelled. [OQ 17](OPEN_QUESTIONS.md)'s extension question stays open, and is no
 the tower extends one point of one arc because the other arcs' special points are either that
 same compound or count less.
 
+## Map 7 — the 1217 plateau, and how boundaries travel up the tower
+
+Solved 2026-09-12. The n = 7 plateau is **2-dimensional** — a pentagon, not the parallelogram
+its two directions span ([P299](LEDGER.md#p299), [P301](LEDGER.md#p301)):
+
+- one direction inside the **fibre** (moves the added 7th cube), bracketed (1/512, 1/266) up and
+  (4/89, 1/22) down;
+- one along the **base** (the arc D lift, moving the 6th cube);
+- a **third wall** aligned with neither, solved as a curve of total degree 4 — the straight line
+  first inferred from two grid points was wrong by 17% of the region's width.
+
+**Boundaries inherit selectively** ([P303](LEDGER.md#p303)). Carrying the same three brackets to
+n = 8 and n = 9 — the latter keeps the 1217 seven while replacing n = 8's eighth cube:
+
+    boundary          n = 7          n = 8          n = 9        inherited?
+    fibre +e15      1217->1213    1895->1891    2787->2783      yes, exactly
+    third wall      1217->1213    1895->1891    2787->2783      yes, exactly
+    base (arc D)    wall at -2/19  (-1/50,-1/25) (-1/50,-1/25)  NO, contracts ~5x
+
+The two inherited boundaries cost **exactly 4 regions** to cross at every level, while the record
+climbs 1217 → 1895 → 2787. The contracting one is cut by a new wall from the added cubes — and
+n = 8's and n = 9's contracting walls are **different** (frames 7 and 2, different groups,
+different cubes); the shared bracket was coarseness. **Criterion:** a boundary is inherited iff
+no new condition is crossed earlier in that direction, readable from the group's cube indices.
+
+**And most walls crossed change nothing.** Of the wall crossings solved along these rays,
+**4 of 6 leave the count unchanged** — which is why the plateau's boundary had to be found by
+counting rather than by asking which walls are crossed, and is the substance of
+[OQ 33](OPEN_QUESTIONS.md).
+
+> **SCOPE, for everything dimensional in this document** ([P298](LEDGER.md#p298)): count-plateau
+> tangent counts here are LOWER BOUNDS. The searches build candidates from wall gradients,
+> assuming a tangent lies in every wall; a direction crossing 7 of 51 walls holds the count at
+> n = 7. n = 4, 5, 6 are unresolved rather than zero.
+
 ## Not yet mapped
 
 Everything listed here on 2026-09-08 is now mapped (Maps 3–6). What remains is what those maps

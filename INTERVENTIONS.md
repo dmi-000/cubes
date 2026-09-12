@@ -452,3 +452,35 @@ defects have been.
 repo reorganisation had orphaned a day earlier, along with `catalogue_cache`, silently
 (FAILURE_MODES 32a). I had checked HERE-relative paths for the ENGINES and for the DOCUMENTS
 after that move and twice reported the sweep complete. I had not checked them for the CACHES.
+
+## A11 (2026-09-09 to 09-12) — a drawing asked questions the prose never had to
+
+**What the user asked for.** A picture of the relationships between the record regions.
+Then, across a dozen short questions, what each mark in it meant.
+
+**What that produced.** Every one of those questions was answerable only by a measurement
+that had not been made, because prose can describe a relationship without committing to it
+while a drawing cannot:
+
+| question | what it forced |
+|---|---|
+| "is there a relationship between the arcs and the circles?" | the arcs were drawn concurrent; they are not, and cannot be — they contain congruent copies, not a shared point |
+| "does the dashed line extend to the 1217?" | the congruence tie LIFTS — verified, not assumed |
+| "does it project down to 393?" | all four arcs share the 393 base; the middle layer IS one fibre over it |
+| "are those dots the boundaries?" | the plateau's boundary had never been measured at all |
+| "what does a yellow line along a blue line mean?" | the blue line was doing two incompatible jobs — a fibre and a cube-addition |
+| "is the region a linear combination?" | it is not: a THIRD wall cuts a corner ([P301](LEDGER.md#p301)) |
+| "does that wall project down or up?" | created by the 7th cube, inherited unchanged by the 8th ([P302](LEDGER.md#p302)) |
+
+**Six postscripts came out of a request for a picture** — P295, P299, P301, P302, P303, and
+the gap register P297 that P298 then overturned.
+
+**The mechanism, worth naming.** A diagram must place every mark somewhere. Prose can say
+"the plateau runs in two directions" and stop; a drawing must decide whether they span
+anything, where they cross, and where they end. Each of those decisions is a claim, and a
+claim that has not been measured is visible to a reader as a shape that looks wrong. The
+producer sees a picture of what they already believe; the reader sees the geometry.
+
+**And it repeated the A7/A8/A10 pattern.** The questions were aimed at the APPARATUS — what
+does this mark mean, does this line reach that one — not at the conclusions. That is now
+four sessions running in which the defects were found by questions about the instrument.

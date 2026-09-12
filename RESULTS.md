@@ -351,7 +351,59 @@ Follows from T **and** W **and** C together, through the exact anatomy
 with the lower bound exhibited by the record. `d₃ ≤ 24` (l=1 ceiling law) and Theorem S
 ([P266](LEDGER.md#p266)) are PROVED and are not hypotheses.
 
+## 3c. Established 2026-09-09 to 09-12
+
+- **arc D's 727 extent, SOLVED** ([P296](LEDGER.md#p296)). `s ∈ (−2/19, 10695/1007 −
+  7√2248773/1007)`, the upper end a quadratic irrational, root of
+  `1007x² − 21390x + 4164`. It was the one row of MAXIMISER_TAXONOMY's arc table never
+  marked SOLVED, and its swept figure `(−1/8, 1/4)` is not a bound of the plateau —
+  it contains parameters counting 723 and 719. **This closed the chain
+  `bracket → wall → polynomial → root` end to end for the first time.** Sources
+  corrected in place.
+- **n = 10 measured** ([P300](LEDGER.md#p300)), its conditions built for the first time
+  (2 045 s, now cached): count 3925, ambient 27, **480 tight, 100 distinct walls, rank 21,
+  lineality 6**. P185's differing figures describe **3913**, a superseded configuration.
+  With this, `walls = 24n − 117` is a window over n = 6..8 of the current records, closed
+  at both ends.
+- **The 727 node mapped** ([P294](LEDGER.md#p294)): nine special points across the four
+  arcs collapse to **six compounds**; the record lies on **three of the four arcs**, which
+  is what makes it a node. Arc A reaches it on none and carries two compounds found
+  nowhere else. **No new extension base**: every 727 among them is the record respelled.
+- **The 1217 count plateau is 2-dimensional and a PENTAGON** ([P299](LEDGER.md#p299),
+  [P301](LEDGER.md#p301)) — two directions plus a third wall aligned with neither, solved
+  as a degree-4 curve. n = 6's analogous pair spans nothing and stays a node.
+- **Plateau boundaries inherit SELECTIVELY** ([P303](LEDGER.md#p303)). The fibre boundary
+  and the third wall survive to n = 8 and n = 9 at identical brackets, each costing exactly
+  **4 regions**; the base boundary contracts ~5×, and n = 8's and n = 9's contracting walls
+  are **different** (different frames, groups and cubes — the shared bracket was
+  coarseness). Criterion: a boundary is inherited iff no new condition is crossed earlier
+  in that direction, readable from the group's cube indices.
+- **The two n = 3 maximisers sit differently** ([P291](LEDGER.md#p291)). The octahedral 67
+  is 14° inside the uniform 55 region; the **golden 67 sits ON the 55/43 wall** — six
+  rational approaches below count 55, six above count 43. Both are in the wall-key index
+  over ℚ(√2) and ℚ(√5).
+- **Wall polynomials are recorded** ([P288](LEDGER.md#p288)). `data/wall_keys.json` holds
+  the reconstruction key per wall — `(frame, group, sig, c0)` **is** the polynomial —
+  and `data/wall_polynomials.json` every wall on each 727 arc with **all** real roots,
+  rational as fractions and irrational as minimal polynomials.
+
 ## 4. Structure
+
+> **SCOPE CORRECTION, 2026-09-12 ([P298](LEDGER.md#p298)) — read before any
+> plateau dimension below.** Every count-plateau tangent number this project has
+> published rests on a premise that is false: that a first-order tangent must lie
+> in every wall. `arc_eps.tangents_eps` builds its candidates from wall normals
+> and additionally restricts them to the LAST-CUBE slice. Measured: a direction
+> that crosses **7 of 51 walls** preserves the count at n = 7, and of the wall
+> crossings examined since, **4 of 6 leave the count unchanged** ([P303](LEDGER.md#p303)).
+> A wall is a coincidence condition; crossing one need not create or destroy a
+> region. So the plateau is bounded by a SUBSET — on present evidence a minority —
+> of the walls, and **every tangent count here is a lower bound**. The published
+> 0, 0, 2, 1, 1 at n = 4..8 are last-cube counts; n = 7 and n = 8 are known to be
+> ≥ 2-dimensional once base directions are probed, and n = 4, 5, 6 are
+> **unresolved, not zero**. Which walls actually bound the count plateau is the
+> open problem the dimensional claims depend on.
+
 
 - **The chamber counts of the record neighbourhoods are known exactly, and 393's
   divides 727's.** 183 = **1 712**; 393 = **74 544**; 727 = **4 621 728**
@@ -624,6 +676,9 @@ current.
 | 1217 is on a 13-pair curve but is an isolated point on it (1 of 19 offsets) | **RETRACTED** — the sweep stepped 40x the plateau width, and its refinement left 60 of 61 offsets unevaluable; 1217 is a continuum | Postscript [182](LEDGER.md#p182), [FAILURE_MODES 16c](FAILURE_MODES.md#16c) |
 | The recorded member of a continuum sits at an ENDPOINT of it (all four intervals measured) | **RETRACTED** — every recorded member examined is INTERIOR; three different sweep artifacts (step twice the remaining width; a window beginning at the record; a window edge). The "smallest primitive representative sits at the boundary" mechanism was invented to fit them | Postscript [188](LEDGER.md#p188) |
 | The 1217 plateau is [-59/315, -11/63] in the 13-pair parameter | **SUPERSEDED** — that curve is the Cayley-axis line (1,0,0), whose ends `n78_ends.py` solved on 2026-08-08: -0.045258752093 and +0.002550224044, with the record strictly between | Postscripts [187](LEDGER.md#p187), [188](LEDGER.md#p188) |
+| The 1217 count plateau is a single point | **RETRACTED** ([P295](LEDGER.md#p295)) — a step of 1/64, 14x coarser than the n = 7 minimum feature; at 1/1024 and below the count is 1217. It is a 2-dimensional pentagon |
+| arc D's 727 extent is (−1/8, 1/4) | **SUPERSEDED** ([P296](LEDGER.md#p296)) — swept, and not a bound: it contains s = 1/5 (723) and s = 1/4 (719). Solved extent (−2/19, 0.196487974607…) |
+| Count-plateau tangents are 0, 0, 2, 1, 1 at n = 4..8 | **SCOPE-CORRECTED** ([P298](LEDGER.md#p298)) — last-cube counts from a method whose premise is false; lower bounds only |
 | n = 10 = 3913 | **SUPERSEDED** — 3917, found by sweeping the tangent solved in P190; the winning tenth cube has height 113 786, which no log-uniform menu to height 512 could contain | Postscript [191](LEDGER.md#p191) |
 | Off-centred cubes and general hexahedra beat the records | **REFUTED** — an artifact of counting sign-vector cells of the infinite face planes instead of containment regions | Postscript [38](LEDGER.md#p38) |
 | The n = 2 optimum (13) is rigid and near-isolated | **REFUTED** — it is a continuum: 13 holds at every angle about a body diagonal | Postscript [44](LEDGER.md#p44) |

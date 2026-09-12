@@ -464,11 +464,26 @@ it stops being a chain.</p>
        base direction is the arc D lift. They are TRANSVERSE -- drawing them parallel
        would collapse the plateau to a curve, which is exactly the error the last-cube
        instrument made. The bar beside arc D is this patch's SHADOW, two layers down. -->
-  <polygon points="236,106 249,44 249,72 236,134" fill="var(--gold)" opacity=".30"/>
-  <line x1="222" y1="191" x2="250" y2="51" stroke="var(--gold)" stroke-width="5"
-        stroke-linecap="round" opacity=".9"/>
-  <line x1="247" y1="86" x2="247" y2="52" stroke="var(--gold)" stroke-width="3"
-        stroke-linecap="round" opacity=".9"/>
+  <!-- MEASURED shape, not a schematic span. A 5x5 grid over the two directions,
+       each axis scaled by its own bracketed extent, holds 1217 at 22 of 25 points:
+       the corner with fibre negative and base positive is cut by a THIRD wall,
+       aligned with neither direction. So the region is a pentagon, not the full
+       parallelogram the two directions would span. -->
+  <!-- the region in place: the two directions thinned to act as its boundaries, with the
+       region itself shaded between them. At this scale it is ~13px across, so the solved
+       shape is legible only in the detail panel below; here it reads as "a patch, not a
+       cross", which is the one thing this scale can honestly carry. -->
+  <!-- The two directions are drawn TRANSVERSE. Previously the base was vertical and
+       the fibre near-vertical, so the pair read as a cross and the region as a sliver.
+       This layer has no axes, so the angle is free -- and a free angle should be spent
+       making the 2-dimensionality visible. Proportions here are schematic; the solved
+       shape is in the detail panel. -->
+  <polygon points="217,125 231,54 258,54 249.6,96.6 230.5,125" fill="var(--gold)" opacity=".28"/>
+  <line x1="249.6" y1="96.6" x2="230.5" y2="125" stroke="var(--warn)" stroke-width="1.8"/>
+  <line x1="235" y1="125" x2="249" y2="54" stroke="var(--gold)" stroke-width="2.2"
+        stroke-linecap="round" opacity=".95"/>
+  <line x1="229" y1="66" x2="256" y2="66" stroke="var(--gold)" stroke-width="2.2"
+        stroke-linecap="round" opacity=".95"/>
   <path d="M244 86 L 215 268" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="4 3"
         opacity=".75" fill="none"/>
   <path d="M247 66 L 636 66" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="4 3"
@@ -488,6 +503,7 @@ it stops being a chain.</p>
   <text x="266" y="92" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--gold)">2-dim plateau: in-fibre (1/512,1/266)&#8593; (4/89,1/22)&#8595;</text>
   <text x="266" y="104" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--gold)">and along the base (the arc D lift); shadow = bar below</text>
   <text x="258" y="128" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--faint)">faded axis = the fibre, a 3-dim space drawn as one line</text>
+  <text x="258" y="140" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--gold)">the region these span is drawn to scale below</text>
 
   <!-- ===================== n = 6 ===================== -->
   <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--faint)">
@@ -605,14 +621,14 @@ fusing the two and inviting exactly the question of what a motion along it would
 crossing <b>is</b> that dot &#8212; a crossing anywhere else would assert a second distinguished point
 that does not exist. Each is drawn asymmetric about the record in the ratio its brackets give:
 about 23 : 1 along the fibre, about 2 : 1 along the base.</p>
-<p><b>That the patch is filled was checked, not assumed</b> &#8212; and it was drawn before it was
-checked. Every combination of the two directions holds the count (`fib&#177;base`, `fib+2base`,
-`2fib+base`, out to t = 1/16384), so the plateau is a genuine 2-dimensional surface. The
-analogous case at n = 6 is the opposite: two directions hold and <em>no</em> combination does,
-making that a node &#8212; two arcs crossing, not a surface. <em>Not measured: the surface's extent in
-combination directions. The parallelogram says "2-dimensional here", not "this shape", and its two
-edges belong to different parts of the ambient space, so no single layer of this diagram
-contains it.</em></p>
+<p><b>The filled shape is measured, and it is not the span.</b> Five directions first confirmed
+the plateau is 2-dimensional rather than a node &#8212; the analogous case at n = 6 is the opposite,
+where two directions hold and <em>no</em> combination does. But directions are rays, and a region
+needs two parameters. A 5&#215;5 grid, each axis scaled by its own bracketed extent, holds 1217 at
+<b>22 of 25</b> points: the corner with fibre negative and base positive is cut, at roughly
+<span class="num">b &#8722; a = 1.25</span>. So a <b>third wall</b> bounds the region, aligned with
+neither direction, and the shape is a pentagon. The cut edge is drawn in red. <em>The cut is
+bracketed by a 5&#215;5 grid, not solved; its true position lies between the sampled rows.</em></p>
 <p><b>Reading the figure.</b> A <b>filled</b> dot is a configuration counting its level's record
 value; a <b>hollow</b> dot is an interruption, where the count differs &#8212; so the hollow 725, 723 and
 713 points are breaks in the 727 plateau rather than objects sitting on it. The dashed tie means
@@ -637,6 +653,48 @@ counting 1217 and both congruent to it. Fibres fade rather than stop &#8212; a f
 
 
 <div class="insets">
+  <div class="inset">
+    <h3>Detail: the 1217 region, measured</h3>
+    <p class="who">n = 7 &#183; two directions, three walls &#183; solved</p>
+    <svg viewBox="0 0 300 268" role="img" aria-label="The 1217 count plateau on a grid of its two directions: a pentagon, with one corner cut by a third wall.">
+      <!-- region bounded by the two directions and the SOLVED third wall, which is a
+           CURVE of total degree 4 (degree 2 in each variable), not the straight line an
+           earlier version inferred from two grid points. -->
+      <path d="M50,40 L250,40 L250,134.4 L225.0,158.8 L200.0,181.8 L175.0,203.4 L150.0,223.7 L50,220 Z" fill="var(--gold)" opacity=".22"/>
+      <path d="M150.0,223.7 L175.0,203.4 L200.0,181.8 L225.0,158.8 L250.0,134.4" fill="none" stroke="var(--warn)" stroke-width="2"/>
+      <g stroke="var(--rule)" stroke-width="1">
+        <line x1="40" y1="130" x2="264" y2="130"/>
+        <line x1="150" y1="28" x2="150" y2="232"/>
+      </g>
+      <circle cx="150" cy="130" r="6" fill="var(--accent)"/>
+      <g font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--faint)">
+        <text x="150" y="20" text-anchor="middle">fibre direction +1</text>
+        <text x="150" y="248" text-anchor="middle">fibre direction &#8722;1</text>
+        <text x="272" y="134">base +1</text>
+        <text x="38" y="134" text-anchor="end">&#8722;1</text>
+        <text x="162" y="126" fill="var(--ink)">the record</text>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="8.5">
+        <text x="264" y="200" fill="var(--warn)" text-anchor="end">1213 outside</text>
+        <text x="70" y="66" fill="var(--gold)" font-size="11">1217 throughout</text>
+        <text x="150" y="252" fill="var(--warn)" text-anchor="middle">third wall &#8212; SOLVED, a degree-4 curve</text>
+      </g>
+    </svg>
+    <p>Each axis is scaled by its <em>own</em> bracketed extent, so &#177;1 is that direction's
+    measured end. The corner with fibre negative and base positive is cut by a <b>third wall</b>
+    aligned with neither direction, so the region is not the parallelogram they span. A 5&#215;5
+    grid first found the cut; it is not drawn, because the wall is now solved and the grid adds
+    nothing the curve does not say better.</p>
+    <p><b>The cut is now solved, and it is a curve.</b> A ray into the cut quadrant crosses two
+    walls; the count survives the first and dies at the second, whose polynomial restricted to this
+    plane has total degree 4 &#8212; degree 2 in each direction. Its positions
+    (b, a) = (0, &#8722;1.041), (&#189;, &#8722;0.576), (1, &#8722;0.049) have successive differences
+    0.225, 0.240, 0.255, 0.272: not constant, so <em>not</em> a line. The straight cut inferred
+    earlier from two grid points was wrong by about 0.17.</p>
+    <p><em>That a ray crosses a wall without the count changing is the same fact that makes every
+    tangent count in this project a lower bound: a wall is a coincidence condition, and crossing
+    one need not create or destroy a region.</em></p>
+  </div>
   <div class="inset">
     <h3>The n = 9 fork &#8212; one count, two compounds</h3>
     <p class="who">identical at every depth &#183; not interchangeable</p>

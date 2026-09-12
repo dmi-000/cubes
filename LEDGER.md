@@ -366,6 +366,9 @@ with `index_ledger.py` after appending.
 - [Postscript 298](#p298) — every tangent number rests on a false premise: crossing a wall need not…
 - [Postscript 299](#p299) — the 1217 plateau is a genuine 2-dim SURFACE; n = 6's is a node
 - [Postscript 300](#p300) — n = 10 measured: 480 tight, 100 walls, rank 21, lineality 6
+- [Postscript 301](#p301) — the 1217 plateau is a PENTAGON: a third wall cuts a corner off the span
+- [Postscript 302](#p302) — that third wall is created by the 7th cube and inherited unchanged by the 8th
+- [Postscript 303](#p303) — plateau boundaries inherit SELECTIVELY: two survive untouched, one contracts 5x
 
 <!-- INDEX:END -->
 
@@ -21231,3 +21234,175 @@ space. Two instances is not a law, and no mechanism is offered.
 the current records, its n = 9 rung having belonged to the superseded 2785. At
 n = 10 the law predicts 123 and the record gives 100, so the window closes at
 n = 8 from both sides, on current records, with no rung outside it fitting.
+
+## [VERIFIED] Postscript 301: the 1217 plateau is a PENTAGON, not the span of its two directions — a third wall cuts a corner
+
+[P299](#p299) established the plateau is 2-dimensional by testing five COMBINATION
+DIRECTIONS. A direction is a ray; a region needs two parameters, and the question
+"is the region the linear span of the two lines?" had not been asked.
+
+**MEASURED on a 5x5 grid**, each axis scaled by its own bracketed extent so that
+|a| = |b| = 1 is the measured end of that direction:
+
+            base -1   -1/2     0    +1/2    +1
+    fib +1    1217   1217   1217   1217   1217
+    fib +1/2  1217   1217   1217   1217   1217
+    fib  0    1217   1217   1217   1217   1217
+    fib -1/2  1217   1217   1217   1217   1213
+    fib -1    1217   1217   1217   1213   1213
+
+**22 of 25 hold, and the three that fail are one corner** — fibre negative with
+base positive. The cut runs at about `b - a = 1.25` in these normalised
+coordinates, a line of slope 1 through roughly `(-1, 0.25)` and `(-0.25, 1)`.
+
+**So a THIRD wall bounds the plateau**, aligned with neither of its two
+directions. The region is a pentagon: the parallelogram the directions span, with
+that corner removed. Drawing it as a parallelogram — which the diagram did —
+asserts points that count 1213.
+
+**WHY THIS MATTERS BEYOND THE PICTURE.** The two directions were found by asking
+which motions preserve the count; their brackets were measured one direction at a
+time. Nothing in that procedure can see a wall that is transverse to both, because
+every probe ran along one of them or along a ray between them. The corner was
+invisible to the method that found the region, and visible only to a grid.
+
+**STATUS — SOLVED the same day, and the assumed line was wrong.** A ray into the
+cut quadrant crosses **two** walls, at `tau = 0.3655` and `tau = 0.5380`. The count
+survives the first and dies at the second (1217 at `tau = 53/100`, 1213 at
+`54/100`), so the boundary is the second: frame 0, group `((5,1,1),(6,0,1))`.
+Restricting its polynomial to the (fibre, base) plane gives an implicit curve of
+**total degree 4**, degree 2 in each variable, 9 terms. Its positions
+
+    b        0      1/4     1/2     3/4      1
+    a    -1.041  -0.816  -0.576  -0.321  -0.049
+
+have successive differences 0.225, 0.240, 0.255, 0.272 — **not constant, so not a
+line**. The straight cut inferred from two grid points was wrong by about 0.17 at
+`b = 1/2`. The grid's brackets do contain the solved curve at every row, so the
+sampling was sound and only the interpolation between rows was not.
+
+**AND THE FIRST WALL IS THE POINT OF [P298](#p298), MET AGAIN.** The ray crosses a
+wall at `tau = 0.3655` with **no change in the count**. A wall is a coincidence
+condition; crossing one need not create or destroy a region. Here that is not an
+argument but an observation on a specific ray, and it is why the plateau's boundary
+had to be found by counting rather than by asking which walls are crossed.
+
+## [VERIFIED] Postscript 302: the 1217 plateau's third wall is CREATED by the seventh cube and INHERITED unchanged by the eighth
+
+[P301](#p301) solved the wall that cuts a corner off the 1217 plateau: frame 0,
+group `((5,1,1),(6,0,1))`. Asked where it comes from and where it goes, both
+answers are clean.
+
+**DOWNWARD: it cannot exist.** The condition involves cubes 0, 5 and **6**. At
+n = 6 the cubes are 0..5, so cube 6 is not there and the group cannot be formed.
+This wall is not inherited from the 727 layer and has no projection to it — it is
+CREATED by adding the seventh cube. The plateau's other two boundaries do project
+(one is the fibre direction, one the arc D lift); this third one is new at n = 7.
+
+**UPWARD: it survives, in the same place.** At n = 8 the same condition is present,
+and the same ray into the same quadrant gives:
+
+    tau        0     1/4    1/2   53/100  54/100   3/4
+    n = 7    1217   1217   1217    1217    1213   1213
+    n = 8    1895   1895   1895    1895    1891   1891
+
+**The same bracket, and the same drop of exactly 4 regions.** The wall involves
+only cubes 0, 5, 6, so adding the eighth cube neither moves it nor changes what
+crossing it costs. A boundary of the 1217 plateau is therefore a boundary of the
+1895 plateau, at the same parameter.
+
+**WHY THAT IS WORTH RECORDING.** The tower's structure is usually described by what
+each new cube ADDS. Here a wall created at one level is carried up untouched
+because its defining condition never mentions the cubes added later. That gives a
+concrete mechanism for plateau boundaries to be shared along the tower, and a
+cheap test for it: read the cube indices in the condition's group. Any wall whose
+group mentions only cubes present at level m is a candidate boundary at every
+level above m.
+
+**NOT ESTABLISHED:** whether the n = 8 plateau's other boundaries are likewise
+inherited, or whether n = 8 has walls of its own that n = 7 lacks. Only this one
+wall was followed.
+
+## [VERIFIED] Postscript 303: plateau boundaries are inherited SELECTIVELY — two of the 1217 plateau's three walls survive to n = 8 and n = 9 untouched, the third contracts fivefold
+
+[P302](#p302) followed one wall up the tower. Following all three, and including
+n = 9 — which drops n = 8's eighth cube but keeps the 1217 **seven**, so both
+levels share the same first seven cubes:
+
+    n      record   fibre +e15          base (arc D lift)      third wall
+    7       1217    1217 -> 1213        1217 -> 1209           1217 -> 1213
+    8       1895    1895 -> 1891        1891 -> 1883           1895 -> 1891
+    9       2787    2787 -> 2783        2767 -> 2751           2787 -> 2783
+            bracket (1/512, 1/266)      (-1/10, -2/19)         (53/100, 54/100)
+
+**TWO ARE INHERITED EXACTLY.** The fibre boundary and the third wall hold at the
+same brackets at all three levels, each costing exactly **4 regions** to cross,
+every time. The record grows 1217 -> 1895 -> 2787 and the price of leaving the
+plateau in those two directions does not move at all.
+
+**THE THIRD CONTRACTS.** In the base direction the plateau is already gone by
+`t = -1/10` at n = 8 and n = 9. Bracketing it:
+
+    t          0    -1/200   -1/100   -1/50   -1/25   -1/15   -1/10
+    n = 7    1217    1217     1217     1217    1217    1217    1217     wall at -2/19
+    n = 8    1895    1895     1895     1895    1891    1891    1891     wall in (-1/50, -1/25)
+    n = 9    2787    2787     2787     2787    2783    2775    2767     wall in (-1/50, -1/25)
+
+From about `-0.105` at n = 7 to between `-0.02` and `-0.04` above it — the plateau
+is roughly **five times shorter** in that direction once the eighth cube exists.
+
+**THE CRITERION, and it is legible from the condition itself.** A boundary is
+inherited exactly when no NEW condition is crossed earlier in that direction. The
+base direction moves cube 5, which the added cubes interact with, so a new wall
+appears in front of the old one. The fibre direction moves cube 6, and the third
+wall involves only cubes 0, 5, 6; nothing the added cubes bring is crossed before
+them. So the test is which cubes a direction moves against which the new cubes
+constrain — readable from the group indices, no counting required.
+
+**A FREE STRUCTURAL FACT, stated so it is not mistaken for a discovery.** All
+**300 of 300** n = 7 tight conditions are present at n = 8 and at both n = 9
+representatives, none lost. That is near-automatic rather than a finding: a
+condition's tightness depends only on the relative rotations of the cubes in its
+group, so cubes added later cannot disturb it. Tight conditions are MONOTONE under
+extension. What is not automatic — and is the content above — is whether a tight
+condition still BOUNDS the plateau, since a nearer new wall can take over.
+
+**SOLVED: THEY ARE DIFFERENT WALLS.** The shared bracket was the bracket's
+coarseness, nothing more. Restricting every condition that touches cube 5 to the
+ray and taking exact roots:
+
+    n = 7   no wall at all in (-0.06, -0.012)      — the plateau really does run past
+    n = 8   boundary t = -0.0236342201   frame 7, group ((2,1,1),(5,1,1))
+            cube 7 = (24,-24,24,-61)
+    n = 9   boundary t = -0.0384318724   frame 2, group ((5,0,1),(8,0,-1))
+            cube 8 = (109,-11,91,140)
+
+Different frames, different groups, different added cubes, and parameters that
+differ by 60%. Both sat inside (-1/50, -1/25) = (-0.02, -0.04), which is why the
+coarse brackets matched. **n = 8's contraction is caused by its seventh cube;
+n = 9's by its eighth** — and n = 9's seventh cube is not n = 8's, so there was
+never a shared object to find.
+
+**VERIFIED, AND THE FIRST CANDIDATE AT n = 9 WAS WRONG.** The nearest wall at n = 9
+is at `t = -0.0214`, and I nearly recorded it as the boundary. The count does not
+change there: 2787 on both sides. Straddling all four solved roots:
+
+    t = -0.0214   frame 7 ((0,2,1),(5,2,1))    2787 -> 2787   crossed, no change
+    t = -0.0282   frame 5 ((2,0,1),(7,2,1))    2787 -> 2787   crossed, no change
+    t = -0.0384   frame 2 ((5,0,1),(8,0,-1))   2787 -> 2783   BOUNDARY
+    t = -0.0483   frame 0 ((5,1,1),(8,2,1))    2783 -> 2783   crossed, no change
+
+**THREE OF FOUR WALLS ARE CROSSED WITH NO COUNT CHANGE.** With the earlier ray's
+one of two ([P301](#p301)), that is **4 of 6** wall crossings measured so far that
+leave the count untouched. [P298](#p298) argued from one example that the count
+plateau is bounded by a SUBSET of the walls; on the evidence now it is a minority
+of them, and identifying which is the open problem that every tangent count in
+this project depends on.
+
+**A METHODOLOGICAL TRAP, met here.** At n = 8 there is also a wall with group
+`((0,2,1),(5,2,1))` and frame 7 — the same KEY as n = 9's nearest wall — at a
+completely different parameter. Condition keys name cube INDICES, and cube 7 is
+`(24,-24,24,-61)` at n = 8 but `(168,-168,168,-415)` at n = 9. **Keys are only
+comparable across levels when the cubes they name are the same cubes.** P303's
+inheritance count is unaffected — it compares only conditions on cubes 0..6, which
+are shared — but any future comparison must check the indices first.

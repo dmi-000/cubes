@@ -1346,3 +1346,57 @@ and you have an anchor outside the procedure ([METHODS 4](#4), [FAILURE_MODES 14
 that costs nothing and fires on every run rather than on the one you thought to check.
 Coset representatives, basis extensions, feature-addition sweeps, ablation studies: the
 identity element is usually in the menu and usually unexamined.
+
+## 25. [TECHNIQUE] A wall IS its key — restrict it to a line and solve, instead of walking
+
+**The key.** A wall is completely determined by `(frame i, group ((j,k,sgn),...), sig, c0)`
+together with the configuration it sits at. That tuple is the entire argument list of
+`dimension.branch_numerator`, which returns the exact polynomial `P` with `f = 1 ⟺ P = 0`.
+So the key IS the polynomial, in the sense that a matrix's entries are its determinant, and
+recording keys is cheaper and more useful than expanding polynomials in 3(n−1) variables.
+`src/wall_keys.py` writes them; `data/wall_keys.json` holds them per named record.
+
+**The method.** Any question of the form "where along this line does the structure change?"
+is a root-finding problem, not a walking problem:
+
+    1. restrict every condition to the line          wall_keys.on_line (Cayley line)
+                                                     wall_keys.on_quat_line (quaternion line)
+    2. take ALL real roots, exactly                  wall_solve._roots_exact
+    3. VERIFY each root by recomputing at it         min_l1_argmin, or the engine
+
+Step 2 matters: an earlier version searched for rational roots only and reported the rest as
+"not testable". One of arc D's ten such roots was its own plateau boundary
+([P296](LEDGER.md#p296)). Irrational roots are recorded as minimal polynomial plus isolating
+interval — never discarded.
+
+Step 3 matters because the branch is FROZEN at the base point, so a root locates where that
+branch reaches 1 — an analytic continuation, not the condition. Every root is a candidate.
+
+**Two lines, and they are not interchangeable.** `on_line` takes a line in CAYLEY
+coordinates; `on_quat_line` takes one in QUATERNIONS. The project's brackets are usually
+quaternion-linear (`solve_wall.py` moves a cube along `q(t) = (12−t)A + tB`), and a
+quaternion line is a Möbius curve in Cayley coordinates, not a line. Using the wrong one
+silently answers a different question.
+
+**Two traps this replaced.**
+- *Cost is the method's choice, not the problem's.* `_rational_roots` found divisors by
+  scanning to `m` rather than `√m`: one polynomial took 9.7 s and a campaign burned an hour
+  of CPU without finishing. Fixed, the same polynomial takes 0.004 s. Before assuming a
+  search is expensive, profile ACROSS its inputs, not the first thirty — the failures here
+  separated cleanly by input size, which is the tell.
+- *A size-2 group with no active coordinate is not unevaluable.* `min_l1_argmin` returns a
+  2-element minimiser only with a vanishing coordinate, so such a group's minimiser is at a
+  VERTEX and its wall is the size-1 wall of the surviving normal. Verified exhaustively:
+  254 of 254 are vertex cases, all duplicates of conditions already present.
+
+**Where it has been used.** Arc D's extent solved to
+`(−2/19, 10695/1007 − 7√2248773/1007)`, closing `bracket → wall → polynomial → root`
+end to end for the first time ([P296](LEDGER.md#p296)); the 727 arcs' special points
+([P294](LEDGER.md#p294)); the 1217 plateau's third wall, a degree-4 curve
+([P301](LEDGER.md#p301)); and the walls that contract it at n = 8 and n = 9
+([P303](LEDGER.md#p303)).
+
+**What it cannot do.** Tell you which walls BOUND THE COUNT. Crossing a wall need not change
+the region count — 4 of 6 measured crossings do not — so solving every wall on a ray gives
+candidates for a plateau boundary, and the count still has to be taken either side. See
+[OQ 33](OPEN_QUESTIONS.md).

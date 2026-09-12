@@ -123,3 +123,23 @@ n = 7, 42/75 at n = 8, with every failure having two distinct cubes in its group
 Supersedes `data/record_walls.json` for reconstruction purposes. That file is
 still the right one for tangent tests, and still carries the `nullspace_dim`
 per record (1, 1, 1, 2, 3 at n = 4..8) which this one does not.
+
+### Session of 2026-09-09 to 09-12 — the wall-solving campaign
+
+| file | what it holds |
+|---|---|
+| `data/wall_polynomials.json` | **every wall on each 727 arc as an exact polynomial, with ALL real roots** — rational as fractions, irrational as minimal polynomial + isolating interval. Supersedes `arc_special.json`'s rational-only search, which reported 10/6/0/4 roots as "irrational, not testable"; one of arc D's ten was its own plateau boundary ([P296](LEDGER.md#p296)) |
+| `data/plateau_1217.json` | the 1217 count plateau: two directions with brackets, the third wall (degree-4 curve) with its positions, both provenances, the walls crossed with NO count change, and the selective-inheritance measurements at n = 8 and n = 9 |
+| `data/n10_measured.json` | n = 10's first measurement — 480 tight, 100 walls, rank 21, lineality 6, 2 045 s. Differs from P185 because that describes 3913, a superseded configuration |
+| `data/arc_node_map.json` | the four 727 arcs: walls, lineality, variety per arc |
+| `data/arc_special.json` | special points of the four arcs, by solving. Carries its own `n_unevaluated` and `n_irrational_roots_in_extent`, and its sampled sweep is labelled **POWER_IS_NEAR_ZERO** with the measurement that earned it |
+| `data/arcD_control.json` | arc D at non-record parameters — the control that showed the node has one structural class |
+| `data/fibre_boundary.json` | the 1217 plateau's extents in the fibre, by geometric-then-simplest-rational bracketing |
+| `data/tangents_full.json` | full-ambient tangent search. **Its premise is refuted** ([P298](LEDGER.md#p298)); kept because the refutation is the result |
+| `data/n9_region_map.json` | both n = 9 representatives, which agree on count and `by_depth` and differ on everything structural |
+| `data/dihedral_family_map.json`, `data/golden_edge.json` | the 67↔67 family's five runs and the approach that put the golden 67 ON the 55/43 wall |
+| `data/vertex_scale.json` | exact closest vertex pairs per level — the arrangement's minimum feature size |
+
+**Read the caveat fields.** Several of these carry `IMPORTANT`, `CAVEATS` or
+`POWER_IS_NEAR_ZERO` keys recording what the measurement does not cover; those were
+written at the time and are load-bearing.
