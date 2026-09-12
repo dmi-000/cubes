@@ -484,3 +484,23 @@ producer sees a picture of what they already believe; the reader sees the geomet
 **And it repeated the A7/A8/A10 pattern.** The questions were aimed at the APPARATUS — what
 does this mark mean, does this line reach that one — not at the conclusions. That is now
 four sessions running in which the defects were found by questions about the instrument.
+
+## A12 (2026-09-12) — an audit finding that was wrong in its claim and right in its signal
+
+**What was reported.** "INTERVENTIONS.md A11 cites eight postscripts that do not exist."
+
+**What was true.** A11 cites seven postscripts, and all seven exist. What did not exist were
+the `<a id>` anchors for P288–P303, so every link into that range — A11's two included —
+resolved to the top of the ledger rather than to the entry. The finding's *reading* was the
+correct one to have: a citation that cannot be reached is indistinguishable from a citation to
+nothing, and the burden of distinguishing them is not the reader's.
+
+**What it turned up beyond itself.** Checking the class instead of the instance found 23 dead
+links, not 2 — nine of them into METHODS and FAILURE_MODES, dead for longer, because they
+addressed sections by heading slug and those headings carry a `[PRACTICE]`/`[FACT]` prefix.
+Recorded as [FAILURE_MODES 37](FAILURE_MODES.md#37), and `doc_audit.py` now checks whether a
+citation RESOLVES, having only ever checked what a claim CITES.
+
+**The pattern, fifth session running.** The defect was found by a question aimed at the
+APPARATUS — can this reference be followed — and not at any conclusion. Nothing in the
+mathematics changed.

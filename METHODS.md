@@ -30,6 +30,8 @@ The distinction matters because entries here get cited as authority. Citing a PR
 settles how to proceed; citing a FACT asserts something that may need re-checking, and
 until now the two looked identical in a citation.
 
+<a id="1-solve-the-line-do-not-sample-it"></a>
+
 ## [PRACTICE] 1. Solve the line; do not sample it
 
 The count and the per-label profile are constant BETWEEN consecutive wall
@@ -106,6 +108,8 @@ The working protocol: Cayley chart, 1 730 primitive directions |uᵢ| ≤ 6, thr
 nothing else — that specificity is what makes its zeros elsewhere worth
 something. A cube with w = 0 is at Cayley infinity and cannot be scanned at all;
 say so rather than counting it as covered.
+
+<a id="6-coincidence-count-is-a-certificate-not-a-compass"></a>
 
 ## [FACT] 6. Coincidence count is a certificate, not a compass
 
@@ -704,6 +708,8 @@ result, not just the text.
 
 ---
 
+<a id="14-displace-by-an-infinitesimal-not-by-a-small-number"></a>
+
 ## [PRACTICE] 14. Displace by an INFINITESIMAL, not by a small number
 
 Every displaced count in this project was `count(base + eps*d)` for a finite eps
@@ -734,6 +740,8 @@ validated q2 engine -- a generator, not a hand-edited copy, so the derivation
 from the validated engine stays re-runnable. Gate: `eps_gate.py`, whose decisive
 control is that scaling a direction by 97 and by 1/1000 must not change the
 count. No finite-eps implementation can pass that.
+
+<a id="15-choose-the-cheapest-valid-representative-not-the-obvious-one"></a>
 
 ## [PRACTICE] 15. Choose the CHEAPEST valid representative, not the obvious one
 

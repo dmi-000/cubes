@@ -115,6 +115,23 @@ wearing different names; a preservation rate held up as structure turned out to 
 nothing but the height of the perturbing direction, three separate times; and an exact
 pair rule was established on evidence that was one configuration counted four times.
 
+The purest of them arrived last. The n=4 record was recorded as sitting on a
+three-dimensional plateau, measured by probing 19 682 signed directions and finding 26 that
+still counted 183. But the perturbation multiplied each displacement by the quaternion's
+first component, and cube 1 of the 183 is `(0, 5, 3, 2)` — a half-turn, whose first
+component is **zero**. The 26 survivors were not nearby configurations with the same count.
+They were byte-identical to the record. A plateau three dimensions wide was twenty-six
+copies of one point, and a comparison for equality would have found it in a second.
+
+The author of this document then committed the same error while auditing for it. Checking a
+register's citations, I searched the ledger for `id="p295"` — the HTML anchor — found none
+above P287, and reported that sixteen cited postscripts "do not exist anywhere." They all
+existed. What was missing was the anchor markup, appended-to entries having been written
+without it, so the links landed at the top of a twenty-one-thousand-line file instead of
+nowhere. The measurement was accurate and the inference was not: I had grepped for notation
+and reported a fact about substance. The other session diagnosed it correctly and had added
+the missing anchors within the hour.
+
 Five illusions, one disease: mistaking a property of the notation for a property of the
 thing. A quaternion is notation for a cube; a dyadic rounding is notation for a point; a
 menu of integer 4-tuples is notation for a set of cubes. Every one of the five was a
@@ -254,6 +271,27 @@ invoked. This project's own register says as much without quite drawing the conc
 the fix for the fifth illusion was not resolve but a line of code, an invariance gate that
 now runs on every invocation and is documented as not optional. Re-reading is a promise;
 a gate is a mechanism.
+
+There is a second mechanism, and it was found by asking for a picture. The user wanted a
+drawing of how the record regions relate; a dozen short questions followed about what each
+mark meant — *do those arcs meet? does that dashed line reach the 1217? are those dots the
+boundary?* — and **every one of them was answerable only by a measurement nobody had made.**
+Six new results came out of a request for a diagram, and one of them was that the boundary
+in question had never been measured at all.
+
+The reason is worth naming because it generalises. Prose can describe a relationship without
+committing to it: *the plateau runs in two directions* is a complete sentence and decides
+nothing. A drawing must put every mark somewhere — it has to decide whether two things span
+anything, where they cross, where they stop — and each of those placements is a claim. An
+unmeasured claim in prose is invisible; an unmeasured claim in a picture is a shape that
+looks wrong to anyone who looks. So a diagram is a prod-manufacturing device for exactly the
+class of failure that has none, and it works by removing the option to be vague.
+
+Four sessions running now, the defects have been found by questions aimed at the
+**apparatus** — what does this mark mean, does this line reach that one, is this tool
+measuring what its name says — and not by questions aimed at the conclusions. That is
+consistent with everything else here: the conclusions prod, eventually. The instruments
+never do.
 
 It also predicts, exactly, the limit of Section V's experiment. *Keep going, do not stop to
 ask* is a remedy aimed at the prodded end of the scale — being stuck is precisely the

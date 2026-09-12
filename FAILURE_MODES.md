@@ -225,6 +225,8 @@ rather than of the encoding. This project had already recorded the identical
 trap once — "the chart omits quaternion representatives, not compounds" — and
 repeated it a month later, which is the argument for this file existing.
 
+<a id="11e"></a>
+
 ### 11e. A monitoring command that fabricates the number it reports
 
 `ps -o rss= -ax -p 54542,54543,54544,54545 | awk '{s+=$1}'` reported the four
@@ -579,6 +581,8 @@ this same file. Writing a failure mode down does not immunise against it. Before
 believing a pass, ask what input would have produced a FAIL; if none exists, the
 test is decoration.
 
+<a id="16c"></a>
+
 ### 16c. Addendum, 2026-08-31: a refinement sweep whose refusals turned a plateau into a point
 
 Asking whether the n=6 rung 1217 sits on a plateau or a single point, the first sweep
@@ -643,6 +647,8 @@ sentence cannot satisfy it.
 **Recovery, when it happens:** the scripts are usually correct and already
 gate-passed. Running them yourself is cheaper than resuming the agent, which
 re-derives context to reach the same place.
+
+<a id="18"></a>
 
 ## 18. A wrong answer that raises nothing, in a tool built for a case with no known answer
 
@@ -730,6 +736,8 @@ message) and from the main session's `.jsonl` as the `Agent` tool-use input. The
 are NOT in `/export` output. Backfill by the criterion already used for reports: a
 spec is worth saving when its output is cited.
 
+<a id="19a"></a>
+
 ### 19a. Addendum, 2026-08-31: the RUN was not kept either
 
 [Mode 19](#19-the-specification-is-the-one-artifact-not-kept) is about specifications.
@@ -756,6 +764,8 @@ which of the two readings is right.
 saving first, and its output must name its own input. "Deliverables go where they
 survive" covers the script; this adds that the LOG must carry the configuration, not
 just the result — otherwise the artifact that survives cannot be interpreted.
+
+<a id="19b"></a>
 
 ### 19b. Addendum, 2026-09-01: saying "this belongs in X" is not putting it in X
 
@@ -1358,3 +1368,27 @@ on the boundary" and "here is the boundary" is an interpolation, and an interpol
 model. Two points determine a line only if you already know it is a line. Where the boundary is
 an algebraic curve, the honest options are to record the bracketed points as points, or to
 solve the wall — which the wall-key machinery makes cheap, and which took one substitution.
+
+<a id="37"></a>
+
+## 37. A citation that cannot be reached reads as a citation to nothing
+
+An audit reported that INTERVENTIONS A11 "cites eight postscripts that do not exist". Every
+postscript it cites exists — the count is seven, and all of P295, P297, P298, P299, P301, P302,
+P303 sit in the ledger. What did not exist were the ANCHORS. The sixteen postscripts appended
+over the last two sessions, P288 through P303, were written without their `<a id="pNNN"></a>`
+lines, which every earlier entry back to P1 carries, so all fourteen links pointing into that
+range landed at the top of a 21 000-line file instead of at the entry. To a reader following
+the link, an entry that cannot be reached and an entry that was never written are the same
+thing, and the reader is right to report the stronger reading.
+
+Nine further links had been dead longer and for a different reason: they addressed METHODS and
+FAILURE_MODES sections by GitHub heading slug, and those headings carry a `[PRACTICE]` or
+`[FACT]` prefix the hand-written slug omitted. A slug link also dies silently whenever the
+heading is retitled, which is the ordinary fate of a heading. An explicit `<a id>` survives
+retitling; that is the reason to prefer it, and new sections should get one.
+
+Both classes were invisible because the audit tool checked what claims CITE, never whether the
+citation RESOLVES. `doc_audit.py` now reports dead anchors — the same one-line-per-link check
+that found these, run every time the staleness audit runs. Repo-wide count at the fix:
+23 dead links, 0 after.

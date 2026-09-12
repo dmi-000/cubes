@@ -20177,6 +20177,8 @@ survivors are the original point. Here that check is one line and it was never r
 
 Files: `src/map_all_shapes.py`, `runs/map_all_shapes.log`, `runs/n4_183_dim.out`.
 
+<a id="p288"></a>
+
 ## [VERIFIED] Postscript 288: the wall polynomials were reconstructible all along — and asking for the reconstruction key found a wrong formula that had been silently reporting ISOLATED
 
 **The question.** "If we don't have wall polynomials recorded, we want to at least
@@ -20408,6 +20410,8 @@ cube 1 is a half-turn, the record sits at Cayley infinity, and this chart has no
 point for it (P287). The keys are recorded for n=4..8 and arcA; the 727 arcs
 A/B/C and the 67-67 dihedral family are not yet in the index.
 
+<a id="p289"></a>
+
 ## [REFUTED IN PART] Postscript 289: nothing happens "at n = 7" — lineality is what crosses 2. The `lineality − 1` law stated in this title was PREDICTED, TESTED AND REFUTED below; the column it described is a count of directions, not a dimension
 
 [P288](#p288) left the question "why does the coincidence variety start having
@@ -20552,6 +20556,8 @@ comparison rather than a discrepancy: **if 83 vs 99 holds, the wall count is an
 observable that separates two representatives every previous observable called
 identical**, and that would be the mechanism P285 could only describe.
 
+<a id="p290"></a>
+
 ## [VERIFIED] Postscript 290: the "24 walls per added cube" window rests its n = 9 rung on a SUPERSEDED record — and the two 2787 representatives are structurally different points
 
 Mapping the n = 9 region ([P289](#p289) predicted its variety; this is about its
@@ -20619,6 +20625,8 @@ the reason it extends further is not established here.
 2785 confirms it exactly. And no re-derivation of the n = 10 chain: P285's
 warning stands, and nothing here transfers to n = 10 without redoing it.
 
+<a id="p291"></a>
+
 ## [VERIFIED] Postscript 291: the two n = 3 maximisers sit in structurally DIFFERENT places — the octahedral 67 is a puncture inside a uniform region, the golden 67 is a puncture ON a wall
 
 CONTINUUM_MAP listed the 67 ↔ 67 dihedral family as unmapped. `region_shape.py`
@@ -20680,6 +20688,8 @@ are not the same kind of object, and that is a candidate explanation for an
 asymmetry previously recorded as a bare fact. It is a candidate, not a
 derivation: nothing here connects the family's wall to the 9 walls of the golden
 67's own local arrangement.
+
+<a id="p292"></a>
 
 ## [VERIFIED] Postscript 292: the smallest length scale in the arrangement is a STAIRCASE in n, not a curve — and it is finer than every perturbation step the project has used
 
@@ -20756,6 +20766,8 @@ curves. An arrangement vertex not on any such curve — a cube's own corner sitt
 free inside another cube — is not enumerated, so a smaller feature could exist
 outside this class. Six tower records, not a survey.
 
+<a id="p293"></a>
+
 ## [VERIFIED] Postscript 293: the 727 node has ONE structural class — the record is the special POINT, not the special ARC
 
 [OQ 17](OPEN_QUESTIONS.md) and CONTINUUM_MAP recorded that the whole tower above
@@ -20798,6 +20810,8 @@ than the one-class answer, and it was already in hand. That is the condition und
 which a confound survives — so the rule that earned this one is to ask what ELSE
 differs between the things being compared before reporting that they differ, and
 here the answer was sitting in plain sight in the `s` column.
+
+<a id="p294"></a>
 
 ## [VERIFIED] Postscript 294: the 727 node's special points, SOLVED — the record lies on THREE of the four arcs, and nine special points are six compounds
 
@@ -20888,6 +20902,8 @@ projected one minute for the whole run; sampling ACROSS the list showed 8% of
 groups timing out. The failures separated by input size, which is the tell that the
 method chose badly rather than that the problem is hard.
 
+<a id="p295"></a>
+
 ## [VERIFIED] Postscript 295: the 1217 count plateau is a SEGMENT, not a point — and the claim that it was a point was a step-size artefact of my own making
 
 **THE CORRECTION FIRST.** In [P288](#p288) and again while drawing the tower I
@@ -20958,6 +20974,8 @@ lower-dimensional than it is, so "no plateau point off `e15`" is a statement abo
 straight lines through the record. The independent evidence that it is genuinely
 1-dimensional is `tangents_eps`'s first-order count of one, not this.
 
+<a id="p296"></a>
+
 ## [VERIFIED] Postscript 296: arc D's extent SOLVED — the last swept row in the table, and the first time the chain bracket → wall → polynomial → root has been closed end to end
 
 **THE DISCREPANCY THAT STARTED IT.** Measuring the 1217 plateau along arc D gave
@@ -21016,6 +21034,8 @@ plateau: it is wider at both ends and contains parameters counting 723 and 719.
 Any chamber enumeration that took it as the arc's extent sampled outside the
 plateau, and `arc_special`'s sweep and candidate filtering used it as the range to
 search.
+
+<a id="p297"></a>
 
 ## [VERIFIED] Postscript 297: the tangent counts along the whole tower are LAST-CUBE-ONLY — and a gap register, because drawing the tower found four holes that measuring it had not
 
@@ -21085,6 +21105,8 @@ the instrument. The cheap defence is to name the restriction in the number's own
 label — "last-cube tangents", not "tangents" — which is what this ledger will do
 from here.
 
+<a id="p298"></a>
+
 ## [VERIFIED] Postscript 298: every count-plateau tangent number rests on a FALSE PREMISE — crossing a wall need not change the count
 
 Attacking [P297](#p297)'s gap register, the first item — plateau dimension at
@@ -21141,6 +21163,8 @@ plateau reached the base. The register in P297 said six of its ten gaps were "an
 instrument's scope read as the world". This is a seventh, and worse: an
 instrument's PREMISE read as a theorem.
 
+<a id="p299"></a>
+
 ## [VERIFIED] Postscript 299: the 1217 count plateau is a genuine 2-dimensional SURFACE — unlike n = 6, which is a node
 
 **THE QUESTION, asked of a drawing.** Having found that the 1217 plateau runs both
@@ -21191,6 +21215,8 @@ arcs and the fibre with ends. Each time the drawing was ahead of the evidence in
 way prose had let pass, because prose can say "runs in two directions" without
 committing to whether they span anything.
 
+<a id="p300"></a>
+
 ## [VERIFIED] Postscript 300: n = 10 measured at last — the tower's top row had a count and eight dashes
 
 **GAP 2 of [P297](#p297)'s register, closed.** The n = 10 conditions had never been
@@ -21234,6 +21260,8 @@ space. Two instances is not a law, and no mechanism is offered.
 the current records, its n = 9 rung having belonged to the superseded 2785. At
 n = 10 the law predicts 123 and the record gives 100, so the window closes at
 n = 8 from both sides, on current records, with no rung outside it fitting.
+
+<a id="p301"></a>
 
 ## [VERIFIED] Postscript 301: the 1217 plateau is a PENTAGON, not the span of its two directions — a third wall cuts a corner
 
@@ -21287,6 +21315,8 @@ condition; crossing one need not create or destroy a region. Here that is not an
 argument but an observation on a specific ray, and it is why the plateau's boundary
 had to be found by counting rather than by asking which walls are crossed.
 
+<a id="p302"></a>
+
 ## [VERIFIED] Postscript 302: the 1217 plateau's third wall is CREATED by the seventh cube and INHERITED unchanged by the eighth
 
 [P301](#p301) solved the wall that cuts a corner off the 1217 plateau: frame 0,
@@ -21322,6 +21352,8 @@ level above m.
 **NOT ESTABLISHED:** whether the n = 8 plateau's other boundaries are likewise
 inherited, or whether n = 8 has walls of its own that n = 7 lacks. Only this one
 wall was followed.
+
+<a id="p303"></a>
 
 ## [VERIFIED] Postscript 303: plateau boundaries are inherited SELECTIVELY — two of the 1217 plateau's three walls survive to n = 8 and n = 9 untouched, the third contracts fivefold
 
