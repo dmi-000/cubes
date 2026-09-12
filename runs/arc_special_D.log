@@ -4,10 +4,10 @@ D  s0=1/8       groups 2592 | tight 192 | loose-on-moving-cube 1102 | UNEVALUATE
    s=0          tight 216 (baseline 192)  <== SPECIAL
    s=2/9        tight 238 (baseline 192)  <== SPECIAL
 Traceback (most recent call last):
-  File "/Users/dmi/cube-compounds/src/arc_special.py", line 235, in <module>
+  File "src/arc_special.py", line 235, in <module>
     main()
     ~~~~^^
-  File "/Users/dmi/cube-compounds/src/arc_special.py", line 230, in main
+  File "src/arc_special.py", line 230, in main
     json.dump(out, open(p, 'w'), indent=1)
     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/json/__init__.py", line 181, in dump

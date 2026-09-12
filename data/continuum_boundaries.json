@@ -318,7 +318,8 @@
    "unevaluated": 0,
    "controls": "zero->1895 wall->1871 OK"
   },
-  "sequence_2026_09_08": "verified count-plateau tangents n=4..8: 0, 0, 2 (node), 1, 1"
+  "sequence_2026_09_08": "verified count-plateau tangents n=4..8: 0, 0, 2 (node), 1, 1",
+  "SCOPE_CORRECTION_2026_09_09": "every tangent count in this file is LAST-CUBE-ONLY -- tangents_eps searches the last cube's slice by construction. Probing base directions shows the plateau is >=2-dimensional at n=7 (base direction = the arc D lift, not axis-aligned) and at n=8 (base direction = +-e15, which is n=7's surviving direction lifted). n=4,5,6 are UNRESOLVED, not zero: only axis directions were probed. See P297."
  },
  "coincidence_variety_dimensions": {
   "method": "dimension.py -- Jacobian null space, solved not probed; lineality 1 everywhere is the global-rotation gauge",

@@ -362,6 +362,10 @@ with `index_ledger.py` after appending.
 - [Postscript 294](#p294) — the node's special points solved: the record lies on three of the four arcs…
 - [Postscript 295](#p295) — the 1217 plateau is a SEGMENT, not a point: my step was 14x too coarse to see it
 - [Postscript 296](#p296) — arc D's extent SOLVED; the bracket → wall → polynomial → root chain closed
+- [Postscript 297](#p297) — the tower's tangent counts are LAST-CUBE-ONLY; plus a ten-item gap register
+- [Postscript 298](#p298) — every tangent number rests on a false premise: crossing a wall need not…
+- [Postscript 299](#p299) — the 1217 plateau is a genuine 2-dim SURFACE; n = 6's is a node
+- [Postscript 300](#p300) — n = 10 measured: 480 tight, 100 walls, rank 21, lineality 6
 
 <!-- INDEX:END -->
 
@@ -21009,3 +21013,221 @@ plateau: it is wider at both ends and contains parameters counting 723 and 719.
 Any chamber enumeration that took it as the arc's extent sampled outside the
 plateau, and `arc_special`'s sweep and candidate filtering used it as the range to
 search.
+
+## [VERIFIED] Postscript 297: the tangent counts along the whole tower are LAST-CUBE-ONLY — and a gap register, because drawing the tower found four holes that measuring it had not
+
+**WHAT PROMPTED THIS.** Building a diagram of the tower forced relationships to be
+drawn rather than asserted, and four measurements nobody had made turned up in a
+single afternoon: the 1217 plateau's boundary ([P295](#p295)), its extent in a
+BASE direction, arc D's true extent ([P296](#p296)), and whether the congruence
+tie lifts to n = 7. A picture has to commit to a shape; prose can gesture.
+
+**THE GENERAL DEFECT, now measured.** `arc_eps.tangents_eps` searches the
+LAST-CUBE SLICE by construction. Every count-plateau tangent figure this project
+has published — **0, 0, 2, 1, 1 at n = 4..8** — is therefore a count of last-cube
+directions, not of plateau dimensions, and has been read as the latter. Probing
+every single coordinate at `t = 1/1024`:
+
+     n   ambient   last-cube dirs holding   base dirs holding
+     4       9              0                      0
+     5      12              0                      0
+     6      15              0                      0
+     7      18              2  (= ±e15)            0   *
+     8      21              2                      2  (= ±e15)
+
+`*` and that zero at n = 7 is itself a miss: the base direction that DOES hold
+there is the arc D lift, a combination of coordinates 12, 13, 14, which no
+single-coordinate probe can see (FAILURE_MODES 11d). So:
+
+- **n = 7 and n = 8 both have plateau dimension ≥ 2**, not 1. At n = 8 the base
+  direction is `±e15` — the very coordinate that is n = 7's surviving direction,
+  so the lower record's plateau direction LIFTS.
+- **n = 4, 5, 6 are UNRESOLVED, not zero.** Only axis directions were probed, and
+  n = 7 proves an axis probe can miss the base component entirely.
+
+**THE GAP REGISTER.** What is not measured, stated so it can be attacked rather
+than rediscovered:
+
+1. **Plateau dimension at n = 4, 5, 6** — axis probes only; a non-aligned base
+   direction would be invisible, exactly as at n = 7.
+2. **n = 10 is essentially unmeasured.** Its conditions are NOT cached and have
+   never been built: no wall count, no tight count, no rank, no lineality, no
+   variety. The tower's top row is a count and eight dashes.
+3. **Arc D's second crossing tangent** — still swept, and the first one proved
+   the swept figure wrong at both ends.
+4. **The 132–134 unevaluated groups per arc** — size-2 with an interior
+   minimiser, outside `branch_numerator`'s branch. A special point could hide in
+   any of them, and one is predicted: arc D's 713 point has no partner on arc B.
+5. **Irrational roots in the arc solves** — 10, 6, 0, 4 on arcs D, A, B, C. One
+   of arc D's ten turned out to be its own upper boundary, so this category is
+   known to contain real objects.
+6. **The n = 9 region's other three dimensions** — one line walked of four, and
+   the two representatives disagree on every structural observable.
+7. **Chart duplicates in `variety_incremental`** — found at n = 9 (12→11, 17→15),
+   checked clean at n = 7 and n = 8, never checked anywhere else.
+8. **The dihedral family's edges are brackets**, and whether the 55/43 wall passes
+   exactly through the golden angle is unsolved — now possible, since both 67s
+   are in the wall-key index over their fields.
+9. **`vertex_scale` covers level-graph vertices only** — a cube corner sitting
+   free inside another cube is not enumerated, so a smaller feature may exist.
+10. **Straight rays everywhere.** Every plateau probe steps along a line. A curved
+    plateau reads as lower-dimensional than it is, and nothing has tested for
+    curvature.
+
+**THE PATTERN WORTH KEEPING.** Six of these ten are an instrument's scope being
+read as the world: last-cube-only tangents, axis-only probes, rational-only roots,
+one branch of a two-branch formula, straight-only rays, level-graph-only vertices.
+The measurement was correct each time; the sentence describing it was wider than
+the instrument. The cheap defence is to name the restriction in the number's own
+label — "last-cube tangents", not "tangents" — which is what this ledger will do
+from here.
+
+## [VERIFIED] Postscript 298: every count-plateau tangent number rests on a FALSE PREMISE — crossing a wall need not change the count
+
+Attacking [P297](#p297)'s gap register, the first item — plateau dimension at
+n = 4, 5, 6 — was to be closed by replacing `tangents_eps`'s last-cube slice with
+a full-ambient search. `src/tangents_full.py` does that, with both controls
+firing, and returns:
+
+    n     ambient  walls  lineality  candidates  holding the count
+    4        9       12       1           1            0
+    5       12       18       1           1            0
+    6       15       27       1           1            0
+    7       18       51       2           6            1   (last cube only)
+    8       21       75       3          15            6   (four with a base component)
+
+**And the n = 7 row is impossible.** The arc D base direction preserves 1217 from
+`t = 1/64` down to `t = 1/4 194 304` — measured, both engines — yet the search that
+covers the whole ambient did not return it. So the search's candidate space is
+wrong, and the reason is a premise both methods share:
+
+> a first-order tangent must lie in every wall, so the candidates are the null
+> space of the wall gradients.
+
+**Refuted directly.** That direction is orthogonal to only 44 of the 51 wall
+gradients: it **crosses 7 walls and holds the count anyway**.
+
+    wall gradients it is not orthogonal to:  7 of 51
+    lies in every wall:                      False
+    preserves the count:                     True, over five orders of magnitude in t
+
+**WHAT THIS MEANS FOR EVERY TANGENT NUMBER IN THE PROJECT.** A wall is a
+COINCIDENCE condition. Crossing one changes the coincidence structure; it does not
+have to change the region COUNT. The count plateau is therefore bounded by a
+SUBSET of the walls — those whose crossing actually creates or destroys regions —
+and no method here has ever identified that subset. Consequently:
+
+- `arc_eps.tangents_eps` is doubly restricted: last-cube slice AND the false
+  premise. Its 0, 0, 2, 1, 1 are lower bounds twice over.
+- `tangents_full.py` removes the slice and keeps the premise. Still a lower bound.
+- **n = 4, 5, 6 remain UNRESOLVED.** Their "0 holding" is what a method with a
+  false premise returns; it is not evidence that the plateau is a point. Gap 1 of
+  the register is NOT closed, and I nearly recorded it as closed.
+
+**THE QUESTION THIS OPENS, which is sharper than the one it replaces.** Which
+walls bound the count plateau? Equivalently: which coincidence conditions, when
+crossed, change the region count? That is answerable — the incremental engine
+computes the arrangement with and without a cube, and P265 already established
+that a count change is a statement about which walls disappear — and until it is
+answered, no count-plateau dimension in this project is more than a lower bound.
+
+**HOW IT WAS CAUGHT.** Not by a gate. By a contradiction between a new measurement
+and an old one that had been made for a different reason — the arc D base
+direction, which existed only because a DRAWING needed to show whether the 1217
+plateau reached the base. The register in P297 said six of its ten gaps were "an
+instrument's scope read as the world". This is a seventh, and worse: an
+instrument's PREMISE read as a theorem.
+
+## [VERIFIED] Postscript 299: the 1217 count plateau is a genuine 2-dimensional SURFACE — unlike n = 6, which is a node
+
+**THE QUESTION, asked of a drawing.** Having found that the 1217 plateau runs both
+inside the fibre and along the base ([P297](#p297), [P298](#p298)), I drew it as a
+filled patch spanned by the two directions. The user asked whether those two
+directions actually span a region. **They had never been tested together** — both
+extents were measured along straight rays, independently, one at a time.
+
+**AND THE ANALOGOUS CASE AT n = 6 GOES THE OTHER WAY.** CONTINUUM_MAP records of
+the 727 node: "two directions each hold the count and NO COMBINATION does — a
+NODE, two arcs crossing at the record, not a 2-dimensional surface." So the patch
+was asserting for n = 7 exactly what had been refuted for n = 6.
+
+**MEASURED.** Fibre direction `e15`, base direction the arc D lift, and their
+combinations, all engine-exact:
+
+    direction        t = 1/1024   1/4096   1/16384
+    e15  (fibre)        1217       1217       --
+    arcD (base)         1217       1217       --
+    fib + base          1217       1217      1217
+    fib - base          1217       1217      1217
+    -fib + base         1217       1217      1217
+    fib + 2 base        1217       1217      1217
+    2 fib + base        1217       1217      1217
+
+**Every combination holds.** The n = 7 plateau is a genuine 2-dimensional surface,
+not two curves crossing. So the two levels differ in kind:
+
+    n = 6   two directions, no combination  ->  NODE (two arcs crossing)
+    n = 7   two directions, all combinations ->  SURFACE
+
+That difference was not predicted by anything and is not explained here. It is
+also the first positive-dimensional count plateau established anywhere in this
+project — every previous one was a curve or a point.
+
+**WHAT IS STILL NOT MEASURED.** The surface's EXTENT in combination directions.
+The pure directions are bracketed ([P295](#p295)); the combinations are verified
+only at `t <= 1/1024`, so the patch's shape and boundary are unknown. Drawing it
+as a parallelogram is a schematic of "2-dimensional here", not a measured shape,
+and its two edges belong to different parts of the ambient space — one inside the
+fibre, one in the base coordinates — so no single layer of the diagram contains
+it.
+
+**THE HABIT THIS IS THE THIRD INSTANCE OF.** A drawing asserted a shape; the
+question "is that actually so?" came from the reader, not the producer; the
+measurement was cheap and had never been run. The first two were the concurrent
+arcs and the fibre with ends. Each time the drawing was ahead of the evidence in a
+way prose had let pass, because prose can say "runs in two directions" without
+committing to whether they span anything.
+
+## [VERIFIED] Postscript 300: n = 10 measured at last — the tower's top row had a count and eight dashes
+
+**GAP 2 of [P297](#p297)'s register, closed.** The n = 10 conditions had never been
+built. `src/build_n10.py` built them in **2 045 s** and they are now cached, so
+every later analysis reads them free — which is the whole purpose of the cache.
+
+    n = 10   count 3925   ambient 27
+             480 tight (0 degenerate, 14 370 loose)
+             100 distinct walls   rank 21   lineality 6
+
+Built on the **ORIGINAL** n = 9 representative (height 113 786), because
+[P285](#p285) established that the simplified one extends to 3921 rather than 3925.
+Using the wrong one would have measured a different configuration — which is
+exactly what makes the next paragraph a non-conflict.
+
+**IT DISAGREES WITH [P185](#p185) IN EVERY COLUMN, AND THAT IS CORRECT.**
+
+    configuration            count   tight   walls   rank   lineality
+    P185's n = 10 (on 2785)   3913     482     101     22        5
+    this measurement          3925     480     100     21        6
+
+P185's row is a **superseded** configuration: 3913, extending the n = 9 count of
+2785, both since replaced. So this is the first measurement of the n = 10 RECORD,
+and P185's numbers remain correct for the object they describe. Neither is wrong;
+they are different compounds, and the discrepancy was worth chasing rather than
+averaging.
+
+**AND THE PATTERN FROM n = 9 REPEATS.** At n = 9 the representative that extends to
+the n = 10 record is the MORE degenerate one — rank 19, lineality 5, against the
+simplified representative's rank 20, lineality 4. Here the record 3925 again has
+lower rank and higher lineality than the superseded 3913 (21/6 against 22/5). Twice
+now the configuration that extends further is the one with the larger tangent
+space. Two instances is not a law, and no mechanism is offered.
+
+**WHAT THIS DOES TO THE WALL SEQUENCE.** Distinct walls along the current records:
+
+    n        4    5    6    7    8    9    10
+    walls   12   18   27   51   75   83   100
+
+[P290](#p290) already established that `walls = 24n − 117` describes n = 6..8 of
+the current records, its n = 9 rung having belonged to the superseded 2785. At
+n = 10 the law predicts 123 and the record gives 100, so the window closes at
+n = 8 from both sides, on current records, with no rung outside it fitting.

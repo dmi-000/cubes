@@ -28,7 +28,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE) if os.path.basename(HERE) == 'src' else HERE
 HOME = os.path.expanduser('~')
 
-EXT = ('.md', '.json', '.log', '.out', '.err', '.txt')
+# .html and .svg belong here because published PAGES are the most public thing the
+# project produces -- they were missing while the tool was written for logs and
+# reports, which is the wrong end of the risk. Extensions are a coarse filter;
+# anything new that gets published should be added rather than assumed covered.
+EXT = ('.md', '.json', '.log', '.out', '.err', '.txt', '.html', '.svg', '.css')
 SKIP_DIRS = {'github', 'transcripts', '__pycache__', 'dimension_cache',
              'catalogue_cache', 'scratchpad', 'bak', 'tmp', 'node_modules', '.git'}
 

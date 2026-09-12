@@ -1,0 +1,3 @@
+n=10 ambient 27, count 3925
+n=10: 480 tight (0 degenerate, 14370 loose) | 100 distinct walls | rank 21 | lineality 6 | 2045s
+written data/n10_measured.json

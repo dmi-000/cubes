@@ -1,0 +1,5 @@
+arc D          2592 conditions | 102 walls with a root in range | 102 roots (10 irrational) | 0 unbuildable
+arc A          2592 conditions | 58 walls with a root in range | 58 roots (6 irrational) | 0 unbuildable
+arc B          2592 conditions | 48 walls with a root in range | 48 roots (0 irrational) | 0 unbuildable
+arc C          2592 conditions | 42 walls with a root in range | 42 roots (4 irrational) | 0 unbuildable
+written data/wall_polynomials.json

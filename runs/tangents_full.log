@@ -1,0 +1,18 @@
+n=4          record 183   ambient 9   walls 12   lineality 1   CONTROLS zero→183 wall→161 OK
+   1 candidates | 0 HOLD the count | 1 lose it | 0 unevaluated
+n=5          record 393   ambient 12  walls 18   lineality 1   CONTROLS zero→393 wall→373 OK
+   1 candidates | 0 HOLD the count | 1 lose it | 0 unevaluated
+n=6          record 727   ambient 15  walls 27   lineality 1   CONTROLS zero→727 wall→703 OK
+   1 candidates | 0 HOLD the count | 1 lose it | 0 unevaluated
+n=7          record 1217  ambient 18  walls 51   lineality 2   CONTROLS zero→1217 wall→1193 OK
+   6 candidates | 1 HOLD the count | 5 lose it | 0 unevaluated
+      ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0']
+n=8          record 1895  ambient 21  walls 75   lineality 3   CONTROLS zero→1895 wall→1871 OK
+   15 candidates | 6 HOLD the count | 9 lose it | 0 unevaluated
+      ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0']   <-- HAS A BASE COMPONENT
+      ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1']
+      ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '1']   <-- HAS A BASE COMPONENT
+      ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '-1']   <-- HAS A BASE COMPONENT
+      ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '2', '0', '0', '0', '0', '1']   <-- HAS A BASE COMPONENT
+      ['0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '2']   <-- HAS A BASE COMPONENT
+written data/tangents_full.json
