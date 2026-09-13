@@ -1,72 +1,73 @@
-# Session state
+# Session state — 2026-09-12 (evening)
 
-Updated 2026-09-12. **Nothing is running.** All results are on disk.
+**Read this first, then [RESULTS.md](RESULTS.md) §4's scope correction.**
 
-## What this session did
+## The one thing that changed today
 
-Started from "record enough to reconstruct the wall polynomials" and ended with a
-gap register, most of it closed. Sixteen postscripts, P288–P303.
+**No wall list in this project is known to be complete.** The wall census built for
+[OQ 33](OPEN_QUESTIONS.md#33) found a second codimension-1 family of the COUNT — four
+face planes through a common point — which no coincidence condition sees, and then found
+a count-changing parameter belonging to neither family. [P304](LEDGER.md#p304),
+[OQ 34](OPEN_QUESTIONS.md#34).
 
-### Machinery built
-| file | what it does |
-|---|---|
-| `src/wall_keys.py` | the reconstruction KEY per wall — `(frame, group, sig, c0)` IS the polynomial, via `branch_numerator`. `on_line` (Cayley line), `on_quat_line` (quaternion line). Works over ℚ(√d). Gated three ways. |
-| `src/wall_solve.py` | every wall on a line as an exact polynomial with **all** real roots — rational as fractions, irrational as minimal polynomials |
-| `src/arc_special.py` | special points of the 727 arcs, by solving not walking |
-| `src/fibre_boundary.py` | plateau extents by geometric-then-simplest-rational bracketing |
-| `src/tangents_full.py` | full-ambient tangents — **premise refuted, see P298** |
-| `src/build_n10.py` | the n = 10 conditions, built at last (2 045 s, now cached) |
-| `src/scrub_paths.py` | keeps resolved paths out of records; derives what it removes |
+Anything that reads "the walls of this configuration" in an older document means the
+COINCIDENCE walls. That is not the same set.
 
-### Defects found and fixed
-- **`branch_numerator` was wrong** whenever a condition's two normals came from different
-  cubes — an assert disabled by `or True` (P288). n = 6, 7 verdicts re-run.
-- **The reorg orphaned two caches** — 587 + 219 entries, silently (P288).
-- **`_rational_roots` scanned to m, not √m** — 9.7 s → 0.004 s, and it is in
-  `variety_incremental`'s inner loop, so it slowed every variety solve ever run.
-- **Selective runs silently deleted records** in `wall_keys.py` and `map_arcs.py`
-  (FAILURE_MODES 33).
+## What is established
 
-## The big correction: tangent numbers
+- **OQ 33, on a full ray:** at the 727 record along e0, window ±1/4, 217 attributable
+  crossings — of 21 crossings carrying a coincidence wall, **8 change the count and 13 do
+  not**; of 663 carrying only concurrency walls, **0** change it. Every change is exactly
+  ±4. P303's 4 of 6 was not a fluke of a hand-picked sample.
+- **The census is G2-clean on that ray:** 685 cells, three rationals each, zero constancy
+  failures — a completeness check on a wall list, which this project has never had before.
+- **The two families do different jobs.** Coincidence walls are STEPS (count differs
+  across). Concurrency walls are PUNCTURES (count equal on both sides, lower on the wall):
+  at t = −2/9, 693 | 691 | 693.
+- **The record is a point of extreme concurrency:** 6772 of e0's 7620 concurrency roots
+  in the window sit at t = 0.
+- **t = −2/9 solved:** the concurrency determinant on the ray cancels to `9t² + 20t + 4`.
 
-**Every count-plateau tangent number in this project is a lower bound from a method
-whose premise is false** (P298). `tangents_eps` searches the last-cube slice AND
-assumes tangents lie in every wall. Both are wrong: a direction crossing 7 of 51
-walls holds the count. Measured since: **4 of 6 wall crossings leave the count
-unchanged** (P303). The open problem everything rests on: *which* walls bound the
-count plateau.
+## What is open, in order of weight
 
-## The 1217 plateau, fully mapped
+1. **The attribution audit P304 opens.** Every boundary located as "nearest wall root where
+   the count changes" searched the coincidence family only — P296's arc D extent,
+   P301/P302/P303's three walls of the 1217 plateau. The EXTENTS stand (they were counted).
+   Whether the named condition is the actual cause is unchecked at n = 7, 8, 9. Run
+   `concurrency_walls.py` on those rays and look for a root inside each straddle interval.
+2. **One ray, one record.** The census has run on e0 at n = 6 only. `--family both` gives
+   15 axis rays plus mixed ones; n = 7 is where P298's counterexample lives and is the
+   real target.
+3. Everything still listed under OQ 33: whether "coincidence walls only" survives at higher
+   n and on non-axis rays, and whether the 7-of-18 that change the count are predictable
+   from the group's cube indices.
 
-2-dimensional, a **pentagon** — two directions plus a third wall aligned with
-neither, solved as a degree-4 curve (P299, P301). Boundaries inherit
-**selectively** (P303): the fibre boundary and the third wall survive to n = 8 and
-n = 9 at identical brackets, each costing exactly 4 regions; the base boundary
-contracts ~5×, and n = 8's and n = 9's contracting walls are **different** — same
-coarse bracket, different frames, groups and cubes. All in `data/plateau_1217.json`.
+## Instruments added today
 
-## Also established
-- **arc D's extent SOLVED** (P296) — `(-2/19, 10695/1007 − 7√2248773/1007)`, closing
-  `bracket → wall → polynomial → root` end to end for the first time. `arcs_extend.py`
-  and MAXIMISER_TAXONOMY corrected in place.
-- **n = 10 measured** (P300): 480 tight, 100 walls, rank 21, lineality 6. Differs from
-  P185 because P185 measured 3913, a superseded configuration.
-- **The 727 node**: nine special points, six compounds; the record lies on three of the
-  four arcs (P294).
-- **The two 67s** are in the wall-key index over ℚ(√2) and ℚ(√5).
-- **The golden 67 sits ON the 55/43 wall**; the octahedral one is 14° inside (P291).
+| file | what it does | its gate |
+|---|---|---|
+| `src/wall_census.py` | every crossing on a ray, the count in each cell, one verdict per wall | G1 base is the record; G2 three-point constancy per cell, which STEERS the branch closure; G2N negative control (hide half the keys, G2 must fail — 13 of 103); G3 refusals counted |
+| `src/concurrency_walls.py` | the four-plane family, by exact interpolation | degree bound verified at 3 unseen parameters (0 failures on 6 rays); G4 the known −2/9 wall must return with its quadruple |
+| `src/wall_census_analyze.py` | criterion search over the census, and the count ON each rational wall | — |
 
-## Still open
-1. **Which walls bound the count plateau** — the question P298 opened; everything
-   dimensional depends on it.
-2. Plateau dimension at n = 4, 5, 6 — *not* closed; "0" came from the false premise.
-3. Arc D's second crossing tangent — still swept.
-4. The n = 9 region's other dimensions; the dihedral family's exact edges.
-5. `vertex_scale` covers level-graph vertices only; curvature never tested.
+Data: `data/wall_census_n6.json`, `data/concurrency_walls_n6.json`, both from the corrected
+convention. The two files from the broken one are kept as `data/VOID_2026-09-12_*` —
+renamed, not deleted, so the original numbers stay derivable.
 
-## Not done by me, waiting on you
-- `python3 src/scrub_paths.py --tree github --apply` — 33 files in the publish tree.
-- `cp TOWER_DIAGRAM.html github/` — the diagram is publish-clean (0 non-ASCII, only
-  Google Fonts external).
-- `data/2026-09-07-231403-compactions.txt` — a verbatim export; keep-or-exclude decision.
-- `sync_layout_to_github.sh` — never run.
+**A trap this session walked into, worth knowing before extending the work**
+([FAILURE_MODES 39](FAILURE_MODES.md#39)): the face normals are the COLUMNS of the rotation
+matrix, not the rows. Every gate in the new code passed in the wrong convention, because
+the fact each one checked against had been established by the same code.
+
+## Standing constraints
+
+- **Never write into `github/`.** The publish tree is the user's alone.
+- No machine or network references in anything that reaches the public repo.
+- Remediation commits stay bland.
+
+## Waiting on the user
+
+- `python3 src/scrub_paths.py --tree github --apply` (33 files)
+- `cp TOWER_DIAGRAM.html github/`
+- keep-or-exclude decision for `data/2026-09-07-231403-compactions.txt`
+- `sync_layout_to_github.sh`

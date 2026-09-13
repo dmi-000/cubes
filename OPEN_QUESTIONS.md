@@ -1164,6 +1164,8 @@ budget is depressed by at least the `2(τ₃ + c₃ − 1)` the bound gives away
 depressed by far more — at `τ₃ = 2` the bound permits 88 and `W₀` comes in at 56, 60, 60. Same
 deficit-domination shape as Theorem S, with the source of the slack now named exactly.
 
+<a id="33"></a>
+
 ## 33. Which walls bound the count plateau? — the question every dimensional claim rests on
 
 **Opened 2026-09-12 by [P298](LEDGER.md#p298), and it is the most load-bearing open
@@ -1203,3 +1205,80 @@ each are already recorded.
 
 **Until it is answered**, no plateau dimension in this project is more than a lower
 bound, and that includes every "ISOLATED" verdict whose sense is the count.
+
+**PARTIALLY ANSWERED 2026-09-12 by [P304](LEDGER.md#p304), and the question widened.**
+A full-ray census at the 727 record (e0, window ±1/4, 217 attributable crossings) gives
+**13 of 21 coincidence walls preserving the count** — the hand-picked 4 of 6 was not a
+fluke of the sample. Every count change on that ray is exactly ±4.
+
+But the census also found that **the wall family itself was incomplete**. Four face
+planes through a common point is a second codimension-1 family, invisible to every
+coincidence condition, and it behaves differently: of 199 such walls on the ray, **none**
+changes the count across it — they are PUNCTURES, where the count drops ON the wall and is
+equal on both sides. **(The first pass said 199-and-zero in a broken plane convention; the
+corrected, G2-clean run says 663 concurrency-only crossings, 0 of which change the count.
+See the correction inside [P304](LEDGER.md#p304).)**
+
+**And the census now has a COMPLETENESS check, not an assumption**: 685 cells, each counted
+at three rationals, **zero constancy failures**. On this ray the two families account for
+every count change there is, and the plateau is bounded by coincidence walls only. So the subset of walls that bounds the count plateau is, on the
+evidence so far, drawn entirely from the coincidence family, and the concurrency family
+matters for what sits AT a point rather than for what bounds a region.
+
+**What remains open here:** whether "coincidence walls only" survives at n = 7, 8, 9 and
+on non-axis rays; whether the 7-of-18 that do change the count are predictable from the
+group's cube indices; and the ATTRIBUTION audit that [P304] opens — every boundary this
+project located as "nearest wall root where the count changes" searched the coincidence
+family only.
+
+
+<a id="34"></a>
+
+## 34. What else changes the count? — **CLOSED 2026-09-12, same day: nothing. It was a plane-convention bug**
+
+**Opened and CLOSED 2026-09-12 by [P304](LEDGER.md#p304).** The event at t = −4/27 is a
+four-plane concurrency after all — the enumeration that failed to see it was using the rows
+of the rotation matrix where the normals are the columns, so it was enumerating the planes
+of a different configuration. Corrected, the concurrence count goes 230 → 238 at −4/27,
+across cube sets {0,1,2,4} and {0,1,3,4} — and {0,1,2,4} is precisely what the Euler
+complex had localised the lost 0-cells to. The same correction explains t = −2/9 (230 → 236).
+One family, both anomalies, no third mechanism.
+
+**Kept, not deleted, because the reasoning below is what caught the bug.** The measurements
+in it were correct; every "unchanged" line was computed in the broken convention and is void
+as evidence about the world, while being exactly the evidence that something was wrong.
+See [FAILURE_MODES 39](FAILURE_MODES.md#39).
+
+**The original entry follows.**
+
+At the 727 record along e0, **t = −4/27 counts 703 where every neighbour counts 705**.
+The drop is real by three routes: the narrow engine, the wide engine, and the Euler
+characteristic `V − E + F − 1` of the arrangement complex, which is the only count in this
+project not produced by the engines. It survives rescaling the quaternion, so it is
+geometry, not arithmetic.
+
+**And nothing known is happening there.** Measured at −4/27 against its neighbours:
+
+    four planes through a point      3240   unchanged
+    three planes through a line       192   unchanged
+    parallel plane pairs               30   unchanged
+    tight coincidence conditions      144   unchanged, nothing gained or lost
+
+The complex does change: V 848→842, E 2166→2154, F 2024→2016, and every affected cell
+pair lies inside the cube set {0, 1, 2, 4} — all six pairs of it, each losing exactly two
+arcs. Six 0-cells vanish.
+
+**One scope limit is known and does not explain it.** `concurrency_walls.py` skips
+quadruples whose determinant vanishes identically along the ray, and 232 of those exist
+here — one plane from each of cubes 0, 1, 2, 4, concurrent at EVERY parameter, a
+structural degeneracy of this configuration rather than an event. They are unchanged at
+−4/27.
+
+**Why it matters.** [OQ 33] asks which walls bound the count plateau. A count-changing
+parameter belonging to no enumerated family means the question cannot be closed by
+enumerating families that are already known. Until this is identified, any claim that a
+wall list is COMPLETE is unsupported, and that includes the two-family list [P304] uses.
+
+**The cheap next probe**, not yet run: dump the six vanishing 0-cells at a parameter just
+before −4/27 and just after, and read off what they are incident to. The complex is built
+in `cellcomplex.complexus` and already has the nodes; only the diff is missing.

@@ -1,0 +1,6 @@
+n=6  base count 727
+G1 ok: base point is the 727 record
+e0         2592 conditions | 494 roots in [-1, 1] | 133 distinct crossings | 0 unbuildable  (37s)
+   e0       attributable 120 | changes  42 | preserves  78 | unevaluated 0 | G2 failures 9
+e1         2592 conditions | 260 roots in [-1, 1] | 70 distinct crossings | 0 unbuildable  (35s)
+   e1       attributable  64 | changes  24 | preserves  40 | unevaluated 0 | G2 failures 1

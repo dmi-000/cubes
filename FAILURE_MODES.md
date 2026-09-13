@@ -1392,3 +1392,69 @@ Both classes were invisible because the audit tool checked what claims CITE, nev
 citation RESOLVES. `doc_audit.py` now reports dead anchors — the same one-line-per-link check
 that found these, run every time the staleness audit runs. Repo-wide count at the fix:
 23 dead links, 0 after.
+
+<a id="38"></a>
+
+## 38. Three ways to be wrong about a plane, in one afternoon
+
+Chasing an unexplained count drop ([P304]) produced three method errors in a row, all of
+the same shape: a quantity was computed correctly from a model that was wrong, and only a
+check against something outside the model caught it.
+
+**The offset.** The first three incidence tests — triple-line, vertex-on-face, edge-edge —
+used `|q|²` as the plane offset, on the assumption that `step_a2.mat` returns a rotation
+scaled by the quaternion norm. It does not: `M Mᵀ = I` exactly, over Fractions, so the
+offset is 1. All three tests returned "no incidence anywhere", which looked like a result
+and was an artefact. They are void. The cost of checking was one line printing `M Mᵀ`, and
+it was printed only after the third test had already been believed.
+
+**The normalisation.** The concurrency enumeration first divided each rotation row by its
+norm, which makes the four-plane determinant a RATIONAL function of the ray parameter.
+Interpolating it as a polynomial is then invalid, and the degree check — the interpolant
+must reproduce three parameters it never saw — refused every quadruple in the file,
+including the one already known to be there. The gate turned a wrong table into a
+two-minute fix. Keeping the rows unnormalised, with the offset carried as the norm, makes
+the determinant polynomial and the interpolation exact.
+
+**The independent check that was not one.** `cellcomplex.count()` was cited as independent
+confirmation of the anomalous counts. It shells out to `cube_regions_n` — the same engine.
+The genuinely independent quantity in that file is `complexus()`, which builds the CW
+complex and yields `V − E + F − 1`; run properly it does confirm the counts. The claim was
+made before the function was read, which is the same error as trusting two engines that
+share a lineage, one level further down.
+
+**The pattern to carry.** Each error was invisible from inside its own computation and
+obvious from one line of contact with something else: an identity that must hold, a value
+the interpolant did not see, a function definition. The two that were caught were caught
+by gates written in advance; the one that was not had no gate, and was caught only because
+the number it produced was quoted to a reader.
+
+<a id="39"></a>
+
+## 39. A self-consistent wrong model passes its own gate
+
+The four-plane concurrency enumeration took face normals to be the ROWS of the rotation
+matrix. They are the COLUMNS. Rows give the plane set of a different configuration — every
+cube rotated by its inverse — so every number the file produced was about that object.
+
+**The gate did not catch it.** G4 required the known t = −2/9 wall to come back with its
+quadruple, and it did: the wall was FOUND in the wrong convention, with a determinant that
+genuinely vanishes at −2/9, because the anomaly had itself been located in the same wrong
+convention. A gate compares a computation against a fact; when the fact was established by
+the same broken code, the comparison is between a thing and itself. That is the identical-
+strings gate of [FAILURE_MODES 2](#2) wearing a much better disguise, and it survived a
+negative control, a degree-bound check and a symbolic cross-check, all of which shared the
+convention.
+
+**What caught it was the leftover.** One cell's count change had no explanation, and instead
+of filing it as "a further family, unknown", it was written up as an open question with its
+evidence and then chased — into `cellcomplex`, which uses the transpose. Comparing the two
+frames took one print statement. The anomaly that did not fit was the only thing in the run
+not derived from the broken code, which is exactly why it was the thing that could falsify
+it.
+
+**The rule.** A convention shared by every check in a file is not verified by any of them.
+Verify it against a component that was written independently — here `cellcomplex.complexus`,
+whose `V − E + F − 1` reproduces the engine and whose frames now match ours element by
+element. And treat an unexplained residue as the most valuable object in a run, not as a
+caveat to be phrased well: it is the only part not already agreeing with you.

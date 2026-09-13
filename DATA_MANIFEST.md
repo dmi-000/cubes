@@ -139,6 +139,9 @@ per record (1, 1, 1, 2, 3 at n = 4..8) which this one does not.
 | `data/n9_region_map.json` | both n = 9 representatives, which agree on count and `by_depth` and differ on everything structural |
 | `data/dihedral_family_map.json`, `data/golden_edge.json` | the 67↔67 family's five runs and the approach that put the golden 67 ON the 55/43 wall |
 | `data/vertex_scale.json` | exact closest vertex pairs per level — the arrangement's minimum feature size |
+| `data/concurrency_walls_n6.json` | the SECOND wall family: four face planes through a point, per ray, as exact interpolated polynomials with their roots ([P304](LEDGER.md#p304)). `degree_bound_failures` is the check that the degree bound held — 0. Roots are determinant zeros; a root is a genuine common point only where rank(normals) = rank(augmented) = 3, not checked individually |
+| `data/wall_census_n6.json` | the wall census: every crossing on a ray, the count in each cell between crossings, and one verdict per attributable wall. **`constancy_failures` on ray e0 is 0 across 685 cells counted at three rationals each — the completeness check.** `spurious` marks roots of a branch active nowhere near them |
+| `data/VOID_2026-09-12_concurrency_walls_n6_transposed_planes.json`, `data/VOID_2026-09-12_wall_census_n6_transposed_concurrency.json` | **VOID, kept not deleted.** Produced with face normals taken as the ROWS of the rotation instead of the COLUMNS, i.e. the plane set of a different configuration ([FAILURE_MODES 39](FAILURE_MODES.md#39)). Every concurrency number in them describes that other object. Retained so the corrected entry's claims about what was wrong stay checkable |
 
 **Read the caveat fields.** Several of these carry `IMPORTANT`, `CAVEATS` or
 `POWER_IS_NEAR_ZERO` keys recording what the measurement does not cover; those were

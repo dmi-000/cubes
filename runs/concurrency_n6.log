@@ -1,0 +1,13 @@
+e0
+   concurrency: 31500 quadruples touched by the ray | 7496 with a root in [-0.25, 0.25] | 0 degree-bound failures  (127s)
+e1
+   concurrency: 31500 quadruples touched by the ray | 6804 with a root in [-0.25, 0.25] | 0 degree-bound failures  (132s)
+e2
+   concurrency: 31500 quadruples touched by the ray | 7666 with a root in [-0.25, 0.25] | 0 degree-bound failures  (126s)
+e3
+   concurrency: 31500 quadruples touched by the ray | 7966 with a root in [-0.25, 0.25] | 0 degree-bound failures  (76s)
+e4
+   concurrency: 31500 quadruples touched by the ray | 7994 with a root in [-0.25, 0.25] | 0 degree-bound failures  (42s)
+e5
+   concurrency: 31500 quadruples touched by the ray | 8070 with a root in [-0.25, 0.25] | 0 degree-bound failures  (38s)
+written data/concurrency_walls_n6.json

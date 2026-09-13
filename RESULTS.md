@@ -23,7 +23,7 @@ Status tags:
 | **CONDITIONAL** | follows from a NAMED hypothesis in section 3b, which is itself unproved. The hypothesis is always cited, and every conditional result is listed in that hypothesis's DEPENDENTS block, so a refutation propagates instead of leaving orphans |
 | **OBSERVED** | a PATTERN noticed, not yet checked against anything outside the sweeps that produced it. The discovery state: not a result, and the thing most likely to be retracted — 4 of the 17 ledger entries written on 2026-08-31 were retracted or superseded the same day, and **all four were pattern claims while every survivor was a measurement**. A hypothesis with a leading candidate belongs in [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md), not here. |
 
-Last updated 2026-08-11.  Open questions and what has been RULED OUT: [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md).  Run data: see [DATA_MANIFEST.md](DATA_MANIFEST.md) for which .json files are current, superseded, or wrong.
+Last updated 2026-09-12.  Open questions and what has been RULED OUT: [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md).  Run data: see [DATA_MANIFEST.md](DATA_MANIFEST.md) for which .json files are current, superseded, or wrong.
 
 ---
 
@@ -403,6 +403,31 @@ with the lower bound exhibited by the record. `d₃ ≤ 24` (l=1 ceiling law) an
 > ≥ 2-dimensional once base directions are probed, and n = 4, 5, 6 are
 > **unresolved, not zero**. Which walls actually bound the count plateau is the
 > open problem the dimensional claims depend on.
+>
+> **EXTENDED 2026-09-12 ([P304](LEDGER.md#p304)).** A full-ray census at the 727
+> record puts a number on it: of 21 coincidence walls crossed on ray e0, **13
+> preserve the count and 8 change it**, every change being exactly ±4. The
+> hand-picked 4 of 6 was not a fluke of the sample.
+>
+> It also found that **the wall family itself is incomplete**. Four face planes
+> through a common point is a second codimension-1 family of the COUNT, invisible
+> to every coincidence condition — at t = −2/9 the count drops 693 → 691 with the
+> tight set unchanged. These behave differently: of 199 on the ray, **none**
+> changes the count across it. They are punctures, not steps. Consequently every
+> boundary this project located as "the nearest wall root where the count
+> changes" searched the coincidence family only; the measured EXTENTS stand, the
+> ATTRIBUTION of each boundary to a condition does not yet.
+>
+> The corrected census is **G2-clean — 685 cells, three rationals each, zero
+> constancy failures** — so on that ray the two families together account for
+> every count change, and **663 concurrency-only crossings change the count not
+> once**. Concurrency walls puncture a plateau; they do not bound one.
+>
+> An apparent third family at t = −4/27 was a plane-convention bug in the new
+> code, found and closed the same day ([OQ 34](OPEN_QUESTIONS.md#34),
+> [FAILURE_MODES 39](FAILURE_MODES.md#39)); it is a four-plane concurrency like
+> t = −2/9. **One ray now has a complete wall list with a check behind it; no
+> other ray, level or direction does.**
 
 
 - **The chamber counts of the record neighbourhoods are known exactly, and 393's
@@ -671,6 +696,7 @@ current.
 
 | claim | status now | corrected in |
 |---|---|---|
+| The walls of a configuration are its coincidence conditions | **SUPERSEDED** — that is the COINCIDENCE family, not the wall family of the count. Four face planes through a common point is a second codimension-1 family, tight-set-invisible, and at least one count-changing parameter belongs to neither | Postscript [304](LEDGER.md#p304), [OQ 34](OPEN_QUESTIONS.md#34) |
 | n = 9 = 2785 has no establishing Postscript and its provenance is missing | **CLOSED** — not backfilled; the establishing work was redone and dated to the day it was done | Postscript [179](LEDGER.md#p179) |
 | 727 shows no maximiser locus (P182) | **RETRACTED** — 727 is a plateau on four arcs A-D, documented since Postscripts [79](LEDGER.md#p79)/[80](LEDGER.md#p80); the negative was asserted without reading this file | Postscript [183](LEDGER.md#p183) |
 | 1217 is on a 13-pair curve but is an isolated point on it (1 of 19 offsets) | **RETRACTED** — the sweep stepped 40x the plateau width, and its refinement left 60 of 61 offsets unevaluable; 1217 is a continuum | Postscript [182](LEDGER.md#p182), [FAILURE_MODES 16c](FAILURE_MODES.md#16c) |

@@ -1,0 +1,3 @@
+e0
+   concurrency: 31500 quadruples touched by the ray | 2252 with a root in [-0.25, 0.25] | 0 degree-bound failures  (28s)
+written data/concurrency_walls_n6.json

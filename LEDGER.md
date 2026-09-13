@@ -353,22 +353,23 @@ with `index_ledger.py` after appending.
 - [Postscript 285](#p285) — the n=10 provenance gap resolved — a "simplified representative" that is identical at n=9 is…
 - [Postscript 286](#p286) — continua are plateaus in the COUNT with wall structure underneath — extension varies along…
 - [Postscript 287](#p287) — the 183's "3-dimensional plateau" is a NO-OP ARTEFACT — it is isolated in both senses
-- [Postscript 288](#p288) — the wall polynomials were reconstructible all along — and asking for the key found a wrong…
-- [Postscript 289](#p289) — nothing happens "at n = 7": lineality crosses 2. Its `lineality − 1` law was REFUTED…
-- [Postscript 290](#p290) — the "24 walls per cube" window rests its n = 9 rung on a superseded record; the two…
-- [Postscript 291](#p291) — the two 67s sit differently: octahedral inside a uniform region, golden ON a wall
-- [Postscript 292](#p292) — the smallest arrangement scale is a staircase in n, finer than every step used
-- [Postscript 293](#p293) — the 727 node has one structural class: the record is the special point, not…
-- [Postscript 294](#p294) — the node's special points solved: the record lies on three of the four arcs…
-- [Postscript 295](#p295) — the 1217 plateau is a SEGMENT, not a point: my step was 14x too coarse to see it
-- [Postscript 296](#p296) — arc D's extent SOLVED; the bracket → wall → polynomial → root chain closed
-- [Postscript 297](#p297) — the tower's tangent counts are LAST-CUBE-ONLY; plus a ten-item gap register
-- [Postscript 298](#p298) — every tangent number rests on a false premise: crossing a wall need not…
-- [Postscript 299](#p299) — the 1217 plateau is a genuine 2-dim SURFACE; n = 6's is a node
-- [Postscript 300](#p300) — n = 10 measured: 480 tight, 100 walls, rank 21, lineality 6
-- [Postscript 301](#p301) — the 1217 plateau is a PENTAGON: a third wall cuts a corner off the span
-- [Postscript 302](#p302) — that third wall is created by the 7th cube and inherited unchanged by the 8th
-- [Postscript 303](#p303) — plateau boundaries inherit SELECTIVELY: two survive untouched, one contracts 5x
+- [Postscript 288](#p288) — the wall polynomials were reconstructible all along — and asking for the reconstruction key…
+- [Postscript 289](#p289) — **[REFUTED IN PART]** nothing happens "at n = 7" — lineality is what crosses 2. The `lineality − 1` law stated in…
+- [Postscript 290](#p290) — the "24 walls per added cube" window rests its n = 9 rung on a SUPERSEDED record — and the…
+- [Postscript 291](#p291) — the two n = 3 maximisers sit in structurally DIFFERENT places — the octahedral 67 is a…
+- [Postscript 292](#p292) — the smallest length scale in the arrangement is a STAIRCASE in n, not a curve — and it is…
+- [Postscript 293](#p293) — the 727 node has ONE structural class — the record is the special POINT, not the special ARC
+- [Postscript 294](#p294) — the 727 node's special points, SOLVED — the record lies on THREE of the four arcs, and nine…
+- [Postscript 295](#p295) — the 1217 count plateau is a SEGMENT, not a point — and the claim that it was a point was a…
+- [Postscript 296](#p296) — arc D's extent SOLVED — the last swept row in the table, and the first time the chain…
+- [Postscript 297](#p297) — the tangent counts along the whole tower are LAST-CUBE-ONLY — and a gap register, because…
+- [Postscript 298](#p298) — every count-plateau tangent number rests on a FALSE PREMISE — crossing a wall need not…
+- [Postscript 299](#p299) — the 1217 count plateau is a genuine 2-dimensional SURFACE — unlike n = 6, which is a node
+- [Postscript 300](#p300) — n = 10 measured at last — the tower's top row had a count and eight dashes
+- [Postscript 301](#p301) — the 1217 plateau is a PENTAGON, not the span of its two directions — a third wall cuts a corner
+- [Postscript 302](#p302) — the 1217 plateau's third wall is CREATED by the seventh cube and INHERITED unchanged by the…
+- [Postscript 303](#p303) — plateau boundaries are inherited SELECTIVELY — two of the 1217 plateau's three walls survive…
+- [Postscript 304](#p304) — the wall family is INCOMPLETE — four planes through a point is a second family, and it is a…
 
 <!-- INDEX:END -->
 
@@ -21438,3 +21439,167 @@ completely different parameter. Condition keys name cube INDICES, and cube 7 is
 comparable across levels when the cubes they name are the same cubes.** P303's
 inheritance count is unaffected — it compares only conditions on cubes 0..6, which
 are shared — but any future comparison must check the indices first.
+
+<a id="p304"></a>
+
+## [VERIFIED] Postscript 304: the wall family is INCOMPLETE — four planes through a point is a second family, and it is a PUNCTURE where a coincidence is a step
+
+Attacking [OQ 33](OPEN_QUESTIONS.md#33) — which walls bound the count plateau — with a
+census that solves every condition on a ray and counts the regions in each cell between
+consecutive walls. `src/wall_census.py`, `data/wall_census_n6.json`.
+
+**THE HEADLINE FOR OQ 33, on a full ray rather than six hand-picked crossings.** At the
+727 record along e0, window ±1/4:
+
+    attributable crossings          217
+      coincidence walls              18   of which  7 change the count, 11 do not
+      concurrency walls             199   of which  0 change the count
+    every count change               ±4 exactly
+
+**13 of 21 coincidence walls preserve the count** (final figures; the first pass said 11 of
+18 with a separator set that the correction below replaced). [P303] had 4 of 6 from
+crossings chosen by hand; this is the whole ray, and it agrees. The premise that a first-order
+tangent must lie in every wall is refuted on a clear majority of the walls it quantifies
+over.
+
+**AND THE WALL LIST WAS NOT THE WALL LIST.** The census's constancy gate G2 — count at
+three rationals inside each cell, they must agree — reported a cell whose ends disagreed:
+693 at t = −5/24, **691 at t = −2/9**, and 693 at every other neighbour. An isolated drop
+of two regions. The tight set at −2/9 is the same 144 conditions as at its neighbours,
+nothing gained and nothing lost: **no coincidence condition is tight there at all.**
+
+What is there instead: **four face planes through a common point** — (cube 1, axis 0, −),
+(cube 1, axis 1, +), (cube 3, axis 1, +), (cube 4, axis 0, +), and its antipodal image.
+Solved, not sampled: the concurrency determinant restricted to the ray cancels to
+`9t² + 20t + 4`, with roots t = −2 and **t = −2/9** exactly.
+
+That is a codimension-1 wall of the COUNT which every instrument in this project is blind
+to. `conditions_on`, `wall_keys`, `data/wall_polynomials.json` enumerate coincidences of
+face NORMALS. A region is a component of constant cube-containment, so its vertices are
+triple points of face planes; a fourth plane arriving at one merges two vertices and can
+close a cell. Nothing about that is a normal coincidence.
+
+**THE TWO FAMILIES DO DIFFERENT JOBS, and this is the structural content.**
+
+    coincidence wall    a STEP     count differs across it              ±4
+    concurrency wall    a PUNCTURE count equal on both sides, lower ON it
+
+At −2/9: 693 | 691 | 693. That is why G2 found it and a sweep never would — and why it was
+found *by* the sample point rather than despite it. The simplest rational inside a cell is
+a LOW-HEIGHT parameter, and low-height parameters are exactly where coincidences sit, so
+the representative that METHODS 15 prescribes for keeping the engine inside its budget is
+also the one most likely to land exactly ON a missed wall. That is the opposite of the
+usual measure-zero reasoning and it is what made a 211-wall family visible from one cell.
+
+**THE RECORD IS A POINT OF EXTREME CONCURRENCY.** Of the 7620 concurrency roots on e0 in
+the window, **6772 sit at t = 0** — the record itself. 212 distinct root parameters, one of
+which carries 89% of the quadruples. Whatever a record is, this is a property of it that no
+coincidence count expresses.
+
+**THE ENUMERATION.** `src/concurrency_walls.py` takes every quadruple of face planes
+containing a plane of a moving cube (31 500 of them on e0), evaluates the 4×4 determinant
+in exact rational arithmetic at DEG+1 parameters, and interpolates. The degree bound is
+CHECKED at three parameters the interpolant never saw: 0 failures on six rays, so DEG = 8
+is sufficient and is not an assumption. G4 requires the known −2/9 wall to come back with
+its quadruple.
+
+**CONTROLS.** Both engines agree at −2/9 (691) and at its neighbours (693); the count is
+unchanged by rescaling the quaternion, so it is geometry and not arithmetic; and the Euler
+characteristic of the arrangement complex, `V − E + F − 1` from `cellcomplex.complexus`,
+agrees at every parameter tested. That last one is the only genuinely independent count in
+the project and it is used here for the first time — see [FAILURE_MODES 38](FAILURE_MODES.md#38)
+for the fact that `cellcomplex.count` is NOT independent, which I asserted before checking.
+
+**WHAT THIS INVALIDATES.** Every boundary this project located as "the nearest wall root at
+which the count changes" was searched over the coincidence family only: [P296]'s arc D
+extent, [P301]/[P302]/[P303]'s three walls of the 1217 plateau, and the arc extents in
+`data/wall_polynomials.json`. The measured EXTENTS stand — they were counted, not inferred.
+What is now open is the ATTRIBUTION of each boundary to a particular condition, because a
+concurrency wall in the same straddle interval would be the real cause. Unchecked at n = 7,
+8, 9 as of this entry.
+
+**AND A SECOND, UNEXPLAINED EVENT — reported as unexplained.** One G2 failure survives on
+e0, at **t = −4/27: count 703, neighbours 705**, confirmed by both engines, by rescaling,
+and by the Euler complex. At that parameter the four-plane concurrency count is UNCHANGED
+(3240 both sides), as are the three-plane-common-line count (192) and the parallel-pair
+count (30). The complex does change — V 848→842, E 2166→2154, F 2024→2016 — and every
+affected cell pair lies within cubes {0, 1, 2, 4}. So there is at least one further
+count-changing event type beyond both families, and I do not know what it is. One scope
+limit of the enumeration is already known and does NOT explain it: quadruples whose
+determinant vanishes identically along the ray are skipped as constant, and 232 such exist
+here — one plane from each of cubes 0, 1, 2, 4, concurrent at every parameter — but they
+are unchanged at −4/27. Recorded as [OQ 34](OPEN_QUESTIONS.md#34).
+
+**SCOPE, in the number's own label.** One ray, e0, at one record, window ±1/4. Each verdict
+is exact; the population is the crossings this ray meets.
+
+---
+
+### CORRECTION, 2026-09-12, same day — the concurrency arithmetic above was computed on the WRONG PLANE SET
+
+**Read this before any concurrency number in this entry.** `concurrency_walls.planes_at`
+took the face normals to be the ROWS of the rotation. They are the COLUMNS --
+`dimension.normals_sym` says so in its own docstring, and `euler3`/`cellcomplex` use
+`rowsT`, the transpose. The rows are the plane set of a DIFFERENT configuration, every
+cube rotated by its inverse. Every concurrency count in the body above therefore describes
+that other object and is VOID:
+
+    VOID   the -2/9 quadruple (1,0,-),(1,1,+),(3,1,+),(4,0,+) and its polynomial 9t^2+20t+4
+    VOID   "199 concurrency walls, 0 of which change the count"
+    VOID   "6772 of 7620 concurrency roots sit at t = 0"
+    VOID   the 3240 baseline, the 232 always-concurrent quadruples, and the rank sample of 45
+
+Data files renamed `data/VOID_2026-09-12_concurrency_walls_n6_transposed_planes.json` and
+`data/VOID_2026-09-12_wall_census_n6_transposed_concurrency.json`, kept rather than deleted.
+
+**WHAT SURVIVES UNCHANGED.** Everything about the COINCIDENCE family, which comes from
+`conditions_on` and never touched the broken code: **a clear majority of coincidence walls
+preserve the count** -- 13 of 21 in the corrected run, 11 of 18 in the broken one, the same
+conclusion either way -- every change is exactly ±4, and the count anomalies at t = -2/9 and
+t = -4/27 are invisible to the tight set. The conclusion that the wall family is incomplete
+also survives -- it is now better supported, not worse.
+
+**THE CORRECTED MEASUREMENT.** In the right convention the baseline is 230 four-plane
+concurrences, not 3240, and BOTH anomalies are concurrency events:
+
+    parameter        concurrences   count
+    -1/7, -6/43, -3/20      230      705     baseline
+    -2/9                    236      691     +6 quadruples, all spanning cubes {1,2,3,4}
+    -4/27                   238      703     +8, across cubes {0,1,2,4} and {0,1,3,4}
+
+The -2/9 event is six quadruples, one of which gives `-144/25 t^2 + 32/5 t + 128/75` with
+root -2/9 exactly; G4 passes on it. On e0 in the window there are 2252 quadruples with a
+root and **684 distinct root parameters**, of which t = 0 carries 280 -- the record is still
+the most degenerate point on the ray, by a smaller factor than the void number claimed.
+
+**AND THIS CLOSES [OQ 34] BEFORE IT WAS A DAY OLD.** The "count-changing parameter
+belonging to no known family" at -4/27 was the convention bug: it IS a four-plane
+concurrency, and the cube set {0,1,2,4} that the Euler complex localised it to is exactly
+the cube set the corrected enumeration names. One family, both anomalies.
+
+**HOW IT WAS CAUGHT, because the mechanism is the transferable part.** Not by a gate --
+G4 passed in the wrong convention, because a self-consistent wrong model reproduces its own
+predictions. It was caught by refusing to round off the leftover: -4/27 was written up as
+UNEXPLAINED and given its own open question, and chasing that one loose end into
+`cellcomplex`'s frame is what exposed the transpose. Had it been filed as "a mysterious
+third family" the bug would have shipped inside 21 MB of confident numbers.
+See [FAILURE_MODES 39](FAILURE_MODES.md#39).
+
+**THE FINAL, G2-CLEAN CENSUS.** With both families in the correct convention, ray e0 at the
+727 record, window +/-1/4:
+
+    distinct crossings                          684
+    cells, each counted at three rationals      685     G2 failures 0, unevaluable 0
+    crossings carrying a COINCIDENCE wall        21     8 change the count, 13 do not
+    crossings with ONLY concurrency walls       663     0 change the count
+    every count change                          +/-4   (six +4, one -4)
+    the record t = 0                            364 conditions, 38 distinct walls, 713 -> 705
+
+**Zero G2 failures is the completeness statement.** Every cell between consecutive walls of
+the two-family set holds its count at three separate rationals, so on this ray the two
+families together account for every count change there is. That is the first wall list in
+this project with a completeness check behind it rather than an assumption.
+
+**And the answer to [OQ 33] on this ray: the count plateau is bounded by COINCIDENCE walls
+only, and by 8 of the 21 of them.** Concurrency walls never bound a plateau -- all 663 of
+them leave the count equal on both sides. They puncture it instead.

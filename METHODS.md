@@ -1408,3 +1408,40 @@ end to end for the first time ([P296](LEDGER.md#p296)); the 727 arcs' special po
 the region count — 4 of 6 measured crossings do not — so solving every wall on a ray gives
 candidates for a plateau boundary, and the count still has to be taken either side. See
 [OQ 33](OPEN_QUESTIONS.md).
+
+
+<a id="23-let-the-gate-steer-the-search"></a>
+
+## [PRACTICE] 23. Let the gate steer the search, and stop only when it has nothing to say
+
+A closure that samples one point per cell, recomputes what is active there, and repeats
+until nothing new appears is a fixed point of its OWN sampling, not a certificate. Measured
+in the wall census: it converged in three passes at window 1.0 and the constancy gate still
+found five cells with a wall inside.
+
+The repair is to feed the gate's failures back in as search points — a cell that fails G2
+contributes the two probes that disagreed — and to make the stopping rule `no new keys AND
+no failures`, not `no new keys`. The anchor is then outside the procedure being stopped,
+which is what [FAILURE_MODES 2] and the two-samples-agreeing trap both ask for.
+
+The same run shows why the gate must be strong before it is trusted: G2's first form put
+its second sample next to the first, and the negative control — hide half the keys, the
+gate must fail — raised ZERO failures. Probing the first and last third of each cell
+instead raised 13 of 103. A gate is worth exactly what its negative control says it is.
+
+<a id="24-the-euler-complex-is-the-only-independent-count"></a>
+
+## [FACT] 24. The Euler complex is the only independent count in this project
+
+`cube_regions_n` and `cube_regions_q2w` are two engines and one lineage; their agreement is
+evidence about implementations, not about the answer. `cellcomplex.complexus` builds the CW
+structure of the arrangement and returns `(V, E, F, components)`, and `V − E + F − 1` is the
+region count derived from `chi(U) = 1` — a different object reaching the same number.
+
+Use it whenever a count is surprising. It confirmed both anomalies of [P304] (703 at
+−4/27, 691 at −2/9), and its V, E, F are what localised the second one when no incidence
+test could: the counts alone said "something", V−E+F said "six 0-cells, in these six cube
+pairs".
+
+Note that `cellcomplex.count()` is NOT this — it shells out to the engine ([FAILURE_MODES
+38](FAILURE_MODES.md#38)).

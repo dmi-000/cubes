@@ -1,0 +1,11 @@
+n=6  base count 727
+G1 ok: base point is the 727 record
+   e0: 7620 concurrency roots in window
+e0         pass 1 | 2776 keys | 7760 roots | 232 crossings | 438 new keys | G2 fail 2  (434s)
+e0         pass 2 | 2776 keys | 15456 roots | 249 crossings | 0 new keys | G2 fail 1  (582s)
+e0         pass 3 | 2776 keys | 15456 roots | 249 crossings | 0 new keys | G2 fail 1  (666s)
+e0         pass 4 | 2776 keys | 15456 roots | 249 crossings | 0 new keys | G2 fail 1  (721s)
+e0         pass 5 | 2776 keys | 15456 roots | 249 crossings | 0 new keys | G2 fail 1  (822s)
+e0         pass 6 | 2776 keys | 15456 roots | 249 crossings | 0 new keys | G2 fail 1  (887s)
+   e0       attributable 217 | changes   7 | preserves 210 | unevaluated 0 | G2 failures 1
+written data/wall_census_n6.json
