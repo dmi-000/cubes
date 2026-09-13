@@ -370,6 +370,8 @@ with `index_ledger.py` after appending.
 - [Postscript 302](#p302) — the 1217 plateau's third wall is CREATED by the seventh cube and INHERITED unchanged by the…
 - [Postscript 303](#p303) — plateau boundaries are inherited SELECTIVELY — two of the 1217 plateau's three walls survive…
 - [Postscript 304](#p304) — the wall family is INCOMPLETE — four planes through a point is a second family, and it is a…
+- [Postscript 305](#p305) — the old premise's candidate space does not CONTAIN the n = 6 plateau — 7 of 27 tight walls…
+- [Postscript 305 addendum](#postscript-305-addendum-n--7-and-n--8-land-the-other-way-and-the-n--6-sector-sweep-is-not-usable) — n = 7 and n = 8 land the other way, and the n = 6 sector sweep is NOT usable
 
 <!-- INDEX:END -->
 
@@ -21603,3 +21605,76 @@ this project with a completeness check behind it rather than an assumption.
 **And the answer to [OQ 33] on this ray: the count plateau is bounded by COINCIDENCE walls
 only, and by 8 of the 21 of them.** Concurrency walls never bound a plateau -- all 663 of
 them leave the count equal on both sides. They puncture it instead.
+
+<a id="p305"></a>
+
+## [VERIFIED] Postscript 305: the old premise's candidate space does not CONTAIN the n = 6 plateau — 7 of 27 tight walls are provably left, and the lineality holds nothing
+
+Settling [OQ 33] by solving rather than sampling. `src/plateau_solve.py`,
+`data/plateau_arcs_n6.json`.
+
+**THE SETUP, exact.** At the 727 record: ambient 15, **27 distinct tight walls, gradient
+rank 14**, so the tangent-search premise ("a first-order tangent lies in every wall") offers
+a candidate space of dimension 15 − 14 = **1**. Gradients are read off each wall's own
+polynomial restricted to each axis — the wall vanishes at the record, so the linear
+coefficient IS the partial, and the scaling is consistent because it is one polynomial.
+
+**THE LINEALITY HOLDS NOTHING.** Evaluated at a SOLVED point — first cell each side, all
+roots taken, simplest rational strictly inside, no step size — the count along the lineality
+direction is **not 727**. The old premise's entire candidate space fails at n = 6.
+
+**AND THE PLATEAU IS SOMEWHERE ELSE.** Arc D passes through the record at s = 0, and it
+holds the record on both sides at solved points:
+
+    t = -1/10   727
+    t = +1/6    727
+
+while **crossing 7 of the 27 tight walls** (walls 1, 2, 9, 10, 16, 25, 26 of the indexed
+list). So the premise is not merely undercounting the dimension here — **its candidate space
+does not contain the plateau at all.**
+
+**WHAT IS SETTLED FOR [OQ 33] AT n = 6.** Those 7 walls are decisively NOT plateau
+boundaries: for each, a point is exhibited with the record count and that wall nonzero.
+The remaining 20 are UNDECIDED and are reported as such. Plateau dimension **≥ 1**, achieved
+by a direction outside the premise's space.
+
+**Echo worth noting, not yet a law.** [P298] found a direction crossing **7 of 51** walls
+holding the count at n = 7; this is **7 of 27** at n = 6. Same number, different levels, and
+nothing yet connects them.
+
+**TWO INSTRUMENT FAULTS FOUND HERE, both of the silent kind.**
+1. "Cross wall w and nothing else" decided **1 of 27** walls: with rank 14 on 27 gradients
+   almost every gradient lies in the span of the others, so that system has only the zero
+   solution. The other 26 were reported UNDECIDABLE-ALONE rather than given a number.
+2. `first_cells` let a root AT the origin collapse the lower bound, so every negative side
+   returned None and every probe silently measured one side only. The record sits on many
+   walls, so this hit 100% of probes.
+
+**SCOPE.** One level, one record, one holding direction. Arcs A, B, C were also probed and
+returned "does not hold" — that is VOID, not evidence: they do not pass through the record
+(their 727 points sit at s₀ = 3, 1/2, 2), so their direction vectors applied at the record
+answer a different question. n = 7 and n = 8 are running.
+
+### Postscript 305 addendum: n = 7 and n = 8 land the other way, and the n = 6 sector sweep is NOT usable
+
+    n   ambient  tight walls  rank  premise dim   lineality directions holding the record
+    6      15         27       14        1        none
+    7      18         51       16        2        1 of 2
+    8      21         75       18        3        2 of 3
+
+So **n = 6 is the outlier**: it is the only level where the premise's candidate space holds no
+record count anywhere. At n = 7 and n = 8 part of the lineality does hold, which is consistent
+with the published >= 2 and >= 3 being genuine lower bounds rather than wrong objects.
+
+**AND A SWEEP THAT MUST NOT BE READ AS A RESULT.** Perturbing arc D inside its own 2-dimensional
+stratum returned 685 at every lambda tested -- 1/64, 1/16, 1/4, 1 and their negatives, both sides,
+nine identical answers. That uniformity is the tell this project has already paid for once (twelve
+directions returning identical intervals, [P295]): `plateau_solve.first_cells` builds its roots
+from branches FROZEN AT THE RECORD and has **no completeness gate**, which is exactly the defect
+G2 caught in the census where three passes of closure still left five cells with a wall inside. A
+lambda != 0 ray may be landing past a wall the root set never saw.
+
+**So the n = 6 plateau dimension is >= 1 and <= 2, and 2 is UNRESOLVED** -- not 1. The sector
+argument (arc D's direction is interior to its sector, so an open cone around it shares the cell)
+predicts 2; the sweep contradicts it; the sweep is the one without a gate. Settling it needs
+`first_cells` given the census's branch closure and G2, which is the next step and is not done.

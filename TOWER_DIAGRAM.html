@@ -258,7 +258,7 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
       <div class="head">
         <span class="count">727</span>
         <span class="delta">+334</span>
-        <span class="tag iso">isolated</span>
+        <span class="tag iso">plateau &#8805; 1 &#183; <em>not</em> isolated</span>
         <span class="adds">adds <code>7,14,1,&#8722;5</code> &#8212; and sits where <em>four arcs cross</em></span>
       </div>
       <div class="strip">
@@ -271,7 +271,12 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
         <div class="cell"><span class="k">min feature</span><span class="v">6.91 &#215; 10&#8315;&#179;</span></div>
       </div>
       <p class="note">The pivot of the whole tower: everything above extends <em>this one point</em>.
-      See the node inset below.</p>
+      See the node inset below. <b>Corrected 2026-09-13:</b> the &#8220;isolated&#8221; reading was wrong.
+      Arc D holds 727 on both sides at solved points (t = &#8722;1/10, +1/6) <em>while crossing 7 of
+      the 27 tight walls</em>, so those 7 are decisively not plateau boundaries and the plateau is
+      at least 1-dimensional. The container is the flat of the other <b>20</b> walls &#8212; rank 13,
+      a <b>2-dimensional</b> stratum &#8212; not the full tight set of 27, whose own candidate space
+      (lineality 1) holds no record count at all.</p>
     </div>
   </div>
 
@@ -374,6 +379,14 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
 </div>
 
 <h2>Two different shapes, which must not be conflated</h2>
+<p class="sub" style="border-left:3px solid var(--warn);padding-left:.7em">
+<b>Correction, 2026-09-13.</b> Every <span class="num">walls</span> figure on this page counts
+<em>coincidence</em> conditions. That is not the wall family of the count: four face planes through
+a common point is a second codimension-1 family, invisible to the tight set, and at n = 6 it
+supplies 663 of the 684 crossings on one solved ray. The two behave differently &#8212; a coincidence
+wall is a <b>step</b> (the count differs across it, always by 4), a concurrency wall is a
+<b>puncture</b> (the count is equal on both sides and lower <em>on</em> it). Of the coincidence
+walls crossed on that ray, <b>8 of 21 change the count and 13 do not</b>.</p>
 <p class="sub">A record sits in two regions at once, and they have different dimensions. Confusing
 them is the single easiest mistake to make here.</p>
 
@@ -410,7 +423,10 @@ them is the single easiest mistake to make here.</p>
     <span class="lab"><b>Count plateau.</b> Configurations with the same region count. A different
     object with different boundaries. The published 0, 0, 2, 1, 1 at n = 4&#8230;8 counts
     <em>last-cube</em> tangents only &#8212; the plateau is &#8805;2-dimensional at n = 7 and n = 8, and
-    n = 4&#8211;6 are unresolved rather than zero.</span>
+    n = 4&#8211;6 are unresolved rather than zero. <b>Corrected 2026-09-13:</b> at n = 6 the premise
+    behind those counts does not merely undercount &#8212; its candidate space does not
+    <em>contain</em> the plateau. The plateau lies in the flat of the walls it does not leave
+    (20 walls, rank 13, dimension 2), not in the intersection of all 27.</span>
   </div>
 </div>
 
@@ -622,8 +638,9 @@ crossing <b>is</b> that dot &#8212; a crossing anywhere else would assert a seco
 that does not exist. Each is drawn asymmetric about the record in the ratio its brackets give:
 about 23 : 1 along the fibre, about 2 : 1 along the base.</p>
 <p><b>The filled shape is measured, and it is not the span.</b> Five directions first confirmed
-the plateau is 2-dimensional rather than a node &#8212; the analogous case at n = 6 is the opposite,
-where two directions hold and <em>no</em> combination does. But directions are rays, and a region
+the plateau is 2-dimensional rather than a node &#8212; the n = 6 comparison that stood here
+(&#8220;two directions hold and no combination does&#8221;) was drawn from the same last-cube slice and
+is withdrawn; n = 6 is now known to hold 727 along a direction crossing 7 walls. But directions are rays, and a region
 needs two parameters. A 5&#215;5 grid, each axis scaled by its own bracketed extent, holds 1217 at
 <b>22 of 25</b> points: the corner with fibre negative and base positive is cut, at roughly
 <span class="num">b &#8722; a = 1.25</span>. So a <b>third wall</b> bounds the region, aligned with

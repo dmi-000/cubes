@@ -1225,6 +1225,15 @@ every count change there is, and the plateau is bounded by coincidence walls onl
 evidence so far, drawn entirely from the coincidence family, and the concurrency family
 matters for what sits AT a point rather than for what bounds a region.
 
+**SETTLED AT n = 6, 2026-09-12 by [P305](LEDGER.md#p305), and the news is worse for the old
+method than expected.** The premise's candidate space — the null space of all 27 tight
+gradients, dimension 1 — **does not hold the record count at all**, while arc D holds 727 on
+both sides at solved points (t = −1/10 and t = +1/6) **while crossing 7 of the 27 tight
+walls**. So the premise does not undercount the plateau's dimension at n = 6; it does not
+contain the plateau. Those 7 walls are decisively NOT boundaries — each has an exhibited
+point with the record count and the wall nonzero. The other 20 are UNDECIDED. Dimension ≥ 1,
+attained outside the premise's space.
+
 **What remains open here:** whether "coincidence walls only" survives at n = 7, 8, 9 and
 on non-axis rays; whether the 7-of-18 that do change the count are predictable from the
 group's cube indices; and the ATTRIBUTION audit that [P304] opens — every boundary this

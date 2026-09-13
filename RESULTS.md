@@ -423,6 +423,11 @@ with the lower bound exhibited by the record. `d₃ ≤ 24` (l=1 ceiling law) an
 > every count change, and **663 concurrency-only crossings change the count not
 > once**. Concurrency walls puncture a plateau; they do not bound one.
 >
+> **And at n = 6 the premise's candidate space is now known not to CONTAIN the
+> plateau** ([P305](LEDGER.md#p305)): the lineality holds no record count, while
+> arc D holds 727 on both sides at solved points while crossing 7 of the 27 tight
+> walls. Those 7 are decisively not boundaries; 20 remain undecided.
+>
 > An apparent third family at t = −4/27 was a plane-convention bug in the new
 > code, found and closed the same day ([OQ 34](OPEN_QUESTIONS.md#34),
 > [FAILURE_MODES 39](FAILURE_MODES.md#39)); it is a four-plane concurrency like
