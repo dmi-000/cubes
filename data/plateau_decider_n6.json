@@ -1,0 +1,648 @@
+{
+ "flips": 486,
+ "rank_degenerate": 264,
+ "rank3": 222,
+ "genuine": 222,
+ "examples": [
+  {
+   "planes": [
+    [
+     0,
+     0,
+     1
+    ],
+    [
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     1,
+     1
+    ],
+    [
+     4,
+     2,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     -1
+    ],
+    [
+     3,
+     0,
+     -1
+    ],
+    [
+     4,
+     1,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    -1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     0,
+     1
+    ],
+    [
+     2,
+     2,
+     -1
+    ],
+    [
+     3,
+     2,
+     1
+    ],
+    [
+     4,
+     2,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     0,
+     -1
+    ],
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     3,
+     1,
+     -1
+    ],
+    [
+     4,
+     2,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    -1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     0,
+     -1
+    ],
+    [
+     2,
+     1,
+     1
+    ],
+    [
+     3,
+     0,
+     1
+    ],
+    [
+     4,
+     1,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     0,
+     -1
+    ],
+    [
+     2,
+     2,
+     1
+    ],
+    [
+     3,
+     2,
+     -1
+    ],
+    [
+     4,
+     2,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    -1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     1,
+     0,
+     -1
+    ],
+    [
+     3,
+     1,
+     1
+    ],
+    [
+     4,
+     2,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    -1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     1,
+     2,
+     1
+    ],
+    [
+     3,
+     2,
+     -1
+    ],
+    [
+     4,
+     1,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     2,
+     0,
+     -1
+    ],
+    [
+     3,
+     0,
+     -1
+    ],
+    [
+     4,
+     1,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     1,
+     1
+    ],
+    [
+     2,
+     2,
+     1
+    ],
+    [
+     3,
+     1,
+     1
+    ],
+    [
+     4,
+     0,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    -1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     1,
+     -1
+    ],
+    [
+     1,
+     0,
+     1
+    ],
+    [
+     3,
+     1,
+     -1
+    ],
+    [
+     4,
+     2,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     1,
+     -1
+    ],
+    [
+     1,
+     2,
+     -1
+    ],
+    [
+     3,
+     2,
+     1
+    ],
+    [
+     4,
+     1,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    -1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     1,
+     -1
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     3,
+     0,
+     1
+    ],
+    [
+     4,
+     1,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    -1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     1,
+     -1
+    ],
+    [
+     2,
+     2,
+     -1
+    ],
+    [
+     3,
+     1,
+     -1
+    ],
+    [
+     4,
+     0,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     0,
+     -1
+    ],
+    [
+     3,
+     0,
+     -1
+    ],
+    [
+     4,
+     0,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     1,
+     1
+    ],
+    [
+     3,
+     2,
+     1
+    ],
+    [
+     4,
+     1,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     1,
+     1
+    ],
+    [
+     3,
+     1,
+     -1
+    ],
+    [
+     4,
+     0,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    -1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     2,
+     -1
+    ],
+    [
+     1,
+     0,
+     1
+    ],
+    [
+     3,
+     0,
+     1
+    ],
+    [
+     4,
+     0,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    -1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     2,
+     -1
+    ],
+    [
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     2,
+     -1
+    ],
+    [
+     4,
+     1,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    -1
+   ]
+  },
+  {
+   "planes": [
+    [
+     0,
+     2,
+     -1
+    ],
+    [
+     2,
+     1,
+     -1
+    ],
+    [
+     3,
+     1,
+     1
+    ],
+    [
+     4,
+     0,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_aug": 3,
+   "concurrent": true,
+   "lambda": "1/64",
+   "at_lambda": [
+    2,
+    1
+   ]
+  }
+ ]
+}

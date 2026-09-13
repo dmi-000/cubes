@@ -1,0 +1,6 @@
+not-crossed walls 20 rank 13 | closure 20 rank 13 | stratum dim 2
+null basis 2
+basis dir 0 holds False {'neg': 685, 'pos': 685}
+basis dir 1 holds False {'neg': 685, 'pos': 685}
+generic point of the stratum holds False {'neg': 685, 'pos': 685}
+done

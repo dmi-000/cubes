@@ -1,0 +1,10 @@
+lam=0       crosses  7 holds True  {'neg': 727, 'pos': 727}
+lam=1/64    crosses  7 holds False {'neg': 685, 'pos': 685}
+lam=-1/64   crosses  7 holds False {'neg': 685, 'pos': 685}
+lam=1/16    crosses  7 holds False {'neg': 685, 'pos': 685}
+lam=-1/16   crosses  7 holds False {'neg': 685, 'pos': 685}
+lam=1/4     crosses  7 holds False {'neg': 685, 'pos': 685}
+lam=-1/4    crosses  7 holds False {'neg': 685, 'pos': 685}
+lam=1       crosses  7 holds False {'neg': 685, 'pos': 685}
+lam=-1      crosses  7 holds False {'neg': 685, 'pos': 685}
+done

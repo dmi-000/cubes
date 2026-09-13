@@ -1,0 +1,5 @@
+D crosses 7 holds True
+A crosses 9 holds False
+B crosses 9 holds False
+C crosses 8 holds False
+done 7 walls left, 1 independent directions

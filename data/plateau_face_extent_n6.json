@@ -1,0 +1,36 @@
+{
+ "n_critical": 47,
+ "lambda_min": "763/3124",
+ "lambda_min_float": 0.2442381562099872,
+ "family": "concurrency",
+ "next": [
+  [
+   "763/3124",
+   "concurrency"
+  ],
+  [
+   "109/373",
+   "concurrency"
+  ],
+  [
+   "109/373",
+   "concurrency"
+  ],
+  [
+   "109/140",
+   "coincidence"
+  ],
+  [
+   "109/140",
+   "coincidence"
+  ],
+  [
+   "109/140",
+   "coincidence"
+  ],
+  [
+   "109/140",
+   "coincidence"
+  ]
+ ]
+}

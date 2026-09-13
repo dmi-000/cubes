@@ -1,0 +1,8 @@
+concurrency quadruples through the record: 775 (2s)
+snapshots built (2s)
+concurrency gradients: 622 (8s)
+
+coincidence walls through record: 27 | vanish on arc D: 20 | crossed: 7 | rank 13 -> face dim 2
+concurrency walls through record: 622 | vanish on arc D: 582 | crossed: 40
+BOTH families: rank 13 -> face containing arc D has dimension 2
+done

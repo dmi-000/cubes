@@ -1,0 +1,14 @@
+{
+ "n": 6,
+ "ambient": 15,
+ "coincidence_walls": 27,
+ "concurrency_walls_through_record": 622,
+ "coincidence_vanishing_on_arcD": 20,
+ "coincidence_crossed": 7,
+ "concurrency_vanishing_on_arcD": 582,
+ "concurrency_crossed": 40,
+ "rank_coincidence_face": 13,
+ "dim_coincidence_face": 2,
+ "rank_both": 13,
+ "plateau_face_dimension": 2
+}

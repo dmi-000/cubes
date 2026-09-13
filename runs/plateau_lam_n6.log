@@ -1,0 +1,4 @@
+walls crossed by arc D that the perturbation can reach: 47
+smallest |lambda| at which the face is LEFT: 763/3124 0.2442381562099872 concurrency
+next few: [('763/3124', 'concurrency'), ('109/373', 'concurrency'), ('109/373', 'concurrency'), ('109/140', 'coincidence')]
+done

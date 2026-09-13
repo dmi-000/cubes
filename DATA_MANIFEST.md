@@ -141,7 +141,30 @@ per record (1, 1, 1, 2, 3 at n = 4..8) which this one does not.
 | `data/vertex_scale.json` | exact closest vertex pairs per level — the arrangement's minimum feature size |
 | `data/concurrency_walls_n6.json` | the SECOND wall family: four face planes through a point, per ray, as exact interpolated polynomials with their roots ([P304](LEDGER.md#p304)). `degree_bound_failures` is the check that the degree bound held — 0. Roots are determinant zeros; a root is a genuine common point only where rank(normals) = rank(augmented) = 3, not checked individually |
 | `data/wall_census_n6.json` | the wall census: every crossing on a ray, the count in each cell between crossings, and one verdict per attributable wall. **`constancy_failures` on ray e0 is 0 across 685 cells counted at three rationals each — the completeness check.** `spurious` marks roots of a branch active nowhere near them |
+| `data/plateau_solve.json` | which tight walls the plateau can be shown to leave, per level, and the premise's own candidate space evaluated at solved points ([P305](LEDGER.md#p305)). n = 6 is the outlier: its lineality holds no record count at all |
+| `data/plateau_arcs_n6.json` | the four 727 arcs as candidate plateau directions. **Only arc D passes through the record**; the A, B, C rows are void and the file's `parameters` block says so |
+| `data/plateau_container_n6.json`, `data/plateau_face_n6.json`, `data/plateau_face_extent_n6.json` | the first-order container of the n = 6 plateau: the flat of the 20 walls arc D keeps, rank 13, dimension 2; unchanged by adding the concurrency family; face left at λ = 763/3124 exactly |
+| `data/plateau_leading_n6.json`, `data/plateau_decider_n6.json` | **the decider** ([P306](LEDGER.md#p306)): 486 quadruples change leading behaviour off arc D, of which **222 are genuine** (rank 3 = rank augmented) and 264 are parallel-pair degeneracies with no common point. Those 222 contain the arc and pin the plateau to dimension exactly 1 |
+| `data/plateau_sector_n6.json` | **SUPERSEDED.** Its first cell was built from coincidence roots only — ungated and ~200× too wide, so it reported a distant cell's count as local. Kept because P306's reasoning quotes it |
 | `data/VOID_2026-09-12_concurrency_walls_n6_transposed_planes.json`, `data/VOID_2026-09-12_wall_census_n6_transposed_concurrency.json` | **VOID, kept not deleted.** Produced with face normals taken as the ROWS of the rotation instead of the COLUMNS, i.e. the plane set of a different configuration ([FAILURE_MODES 39](FAILURE_MODES.md#39)). Every concurrency number in them describes that other object. Retained so the corrected entry's claims about what was wrong stay checkable |
+
+**EVERY FILE MUST SAY HOW IT WAS MADE (convention, 2026-09-13).** Each `.json` written from
+now on carries a `reproduce` block: the exact command line, the script and its **SHA-256**,
+the declared parameters, the engines with their hashes, library versions, and the input files
+consumed. There is no git here, so the hash IS the version — it is what distinguishes a file
+written by today's `concurrency_walls.py` from one written before the plane-convention fix
+([P304]), which no timestamp could. Paths are relative, never absolute and never a hostname,
+because these files are quoted in published documents. `src/provenance.py` emits the block;
+`PROV.stamp(parameters=vars(args))` is the whole call.
+
+The eleven files from 2026-09-12/13 were stamped RETROSPECTIVELY from the session record and
+say so in the block; everything later is emitted by the script itself. Files older than that
+have no block, and reconstructing their parameters means reading the ledger.
+
+**Probe scripts live in `src/probes/`, not in scratch.** Nine of this session's data files
+were written by throwaway scripts in a temp directory — the exact failure the deliverables
+rule names, since the file survives and the thing that made it does not. They are now in the
+repository under the names their `reproduce` blocks cite.
 
 **Read the caveat fields.** Several of these carry `IMPORTANT`, `CAVEATS` or
 `POWER_IS_NEAR_ZERO` keys recording what the measurement does not cover; those were

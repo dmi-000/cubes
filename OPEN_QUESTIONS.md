@@ -1234,6 +1234,13 @@ contain the plateau. Those 7 walls are decisively NOT boundaries — each has an
 point with the record count and the wall nonzero. The other 20 are UNDECIDED. Dimension ≥ 1,
 attained outside the premise's space.
 
+**n = 6 SETTLED TO AN EQUALITY 2026-09-13 ([P306](LEDGER.md#p306)): the plateau branch through
+arc D has dimension exactly 1.** It is pinned by **222 genuine concurrency walls that CONTAIN
+the arc** — they vanish identically along it, so every gradient method files them as walls the
+plateau does not leave, and the first-order container (dimension 2) over-estimates. The walls
+that bound a plateau are exactly the ones gradients cannot see; the decider is the order of
+vanishing along the ray.
+
 **What remains open here:** whether "coincidence walls only" survives at n = 7, 8, 9 and
 on non-axis rays; whether the 7-of-18 that do change the count are predictable from the
 group's cube indices; and the ATTRIBUTION audit that [P304] opens — every boundary this

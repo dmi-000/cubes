@@ -1,0 +1,87 @@
+{
+ "what": "is the plateau 2-dimensional: arc D perturbed inside its own stratum",
+ "stratum_dimension": 2,
+ "probes": [
+  {
+   "lambda": "0",
+   "holds": true,
+   "crosses": 7,
+   "counts": {
+    "neg": 727,
+    "pos": 727
+   }
+  },
+  {
+   "lambda": "1/64",
+   "holds": false,
+   "crosses": 7,
+   "counts": {
+    "neg": 685,
+    "pos": 685
+   }
+  },
+  {
+   "lambda": "-1/64",
+   "holds": false,
+   "crosses": 7,
+   "counts": {
+    "neg": 685,
+    "pos": 685
+   }
+  },
+  {
+   "lambda": "1/16",
+   "holds": false,
+   "crosses": 7,
+   "counts": {
+    "neg": 685,
+    "pos": 685
+   }
+  },
+  {
+   "lambda": "-1/16",
+   "holds": false,
+   "crosses": 7,
+   "counts": {
+    "neg": 685,
+    "pos": 685
+   }
+  },
+  {
+   "lambda": "1/4",
+   "holds": false,
+   "crosses": 7,
+   "counts": {
+    "neg": 685,
+    "pos": 685
+   }
+  },
+  {
+   "lambda": "-1/4",
+   "holds": false,
+   "crosses": 7,
+   "counts": {
+    "neg": 685,
+    "pos": 685
+   }
+  },
+  {
+   "lambda": "1",
+   "holds": false,
+   "crosses": 7,
+   "counts": {
+    "neg": 685,
+    "pos": 685
+   }
+  },
+  {
+   "lambda": "-1",
+   "holds": false,
+   "crosses": 7,
+   "counts": {
+    "neg": 685,
+    "pos": 685
+   }
+  }
+ ]
+}

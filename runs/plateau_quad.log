@@ -1,0 +1,9 @@
+through-record quadruples 775 | singular at the record (order>=2) 0
+quadruples whose LEADING behaviour differs between arc D and the perturbation: 486
+    {'planes': [[0, 0, 1], [0, 0, -1], [1, 2, 1], [3, 0, 1]], 'lambda': '1/64', 'at_arcD': [None, 0], 'at_lambda': [2, 1], 'degenerate': False}
+    {'planes': [[0, 0, 1], [0, 0, -1], [1, 2, 1], [3, 0, -1]], 'lambda': '1/64', 'at_arcD': [None, 0], 'at_lambda': [2, -1], 'degenerate': False}
+    {'planes': [[0, 0, 1], [0, 0, -1], [1, 2, 1], [4, 0, 1]], 'lambda': '1/64', 'at_arcD': [None, 0], 'at_lambda': [2, -1], 'degenerate': False}
+    {'planes': [[0, 0, 1], [0, 0, -1], [1, 2, 1], [4, 0, -1]], 'lambda': '1/64', 'at_arcD': [None, 0], 'at_lambda': [2, 1], 'degenerate': False}
+    {'planes': [[0, 0, 1], [0, 0, -1], [1, 2, -1], [3, 0, 1]], 'lambda': '1/64', 'at_arcD': [None, 0], 'at_lambda': [2, -1], 'degenerate': False}
+    {'planes': [[0, 0, 1], [0, 0, -1], [1, 2, -1], [3, 0, -1]], 'lambda': '1/64', 'at_arcD': [None, 0], 'at_lambda': [2, 1], 'degenerate': False}
+done

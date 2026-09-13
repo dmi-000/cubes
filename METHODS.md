@@ -1445,3 +1445,23 @@ pairs".
 
 Note that `cellcomplex.count()` is NOT this — it shells out to the engine ([FAILURE_MODES
 38](FAILURE_MODES.md#38)).
+
+
+<a id="25-a-data-file-records-its-own-command-line"></a>
+
+## [PRACTICE] 25. A data file records its own command line
+
+Every `.json` this project writes carries a `reproduce` block: command, script, script hash,
+parameters, engine hashes, library versions, inputs consumed. `src/provenance.py`,
+one call: `PROV.stamp(parameters=vars(args))`.
+
+The hash is the load-bearing field, not the timestamp. There is no git in this tree, so the
+script's SHA-256 is its version — and this session produced the exact case that needs it: two
+`concurrency_walls_n6.json` files, hours apart, one computed with the face normals taken as
+the rows of the rotation matrix and one with the columns. Same name, same shape, same day,
+entirely different objects ([P304]). A timestamp cannot separate those; a hash does.
+
+And the corollary that cost nine files here: **a probe script is a deliverable.** Nine data
+files in `data/` were written by scripts in a temp directory, which is the deliverables rule's
+own failure case — the measurement survives and the thing that produced it does not. They live
+in `src/probes/` now, named as their `reproduce` blocks cite them.

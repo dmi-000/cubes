@@ -1,0 +1,4 @@
+n=6  ambient 15 | record 727 | distinct tight walls 27
+   wall 25/27 cubes=[3, 5]       BOUNDS           {'neg': None, 'pos': 685}
+n=6 -> {"n": 6, "ambient": 15, "record": 727, "tight_walls": 27, "rank_all_tight": 14, "old_premise_dimension": 1, "bounding_walls": 1, "rank_bounding": 1, "plateau_tangent_dimension": 14, "undecidable_alone": 26, "unevaluable": 0, "witness_off_full_tight_variety": {"counts": {"neg": null, "pos": 701}, "at": {"neg": "None", "pos": "1/64"}, "holds_record": false}, "seconds": 167.7}
+written data/plateau_solve.json

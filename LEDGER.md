@@ -372,6 +372,7 @@ with `index_ledger.py` after appending.
 - [Postscript 304](#p304) — the wall family is INCOMPLETE — four planes through a point is a second family, and it is a…
 - [Postscript 305](#p305) — the old premise's candidate space does not CONTAIN the n = 6 plateau — 7 of 27 tight walls…
 - [Postscript 305 addendum](#postscript-305-addendum-n--7-and-n--8-land-the-other-way-and-the-n--6-sector-sweep-is-not-usable) — n = 7 and n = 8 land the other way, and the n = 6 sector sweep is NOT usable
+- [Postscript 306](#p306) — the n = 6 plateau is EXACTLY 1-dimensional — pinned by 222 walls that CONTAIN it, which no…
 
 <!-- INDEX:END -->
 
@@ -21678,3 +21679,49 @@ lambda != 0 ray may be landing past a wall the root set never saw.
 argument (arc D's direction is interior to its sector, so an open cone around it shares the cell)
 predicts 2; the sweep contradicts it; the sweep is the one without a gate. Settling it needs
 `first_cells` given the census's branch closure and G2, which is the next step and is not done.
+
+<a id="p306"></a>
+
+## [VERIFIED] Postscript 306: the n = 6 plateau is EXACTLY 1-dimensional — pinned by 222 walls that CONTAIN it, which no gradient can see
+
+[P305] left n = 6 at ">= 1, <= 2". Solving closes it to **= 1**, and the reason is a blind spot
+in every gradient-based method this project has used.
+
+**THE CHAIN, all exact.**
+
+    coincidence walls at the record        27, rank 14   arc D leaves 7, keeps 20
+    concurrency walls through the record  775            arc D leaves 40
+    container = flat of the kept walls     rank 13  ->  dimension 2   (unchanged by either family)
+    first lambda leaving that face         763/3124 exactly, via a concurrency wall
+    true first cell along arc D            (-1/2274, 1/4041)
+
+**THE CONTRADICTION THAT FORCED IT.** Counting in the properly gated first cell -- roots from
+BOTH families, not coincidence alone -- gives 727 at lambda = 0 and **685 at lambda = 1/64 and
+1/16**, all three strictly inside the same first-order face, with arc D's direction in that
+face's INTERIOR (nonzero on all 47 walls it crosses). If the count were a function of the
+first-order sign vector, they would agree. **They do not, so it is not.**
+
+**WHAT DECIDES IT: 222 WALLS THAT CONTAIN THE ARC.** Of the 775 through-record quadruples, 486
+have a different leading behaviour along arc D than along the perturbation -- identically zero
+along the arc, order 2 beside it. Filtering for geometry rather than rank-degeneracy (264 carry
+a parallel pair and have no common point at all), **222 are genuine: rank of normals = rank of
+augmented = 3.** Arc D lies inside 222 curved concurrency hypersurfaces, and any step off it
+leaves all of them at once.
+
+**SO THE PLATEAU BRANCH THROUGH ARC D HAS DIMENSION EXACTLY 1**, sitting inside a 2-dimensional
+first-order container that over-estimates it.
+
+**THE BLIND SPOT, which is the transferable part.** A wall that CONTAINS the branch vanishes
+identically along it, so `grad . d = 0`, and every rank computation files it under "walls the
+plateau does not leave" -- into the container, never into the boundary. But containing a
+direction is not containing a neighbourhood of it, and these walls are curved. **The walls that
+pin a plateau down are exactly the ones gradients cannot see.** The decider is the ORDER OF
+VANISHING of each wall's restriction along the ray, not its gradient -- which is also why
+[P298]'s tangent premise could not have been repaired by widening the candidate space.
+
+**Corrections to my own entries, same day.** [P305]'s "container is 2-dimensional" stands as a
+first-order statement and is NOT the plateau dimension. The "153 degenerate walls" reported in
+its addendum was wrong: **0** of the 775 are singular at the record; the 153 were quadruples whose
+determinant vanishes identically along every axis. And the n = 6 sector sweep, which I set aside
+as ungated, was reporting a real distinction that the first-order model cannot represent -- the
+sweep was right and my reason for doubting it was wrong, though it was also genuinely ungated.
