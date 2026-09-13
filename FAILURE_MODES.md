@@ -1295,6 +1295,8 @@ indistinguishable from inside the program, so the check has to be external — a
 directory is non-empty at import, or print the resolved path and the entry count once per run.
 The third file broken by that move, and the first where the breakage raised nothing.
 
+<a id="33"></a>
+
 ## 33. A selective run that rebuilds the whole index — a deletion wearing a write's clothes
 
 `wall_keys.py` accepts record labels on the command line and exports only those. Its `main`

@@ -1241,6 +1241,18 @@ plateau does not leave, and the first-order container (dimension 2) over-estimat
 that bound a plateau are exactly the ones gradients cannot see; the decider is the order of
 vanishing along the ray.
 
+**PLATEAU DIMENSIONS SETTLED AT n = 6, 7, 8 — 1, 2, 2 — 2026-09-13 ([P307](LEDGER.md#p307)).**
+Equalities, not bounds, each read off the same signature: **zero** genuine containing walls in
+the directions a plateau extends, hundreds in the directions it stops (222/222 at n = 6,
+468/520 at n = 7, 766/766 at n = 8). n = 7 agrees with [P301]'s pentagon, which was measured
+by counting a grid at finite distance — two methods, different scales, same answer.
+
+**And the seed decides the answer.** Seeded from the lineality alone, n = 7 returns 1; seeded
+with the fibre and base directions [P299]/[P301] actually used, it returns 2 — because the
+base direction's container is rank 44, dimension 3, while the lineality's is 2. The plateau
+lives in the larger container and a lineality search cannot reach it, exactly as at n = 6
+where the plateau's direction is arc D, outside the lineality entirely.
+
 **What remains open here:** whether "coincidence walls only" survives at n = 7, 8, 9 and
 on non-axis rays; whether the 7-of-18 that do change the count are predictable from the
 group's cube indices; and the ATTRIBUTION audit that [P304] opens — every boundary this

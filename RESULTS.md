@@ -423,6 +423,14 @@ with the lower bound exhibited by the record. `d₃ ≤ 24` (l=1 ceiling law) an
 > every count change, and **663 concurrency-only crossings change the count not
 > once**. Concurrency walls puncture a plateau; they do not bound one.
 >
+> **PLATEAU DIMENSIONS SETTLED 2026-09-13 ([P307](LEDGER.md#p307)): n = 6, 7, 8
+> are 1, 2, 2 — equalities, not bounds.** Each is pinned by the walls that
+> CONTAIN the branch, which vanish identically along it and so have no
+> first-order signature: zero of them where a plateau extends, hundreds where it
+> stops. n = 7 independently confirms [P301]'s 2-dimensional pentagon. The
+> dimension reported depends entirely on which directions seed the search, and
+> the instrument records its seeds with every number it writes.
+>
 > **And at n = 6 the premise's candidate space is now known not to CONTAIN the
 > plateau** ([P305](LEDGER.md#p305)): the lineality holds no record count, while
 > arc D holds 727 on both sides at solved points while crossing 7 of the 27 tight

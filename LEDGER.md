@@ -373,6 +373,7 @@ with `index_ledger.py` after appending.
 - [Postscript 305](#p305) — the old premise's candidate space does not CONTAIN the n = 6 plateau — 7 of 27 tight walls…
 - [Postscript 305 addendum](#postscript-305-addendum-n--7-and-n--8-land-the-other-way-and-the-n--6-sector-sweep-is-not-usable) — n = 7 and n = 8 land the other way, and the n = 6 sector sweep is NOT usable
 - [Postscript 306](#p306) — the n = 6 plateau is EXACTLY 1-dimensional — pinned by 222 walls that CONTAIN it, which no…
+- [Postscript 307](#p307) — plateau dimensions SETTLED at n = 6, 7, 8 — 1, 2, 2 — by the walls that contain the branch
 
 <!-- INDEX:END -->
 
@@ -21725,3 +21726,54 @@ its addendum was wrong: **0** of the 775 are singular at the record; the 153 wer
 determinant vanishes identically along every axis. And the n = 6 sector sweep, which I set aside
 as ungated, was reporting a real distinction that the first-order model cannot represent -- the
 sweep was right and my reason for doubting it was wrong, though it was also genuinely ungated.
+
+<a id="p307"></a>
+
+## [VERIFIED] Postscript 307: plateau dimensions SETTLED at n = 6, 7, 8 — 1, 2, 2 — by the walls that contain the branch
+
+Applying [P306]'s instrument (`src/plateau_order.py`) to the three levels that have a record
+with a chart. Each dimension is an equality, not a bound, and each is read off the same
+signature: where a plateau extends there are **zero** genuine containing walls, and where it
+stops there are hundreds.
+
+    n   ambient  tight walls  rank  lineality  container  free  cut              branch dim
+    6      15        27        14       1          2        0    2  (222, 222)        1
+    7      18        51        16       2          3        1    2  (468, 520)        2
+    8      21        75        18       3          3        1    2  (766, 766)        2
+
+"Free" is a container direction the branch extends along with no wall separating it; "cut" is
+one separated by genuine containing walls, with the counts in brackets. Every cut carries the
+same 264 rank-degenerate quadruples alongside, which are parallel-pair determinant zeros with
+no common point and are discarded, not counted.
+
+**n = 7 CONFIRMS [P301]'s PENTAGON BY A DIFFERENT ROUTE.** That 2-dimensionality was measured
+by counting a 5x5 grid at finite distances, 22 of 25 points holding 1217. This measures the
+tangent structure at the record, in the gated first cell, and agrees.
+
+**AND THE SEED IS THE WHOLE BALLGAME — the n = 7 run got it wrong first.** Seeded only from the
+lineality, n = 7 returned **1**: its lineality basis has one holding direction and one that
+counts 1165, and their combination is cut by 520 walls. That answer was the seed's scope, not
+the plateau. Seeding the two directions [P299]/[P301] actually used -- the fibre `+e15` and the
+base lift of arc D -- changes everything, because **`base_arcD_lift`'s container is rank 44,
+dimension 3, while the lineality's is 2**. The plateau lives in the larger container, and a
+lineality-only search cannot reach it. This is the n = 6 lesson repeating one level up: there,
+too, the plateau's direction was outside the lineality ([P305]).
+
+**A FREE STRUCTURAL FACT.** `base_arcD_lift`'s gated first cell at n = 7 is
+`(-593208466/1348582226801, 375629385/1517753511992)` -- **identical** to arc D's cell at n = 6.
+The seventh cube brings no nearer wall in that direction. That is [P303]'s "inherited exactly"
+arriving from a completely independent measurement.
+
+**SCOPE, in the number's own label.** Each figure is the dimension of the branch through the
+SEEDED directions. The instrument now records its seeds in a `SCOPE` field of every level it
+writes, because a dimension reported without them is exactly the error above.
+
+**TWO FAULTS FOUND WHILE RUNNING IT.**
+1. A `%d` on a seed name crashed the n = 6 validation -- seeds are strings, lineality indices
+   are integers.
+2. **A MERGE RACE.** Two levels running as separate processes each loaded `plateau_order.json`
+   at startup and wrote their own union, so the later writer silently reverted the other's
+   level to its stale copy. n = 6's seeded result was overwritten by n = 7's pre-seed copy of
+   it, and the file then disagreed with the log that produced it. Now each run re-reads and
+   merges at write time, replacing only the level it computed. Same class as
+   [FAILURE_MODES 33](FAILURE_MODES.md#33), one level out.

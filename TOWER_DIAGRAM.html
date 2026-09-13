@@ -268,6 +268,7 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
         <div class="cell"><span class="k">lineality</span><span class="v">1</span></div>
         <div class="cell"><span class="k">free dirs</span><span class="v hl">0</span></div>
         <div class="cell"><span class="k">last-cube tangents</span><span class="v">2 &#8212; a node</span></div>
+        <div class="cell"><span class="k">plateau dim</span><span class="v hl">1 &#183; settled</span></div>
         <div class="cell"><span class="k">min feature</span><span class="v">6.91 &#215; 10&#8315;&#179;</span></div>
       </div>
       <p class="note">The pivot of the whole tower: everything above extends <em>this one point</em>.
@@ -298,6 +299,7 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
         <div class="cell"><span class="k">ambient</span><span class="v">18</span></div>
         <div class="cell"><span class="k">tight</span><span class="v">300</span></div>
         <div class="cell"><span class="k">walls</span><span class="v">51</span></div>
+        <div class="cell"><span class="k">plateau dim</span><span class="v hl">2 &#183; settled</span></div>
         <div class="cell"><span class="k">lineality</span><span class="v wr">2</span></div>
         <div class="cell"><span class="k">free dirs</span><span class="v wr">1</span></div>
         <div class="cell"><span class="k">min feature</span><span class="v">1.08 &#215; 10&#8315;&#179;</span></div>
@@ -323,6 +325,7 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
         <div class="cell"><span class="k">ambient</span><span class="v">21</span></div>
         <div class="cell"><span class="k">tight</span><span class="v">384</span></div>
         <div class="cell"><span class="k">walls</span><span class="v">75</span></div>
+        <div class="cell"><span class="k">plateau dim</span><span class="v hl">2 &#183; settled</span></div>
         <div class="cell"><span class="k">lineality</span><span class="v wr">3</span></div>
         <div class="cell"><span class="k">free dirs</span><span class="v wr">2</span></div>
         <div class="cell"><span class="k">min feature</span><span class="v">1.08 &#215; 10&#8315;&#179;</span></div>
@@ -426,8 +429,12 @@ them is the single easiest mistake to make here.</p>
     </svg>
     <span class="lab"><b>Count plateau.</b> Configurations with the same region count. A different
     object with different boundaries. The published 0, 0, 2, 1, 1 at n = 4&#8230;8 counts
-    <em>last-cube</em> tangents only &#8212; the plateau is &#8805;2-dimensional at n = 7 and n = 8, and
-    n = 4&#8211;6 are unresolved rather than zero. <b>Corrected 2026-09-13:</b> at n = 6 the premise
+    <em>last-cube</em> tangents only, and a count of directions rather than a dimension.
+    <b>Settled 2026-09-13:</b> the plateau dimensions at n = 6, 7, 8 are <b>1, 2, 2</b> &#8212;
+    equalities, pinned by the walls that <em>contain</em> each branch (zero of them where a
+    plateau extends, hundreds where it stops). n = 7 agrees with the pentagon measured here by
+    counting a grid. Which directions seed the search decides the answer: from the lineality
+    alone n = 7 returns 1, because the plateau lives in a strictly larger container. <b>Corrected 2026-09-13:</b> at n = 6 the premise
     behind those counts does not merely undercount &#8212; its candidate space does not
     <em>contain</em> the plateau. The plateau lies in the flat of the walls it does not leave
     (20 walls, rank 13, dimension 2), not in the intersection of all 27.</span>

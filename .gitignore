@@ -2,3 +2,4 @@
 .publish_patterns
 github_guard.py
 .publish_notes.md
+src/__pycache__
