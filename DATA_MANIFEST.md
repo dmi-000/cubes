@@ -22,6 +22,8 @@ finished. The most trustworthy-looking artifact was the defective one.
 | file | status |
 |---|---|
 | `isolation67_run1_fixed_eps.json` | Fixed ε ∈ {1/64, 1/256, 1/1024}; **333 of 2 196 golden faces unresolved**, honestly recorded as such. Superseded by `isolation67_eps.json`. |
+| `ee_per_pair.json` | Correct as a count of edge-PAIR INCIDENCES, which is not what it is labelled. Its `max: 24` at `q = (0,1,1,1)` includes 18 incidences at two SHARED CORNERS — one `(3,3)` vertex contributes nine. The edge-edge VERTEX count there is 6. Superseded by `ee_bound_refute.json` ([P330](LEDGER.md#p330)). |
+| `ee_total.json` | Correct as measured, but the search was SEEDED from `ee_per_pair.json`'s argmaxima, so `max_EE: 36` is evidence about the wrong quantity's maximisers. The bound it supports is false. Superseded by `ee_bound_refute.json` ([P330](LEDGER.md#p330)). |
 
 ## Current
 
@@ -30,6 +32,8 @@ finished. The most trustworthy-looking artifact was the defective one.
 | `isolation67_eps.json` | **Authoritative face counts for both 67s.** Infinitesimal ε, no step size. 728 + 2 196 faces, 0 unresolved, 0 budget rejects, both ISOLATED, best neighbour 63. |
 | `dimension67.json` | First-order data for both 67s (walls, wall classification, candidate dim). Its octahedral facet counts 59, 53, 59, 53, 57, 63 were independently reproduced by the ε engine (`eps_gate.py`), and `candidate_dim` comes from a null space, not from stepping. |
 | `dimension_gate.json` | ℚ(√d) port gate: rational path vs field path, agreeing exactly. |
+| `ee_bound_refute.json` | **Authoritative on edge-edge counts.** Counts `(2,2)` ARRANGEMENT VERTICES — the quantity [P328]'s identity uses — and MEASURES each vertex's excess instead of tabulating it, so the identity closes by construction and the deviations from [P328]'s constants are reported. Gated against the n = 4, 5, 6 records (183, 393, 727). |
+| `ee_audit.json` | The gates BEHIND `ee_bound_refute.json`, and behind [P330]'s own claims: [P329]'s 24 incidences resolved by LOCATION (6 singles + 2 corners x 9), the `(2,2)` counter agreeing with an independent edge-intersection enumerator on **all 1856 pairs, 0 disagreements**, and [P329]'s search pool shown to CONTAIN a violation (40 against a bound of 36), which refutes [P330]'s first explanation of the miss. |
 | `members_*.json`, `census_run1/members_*.json`, `members_t*.json` | The all-members census, **split across two runs and disjoint** — run 1 (790 classes) is snapshotted in `census_run1/`, run 2 (`t` tag, 36 n=9 classes) is the 4-way re-shard of 2026-08-17. Glob both; there are no duplicate keys. |
 
 **Standing caveat on the census files.** `status` (empty / nonempty) and
@@ -146,6 +150,8 @@ per record (1, 1, 1, 2, 3 at n = 4..8) which this one does not.
 | `data/plateau_container_n6.json`, `data/plateau_face_n6.json`, `data/plateau_face_extent_n6.json` | the first-order container of the n = 6 plateau: the flat of the 20 walls arc D keeps, rank 13, dimension 2; unchanged by adding the concurrency family; face left at λ = 763/3124 exactly |
 | `data/plateau_leading_n6.json`, `data/plateau_decider_n6.json` | **the decider** ([P306](LEDGER.md#p306)): 486 quadruples change leading behaviour off arc D, of which **222 are genuine** (rank 3 = rank augmented) and 264 are parallel-pair degeneracies with no common point. Those 222 contain the arc and pin the plateau to dimension exactly 1 |
 | `data/plateau_sector_n6.json` | **SUPERSEDED.** Its first cell was built from coincidence roots only — ungated and ~200× too wide, so it reported a distant cell's count as local. Kept because P306's reasoning quotes it |
+| `data/plateau_order.json` | plateau dimensions settled at n = 6, 7, 8 as **1, 2, 2** by order of vanishing ([P307](LEDGER.md#p307)). Every level carries a `SCOPE` field naming the seeds — a dimension here is the branch through those directions, and seeding n = 7 from the lineality alone returns 1 instead of 2 |
+| `data/attribution_audit_n8.json`, `data/boundary_cause_n7.json` | the attribution audit ([P308](LEDGER.md#p308)): the recorded boundaries are caused by coincidence conditions, and n = 7's are re-derived from both families to 0.002550224044 and 0.049672585064, matching the recorded values digit for digit |
 | `data/VOID_2026-09-12_concurrency_walls_n6_transposed_planes.json`, `data/VOID_2026-09-12_wall_census_n6_transposed_concurrency.json` | **VOID, kept not deleted.** Produced with face normals taken as the ROWS of the rotation instead of the COLUMNS, i.e. the plane set of a different configuration ([FAILURE_MODES 39](FAILURE_MODES.md#39)). Every concurrency number in them describes that other object. Retained so the corrected entry's claims about what was wrong stay checkable |
 
 **EVERY FILE MUST SAY HOW IT WAS MADE (convention, 2026-09-13).** Each `.json` written from

@@ -1,1 +1,6 @@
 n=6 ambient 15 record 727 | tight walls 27 rank 14 | lineality 1
+  lineality dir 0: cell ['-793175725/5668128711173', '191135393/1513127729928'] counts [685, 685] -> holds False
+  concurrency quadruples through the record: 775  (317s)
+n=6 -> settled None (317s)
+
+written data/plateau_order.json

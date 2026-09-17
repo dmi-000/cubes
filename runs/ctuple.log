@@ -1,0 +1,15 @@
+contingency (has quadruple+ point, has c>1) -> count
+   quad=False  c>1=False  856
+   quad=False  c>1=True   14
+   quad=True   c>1=False  1
+configs 871 | with quad+ 1 | with c>1 14
+
+every c>1 instance, max-b profile:
+   max_c=2  profile {2: 114, 3: 104}
+   max_c=2  profile {2: 120, 3: 92}
+   max_c=2  profile {2: 120, 3: 104}
+   max_c=2  profile {2: 116, 3: 104}
+   max_c=2  profile {2: 120, 3: 112}
+   max_c=2  profile {2: 110, 3: 96}
+   max_c=2  profile {2: 120, 3: 96}
+   max_c=2  profile {2: 116, 3: 84}

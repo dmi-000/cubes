@@ -504,3 +504,130 @@ citation RESOLVES, having only ever checked what a claim CITES.
 **The pattern, fifth session running.** The defect was found by a question aimed at the
 APPARATUS — can this reference be followed — and not at any conclusion. Nothing in the
 mathematics changed.
+
+## A13 (2026-09-16) — "are we sure we caught any prior propagation?" — no, and the miss was the documented one
+
+**What the user asked.** After [P323] voided [P304]'s mechanism and listed the casualties:
+*are we sure we caught any prior propagation?*
+
+**The honest answer was no.** The casualty list went into the LEDGER and never reached the
+documents that get read:
+
+    OPEN_QUESTIONS.md  OQ 4   "+258 on the SAME window, true increment 282"  -- as MEASURED
+    OPEN_QUESTIONS.md  OQ 30  "282 walls through each record"
+    SESSION_STATE.md          the P309 row, and P304's "concurrency walls are PUNCTURES"
+
+Every one of those is void, and every one was still standing an hour after [P323] was written.
+
+**This is the project's own documented failure mode, verbatim.** *Corrections propagate inside a
+record and not out of it* — measured once at 118 ledger entries, 389 internal cross-references,
+**1 link outward** — and the memory note `results-md-can-be-stale` records it recurring. Writing
+the correction into the ledger FEELS like completing the correction. It is not, while the
+document people read still carries the old claim.
+
+**And `doc_audit.py` cannot catch this class.** It checks that citations RESOLVE and flags
+claims revisited by a later postscript; it does not know that a number inside a paragraph is
+now wrong. The stale text here cited [P309] correctly — the link worked, the postscript exists,
+and the sentence was false.
+
+**What the fix surfaced, which is worth more than the fix.** Adding the containment predicate to
+`concurrency_walls.py` and re-running its own gate: **G4's anchor — the `t = -2/9` wall that
+[P304] was built on — returns `common_point_inside_cubes: false`.** The founding example of the
+family is not an arrangement wall. [P323] is confirmed from the gate's own reference point.
+
+**The rule this leaves.** After voiding a claim, grep the READ documents for its NUMBERS, not
+its postscript number — `258`, `282`, `663` found the stale text; searching for `P309` would
+have found correct citations and missed all of it.
+
+## A14 (2026-09-16) — a self-catch, on the previous session's own result, found by re-deriving before proving
+
+**No human catch here, and that is the point worth recording**: [P329] was written in the session
+immediately before, marked [VERIFIED], and handed forward as the lead. The instruction that
+caught it was the user's standing one — "we have solvers not just samplers" — applied to the
+first step of the proof attempt rather than to the proof.
+
+**What the catch cost.** Four lines of Python, run before any proof work began: recompute the
+published counterexample under the definition the identity uses. `24` became `6`.
+
+**What it found, in order of severity.**
+
+1. The counterexample refuting `EE <= 6` per pair was not a counterexample — it agrees with the
+   bound. (The bound is still false; the true witness is 10, elsewhere.)
+2. The replacement conjecture `sum EE <= 6*C(n,2)`, offered as the thing to prove, is false at
+   every n from 2 to 6.
+3. [P328]'s per-signature excess constants are generic values, not invariants.
+
+**The propagation check, run because [A13] is two entries up.** The numbers to grep were `24`,
+`(0,1,1,1)` and `6*C(n,2)`, not "P329". They appeared in [OQ 35] and in [P328]'s closing lead;
+both are corrected in place and dated. `data/ee_per_pair.json` and `data/ee_total.json` are
+untouched — they are what was measured, and [P330] says what they measured.
+
+**The lesson that generalises past this project.** A result marked VERIFIED and handed forward as
+the next task's foundation gets less scrutiny than a result being argued about, because the
+argument has moved on to what comes AFTER it. The moment of maximum danger for a claim is
+directly after it is accepted. [METHODS 28] is the procedure.
+
+## A15 (2026-09-16) — "check corrections and false claims" — the correction itself carried three errors
+
+Asked directly, one turn after [A14], to audit the correction. It did not survive the audit
+intact, which is the entry's whole point: **[P330] was written in the register of a careful
+correction and shipped three unsourced claims of its own.**
+
+| what [P330] said | what checking it showed |
+|---|---|
+| [P329]'s search "never looked where the `(2,2)` vertices are", its seeds coming from the wrong counter | **Wrong.** The violating family was IN its 255-element pool — best 4-subset scores 40 against the bound's 36. 400 random triples, 0.012 expected hits. A sampling failure, not a coverage one. |
+| the two EE functions were "written eleven minutes apart" | **Invented.** Both files carry one mtime, the moment they were rescued from scratch. The interval is not recoverable, and nothing ever measured it. |
+| `(2,2,...,2)` has excess `2(b-1)^2` | Fitted to five points in one family and stated as if derived. [P324] is the record of exactly such a fit breaking at `b = 5`. Now marked as a pattern. |
+
+**And one more, found by building the check rather than by reasoning.** The independent oracle
+written to validate the vertex counter disagreed with it on 1506 of 1856 pairs — because the
+ORACLE built edges from the columns of `mat(q)` and tested signatures against the rows.
+[FAILURE_MODES 38] for the third time. Corrected, the two paths agree on all 1856, 0
+disagreements, so the counter is now gated against a genuinely independent path. **The check was
+wrong in the same way the original code had been wrong, and only running it revealed that.**
+
+**The self-inflicted one.** The audit script IMPORTED `ee_per_pair`, whose census runs at module
+level — so the import re-ran it and overwrote `data/ee_per_pair.json`, destroying the `reproduce`
+block backfilled hours earlier. Restored by hand with a note. **An audit that imports the code it
+is auditing can modify the evidence**, and a probe whose work happens at module level is a
+landmine for exactly the reader most likely to import it.
+
+**The lesson, and it is not "be more careful".** Every one of these went into a document whose
+subject was someone else's error. The corrective register is where an unsourced claim is least
+likely to be challenged, because the reader is attending to the error being fixed, and the writer
+is feeling accurate. **Gate the claims IN a correction the way the correction demands of the
+thing it corrects** — [METHODS 27] applies to the postscript that cites [METHODS 27].
+
+## A16 (2026-09-16) — "are all sources on which current claims stand free of such bugs?" — no
+
+The third audit question in a row, and the one that paid best. [A15] fixed the correction; this
+asked whether the same defects sit under claims nobody had questioned. **They do.**
+
+**What was actually done, because "we checked" is not an answer.** Each known bug class was
+turned into a mechanical search over `src/`:
+
+| bug class, and where it was first found | swept how | result |
+|---|---|---|
+| rows vs columns as face normals ([P227], [P304], and the A15 oracle) | every module calling `mat()`, flagging row inner products with no transpose | 7 hits, **all 7 benign** — 4 are `in_cube(pt, Minv)` helpers whose callers pass an explicit transpose, 3 are ordinary matrix multiplies |
+| no containment predicate ([P322]/[P323]) | modules that solve plane intersections, checked for an inside test | **`concurrence.py` — a live claim, now [P331]** |
+| incidences counted as objects ([P330]) | the two EE counters, gated against an independent enumerator | 0 disagreements on 1856 pairs |
+| import-time file writes ([A15]) | `ast` walk of every top level | 68 writers, 4 imported, 3 nondeterministic — [FAILURE_MODES 42] |
+
+**The find.** `concurrence.py` counts plane concurrences with no containment test. Not one
+top-multiplicity point in 183, 723 or 727 lies on the compound — they sit 63–68 % past the
+nearest face. 723's celebrated 9-fold is three cubes sharing a corner that **sticks out beyond
+the other three cubes**, so it is not an arrangement vertex and buys no regions. The claim had
+been re-verified once already, for the ROWS bug, and the containment question was never asked of
+it because [P304] came three weeks later and nobody went back.
+
+**And it closed an older loose end.** [P55]/[P57] measured the "high concurrence" heuristic as
+NEGATIVELY correlated with the count and recorded the reversal with no cause. The cause is this:
+the statistic ranks configurations by points that are not part of the object being counted.
+**A refutation without a mechanism is an open question wearing a closed question's label** — it
+sat for five weeks looking settled.
+
+**The generalisable procedure.** When a bug is found, do not only fix it and propagate it.
+**Turn its SIGNATURE into a search and run it over everything**, including code that predates
+the bug's discovery and claims that were verified against a different defect. A claim that
+survived one audit is not thereby audited; it was audited for one thing. Every class above took
+minutes to sweep, and one of the four returned a live wrong claim.

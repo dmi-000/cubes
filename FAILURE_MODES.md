@@ -54,6 +54,8 @@ zero *and* fast.
 of rows carry a real value. Treat an empty answer as an error, never as a
 finding.
 
+<a id="2"></a>
+
 ## 2. A gate that cannot fail
 
 **Symptom.** A verification passes on the first try, over a large set, with no
@@ -1460,3 +1462,104 @@ Verify it against a component that was written independently — here `cellcompl
 whose `V − E + F − 1` reproduces the engine and whose frames now match ours element by
 element. And treat an unexplained residue as the most valuable object in a run, not as a
 caveat to be phrased well: it is the only part not already agreeing with you.
+
+<a id="40"></a>
+
+## 40. Guessing which object a formula counts, four times in one thread
+
+Chasing [OQ 30] through [P311]–[P313] produced four wrong identifications of a combinatorial
+object, each asserted from a formula rather than derived from the construction:
+
+    which arcs bound a face of S_ell          wrong twice (levels ell, then ell+1)
+    what a c = 2 configuration looks like     wrong (components are not boundary circles)
+    which faces the level-ell graph has       wrong (U_ell components, so F = d_ell)
+
+None was careless in the usual sense — each was the natural reading, and the mathematics around
+it was correct. What was missing every time is that the object was never checked against the
+construction that produces it: which arcs the code actually emits, what a component actually
+contains, which surface the arrangement actually lies on.
+
+**Every one was caught by a number that came out impossible**, not by re-reading: even
+component counts where a parity proof forbids them, a boundary-circle test that returned 0 of
+10, and an Euler count that would have needed `sum_f b = -216`. That is the useful half — an
+impossible number is a better detector than careful reading, and it works even when the reading
+feels obvious.
+
+**The cheap defence, which was available every time:** before using a formula's term, print the
+object it is supposed to count on one small case and check it against the thing the code builds.
+The `U_1` case took one line and confirmed `chi = d_1 = 92`; the same line at `U_2` would have
+killed the identification before the construction was written rather than after.
+
+## 41. Two counters wore the same name, and the bound was tested against the wrong one
+
+[P330], correcting [P329], 2026-09-16.
+
+`EE` meant edge-edge contacts. There were two functions computing it, and they compute different
+quantities:
+
+    ee_per_pair.contacts(q)     pairs of edges that meet        an INCIDENCE count
+    ee_total.ee_and_total(qs)   vertices of signature (2,2)     a VERTEX count
+
+They agree until three edges of one cube meet three of another at a shared corner. That is ONE
+vertex — and NINE incidences. At `q = (0,1,1,1)`, which fixes two opposite corners, the gap is
+`2 x 9 = 18`, so 6 became 24, and a configuration that AGREES with the bound was published as
+refuting it by a factor of four.
+
+The follow-up search for the TOTAL bound then reported "never exceeded in 400 configurations",
+and the family that exceeds it at every n from 2 to 6 **was inside that search's own pool**:
+9 of its 255 candidates are rotations about the common face diagonal, and the best 4-subset of
+them scores 40 against the bound's 36. Four hundred random triples had an expected 0.012 hits
+on that family.
+
+**I first wrote that the search "never looked there" because its seeds came from the wrong
+counter. That was itself an ungated cause claim, and checking the pool refuted it** — the
+misdirected seed list made the odds worse but the pool was never the barrier. The actual
+failure is the plainest one in the project: a sampled maximum is a lower bound ([METHODS 1]),
+and it was reported as an exhaustive "never exceeded".
+
+**The tell, and it was visible without any new computation:** the identity the bound was supposed
+to feed (`TOTAL = ... + EE + 2*SC2 + ...`) has `EE` and `SC2` as SEPARATE terms. A counter that
+folds shared corners into `EE` cannot be the `EE` of that identity. Whenever a quantity appears
+in an identity, the identity is the definition; a second function computing "the same thing" is
+a second quantity until it is checked against the first on a case where they could differ.
+
+Related: [FAILURE_MODES 40] (guessing which object a formula counts) — the same confusion one
+level up. This one had the extra sting that both functions were mine and both were correct
+implementations of what they computed.
+
+**Postscript, one turn later.** The entry above originally carried two details that were not
+measured: that the two functions were "written eleven minutes apart" (invented — both files
+carry the same mtime, which is when they were rescued from scratch, so the interval is not
+recoverable at all), and the seeding mechanism now struck out. Writing up a correction is not
+a licence to stop gating claims; **a correction is where a fresh unsourced detail is LEAST
+likely to be questioned**, because the reader's attention is on the error being fixed.
+
+## 42. A probe that runs at import, and an auditor that imports it
+
+[INTERVENTIONS A15], [P331], 2026-09-16.
+
+`ee_per_pair.py` does its census at MODULE LEVEL. An audit script imported it to reuse one
+function; the import re-ran the census and rewrote `data/ee_per_pair.json`, destroying a
+provenance block recorded hours earlier. **The auditor modified the evidence it was auditing.**
+
+Swept across the tree afterwards:
+
+    modules whose top level writes a file                          68
+    of those, imported by something else in src/                    4
+    of those, also using unseeded randomness or the clock           3
+
+The 68 are a latent hazard; the 3 are the sharp end. `src/n4_search.py` is imported by
+`baseline_deepclimb.py`, `src/subset_topology.py` by three modules, `src/two_plus_quadric.py` by
+one — and an import-time rerun of a randomised search does not merely drop a provenance block,
+it **silently replaces the recorded numbers with different ones**. That has not been observed to
+happen; it is reported here as reachable, not as having occurred.
+
+**The check.** A module intended for import does its work under `if __name__ == '__main__'`.
+A module that writes a data file must never do it at import scope. The detector is four lines of
+`ast` and is worth keeping: walk the top level, ignore `__main__` guards, flag any call to
+`open(..., 'w')`, `json.dump`, or `.write`.
+
+**Why this is a FAILURE MODE and not a style note.** The project's rule is that run data is
+immutable and corrections go in documents. That rule is enforced by discipline, and this is a way
+for the rule to be broken by an `import` statement — by the person being most careful, in the act
+of checking someone else's work.

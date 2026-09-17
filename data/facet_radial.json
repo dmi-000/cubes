@@ -1,0 +1,318 @@
+{
+ "what": "the facet-centre lemma, and whether the crease edges reconcile the measured c with the parity the lemma forces",
+ "question": "OPEN_QUESTIONS 30",
+ "lemma_checks": [
+  {
+   "config": "record n=4",
+   "max_abs_inner": "300/361",
+   "lemma_holds": true,
+   "strict": true
+  },
+  {
+   "config": "record n=5",
+   "max_abs_inner": "6/7",
+   "lemma_holds": true,
+   "strict": true
+  },
+  {
+   "config": "record n=6",
+   "max_abs_inner": "5088/5149",
+   "lemma_holds": true,
+   "strict": true
+  }
+ ],
+ "instances": [
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     16,
+     7,
+     25,
+     -4
+    ],
+    [
+     4,
+     -5,
+     16,
+     -12
+    ],
+    [
+     -19,
+     21,
+     16,
+     20
+    ]
+   ],
+   "lemma_max_abs_inner": "724/729",
+   "levels": [
+    {
+     "level": 1,
+     "wall_c": 2,
+     "wall_sizes": [
+      70,
+      70
+     ],
+     "full_c": 1,
+     "full_V": 168,
+     "full_sizes": [
+      168
+     ]
+    }
+   ]
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     -4,
+     9,
+     19,
+     -2
+    ],
+    [
+     24,
+     2,
+     23,
+     -14
+    ],
+    [
+     0,
+     -12,
+     21,
+     -14
+    ]
+   ],
+   "lemma_max_abs_inner": "203380/203841",
+   "levels": [
+    {
+     "level": 1,
+     "wall_c": 2,
+     "wall_sizes": [
+      64,
+      64
+     ],
+     "full_c": 3,
+     "full_V": 160,
+     "full_sizes": [
+      156,
+      2,
+      2
+     ]
+    }
+   ]
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     19,
+     11,
+     23,
+     1
+    ],
+    [
+     23,
+     -7,
+     6,
+     4
+    ],
+    [
+     19,
+     1,
+     2,
+     -18
+    ]
+   ],
+   "lemma_max_abs_inner": "344/345",
+   "levels": [
+    {
+     "level": 1,
+     "wall_c": 2,
+     "wall_sizes": [
+      88,
+      88
+     ],
+     "full_c": 1,
+     "full_V": 188,
+     "full_sizes": [
+      188
+     ]
+    }
+   ]
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     22,
+     9,
+     -14,
+     13
+    ],
+    [
+     24,
+     24,
+     -15,
+     -18
+    ],
+    [
+     13,
+     2,
+     -10,
+     17
+    ]
+   ],
+   "lemma_max_abs_inner": "188/189",
+   "levels": [
+    {
+     "level": 1,
+     "wall_c": 2,
+     "wall_sizes": [
+      64,
+      64
+     ],
+     "full_c": 1,
+     "full_V": 156,
+     "full_sizes": [
+      156
+     ]
+    }
+   ]
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     23,
+     12,
+     6,
+     -20
+    ],
+    [
+     16,
+     7,
+     -15,
+     -1
+    ],
+    [
+     -9,
+     -10,
+     -15,
+     6
+    ]
+   ],
+   "lemma_max_abs_inner": "117346/117351",
+   "levels": [
+    {
+     "level": 1,
+     "wall_c": 2,
+     "wall_sizes": [
+      62,
+      62
+     ],
+     "full_c": 1,
+     "full_V": 156,
+     "full_sizes": [
+      156
+     ]
+    }
+   ]
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     24,
+     -10,
+     -10,
+     12
+    ],
+    [
+     1,
+     4,
+     -22,
+     -12
+    ],
+    [
+     12,
+     3,
+     -15,
+     10
+    ]
+   ],
+   "lemma_max_abs_inner": "150007/154155",
+   "levels": [
+    {
+     "level": 1,
+     "wall_c": 2,
+     "wall_sizes": [
+      72,
+      72
+     ],
+     "full_c": 5,
+     "full_V": 172,
+     "full_sizes": [
+      164,
+      2,
+      2,
+      2,
+      2
+     ]
+    }
+   ]
+  }
+ ],
+ "reproduce": {
+  "command": "python3 src/probes/facet_radial.py 400",
+  "run_from": "src",
+  "script": "src/probes/facet_radial.py",
+  "script_sha256_16": "0fa65174a1eb275e",
+  "parameters": {
+   "trials": 400
+  },
+  "written_utc": "2026-09-15T09:16:56Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

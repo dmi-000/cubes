@@ -644,5 +644,22 @@
     1
    ]
   }
- ]
+ ],
+ "reproduce": {
+  "command": "python3 src/probes/plateau_decider.py",
+  "run_from": "src",
+  "script": "src/probes/plateau_decider.py",
+  "script_sha256_16": "0db41d76e453c29d",
+  "parameters": {
+   "n": 6
+  },
+  "recorded_utc": "2026-09-13T15:09:10Z",
+  "recorded_retrospectively": "stamped after the run from the session record, not emitted by the script",
+  "inputs": [
+   {
+    "path": "data/plateau_leading_n6.json",
+    "sha256_16": "1791f096bcaf1680"
+   }
+  ]
+ }
 }

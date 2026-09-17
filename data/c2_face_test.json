@@ -1,0 +1,421 @@
+{
+ "what": "[P312]'s explanation of c = 2, as a falsifiable prediction",
+ "prediction": "both components of a c = 2 level share a COMMON cube index in every arc -- the cube whose boundary carries the annular face",
+ "instances": [
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     16,
+     7,
+     25,
+     -4
+    ],
+    [
+     4,
+     -5,
+     16,
+     -12
+    ],
+    [
+     -19,
+     21,
+     16,
+     20
+    ]
+   ],
+   "level": 1,
+   "component_sizes": [
+    70,
+    70
+   ],
+   "cube_in_every_arc_comp1": [],
+   "cube_in_every_arc_comp2": [],
+   "common_cubes": [],
+   "graph_is_centrally_symmetric": true,
+   "components_are_antipodal_images": true,
+   "prediction_holds": false
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     -4,
+     9,
+     19,
+     -2
+    ],
+    [
+     24,
+     2,
+     23,
+     -14
+    ],
+    [
+     0,
+     -12,
+     21,
+     -14
+    ]
+   ],
+   "level": 1,
+   "component_sizes": [
+    64,
+    64
+   ],
+   "cube_in_every_arc_comp1": [],
+   "cube_in_every_arc_comp2": [],
+   "common_cubes": [],
+   "graph_is_centrally_symmetric": true,
+   "components_are_antipodal_images": true,
+   "prediction_holds": false
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     19,
+     11,
+     23,
+     1
+    ],
+    [
+     23,
+     -7,
+     6,
+     4
+    ],
+    [
+     19,
+     1,
+     2,
+     -18
+    ]
+   ],
+   "level": 1,
+   "component_sizes": [
+    88,
+    88
+   ],
+   "cube_in_every_arc_comp1": [],
+   "cube_in_every_arc_comp2": [],
+   "common_cubes": [],
+   "graph_is_centrally_symmetric": true,
+   "components_are_antipodal_images": true,
+   "prediction_holds": false
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     22,
+     9,
+     -14,
+     13
+    ],
+    [
+     24,
+     24,
+     -15,
+     -18
+    ],
+    [
+     13,
+     2,
+     -10,
+     17
+    ]
+   ],
+   "level": 1,
+   "component_sizes": [
+    64,
+    64
+   ],
+   "cube_in_every_arc_comp1": [],
+   "cube_in_every_arc_comp2": [],
+   "common_cubes": [],
+   "graph_is_centrally_symmetric": true,
+   "components_are_antipodal_images": true,
+   "prediction_holds": false
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     23,
+     12,
+     6,
+     -20
+    ],
+    [
+     16,
+     7,
+     -15,
+     -1
+    ],
+    [
+     -9,
+     -10,
+     -15,
+     6
+    ]
+   ],
+   "level": 1,
+   "component_sizes": [
+    62,
+    62
+   ],
+   "cube_in_every_arc_comp1": [],
+   "cube_in_every_arc_comp2": [],
+   "common_cubes": [],
+   "graph_is_centrally_symmetric": true,
+   "components_are_antipodal_images": true,
+   "prediction_holds": false
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     24,
+     -10,
+     -10,
+     12
+    ],
+    [
+     1,
+     4,
+     -22,
+     -12
+    ],
+    [
+     12,
+     3,
+     -15,
+     10
+    ]
+   ],
+   "level": 1,
+   "component_sizes": [
+    72,
+    72
+   ],
+   "cube_in_every_arc_comp1": [],
+   "cube_in_every_arc_comp2": [],
+   "common_cubes": [],
+   "graph_is_centrally_symmetric": true,
+   "components_are_antipodal_images": true,
+   "prediction_holds": false
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     16,
+     -21,
+     17,
+     -15
+    ],
+    [
+     -18,
+     -9,
+     -7,
+     -1
+    ],
+    [
+     -6,
+     -9,
+     -14,
+     14
+    ]
+   ],
+   "level": 1,
+   "component_sizes": [
+    74,
+    74
+   ],
+   "cube_in_every_arc_comp1": [],
+   "cube_in_every_arc_comp2": [],
+   "common_cubes": [],
+   "graph_is_centrally_symmetric": true,
+   "components_are_antipodal_images": true,
+   "prediction_holds": false
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     24,
+     2,
+     -9,
+     -20
+    ],
+    [
+     14,
+     -1,
+     -11,
+     0
+    ],
+    [
+     -6,
+     -13,
+     22,
+     2
+    ]
+   ],
+   "level": 1,
+   "component_sizes": [
+    64,
+    64
+   ],
+   "cube_in_every_arc_comp1": [],
+   "cube_in_every_arc_comp2": [],
+   "common_cubes": [],
+   "graph_is_centrally_symmetric": true,
+   "components_are_antipodal_images": true,
+   "prediction_holds": false
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     9,
+     -2,
+     0,
+     17
+    ],
+    [
+     0,
+     -16,
+     25,
+     -6
+    ],
+    [
+     15,
+     14,
+     -10,
+     -12
+    ]
+   ],
+   "level": 1,
+   "component_sizes": [
+    75,
+    75
+   ],
+   "cube_in_every_arc_comp1": [],
+   "cube_in_every_arc_comp2": [],
+   "common_cubes": [],
+   "graph_is_centrally_symmetric": true,
+   "components_are_antipodal_images": true,
+   "prediction_holds": false
+  },
+  {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     12,
+     14,
+     -10,
+     -10
+    ],
+    [
+     -21,
+     -19,
+     -13,
+     24
+    ],
+    [
+     18,
+     -16,
+     23,
+     4
+    ]
+   ],
+   "level": 1,
+   "component_sizes": [
+    68,
+    68
+   ],
+   "cube_in_every_arc_comp1": [],
+   "cube_in_every_arc_comp2": [],
+   "common_cubes": [],
+   "graph_is_centrally_symmetric": true,
+   "components_are_antipodal_images": true,
+   "prediction_holds": false
+  }
+ ],
+ "n_holds": 0,
+ "n_fails": 10,
+ "reproduce": {
+  "command": "python3 src/probes/c2_face_test.py",
+  "run_from": "src",
+  "script": "src/probes/c2_face_test.py",
+  "script_sha256_16": "89b649fa329b2de3",
+  "parameters": {
+   "trials": 600,
+   "seed": 11
+  },
+  "written_utc": "2026-09-15T18:17:59Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

@@ -1,0 +1,5 @@
+fibre_e15        crossings 581 | first departure ['coincidence']
+    1217 -> 1213 at 3036217273/1, walls with a common point: 2 of 4
+base_arcD_lift   crossings 386 | first departure ['coincidence']
+    1217 -> 1213 at 62511123699/, walls with a common point: 2 of 4
+written data/boundary_cause_n7.json

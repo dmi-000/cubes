@@ -126,7 +126,8 @@ up is entirely rational.
 | 6 | **727** | best found |
 | 7 | 1217 | best found |
 | 8 | **1895** | best found |
-| 9 | **2785** | best found — a continuum |
+| 9 | **2787** | best found — a continuum (supersedes 2785) |
+| 10 | **3925** | best found |
 
 The records **nest**: the 393 is five of the six cubes of the 727, the 727 is
 six of the seven of the 1217, and so on down. Adding a good cube to a good
@@ -143,8 +144,24 @@ C(l, n) = (12l − 6)n − 2(l² − 1), the shallowest case of which is proved 
 the rest of which has never been exceeded in about a million configurations.
 Add the ceilings up and subtract a "frustration deficit" of 6(n−3)(n−2) and
 you get the observed maxima at *n* = 3, 4, 5 exactly, and a prediction of 729
-at six cubes — two more than the best known. Whether those two are reachable
-is the project's central open question.
+at six cubes — two more than the best known. *(That deficit formula is a fit to
+three points, two of which are records rather than proved maxima, and it is
+flagged as a conjecture in `RESULTS.md` §5. The frustration it names is real and
+is now an exact identity — see below — but the identity is not this formula.)*
+
+**And since 2026-09-16 the ceiling for every size at once is a tight one.** Proved
+upper bounds for every *n* have existed since 2026-09-07, but they were about five
+times the records — true and not yet useful. Writing
+the count as an accounting identity — every region paid for by "degree excess" at
+a vertex, and every triple point spent twice — gives
+
+    TOTAL ≤ 1 + 32·C(n,3) + 10·C(n,2) + 3(n−1)
+
+proved except for one hypothesis about connectivity. The records sit at a steady
+**90–92 %** of it from four cubes to ten — so the bracket closed from a factor of
+five to a few per cent, in exchange for that one hypothesis. So the tower is now bracketed at both
+ends, and the interesting question has moved: the remaining 10 % is not spread
+evenly, and finding where it lives is what the project is doing now.
 
 ## How a search actually works
 
@@ -258,6 +275,21 @@ worth more than any individual entry:
 - **Confusing a search's reach with a fact about the problem** — several
   claimed structural laws turned out to be descriptions of whatever the
   enumerator could see.
+- **Testing whether four planes meet, and forgetting they are squares** — a
+  whole second family of "walls" turned out to be meeting points floating
+  outside the compound entirely, along with the mechanism built on it. Hunting
+  for the same bug elsewhere then found it in a three-week-older claim: the
+  "high-multiplicity concurrences" that guided months of searching are real
+  coincidences sitting *outside* the solid, which is why the heuristic measured
+  negative when someone finally checked.
+- **Two functions with one name** — "edge-edge contacts" meant *pairs of edges
+  that meet* in one place and *vertices* in another. They differ by nine at
+  every shared corner, which was enough to publish a counterexample to a
+  correct bound, and then a replacement conjecture that was false at every size.
+- **Putting an unchecked claim inside a correction** — the write-up of that
+  error introduced three fresh unsourced ones, including an invented detail
+  about file timestamps. The corrective register is where nobody looks for a
+  mistake, which is exactly what makes it dangerous.
 
 Every one of these produced *plausible numbers*, not obvious failures.
 [`FAILURE_MODES.md`](FAILURE_MODES.md) catalogues them by symptom — what you
@@ -265,6 +297,12 @@ notice first — so a later reader can triage rather than rediscover. That is
 the argument for the exactness rule and for two independent engines: a wrong
 answer that looks wrong costs an afternoon, and a wrong answer that looks right
 costs a month.
+
+**And a pattern sharp enough to state as a rule.** Through the whole of the most
+recent stretch, every quantity that was *measured* survived scrutiny, and nearly
+every sentence containing the word *because* did not. The failures were not in
+the mathematics. They were in the apparatus, in the definitions, and twice in the
+checking code written to catch failures in the apparatus.
 
 Most were caught by the machinery. Several were caught by a human sentence.
 "Are you sure the lack of irrational solutions isn't an artifact of some
@@ -334,14 +372,28 @@ with the session, taking the gates with it.
 
 - **Is 729 reachable at six cubes?** The formula predicts it; exhaustive
   searches of three separate strata cap out at 727, 725 and 723.
-- **Are 183, 393, 727, 1217, 1895, 2785 actually maximal?** None is proved. Only
-  *n* = 2 and *n* = 3 have theorems. 1895 replaced 1891 on 2026-08-05, and it
+- **Are 183, 393, 727, 1217, 1895, 2787, 3925 actually maximal?** None is proved.
+  Only *n* = 2 and *n* = 3 have theorems. 1895 replaced 1891 on 2026-08-05, and it
   was sitting inside a window an earlier sweep had already covered — the
   plainest evidence that "best found" at the top of the tower means "nobody has
   looked hard enough yet".
-- **The ceiling law and the frustration deficit** — both fit everything and
-  neither is proved beyond the shallowest layer.
-- **The two unenumerated wall types** — now catalogued, not yet swept.
+- **Where the remaining 10 % lives — the current main line.** Splitting the count
+  identity by vertex type divides a record into a *generic* part, whose cap is
+  proved and is actually attained, and a *degenerate* part — edge-edge contacts,
+  shared corners, quadruple points — which supplies **13–28 %** of each record's
+  regions and which nothing bounds at all. Every loose region is in that second
+  part. The first concrete conjecture about it, a cap on edge-edge contacts, was
+  refuted at every size tested within a day of being proposed.
+- **The connectivity hypothesis** that the ceiling above rests on. Worth noting
+  what it is and is not worth: proving it *completes* the bound but moves it by
+  about nine regions in four hundred. It is the difference between a conditional
+  statement and a theorem, not a route to a tight number.
+- **What changes the count where no coincidence occurs.** At two known parameters
+  the count drops and no wall of the known family is crossed. A second family was
+  proposed and refuted — the test had forgotten that a cube's boundary is six
+  *squares*, not six planes, so most of its "walls" were points floating outside
+  the compound. The question is open again.
+- **The ceiling law** — fits everything, proved only for the shallowest layer.
 - **A universal ceiling on the one-cube increment** — the per-arrangement
   bound is proved and tight; the universal version is still crude.
 

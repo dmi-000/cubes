@@ -1,0 +1,163 @@
+{
+ "what": "refutations in the ledger, and whether a cause was ever stated",
+ "total_postscripts": 327,
+ "reversals": 81,
+ "cause_and_gate": 39,
+ "cause_ungated": 11,
+ "no_connective_cause_language": 31,
+ "no_cause_READ_RESULT": "triage artifact: read 2026-09-16, no reversal in the ledger actually fails to state a cause -- see P332",
+ "candidates_to_read": [
+  {
+   "p": 11,
+   "title": "full-quaternion symmetry re-run \u2014 NEW RECORD 717 (and 705); Postscript 10's negative was a coverage artifact"
+  },
+  {
+   "p": 15,
+   "title": "n=4 \u2014 golden 177 is NOT the maximum; new rational record 183"
+  },
+  {
+   "p": 27,
+   "title": "the gluing search \u2014 records still unbeaten (deficit exactly 8 at every n), and the RATIONAL-TANGENT discovery (with a correction to the agent's clique inventory)"
+  },
+  {
+   "p": 30,
+   "title": "the event catalogue \u2014 the \"+-1 per coincidence\" law dies, a depth-conservation law survives 12/12, and a correction to Postscript 25 addendum 3"
+  },
+  {
+   "p": 31,
+   "title": "the census extraction \u2014 the 92 budget is EXACT at both 67 witnesses, its accounting corrected, and the coincidences ARE top-diagram vertices"
+  },
+  {
+   "p": 36,
+   "title": "region count is AFFINE-INVARIANT \u2014 the records are realized by a whole affine family of parallelepiped cells (congruent rhombohedra match 67), correcting a first wrong probe"
+  },
+  {
+   "p": 39,
+   "title": "the CORRECT successor to P37 \u2014 the max(3)=67 proof layers GENERALIZE to all convex 6-faced cells, and flex does not beat 67"
+  },
+  {
+   "p": 42,
+   "title": "Step T is NOT routine \u2014 the reduction \"deg_top \u2264 deg_bot at triple points\" is FALSE (counterexample realized on genuine cells); max(3)=67 stands on the generic stratum + both maximizers, degenerate triple points remain an open gap"
+  },
+  {
+   "p": 44,
+   "title": "the n=3 anomaly audit \u2014 its maximum is the only one that is finite-yet-multiple, irrational, and non-nesting; the three are one phenomenon (and 13 is NOT rigid \u2014 corrects Postscript 17 addendum)"
+  },
+  {
+   "p": 56,
+   "title": "E1 is now a THEOREM \u2014 the one-cube increment is bounded by an Euler count on the cube's own surface, and Postscript 53's counterexample was itself wrong"
+  },
+  {
+   "p": 87,
+   "title": "a vast family has a one-line generator \u2014 but the MAXIMISER subset of it does not"
+  },
+  {
+   "p": 88,
+   "title": "rank 3 does NOT prove isolation \u2014 and the n=6 record sits at a CROSSING of two 727 arcs"
+  },
+  {
+   "p": 90,
+   "title": "arc bounds ARE analytic \u2014 one linear solve where the wall is catalogued, and blocked on W3/W4 where it is not"
+  },
+  {
+   "p": 91,
+   "title": "W4 enumerated as crossings on a line \u2014 arc A's ends solved exactly, and its recorded extent was wrong at both ends"
+  },
+  {
+   "p": 108,
+   "title": "rulings DO beat generic directions \u2014 but only at the arc terminus, and multiplicity is not why"
+  },
+  {
+   "p": 117,
+   "title": "EVERY record is an isolated point \u2014 the census completed, and [Postscript 114](#p114) definitively refuted"
+  },
+  {
+   "p": 154,
+   "title": "where the common factors live \u2014 the 20 is in the splits, the 1553 is not, and it is NOT a product"
+  },
+  {
+   "p": 184,
+   "title": "CORRECTION to P175 \u2014 null directions DO preserve the count, and the preserving set is a hyperplane"
+  },
+  {
+   "p": 185,
+   "title": "P172's linear wall law is REFUTED at n = 10, and not for the reason I guessed"
+  },
+  {
+   "p": 205,
+   "title": "the \"phase change at n = 7\" is one fact, not several \u2014 and it is not a fact about n"
+  },
+  {
+   "p": 207,
+   "title": "\"less constrained added cube wins\" is REFUTED \u2014 and the test's own design was the sampling error again"
+  },
+  {
+   "p": 244,
+   "title": "what the radius does and does not determine in the depth-Euler count"
+  },
+  {
+   "p": 253,
+   "title": "where the ceiling law is loose, and a refinement that does NOT hold"
+  },
+  {
+   "p": 254,
+   "title": "the +4 does not stack \u2014 shared axes REDUCE V3, and the record sits at the observed V3 ceiling"
+  },
+  {
+   "p": 255,
+   "title": "a directed refutation attempt on the ceiling law \u2014 not refuted, cap attained for the first time, and the frustration exhibited"
+  },
+  {
+   "p": 270,
+   "title": "what causes `c = 2` \u2014 a Z/2 monodromy class, per LEVEL, and a geometric prediction of mine that is refuted"
+  },
+  {
+   "p": 271,
+   "title": "[OQ 32] is wider than recorded \u2014 the chain step fails ~~on 6.9 % of GENERIC configurations~~ (**that rate was the POOL; corrected to 0.9 % simple / 41.7 % coincident by [P272](#p272)**), and a restatement of mine was void"
+  },
+  {
+   "p": 272,
+   "title": "what determines `W0` \u2014 an exact anatomy, a reduction to `budget <= 128`, and [P271]'s rate corrected (my second correction of it today)"
+  },
+  {
+   "p": 280,
+   "title": "the second weight-10 family SOLVED \u2014 an exact rational curve, codimension 2 confirmed, and a codimension-1 guess of mine refuted immediately"
+  },
+  {
+   "p": 312,
+   "title": "[P258]'s `c_ell` is the WALL graph's \u2014 my parity theorem is about a different object, and [OQ 30] is not helped by it"
+  },
+  {
+   "p": 329,
+   "title": "`EE <= 6` per pair is FALSE \u2014 but `sum EE <= 6*C(n,2)` survives, and the n = 4 record attains BOTH caps at once"
+  }
+ ],
+ "reproduce": {
+  "command": "python3 src/refutation_census.py",
+  "run_from": "src",
+  "script": "src/refutation_census.py",
+  "script_sha256_16": "5a0c0664411ed24f",
+  "parameters": {
+   "source": "LEDGER.md"
+  },
+  "written_utc": "2026-09-16T15:15:11Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "inputs": [
+   {
+    "path": "LEDGER.md",
+    "sha256_16": "bf8f71aabf7bb3e8"
+   }
+  ]
+ }
+}

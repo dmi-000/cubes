@@ -53,6 +53,7 @@ import dimension as D
 import wall_keys as W
 import wall_solve as WS
 import wall_census as C
+import provenance as PROV
 
 T = sp.Symbol('t')
 
@@ -340,7 +341,8 @@ def main():
     out = {'what': 'which tight walls BOUND the count plateau, and the plateau dimension, '
                    'both by solving',
            'question': 'OPEN_QUESTIONS 33',
-           'levels': {}}
+           'levels': {},
+           'reproduce': PROV.stamp(parameters=vars(a))}
     if os.path.exists(path):
         try:
             prev = json.load(open(path))

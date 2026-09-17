@@ -1,0 +1,33 @@
+{
+ "what": "edge-edge contacts per pair of concentric cubes",
+ "tested": 2065,
+ "distribution": {
+  "24": 224,
+  "8": 288,
+  "4": 756,
+  "10": 72,
+  "6": 348,
+  "0": 168
+ },
+ "max": 24,
+ "argmax": [
+  0,
+  1,
+  1,
+  1
+ ],
+ "reproduce": {
+  "command": "python3 src/probes/ee_per_pair.py",
+  "run_from": "src",
+  "script": "src/probes/ee_per_pair.py",
+  "script_sha256_16": "b17fa4b58af724d1",
+  "parameters": {
+   "quaternion_entry_range": "0..6",
+   "filter": "shares_plane excluded"
+  },
+  "recorded_utc": "2026-09-16T13:19:20Z",
+  "recorded_retrospectively": "stamped after the run; the script was written inline and has been rescued from scratch into src/probes/",
+  "restored_note": "this block was backfilled 2026-09-16, then destroyed the same day when an audit script IMPORTED ee_per_pair, whose census runs at MODULE LEVEL and rewrote this file. Restored by hand. The measured fields are unchanged: the census uses no randomness, so the rewrite was byte-identical apart from dropping this block. See LEDGER P330.",
+  "caveat": "counts edge-PAIR INCIDENCES, not (2,2) vertices -- see DATA_MANIFEST.md and LEDGER.md P330. Superseded by data/ee_bound_refute.json."
+ }
+}

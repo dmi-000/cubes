@@ -1,0 +1,127 @@
+{
+ "what": "does dV=dE=0 hold at every c-transition",
+ "results": [
+  {
+   "level": 1,
+   "c": [
+    1,
+    2
+   ],
+   "dV": 0,
+   "dE": 0,
+   "dF": 1,
+   "families": {
+    "coincidence": 4,
+    "concurrency_degenerate": 12
+   }
+  },
+  {
+   "level": 1,
+   "c": [
+    1,
+    2
+   ],
+   "dV": 0,
+   "dE": 0,
+   "dF": 1,
+   "families": {
+    "coincidence": 12,
+    "concurrency_outside": 12
+   }
+  },
+  {
+   "level": 1,
+   "c": [
+    1,
+    2
+   ],
+   "dV": 0,
+   "dE": 0,
+   "dF": 1,
+   "families": {
+    "coincidence": 2,
+    "concurrency_outside": 12
+   }
+  },
+  {
+   "level": 1,
+   "c": [
+    1,
+    2
+   ],
+   "dV": 0,
+   "dE": 0,
+   "dF": 1,
+   "families": {
+    "coincidence": 4,
+    "concurrency_degenerate": 12
+   }
+  },
+  {
+   "level": 1,
+   "c": [
+    1,
+    2
+   ],
+   "dV": 0,
+   "dE": 0,
+   "dF": 1,
+   "families": {
+    "coincidence": 8,
+    "concurrency_degenerate": 12
+   }
+  },
+  {
+   "level": 1,
+   "c": [
+    1,
+    2
+   ],
+   "dV": 0,
+   "dE": 0,
+   "dF": 1,
+   "families": {
+    "concurrency_degenerate": 12
+   }
+  },
+  {
+   "level": 1,
+   "c": [
+    1,
+    2
+   ],
+   "dV": 0,
+   "dE": 0,
+   "dF": 1,
+   "families": {
+    "coincidence": 4,
+    "concurrency_degenerate": 12
+   }
+  },
+  {
+   "level": 1,
+   "c": [
+    1,
+    2
+   ],
+   "dV": 0,
+   "dE": 0,
+   "dF": 1,
+   "families": {
+    "coincidence": 4,
+    "concurrency_degenerate": 12
+   }
+  }
+ ],
+ "reproduce": {
+  "command": "python3 src/probes/c_transition_general.py",
+  "run_from": "src",
+  "script": "src/probes/c_transition_general.py",
+  "script_sha256_16": "9b6946c7223b385d",
+  "parameters": {
+   "instances": 8
+  },
+  "recorded_utc": "2026-09-16T13:19:20Z",
+  "recorded_retrospectively": "stamped after the run; the script was written inline and has been rescued from scratch into src/probes/"
+ }
+}

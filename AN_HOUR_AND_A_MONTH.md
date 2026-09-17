@@ -476,15 +476,50 @@ thing about the pair.
 What is interesting is that the paper's collaboration and this one failed in the same
 ways — lost work, repeated reminders, optimising the search when stuck — and that only one
 of them wrote the failures down. The register that makes this project look messier is the
-reason its results can be trusted, and the reason eight illusions were caught in three
-weeks rather than surviving into the literature. One of them had already been published as
-an upper bound.
+reason a dozen illusions were caught in a month rather than surviving into the literature.
+One of them had already been published as an upper bound.
 
-And what is more interesting still is that the behaviour the comparison said was missing
-here turned out to be available on request. It needed a mandate, a target with a checker,
-and an hour of not being interrupted. Given those, the log fills with the same moves: a
-diagnostic before an optimisation, an ensemble abandoned outright, eleven hours killed on
-evidence, and an old null result re-read and understood.
+**But the register is not self-cleaning, and this is the correction that matters most.**
+Asked to audit a correction, the project found that the correction had shipped three
+unsourced claims of its own — including a circumstantial detail about two files being
+written eleven minutes apart, a figure nothing had ever measured and which is not
+recoverable. It was simply invented, inside a document whose entire subject was somebody
+else's error. The reason is structural rather than careless: the corrective register is
+where a claim is *least* likely to be challenged, because the reader is attending to the
+mistake being fixed and the writer is feeling accurate. Writing failures down is necessary
+and it is not sufficient; the rigour has to be applied to the paragraph that says *here is
+what went wrong* as hard as to the thing it is correcting.
+
+**And independence is much harder than this document assumed.** Section IV noted that
+Knuth's construction was formalized in Lean by a third party while ours rested on two
+engines agreeing. The sharper version arrived when an oracle was written specifically to be
+an independent check on a vertex counter — and it disagreed on 1 506 of 1 856 pairs,
+because the oracle had built edges from the columns of a matrix and tested them against the
+rows. **The same transposition as the original bug, in the code written to catch it.** An
+independent check produced by the same mind inherits that mind's blind spot, and only
+running it revealed so. What Kim Morrison supplied was not verification in general but
+verification *from somewhere else*, and that is a category this project cannot manufacture
+for itself.
+
+And the behaviour the comparison said was missing here turned out to be available on
+request. It needed a mandate, a target with a checker, and an hour of not being interrupted.
+Given those, the log fills with the same moves: a diagnostic before an optimisation, an
+ensemble abandoned outright, eleven hours killed on evidence, and an old null result
+re-read and understood.
+
+It also turned out to be available without a request. The clearest instance came later: a
+result marked VERIFIED by the previous session and handed forward as the next task's
+foundation was overturned by four lines of Python run *before* any proof work started —
+recompute the published counterexample under the definition the proof would use, and 24
+becomes 6. No human in the loop. What did the catching was a standing instruction of the
+user's — *we have solvers, not just samplers* — applied to an object nobody had pointed at.
+So the honest form of this document's claim about frames is narrower than it was: the
+machine does catch unprompted, when an internalised rule meets a new object. The rules are
+still the human's.
+
+The same entry names the moment of danger exactly, and it is not the one you would guess:
+**a claim is least scrutinised directly after it is accepted**, because the argument has
+already moved on to what comes after it.
 
 And the last thing is the one that changes the genre. For five weeks this was a search:
 every result a lower bound, no way to know how far there was left to go, a table of numbers
@@ -502,14 +537,21 @@ and its own caps have been shown to be unattainable all at once, so 195 is a tar
 than an expectation. What has been achieved is narrower and better than a guess: the whole
 n = 4 question now compresses to a single inequality about triple points.
 
-Knuth's hour produced a construction and a theorem about it. Our month produced a tower of
-records, eight ways of being wrong about our own instruments, and — on the thirty-fourth
-day, from a one-line remark that sounded like a truism — the first thing in the project
-that a search could never have found.
+Knuth's hour produced a construction and a theorem about it, and a stranger checked the
+theorem in Lean. Our month produced a tower of records, a dozen ways of being wrong about
+our own instruments, a register that had to learn to audit its own corrections, and — on
+the thirty-fourth day, from a one-line remark that sounded like a truism — the first thing
+in the project that a search could never have found.
+
+Which of those is the better outcome depends entirely on what you wanted. But only one of
+the two stories can tell you where its own numbers came from, and that is worth the month.
 
 ---
 
-*Updated 2026-09-08: Section VI rewritten around [P249](LEDGER.md#p249) and the
+*Updated 2026-09-16: Section VII reframed by [A13]–[A15] of
+[`INTERVENTIONS.md`](INTERVENTIONS.md) — a correction found to carry invented detail, an
+"independent" oracle that reproduced the bug it was written to catch, and the project's
+first clean self-catch. Earlier note, 2026-09-08: Section VI rewritten around [P249](LEDGER.md#p249) and the
 tightening to 263, which supersede the depth-1-only bound it first described; Sections I,
 II and VII revised to match. Earlier note, 2026-09-07: Section VI is new — [P235](LEDGER.md#p235) to
 [P237](LEDGER.md#p237) postdate everything else here — and Sections II and III were

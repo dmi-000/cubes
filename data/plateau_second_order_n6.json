@@ -97,5 +97,23 @@
     "0"
    ]
   ]
- ]
+ ],
+ "reproduce": {
+  "command": "python3 src/probes/plateau_degenerate.py",
+  "run_from": "src",
+  "script": "src/probes/plateau_degenerate.py",
+  "script_sha256_16": "8dbb23c785346fce",
+  "parameters": {
+   "n": 6,
+   "lambda": "1/64"
+  },
+  "recorded_utc": "2026-09-13T15:09:10Z",
+  "recorded_retrospectively": "stamped after the run from the session record, not emitted by the script",
+  "inputs": [
+   {
+    "path": "data/plateau_container_n6.json",
+    "sha256_16": "037139d36e6e278f"
+   }
+  ]
+ }
 }

@@ -1,0 +1,16 @@
+n=7 ambient 18 record 1217 | tight walls 51 rank 16 | lineality 2
+  lineality dir 0: cell ['-3248723329/1716443476745', '3387062689/3006673831056'] counts [1217, 1217] -> holds True
+  lineality dir 1: cell ['-15335250/693724908257', '35767617/1460569566530'] counts [1165, 1165] -> holds False
+  seed fibre_e15: cell ['-3248723329/1716443476745', '3387062689/3006673831056'] counts [1217, 1217] -> holds True
+  seed base_arcD_lift: cell ['-593208466/1348582226801', '375629385/1517753511992'] counts [1217, 1217] -> holds True
+  concurrency quadruples through the record: 1090  (2221s)
+    container of 0: rank(kept 51) -> dimension 2
+    dir 0 + 1/64*dir 1: holds False | genuine containing walls 520 (rank-degenerate 264)
+    container of fibre_e15: rank(kept 51) -> dimension 2
+    dir fibre_e15 + 1/64*dir 1: holds False | genuine containing walls 520 (rank-degenerate 264)
+    container of base_arcD_lift: rank(kept 44) -> dimension 3
+    dir base_arcD_lift + 1/64*dir 1: holds True | genuine containing walls 0 (rank-degenerate 0)
+    dir base_arcD_lift + 1/64*dir 2: holds False | genuine containing walls 468 (rank-degenerate 264)
+n=7 -> branch dimension None (4514s)
+
+written data/plateau_order.json

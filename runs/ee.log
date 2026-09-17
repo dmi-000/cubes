@@ -1,0 +1,3 @@
+pairs tested: 2065  (all coprime integer quaternions with entries 0..6)
+edge-edge contact counts: {0: 168, 4: 756, 6: 348, 8: 288, 10: 72, 16: 198, 24: 224, 48: 11}
+MAX EE per pair: 48   at q=(0, 0, 0, 1)

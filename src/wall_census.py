@@ -68,6 +68,7 @@ import dimension as D
 import wall_keys as W
 import wall_solve as WS
 import map_arcs as M
+import provenance as PROV
 
 T = sp.Symbol('t')
 
@@ -512,7 +513,11 @@ def main():
            'scope': ('a census over the STATED direction family below, not over all '
                      'directions. Each verdict is exact; the POPULATION of crossings '
                      'is whatever these rays meet.'),
-           'rays': {}}
+           'rays': {},
+           'reproduce': PROV.stamp(parameters=vars(a),
+                                   inputs=([os.path.join(ROOT, 'data',
+                                            'concurrency_walls_n%d.json' % a.n)]
+                                           if a.concurrency else None))}
     if os.path.exists(path):                  # merge, never replace
         try:
             prev = json.load(open(path))

@@ -1,0 +1,140 @@
+{
+ "n": 8,
+ "record": 1895,
+ "claim": {
+  "t": "-0.0236342201",
+  "attributed": "frame 7, group ((2,1,1),(5,1,1))",
+  "source": "P303"
+ },
+ "direction": "arc D lift on cube 5",
+ "window": "1/10",
+ "coincidence_roots_near": [
+  {
+   "frame": 7,
+   "group": [
+    [
+     2,
+     1,
+     1
+    ],
+    [
+     5,
+     1,
+     1
+    ]
+   ],
+   "root": [
+    "-35908396975/1519339196838",
+    "-25453287023/1076967503989"
+   ]
+  },
+  {
+   "frame": 7,
+   "group": [
+    [
+     2,
+     1,
+     -1
+    ],
+    [
+     5,
+     1,
+     -1
+    ]
+   ],
+   "root": [
+    "-35908396975/1519339196838",
+    "-25453287023/1076967503989"
+   ]
+  }
+ ],
+ "concurrency_roots_near": [
+  {
+   "planes": [
+    [
+     2,
+     1,
+     1
+    ],
+    [
+     5,
+     1,
+     1
+    ],
+    [
+     7,
+     1,
+     -1
+    ],
+    [
+     7,
+     2,
+     1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_augmented": 4,
+   "genuine": false,
+   "root": [
+    "-35908396975/1519339196838",
+    "-25453287023/1076967503989"
+   ]
+  },
+  {
+   "planes": [
+    [
+     2,
+     1,
+     -1
+    ],
+    [
+     5,
+     1,
+     -1
+    ],
+    [
+     7,
+     1,
+     1
+    ],
+    [
+     7,
+     2,
+     -1
+    ]
+   ],
+   "rank_normals": 3,
+   "rank_augmented": 4,
+   "genuine": false,
+   "root": [
+    "-35908396975/1519339196838",
+    "-25453287023/1076967503989"
+   ]
+  }
+ ],
+ "genuine_concurrency_at_boundary": 0,
+ "attribution": "CONFIRMED: the coincidence condition is the only wall with a common point there",
+ "note": "The rank-degenerate quadruples found here carry the coincidence's OWN normals plus two planes of the added cube: their determinant vanishes BECAUSE the coincidence does. A consequence, not an independent wall.",
+ "reproduce": {
+  "command": "python3 src/probes/attribution_audit.py 8",
+  "run_from": "src",
+  "script": "src/probes/attribution_audit.py",
+  "script_sha256_16": "0498e33ac7d60b5e",
+  "parameters": {
+   "n": 8
+  },
+  "written_utc": "2026-09-14T06:01:51Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

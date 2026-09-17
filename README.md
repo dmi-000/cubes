@@ -38,6 +38,36 @@ synthesis — the problem, the methods, the record chain, and the structural
 laws — read **[`PROJECT.md`](PROJECT.md)**. This README is the map of the
 code and documents around it.
 
+**Repository layout** (reorganised 2026-09-08; `MOVE_LOG.json` records every file
+moved, `reorg_reverse.sh` undoes it, `src/reorg.py` reproduces it):
+
+| | |
+|---|---|
+| *(root)* | the 72 `.md` documents — start with [`OVERVIEW.md`](OVERVIEW.md) or [`RESULTS.md`](RESULTS.md) |
+| `src/` | 451 scripts (`.py`, `.cpp`, `.wl`, `.sh`) |
+| `runs/` | 509 run logs (`.log`, `.out`) |
+| `data/` | 280 data files (`.json`, `.jsonl`, `.pkl`, `.txt`) |
+| `viewers/` | 13 interactive pages and figures |
+| `transcripts/` | 25 verbatim session records |
+| `specs/` | one-shot work orders (moved 2026-08-11) |
+
+Three things about it are deliberate and load-bearing:
+
+- **The 9 compiled engines stay at the root**, symlinked into `src/`. 92 scripts invoke
+  them as `./cube_regions_n` (needs the real file at the root) and 86 others as
+  `os.path.join(HERE, ...)` (needs one inside `src/`); the symlink satisfies both.
+  Moving them would have broken 92 scripts whose results are already in the record.
+- **127 data files stayed at the root** because some script opens them by bare name.
+  They were computed, not guessed. Patching those scripts would risk breaking runs
+  already cited in the LEDGER, which a tidy-up must not do.
+- **Filenames in the documents are citations, not paths.** The 1 461 inline code spans
+  naming a file were left alone; only the 2 genuine markdown links were rewritten. So
+  `` `foo.py` `` in a postscript means "the file called foo.py", wherever it now lives.
+
+Run scripts from the repository root (`python3 src/foo.py`) — they resolve data
+relative to the working directory. New output therefore lands at the root and is
+filed into `runs/` periodically.
+
 **How to read a file's name** (revised 2026-08-11, stated in full in
 [`METHODS.md`](METHODS.md) § *The documents, and which kind each one is*):
 UPPERCASE `.md` in the root is a standing document; `specs/` holds the one-shot
@@ -76,7 +106,8 @@ missteps is [`PROOF_NARRATIVE.md`](PROOF_NARRATIVE.md).
 | 6 | 635 | best from 360k random rational seeds + climbing | ℚ (rational) |
 | 7 | **1217+** | greedy extension of 727 (Postscript [46](LEDGER.md#p46)) | ℚ (rational) |
 | 8 | **1895+** | the 1217 seven + `24,-24,24,-61` (Postscript [101](LEDGER.md#p101); was 1891) | ℚ (rational) |
-| 9 | **2785+** | the 1895 eight + `56,56,55,56`; a continuum in k, see `MAXIMISER_TAXONOMY.md` | ℚ (rational) |
+| 9 | **2787** | 1895's seven + `168,-168,168,-415` + `109,-11,91,140` (Postscript [198](LEDGER.md#p198); representative simplified in [218](LEDGER.md#p218)). Supersedes 2785 | ℚ (rational) |
+| 10 | **3925** | the 2787 nine **in its original representative** + `6555,6555,6497,6555` (Postscripts [200](LEDGER.md#p200), [285](LEDGER.md#p285)). With the *simplified* n=9 representative the same extension counts 3921 — the two agree in count and depth profile but are **not** interchangeable here; see `RESULTS.md` §2 | ℚ (rational) |
 
 Deep-depth ceilings **d3 ≤ 164, d4 ≤ 102, d5 ≤ 36, d6 = 1** have never
 been exceeded in any config or on any wall tested (conjectures C4/C5/C6,

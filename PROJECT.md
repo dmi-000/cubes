@@ -1166,6 +1166,47 @@ corner-on-face altogether (Postscript [51](LEDGER.md#p51) addendum 3).
 
 ---
 
+### Where the frontier actually is (2026-09-16)
+
+The list above is the search frontier, and it is no longer where the work is. Since
+2026-09-08 the project has had an exact accounting identity for the count, and it relocates
+every open problem.
+
+**The identity.** Exact on 183, 393, 727 and 1217:
+
+    TOTAL = 1 + L + Σ holes + ½ Σ_v excess(v)
+
+where `L = n − 1` is the number of depth levels, `holes_ℓ = c_ℓ − 1` counts the components
+of the level-ℓ curve arrangement beyond the first, and `excess(v)` is the degree excess a
+vertex contributes, summed over the levels it appears at. Every region is paid for by degree
+excess, and every triple point is spent twice — the frustration principle of Section 5 as
+arithmetic rather than as description.
+
+**A complete ceiling for the whole tower**, conditional on the single hypothesis
+`holes_ℓ ≤ 1`:
+
+    TOTAL ≤ 1 + 32·C(n,3) + 10·C(n,2) + 3(n−1)
+
+with the first two terms proved. The records sit at 90–92 % of it for every n from 4 to 10.
+
+**And the hypothesis is not where the gap is.** Settling `holes ≤ 1` completes the bound but
+moves it by `n − 1` — at n = 10, from 4318 to 4309 against a record of 3925. The remaining
+10 % divides into a GENERIC part, whose cap `T ≤ 32·C(n,3)` is proved and is *attained* at
+the records, and a DEGENERATE part — edge-edge contacts, shared corners, quadruple and
+higher-order points — which supplies 13–28 % of each record's count and which **nothing
+bounds**. That is the open problem the identity exposes, and it is
+[OQ 35](OPEN_QUESTIONS.md#35).
+
+**One caution belongs in this section, because it is the section people quote.** The first
+concrete conjecture to come out of the degenerate term — a cap of 6 edge-edge contacts per
+cube pair, and then a cap of `6·C(n,2)` in total — was refuted at every size tested, and the
+evidence originally offered *for* the refutation of the per-pair version was itself a
+miscount of a different quantity. Both stories are in
+[Postscript 330](LEDGER.md#p330). No bound on edge-edge contacts alone can be the binding
+constraint in any case: the configurations that maximise them lose more in triple points than
+they gain, scoring 145 at n = 4 against the record's 183. **The object to bound is the trade,
+not either term.**
+
 ## 11. The code, briefly
 
 The exact counter (`cube_regions`, C++), its slower cross-check

@@ -1465,3 +1465,135 @@ And the corollary that cost nine files here: **a probe script is a deliverable.*
 files in `data/` were written by scripts in a temp directory, which is the deliverables rule's
 own failure case — the measurement survives and the thing that produced it does not. They live
 in `src/probes/` now, named as their `reproduce` blocks cite them.
+
+
+<a id="26-the-facet-centre-lemma"></a>
+
+## [FACT] 26. The facet-centre lemma, and radial monotonicity
+
+The cubes in this project are CONCENTRIC. For a facet of `A_i` with unit normal `u`, the facet
+centre is the point `p = u`, and for any face normal `v` of any other cube
+`|<u, v>| <= ||u|| ||v|| = 1`, with equality iff `u = +-v`. So **every facet centre lies in
+every other cube**, in the interior off the shared-face-plane locus.
+
+Consequences worth reaching for before anything harder ([P311](LEDGER.md#p311)):
+
+- On a facet, every `Q_j = F ∩ A_j` is convex and contains the SAME interior point, so all are
+  star-shaped about it and **depth is non-increasing along every ray from the facet centre**.
+- The depth-exactly-`m` region on a facet is therefore the region between two radial graphs:
+  a disk per maximal arc where they separate, or one annulus if they separate everywhere.
+- The facet centre is the deepest point of its facet, at depth `n`.
+
+This is the cheapest structural fact available about concentric compounds and nothing in the
+project used it before. Reach for it whenever a statement is about one facet at a time.
+
+<a id="27-a-cause-claim-needs-its-own-gate"></a>
+
+## [PRACTICE] 27. A cause claim needs its own gate, and the gate must not share the claim's data
+
+**The measurement, over the whole ledger.** Of roughly 303 postscripts before 2026-09-15, about
+**40 carry refutation language in their titles — 13 %** — and reading them they split about
+two to one:
+
+- **cause, law or mechanism claims**: P172's linear wall law ("refuted, and not for the reason I
+  guessed"), "less constrained added cube wins", P225's exact pair rules, the
+  disconnected-boundary lever ("proposed and refuted the same hour"), the wall-crossing proof
+  route, "the +4 does not stack", the four-diagonal obstruction, the star property, `T = 8n+40`,
+  the `lineality - 1` law, [P298]'s false premise;
+- **instrument-scope errors**: the VOID 1217 campaign, the small-integer-direction artifact, the
+  183's no-op plateau, the step-size artefact, the endpoint solver's two defects.
+
+**What is almost absent is a refuted MEASUREMENT.** When a number failed it was because the
+instrument was mis-scoped -- the count was correct for what it actually measured. The 2026-09-15
+session reproduced this exactly: every causal claim made in it fell ([P304]'s mechanism,
+[P313]'s `F = d_ell`, [P315]'s `b >= 5` rows, [P318]'s cost split, [P321]'s concurrency
+attribution) and every measured quantity stood (counts, plateau dimensions, extents, the
+reconnection law).
+
+**SO:** a sentence containing *because*, *causes*, *the reason is*, or a named law is a different
+kind of object from a number, and carries a much higher prior of being wrong. Before recording
+one:
+
+1. State what would falsify it, and run THAT -- not more of what suggested it.
+2. Make the gate independent of the data that produced the claim. [P321]'s "12 concurrency
+   walls" passed a rank test and was still wrong, because rank and the determinant share a
+   model; the containment predicate, which does not, killed it.
+3. Prefer the negative half. In [P304] the durable finding was "there are count-changing
+   parameters invisible to the coincidence family" -- a measurement. The identification of what
+   they are was the part that fell.
+4. If a cause cannot be gated yet, record it as an OPEN QUESTION with its evidence, not as a
+   finding. [OQ 34] survived being wrongly closed precisely because its evidence was written out
+   in full.
+
+## [PRACTICE] 28. Before proving a bound, re-derive its evidence from the definition the bound uses
+
+[P330], 2026-09-16. Cost of not doing it: [P329] stood for one session with a counterexample
+that was not one, a refuted claim that was true, and a replacement conjecture that was false at
+every size tested.
+
+The task was "prove `sum EE <= 6*C(n,2)`". The first move was not to attempt the proof. It was to
+recompute the number on both sides of the claim from the definition the identity uses — and the
+witness evaporated in four lines.
+
+1. **Identify the definition the bound's OWN identity uses.** If `EE` and `SC2` are separate
+   terms in `TOTAL = ... + EE + 2*SC2 + ...`, then `EE` excludes shared corners, whatever any
+   other function named `contacts` returns.
+2. **Recompute the published witness under that definition** before anything else. It is one
+   evaluation, and it is the cheapest possible test of the claim you are about to spend hours on.
+3. **Check the search's POOL, not just its seeds.** The instinct is to blame misdirected seeds;
+   check instead whether the pool contained a counterexample, because if it did, the failure is
+   sampling density and not coverage, and the fix is different. Here the pool held a
+   configuration scoring 40 against a bound of 36 and 400 random draws had 0.012 expected hits
+   on it. Asserting the seed story without checking the pool was itself an ungated cause claim.
+4. **Measure the constants, do not tabulate them.** [P328]'s per-signature excesses close the
+   identity exactly at the records and fail on a degenerate family. A probe that measures
+   `sum_levels (deg(v) - 2)` per vertex cannot be wrong about them, and reports the deviations
+   as a finding instead of failing silently. [P324] is the same lesson.
+
+**And the root cause, which was not in the code.** [P329] had a clean codimension derivation
+predicting `EE <= 6`, and a measurement saying 24. It concluded the derivation was refuted --
+the humble-looking move, and the wrong one. When a derivation and a measurement disagree,
+**the first question is not which is wrong but whether they are about the same object.** Here
+they were not: the derivation counted contact POINTS, the measurement counted edge PAIRS, and
+the honest-seeming deference to data skipped the check. A derivation that is clean and a
+measurement that contradicts it is the strongest available signal of a definition mismatch,
+and should trigger that check before either side is believed.
+
+The general shape: **a proof attempt is the most expensive way to discover that a claim's
+evidence was mismeasured.** Spend one evaluation first.
+
+## [PRACTICE] 29. Turn every bug found into a SEARCH, and run it over code that predates it
+
+[A16], [P331], 2026-09-16. Cost of not doing it: a wrong claim stood for three weeks *after* the
+defect that invalidates it had been found, fixed and written up — in a different file.
+
+When a defect is found, the reflex is fix-and-propagate: correct the code, correct the documents
+that quoted it, done. That treats the defect as an incident. **It is a species.** The same
+confusion that produced it is available everywhere the same operation is performed, and the
+places it already fired are exactly the places nobody is looking, because those claims were
+checked once and are now "verified".
+
+The procedure, which took minutes per class:
+
+1. **State the bug as a mechanical signature.** "Rows used where columns are the face normals."
+   "Plane intersection with no containment predicate." "A count of incidences where the identity
+   counts objects." "A file written at import scope." Each becomes a grep or a twenty-line `ast`
+   walk.
+2. **Run it over the WHOLE tree**, including modules older than the bug's discovery. Age is not
+   evidence of correctness; it is evidence of not having been looked at lately.
+3. **Expect most hits to be benign, and check them anyway.** Seven modules took row inner
+   products against `mat()`; all seven were correct — four documented helpers taking an explicit
+   transpose, three ordinary matrix multiplies. A sweep that returns no false positives was too
+   narrow to have found anything.
+4. **For each true hit, ask which live CLAIM rests on it**, not just which code is wrong. The
+   `concurrence.py` hit mattered because `RESULTS §7` was still citing it.
+
+**The re-verification trap this exists to catch.** The 9-fold claim had already been re-verified
+once — against the rows-vs-columns defect, in [P227]. That is exactly why nobody re-examined it
+when the containment defect surfaced three weeks later. **A claim that survived one audit is not
+audited; it is audited for one thing**, and its "re-verified" tag actively deters the next look.
+
+Corollary, from the same sweep: **a refutation without a mechanism is an open question wearing a
+closed question's label.** [P55]/[P57] measured a heuristic as negatively correlated and recorded
+the reversal with no cause; the cause turned up here, five weeks later, and was the real finding.
+When a measurement reverses an expectation, the cause is still owed.

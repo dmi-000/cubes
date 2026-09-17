@@ -326,3 +326,162 @@ whose vanishing defines it. One wall, one condition, but a condition may factor
 **Isolated** — for a *configuration*, means no continuum of the same count
 around it (true at n = 3). For a *type*, means a zero-width chamber. The two
 are different and n = 6 has the second without the first.
+
+## 8. Overloaded symbols — `c`, and how each occurrence is told apart
+
+Added 2026-09-15. The letter `c` carries five distinct meanings in this project. **Every
+occurrence in the current documents is disambiguated by its immediate context** — checked, not
+assumed: filtering out the occurrences that carry their context leaves nothing behind. So this
+is a hazard for what gets written NEXT, not a defect in what is written now, and no rename is
+proposed.
+
+| form | meaning | how you know |
+|---|---|---|
+| `c_ell`, `c_1`, `c3` | connected components of the level-ℓ graph — the dominant use, 115+ occurrences | appears alongside `d_ell`, `V`, `E`, `tau3`, `W0`, or in `E − V + c + 1` |
+| `c0` | the ZERO-COORDINATE INDEX of a wall key, a value in 0..2 | always inside `(frame, group, sig, c0)` or indexing a 3-vector: `m1[c0]`, `sum_{c != c0}` |
+| `C3` | the cyclic group of order 3 | capital C, and the word *quotient* or *symmetry* nearby |
+| `C(l, n)` | the ceiling-law function | capital C with two arguments |
+| `(c2)`, `(c3)` | case labels in [P273]'s classification | wrapped in parentheses, following the word *classification* or *case* |
+
+**The one to watch is `c0`.** It looks like "c at level 0" and is not: it is an index naming
+which coordinate vanishes, a different TYPE from a component count. Misread, it would be
+silently wrong rather than obviously wrong. It currently never appears outside its tuple or an
+indexing expression — **keep it that way**, and if it ever needs to stand alone, write
+`zero-coordinate index` in words.
+
+**Rule for new writing:** a bare `c` means the component count. Anything else gets its context
+on the same line, or a different letter.
+
+**`h` IS NOT FREE — it means HEIGHT.** The largest absolute component of an integer quaternion:
+`h = 140` and `h = 113786` name the two n = 9 representatives (`simplified_h140`,
+`original_h113786`), "height" appears ~170 times in the documents, and it is the subject of
+[METHODS 15] — a refusal is usually about the height of the representative, not the question.
+Recorded because `h` for *hole* was proposed on 2026-09-15 and had to be withdrawn: the hole
+count is a real and useful quantity (`c_ell - 1`, see 8b) but it has no free letter, and is
+written out as `c_ell - 1` rather than given one.
+
+### 8a. The two Euler relations have the same SHAPE and different content
+
+Noticed by the user, 2026-09-15, and it is the sharpest form of the `c` collision.
+
+    3D, the whole arrangement     V - E + F - C = 1      C = REGIONS      183, 393, 727
+    2D, one level, on a sphere    V - E + F - c = 1      c = COMPONENTS   1 or 2
+
+Both verified: the first exactly on the n = 4, 5, 6 records via `cellcomplex.complexus`
+(V=194/400/790, E=498/1080/2116, F=488/1074/2054), the second as [P312]'s
+`d_ell = E - V + c + 1` against the engine, 43 of 43.
+
+**Why they differ despite the identical shape: the per-level relation is ONE DIMENSION DOWN.**
+There `F_ell = d_ell` is the depth-`ell` REGION count, so regions occupy the **F** slot; in the
+3D relation they occupy the **C** slot. The final term is regions in one and components in the
+other.
+
+**So `c` is NOT a region count** -- but writing `V - E + F - C = 1` with `C = 183` is completely
+natural, and it puts the project's headline quantity in the same position where `c_ell ∈ {1,2}`
+lives. Anyone carrying intuition from one relation to the other will be out by a dimension.
+
+**Convention:** write `C` (capital) only for the 3D region count, `c_ell` (subscripted, lower
+case) only for the per-level component count, and never either one bare in a context where both
+relations are in play.
+
+### 8b. What `c_ell ∈ {1, 2}` actually means
+
+**`c_ell = 1`** — every face of the level-`ell` decomposition is a DISK. Equivalently: on every
+cube, every maximal patch of points at that depth is simply connected.
+
+**`c_ell = 2`** — exactly one face is an ANNULUS. On one cube, the points at that depth form a
+BAND that encircles the cube, with a deeper patch enclosed inside it. The band's two edges are
+the two graph components, swapped by the antipodal map — which is [P268]'s observed shape,
+`0 self-antipodal + 1 pair`, arrived at independently.
+
+**The chain, with what is verified at each step.**
+
+1. `c - 1 = sum_f (b(f) - 1)` on a sphere, so `c = 2` forces exactly one face with two boundary
+   circles — an annulus.  *Standard, and the relation is verified by [P312] 43 of 43.*
+2. A face is a connected component of the depth-`m` set on ONE cube's boundary, spanning
+   facets across creases, since a crease is a fold and not a separator.  *[P312].*
+3. Depth is non-increasing radially from every facet centre, so a depth-band naturally rings a
+   deeper core.  *The facet-centre lemma, [P311], proved.*
+4. **Measured here: no facet of any `c = 2` instance carries a wrap-around band** (0 of 24
+   facets, three instances).  So the annulus is not a ring around a facet centre.
+5. Therefore it closes by going around the CUBE, through several facets.  *Forced by 1, 2 and
+   4 — a deduction, not a mechanism claim.*
+
+**This explains the confinement to level 1 ([P319]).** A band has to run all the way round
+without being cut, and the outermost shell is where the depth patches are largest and least
+fragmented; deeper levels are nearly pure degree-3 and broken into many small faces
+([P315]). It also explains the rarity — 1.6 % — and why a transition is a pure RECONNECTION
+([P321], `dV = dE = 0`): the band closes or breaks when two arcs touch and rewire, which
+creates and destroys nothing.
+
+### 8c. The other overloaded symbols, worst first
+
+Audited 2026-09-16, prompted by "b for band?" — `b` is not free either. Ordered by how
+plausible a wrong reading would look, because a collision that produces nonsense is harmless and
+one that produces a believable number is not.
+
+**1. `l` versus `ell` — THE DANGEROUS ONE. The two level indices run in OPPOSITE directions.**
+
+    C(l, n) = (12l - 6)n - 2(l^2 - 1)      l counts from the INSIDE:  l = 1 is the innermost
+    d_ell, c_ell, V_ell, E_ell             ell counts from the OUTSIDE: ell = 1 is the outermost
+    the bridge:   l = n - ell
+
+This is already explicit in the glossary and easy to miss: the anchor lemma is "the proved
+`l = 1` case, `d_{n-1} <= 6n`" — `l = 1` and `d_{n-1}` are the same level. Mixing them gives a
+ceiling for the wrong layer, which is a plausible number rather than an absurd one. **Verify the
+direction before quoting any ceiling.**
+
+**2. `d1` versus `d_1` — one underscore apart, 235 uses against 12.**
+
+    d1, d2      DENOMINATORS in the wall polynomial: P = ... - (m2[c0] d1 - m1[c0] d2)
+    d_1, d_ell, d3   the DEPTH COUNTS, the region totals per level
+
+**3. `m`** — `m_v` is the number of levels a vertex appears at ([P248]); `m1[...]`, `m2[...]`
+are the NORMAL VECTORS of the wall formula; a bare `m` is usually a depth index.
+
+**4. `b`** — `b_v` is the number of cube BODIES through a vertex ([P248]'s `m_v = b_v - 1`, and
+the same thing as a "b-fold point"); `b(f)` is the number of BOUNDARY CIRCLES of a face. Bodies
+and circles, same letter. **So `b` is not available for *band* either.**
+
+**5. `c`** — five meanings, see 8 and 8a.
+
+**Decided: the hole count is written out.** `c_ell - 1`, or the word *holes*. It has no free
+letter — `h` is height (8), `b` is bodies and boundary circles, `c` is components — and
+inventing one against that much traffic is how the collisions above got made.
+
+### 8d. Negative level indices — proposed, and they retire the `l` / `ell` collision
+
+Suggested by the user, 2026-09-16: use one level index with a sign, the way a negative array
+index counts from the far end.
+
+    d_{+1}  outermost layer          ell = +k  counts INWARD  from the outside  (existing use)
+    d_{-1}  innermost layer          ell = -k  counts OUTWARD from the inside   (new)
+    bridge:  d_{-k} = d_{n-k}
+
+**This eliminates 8c's worst collision.** The ceiling law's inward-counting `l` was a second
+letter for the same axis running the other way; it becomes `-ell` and the letter `l` is retired:
+
+    old:  C(l, n) bounds the depth-l count, l = n - ell     two letters, opposite directions
+    new:  d_{-k} <= C(k, n)                                 one index, signed
+
+**IT ALSO MAKES TWO RESULTS n-INDEPENDENT.** Measured on the records:
+
+    n     d_{-k}, inner -> outer            ceiling C(k,n)                 slack
+    4     24, 66, 92                        24, 66, 104                    0, 0, 12
+    5     30, 78, 128, 156                  30, 84, 134, 180               0, 6, 6, 24
+    6     36, 100, 156, 220, 214            36, 102, 164, 222, 276         0, 2, 8, 2, 62
+    7     42, 118, 190, 260, 328, 278       42, 120, 194, 264, 330, 392    0, 2, 4, 4, 2, 114
+
+- **`d_{-1} = 6n` exactly at every record.** In outward indexing this is `d_{n-1}`, a name that
+  changes with every level; inward it is always `d_{-1}`.
+- **The slack concentrates at the OUTERMOST layer** — 12, 24, 62, 114 — while the inner layers
+  sit at or within a few of their caps. That is [P258]'s "the caps cannot all be attained"
+  localised: the frustration lives at the outside.
+
+**BOTH SIGNS EARN THEIR KEEP**, which is why one direction was never enough: holes occur only at
+`ell = +1` ([P319], outermost) and ceiling saturation only at `ell = -1` (innermost). The
+arrangement has two ends and they behave differently.
+
+**Adoption is additive, not a rename.** Positive indices keep their current meaning and all
+existing `d_ell` / `c_ell` references stand; negative indices are new vocabulary for statements
+that are natural from the inside. Nothing needs rewriting.

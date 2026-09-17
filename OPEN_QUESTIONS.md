@@ -112,7 +112,9 @@ the idea.
 **Suggested by the project's own rule** (a census returning few distinct values
 wants factoring, not more counting) and answerable from data already on disk.
 
-## 4. Why 24 walls per added cube? — a WINDOW n = 6..8, broken at both ends
+<a id="4"></a>
+
+## 4. Why 24 COINCIDENCE walls per added cube? — a WINDOW n = 6..8, broken at both ends, and the question is now half of a larger one
 
 **CLOSED at the top end 2026-09-12 ([P300](LEDGER.md#p300)):** n = 10 is now measured —
 480 tight, **100 distinct walls**, rank 21, lineality 6 — against the law's prediction of
@@ -1041,6 +1043,107 @@ general position, therefore `c = 1`" is already refuted.** `c = 2` is a Z/2 mono
 Euler identity itself fails in 195 of 197 level-instances, so values read there are not
 values of `c`.
 
+**DERIVATION 2026-09-15 ([P311](LEDGER.md#p311)): `c_ell` is ODD BY PROOF, so `c = 2` is
+impossible — and the measured `c = 2` is a different graph.**
+
+*The facet-centre lemma.* The cubes are concentric, so for a facet of `A_i` with unit normal
+`u`, its centre is `p = u` and `|<u, v_{j,k}>| <= 1` by Cauchy-Schwarz, with equality only on
+the shared-face-plane locus. **Every facet centre lies inside every other cube.** Hence on each
+facet every `Q_j = F ∩ A_j` is convex about a COMMON interior point, depth is non-increasing
+along every ray from it, and the depth-exactly-`m` region is the region between two radial
+graphs — a disk per maximal arc, with one annulus only if it wraps the whole circle. So every
+face has `b(f) <= 2`, `c - 1` counts annuli, annuli come in antipodal pairs (a facet is never
+its own antipode), and **`c` is odd**.
+
+*Why `c = 2` was measured anyway.* `c_level.level_graph` uses only `∂A_i ∩ ∂A_j` arcs. The
+depth surface also creases along the EDGES of one cube, and those separate faces too. With the
+creases included: **`c = 1` in all 1 999 level-instances tested, including all 12 where the
+wall graph gives `c = 2`.**
+
+*ANSWERED 2026-09-15 ([P312](LEDGER.md#p312)), against the attack.* `c_ell` is the **wall
+graph's**: the validated identity `d_ell = E − V + c + 1` is exact on 43 of 43 level-instances
+with the wall graph's `c` and wrong on 31 of 43 with the skeleton's. A crease is a FOLD of the
+depth surface, not a separator of regions, so counting regions wants the wall graph. The
+parity theorem is therefore about a different object and does **not** give 195, and `c = 2` is
+possible here because a wall-graph face spans several facets and can be self-antipodal.
+
+*What it buys instead — the question, stated exactly:* `c_ell <= 2` is precisely **"no face of
+the wall graph on `S_ell` has three or more boundary circles, and at most one has two."** A
+wall-graph face is a union of radial disks and annuli, one per facet it meets
+([METHODS 26](METHODS.md#26-the-facet-centre-lemma)); the question is how many boundary circles
+such a union can carry. That is where the facet-centre lemma should be aimed next.
+
+*And one reading of `c = 2` is already refuted ([P312] addendum):* the two graph components are
+NOT the two boundary circles of a single face — no cube appears in every arc of either
+component, 0 of 10. A component carries arcs from many faces on many cubes. Deciding the shape
+needs actual FACE EXTRACTION on `S_ell`, which nothing in the project does yet; that is the
+next concrete step and it is a construction, not an argument.
+
+**HARD CONTROL PASSED 2026-09-13 ([P310](LEDGER.md#p310)).** The evidence was all random
+integer draws. Measured now at the most degenerate points available — the records themselves,
+with 27 coincidence walls through each (the ~~282~~ figure was [P309]'s and is VOID per
+[P323](LEDGER.md#p323)) — and in the 30 cells adjacent to the
+n = 6 record, entered exactly: **c = 1 in all 155 level-instances**, no `c = 2` and no
+`c >= 3`. And `c_ell = 1` at every level of every record from n = 4 to n = 8.
+
+**The natural hypothesis is inverted by this:** detachment does not need degeneracy, it avoids
+it. Random draws give `c = 2` about 0.4% of the time; the record neighbourhood never does.
+Consistent with [P269]'s finding that every valid `c > 1` instance is non-degenerate. It
+remains a control, not a proof — the question still needs connectivity of the quotient.
+
+**A ROUTE CLOSED 2026-09-15 ([P316](LEDGER.md#p316)).** Since [P304] found the four-plane
+concurrency family — which [P269]'s "other coincidences: NONE" checklist predates — the natural
+hypothesis was that `c > 1` is a concurrency phenomenon, which would have reduced this question
+to bounding concurrency. It is not: over 871 non-degenerate n = 4 configurations, **all 14
+`c > 1` instances have only triple points, no quadruple point at all**. Concurrency is not
+necessary for `c > 1`, and [P269]'s monodromy reading survives a test against the family it
+could not have known about.
+
+**AND THE CONVERSE IS OPEN TOO ([P317](LEDGER.md#p317)).** Whether a `c > 1` instance can carry
+a 4-fold point is untested by anything decisive: 150 configurations built to have a genuine
+quadruple point all gave `c = 1`, but the matched control — the same family without the
+quadruple point — gave 1 in 150, so the suppression is the SHARED AXIS, not the concurrency.
+The treatment arm alone would have read as a clean exclusion, which is what the control exists
+to prevent.
+
+**NARROWED 2026-09-15 ([P319](LEDGER.md#p319)): `c > 1` is confined to LEVEL 1.** Over 4 736
+level-instances, every one of the 12 `c > 1` cases sits at the outermost level; **zero in 3 382
+instances at levels 2 and deeper**. Structurally consistent: level 1 carries essentially all the
+`b = 2` vertex types (edge crossings, edge-edge contacts, shared corners) while deeper levels are
+nearly pure degree-3, and a face needs that richness to acquire a second boundary circle.
+
+**So the target should be restated as `c_ell = 1 for ell >= 2`**, which is stronger than
+`c_ell <= 2` and may be easier to prove, since deeper levels lack the vertex types an annular
+face requires. It would give `sum_ell (c_ell + 1) = 2n - 1` and **`max(4) <= 196`**, the first
+movement on the bound since [P258]; `c_1 = 1`, which holds at every record, would give 195.
+
+**AND THE BOUNDARY OF `{c = 2}` IS NOW LOCATED ([P320](LEDGER.md#p320)).** `{c = 2}` is an open
+interval on a ray, bounded by walls found exactly: the transition sits at `t = -1/22`, with
+`c = 1` ON the wall and `c = 2` strictly beyond. 16 wall polynomials share that root — 4
+coincidence, 12 concurrency — so the boundary is a CONFLUENCE, and whether a single wall can
+ever move `c` is untested. Deeper levels held `c = 1` in all 713 cells of the ray, which is
+[P319] along a ray rather than across a sample.
+
+**AND `c` CHANGES ONLY BY RECONNECTION ([P321](LEDGER.md#p321)): `dV = dE = 0` at 8 of 8
+transitions**, so the arrangement keeps its vertices and edges across a `c`-wall and merely
+rewires them. One of the eight sits at a crossing with NO coincidence wall — only concurrency —
+so `c` can move where `conditions_on` sees nothing, the same blind spot [P304] found for the
+region count. The constant "12 concurrency walls" at every crossing is NOT yet rank-tested and
+may be counting non-events.
+
+**A DIRECTED ATTEMPT TO BREAK IT FAILED ([P325](LEDGER.md#p325)).** Since a hole is a band
+encircling a cube, near-aligned cubes are where rings should close most easily. 720 such
+configurations — near-identity at n = 4, 5, 6, and clustered-plus-generic — still give
+**max `c` = 2**. A failed directed attempt is stronger evidence than the same number of random
+draws, because it was aimed where the geometry says the phenomenon lives.
+
+**WHAT THE HYPOTHESIS IS WORTH ([P326](LEDGER.md#p326)).** Assuming `holes <= 1` gives a proved
+upper bound for EVERY n — `TOTAL <= 1 + 32C(n,3) + 10C(n,2) + 3(n-1)` — with the records at a
+stable 90–92 % of it from n = 4 to n = 10. But the hole term is `n-1` out of thousands: at
+n = 10 a full resolution moves the bound from 4318 to 4309 against a record of 3925. **Settling
+this question COMPLETES the bound; it does not tighten it.** Its value is qualitative — turning
+conditional into proved — and the slack lives in `T` and `two-body`.
+
 **What the data narrows it to.** `c ≥ 3` occurs 0 times in 418 non-degenerate level-instances
 (and 0 in [P245]'s 1 389), and every instance found on the plane-degenerate locus has the
 shape `1 self-antipodal + 1 pair` with the detached pair TINY — 4 or 6 nodes against a main
@@ -1168,6 +1271,24 @@ deficit-domination shape as Theorem S, with the source of the slack now named ex
 
 ## 33. Which walls bound the count plateau? — the question every dimensional claim rests on
 
+**SCOPE CORRECTED 2026-09-13 ([P304](LEDGER.md#p304), [P307](LEDGER.md#p307)), then the
+CORRECTION ITSELF REFUTED 2026-09-16 ([P323](LEDGER.md#p323)).** The 24 counts COINCIDENCE walls,
+and at least one count-changing parameter is not one of them — so the coincidence family is
+incomplete, and that much stands. ~~Four face planes through a point is a second codimension-1
+family, and through each record there are far more of those than there are coincidence walls.~~
+**That family was counted WITHOUT a containment predicate.** A cube's boundary is six SQUARES,
+not six planes; most four-plane meeting points lie outside the compound and are walls of nothing.
+Re-counted with containment there are **2** genuine concurrences at every parameter tested. **So
+what the 24 is a share OF is once again unknown**, which is [OQ 34].
+
+~~**MEASURED 2026-09-13 ([P309](LEDGER.md#p309)): the other family increments by +258 on the SAME
+window, and the true increment is 282.**~~ **VOID, 2026-09-16 ([P323](LEDGER.md#p323)).** Those
+counts were taken with a rank test and NO containment predicate, so they counted concurrences of
+the infinite face PLANES, most of which lie outside the compound and are not walls of anything.
+Re-counted with containment, the number of genuine arrangement concurrences is 2 at every
+parameter tested — baseline and anomaly alike — so there is no +258 and no window.
+**The +24 coincidence half of the question is untouched and stands.**
+
 **Opened 2026-09-12 by [P298](LEDGER.md#p298), and it is the most load-bearing open
 question in the project.**
 
@@ -1262,9 +1383,18 @@ family only.
 
 <a id="34"></a>
 
-## 34. What else changes the count? — **CLOSED 2026-09-12, same day: nothing. It was a plane-convention bug**
+## 34. What else changes the count? — **REOPENED 2026-09-15 ([P323](LEDGER.md#p323)): the concurrency explanation does not survive containment**
 
-**Opened and CLOSED 2026-09-12 by [P304](LEDGER.md#p304).** The event at t = −4/27 is a
+**REOPENED 2026-09-15 ([P323](LEDGER.md#p323)).** The closure below is VOID. Re-counting
+four-plane concurrences with a containment predicate — the common point must actually lie in the
+cubes, not merely on their infinite face planes — gives **2 at t = −4/27, 2 at t = −2/9, and 2 at
+the baselines**. The 230/236/238 variation that appeared to explain the anomalies is entirely
+outside the compound. **Both count anomalies again have no identified cause**, and the surviving
+finding is the negative one: there are count-changing parameters invisible to the coincidence
+family.
+
+**The void closure, kept for the record.** Opened and closed 2026-09-12 by
+[P304](LEDGER.md#p304): the event at t = −4/27 is a
 four-plane concurrency after all — the enumeration that failed to see it was using the rows
 of the rotation matrix where the normals are the columns, so it was enumerating the planes
 of a different configuration. Corrected, the concurrence count goes 230 → 238 at −4/27,
@@ -1310,3 +1440,162 @@ wall list is COMPLETE is unsupported, and that includes the two-family list [P30
 **The cheap next probe**, not yet run: dump the six vanishing 0-cells at a parameter just
 before −4/27 and just after, and read off what they are incident to. The complex is built
 in `cellcomplex.complexus` and already has the nodes; only the diff is missing.
+
+
+<a id="35"></a>
+
+## 35. What bounds the DEGENERATE vertex terms? — **PREMISE RETIRED 2026-09-16 ([P333](LEDGER.md#p333)); the live question is now OQ 36**
+
+> **PREMISE RETIRED 2026-09-16 ([P333](LEDGER.md#p333)).** This question asks what bounds the
+> degenerate terms "which nothing bounds". `EE + 2*SC2` **is** the two-body term of [P258], and
+> `two-body <= 10*C(n,2)` has been PROVED since [P237] — verified here by [P258]'s identity
+> closing on the record as `128 + 48 + 6 + 1 = 183`. The edge-edge thread was re-bounding a
+> bounded quantity, and capping only half of a sum. **The real question is joint ATTAINMENT, and
+> it is [OQ 36] below.**
+
+**Opened 2026-09-16 by [P328](LEDGER.md#p328), and it is the successor to [OQ 30] as the
+load-bearing question.**
+
+[P326] showed that settling `holes <= 1` completes the upper bound for every `n` but barely
+tightens it — the slack is in `T + two-body`, 384 of a 393-region gap at n = 10. [P328] locates
+that slack exactly:
+
+    TOTAL = [ 1 + L + sum c + T3 ]  +  [ EE + 2*SC2 + 3*Q4 + 4*EE3 + 7*SC3 ]
+
+`T3 <= 32*C(n,3)` is PROVED and is ATTAINED at the records, so the generic part is pinned.
+**Everything loose is in the degenerate terms, and nothing bounds any of them.** They supply
+13–28 % of each record's count.
+
+**The dominant term is edge-edge contacts.** `EE` runs 36, 60, 72, 84 at n = 4..7 — and
+`EE / C(n,2)` is 6.0, 6.0, 4.8, 4.0, exactly 6 per cube pair at the two smallest records.
+~~**Is 6 a cap on edge-edge contacts per pair?**~~ **NO — refuted 2026-09-16
+([P329](LEDGER.md#p329)), though not for the reason given there: the witness was 24 contacts
+at `q = (0,1,1,1)`, and [P330](LEDGER.md#p330) shows 18 of those 24 were shared-corner
+incidences. The true maximum is **10**, at a face-diagonal rotation.** The codimension argument that predicts 6 fails because at symmetric
+rotations the conditions become dependent.
+
+~~**The corrected target is the TOTAL: `sum EE <= 6*C(n,2)`.**~~ **ALSO REFUTED 2026-09-16
+([P330](LEDGER.md#p330)), and [P329]'s witness for the per-pair version was not one.** Two
+counters wore the name `EE`: edge-PAIR INCIDENCES, and `(2,2)` ARRANGEMENT VERTICES, which is
+what the identity above counts. They differ by 9 per SHARED CORNER. At `q = (0,1,1,1)` the
+vertex count is 6 — agreeing with the derivation — and the 24 was 6 + 9x2. The per-pair
+maximum is **10**, at a FACE-diagonal rotation such as `q = (3,2,2,0)`. Rotating every cube
+about one common face diagonal then beats the total bound at every n from 2 to 6 — and such a
+configuration was already inside [P329]'s own search pool, which drew 400 random triples from 255
+candidates and had 0.012 expected hits on the nine that mattered:
+
+    n            2     3     4     5     6
+    6*C(n,2)     6    18    36    60    90
+    total EE    10    22    42    68   100
+    EE w/ excess 10    20    36    56    80
+    regions     13    57   145   289   497
+
+**What is still open after the refutation.** The region-carrying count — `(2,2)` vertices that
+actually contribute degree excess — is exceeded only at n = 2 and n = 3 and is exactly 36 at
+n = 4. Whether IT is bounded by `6*C(n,2)` for n >= 4 is untested and is the live successor
+question. Note also that buying EE this way costs regions (145 against the record's 183), so a
+bound on EE alone was never going to be the binding constraint; the trade against `T3` is.
+
+**What a proof would have been worth, and what is left of it.** A cap on `EE` plus bounds on
+the smaller terms would give a bound built from vertex combinatorics rather than from
+`T + two-body` wholesale — the first route on the table that attacks the 10 % gap instead of the
+0.2 % one. The route is intact; only the constant 6 is gone. What [P330] shows is that no bound
+on `EE` ALONE can be the binding constraint, because the configurations that maximise `EE` lose
+more in `T3` than they gain. **The object to bound is the degenerate term as a whole, or the
+trade between `EE` and `T3` — not either term by itself.**
+
+
+<a id="36"></a>
+
+## 36. Can four concentric cubes pairwise share corners? — **SOLVED 2026-09-16: YES ([P334](LEDGER.md#p334)); successor is OQ 37**
+
+**Opened and SOLVED 2026-09-16 ([P333](LEDGER.md#p333), [P334](LEDGER.md#p334)).**
+
+> **ANSWER: YES.** With `p, q = (sqrt3 +- sqrt15)/6` in `Q(sqrt3, sqrt5)`, the axis assignment
+> `cube 0: a,b,c` / `cube 1: a,x,y` / `cube 2: b,x,z` / `cube 3: c,y,z` with `x = (p,q,0)`,
+> `y = (q,0,p)`, `z = (0,p,-q)` gives four cubes pairwise sharing corners — 6 axes each shared
+> by exactly two cubes, none by three, no shared face planes. **And it attains
+> `two-body = 60 = 10*C(4,2)`, the proved cap, for the first time at n = 4.**
+>
+> **But it costs 42 triple points**: `T3 = 74` of 128 (exact, gated against the record's 128),
+> and the total lands near 138 against the record's 183. Both caps are individually attainable
+> and **jointly they are not**. The hoped-for branch — "impossible, therefore `max(4) = 183`" —
+> is closed the other way. See [OQ 37].
+
+At n = 4 the gap between the record and the proved-modulo-holes bound is 15, and it is not
+spread across unbounded terms:
+
+    T (triple points)   128 of 128    ATTAINED — costs nothing
+    two-body             48 of  60    short by 12
+    L + holes             6 of   9    short by 3
+
+**So the whole question at n = 4 is why two-body cannot reach 60.** A pair sits at
+`two-body = 10` exactly when it is a 2-cube maximiser (`max(2) = 13`, PROVED), by either
+`EE = 10, SC2 = 0` (face diagonal) or `EE = 6, SC2 = 2` (body diagonal). In the records only a
+HUB cube reaches the cap — 3 of 6 pairs at n = 4, 4 of 10 at n = 5, always through one cube,
+which uses a DISTINCT antipodal corner-pair for each partner and saturates its four at n = 5.
+
+**The obstruction is that corner-sharings MERGE.** Putting every cube on one common body
+diagonal makes every pair a maximiser in isolation, yet gives signature `(3,3,3,3)`: all four
+cubes share the same two corners, six pairwise sharings collapsing into one four-fold vertex.
+`two-body` falls to 36 and the count to 145.
+
+**THE QUESTION.** *Can four concentric cubes pairwise share corners — six DISTINCT shared
+corners, the complete graph K4?* Degree counting permits it: a cube has 4 antipodal corner-pairs
+and needs only 3. The record does not do it.
+
+    realizable    two-body rises toward 60 at n = 4, and the question becomes what it costs
+                  in T, which is currently AT its cap
+    impossible    the bound falls from 198 toward 186, and with the hole term toward 183 —
+                  which is max(4) PROVED, the first proved maximum above n = 3
+
+**This is a finite algebraic condition on three relative rotations, not a search.** [METHODS 1]:
+solve it, do not sample it — the instruction the edge-edge thread was given and did not follow.
+
+**And the cap has a schedule.** Max degree 4 means at most `2n` of the `C(n,2)` pairs can share
+corners, so the corner-sharing graph can be complete only for `n <= 5`:
+
+    n        4     5     6     7
+    C(n,2)   6    10    15    21
+    2n       8    10    12    14
+
+Above n = 5 the two-body cap `10*C(n,2)` is unreachable by corner-sharing alone — which predicts
+that the bound is loosest exactly where the records are, and is testable against the 90–92 %
+band of [P326].
+
+
+<a id="37"></a>
+
+## 37. Prove `T3 + two-body <= 176` at n = 4 — one coupling inequality, and `max(4) = 183` follows
+
+**Opened 2026-09-16 by [P334](LEDGER.md#p334), the successor to [OQ 36].**
+
+The n = 4 bound 198 assumes both caps at once, `T3 + two-body = 128 + 60 = 188`. Three exactly
+known configurations say that is not reachable:
+
+    configuration        T3         two-body     T3 + two-body    count
+    n = 4 RECORD      128 / 128     48 / 60          176           183
+    K4 compound        74 / 128     60 / 60          134       138 + holes
+    body-diagonal      72 / 128     36 / 60          108           145
+    assumed by bound  128 / 128     60 / 60          188           198
+
+Each cap is attained by SOME configuration and never both. **The record is the best of the three
+at 176, and 176 is exactly what is needed:**
+
+    1 + (T3 + two-body) + L + holes  =  1 + 176 + 3 + 3  =  183
+
+**So proving `T3 + two-body <= 176` at n = 4 proves `max(4) = 183`** — the first proved maximum
+above n = 3, and it asks for ONE coupling inequality instead of two separate caps that are known
+not to be simultaneously tight.
+
+**Why this is more tractable than it looks.** Both terms are vertex counts in the same exact
+identity `TOTAL = 1 + L + sum holes + (1/2) sum excess` ([P327]), so a coupling is a statement
+about how one arrangement's vertices are distributed between signatures `(1,1,1)` and
+`(2,2)`/`(3,3)` — not a statement relating two unrelated quantities. [P334]'s construction shows
+the mechanism concretely: forcing every pair to share a corner pins six axes, and the pinned
+axes are what the triple points were using.
+
+**First things to do.** Map more of the frontier — the three points above are the only exactly
+known ones; the curve between 134 and 176 is unmeasured. Then ask whether `T3 + two-body` has a
+proof by the same charging argument that gives `T <= 32*C(n,3)`, which is already per-3-subset
+and might extend to count both.

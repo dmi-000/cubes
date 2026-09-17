@@ -114,3 +114,29 @@ three-wall (exhausted, max 727), corner-concurrence (exhausted, max
 containing this base, one- and two-wall strata, positive-dimensional
 systems, corner-corner and edge-face conditions, and anything beyond
 the arithmetic budget. Ledger: Postscripts [52](LEDGER.md#p52)-[55](LEDGER.md#p55) and addenda.
+
+## The fingerprint to use: `(V, E, c)` per level, not the depth profile
+
+**Added 2026-09-15 ([P314](LEDGER.md#p314)).** Configurations here have been fingerprinted by
+the DEPTH PROFILE `(d_1, ..., d_n)`. That discards two thirds of what is already computed:
+`c_level.level_graph` returns `V_ell`, `E_ell` and `c_ell` per level, and
+
+    d_ell = E_ell - V_ell + c_ell + 1
+
+is one linear combination of them. Keeping all three costs nothing and resolves strictly more.
+
+| over 248 random n = 4 configurations | |
+|---|---|
+| distinct depth profiles | 102 |
+| distinct `(V, E, c)` profiles | **167** |
+| depth-profile collisions | 56 |
+| collisions split by `(V, E, c)` | **45** |
+
+**It separates the two n = 9 representatives of 2787**, which agree on count and on `by_depth`
+and have defeated every other fingerprint ([P285](LEDGER.md#p285)): they differ in `V` and `E`
+at levels 1 and 2 while `d` agrees at every level.
+
+**Controlled as an invariant**, not just as a statistic: unchanged under a global rotation of
+the compound, under relabelling the cubes, and under rescaling a quaternion. Use it wherever a
+depth profile is currently used; report `d` alongside it, since `d` is what the ceiling law and
+the Euler identities are stated in.

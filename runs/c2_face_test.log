@@ -1,0 +1,11 @@
+level 1 sizes [70, 70] | cubes [0, 1, 2, 3] / [0, 1, 2, 3] | COMMON [0, 1, 2, 3] | antipodal pair True -> holds
+level 1 sizes [64, 64] | cubes [0, 1, 2, 3] / [0, 1, 2, 3] | COMMON [0, 1, 2, 3] | antipodal pair True -> holds
+level 1 sizes [88, 88] | cubes [0, 1, 2, 3] / [0, 1, 2, 3] | COMMON [0, 1, 2, 3] | antipodal pair True -> holds
+level 1 sizes [64, 64] | cubes [0, 1, 2, 3] / [0, 1, 2, 3] | COMMON [0, 1, 2, 3] | antipodal pair True -> holds
+level 1 sizes [62, 62] | cubes [0, 1, 2, 3] / [0, 1, 2, 3] | COMMON [0, 1, 2, 3] | antipodal pair True -> holds
+level 1 sizes [72, 72] | cubes [0, 1, 2, 3] / [0, 1, 2, 3] | COMMON [0, 1, 2, 3] | antipodal pair True -> holds
+level 1 sizes [74, 74] | cubes [0, 1, 2, 3] / [0, 1, 2, 3] | COMMON [0, 1, 2, 3] | antipodal pair True -> holds
+level 1 sizes [64, 64] | cubes [0, 1, 2, 3] / [0, 1, 2, 3] | COMMON [0, 1, 2, 3] | antipodal pair True -> holds
+level 1 sizes [75, 75] | cubes [0, 1, 2, 3] / [0, 1, 2, 3] | COMMON [0, 1, 2, 3] | antipodal pair True -> holds
+level 1 sizes [68, 68] | cubes [0, 1, 2, 3] / [0, 1, 2, 3] | COMMON [0, 1, 2, 3] | antipodal pair True -> holds
+prediction holds 10, fails 0

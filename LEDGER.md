@@ -374,6 +374,36 @@ with `index_ledger.py` after appending.
 - [Postscript 305 addendum](#postscript-305-addendum-n--7-and-n--8-land-the-other-way-and-the-n--6-sector-sweep-is-not-usable) — n = 7 and n = 8 land the other way, and the n = 6 sector sweep is NOT usable
 - [Postscript 306](#p306) — the n = 6 plateau is EXACTLY 1-dimensional — pinned by 222 walls that CONTAIN it, which no…
 - [Postscript 307](#p307) — plateau dimensions SETTLED at n = 6, 7, 8 — 1, 2, 2 — by the walls that contain the branch
+- [Postscript 308](#p308) — the attribution audit CLEARS every boundary checked — and explains why a concurrency wall…
+- [Postscript 309](#p309) — both wall families go constant on the SAME window n = 6..8 — and my prediction for n = 5 was…
+- [Postscript 310](#p310) — c_ell <= 2 survives its hardest available test — and the record neighbourhood has LESS…
+- [Postscript 311](#p311) — the FACET-CENTRE LEMMA — depth is radially monotone on every facet, `c_ell` is odd by proof,…
+- [Postscript 312](#p312) — [P258]'s `c_ell` is the WALL graph's — my parity theorem is about a different object, and…
+- [Postscript 312 addendum](#postscript-312-addendum-my-reading-of-the-c--2-shape-is-refuted--and-the-first-test-of-it-could-not-fail) — my reading of the `c = 2` shape is REFUTED — and the first test of it could not fail
+- [Postscript 313](#p313) — **[FAILED DERIVATION]** the Euler route to `c_ell` — the construction works and the IDENTIFICATION does not
+- [Postscript 314](#p314) — the depth profile should be `(V, E, c)` per level, not `d` — it splits the n = 9 pair that…
+- [Postscript 315](#p315) — every record above n = 4 carries EXACTLY 12 quadruple points, and a shared rotation axis is…
+- [Postscript 316](#p316) — n-tuple points and `c_ell` — an exact algebraic link, an exact structural one, and NO causal one
+- [Postscript 317](#p317) — quadruple points do NOT exclude `c > 1` — and the control is the whole result
+- [Postscript 318](#p318) — a quintuple-point configuration reaches 301 of 393 — and the quintuple points cost 8 of the…
+- [Postscript 319](#p319) — `c > 1` is confined to LEVEL 1 — zero in 3 382 deeper level-instances, and it would move…
+- [Postscript 320](#p320) — YES — `c = 1` and `c = 2` are separated by WALLS, located exactly, and `{c = 2}` is an open…
+- [Postscript 320 addendum](#postscript-320-addendum-what-changes-at-the-wall--a-reconnection-with-v-and-e-unchanged) — what changes at the wall — a RECONNECTION, with V and E unchanged
+- [Postscript 321](#p321) — a `c`-transition is always a PURE RECONNECTION — `dV = dE = 0` in 8 of 8, and one crossing…
+- [Postscript 321 addendum](#postscript-321-addendum-the-concurrency-walls-at-c-transitions-are-all-spurious--the-claim-is-refuted-not-merely-void) — the concurrency walls at `c`-transitions are ALL spurious — the claim is refuted, not merely…
+- [Postscript 322](#p322) — **[CORRECTION]** the "concurrency wall" family is OVER-INCLUSIVE — the determinant does not know where the…
+- [Postscript 323](#p323) — **[REFUTED]** [P304]'s mechanism does not survive containment — the concurrency counts that "explained"…
+- [Postscript 324](#p324) — **[CORRECTION]** [P318]'s cost attribution is WRONG — the excess formula holds for generic b-fold points and…
+- [Postscript 325](#p325) — a DIRECTED attempt to build many holes fails — 720 near-aligned configurations, still `c <= 2`
+- [Postscript 326](#p326) — `holes <= 1` yields a PROVED upper bound for every n — and the holes are not where the slack is
+- [Postscript 327](#p327) — the frustration mechanism, as an accounting identity — every region is paid for by degree…
+- [Postscript 328](#p328) — the vertex taxonomy COMPLETED, and the records buy 13-28 % of their regions with DEGENERACY
+- [Postscript 329](#p329) — **[CORRECTED]** `EE <= 6` per pair is FALSE — but `sum EE <= 6*C(n,2)` survives, and the n = 4 record…
+- [Postscript 330](#p330) — **[CORRECTION]** `sum EE <= 6*C(n,2)` is FALSE, and [P329]'s witness was counting incidences, not vertices
+- [Postscript 331](#p331) — **[CORRECTION]** the record "concurrences" are OUTSIDE the compound — [P304]'s defect, in a claim that…
+- [Postscript 332](#p332) — every refuted claim in the ledger has a stated cause — and the backlog is a DIFFERENT kind…
+- [Postscript 333](#p333) — the gap is NOT in unbounded terms — it is 12 of 15 in the two-body term, which is already…
+- [Postscript 334](#p334) — [OQ 36] SOLVED — four cubes CAN pairwise share corners, the two-body cap IS attainable, and…
 
 <!-- INDEX:END -->
 
@@ -1581,6 +1611,21 @@ k-cube config, add a cube optimally, climb → candidate (k+1) record. The
 183/393/723 chain is exactly such a tower (183 ⊂ … , 393 ⊂ 723). The
 even-k subsets hitting their records while the odd-k (3) falls short is an
 unexplained parity in the nesting worth investigating.
+
+> **RESOLVED — elsewhere, and never linked back here.** *(Added 2026-09-16 by the
+> [P332](#p332) census, which hunted for entries declaring a cause unknown and then asked
+> whether anyone had since supplied it.)* **There is no parity.** `max(3) = 67` requires
+> IRRATIONAL angles, and every subset of a rational compound is rational — so no rational
+> tower can contain a 67, and its best 3-subset is 63. The other subset records in range
+> (k = 4, 5) are rational and ARE reached. The even/odd pattern was one odd k that happens to
+> be the only one whose record is irrational: with a single data point on each side, parity
+> was never the variable.
+>
+> The explanation has sat in `RESULTS.md` §4, [OQ 6] and `OVERVIEW.md` for weeks, and **not one
+> of them links back here.** This project has already recorded that corrections propagate
+> inside the record and not out of it; this is the same defect running the other way — an
+> answer reached in the summaries never reached the entry that asked the question, so the
+> ledger kept saying "unexplained".
 
 ### Postscript 16 addendum: greedy extension VALIDATED — new n=7 record 1207
 
@@ -21777,3 +21822,1485 @@ writes, because a dimension reported without them is exactly the error above.
    it, and the file then disagreed with the log that produced it. Now each run re-reads and
    merges at write time, replacing only the level it computed. Same class as
    [FAILURE_MODES 33](FAILURE_MODES.md#33), one level out.
+
+   **AND IT BIT TWICE, THE SECOND TIME AFTER THE FIX WAS WRITTEN.** The n = 6 run finished
+   AFTER the seeded n = 7 run, having loaded the file while n = 7's PRE-SEED entry was current,
+   so it wrote that stale entry back. For a while `data/plateau_order.json` said n = 7 had
+   dimension `None` from seeds `[0]` while this postscript quoted dimension 2 from the seeded
+   run's log. **The numbers here are the log's and are correct; the data file did not back them
+   until n = 7 and n = 8 were re-run under the fixed writer.** Recorded because a summary whose
+   data file disagrees with it is the exact failure `doc_audit.py` exists for, and no gate here
+   would have caught it -- the file was well-formed, recent, and wrong.
+
+<a id="p308"></a>
+
+## [VERIFIED] Postscript 308: the attribution audit CLEARS every boundary checked — and explains why a concurrency wall almost never competes
+
+[P304] opened this: every plateau boundary in the project was located by searching the
+COINCIDENCE family only, so a concurrency wall at the same parameter would be an equally good
+cause that no search could have seen. Audited at n = 7 and n = 8.
+`src/probes/attribution_audit.py`, `src/probes/boundary_cause.py`,
+`data/attribution_audit_n8.json`, `data/boundary_cause_n7.json`.
+
+**n = 8, at the recorded parameter.** At `t = -0.0236342201` two coincidence conditions vanish
+and two concurrency quadruples do. The quadruples have **rank(normals) = 3, rank(augmented) =
+4** -- an inconsistent system with no common point at all. **CONFIRMED:** [P303]'s condition
+`frame 7, group ((2,1,1),(5,1,1))` is the only wall there with a common point.
+
+**n = 7, re-derived from scratch rather than checked at a recorded parameter.** Both families
+restricted to the ray, all roots sorted, count taken in every cell, first departure from 1217
+reported with whatever vanishes there:
+
+    ray               crossings   first departure      cause          re-derived    recorded
+    fibre_e15            581      1217 -> 1213      coincidence     0.002550224044  +0.002550224044
+    base_arcD_lift       386      1217 -> 1213      coincidence     0.049672585064  ~0.0497
+
+Both match the recorded solved values to every digit, by an independent route -- and the
+re-derivation also finds the nearer POSITIVE boundary in the base direction, where [P303]
+quotes the negative one at `-2/19`.
+
+**WHY THE FAMILY ALMOST NEVER COMPETES, which is the transferable part.** The concurrency
+quadruples found sitting on a coincidence root at n = 8 were built from **that coincidence's
+own normals** plus two planes of the added cube. Their determinant vanishes BECAUSE the
+coincidence does: a dependent event, not a rival explanation, and the rank test separates the
+two without ambiguity. So the attribution question is far narrower than [P304] feared -- only a
+concurrency wall with an INDEPENDENT plane set can compete for the cause, and none was found.
+
+**THE EXTENTS AND ATTRIBUTIONS IN [P296], [P301], [P302], [P303] STAND AS WRITTEN.**
+
+**A fault of mine, caught before it was recorded.** The audit's first verdict was AMBIGUOUS,
+on those same two rank-deficient quadruples: the script's `genuine` field counted DISTINCT
+NORMALS rather than testing rank, and the verdict string was computed before any rank test ran.
+A test named for the property it does not check is worse than no test, because the name is what
+gets read.
+
+<a id="p309"></a>
+
+## [VERIFIED] Postscript 309: both wall families go constant on the SAME window n = 6..8 — and my prediction for n = 5 was wrong by a factor of three
+
+Re-asking [OQ 4] ("why 24 walls per added cube?") with the family [P304] found. That 24 counts
+COINCIDENCE walls only. `src/probes/wall_family_census.py`, `data/wall_family_census.json`.
+
+**THE CENSUS.** Walls through each record, with the concurrency family split by whether the
+four planes actually have a common point (`rank(normals) = rank(augmented) = 3`):
+
+    n   record   coincidence   d      genuine concurrency   d      rank-degenerate
+    4     183         12       --            180           --           174
+    5     393         18       +6            294          +114          369
+    6     727         27       +9            358          +64           417
+    7    1217         51      +24            616          +258          474
+    8    1895         75      +24            874          +258          540
+
+**BOTH FAMILIES GO CONSTANT ON EXACTLY THE SAME WINDOW.** [OQ 4] records the +24 as a window
+`n = 6..8` "broken at both ends"; the concurrency family, which shares no machinery with it,
+independently reproduces that window's shape with +258. Two families agreeing on WHERE
+regularity starts is evidence the window is structural rather than an artefact of counting
+coincidences. **The true increment through a record in that window is 24 + 258 = 282.**
+
+**THE RANK FILTER IS WHAT REVEALS IT, not cleanup.** The RAW through-record quadruple counts
+are 354, 663, 775, 1090, 1414 -- increments +309, +112, +315, +324, constant nowhere. Only
+after discarding quadruples whose determinant vanishes for rank reasons (a parallel pair, or an
+inconsistent system with no common point) does the +258 appear. The discarded residue grows
++195, +48, +57, +66: irregular, as an artefact should be.
+
+**MY PREDICTION FAILED, and it was made before the run.** From 358, 616, 874 I predicted n = 5
+would be 358 - 258 = **100**. It is **294**. The +258 is a window, not a law -- exactly as the
++24 is -- and extrapolating it below n = 6 was the same error [OQ 4] already records for the
+coincidence family. Recorded because a prediction stated in advance and then falsified is worth
+more than the three points that suggested it.
+
+**AND A CORRECTION ABOUT WHICH 183 THIS IS.** Before running I said `REC[4]` would fail for
+being at Cayley infinity ([P287]). It does not: it counts **183** in ambient 9 with 108 tight
+conditions. The Cayley-infinity artefact belongs to the OTHER 183 representative,
+`wall_keys.NAMED['n4_183']`, whose cube 1 is a half-turn. Two representatives of one record,
+one charted and one not -- and the charted one has never been used for this kind of measurement.
+
+<a id="p310"></a>
+
+## [VERIFIED] Postscript 310: c_ell <= 2 survives its hardest available test — and the record neighbourhood has LESS detachment, not more
+
+[OQ 30] reduces a proved `max(4) <= 198` to `c_ell <= 2`, i.e. the quotient level graph mod the
+antipodal map is connected. The evidence behind it -- 418 non-degenerate level-instances, zero
+with `c >= 3` -- came entirely from sampling random INTEGER quaternions, which [P269] already
+flagged as the weak part. `src/probes/c_ell_near_records.py`, `data/c_ell_near_record_n6.json`.
+
+**A RECORD IS THE OPPOSITE OF A RANDOM DRAW.** [P309] counts **282 walls through each record**
+in the n = 6..8 window, so it is the most degenerate point the project has. If a third
+component can detach, the structure to do it is there. The cells were entered EXACTLY: the
+simplest rational strictly inside the first solved cell on each side of each axis ray, both
+wall families bounding the cell, so these are the nearest non-degenerate configurations that
+exist and are low-height by construction.
+
+    at the n = 6 record        5 level-instances    c = 1 in all
+    30 adjacent cells        150 level-instances    c = 1 in all
+    c >= 3                   0                      c = 2 also 0
+
+**AND THE NATURAL HYPOTHESIS IS INVERTED.** One would expect detachment to need degeneracy, so
+that the most degenerate points carry the c > 1 cases. They carry none: random integer draws
+give `c = 2` about 0.4% of the time, the record neighbourhood gives it **never**. This confirms
+and sharpens [P269] -- all 37 known valid `c > 1` instances are NON-degenerate, and now the
+maximally degenerate points are measured and give `c = 1` throughout. `c = 2` is a property of
+generic configurations, not of special ones.
+
+**WHAT THIS IS AND IS NOT.** It is a hard control that the claim passed: the evidence base is no
+longer random draws only. It is NOT a proof, and it cannot become one by more sampling --
+[OQ 30] needs connectivity of the quotient, which is a derivation. What it does remove is the
+specific objection that `c >= 3` had never been looked for anywhere structured.
+
+Also recorded, since nothing else in the project states it: `c_ell = 1` at EVERY level of every
+record from n = 4 to n = 8 (V = 150/266/432/622/844 at level 1). The records are as connected
+as the arrangement gets.
+
+<a id="p311"></a>
+
+## [VERIFIED] Postscript 311: the FACET-CENTRE LEMMA — depth is radially monotone on every facet, `c_ell` is odd by proof, and the measured `c = 2` is an artefact of a missing edge class
+
+Attacking [OQ 30] by derivation. `src/probes/facet_radial.py`, `src/probes/parity_gate.py`,
+`data/facet_radial.json`, `data/parity_gate3.json`.
+
+**THE LEMMA, one line and it holds for every n.** The cubes are congruent and CONCENTRIC:
+`A_j = {x : |<x, v_{j,k}>| <= 1}` with `{v_{j,k}}` orthonormal. The centre of a facet of `A_i`
+with unit normal `u` is the point `p = u`, and by Cauchy-Schwarz
+
+    |<p, v_{j,k}>| = |<u, v_{j,k}>| <= ||u|| ||v_{j,k}|| = 1,   equality iff u = +-v_{j,k}.
+
+**Every facet centre lies in every other cube**, in the interior unless two cubes share a face
+plane -- exactly the degeneracy [P269] excludes. Verified at the records: the worst inner
+product is 300/361, 6/7, 5088/5149 at n = 4, 5, 6.
+
+**THE CONSEQUENCE: DEPTH IS RADIALLY MONOTONE.** On a facet `F` of `A_i`, each `Q_j = F ∩ A_j`
+is convex and contains `p` in its relative interior, so in polar coordinates about `p`,
+`x in Q_j <=> t <= r_j(theta)`. Depth is a count of such conditions, hence **non-increasing
+along every ray from the facet centre**, and with `rho_1 >= rho_2 >= ...` the sorted radial
+functions,
+
+    depth(theta, t) = m   <=>   rho_m(theta) < t <= rho_{m-1}(theta).
+
+The depth-exactly-m region on a facet is therefore the region between two radial graphs. Its
+components are the maximal arcs of `{theta : rho_{m-1} > rho_m}`, each a disk -- **except when
+that set is the whole circle, which gives one annulus.** So every face of the depth surface is
+a disk but for at most one annulus per facet, and no face has more than two boundary circles.
+
+**THE PARITY, proved.** For a graph on `S^2` with `c` components, `sum_f (b(f) - 1) = c - 1`.
+Since `b(f) <= 2`, `c - 1` counts annulus faces. An annulus lies in one facet, and the
+antipodal map carries that facet to the OPPOSITE facet of the same cube, never to itself, so
+annuli come in antipodal pairs. **Hence `c` is ODD, and `c = 2` is impossible.**
+
+**AND THE MEASURED `c = 2` IS A DIFFERENT GRAPH.** `c_level.level_graph` builds arcs only from
+`∂A_i ∩ ∂A_j` with `i != j`. The depth surface also creases along the EDGES of a single cube,
+and a crease separates two faces exactly as a wall does. The measured graph is a SUBGRAPH of
+the 1-skeleton. Adding the creases:
+
+    1 999 level-instances (records n = 4..6 and 497 random integer configurations)
+    full 1-skeleton:  c = 1 in ALL 1 999
+    wall graph:       c = 1 in 1 488,  c = 2 in 12
+
+**Every one of the 12 `c = 2` instances is connected once the creases are present.** So the
+long-standing `c = 2` phenomenon -- [P270]'s "Z/2 monodromy class, per level" -- is an artefact
+of omitting an edge class, not a property of the arrangement.
+
+**THE PAIRING TOOK THREE ATTEMPTS AND THE GATE KILLED THE FIRST TWO.** Which arcs bound a face
+of `S_ell` is not obvious, and both wrong answers were plausible:
+
+    creases at ell + walls at ell        level 0 got creases and NO walls    428 even c
+    creases at ell + walls at ell+1      the top level got creases and none  115 even c
+    creases at ell + walls at ell AND ell+1                                    0 even c
+
+A face at depth `ell+1` ends OUTWARD where the depth drops to `ell` (a wall arc of depth
+`ell+1`) and INWARD where it rises to `ell+2` (a wall arc of depth `ell+2`); both bound it.
+The parity theorem was the oracle: each wrong pairing produced even component counts, which
+the proof forbids, so the count was wrong rather than the proof. [METHODS 3] in use -- a
+theorem as a test oracle, and it earned its keep twice in one afternoon.
+
+**WHAT THIS DOES AND DOES NOT SETTLE FOR [OQ 30].** It does not close it, and the reason is a
+question I cannot answer from the postscripts alone: **which graph does [P258]'s identity
+`TOTAL = T + two-body + sum_ell (c_ell + 1) + 1` mean by `c_ell`?** If the wall graph, the
+bound still needs `c <= 2` and gets `max(4) <= 198`. If the 1-skeleton of the depth surface --
+the geometrically natural object, and the one whose components are the components of the level
+curve arrangement as a SURFACE decomposition -- then `c_ell` is odd by proof, never 2, and
+measured 1 in 1 999 instances, which is the `c_ell = 1` case giving **`max(4) <= 195`**,
+matching the ceiling law. Re-deriving that identity to see which object it counts is now the
+pivotal step, and it is reading, not computing.
+
+**Still not proved:** that no annulus occurs. The parity forbids `c = 2` but permits `c = 3`;
+`c = 1` in 1 999 instances is evidence, not a theorem. The remaining gap is exactly: can the
+depth-exactly-m region on a facet wrap all the way around the facet centre?
+
+<a id="p312"></a>
+
+## [VERIFIED] Postscript 312: [P258]'s `c_ell` is the WALL graph's — my parity theorem is about a different object, and [OQ 30] is not helped by it
+
+[P311] proved `c_ell` odd for the 1-skeleton of the depth surface and left the pivotal question
+open: which graph does [P258]'s identity count? **Answered, and unfavourably.**
+
+**THE TEST.** `c_level.py` carries the per-level identity `d_ell = E_ell - V_ell + c_ell + 1`,
+which is validated against the ENGINE's own by-depth counts. Evaluating both candidates against
+the engine on the n = 4 and n = 5 records and twelve random configurations:
+
+    identity with the WALL graph's c      exact 43, wrong  0
+    identity with the full 1-skeleton's c exact 12, wrong 31
+
+**So `c_ell` is the wall graph's, without ambiguity.** [P311]'s "if it is the depth surface's
+skeleton, `max(4) <= 195`" is therefore void as a route: the antecedent is false.
+
+**AND THE GEOMETRY SAYS WHY, which makes it not a technicality.** A crease is an edge of ONE
+cube -- a FOLD of the depth surface, not a separator of three-dimensional regions. Crossing it
+you stay in the same region. So counting REGIONS wants the wall graph, and counting the
+surface's own cell structure wants the creases. Both are right for their own question, and
+[P258] asks about regions.
+
+**WHY `c = 2` IS POSSIBLE FOR THE WALL GRAPH AND IMPOSSIBLE FOR THE SKELETON.** [P311]'s parity
+came from annuli living on a single facet, which the antipodal map never fixes. A WALL-graph
+face is a union of facet pieces glued across creases, and such a union CAN be self-antipodal.
+So one self-antipodal annular face gives `c = 2` with no parity obstruction -- exactly the
+`0 self-antipodal + 1 pair` shape [P268] records.
+
+**[OQ 30] RESTATED EXACTLY, which is what this buys.** `c_ell <= 2` for the wall graph is
+precisely:
+
+    no face of the wall graph on S_ell has three or more boundary circles,
+    and at most one has two.
+
+That is a sharper target than "is the quotient connected", and it is the form the facet-centre
+lemma should be aimed at next: a wall-graph face is a union of radial annuli and radial disks
+([METHODS 26](METHODS.md#26-the-facet-centre-lemma)), one per facet it meets, and the question
+is how many boundary circles such a union can carry.
+
+**What stands from [P311]:** the facet-centre lemma, radial monotonicity, the face structure
+per facet, and the fact that the measured `c = 2` disappears when creases are added -- that
+last now understood as two different graphs answering two different questions rather than one
+of them being wrong.
+
+### Postscript 312 addendum: my reading of the `c = 2` shape is REFUTED — and the first test of it could not fail
+
+[P312] explained `c = 2` as "one self-antipodal annular face, whose two boundary circles are
+the two graph components". The second half of that is wrong.
+
+**THE TEST, and the first version of it was worthless.** A face on `∂A_i` is bounded only by
+arcs of the form `∂A_i ∩ ∂A_j`, so every arc of one of its boundary circles contains `i`. The
+first test asked whether the two components share a cube that appears in SOME arc -- and every
+component meets every cube, so the answer was trivially yes, 10 of 10. A gate that cannot fail
+([FAILURE_MODES 2](FAILURE_MODES.md#2)), written by me, and it read as confirmation.
+
+**REWRITTEN to ask whether some cube is in EVERY arc of a component: 0 of 10.** No cube is. So
+a graph component is not a boundary circle of a face on one cube's boundary.
+
+**THE ERROR, which is about the object and not the arithmetic.** The wall graph is not a
+disjoint union of circles. A connected component of it carries arcs belonging to many faces on
+many cubes -- these components have 62 to 75 nodes each. "Component = boundary circle" holds
+only for a component that is a simple closed curve, and none of these is.
+
+**WHAT SURVIVES.** The Euler relation `c - 1 = sum_f (b(f) - 1)` is untouched, so `c = 2` still
+means exactly one face carries two boundary circles, and those two circles lie in different
+components -- as SUBSETS of them, not as the whole of them. [P312]'s answer to the pivotal
+question (the identity's `c_ell` is the wall graph's, 43 of 43 against 31 of 43) is untouched,
+as is [P311]'s lemma. What is withdrawn is the picture of what a `c = 2` configuration looks
+like, which was asserted from the Euler count without extracting a single face.
+
+**Deciding it needs face extraction**, which nothing in the project does yet: the faces of the
+wall graph on `S_ell`, with their boundary circles. That is the next concrete step for
+[OQ 30], and it is a construction rather than an argument.
+
+<a id="p313"></a>
+
+## [FAILED DERIVATION] Postscript 313: the Euler route to `c_ell` — the construction works and the IDENTIFICATION does not
+
+Recorded as a failed derivation, the way [P258] was: the machinery is sound and reusable, the
+step it was built on is false. `src/probes/euler_faces.py`, `data/euler_faces.json`.
+
+**THE PLAN.** `sum_f (b(f) - 1) = c - 1` on a sphere and `chi = 2 - b` per component give
+`c = 1 + F - chi`, so `c > 1` exactly when some face is an annulus. `chi` is additive over
+locally closed pieces, and the cube surface partitions into 6 open facets, 12 open creases and
+8 corners. The facet-centre lemma ([P311]) makes each facet piece a RADIAL BAND, whose
+components are the maximal angular runs where it is non-empty -- disks, or one annulus if the
+run is the whole circle. So `chi` is computable with no 2-D arrangement code at all.
+
+**THE CONSTRUCTION WORKS.** Exact throughout: critical directions are the directions from the
+facet centre to the arrangement vertices on that facet, and a representative strictly inside a
+sector is `d1/||d1||_1 + d2/||d2||_1`, a positive combination of the bounding directions. No
+angle is computed, nothing is sampled, and the critical rays are tested as well as the sectors
+because the band can pinch to nothing on one.
+
+**THE IDENTIFICATION IS FALSE.** I assumed the faces of the level-`ell` graph are the
+components of `U_m = {x in ∂A_i : exactly m cubes contain x}`, so that `F = d_ell`. Measured at
+the records:
+
+    n = 4   d_ell     92    66    24          chi(U_m)   92   348   132    24
+    n = 5   d_ell    156   128    78    30    chi(U_m)  156   616   300   156   30
+
+`chi(U_1) = d_1` exactly at both (92, 156), and `chi(U_n) = d_{n-1}` at both (24, 30). But
+`chi(U_2) = 348` against `d_2 = 66`, and the arithmetic forbids reconciling them: `F = 66`
+would force `sum_f b = 2F - chi = -216`, and `b >= 1`.
+
+**WHY, and this is the part worth keeping.** A wall arc on `∂A_i ∩ ∂A_j` with `s` other cubes
+strictly containing it has closed depth `s+2`, and on `∂A_i` it separates a depth-`(s+1)` piece
+from a depth-`(s+2)` piece. So the arcs bounding the `U_m` faces are those at levels `m-1` AND
+`m` -- **two levels, not one.** The level-`ell` graph is therefore not the boundary of the
+`U_ell` faces, and what surface the single-level arrangement lives on I have not identified.
+That is the blocker, and it is a combinatorial question about the existing identity, not a
+geometric one about cubes.
+
+**ONE REAL BUG, found by the same diagnostics.** A radial band that REACHES the facet centre is
+a disk, not a wrap-around annulus. The facet centre has depth `n`, so at `m = n` the inner
+radius is zero; flagging that as an annulus cost exactly one `chi` per facet and drove the
+innermost level to `chi = 0` where it must be positive. Fixed, and `chi(U_n)` then lands on
+`d_{n-1}` at both records.
+
+**FOURTH MIS-IDENTIFICATION IN THIS THREAD**, after the three arc-to-surface pairings of [P311]
+and the `c = 2` face reading of [P312]'s addendum. Every one was a plausible guess about which
+combinatorial object a formula refers to, asserted rather than derived, and every one was
+caught by a number that came out impossible. See [FAILURE_MODES 40](FAILURE_MODES.md#40).
+
+<a id="p314"></a>
+
+## [VERIFIED] Postscript 314: the depth profile should be `(V, E, c)` per level, not `d` — it splits the n = 9 pair that has defeated every other fingerprint
+
+A user question: would adding edges and vertices to the volume depth profile enhance the
+typology? **Yes, measurably, and it resolves the project's canonical failure case.**
+`src/probes/profile_resolution.py`, `src/probes/n9_enhanced_profile.py`,
+`data/profile_resolution.json`, `data/n9_enhanced_profile.json`.
+
+**WHAT IS AND IS NOT NEW INFORMATION.** Per level the arrangement carries `V_ell`, `E_ell`,
+`c_ell`, and `d_ell = E_ell - V_ell + c_ell + 1`. So the depth profile is ONE linear
+combination of three numbers, and the other two have simply been discarded. On the depth
+surface likewise `V - E + F = 2`, so only two of three are free there.
+
+**RESOLUTION, measured over 248 random n = 4 configurations:**
+
+    distinct depth profiles                       102
+    distinct enhanced profiles (V, E, c)          167
+    depth-profile collisions                       56
+    of those SPLIT by (V, E, c)                    45     (80 %)
+
+**THE CANONICAL CASE.** [P285] records two n = 9 representatives of 2787 that agree on count
+and on `by_depth` and differ on everything structural. The enhanced profile separates them:
+
+    level               1              2           3..8
+    simplified   (1108,1532,1)  (1166,1760,1)   identical
+    original     (1126,1550,1)  (1172,1766,1)   identical
+    d_ell             426            596        identical throughout
+
+Same `d` at every level -- `1532-1108+2 = 1550-1126+2 = 426` -- and different `V` and `E` at
+the outer two levels, which is where the differing ninth cube acts. **A fingerprint the project
+already had the ingredients for, discarded at the last step.**
+
+**IT IS A GENUINE INVARIANT, controlled rather than assumed.** Unchanged under a global
+rotation of the whole compound (three different rotors), under relabelling the cubes, and under
+rescaling a quaternion (same rotation, different integers). A finer statistic is only better if
+it is still constant on congruence classes, and this one is.
+
+**THE CAVEAT worth keeping with it.** Finer is not automatically better: a fingerprint that
+separates everything separates nothing usefully. What makes this one worth adopting is that it
+is the SAME object the project already computes -- `c_level.level_graph` returns V, E and c and
+the pipeline then throws two of them away -- and that its extra resolution lands exactly on the
+case that mattered.
+
+<a id="p315"></a>
+
+## [VERIFIED] Postscript 315: every record above n = 4 carries EXACTLY 12 quadruple points, and a shared rotation axis is what forces them
+
+Following the degree anatomy of the level graphs. `data/quadruple_points.json`.
+
+**THE VERTEX ANATOMY, and it confirms [P248] on actual vertices.** A vertex lying on `b` cube
+boundaries appears at exactly `b - 1` levels -- measured 2 -> 1, 3 -> 2, 4 -> 3, with no
+exceptions. A triple point carries three curves, six half-branches, split 3/3 across its two
+consecutive levels, so **a degree-3 vertex IS a triple point** and a degree-2 vertex is a curve
+crossing a cube EDGE (two boundaries, one level, no contribution to the region count).
+
+**THE COUNT, across the tower:**
+
+    n     record   double   triple   quadruple   triple cap 32*C(n,3)
+    4       183       66      128         0            128   ATTAINED
+    5       393      116      272        12            320
+    6       727      192      586        12            640
+    7      1217      282     1054        12           1120
+    8      1895      392     1710        12           1792
+
+**Exactly 12 at every level from n = 5 up, and 0 at n = 4.** The records are nested, so the 12
+are created at n = 5 and INHERITED unchanged: adding the sixth, seventh and eighth cubes
+creates no new 4-fold concurrency at all.
+
+**WHAT FORCES THEM: A SHARED ROTATION AXIS.** The 12 split as 4 + 4 + 4 over the 4-subsets
+`(1,2,3,4)`, `(0,2,3,4)`, `(0,1,3,4)` -- every one containing BOTH cube 3 = `(2,1,1,1)` and
+cube 4 = `(1,1,1,1)`. Those quaternions have vector parts `(1,1,1)` and `(1,1,1)`: **the two
+cubes share the body-diagonal rotation axis**, the family [P12] used to reach 723. Any 4-subset
+holding the pair gets 4 quadruple points; the subsets breaking it get none -- which is exactly
+why `REC[4] = {0,1,2,4}`, which omits cube 3, is quadruple-free.
+
+**THE EXCHANGE RATE, as arithmetic and not as a claim about what perturbation would do.**
+`F_ell = 1 + c_ell + (1/2) sum_v (deg(v) - 2)`, verified at every level of every record. Four
+separate triple points supply `4 x 2 x 1 = 8` of degree excess; the quadruple point that
+absorbs them supplies `3 x 2 = 6`. So each 4-fold concurrency gives up 2 of excess -- **one
+region** -- against the four triple points it replaces, and the triple-point deficit from the
+cap is `4 x 12 = 48` at n = 5, exactly the merge.
+
+**So every record above n = 4 pays a 12-region concurrency tax for a shared axis it presumably
+needs for something else.** What the axis buys has not been measured here, and the converse --
+that resolving the concurrences would yield 12 regions -- is NOT claimed: it holds only if the
+triple-point cap could be held while separating them, which is precisely what a perturbation
+experiment would have to test. The cheap version of that test exists: perturb cube 3 off the
+`(1,1,1)` axis by a solved amount and count.
+
+<a id="p316"></a>
+
+## [VERIFIED] Postscript 316: n-tuple points and `c_ell` — an exact algebraic link, an exact structural one, and NO causal one
+
+Three relations, established separately, because they answer different questions.
+`data/ctuple_contingency.json`.
+
+**1. ALGEBRAIC, exact.** From `V - E + F = 1 + c` and `E - V = (1/2) sum_v (deg(v) - 2)`:
+
+    c_ell = F_ell - 1 - (1/2) * excess_ell,     excess_ell = sum_v (deg(v) - 2)
+
+and a `b`-fold point supplies `(b - 2)` to the excess at each level where it appears -- verified
+per vertex: excess 2 total for a triple point, 6 for a quadruple point, 0 for an ordinary edge
+crossing. So at fixed `F`, higher-order points DEPRESS `c`.
+
+**2. STRUCTURAL, exact.** A `b`-fold point occupies exactly `b - 1` CONSECUTIVE levels
+([P248]'s `m_v = b_v - 1`, now confirmed on every vertex of the records: 2 -> 1 level,
+3 -> 2, 4 -> 3). An `n`-tuple point would therefore sit at every level but one. **That is the
+only vertex type coupling all levels**, and it is why concurrency propagates through the whole
+depth profile rather than perturbing a single level.
+
+**3. CAUSAL: NONE, and this was the hypothesis worth killing.** [P269] cleared all 37 valid
+`c > 1` instances of shared face planes, perpendicular normals, body-diagonal coincidences --
+"other coincidences: NONE" -- and concluded `c = 2` is a Z/2 monodromy fact. The four-plane
+concurrency family was found six days later ([P304]) and was never in that checklist, so the
+natural hypothesis was that `c > 1` is a concurrency phenomenon after all, which would have
+handed [OQ 30] to the wall-polynomial machinery. Tested over 871 non-degenerate n = 4
+configurations:
+
+                        c > 1     c = 1
+    no quadruple point     14       856
+    quadruple point         0         1
+
+**All 14 `c > 1` instances have max `b = 3` -- triple points only, no concurrency of any
+kind.** So concurrency is not necessary for `c > 1`, the route is closed, and [P269]'s
+conclusion now survives a test against the family it could not have known about.
+
+**POWER, stated because it limits the other direction.** The quadruple base rate here is 1 in
+871, so zero quadruples among 14 `c > 1` instances says nothing about whether concurrency
+CAUSES `c > 1`; that direction is untested and would need a sample enriched in concurrent
+configurations. What is decisive is necessity: 14 of 14 reach `c = 2` with nothing but triple
+points.
+
+<a id="p317"></a>
+
+## [VERIFIED] Postscript 317: quadruple points do NOT exclude `c > 1` — and the control is the whole result
+
+Testing whether `c_ell > 1` can coexist with a 4-fold point, which [P316] left open with the
+power caveat attached. `data/c_shared_corner.json`, `data/c_shared_corner_control.json`.
+
+**TWO CONSTRUCTIONS TRIED, AND THE FIRST ONE FAILED CLEANLY.** Solving for concurrency along a
+ray -- stepping to the rational roots of a four-plane determinant -- produced **0 usable
+configurations from 12 sampled roots: all 12 were RANK-DEGENERATE**, determinant zeros with no
+common point. That is [P304]'s 264-of-486 phenomenon, and the genuineness guard caught every
+one. Reported as unevaluated, not as a negative result.
+
+**THE CONSTRUCTION THAT WORKS IS GEOMETRIC.** Every rotation about the `(1,1,1)` body diagonal
+fixes the corner `(1,1,1)`, so four such cubes put four boundaries through it: a genuine
+quadruple point by construction, verified per configuration. 150 configurations, 0 rejected.
+
+    sample                                          n     c > 1
+    random n = 4 (baseline, [P316])                871     14   (1.6 %)
+    four cubes on the axis -- quadruple point      150      0   (0 %)
+    CONTROL: three on the axis -- no quadruple     150      1   (0.7 %)
+
+**THE TREATMENT ARM ALONE WOULD HAVE BEEN A FALSE POSITIVE.** 0 of 150 against a 1.6 % baseline
+looks like exclusion, and the expected count is 2.4. The control -- the same family with one
+fewer cube on the axis, so the corner carries three boundaries instead of four -- gives 1 of
+150. **0 vs 1 is no difference.** What suppresses `c > 1` is the SHARED AXIS, which halves the
+rate on its own; the quadruple point adds nothing detectable.
+
+**SO THE QUESTION STAYS OPEN**, with a better-designed test behind it: no evidence that a
+`c > 1` instance cannot carry a 4-fold point, and no instance of one yet found. Settling it
+needs either a construction giving quadruple points WITHOUT a shared axis -- the record
+configurations prove those exist, since they carry 12 apiece -- or samples large enough to
+resolve a difference below one percentage point.
+
+**AND THE FRAMING IN [P316] WAS TOO LOOSE**, corrected here: the `c > 1` instances are not
+"only triple points". They are more than half `b = 2` vertices -- curves crossing a cube edge,
+plus edge-edge contacts. What none of the 39 observed instances has is `b >= 4`.
+
+<a id="p318"></a>
+
+## [VERIFIED] Postscript 318: a quintuple-point configuration reaches 301 of 393 — and the quintuple points cost 8 of the 92-region deficit
+
+Answering how close to a record a configuration carrying a 5-fold point can get.
+`data/quintuple_best.json`.
+
+**CONSTRUCTION.** Five cubes rotating about the `(1,1,1)` body diagonal all fix its corner, so
+all five boundaries pass through it: `b = 5`, guaranteed, and verified per configuration. 220
+configurations counted, best **301** against the n = 5 record of **393 -- 76.6 %**. Every one
+carries exactly 2 quintuple points, the corner and its antipode, with profile
+`{2: 60, 3: 180, 5: 2}`.
+
+**THE DEFICIT IS NOT THE QUINTUPLE POINTS.** By the exchange rate ([P315]) a 5-fold point
+supplies `(b-1)(b-2) = 12` of degree excess while absorbing `2*C(5,3) = 20`, so it costs 4
+regions: **8 regions for the two of them, out of a 92-region shortfall.** The other 84 come
+from the shared axis itself -- triple points collapse to 180 against the cap of 320, and
+crediting the 20 absorbed by the quintuple points still leaves 120 destroyed by the axis
+degeneracy alone.
+
+**SO 301 IS A LOWER BOUND AND A WEAK ONE.** The construction reaches a quintuple point by the
+CHEAPEST available route -- total axis sharing -- which is far more degenerate than a quintuple
+point requires. Five boundaries concurrent at a point is codimension 2; putting every cube on
+one axis is very much stronger. A configuration with a quintuple point and otherwise generic
+cubes should do much better, and nothing here bounds how much better.
+
+**Recorded because the split matters for reading [P315]'s exchange rate:** the per-point cost
+of concurrency (1, 4, 10 regions for b = 4, 5, 6) is a LOCAL price, and it is dwarfed here by
+the global cost of the symmetry used to buy the concurrency. The two should never be conflated.
+
+<a id="p319"></a>
+
+## [VERIFIED] Postscript 319: `c > 1` is confined to LEVEL 1 — zero in 3 382 deeper level-instances, and it would move [P258]'s bound from 198 to 196
+
+Asking directly where `c > 1` lives. `data/c_by_level.json`.
+
+**MEASURED, 4 736 level-instances over 1 354 non-degenerate configurations:**
+
+    n    level   instances   c > 1    rate
+    4      1        680        12     1.76 %
+    4      2        680         0     0
+    4      3        680         0     0
+    5      1        674         0     0
+    5      2        674         0     0
+    5      3        674         0     0
+    5      4        674         0     0
+
+**Every `c > 1` instance is at LEVEL 1, the outermost.** Zero in 3 382 instances at levels 2 and
+deeper. And `c > 2` is still never seen -- now zero across roughly 9 700 level-instances once
+[P245], [P269], [P311] and [P316]'s samples are added.
+
+**WHY IT IS PLAUSIBLE STRUCTURALLY.** Level 1 is where the vertex taxonomy is richest: it
+carries essentially all the `b = 2` types -- curves through a cube edge, edge-edge contacts and
+shared corners -- while deeper levels are nearly pure degree-3 ([P315]; at the n = 4 record
+levels 2 and 3 have NO degree-2 vertices at all). A face can only acquire a second boundary
+circle where the face structure is rich enough to wrap, and that is the outer surface.
+
+**WHAT IT WOULD BE WORTH.** [P258] needs `sum_ell (c_ell + 1)`. With `c <= 2` everywhere that is
+`3(n-1)` and gives `max(4) <= 198`. With `c_ell = 1` for `ell >= 2` and `c_1 <= 2` it is
+`2n - 1`, giving **`max(4) <= 196`** -- the first movement on that bound since [P258] stated it,
+and 195 would follow from `c_1 = 1`, which holds at every record.
+
+**IT IS EVIDENCE, NOT A PROOF, and the target is now narrower.** [OQ 30] asked for `c_ell <= 2`
+at every level; what the data says is the stronger and more structured `c_ell = 1 for ell >= 2`.
+Proving THAT may be easier than the original, because deeper levels lack the vertex types that
+make an annular face possible.
+
+**A SECOND PATTERN, weaker and flagged as such:** the level-1 rate falls with `n` -- 12 of 680 at
+n = 4, **0 of 674 at n = 5**, where the n = 4 rate would predict about 12. Two sizes is not a
+trend, and [P309]'s `+258` is the standing reminder of what three points can do, but it is worth
+knowing before anyone samples at n = 6 expecting hits.
+
+<a id="p320"></a>
+
+## [VERIFIED] Postscript 320: YES — `c = 1` and `c = 2` are separated by WALLS, located exactly, and `{c = 2}` is an open interval
+
+[P269] showed `c = 2` survives perturbation, so `{c = 2}` is open and must have a boundary; it
+never located one. Located here. `data/c_transition_walls.json`.
+
+**THE METHOD.** From a `c = 2` configuration, restrict BOTH wall families to a ray, take all
+roots, and evaluate `c` in every cell between consecutive roots -- the wall census applied to
+`c` instead of to the region count.
+
+    713 crossings on the ray, window +-1/6
+    c = 1 for ~270 cells, then c = 2 for ~300 cells, then c = 1 again
+    exactly 2 transitions
+
+**THE WALL, exact.** The first transition is at **`t = -1/22`**, and direct evaluation confirms
+it:
+
+    t = -1/20, -3/62, -1/22   ->   c_1 = 1
+    t = -1/23, -1/25, -1/30, 0 ->   c_1 = 2
+
+So `c = 1` ON the wall and `c = 2` strictly beyond it: `{c = 2}` is open and its closure
+excludes its own boundary. That matches the PUNCTURE behaviour [P304] found for region counts --
+a coincidence lowers the quantity AT the wall -- and it means `c` is upper semicontinuous from
+the `c = 2` side.
+
+**WHAT VANISHES THERE: A CONFLUENCE, NOT A SINGLE WALL.** 16 wall polynomials share the root
+`t = -1/22` -- **4 coincidence and 12 concurrency**. Whether all 16 are needed, whether the
+concurrency ones are rank-genuine, and whether a single wall can ever move `c` are untested;
+one crossing on one ray decides none of it.
+
+**THE DEEPER LEVELS NEVER MOVE.** `c_2` and `c_3` are 1 in every one of the 713 cells, which is
+[P319]'s "confined to level 1" holding along a whole ray rather than across a sample.
+
+**A BUG IN THE SAME RUN, recorded rather than quietly dropped.** The SECOND transition printed a
+bracket of `[22467686689/16, 999972850498/7]` -- outside the +-1/6 window by ten orders of
+magnitude, so the cluster merge is wrong for at least that crossing. The first transition is
+independently confirmed by direct evaluation above and does not depend on the clustering; the
+second is NOT to be used until the merge is fixed.
+
+### Postscript 320 addendum: what changes at the wall — a RECONNECTION, with V and E unchanged
+
+Measuring across the `t = -1/22` wall of [P320], at the generic cells either side and at the
+wall itself:
+
+    t          V     E     F=d_1   c     b-profile        level-1 degrees
+    -1/20     140   166     28     1     {2:120, 3:96}    {2:88, 3:52}
+    -1/22     136   164     30     1     {2:116, 3:96}    {2:82, 3:52, 4:2}     <- ON the wall
+    -1/23     140   166     29     2     {2:120, 3:96}    {2:88, 3:52}
+
+**V AND E ARE IDENTICAL ON THE TWO SIDES.** 140 and 166 both times. The only difference is
+`F = d_1`, which goes 28 -> 29, and `V - E + F = 1 + c` then forces `c` from 1 to 2. **The
+transition is a pure RECONNECTION** -- the same number of vertices and edges, joined
+differently, one graph splitting into two components and gaining a face.
+
+**AT THE WALL THE VERTICES COLLIDE.** Six degree-2 vertices become two of degree 4: the b = 2
+count drops 120 -> 116 and the degree profile gains `{4: 2}`, with `V` down 4 and `E` down 2 --
+exactly the degree-sum arithmetic `6x2 = 12 -> 2x4 = 8`. Two collisions, an antipodal pair, as
+[P268]'s shape requires. Off the wall the collided vertices separate again, and **which way they
+separate is what decides `c`.** This is a saddle exchange, not a creation or destruction.
+
+**AND `d_1` IS HIGHER ON THE WALL THAN ON EITHER SIDE**: 30 against 28 and 29. A spike, not the
+PUNCTURE [P304] found for total counts at concurrency walls. The two are different quantities --
+`d_1` here, the total there -- and nothing yet says how they relate, but the sign difference is
+worth not conflating.
+
+**THIS TIES [OQ 30] TO [OQ 33].** The wall that changes `c` is also a wall that changes `d_1`.
+So the walls bounding the count plateau and the walls bounding `{c = 1}` are not disjoint
+families, and a criterion for one may constrain the other.
+
+<a id="p321"></a>
+
+## [VERIFIED] Postscript 321: a `c`-transition is always a PURE RECONNECTION — `dV = dE = 0` in 8 of 8, and one crossing has no coincidence wall at all
+
+Generalising the [P320] addendum from one transition to eight, over independent `c = 2`
+instances with fresh random directions. `data/c_transition_general.json`.
+
+**THE LAW, 8 of 8.**
+
+    dV = 0 and dE = 0    8 of 8
+    |dF| = 1             8 of 8
+    every transition at LEVEL 1
+
+Since `c = V - E + F - 1` identically, `dc = dV - dE + dF` is automatic; the CONTENT is that
+`dV = dE = 0`. **`c` changes only by rewiring, never by growth** -- the arrangement keeps
+exactly its vertices and edges across the wall and joins them differently, one graph splitting
+in two and gaining a face. A transition that created vertices would be perfectly consistent
+with Euler and does not occur.
+
+**AND CONCURRENCY ALONE CAN DO IT.** The walls at each crossing:
+
+    {coincidence 4, concurrency 12}      {coincidence 12, concurrency 12}
+    {coincidence 2, concurrency 12}      {coincidence 8,  concurrency 12}
+    {coincidence 4, concurrency 12} x3   {concurrency 12}            <- NO coincidence wall
+
+One transition sits at a crossing where **nothing in the project's original wall family
+vanishes**. So `c` can change where `conditions_on` sees nothing at all, which is the same
+blind spot [P304] found for the region count, now for a second quantity.
+
+**A REGULARITY I DO NOT TRUST YET: exactly 12 concurrency walls at every one of the eight
+crossings**, while the coincidence count ranges over 0, 2, 4, 8, 12. Twelve is suspiciously
+stable across unrelated configurations and directions. It has NOT been rank-tested, and [P304]
+found more than half of concurrency-determinant roots are rank-degenerate with no common point,
+so the 12 may be counting non-events. **Rank-testing those twelve is the next step**, and until
+it is done the phrase "concurrency wall" in the table above means "root of a concurrency
+determinant", not "four planes through a point".
+
+**THREE NULL RUNS PRECEDED THIS, ALL INSTRUMENTAL, AND THE LAST WAS MY OWN BUG.** Reported as
+unevaluated each time, never as "no transitions exist":
+
+    grid of 1/60 steps        heights cleared the engine's budget      0 evaluated
+    engine call for F         same budget, one level deeper            0 evaluated
+    unclustered root list     edges non-monotonic, every cell a > b    0 evaluated
+
+The first two are [METHODS 15] -- a refusal about the representative, not the question -- and
+the third is a plain defect. All three look IDENTICAL to a real negative result from the
+outside, which is the argument for reporting unevaluated as unevaluated: "0 of 0" was true
+every time and "the law fails" would have been false.
+
+<a id="p322"></a>
+
+## [CORRECTION] Postscript 322: the "concurrency wall" family is OVER-INCLUSIVE — the determinant does not know where the cube is
+
+Rank-testing the twelve concurrency walls [P321] flagged at the `t = -1/22` `c`-transition.
+All twelve are rank-genuine: `rank(normals) = rank(augmented) = 3`, real common points. **And
+all twelve common points lie OUTSIDE the compound** -- worst `|normal . point|` values of 10 and
+11/2, against 1 at a cube face.
+
+**SO THEY ARE NOT ARRANGEMENT VERTICES.** A cube's boundary is six SQUARES, not six planes.
+Four face planes can meet at a point far outside every cube, and that point is invisible to the
+region structure: it is not a vertex, it bounds nothing, and it cannot change a count. This is
+exactly why the b-profile at `t = -1/22` shows `{2: 116, 3: 96}` and **no b = 4 at all** while
+twelve determinants vanish there -- a contradiction I hit and chased rather than reconciled by
+assumption.
+
+**WHAT THIS INVALIDATES.** `src/concurrency_walls.py` defines the family by the vanishing of
+`concur_det` plus a rank test. Neither knows about containment. So:
+
+    VOID     [P321]'s "concurrency alone can move c" -- the crossing it rests on has 12
+             concurrency walls and 0 coincidence walls, and those 12 are UNCHECKED for
+             containment.  If they are outside too, that transition has NO identified cause.
+    SUSPECT  [P304]'s concurrence counts (230 baseline, 236 at -2/9, 238 at -4/27) and the
+             census's concurrency-root tallies.  The COUNT CHANGES measured there are real --
+             they were counted by the engine, twice, and by the Euler complex -- but the
+             attribution of those changes to four-plane concurrency now needs the containment
+             filter re-run before it can be repeated.
+    UNAFFECTED  everything about the COINCIDENCE family, which comes from `conditions_on`;
+             [P307]'s plateau dimensions; [P315]'s vertex taxonomy and the 12 quadruple points
+             per record, which were counted from ARRANGEMENT VERTICES with containment built in.
+
+**THE FIX IS ONE PREDICATE**: after solving the 3x3 system for the common point, require
+`|<v_{j,k}, P>| <= 1` for every face normal of every cube in the quadruple -- the same test
+`depth_of` already applies. Until it is added, "concurrency wall" in this project means "root of
+a four-plane determinant", which is a strictly larger and partly empty class.
+
+**HOW IT SURFACED, worth keeping.** Not from a gate. [P321] recorded the constant "12
+concurrency walls at every crossing" as a regularity it did not trust and named rank-testing as
+the next step; the rank test passed, and the contradiction with the b-profile -- two numbers
+that could not both be right -- is what forced the containment check. The habit of writing down
+an unexplained regularity rather than rounding it off is what made it findable.
+
+<a id="p323"></a>
+
+## [REFUTED] Postscript 323: [P304]'s mechanism does not survive containment — the concurrency counts that "explained" the anomalies are all OUTSIDE the compound
+
+Auditing [P322]'s defect across everything that used it. The answer is worse than [P322]
+allowed for: it reaches [P304] itself.
+
+**THE TEST.** Re-count four-plane concurrences at the parameters [P304] built its case on, with
+the containment predicate added -- solve the 3x3 for the common point, require
+`|<v, P>| <= 1` for every face normal of every cube involved:
+
+    t         rank-genuine plane concurrences   common point INSIDE the compound
+    -1/7                230                            2      (baseline)
+    -2/9                236                            2      count drops 693 -> 691
+    -4/27               238                            2      count drops 705 -> 703
+    -3/20               230                            2      (baseline)
+
+**The 230 -> 236 -> 238 variation is entirely outside the cubes, and the number of actual
+arrangement concurrences is 2 everywhere -- baseline and anomaly alike.** So four-plane
+concurrency does NOT explain the count drops. [P304]'s central identification is refuted by its
+own data once the squares are distinguished from the planes.
+
+**WHAT IS STILL TRUE, and it is the part that mattered.** The count drops themselves are real:
+693 -> 691 at `-2/9` and 705 -> 703 at `-4/27`, each confirmed by both engines, by rescaling the
+quaternion, and by the Euler characteristic of `cellcomplex.complexus` -- the only count in the
+project not produced by the engines. **And the tight set is unchanged at both.** So the finding
+that survives is the NEGATIVE one, which was always the important half: **there are
+count-changing parameters invisible to the coincidence family.** What is withdrawn is the
+claim to have identified what they are.
+
+**[OQ 34] IS REOPENED.** It was closed on 2026-09-12 as "it IS a four-plane concurrency, same as
+-2/9". That closure is void. Both anomalies now have NO identified cause.
+
+**FURTHER CASUALTIES, listed so nothing is quoted stale:**
+
+    VOID     [P309]'s "+258 genuine concurrency walls per added cube on the window n = 6..8".
+             Counted with the rank test and no containment, so it counts plane concurrences.
+             The COINCIDENCE half of that postscript (+24, exact) is untouched.
+    VOID     [P304]'s "coincidence walls are steps, concurrency walls are punctures", and the
+             census tally "663 concurrency-only crossings, 0 of which change the count" --
+             which now has a simpler reading: most of those crossings are not events at all.
+    SUSPECT  every cell boundary computed by `wall_census.gated_cell` and `plateau_order`,
+             which have NO containment check (`grep -c` returns 0 for both).
+    SAFE     [P315]'s vertex taxonomy and the 12 quadruple points per record -- counted from
+             ARRANGEMENT VERTICES, where containment is built into the b-profile.
+    SAFE     every measured COUNT and every measured `c`: spurious walls only subdivide cells
+             further, and a count taken strictly inside a sub-interval of a true cell is still
+             that cell's count.  [P307]'s plateau dimensions, [P320]/[P321]'s transitions and
+             [P308]'s boundary attributions rest on values, not on wall identity, and stand.
+
+**THE DISTINCTION TO KEEP: SPURIOUS WALLS CORRUPT ATTRIBUTION, NEVER VALUES.** Adding walls
+that are not there makes cells smaller; a measurement strictly inside a smaller cell still
+reports the true cell's value. That is why so much survives, and it is the reason the census
+was built to measure counts in cells rather than to trust wall lists.
+
+<a id="p324"></a>
+
+## [CORRECTION] Postscript 324: [P318]'s cost attribution is WRONG — the excess formula holds for generic b-fold points and not for CORNER concurrences
+
+Auditing which claims rest on mistaken Euler counts. One does.
+
+**THE FORMULA AND ITS SCOPE.** [P315] derived that a `b`-fold point occupies `b - 1` levels at
+degree `b`, supplying `(b-1)(b-2)` of degree excess. Verified on data for `b = 3` (2 levels,
+degree 3, excess 2) and `b = 4` (3 levels, degree 4, excess 6). The `b = 5` and `b = 6` rows of
+its cost table were EXTRAPOLATION and were never checked.
+
+**CHECKED NOW, ON [P318]'s OWN CONFIGURATION, AND IT FAILS:**
+
+    b    vertices   levels   degrees            excess     predicted excess
+    3      180        2      (3,3)                 2             2      OK
+    5        2        4      (15,15,15,15)        52            12      FAILS
+
+Degree **15**, not 5; excess **52**, not 12. The cause: in that configuration the quintuple
+point is a SHARED CORNER -- all five cubes have a VERTEX there, three facets apiece -- so each
+pairwise curve has several branches through it, exactly like the `b = 2` shared-corner vertices
+of [P315]'s own taxonomy that carry degree 6 instead of 2. **`(b-1)(b-2)` is the count for a
+generic `b`-fold point where `b` face PLANES meet, and a corner concurrence is a different
+object.**
+
+**WHAT THIS VOIDS.** [P318]'s "the two quintuple points cost 8 regions of the 92-region
+deficit". The arithmetic behind that number does not apply to the points it was applied to, and
+the sign is wrong too: those vertices SUPPLY 52 of excess each, they do not absorb it. The
+measured result of [P318] stands -- **301 of 393, 76.6 %, with the quintuple points verified
+present** -- and so does its conclusion that the deficit is dominated by the shared-axis
+degeneracy rather than by the concurrency. What is withdrawn is the specific split of 8 against
+84.
+
+**AND [P315]'s COST TABLE IS NARROWED.** The rows `b = 4 -> 1 region`, `b = 5 -> 4`,
+`b = 6 -> 10` are valid only for generic `b`-fold points. Only the `b = 4` row is verified
+against data. The `b = 5` row is now known NOT to describe the only `b = 5` configuration this
+project has.
+
+**THE PATTERN, third time this session.** A formula derived for one incidence type applied to
+another without re-deriving: the arc-to-surface pairings of [P311], the face reading of [P312],
+`F = d_ell` of [P313], the plane-versus-square confusion of [P322]/[P323], and now this. Every
+one was caught by a number that came out impossible or absurd -- here, degree 15 where the
+maximum for five planes is 20 arc-ends over four levels and the prediction was 5.
+See [FAILURE_MODES 40](FAILURE_MODES.md#40).
+
+### Postscript 321 addendum: the concurrency walls at `c`-transitions are ALL spurious — the claim is refuted, not merely void
+
+Containment-checking every concurrency wall at all eight `c`-transitions of [P321], as
+[P322] required:
+
+    8 of 8      dV = 0, dE = 0, dF = 1            <- the reconnection law is untouched
+    concurrency at every crossing:  _degenerate (6 of 8) or _outside (2 of 8)
+    never once a common point inside the compound
+
+**So [P321]'s "concurrency alone can move `c`" is REFUTED, not merely unsupported.** The
+transitions are driven by the COINCIDENCE walls at those crossings (4, 12, 2, 4, 8, 4, 4 of
+them), and the constant "12 concurrency walls" that looked like a regularity worth chasing is 12
+non-events -- either rank-degenerate or with the common point outside the cubes.
+
+**ONE CROSSING HAS NO COINCIDENCE WALL AT ALL** -- `{concurrency_degenerate: 12}` and nothing
+else. **This is NOT recorded as a new anomaly**, because the likelier cause is named and known:
+`roots_in` enumerates coincidence conditions from `conditions_on(base)`, i.e. branches FROZEN AT
+THE BASE POINT, and [P304] showed that is incomplete -- branch closure added 362 keys on one ray,
+and G2 caught the omission as missing walls. That crossing most probably carries a coincidence
+wall this enumeration cannot see. Checking it needs `wall_census`'s branch closure applied to
+the `c`-transition search, which is the next step and is not done.
+
+**THE RECONNECTION LAW IS INDEPENDENT OF ALL THIS.** `dV = dE = 0` was measured from the level
+graphs on either side of each crossing and never used the wall identification, so it survives
+the refutation of the walls that accompany it.
+
+<a id="p325"></a>
+
+## [VERIFIED] Postscript 325: a DIRECTED attempt to build many holes fails — 720 near-aligned configurations, still `c <= 2`
+
+`c >= 3` has never been observed in roughly 9 700 level-instances of random sampling. A hole is
+a depth-band encircling a cube ([GLOSSARY 8b]), so bands should close most easily when the cubes
+are NEARLY ALIGNED: a small rotation leaves one boundary mostly inside its neighbour with thin
+strips of lower depth near the edges, which is the shape a ring wants. Searched deliberately
+rather than by sampling. `data/hole_search.json`.
+
+    family                                          configurations
+    near-identity at n = 4, alignment N = 3..40            360
+    near-identity at n = 5 and n = 6                      240
+    two cubes clustered, one generic                      120
+    ------------------------------------------------------------
+    total                                                 720      max c = 2
+
+`c = 2` in 4 of them, `c = 1` in the rest. **No configuration with more than one hole, in the
+family most likely to produce them.** That is a directed refutation attempt that failed, which
+is worth more than the same count of random draws: the search was aimed where the geometry says
+rings are easiest.
+
+**AND THE `c = 2` COMPONENTS ARE NOT CIRCLES.** A reading worth killing since it keeps
+resurfacing -- `c` for *circle*. Measured on the best hit, both components:
+
+    V = 62, E = 77, V - E = -15, degrees {2: 35, 3: 24, 4: 3}
+
+A component is a connected graph carrying cycles, not a single closed curve. It CONTAINS one
+boundary circle of the annular face and is much larger than it -- the same error [P312]'s
+addendum refuted from the other direction. The two components are identical in every statistic,
+as central symmetry requires.
+
+**So `c` means component, and only that.** *Region* is `C` in the three-dimensional relation
+`V - E + F - C = 1` ([GLOSSARY 8a]); *circle* is a boundary component of a face, a strict subset
+of a graph component; *hole* is `c - 1`, which has no free letter and is written out.
+
+<a id="p326"></a>
+
+## [VERIFIED] Postscript 326: `holes <= 1` yields a PROVED upper bound for every n — and the holes are not where the slack is
+
+Working out what [OQ 30]'s hypothesis actually buys, since everything else in the chain is
+already proved.
+
+**THE BOUND.** With `holes_ell = c_ell - 1` and `L = n - 1` levels,
+
+    TOTAL = 1 + sum(E - V) + 2L + sum holes          (identity, exact on 183/393/727/1217)
+    sum(E - V) = T + two-body <= 32*C(n,3) + 10*C(n,2)      both PROVED
+    sum holes <= L                                           [OQ 30]'s hypothesis
+
+    =>   TOTAL <= 1 + 32*C(n,3) + 10*C(n,2) + 3(n-1)
+
+    n      record    bound    record/bound
+    4       183       198        92.4 %
+    5       393       433        90.8 %
+    6       727       806        90.2 %
+    7      1217      1349        90.2 %
+    8      1895      2094        90.5 %
+    9      2787      3073        90.7 %
+    10     3925      4318        90.9 %
+
+**A complete proved-modulo-one-hypothesis ceiling for the whole tower**, and the records sit at a
+strikingly stable 90-92 % of it at every level.
+
+**AND THE STRATEGIC POINT, which runs against intuition.** The hole term is `n - 1` out of
+thousands. Comparing `holes <= 1` with `holes = 0`:
+
+    n = 4     gap to record 15      of which holes    3   (20 %)
+    n = 10    gap to record 393     of which holes    9   ( 2 %)
+
+**Settling [OQ 30] COMPLETES the bound but barely TIGHTENS it.** At n = 10 a full resolution
+moves 4318 to 4309 against a record of 3925. The looseness is almost entirely in `T` and
+`two-body`, and it grows with n while the hole term does not.
+
+**SO THE VALUE OF [OQ 30] IS QUALITATIVE, NOT QUANTITATIVE.** It is what turns a conditional
+statement into a proved one; it is NOT the route to a tight bound. Anyone hoping to close the
+gap should work on `T <= 32*C(n,3)` -- which [P258] already showed cannot be attained together
+with the per-level caps -- rather than on the holes. At n = 4 the hole term is worth 3 of the 15
+and is the difference between the ceiling law's 195 and the conditional 198, which is why it
+looked pivotal there and stops looking pivotal by n = 6.
+
+<a id="p327"></a>
+
+## [VERIFIED] Postscript 327: the frustration mechanism, as an accounting identity — every region is paid for by degree excess, and every triple point is spent TWICE
+
+Asking whether anything ENFORCES the frustration [P258] measured. Yes, and it is an identity
+plus a proved cap plus a sharing constraint, not a story.
+
+**THE IDENTITY, exact on all four records.**
+
+    TOTAL = 1 + L + sum_ell c_ell + (1/2) sum_v ( total degree of v  -  2 * levels v appears at )
+
+    n = 4:  1 + 3 + 3 + 176 = 183        n = 6:  1 + 5 + 5 + 716 = 727
+    n = 5:  1 + 4 + 4 + 384 = 393        n = 7:  1 + 6 + 6 + 1204 = 1217
+
+**Every region beyond the trivial ones is paid for by DEGREE EXCESS at a vertex.** A vertex of
+degree 2 at one level supplies nothing; the excess is what buys regions.
+
+**THE SUPPLY IS CAPPED AND SHARED — that is the mechanism.**
+
+1. Triple points dominate the supply: 128, 272, 586, 1054 at the records, two units each.
+2. `T <= 32*C(n,3)` is PROVED (PROOF_67 Lemma 1a per 3-subset).
+3. **Each triple point appears at exactly TWO levels** ([P248], `m_v = b_v - 1`, confirmed on
+   every vertex by [P315]), contributing degree 3 to each.
+
+So `sum_ell V3(ell) = 2T`: every triple point is spent twice, on two consecutive levels, out of
+one capped budget. **The levels therefore cannot maximise independently** -- which is exactly
+[P258]'s measured frustration (256 proved against 376 that the per-level caps permit at n = 4),
+now derived rather than observed.
+
+**WHAT IS NOT ESTABLISHED, and it is my own taxonomy that falls short.** Decomposing the excess
+by vertex type -- `T3 + edge-edge + 2*corners + 3*quadruples` -- gives 176 at n = 4, which is
+right, but **710 against 716 at n = 6 and 1186 against 1204 at n = 7**. So vertex types are
+missing from [P315]'s catalogue, most likely `b = 3` with signature (1,1,2), a triple point
+lying on a cube EDGE. The identity above is exact; the attribution of the excess to particular
+vertex kinds is NOT complete, and the gap is 6 and 18 respectively.
+
+**Recorded with that gap open rather than rounded away**, since attributing a total to named
+parts is precisely the step that failed in [P304], [P313], [P318] and [P321].
+
+<a id="p328"></a>
+
+## [VERIFIED] Postscript 328: the vertex taxonomy COMPLETED, and the records buy 13-28 % of their regions with DEGENERACY
+
+Closing [P327]'s gap -- its excess decomposition missed 6 at n = 6 and 18 at n = 7 -- and then
+using the complete version.
+
+**THE MISSING TYPES ARE THREE-CUBE INCIDENCES.** Enumerating every vertex signature rather than
+the five [P315] assumed:
+
+    signature   name                              excess each
+    (1,2)       curve crossing a cube edge             0
+    (2,2)       edge-edge contact, 2 cubes             2
+    (1,1,1)     triple point                           2
+    (3,3)       shared corner, 2 cubes                 4
+    (1,1,1,1)   quadruple point                        6
+    (2,2,2)     edge-edge-edge, THREE cubes            8     <- missing from [P315]
+    (3,3,3)     shared corner, THREE cubes            14     <- missing from [P315]
+
+    n = 6:  584*2 + 72*2 + 12*6 + 8*4 + 2*8          = 1432, half 716   matches [P327]
+    n = 7:  1050*2 + 84*2 + 12*6 + 2*14 + 6*4 + 2*8  = 2408, half 1204  matches [P327]
+
+Both close exactly. The identity `TOTAL = 1 + L + sum c + (1/2) sum excess` now has a complete
+attribution behind it.
+
+**AND THE DECOMPOSITION SPLITS EVERY RECORD IN TWO.**
+
+    TOTAL = [ 1 + L + sum c + T3 ]  +  [ EE + 2*SC2 + 3*Q4 + 4*EE3 + 7*SC3 ]
+              generic part               degenerate part
+
+    n     T3     EE   SC2  Q4  EE3 SC3   generic   degenerate   record   degenerate share
+    4     128    36    6    0   0   0      135         48        183        26 %
+    5     272    60    8   12   0   0      281        112        393        28 %
+    6     584    72    8   12   2   0      595        132        727        18 %
+    7    1050    84    6   12   2   2     1063        154       1217        13 %
+
+**The generic part is what a configuration with only transversal triple points would score.**
+A record scores 183 at n = 4 where the generic value with the same `T3` is 135. **Records buy
+between 13 % and 28 % of their regions with degeneracy** -- edge-edge contacts above all, which
+dominate the degenerate term at every level (36, 60, 72, 84).
+
+**WHY THIS IS THE RIGHT TARGET FOR A TIGHTER BOUND ([P326]).** `T3 <= 32*C(n,3)` is proved and
+attained at the records, so the generic part is already pinned. Everything loose is in the
+degenerate terms, and they are the terms nothing bounds. A LEAD, stated as a lead and not a
+result: `EE / C(n,2)` runs 6.0, 6.0, 4.8, 4.0 at n = 4..7 -- exactly 6 per cube pair at n = 4
+and n = 5. Whether 6 is a cap per pair is untested, and [P309]'s `+258` is the standing warning
+about reading a law off four points.
+
+> **ADDENDUM 2026-09-16 ([P330](#p330)).** The per-signature excesses in the table above are
+> GENERIC values read off the records, not invariants of the signature. `(2,2)` has excess 0 at
+> some vertices of degenerate configurations, and `(2,2,...,2)` with all n cubes occurs, with
+> excess `2(n-1)^2` — of which the tabulated `(2,2,2) = 8` is the n = 3 case. The identity
+> closes exactly when the excesses are MEASURED; the table is a summary of the records, and
+> using it as a law is [P324]'s mistake.
+
+<a id="p329"></a>
+
+## [CORRECTED] Postscript 329: `EE <= 6` per pair is FALSE — but `sum EE <= 6*C(n,2)` survives, and the n = 4 record attains BOTH caps at once
+
+> **CORRECTED 2026-09-16 by [P330](#p330).** Two things below are wrong. (1) The witness:
+> `contacts()` counts edge-PAIR INCIDENCES, and 18 of the 24 at `q = (0,1,1,1)` are the
+> 9-per-corner incidences at two SHARED CORNERS, which are `(3,3)` vertices and a different
+> term. The `(2,2)` count there is 6, which AGREES with the bound. The conclusion still
+> holds — the per-pair maximum is 10, at `q = (3,2,2,0)`. (2) The surviving bound does not
+> survive: `sum EE <= 6*C(n,2)` is exceeded at every n from 2 to 6 by rotating every cube
+> about one common face diagonal. The search below had that family IN its pool and missed it
+> by sampling. **Read [P330] instead of this entry.**
+
+
+Following [OQ 35]'s lead. `data/ee_per_pair.json`, `data/ee_total.json`.
+
+**THE DERIVATION, and it is wrong.** An edge-edge contact is a point on two facets of each cube:
+4 equations in 3 unknowns, codimension 1, one condition on `R in SO(3)`. Central symmetry pairs
+contacts, so each antipodal pair costs one condition, and `SO(3)` is 3-dimensional -- at most 3
+independent conditions, hence `EE <= 6` per pair. It predicts exactly the 6 seen at n = 4 and
+n = 5, **and it is false.**
+
+**REFUTED AT `q = (0,1,1,1)`** -- a 180-degree rotation about a body diagonal, which is NOT a
+cube symmetry and passes the shared-face-plane filter: **24 contacts.** Over 2065 coprime
+integer quaternions the counts run 0, 4, 6, 8, 10, 24. The caveat the derivation carried is
+what broke it: at symmetric rotations the conditions become DEPENDENT, so more than three hold
+at once. (The unfiltered maximum was 48, at `q = (0,0,0,1)` -- coincident cubes, excluded.)
+
+**BUT CONCENTRATING CONTACTS LOSES THEM ELSEWHERE.** Substituting `(0,1,1,1)` into the n = 4
+record:
+
+    the 183 record        T3 = 128 (at cap)   EE = 36   total = 183
+    cube 1 -> (0,1,1,1)   T3 = 128 (at cap)   EE = 24   total = 171
+    cube 2 -> (0,1,1,1)   T3 = 128 (at cap)   EE = 24   total = 171
+
+`T3` does not move; **EE falls 36 -> 24 and the count falls by exactly 12**, the EE difference,
+since each contact supplies one region. [P328]'s identity predicts the change to the unit.
+
+**THE CORRECTED BOUND SURVIVES ITS TEST.** Searching for the largest TOTAL EE at n = 4, over
+configurations seeded with the high-EE rotations:
+
+    max total EE found  36  =  6*C(4,2)      never exceeded in 400 configurations
+
+**And the record attains BOTH caps simultaneously**: `T3 = 128 = 32*C(4,3)` and
+`EE = 36 = 6*C(4,2)`. The EE-maximal configurations found otherwise pay for it in triple points
+(`T3 = 72`, count 145), and the best count found while searching for EE was 171.
+
+    n      EE     6*C(n,2)     at cap?
+    4      36        36          yes
+    5      60        60          yes
+    6      72        90          no
+    7      84       126          no
+
+**So `sum EE <= 6*C(n,2)` is the statement to try to prove**, not the per-pair version. It is
+attained at n = 4 and n = 5 and slack above -- the same shape as the triple-point cap, which is
+attained at n = 4 and n = 5 (counting quadruples with multiplicity) and slack above. Two
+independent budgets, both tight at the bottom of the tower and loose higher up.
+
+<a id="p330"></a>
+
+## [CORRECTION] Postscript 330: `sum EE <= 6*C(n,2)` is FALSE, and [P329]'s witness was counting incidences, not vertices
+
+Re-deriving [P329] from its own definitions before attempting the proof [OQ 35] asks for.
+`data/ee_bound_refute.json`, `src/probes/ee_bound_refute.py`. **The three checks on this
+postscript's own claims are `src/probes/ee_audit.py` / `data/ee_audit.json`** — the 24 resolved by
+location, the counter gated against an independent enumerator, and [P329]'s pool measured rather
+than characterised. This entry was corrected once, the same day it was written; see
+[INTERVENTIONS A15].
+
+**TWO COUNTERS WORE THE NAME `EE`.** `ee_per_pair.contacts(q)` counts PAIRS OF EDGES that meet --
+an incidence count. [P328]'s identity counts ARRANGEMENT VERTICES of signature `(2,2)`. They
+differ exactly at a SHARED CORNER, where three edges of one cube meet three of the other: that is
+ONE vertex, of signature `(3,3)`, and it contributes NINE edge-pair incidences.
+
+**SO [P329]'s COUNTEREXAMPLE IS NOT ONE.** `q = (0,1,1,1)` is a 180-degree rotation about a body
+diagonal, which fixes two opposite corners:
+
+    (3,3) shared-corner vertices  2       9 incidences each  ->  18
+    (2,2) edge-edge vertices      6                              6
+                                                                 --
+                                             [P329] reported     24
+
+The `(2,2)` count at `(0,1,1,1)` is **6 -- exactly what the codimension derivation predicts.**
+The configuration [P329] published as refuting `EE <= 6` per pair by a factor of four agrees with
+the bound.
+
+**THE PER-PAIR BOUND IS NEVERTHELESS FALSE, and the true witness is half the size.** Over the
+1856 admissible coprime integer quaternions with entries 0..6 the `(2,2)` counts run
+
+    EE      0     4     6     8    10
+    count 168   756   572   288    72
+
+**Maximum 10**, attained by 72 quaternions, e.g. `q = (3,2,2,0)` and `q = (0,2,2,3)` -- rotations
+about a FACE DIAGONAL, not a body diagonal. [P329]'s conclusion survives; its evidence does not.
+
+**AND THE TOTAL BOUND FALLS TOO.** Rotating every cube about ONE COMMON face diagonal keeps
+every pairwise rotation inside the high-EE family instead of trading:
+
+    n    bound 6*C(n,2)    total EE    EE carrying excess    regions
+    2          6             10   >        10   >              13
+    3         18             22   >        20   >              57
+    4         36             42   >        36   =             145
+    5         60             68   >        56                 289
+    6         90            100   >        80                 497
+
+**The raw bound is exceeded at every n from 2 to 6.** Under the region-carrying reading -- only
+those `(2,2)` vertices that actually contribute degree excess -- it is exceeded at n = 2 and
+n = 3 and tight at n = 4. Either way the conjecture is dead as stated; the residual question is
+whether the region-carrying version holds for n >= 4, and that is NOT claimed here.
+
+**WHY [P329]'s SEARCH MISSED IT, GATED RATHER THAN ASSERTED.** The first draft of this
+postscript said the search was seeded from the wrong counter's argmaxima and so never looked
+where the `(2,2)` vertices are. **That is wrong, and it is a cause claim made without a gate
+([METHODS 27]).** Checking [P329]'s pool instead of characterising it:
+
+    P329's candidate pool                  255 quaternions (`hi` plus all entries 0..3)
+    of which rotations about (1,1,0)         9 admissible
+    best n = 4 total EE available IN pool   40   >  36        e.g. 1,2,2,0; 1,3,3,0; 3,1,1,0
+    P(one draw of 3 lands in the family)   3.08e-05
+    expected hits in 400 draws              0.012
+
+**The violating family was inside the pool the whole time.** The search did not fail to look
+there; it drew 400 random triples from 255 candidates and had one chance in eighty of landing
+on the nine that mattered. The misdirected `hi` list made it worse but was not the cause. This
+is the project's oldest lesson and not a new one ([METHODS 1], solve don't sample): **a sampled
+maximum over a pool that CONTAINS the answer is still a lower bound**, and [P329] reported it
+as "never exceeded".
+
+**THE VERTEX COUNTER ITSELF IS GATED AGAINST AN INDEPENDENT PATH.** `vertices()` reaches the
+`(2,2)` points through `segments()` and the arrangement. A second enumerator built them the
+other way -- all 12x12 edge pairs, line-line intersection, keep those with both parameters in
+range -- and the two agree on **all 1856 admissible pairs, 0 disagreements**. The first version
+of that oracle disagreed on 1506 of 1856 because it built edges from the COLUMNS of `mat(q)`
+and tested signatures against the ROWS: [FAILURE_MODES 38]'s trap, caught in the checking code
+this time rather than in the measurement.
+
+**AND AT n = 2 THE BOUND FAILS AT A PROVED MAXIMISER.** `max(2) = 13` is proved, so n = 2 is
+the one size where the bound can be tested against configurations KNOWN to be optimal rather
+than merely found. Over the 428 admissible pairs with quaternion entries 0..4:
+
+    EE    regions   configurations
+     4        5         132
+     6        9          48
+     6       13         104
+     8        9         120
+    10       13          24        <- exceeds the bound 6, AND attains the proved maximum
+
+So the violation is not an artifact of an exotic family: of the 128 optimal pairs IN THIS
+RANGE, 24 carry EE = 10. Note also that `EE` does not order the count — `EE = 8` scores 9 while `EE = 6`
+scores 13 — which is the same non-monotonicity the n >= 3 rows show, at the one size where the
+optimum is known.
+
+**BUYING EE THIS WAY DOES NOT BUY REGIONS.** 145 at n = 4 against the record's 183, 497 at n = 6
+against 727. The gain is paid back in the generic term, which is the same trade [P329] saw and
+read correctly.
+
+**A CAVEAT ON [P328]'s EXCESS CONSTANTS, which this probe measures rather than assumes.** The
+per-signature excesses were read off the records and are GENERIC values, not invariants of the
+signature:
+
+    * `(2,2)` has excess 0 -- not 2 -- at 2 of 22 vertices (n = 3), 6 of 42 (n = 4), 20 of 100
+      (n = 6). An edge-edge contact that supplies no region.
+    * the common axis pierces an edge midpoint of every cube, so all n cubes have an edge through
+      one point: a signature `(2,2,...,2)` vertex, of MEASURED excess 8, 18, 32, 50 at n = 3..6.
+      Those four values fit `2(b-1)^2` in the number `b` of cubes at the vertex, and `(2,2)`'s
+      excess 2 is its `b = 2` case -- but that is a FITTED PATTERN on five points in one family,
+      not a derivation, and [P324] is precisely the record of such a fit breaking at `b = 5`.
+      [P328]'s tabulated `(2,2,2) = 8` is the `b = 3` value, measured at the n = 6 record.
+
+With the excesses MEASURED rather than tabulated the identity `TOTAL = 1 + L + sum holes +
+(1/2) sum excess` closes exactly on all five configurations and on the n = 4, 5, 6 records
+(183, 393, 727). With them TABULATED it closes on the records and fails on the family. This is
+[P324] again: an excess constant verified at the records is not a law.
+
+<a id="p331"></a>
+
+## [CORRECTION] Postscript 331: the record "concurrences" are OUTSIDE the compound — [P304]'s defect, in a claim that predates it by three weeks
+
+Asked by the user, after two rounds of correction: *do we understand the mistakes behind all the
+erroneous claims, and are the sources of the CURRENT claims free of them?* This is the answer to
+the second half, and it is no. `src/probes/concurrence_containment.py`,
+`data/concurrence_containment.json`.
+
+**THE SEARCH.** [P322]/[P323] found that `concurrency_walls.py` counted four-plane meeting points
+without asking whether the point lies ON the cubes. The obvious follow-up is which OTHER code
+counts plane incidences without a containment predicate, and whether any live claim rests on it.
+`concurrence.py` does — and [RESULTS §7] still says of it: *"723 does carry two 9-folds
+(re-verified with the corrected normals, so `ALGEBRAIC_SEARCH.md`'s premise stands)"*.
+
+**THE MEASUREMENT.** For each record, take the points of maximal plane concurrence and ask
+whether they lie in the compound:
+
+    config   max concurrence   points   of which ON the compound   worst |<n,P>|/n
+    723            9             2                 0                  31/19 = 1.63
+    727            6            10                 0                  455/271 = 1.68
+    183            6             6                 0                  31/19 = 1.63
+
+**Not one of them. Every top-multiplicity point in all three records lies outside the compound**,
+and not marginally — 63 % beyond the nearest face plane.
+
+**WHAT THE 9-FOLD ACTUALLY IS, and this part is real.** At 723's `(1,1,1)`:
+
+    cube 3  (2,1,1,1)      |<n,P>|/n = 1, 1, 1     a CORNER — three planes
+    cube 4  (1,1,1,1)      |<n,P>|/n = 1, 1, 1     a CORNER — three planes
+    cube 5  (5,2,2,2)      |<n,P>|/n = 1, 1, 1     a CORNER — three planes
+    cubes 0, 1, 2          |<n,P>|/n = 1/19, 31/19, 11/19    NOT on the boundary, and OUTSIDE
+
+**Three cubes sharing a corner** — all three are rotations about the `(1,1,1)` axis, which fixes
+that corner, so the coincidence is genuine and structural. `3 x 3 = 9` planes, hence the 9-fold.
+**But the shared corner sticks out past the other three cubes, so it is not a vertex of the
+arrangement and it contributes exactly zero regions.**
+
+**SO THE CLAIM SPLITS IN TWO, and only one half survives.**
+
+    "723 has two 9-fold plane concurrences"           TRUE — three cubes share a corner, twice
+    "...so records sit at high-multiplicity point
+     incidences, and that is what to search for"      the incidences are NOT ON the compound
+
+This is the same error as [P304] with the same shape: a coincidence of infinite PLANES read as a
+feature of a solid bounded by SQUARES. It is older than [P304] by three weeks and survived both
+corrections because it was filed as a property of 723 rather than as a mechanism.
+
+**AND IT EXPLAINS A MEASUREMENT THAT HAS BEEN SITTING UNEXPLAINED SINCE [P55]/[P57].** The
+"records concentrate at high-multiplicity concurrences" heuristic was measured and found
+NEGATIVELY correlated — configurations counting >= 700 average 1.6 hits on the base's triple-point
+walls, those counting < 650 average 92.6. That was recorded as a reversal without a cause.
+**The cause is here: the heuristic ranks configurations by a feature that is not part of the
+object being counted.** A negative correlation is what you should expect from a statistic
+measuring points outside the solid.
+
+**WHAT IS NOT AFFECTED.** [P227]'s rows-vs-columns fix is intact and independent — `planes()`
+reads the COLUMNS, verified by its own invariance gate, and this postscript re-confirms the
+9-fold and 6-fold multiplicities themselves. The region counts never used concurrence. What
+changes is only what a concurrence MEANS.
+
+<a id="p332"></a>
+
+## [VERIFIED] Postscript 332: every refuted claim in the ledger has a stated cause — and the backlog is a DIFFERENT kind of cause
+
+Answering the user's question — *can we understand the erroneous claims of prior sessions?* —
+over all 326 postscripts rather than over this session's. `src/refutation_census.py`,
+`data/refutation_census.json`.
+
+**THE DISTINCTION THAT ORGANISES THE ANSWER, and it was not clear until the census forced it.**
+Two different things get called "the cause" here:
+
+    ERROR-cause      why did we believe something false?     -> FAILURE_MODES
+    PHENOMENON-cause why does the count actually drop?       -> OPEN_QUESTIONS
+
+[P331] closed a PHENOMENON-cause that had sat open since [P55]. The user's question is about
+ERROR-causes. They have different backlogs and the census reports them separately.
+
+**ERROR-CAUSES: the record is complete.** 80 of 326 postscript titles reverse something — 25 %,
+which is itself worth stating plainly. *(Figures as of writing and EXCLUDING this entry, which
+the census now counts itself: re-running it reports 81 of 327.)* Of those 80, a keyword pass flagged 4 as carrying no
+mechanism language; **reading all four, every one has a cause or is a false positive**:
+
+    P154   not a reversal at all -- a structural analysis                    false positive
+    P255   a refutation ATTEMPT that failed; the law survived                false positive
+    P170   cause stated exactly: "the test assumed the 4-cube subset was
+           the FIRST four cubes... the comparison was vacuous"               diagnosed
+    P277   refutes [P276]'s SPECULATED mechanism, by measuring it            diagnosed
+
+So **no reversal in this ledger fails to say why.** The mechanisms recur in a small set —
+sampling reported as exhaustive, a wrong convention, a missing predicate, the wrong object
+counted, extrapolation from few points, an artifact of a guard or budget, a false premise about
+a method's candidate space — which is what [FAILURE_MODES] is, arrived at independently.
+
+**BUT A STATED CAUSE IS NOT A CORRECT ONE, and this ledger holds two proofs of that.** [P304]
+diagnosed its anomaly confidently and the diagnosis was refuted by [P323]. [P329] diagnosed its
+own counterexample confidently and was refuted by [P330]. **Completeness of diagnosis is not
+what makes a record trustworthy**; the cause has to be gated like any other claim
+([METHODS 27]). Of the 80 reversals, 38 pair their cause with a gate.
+
+**PHENOMENON-CAUSES: there IS a backlog, and it is 13 entries.** Searching every postscript for
+language declaring a cause unknown rather than for reversal:
+
+    resolved since, inside the record   P58, P62 (the W3 wall), P155, P156, P322, P323, P331
+    resolved since, OUTSIDE the record  P16      <- see below
+    still open                          P127, P158, P205, P300, P304 (= [OQ 34])
+
+**AND ONE OF THEM WAS ANSWERED WEEKS AGO IN A DOCUMENT THAT NEVER LINKED BACK.** [P16] recorded
+an "unexplained parity in the nesting": even-k subsets hit their records, odd-k (3) falls short.
+There is no parity. `max(3) = 67` needs irrational angles and every subset of a rational compound
+is rational, so a rational tower cannot contain a 67 — an explanation sitting in `RESULTS.md` §4,
+[OQ 6] and `OVERVIEW.md`, none of which links to [P16], which therefore went on saying
+"unexplained". Closed in place today.
+
+**This is the project's own documented failure running in the opposite direction.** The recorded
+version is that corrections propagate INSIDE the append-only record and not out to the summaries.
+This is an answer that propagated OUT and never came back IN. The cross-referencing is
+one-directional whichever way the information happens to be travelling, and the fix is the same:
+when a question is answered, go back to where it was ASKED.
+
+**WHAT THE CENSUS CLEARS.** The single largest historical error class is a sampled result
+reported as settled (it is [METHODS 1], and it appears in roughly half the reversals). Swept
+against `RESULTS.md` outside the superseded table, exactly one line pairs a strong status with
+sampled evidence, and it reads **"every wall splits over Q — PROVED, not sampled"**. The current
+claims do not rest on that mechanism.
+
+<a id="p333"></a>
+
+## [VERIFIED] Postscript 333: the gap is NOT in unbounded terms — it is 12 of 15 in the two-body term, which is already capped, and the obstruction is that shared corners MERGE
+
+Asking where to go, with the audit's answer to where we stand. This relocates [OQ 35] and
+retires its premise. `data/two_body_pairs.json`, `src/probes/two_body_pairs.py`.
+
+**FIRST, THE DECOMPOSITION NOBODY HAD WRITTEN DOWN.** At n = 4, term by term:
+
+    bound   1 + 32*C(4,3) + 10*C(4,2) + 3*3        = 1 + 128 + 60 + 9 = 198
+    record  1 +    T3     +  two-body  + L + holes = 1 + 128 + 48 + 3 + 3 = 183
+
+    GAP = 15:   T          128 of 128   ATTAINED, costs nothing
+                two-body    48 of  60   short by 12
+                L + holes    6 of   9   short by 3
+
+**Twelve of the fifteen missing regions are two-body shortfall.**
+
+**AND [OQ 35]'s PREMISE IS WRONG.** It says the degenerate terms are "the terms nothing bounds".
+But `EE + 2*SC2` **is** the two-body term, and `two-body <= 10*C(n,2)` is PROVED ([P237]).
+That identification is the load-bearing step here, so it is GATED rather than asserted: [P258]'s
+identity `TOTAL = T + two-body + sum(c+1) + 1` closes on the n = 4 record only with this reading —
+`128 + 48 + 6 + 1 = 183`, where `48 = EE + 2*SC2 = 36 + 12`. Two independent decompositions
+([P258]'s and [P328]'s) agree on the same 48. The
+whole edge-edge thread ([P329], [P330]) was hunting a bound for a quantity that already had one.
+Worse, the bound it proposed — `EE <= 6*C(n,2)` — was an attempt to cap only HALF of a sum whose
+total is capped at 10 per pair, which is why it kept failing on configurations that trade EE
+against SC2.
+
+**THE TWO "COMPETING MAXIMA" OF THE EE THREAD ARE ONE OBJECT IN THE RIGHT COORDINATE.** A pair
+attains `two-body = 10` exactly when it is a 2-cube maximiser (`max(2) = 13`, PROVED), and there
+are two ways:
+
+    q = (3,2,2,0)   face diagonal    EE = 10, SC2 = 0    two-body = 10   count 13
+    q = (0,1,1,1)   body diagonal    EE =  6, SC2 = 2    two-body = 10   count 13
+
+[P329] read the first as refuting a bound and the second as satisfying it. **Both are at the same
+cap.** `EE` alone was never the invariant.
+
+**WHERE THE RECORDS ACTUALLY SIT — a HUB.** Measuring two-body pair by pair:
+
+    n = 4 record    3 of  6 pairs at cap 10, all of them (0,3), (1,3), (2,3)      others at 6
+    n = 5 record    4 of 10 pairs at cap 10, all of them (0,4), (1,4), (2,4), (3,4)
+
+**One distinguished cube shares a corner with every other**, and those are exactly the at-cap
+pairs. In the n = 4 record cube 3 uses THREE distinct antipodal corner-pairs, one per partner —
+six of its eight corners, all distinct points. In the n = 5 record the hub uses all four. **The
+hub saturates at n = 5.**
+
+**THE OBSTRUCTION, and it is the frustration mechanism inside the two-body term.** Try to make
+every pair a maximiser the obvious way — all cubes rotated about ONE common body diagonal, where
+[P44] proves every pair counts 13:
+
+    body-diagonal n=4   T3 =  72/128   two-body = 36/60   count = 145
+    RECORD        n=4   T3 = 128/128   two-body = 48/60   count = 183
+
+It does not reach the cap, and the signatures say why:
+
+    body-diagonal n=4   {(1,1,1): 72, (2,2): 36, (3,3,3,3): 2}
+    RECORD        n=4   {(1,1,1):128, (2,2): 36, (3,3):     6}
+
+**All four cubes share the SAME two corners** — the endpoints of the common axis, fixed by every
+rotation about it — so six pairwise corner-sharings collapse into ONE four-fold vertex. The
+record instead spreads them over three DISTINCT corner-pairs, which do not merge. Corner-sharings
+are only worth `2*SC2` while they stay distinct.
+
+**WHICH GIVES A COMBINATORIAL CAP, and a schedule.** A cube has 8 corners = 4 antipodal pairs,
+and two partners cannot use the same one without merging. So the corner-sharing graph has
+**maximum degree 4**, hence at most `2n` of the `C(n,2)` pairs can share corners:
+
+    n        4     5     6     7
+    C(n,2)   6    10    15    21
+    2n       8    10    12    14      complete only for n <= 5
+
+**THE QUESTION TO GO AND ANSWER, and it is exactly decidable.** *Can four concentric cubes
+pairwise share corners — six distinct shared corners, the complete graph K4?* Degree counting
+permits it (3 <= 4) and the record does not do it, reaching only 3 of 6. Either outcome pays:
+
+  * **realizable** — two-body rises toward 60 at n = 4, and the only question left is what it
+    costs in `T`, which is currently AT its cap;
+  * **impossible** — the bound falls from 198 toward 186, and with the hole term toward **183**,
+    which would be `max(4)` PROVED, the first proved maximum above n = 3.
+
+This is a finite algebraic condition on three relative rotations, not a search. **[METHODS 1]
+applies: solve it, do not sample it** — which is precisely the instruction the EE thread received
+and did not follow.
+
+<a id="p334"></a>
+
+## [VERIFIED] Postscript 334: [OQ 36] SOLVED — four cubes CAN pairwise share corners, the two-body cap IS attainable, and it costs 42 triple points
+
+Answering [OQ 36] the way it was posed — solved, not searched.
+`src/probes/k4_corner_sharing.py`, `src/kfield.py`, `data/k4_corner_sharing.json`.
+
+**THE REDUCTION.** Two cubes share a corner iff they share a BODY-DIAGONAL direction. A cube's
+four diagonals, correctly signed, are a regular tetrahedron — pairwise inner product exactly
+`-1/3`. So label each EDGE of K4 with an axis and require the three axes at each VERTEX to
+extend to a regular tetrahedron. Fixing cube 0 as the standard cube and its three axes as three
+of its own diagonals is free, since the octahedral group acts as `S4` on them.
+
+**THE SOLUTION, in `Q(sqrt3, sqrt5)`.** With `p, q = (sqrt3 +- sqrt15)/6`, so that
+`p + q = 1/sqrt3` and `pq = -1/3`:
+
+    cube 0   a, b, c          the standard cube's diagonals (1,1,1), (1,1,-1), (1,-1,1)
+    cube 1   a, x, y          x = (p, q, 0)
+    cube 2   b, x, z          y = (q, 0, p)
+    cube 3   c, y, z          z = (0, p, -q)
+
+Every rejected branch puts a shared axis ON a diagonal of cube 0, which would make THREE cubes
+share it — exactly the merge the question forbids.
+
+**VERIFIED EXACTLY, no tolerance anywhere.** All four stars extend to regular tetrahedra; all
+twelve face normals are exactly orthonormal; **10 distinct axes, 6 shared by exactly two cubes,
+0 shared by three or more**; all six pairs of K4 realised; and no two cubes share a face plane,
+so the compound is non-degenerate.
+
+    K4 corner-sharing is REALIZABLE.  [OQ 36] answered: YES.
+
+**AND THE TWO-BODY CAP IS ATTAINED.** Each pair shares one axis, hence two antipodal corners, so
+`SC2 = 12` exactly; with `EE = 6` per pair, **`two-body = 60 = 10*C(4,2)`** — the proved cap
+[P237], reached for the first time at n = 4. *(The `SC2` half is exact; the `EE` half is a
+high-precision count, stable at 25, 40 and 60 digits, and its `SC2` component independently
+matches the symbolic proof. Not yet exact, and labelled so.)*
+
+**WHAT IT COSTS.** `T3 = 74` of the cap 128 — computed EXACTLY over the field, and gated: the
+same code path on the n = 4 record returns **128**, which is the known value.
+
+    configuration        T3         two-body     T3 + two-body    count
+    n = 4 RECORD      128 / 128     48 / 60          176           183
+    K4 compound        74 / 128     60 / 60          134       138 + holes
+    body-diagonal      72 / 128     36 / 60          108           145
+    the bound assumes 128 / 128     60 / 60          188           198
+
+**So both caps are individually attainable and jointly they are not.** [P333] predicted the
+trade; this pins it with an exact second endpoint. The `holes <= 1` branch of [OQ 36] — "K4
+impossible, therefore `max(4) = 183`" — is CLOSED, and closed the other way.
+
+**THE SUCCESSOR, and it is sharper than its parent.** The bound 198 assumes `T3 + two-body = 188`.
+The record achieves 176 and is the best of the three known points. **Prove
+`T3 + two-body <= 176` at n = 4 and `max(4) = 183` follows**: `1 + 176 + L + holes = 1 + 176 + 3 + 3
+= 183`. That is [OQ 37], and it asks for one coupling inequality rather than two separate caps.
+
+**A METHOD NOTE THAT COST AN AFTERNOON.** The first `T3` for this compound was **8**, from a
+50-digit floating-point version of the same enumeration. Its oracle — the same code on the record
+— returned 38, then 90 after a containment fix, and never 128: `Matrix.inv()` on `Float` entries
+loses far more than the `1e-30` tolerance the equality test assumed. **The tolerance was set
+below the noise floor of the arithmetic underneath it.** Rewritten over an exact biquadratic
+field (`src/kfield.py`, where zero-testing is a tuple comparison because `1, sqrt3, sqrt5,
+sqrt15` are independent over `Q`), the oracle returns 128 and the compound returns 74. Three
+wrong values were reported to the oracle before the right one; none reached a document.

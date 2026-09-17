@@ -84,6 +84,44 @@ def results_claims(path=None):
     return claims
 
 
+def dead_anchors():
+    """Cross-document links whose target anchor does not exist.
+
+    THE FAILURE THIS EXISTS TO CATCH, measured on 2026-09-12: the sixteen
+    postscripts P288-P303 were appended to the ledger without their
+    `<a id="pNNN"></a>` lines, so every link written to them -- including the two
+    in INTERVENTIONS A11 -- resolved to the top of a 21 000-line file.  The
+    postscripts existed; the ANCHORS did not, which reads to an auditor as a
+    citation of something that does not exist.  Nine more links into METHODS and
+    FAILURE_MODES had been dead longer, because those headings carry a
+    `[PRACTICE]` / `[FACT]` prefix that the hand-written slug omitted.
+
+    INVARIANT TO MAINTAIN: a link is checked against an EXPLICIT `<a id>` first
+    and only then against the GitHub heading slug.  Relying on the slug alone is
+    what broke the METHODS links -- retitling a section silently kills every link
+    to it, while an explicit anchor survives retitling.  New sections should get
+    an explicit anchor, not a slug link.
+    """
+    dead = []
+    for name in sorted(os.listdir(ROOT)):
+        if not name.endswith('.md'):
+            continue
+        text = open(os.path.join(ROOT, name), encoding='utf-8', errors='replace').read()
+        for tgt, anc in re.findall(r'\]\(([A-Za-z0-9_./-]*\.md)#([A-Za-z0-9_-]+)\)', text):
+            path = os.path.join(ROOT, tgt)
+            if not os.path.exists(path):
+                dead.append((name, tgt + '#' + anc, 'target file missing'))
+                continue
+            t = open(path, encoding='utf-8', errors='replace').read()
+            if '<a id="%s"' % anc in t:
+                continue
+            slugs = {re.sub(r'[^a-z0-9 -]', '', h.lower()).replace(' ', '-')
+                     for h in re.findall(r'^#+ (.+)$', t, re.M)}
+            if anc.lower() not in slugs:
+                dead.append((name, tgt + '#' + anc, 'no anchor and no matching heading'))
+    return dead
+
+
 def main():
     order, refs = ledger_graph()
     claims = results_claims()
@@ -144,6 +182,16 @@ def main():
         for ln, cited, newest, text in flag:
             print('   OPEN_QUESTIONS.md:%-4d cites P%s, revisited by P%s | %s'
                   % (ln, ','.join(cited), newest, text[:70].replace('**', '')))
+
+    print('-' * 70)
+    dead = dead_anchors()
+    if dead:
+        print('%d DEAD ANCHOR LINK(S) -- the cited entry may well exist; the link '
+              'does not reach it:' % len(dead))
+        for src, link, why in dead:
+            print('   %-22s -> %-46s %s' % (src, link, why))
+    else:
+        print('0 dead anchor links.')
 
     print('-' * 70)
     hard = [u for u in uncited if not u[2]]

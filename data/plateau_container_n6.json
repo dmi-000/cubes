@@ -46,5 +46,23 @@
    "generic": true,
    "holds": false
   }
- ]
+ ],
+ "reproduce": {
+  "command": "python3 src/probes/plateau_container.py",
+  "run_from": "src",
+  "script": "src/probes/plateau_container.py",
+  "script_sha256_16": "788b1549f7e5095d",
+  "parameters": {
+   "n": 6,
+   "direction": "arc D"
+  },
+  "recorded_utc": "2026-09-13T15:09:10Z",
+  "recorded_retrospectively": "stamped after the run from the session record, not emitted by the script",
+  "inputs": [
+   {
+    "path": "data/plateau_arcs_n6.json",
+    "sha256_16": "b2eaea29dac76cea"
+   }
+  ]
+ }
 }

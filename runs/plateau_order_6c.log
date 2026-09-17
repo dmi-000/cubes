@@ -1,0 +1,10 @@
+n=6 ambient 15 record 727 | tight walls 27 rank 14 | lineality 1
+  lineality dir 0: cell ['-793175725/5668128711173', '191135393/1513127729928'] counts [685, 685] -> holds False
+  seed arcD: cell ['-593208466/1348582226801', '375629385/1517753511992'] counts [727, 727] -> holds True
+  concurrency quadruples through the record: 775  (409s)
+    container of arcD: rank(kept 20) -> dimension 2
+    dir arcD + 1/64*dir 0: holds False | genuine containing walls 222 (rank-degenerate 264)
+    dir arcD + 1/64*dir 1: holds False | genuine containing walls 222 (rank-degenerate 264)
+n=6 -> branch dimension 1 (851s)
+
+written data/plateau_order.json

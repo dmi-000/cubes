@@ -49,6 +49,7 @@ import wall_solve as WS
 import wall_census as C
 import concurrency_walls as CW
 import plateau_solve as P
+import provenance as PROV
 
 T = sp.Symbol('t')
 TS = [F(i + 1, 7) - F(1, 3) for i in range(CW.DEG + 1 + CW.CHECK)]
@@ -125,6 +126,33 @@ def count_in_cell(quats, pt, nc, q0, dirn, keys):
     return out
 
 
+def seeds_for(n, nc):
+    """Known holding directions that do NOT lie in the lineality.
+
+    At n = 6 the plateau's own direction is arc D, and the lineality holds nothing ([P305]),
+    so a lineality-seeded search finds no branch there and correctly declines to settle.
+    Seeding the arc is what makes n = 6 a validation of this instrument rather than a blank.
+    """
+    import map_arcs as M
+    a0, v, lo, hi = M.ARCS['D']
+    if n == 6:
+        d = [F(0)] * nc
+        for k in range(3):
+            d[nc - 3 + k] = v[k]
+        return [('arcD', d)]
+    if n == 7:
+        # The two directions [P299]/[P301] measured the 1217 plateau with: the fibre
+        # direction +e15, and the base direction that lifts arc D to the seventh cube.
+        # Seeding them is not optional -- a lineality-only search at n = 6 missed the
+        # plateau completely, and those two are the directions known to hold 1217.
+        f = [F(0)] * nc; f[nc - 3] = F(1)
+        b = [F(0)] * nc
+        for k in range(3):
+            b[nc - 6 + k] = v[k]
+        return [('fibre_e15', f), ('base_arcD_lift', b)]
+    return []
+
+
 def analyse(n, lam=F(1, 64), verbose=True):
     t0 = time.time()
     quats = list(W.REC[n]); q0 = quats[0]
@@ -149,6 +177,14 @@ def analyse(n, lam=F(1, 64), verbose=True):
               % (j, r['cell'], [r['neg']['count'], r['pos']['count']], hold), flush=True)
         if hold:
             holding.append((j, d))
+    for nm, d in seeds_for(n, nc):
+        r = count_in_cell(quats, pt, nc, q0, d, keys)
+        hold = any(v['count'] == rec for v in (r['neg'], r['pos']))
+        lin_res.append({'dir': nm, 'holds': hold, 'probe': r, 'seeded': True})
+        print('  seed %s: cell %s counts %s -> holds %s'
+              % (nm, r['cell'], [r['neg']['count'], r['pos']['count']], hold), flush=True)
+        if hold:
+            holding.append((nm, d))
 
     # the through-record concurrency quadruples: the only place a containing wall can live
     z = [F(0)] * nc
@@ -163,8 +199,12 @@ def analyse(n, lam=F(1, 64), verbose=True):
     for (j, d) in holding:
         snapd = snapshot(pt, q0, d)
         base = {c: order_sign(poly_along(snapd, c)) for c in thru}
-        for k, u in enumerate(lin):
-            if k == j or P.rank([d, u]) < 2:
+        kept = [g for g in G if sum(g[i] * d[i] for i in range(nc)) == 0]
+        container = P.nullspace(kept, nc) if kept else lin
+        print('    container of %s: rank(kept %d) -> dimension %d'
+              % (j, len(kept), len(container)), flush=True)
+        for k, u in enumerate(container):
+            if P.rank([d, u]) < 2:
                 continue
             dd = [d[i] + lam * u[i] for i in range(nc)]
             r = count_in_cell(quats, pt, nc, q0, dd, keys)
@@ -188,16 +228,33 @@ def analyse(n, lam=F(1, 64), verbose=True):
                           'combination_holds': hold, 'probe': r,
                           'genuine_containing_walls': contain,
                           'rank_degenerate': degen})
-            print('    dir %d + %s*dir %d: holds %s | genuine containing walls %d '
+            print('    dir %s + %s*dir %s: holds %s | genuine containing walls %d '
                   '(rank-degenerate %d)' % (j, lam, k, hold, contain, degen), flush=True)
 
-    settled = None
-    if holding and pairs:
-        if all(not p['combination_holds'] and p['genuine_containing_walls'] > 0
-               for p in pairs):
-            settled = 1
-        elif all(p['combination_holds'] for p in pairs):
-            settled = 1 + len({p['other_dir'] for p in pairs})
+    # THE VERDICT IS ABOUT THE BRANCHES TESTED, NOT ABOUT THE PLATEAU.  A lineality-only
+    # search at n = 6 found no branch at all while the plateau was 1-dimensional along an arc
+    # outside the lineality, so a dimension reported here is a statement about the seeds it
+    # was given.  Anything else it is called is the seed's scope read as the world ([P298]).
+    # The mixed case is the normal one and the first version returned None for it: at n = 7
+    # one container direction is free and one is cut, which is exactly a 2-dimensional branch.
+    # Dimension = 1 + the number of independent container directions the branch extends along.
+    settled, per_seed = None, {}
+    for p in pairs:
+        d0 = p['hold_dir']
+        e = per_seed.setdefault(d0, {'free': set(), 'cut': 0, 'undecided': 0})
+        if p['combination_holds']:
+            e['free'].add(p['other_dir'])
+        elif p['genuine_containing_walls'] > 0:
+            e['cut'] += 1
+        else:
+            e['undecided'] += 1          # drops with nothing shown to separate it
+    for d0, e in per_seed.items():
+        e['branch_dimension'] = (1 + len(e['free'])) if not e['undecided'] else None
+        e['free'] = sorted(e['free'], key=str)
+    if per_seed:
+        dims = [e['branch_dimension'] for e in per_seed.values()
+                if e['branch_dimension'] is not None]
+        settled = max(dims) if dims else None
     return {'n': n, 'ambient': nc, 'record': rec, 'tight_walls': len(walls),
             'rank_tight': rT, 'lineality_dimension': len(lin),
             'old_premise_dimension': nc - rT,
@@ -205,7 +262,12 @@ def analyse(n, lam=F(1, 64), verbose=True):
             'holding_directions': [j for j, _ in holding],
             'through_record_quadruples': len(thru),
             'pairs': pairs,
-            'plateau_dimension_settled': settled,
+            'branch_dimension_settled': settled,
+            'per_seed': per_seed,
+            'SCOPE': ('a dimension here is the dimension of the branch through the SEEDED '
+                      'directions, not of the plateau. Seeds: lineality basis'
+                      + (' plus ' + ', '.join(nm for nm, _ in seeds_for(n, nc))
+                         if seeds_for(n, nc) else '')),
             'seconds': round(time.time() - t0, 1)}
 
 
@@ -217,7 +279,8 @@ def main():
     path = os.path.join(ROOT, 'data', 'plateau_order.json')
     out = {'what': 'plateau dimension by order of vanishing -- the walls that CONTAIN the '
                    'branch, which gradients cannot see',
-           'method': 'P306', 'levels': {}}
+           'method': 'P306', 'levels': {},
+           'reproduce': PROV.stamp(parameters=vars(a))}
     if os.path.exists(path):
         try:
             out['levels'].update(json.load(open(path)).get('levels', {}))
@@ -226,8 +289,22 @@ def main():
     for n in a.levels:
         r = analyse(n, F(a.lam))
         out['levels'][str(n)] = r
+        # RE-READ BEFORE WRITING.  Two levels running as separate processes each loaded the
+        # file at startup and wrote their own union, so the later writer silently reverted the
+        # other's level to its stale copy -- FAILURE_MODES 33 one level out.  Merging at write
+        # time keeps concurrent runs additive; only the level this process computed is replaced.
+        merged = {}
+        if os.path.exists(path):
+            try:
+                merged = json.load(open(path)).get('levels', {})
+            except Exception:
+                merged = {}
+        merged.update({k: v for k, v in out['levels'].items() if k == str(n)})
+        for k, v in out['levels'].items():
+            merged.setdefault(k, v)
+        out['levels'] = merged
         json.dump(out, open(path, 'w'), indent=1)
-        print('n=%d -> settled %s (%.0fs)\n' % (n, r['plateau_dimension_settled'],
+        print('n=%d -> branch dimension %s (%.0fs)\n' % (n, r['branch_dimension_settled'],
                                                 r['seconds']), flush=True)
     print('written data/plateau_order.json')
 

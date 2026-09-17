@@ -1,73 +1,86 @@
-# Session state — 2026-09-12 (evening)
+# Session state — 2026-09-16
 
-**Read this first, then [RESULTS.md](RESULTS.md) §4's scope correction.**
+**Read [RESULTS.md](RESULTS.md) §4's scope correction first, then this. Several claims made
+EARLIER IN THIS SAME SESSION were later refuted; the corrections are propagated, but read the
+refutation column below before quoting anything from P304–P321.**
 
-## The one thing that changed today
+## The single most important thing
 
-**No wall list in this project is known to be complete.** The wall census built for
-[OQ 33](OPEN_QUESTIONS.md#33) found a second codimension-1 family of the COUNT — four
-face planes through a common point — which no coincidence condition sees, and then found
-a count-changing parameter belonging to neither family. [P304](LEDGER.md#p304),
-[OQ 34](OPEN_QUESTIONS.md#34).
+**A cube's boundary is six SQUARES, not six planes.** `concurrency_walls.py` originally tested
+only that four face planes meet, never that the meeting point is on the cubes. Most such points
+are far outside the compound and are not walls of anything. This invalidated the mechanism of
+[P304](LEDGER.md#p304) and several results built on it ([P322](LEDGER.md#p322),
+[P323](LEDGER.md#p323)). **Fixed** — the family now carries `common_point_inside_cubes` per
+root, and running the fix showed that even P304's own founding example, the `t = −2/9` wall,
+is outside.
 
-Anything that reads "the walls of this configuration" in an older document means the
-COINCIDENCE walls. That is not the same set.
+## What stands
 
-## What is established
+| | |
+|---|---|
+| [P307](LEDGER.md#p307) | plateau dimensions **1, 2, 2** at n = 6, 7, 8 — equalities |
+| [P308](LEDGER.md#p308) | boundary attributions audited and cleared; [P296], [P301]–[P303] stand |
+| [P311](LEDGER.md#p311) | **the facet-centre lemma** — proved; depth is radially monotone on every facet ([METHODS 26](METHODS.md#26-the-facet-centre-lemma)) |
+| [P312](LEDGER.md#p312) | `c_ell` is the WALL graph's, 43/43 against the engine |
+| [P315](LEDGER.md#p315) | vertex taxonomy; **12 quadruple points in every record above n = 4**, forced by a shared body-diagonal axis |
+| [P319](LEDGER.md#p319) | `c > 1` occurs **only at level 1** — 0 in 3382 deeper instances |
+| [P321](LEDGER.md#p321) | a `c`-transition is a **pure reconnection**: `dV = dE = 0`, 8 of 8 |
+| [P326](LEDGER.md#p326) | `holes <= 1` completes the bound for every n but barely tightens it |
+| [P327](LEDGER.md#p327) | the frustration mechanism: every region is paid for by degree excess, and **every triple point is spent twice** |
+| [P328](LEDGER.md#p328) | taxonomy completed; records buy **13–28 % of their regions with degeneracy** |
+| [P330](LEDGER.md#p330) | `EE <= 6` per pair FALSE (max 10, at a FACE diagonal) — and **`sum EE <= 6*C(n,2)` is FALSE too**, at every n from 2 to 6 |
 
-- **OQ 33, on a full ray:** at the 727 record along e0, window ±1/4, 217 attributable
-  crossings — of 21 crossings carrying a coincidence wall, **8 change the count and 13 do
-  not**; of 663 carrying only concurrency walls, **0** change it. Every change is exactly
-  ±4. P303's 4 of 6 was not a fluke of a hand-picked sample.
-- **The census is G2-clean on that ray:** 685 cells, three rationals each, zero constancy
-  failures — a completeness check on a wall list, which this project has never had before.
-- **The two families do different jobs.** Coincidence walls are STEPS (count differs
-  across). Concurrency walls are PUNCTURES (count equal on both sides, lower on the wall):
-  at t = −2/9, 693 | 691 | 693.
-- **The record is a point of extreme concurrency:** 6772 of e0's 7620 concurrency roots
-  in the window sit at t = 0.
-- **t = −2/9 solved:** the concurrency determinant on the ray cancels to `9t² + 20t + 4`.
+## What was refuted, by me, in this session
 
-## What is open, in order of weight
+    P304's mechanism        four-plane concurrency does NOT explain the count drops   [P323]
+    P309's +258 / 282       counted without containment                               [P323]
+    P318's cost split       (b-1)(b-2) does not apply to CORNER concurrences           [P324]
+    P321's concurrency      every concurrency wall at a c-transition is spurious       [P321 add.]
+    EE <= 6 per pair        TRUE at q = (0,1,1,1); 18 of P329's 24 were corner incidences [P330]
+    sum EE <= 6*C(n,2)      exceeded at every n from 2 to 6, and at a PROVED n = 2 maximiser [P330]
+    P328's excess table     generic values, not invariants of the signature             [P330]
 
-1. **The attribution audit P304 opens.** Every boundary located as "nearest wall root where
-   the count changes" searched the coincidence family only — P296's arc D extent,
-   P301/P302/P303's three walls of the 1217 plateau. The EXTENTS stand (they were counted).
-   Whether the named condition is the actual cause is unchecked at n = 7, 8, 9. Run
-   `concurrency_walls.py` on those rays and look for a root inside each straddle interval.
-2. **One ray, one record.** The census has run on e0 at n = 6 only. `--family both` gives
-   15 axis rays plus mixed ones; n = 7 is where P298's counterexample lives and is the
-   real target.
-3. Everything still listed under OQ 33: whether "coincidence walls only" survives at higher
-   n and on non-axis rays, and whether the 7-of-18 that change the count are predictable
-   from the group's cube indices.
+**The pattern, and it is long-standing, not mine alone ([METHODS 27](METHODS.md#27-a-cause-claim-needs-its-own-gate)):**
+every CAUSE claim made this session fell; every MEASUREMENT stood. Across the whole ledger,
+~40 of ~303 titles carry refutation language and about two thirds of those refute a cause, law
+or mechanism. A sentence with *because* in it needs its own gate, and the gate must not share
+the claim's model.
 
-## Instruments added today
+## Where to go next
 
-| file | what it does | its gate |
-|---|---|---|
-| `src/wall_census.py` | every crossing on a ray, the count in each cell, one verdict per wall | G1 base is the record; G2 three-point constancy per cell, which STEERS the branch closure; G2N negative control (hide half the keys, G2 must fail — 13 of 103); G3 refusals counted |
-| `src/concurrency_walls.py` | the four-plane family, by exact interpolation | degree bound verified at 3 unseen parameters (0 failures on 6 rays); G4 the known −2/9 wall must return with its quadruple |
-| `src/wall_census_analyze.py` | criterion search over the census, and the count ON each rational wall | — |
+**[OQ 37](OPEN_QUESTIONS.md#37) — prove `T3 + two-body <= 176` at n = 4, and `max(4) = 183`
+follows.** [OQ 35]'s premise was retired by [P333](LEDGER.md#p333) and [OQ 36] was SOLVED by
+[P334](LEDGER.md#p334), in that order, today.
 
-Data: `data/wall_census_n6.json`, `data/concurrency_walls_n6.json`, both from the corrected
-convention. The two files from the broken one are kept as `data/VOID_2026-09-12_*` —
-renamed, not deleted, so the original numbers stay derivable.
+**The chain.** [OQ 35] asked what bounds the degenerate terms, "which nothing bounds". They are
+bounded: `EE + 2*SC2` **is** the two-body term and `two-body <= 10*C(n,2)` is proved ([P237]) —
+gated by [P258]'s identity closing on the record as `128 + 48 + 6 + 1 = 183`. So the question
+was never a missing bound; it is whether two proved caps can hold at once.
 
-**A trap this session walked into, worth knowing before extending the work**
-([FAILURE_MODES 39](FAILURE_MODES.md#39)): the face normals are the COLUMNS of the rotation
-matrix, not the rows. Every gate in the new code passed in the wrong convention, because
-the fact each one checked against had been established by the same code.
+**They cannot, and both endpoints are now known exactly:**
 
-## Standing constraints
+    configuration        T3         two-body     T3 + two-body    count
+    n = 4 RECORD      128 / 128     48 / 60          176           183
+    K4 compound        74 / 128     60 / 60          134       138 + holes
+    body-diagonal      72 / 128     36 / 60          108           145
+    assumed by bound  128 / 128     60 / 60          188           198
 
-- **Never write into `github/`.** The publish tree is the user's alone.
-- No machine or network references in anything that reaches the public repo.
-- Remediation commits stay bland.
+[P334] built the middle row by SOLVING rather than searching: two cubes share a corner iff they
+share a body diagonal, a cube's four diagonals are a regular tetrahedron, so K4 corner-sharing
+is an axis-labelling problem. It has a solution in `Q(sqrt3, sqrt5)` with
+`p, q = (sqrt3 +- sqrt15)/6`. **It attains the two-body cap for the first time at n = 4, and
+pays 42 triple points for it.**
 
-## Waiting on the user
+**The target.** `1 + 176 + L + holes = 1 + 176 + 3 + 3 = 183`, so proving `T3 + two-body <= 176`
+proves `max(4) = 183` — the first proved maximum above n = 3. One coupling inequality instead of
+two caps known not to be simultaneously tight. Both terms are vertex counts in the SAME identity
+([P327]), so this is a statement about how vertices distribute between signatures, not a relation
+between unrelated quantities.
 
-- `python3 src/scrub_paths.py --tree github --apply` (33 files)
-- `cp TOWER_DIAGRAM.html github/`
-- keep-or-exclude decision for `data/2026-09-07-231403-compactions.txt`
-- `sync_layout_to_github.sh`
+**Method note, carried at the top because it nearly cost the result.** The first `T3` for the K4
+compound was **8**, from a 50-digit float enumeration whose oracle — the same code on the record,
+where 128 is known — returned 38, then 90, and never 128. `Matrix.inv()` on `Float` entries loses
+far more than the `1e-30` equality tolerance assumed: **the tolerance sat below the noise floor
+of its own arithmetic.** Redone over an exact biquadratic field (`src/kfield.py`, where zero-test
+is a tuple comparison), the oracle returns 128 and the compound returns 74. Three wrong values
+went to the oracle; none reached a document.

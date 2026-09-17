@@ -1,0 +1,101 @@
+{
+ "simplified_h140": [
+  [
+   1108,
+   1532,
+   1
+  ],
+  [
+   1166,
+   1760,
+   1
+  ],
+  [
+   1038,
+   1560,
+   1
+  ],
+  [
+   856,
+   1288,
+   1
+  ],
+  [
+   676,
+   1018,
+   1
+  ],
+  [
+   498,
+   750,
+   1
+  ],
+  [
+   302,
+   454,
+   1
+  ],
+  [
+   102,
+   154,
+   1
+  ]
+ ],
+ "original_h113786": [
+  [
+   1126,
+   1550,
+   1
+  ],
+  [
+   1172,
+   1766,
+   1
+  ],
+  [
+   1038,
+   1560,
+   1
+  ],
+  [
+   856,
+   1288,
+   1
+  ],
+  [
+   676,
+   1018,
+   1
+  ],
+  [
+   498,
+   750,
+   1
+  ],
+  [
+   302,
+   454,
+   1
+  ],
+  [
+   102,
+   154,
+   1
+  ]
+ ],
+ "reproduce": {
+  "command": "python3 src/probes/n9_enhanced_profile.py",
+  "run_from": "src",
+  "script": "src/probes/n9_enhanced_profile.py",
+  "script_sha256_16": "9f53948f37102532",
+  "parameters": {
+   "n": 9,
+   "representatives": [
+    "simplified_h140",
+    "original_h113786"
+   ]
+  },
+  "recorded_utc": "2026-09-16T13:19:32Z",
+  "recorded_retrospectively": "stamped after the run; script rescued from scratch into src/probes/"
+ }
+}

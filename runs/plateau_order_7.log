@@ -1,0 +1,9 @@
+n=7 ambient 18 record 1217 | tight walls 51 rank 16 | lineality 2
+  lineality dir 0: cell ['-3248723329/1716443476745', '3387062689/3006673831056'] counts [1217, 1217] -> holds True
+  lineality dir 1: cell ['-15335250/693724908257', '35767617/1460569566530'] counts [1165, 1165] -> holds False
+  concurrency quadruples through the record: 1090  (1177s)
+    container of 0: rank(kept 51) -> dimension 2
+    dir 0 + 1/64*dir 1: holds False | genuine containing walls 520 (rank-degenerate 264)
+n=7 -> settled 1 (1806s)
+
+written data/plateau_order.json

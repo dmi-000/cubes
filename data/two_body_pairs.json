@@ -1,0 +1,500 @@
+{
+ "what": "the two-body term per pair, the hub, and why shared corners merge",
+ "question": "OPEN_QUESTIONS 35",
+ "supports": "LEDGER P333",
+ "records": {
+  "4": {
+   "sig": {
+    "(1, 1, 1)": 128,
+    "(1, 2)": 24,
+    "(2, 2)": 36,
+    "(3, 3)": 6
+   },
+   "T3": 128,
+   "T3_cap": 128,
+   "two_body": 48,
+   "two_body_cap": 60,
+   "EE": 36,
+   "SC2": 6,
+   "count": 183,
+   "bound": 198,
+   "per_pair": [
+    {
+     "pair": [
+      0,
+      1
+     ],
+     "EE": 6,
+     "SC2": 0,
+     "two_body": 6,
+     "at_cap": false,
+     "pair_count": 9
+    },
+    {
+     "pair": [
+      0,
+      2
+     ],
+     "EE": 6,
+     "SC2": 0,
+     "two_body": 6,
+     "at_cap": false,
+     "pair_count": 9
+    },
+    {
+     "pair": [
+      0,
+      3
+     ],
+     "EE": 6,
+     "SC2": 2,
+     "two_body": 10,
+     "at_cap": true,
+     "pair_count": 13
+    },
+    {
+     "pair": [
+      1,
+      2
+     ],
+     "EE": 6,
+     "SC2": 0,
+     "two_body": 6,
+     "at_cap": false,
+     "pair_count": 9
+    },
+    {
+     "pair": [
+      1,
+      3
+     ],
+     "EE": 6,
+     "SC2": 2,
+     "two_body": 10,
+     "at_cap": true,
+     "pair_count": 13
+    },
+    {
+     "pair": [
+      2,
+      3
+     ],
+     "EE": 6,
+     "SC2": 2,
+     "two_body": 10,
+     "at_cap": true,
+     "pair_count": 13
+    }
+   ],
+   "shared_corners": [
+    {
+     "cubes": [
+      0,
+      3
+     ],
+     "corner": [
+      "-1",
+      "-1",
+      "1"
+     ]
+    },
+    {
+     "cubes": [
+      2,
+      3
+     ],
+     "corner": [
+      "-1",
+      "1",
+      "-1"
+     ]
+    },
+    {
+     "cubes": [
+      1,
+      3
+     ],
+     "corner": [
+      "-1",
+      "1",
+      "1"
+     ]
+    },
+    {
+     "cubes": [
+      1,
+      3
+     ],
+     "corner": [
+      "1",
+      "-1",
+      "-1"
+     ]
+    },
+    {
+     "cubes": [
+      2,
+      3
+     ],
+     "corner": [
+      "1",
+      "-1",
+      "1"
+     ]
+    },
+    {
+     "cubes": [
+      0,
+      3
+     ],
+     "corner": [
+      "1",
+      "1",
+      "-1"
+     ]
+    }
+   ],
+   "shared_corners_per_cube": {
+    "0": 2,
+    "1": 2,
+    "2": 2,
+    "3": 6
+   },
+   "antipodal_pairs_used": {
+    "0": 1,
+    "1": 1,
+    "2": 1,
+    "3": 3
+   }
+  },
+  "5": {
+   "sig": {
+    "(1, 1, 1)": 272,
+    "(1, 1, 1, 1)": 12,
+    "(1, 2)": 48,
+    "(2, 2)": 60,
+    "(3, 3)": 8
+   },
+   "T3": 272,
+   "T3_cap": 320,
+   "two_body": 76,
+   "two_body_cap": 100,
+   "EE": 60,
+   "SC2": 8,
+   "count": 393,
+   "bound": 433,
+   "per_pair": [
+    {
+     "pair": [
+      0,
+      1
+     ],
+     "EE": 6,
+     "SC2": 0,
+     "two_body": 6,
+     "at_cap": false,
+     "pair_count": 9
+    },
+    {
+     "pair": [
+      0,
+      2
+     ],
+     "EE": 6,
+     "SC2": 0,
+     "two_body": 6,
+     "at_cap": false,
+     "pair_count": 9
+    },
+    {
+     "pair": [
+      0,
+      3
+     ],
+     "EE": 6,
+     "SC2": 0,
+     "two_body": 6,
+     "at_cap": false,
+     "pair_count": 9
+    },
+    {
+     "pair": [
+      0,
+      4
+     ],
+     "EE": 6,
+     "SC2": 2,
+     "two_body": 10,
+     "at_cap": true,
+     "pair_count": 13
+    },
+    {
+     "pair": [
+      1,
+      2
+     ],
+     "EE": 6,
+     "SC2": 0,
+     "two_body": 6,
+     "at_cap": false,
+     "pair_count": 9
+    },
+    {
+     "pair": [
+      1,
+      3
+     ],
+     "EE": 6,
+     "SC2": 0,
+     "two_body": 6,
+     "at_cap": false,
+     "pair_count": 9
+    },
+    {
+     "pair": [
+      1,
+      4
+     ],
+     "EE": 6,
+     "SC2": 2,
+     "two_body": 10,
+     "at_cap": true,
+     "pair_count": 13
+    },
+    {
+     "pair": [
+      2,
+      3
+     ],
+     "EE": 6,
+     "SC2": 0,
+     "two_body": 6,
+     "at_cap": false,
+     "pair_count": 9
+    },
+    {
+     "pair": [
+      2,
+      4
+     ],
+     "EE": 6,
+     "SC2": 2,
+     "two_body": 10,
+     "at_cap": true,
+     "pair_count": 13
+    },
+    {
+     "pair": [
+      3,
+      4
+     ],
+     "EE": 6,
+     "SC2": 2,
+     "two_body": 10,
+     "at_cap": true,
+     "pair_count": 13
+    }
+   ],
+   "shared_corners": [
+    {
+     "cubes": [
+      3,
+      4
+     ],
+     "corner": [
+      "-1",
+      "-1",
+      "-1"
+     ]
+    },
+    {
+     "cubes": [
+      0,
+      4
+     ],
+     "corner": [
+      "-1",
+      "-1",
+      "1"
+     ]
+    },
+    {
+     "cubes": [
+      2,
+      4
+     ],
+     "corner": [
+      "-1",
+      "1",
+      "-1"
+     ]
+    },
+    {
+     "cubes": [
+      1,
+      4
+     ],
+     "corner": [
+      "-1",
+      "1",
+      "1"
+     ]
+    },
+    {
+     "cubes": [
+      1,
+      4
+     ],
+     "corner": [
+      "1",
+      "-1",
+      "-1"
+     ]
+    },
+    {
+     "cubes": [
+      2,
+      4
+     ],
+     "corner": [
+      "1",
+      "-1",
+      "1"
+     ]
+    },
+    {
+     "cubes": [
+      0,
+      4
+     ],
+     "corner": [
+      "1",
+      "1",
+      "-1"
+     ]
+    },
+    {
+     "cubes": [
+      3,
+      4
+     ],
+     "corner": [
+      "1",
+      "1",
+      "1"
+     ]
+    }
+   ],
+   "shared_corners_per_cube": {
+    "0": 2,
+    "1": 2,
+    "2": 2,
+    "3": 2,
+    "4": 8
+   },
+   "antipodal_pairs_used": {
+    "0": 1,
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 4
+   }
+  }
+ },
+ "body_diagonal_family": {
+  "4": {
+   "sig": {
+    "(1, 1, 1)": 72,
+    "(2, 2)": 36,
+    "(3, 3, 3, 3)": 2
+   },
+   "T3": 72,
+   "T3_cap": 128,
+   "two_body": 36,
+   "two_body_cap": 60,
+   "EE": 36,
+   "SC2": 0,
+   "count": 145,
+   "bound": 198
+  }
+ },
+ "corner_cap": {
+  "4": {
+   "pairs": 6,
+   "max_sharing_pairs": 8,
+   "complete_possible": true
+  },
+  "5": {
+   "pairs": 10,
+   "max_sharing_pairs": 10,
+   "complete_possible": true
+  },
+  "6": {
+   "pairs": 15,
+   "max_sharing_pairs": 12,
+   "complete_possible": false
+  },
+  "7": {
+   "pairs": 21,
+   "max_sharing_pairs": 14,
+   "complete_possible": false
+  }
+ },
+ "reproduce": {
+  "command": "python3 src/probes/two_body_pairs.py",
+  "run_from": "src",
+  "script": "src/probes/two_body_pairs.py",
+  "script_sha256_16": "ec8a09568b706334",
+  "parameters": {
+   "records": [
+    4,
+    5
+   ],
+   "body_diagonal": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     1,
+     1,
+     1
+    ],
+    [
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     5,
+     2,
+     2,
+     2
+    ],
+    [
+     4,
+     1,
+     1,
+     1
+    ]
+   ]
+  },
+  "written_utc": "2026-09-16T17:00:01Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

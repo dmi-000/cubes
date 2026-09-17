@@ -1,0 +1,16 @@
+/Users/dmi/cube-compounds/src/plateau_solve.py:243: SyntaxWarning: "\ " is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\ "? A raw string is also an option.
+  start from all of T \ {w}, and while the null space is orthogonal to grad_w, drop the
+n=8 ambient 21 record 1895 | tight walls 75 rank 18 | lineality 3
+  lineality dir 0: cell ['-2677158825/4902890363312', '761634007/769217508965'] counts [1895, 1895] -> holds True
+  lineality dir 1: cell ['-123748346/356700705477', '747555715/2387109375138'] counts [1837, 1837] -> holds False
+  lineality dir 2: cell ['-4393752687/1481906397518', '1456571885/1593395604646'] counts [1895, 1895] -> holds True
+  concurrency quadruples through the record: 1414  (2660s)
+    container of 0: rank(kept 75) -> dimension 3
+    dir 0 + 1/64*dir 1: holds False | genuine containing walls 766 (rank-degenerate 264)
+    dir 0 + 1/64*dir 2: holds True | genuine containing walls 0 (rank-degenerate 0)
+    container of 2: rank(kept 75) -> dimension 3
+    dir 2 + 1/64*dir 0: holds True | genuine containing walls 0 (rank-degenerate 0)
+    dir 2 + 1/64*dir 1: holds False | genuine containing walls 766 (rank-degenerate 264)
+n=8 -> settled None (5319s)
+
+written data/plateau_order.json

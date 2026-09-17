@@ -1209,7 +1209,11 @@ diagrams), `events_report.md` (the create-vs-merge catalogue),
 interactive viewer (opaque surface mode + dihedral-family slider):
 https://claude.ai/code/artifact/044d34a6-3f36-43b2-9ec8-17fb5691c87c*
 
-## Act X: the wall was the ensemble, and signatures are the map
+## Act XIII: the wall was the ensemble, and signatures are the map
+
+*(Renumbered 2026-09-16. This act was headed "Act X", colliding with the genuine Act X above —
+the one that lines 105, 741, 804 and 868 all refer to. Nothing referenced this act by number, so
+the collision is resolved in the earlier act's favour.)*
 
 The act opens with a plateau that is not in the problem. Roughly 150 climbs from
 Haar-random starts at n=4 all stop at total 141 with profile {1:50, 2:66, 3:24} —
@@ -1273,7 +1277,13 @@ the user's reading of why, that something must align to split regions in one con
 and merge them in another.
 
 **One thing the corrected map says that the broken one could not.** 723 does carry two
-9-fold concurrences, so the algebraic search's founding premise is intact. But **727 — the
+9-fold concurrences, so the algebraic search's founding premise is intact *as a statement about
+planes* — and only as that. *(Added 2026-09-16, [P331](LEDGER.md#p331): those two points lie
+**outside the compound**, 63 % past the nearest face. The coincidence is real — three cubes,
+all rotations about the (1,1,1) axis, share a corner — but the corner sticks out past the other
+three cubes, so it is not a vertex of the arrangement and buys no regions. Which is also, at
+last, the CAUSE of the negative correlation below: the statistic was ranking configurations by a
+feature that is not part of the object being counted.)* But **727 — the
 record that beats it — has max concurrence 6 and no 9-fold at all**, as do the n=4 and n=5
 records. The "9-fold sweet spot" that guided months of searching is a property of one
 configuration, not of records.
@@ -1286,3 +1296,124 @@ See [P227](LEDGER.md#p227) and [FAILURE_MODES 27](FAILURE_MODES.md).
 the ~4 216 signature population as findings. The originals are preserved struck in
 [P222](LEDGER.md#p222) and [MAXIMISER_TAXONOMY §12](MAXIMISER_TAXONOMY.md), which is where
 a reader tracing the retired numbers should land.)*
+
+## Act XIV: the accounting, and nine days of the apparatus catching itself
+
+*(2026-09-08 to 09-16. The record tower does not move in this act. Not one configuration
+found here beats anything, and it is the most productive stretch in the project.)*
+
+The turn happens quietly. For months the question was **where is a better compound**, and the
+answer was always another search. Then a small identity appears — [P258] — and reframes it:
+
+    TOTAL = T + two-body + Σ (c_ℓ + 1) + 1
+
+Every term but one was already proved bounded. The exception is `c_ℓ`, the number of connected
+components of the level-ℓ curve arrangement. **The whole tower's upper bound now rests on one
+number that nobody can bound**, and the project stops searching for compounds and starts
+auditing an equation.
+
+**The first surprise is that the pivotal question is not pivotal.** `c_ℓ` is 1 almost always
+and 2 rarely; the hypothesis `holes ≤ 1` would finish the bound. So the bound gets written out
+for every n at once ([P326]):
+
+    TOTAL ≤ 1 + 32·C(n,3) + 10·C(n,2) + 3(n−1)
+
+and the records land at a stable **90–92 %** of it from n = 4 to n = 10. The project already had
+unconditional bounds for every n — [P249]'s 953 at n = 4, and so on up — but they were 5.2x the
+record; these are 1.08x, at the price of resting on one unproved hypothesis. Then the arithmetic delivers its verdict on the question that
+produced it. The hole term is `n − 1` out of thousands. **At n = 10, settling it moves the
+bound from 4318 to 4309, against a record of 3925.** Nine regions of a 393-region gap. The
+question that had been called "the last ingredient" for weeks turns out to be worth 2 % of the
+remaining error, and the honest thing to do is say so in the same postscript that proves its
+value.
+
+**So where IS the slack?** That question produces the act's real result. The identity gets
+rebuilt from the bottom — not `T + two-body` wholesale, but vertex by vertex ([P327], [P328]):
+
+    TOTAL = 1 + L + Σ holes + ½ Σ_v excess(v)
+
+exact on 183, 393, 727 and 1217. Every region is paid for by *degree excess* at a vertex, and
+**every triple point is spent twice** — which is the frustration principle the project had been
+describing in words since Act IV, finally written as arithmetic. Sorting the vertices by type
+splits a record cleanly in two: a generic part, whose cap is proved and *attained*, and a
+degenerate part — edge-edge contacts, shared corners, quadruple points — that nothing bounds at
+all. **Records buy 13–28 % of their regions with degeneracy.** That is where the slack lives,
+and it had been invisible because the old grouping averaged it away.
+
+One proof in the act is a single line, and it is the one worth keeping. What is the deepest
+point of a facet? Its centre is the unit face normal `u`; for any other cube's normal `v`,
+`|⟨u,v⟩| ≤ 1` by Cauchy–Schwarz. **So the centre of every facet lies inside every other cube**,
+and depth is non-increasing along every ray from it ([P311]). Every n, every level, no
+computation. After weeks of engines and budgets and exact fields, the structural fact came from
+the inequality every undergraduate knows.
+
+### The other half of the act: four mechanisms, all of them wrong
+
+The measurements in this act all stood. **Every mechanism proposed to explain one fell**, and
+the way they fell is the part worth recording.
+
+A count drops at two parameters and no coincidence wall is crossed there. Something else must
+be changing the count, and a candidate appears: four face planes through a common point, a
+second wall family the tight set cannot see. It is checked, it is gated, it passes, and it
+explains the anomaly. It is also **wrong** — and the reason is almost embarrassing. A cube's
+boundary is six *squares*, not six planes. The test computed a determinant and a rank and never
+asked whether the four planes meet *on the cubes*. Most of those points are nowhere near the
+compound. Counted properly, the genuine concurrences number **2** at every parameter tested,
+baseline and anomaly alike — and [P304]'s own founding example turns out to sit outside the
+solid it was supposed to explain ([P322], [P323]). The mechanism, the +258, the "punctures",
+all void. What changes the count at those two parameters is once again unknown.
+
+**The gate had passed because the gate shared the model's mistake.** That is the act's recurring
+shape, and it is now [METHODS 27]: a cause claim needs its own gate, and the gate must not be
+built from the claim's own machinery.
+
+Then it happens again, smaller and faster, and the last time it happens the subject is a
+correction. An edge-edge contact bound, `EE ≤ 6` per cube pair, has a clean derivation:
+codimension 1 per contact, antipodal pairing, `SO(3)` is three-dimensional. A measurement says
+**24**. The derivation is declared refuted — the humble move, the one that defers to data — and
+a replacement conjecture is put forward as the next thing to prove.
+
+Both halves are wrong, and one evaluation would have shown it. **Two functions in the repository
+were both named for edge-edge contacts and counted different things**: one counted *pairs of
+edges that meet*, the other counted *vertices*. They agree until three edges of one cube meet
+three of another at a shared corner — one vertex, nine edge pairs. At the rotation in question,
+which fixes two opposite corners, the gap is exactly `2 × 9 = 18`. The contact count is **6**.
+The configuration published as refuting the bound by a factor of four had been agreeing with it
+all along ([P330]).
+
+The replacement conjecture, `Σ EE ≤ 6·C(n,2)`, dies the same afternoon: rotate every cube about
+one common face diagonal and it is beaten at every size from n = 2 to n = 6 — and at n = 2,
+where the maximum 13 is *proved*, the violation sits on genuine maximisers. The clean derivation
+had been right about its own object all along; the measurement had been about a different one.
+**When a derivation and a measurement disagree, the first question is not which is wrong but
+whether they are about the same thing.**
+
+And then the user asked for the correction to be audited, and it did not survive either. [P330]
+had explained the earlier search's miss by saying it was seeded from the wrong counter and
+"never looked" at the right family. Checking the pool instead of characterising it: the family
+was **inside** that search's 255 candidates the whole time, and 400 random draws had **0.012
+expected hits** on it. Not a coverage failure — a sampling one, which is the project's oldest
+lesson wearing a new coat. The same audit found an invented detail about file timestamps, a
+fitted pattern stated as a law, and — best of all — that the independent oracle written to
+validate the counter disagreed with it on 1506 of 1856 cases **because the oracle had the same
+rows-versus-columns bug the project had already been bitten by twice**. Corrected, the two paths
+agree on all 1856.
+
+One more, and it is the one to remember. The audit script *imported* the module it was auditing;
+that module runs its census at import time; the import overwrote the data file and destroyed the
+provenance block recorded hours earlier. **An audit that imports its subject can modify the
+evidence.**
+
+### What the act is actually about
+
+The record tower is unchanged: 183, 393, 727, 1217, 1895, 2787, 3925. What changed is that the
+project now knows *what a record is made of* — a generic part that is capped and attained, and a
+degenerate part that nothing bounds — and has a complete ceiling for every n, conditional on one
+hypothesis that it can now prove is not worth much.
+
+And it learned something less comfortable. Across the whole act, every quantity that was
+*measured* survived, and nearly every sentence containing the word *because* did not. The
+failures were never in the mathematics; they were in the apparatus, in the definitions, and
+twice in the checking code written to catch failures in the apparatus. The corrective register —
+writing up someone else's error, or your own from yesterday — turned out to be the single most
+dangerous place to put an unsourced claim, because that is where nobody is looking for one.

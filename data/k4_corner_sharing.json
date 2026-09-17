@@ -1,0 +1,63 @@
+{
+ "what": "OQ 36 solved: four cubes CAN pairwise share corners",
+ "question": "OPEN_QUESTIONS 36",
+ "supports": "LEDGER P334",
+ "field": "Q(sqrt3,sqrt5)",
+ "p_q": "(sqrt3 +- sqrt15)/6",
+ "gate_record_T3": 128,
+ "K4_complete": true,
+ "merges": false,
+ "distinct_axes": 10,
+ "axes_shared_by_two": 6,
+ "T3": 74,
+ "T3_cap": 128,
+ "SC2": 12,
+ "two_body": 60,
+ "two_body_cap": 60,
+ "T3_plus_two_body": 134,
+ "record_T3_plus_two_body": 176,
+ "star": {
+  "0": [
+   "a",
+   "b",
+   "c"
+  ],
+  "1": [
+   "a",
+   "x",
+   "y"
+  ],
+  "2": [
+   "b",
+   "x",
+   "z"
+  ],
+  "3": [
+   "c",
+   "y",
+   "z"
+  ]
+ },
+ "reproduce": {
+  "command": "python3 src/probes/k4_corner_sharing.py",
+  "run_from": "src",
+  "script": "src/probes/k4_corner_sharing.py",
+  "script_sha256_16": "090fb86b3a946ba1",
+  "parameters": {
+   "field": "Q(sqrt3,sqrt5)"
+  },
+  "written_utc": "2026-09-16T23:05:26Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

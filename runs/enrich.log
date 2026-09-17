@@ -1,0 +1,7 @@
+ENRICHED sample: shared-axis pair forced into every configuration
+  (has b>=4, has c>1) -> count
+     quad=False c>1=False  468
+     quad=False c>1=True   25
+     quad=True  c>1=False  17
+  configs 510 | with b>=4: 17 (3%) | with c>1: 25
+  BOTH (c>1 AND a quadruple point): 0

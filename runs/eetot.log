@@ -1,0 +1,4 @@
+n=4, configurations tried: 400   (6*C(4,2) = 36)
+MAX total EE: 36   with T3=72, count=145
+   quats: 1,0,0,0;3,3,0,3;2,2,1,2;3,2,1,0
+best COUNT found: 171  (EE=32, T3=120)   record 183 has EE=36, T3=128

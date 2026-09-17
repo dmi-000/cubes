@@ -1,0 +1,11 @@
+=== tower records ===
+n=4 max b=3  profile {2: 66, 3: 128}
+n=5 max b=4  profile {2: 116, 3: 272, 4: 12}
+n=6 max b=4  profile {2: 192, 3: 586, 4: 12}
+n=7 max b=4  profile {2: 282, 3: 1054, 4: 12}
+n=8 max b=4  profile {2: 392, 3: 1710, 4: 12}
+=== named / alternative configurations ===
+n4_183     max b=3  {2: 66, 3: 128}
+arcA       max b=4  {2: 204, 3: 592, 4: 12}
+=== random integer draws, n=5 ===
+max-b distribution over random n=5: {3: 106, 4: 4}

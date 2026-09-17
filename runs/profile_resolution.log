@@ -1,0 +1,4 @@
+configurations 248 | distinct depth profiles 102 | distinct enhanced 167
+depth-profile collisions 56 | of those SPLIT by (V,E,c) 45
+control (relabelled cubes): depth same True | enhanced same True
+written data/profile_resolution.json

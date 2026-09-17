@@ -1,0 +1,12 @@
+  level 1  c 1->2   dV=+0 dE=+0 dF=1   walls at crossing {'coincidence': 4, 'concurrency_degenerate': 12}
+  level 1  c 1->2   dV=+0 dE=+0 dF=1   walls at crossing {'coincidence': 12, 'concurrency_outside': 12}
+  level 1  c 1->2   dV=+0 dE=+0 dF=1   walls at crossing {'coincidence': 2, 'concurrency_outside': 12}
+  level 1  c 1->2   dV=+0 dE=+0 dF=1   walls at crossing {'coincidence': 4, 'concurrency_degenerate': 12}
+  level 1  c 1->2   dV=+0 dE=+0 dF=1   walls at crossing {'coincidence': 8, 'concurrency_degenerate': 12}
+  level 1  c 1->2   dV=+0 dE=+0 dF=1   walls at crossing {'concurrency_degenerate': 12}
+  level 1  c 1->2   dV=+0 dE=+0 dF=1   walls at crossing {'coincidence': 4, 'concurrency_degenerate': 12}
+  level 1  c 1->2   dV=+0 dE=+0 dF=1   walls at crossing {'coincidence': 4, 'concurrency_degenerate': 12}
+
+transitions analysed: 8
+  dV=0 and dE=0 in 8 of 8
+  |dF|=1        in 8 of 8

@@ -1,0 +1,5 @@
+n=4  vertices on b boundaries {2: 66, 3: 128} | 4-or-more: 0 | triples 128 | cap 128
+n=5  vertices on b boundaries {2: 116, 3: 272, 4: 12} | 4-or-more: 12 | triples 272 | cap 320
+n=6  vertices on b boundaries {2: 192, 3: 586, 4: 12} | 4-or-more: 12 | triples 586 | cap 640
+n=7  vertices on b boundaries {2: 282, 3: 1054, 4: 12} | 4-or-more: 12 | triples 1054 | cap 1120
+n=8  vertices on b boundaries {2: 392, 3: 1710, 4: 12} | 4-or-more: 12 | triples 1710 | cap 1792

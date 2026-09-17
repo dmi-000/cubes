@@ -1,0 +1,511 @@
+{
+ "what": "EE means two different things, and sum EE <= 6*C(n,2) is false",
+ "question": "OPEN_QUESTIONS 35",
+ "corrects": "LEDGER P329",
+ "oracle": [
+  {
+   "sig": {
+    "(1, 1, 1)": 128,
+    "(1, 2)": 24,
+    "(2, 2)": 36,
+    "(3, 3)": 6
+   },
+   "EE": 36,
+   "EE_carrying_excess": 36,
+   "levels": 3,
+   "holes": 3,
+   "half_excess_table": 176,
+   "half_excess_measured": 176,
+   "predicted_table": 183,
+   "predicted_measured": 183,
+   "engine_total": 183,
+   "identity_holds": true,
+   "measured_identity_holds": true,
+   "signatures_off_table": {},
+   "unscored_signatures": {},
+   "n": 4
+  },
+  {
+   "sig": {
+    "(1, 1, 1)": 272,
+    "(1, 1, 1, 1)": 12,
+    "(1, 2)": 48,
+    "(2, 2)": 60,
+    "(3, 3)": 8
+   },
+   "EE": 60,
+   "EE_carrying_excess": 60,
+   "levels": 4,
+   "holes": 4,
+   "half_excess_table": 384,
+   "half_excess_measured": 384,
+   "predicted_table": 393,
+   "predicted_measured": 393,
+   "engine_total": 393,
+   "identity_holds": true,
+   "measured_identity_holds": true,
+   "signatures_off_table": {},
+   "unscored_signatures": {},
+   "n": 5
+  },
+  {
+   "sig": {
+    "(1, 1, 1)": 584,
+    "(1, 1, 1, 1)": 12,
+    "(1, 2)": 112,
+    "(2, 2)": 72,
+    "(2, 2, 2)": 2,
+    "(3, 3)": 8
+   },
+   "EE": 72,
+   "EE_carrying_excess": 72,
+   "levels": 5,
+   "holes": 5,
+   "half_excess_table": 716,
+   "half_excess_measured": 716,
+   "predicted_table": 727,
+   "predicted_measured": 727,
+   "engine_total": 727,
+   "identity_holds": true,
+   "measured_identity_holds": true,
+   "signatures_off_table": {},
+   "unscored_signatures": {},
+   "n": 6
+  }
+ ],
+ "p329_witness": {
+  "q": [
+   0,
+   1,
+   1,
+   1
+  ],
+  "shared_corner_vertices": 2,
+  "ee_vertices": 6,
+  "edge_pair_incidences": 24,
+  "p329_reported": 24,
+  "explains": true
+ },
+ "per_pair": {
+  "tested": 1856,
+  "candidates": 2065,
+  "distribution": {
+   "0": 168,
+   "4": 756,
+   "6": 572,
+   "8": 288,
+   "10": 72
+  },
+  "max": 10,
+  "argmax_count": 72,
+  "argmax_examples": [
+   [
+    0,
+    2,
+    2,
+    3
+   ],
+   [
+    0,
+    2,
+    3,
+    2
+   ],
+   [
+    0,
+    3,
+    2,
+    2
+   ],
+   [
+    0,
+    3,
+    3,
+    4
+   ],
+   [
+    0,
+    3,
+    3,
+    5
+   ],
+   [
+    0,
+    3,
+    4,
+    3
+   ],
+   [
+    0,
+    3,
+    5,
+    3
+   ],
+   [
+    0,
+    4,
+    3,
+    3
+   ]
+  ]
+ },
+ "total_bound": [
+  {
+   "sig": {
+    "(2, 2)": 10
+   },
+   "EE": 10,
+   "EE_carrying_excess": 10,
+   "levels": 1,
+   "holes": 1,
+   "half_excess_table": 10,
+   "half_excess_measured": 10,
+   "predicted_table": 13,
+   "predicted_measured": 13,
+   "engine_total": 13,
+   "identity_holds": true,
+   "measured_identity_holds": true,
+   "signatures_off_table": {},
+   "unscored_signatures": {},
+   "n": 2,
+   "bound": 6,
+   "exceeds": true,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     2,
+     2,
+     0
+    ]
+   ]
+  },
+  {
+   "sig": {
+    "(1, 1, 1)": 24,
+    "(1, 2)": 4,
+    "(2, 2)": 22,
+    "(2, 2, 2)": 2
+   },
+   "EE": 22,
+   "EE_carrying_excess": 20,
+   "levels": 2,
+   "holes": 2,
+   "half_excess_table": 54,
+   "half_excess_measured": 52,
+   "predicted_table": 59,
+   "predicted_measured": 57,
+   "engine_total": 57,
+   "identity_holds": false,
+   "measured_identity_holds": true,
+   "signatures_off_table": {
+    "(2, 2)": {
+     "0": 2,
+     "2": 20
+    }
+   },
+   "unscored_signatures": {},
+   "n": 3,
+   "bound": 18,
+   "exceeds": true,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     2,
+     2,
+     0
+    ],
+    [
+     5,
+     4,
+     4,
+     0
+    ]
+   ]
+  },
+  {
+   "sig": {
+    "(1, 1, 1)": 84,
+    "(1, 2)": 12,
+    "(2, 2)": 42,
+    "(2, 2, 2, 2)": 2
+   },
+   "EE": 42,
+   "EE_carrying_excess": 36,
+   "levels": 3,
+   "holes": 3,
+   "half_excess_table": 126,
+   "half_excess_measured": 138,
+   "predicted_table": 133,
+   "predicted_measured": 145,
+   "engine_total": 145,
+   "identity_holds": false,
+   "measured_identity_holds": true,
+   "signatures_off_table": {
+    "(2, 2)": {
+     "0": 6,
+     "2": 36
+    },
+    "(2, 2, 2, 2)": {
+     "18": 2
+    }
+   },
+   "unscored_signatures": {
+    "(2, 2, 2, 2)": 2
+   },
+   "n": 4,
+   "bound": 36,
+   "exceeds": true,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     2,
+     2,
+     0
+    ],
+    [
+     5,
+     4,
+     4,
+     0
+    ],
+    [
+     4,
+     3,
+     3,
+     0
+    ]
+   ]
+  },
+  {
+   "sig": {
+    "(1, 1, 1)": 192,
+    "(1, 2)": 24,
+    "(2, 2)": 68,
+    "(2, 2, 2, 2, 2)": 2
+   },
+   "EE": 68,
+   "EE_carrying_excess": 56,
+   "levels": 4,
+   "holes": 4,
+   "half_excess_table": 260,
+   "half_excess_measured": 280,
+   "predicted_table": 269,
+   "predicted_measured": 289,
+   "engine_total": 289,
+   "identity_holds": false,
+   "measured_identity_holds": true,
+   "signatures_off_table": {
+    "(2, 2)": {
+     "0": 12,
+     "2": 56
+    },
+    "(2, 2, 2, 2, 2)": {
+     "32": 2
+    }
+   },
+   "unscored_signatures": {
+    "(2, 2, 2, 2, 2)": 2
+   },
+   "n": 5,
+   "bound": 60,
+   "exceeds": true,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     2,
+     2,
+     0
+    ],
+    [
+     5,
+     4,
+     4,
+     0
+    ],
+    [
+     4,
+     3,
+     3,
+     0
+    ],
+    [
+     5,
+     3,
+     3,
+     0
+    ]
+   ]
+  },
+  {
+   "sig": {
+    "(1, 1, 1)": 344,
+    "(1, 1, 1, 1)": 4,
+    "(1, 2)": 40,
+    "(2, 2)": 100,
+    "(2, 2, 2, 2, 2, 2)": 2
+   },
+   "EE": 100,
+   "EE_carrying_excess": 80,
+   "levels": 5,
+   "holes": 5,
+   "half_excess_table": 456,
+   "half_excess_measured": 486,
+   "predicted_table": 467,
+   "predicted_measured": 497,
+   "engine_total": 497,
+   "identity_holds": false,
+   "measured_identity_holds": true,
+   "signatures_off_table": {
+    "(2, 2)": {
+     "0": 20,
+     "2": 80
+    },
+    "(2, 2, 2, 2, 2, 2)": {
+     "50": 2
+    }
+   },
+   "unscored_signatures": {
+    "(2, 2, 2, 2, 2, 2)": 2
+   },
+   "n": 6,
+   "bound": 90,
+   "exceeds": true,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     2,
+     2,
+     0
+    ],
+    [
+     5,
+     4,
+     4,
+     0
+    ],
+    [
+     4,
+     3,
+     3,
+     0
+    ],
+    [
+     5,
+     3,
+     3,
+     0
+    ],
+    [
+     6,
+     5,
+     5,
+     0
+    ]
+   ]
+  }
+ ],
+ "n2_census": {
+  "4,5": 132,
+  "6,9": 48,
+  "6,13": 104,
+  "8,9": 120,
+  "10,13": 24
+ },
+ "reproduce": {
+  "command": "python3 src/probes/ee_bound_refute.py",
+  "run_from": "src",
+  "script": "src/probes/ee_bound_refute.py",
+  "script_sha256_16": "ebb4f9452dcec15f",
+  "parameters": {
+   "quaternion_entry_range": "0..6",
+   "n2_census_range": "0..4",
+   "common_axis_family": [
+    [
+     3,
+     2,
+     2,
+     0
+    ],
+    [
+     5,
+     4,
+     4,
+     0
+    ],
+    [
+     4,
+     3,
+     3,
+     0
+    ],
+    [
+     5,
+     3,
+     3,
+     0
+    ],
+    [
+     6,
+     5,
+     5,
+     0
+    ],
+    [
+     5,
+     2,
+     2,
+     0
+    ],
+    [
+     7,
+     5,
+     5,
+     0
+    ]
+   ]
+  },
+  "written_utc": "2026-09-16T14:01:09Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

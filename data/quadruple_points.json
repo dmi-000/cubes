@@ -1,0 +1,68 @@
+{
+ "4": {
+  "profile": {
+   "2": 66,
+   "3": 128
+  },
+  "quadruple_or_more": 0,
+  "triples": 128,
+  "cap": 128
+ },
+ "5": {
+  "profile": {
+   "2": 116,
+   "3": 272,
+   "4": 12
+  },
+  "quadruple_or_more": 12,
+  "triples": 272,
+  "cap": 320
+ },
+ "6": {
+  "profile": {
+   "2": 192,
+   "3": 586,
+   "4": 12
+  },
+  "quadruple_or_more": 12,
+  "triples": 586,
+  "cap": 640
+ },
+ "7": {
+  "profile": {
+   "2": 282,
+   "3": 1054,
+   "4": 12
+  },
+  "quadruple_or_more": 12,
+  "triples": 1054,
+  "cap": 1120
+ },
+ "8": {
+  "profile": {
+   "2": 392,
+   "3": 1710,
+   "4": 12
+  },
+  "quadruple_or_more": 12,
+  "triples": 1710,
+  "cap": 1792
+ },
+ "reproduce": {
+  "command": "python3 src/probes/quadruple_points_by_record.py",
+  "run_from": "src",
+  "script": "src/probes/quadruple_points_by_record.py",
+  "script_sha256_16": "d8d5a0a139d9229e",
+  "parameters": {
+   "levels": [
+    4,
+    5,
+    6,
+    7,
+    8
+   ]
+  },
+  "recorded_utc": "2026-09-16T13:19:32Z",
+  "recorded_retrospectively": "stamped after the run; script rescued from scratch into src/probes/"
+ }
+}

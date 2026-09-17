@@ -1,0 +1,44 @@
+{
+ "what": "max total EE at n=4",
+ "tried": 400,
+ "max_EE": 36,
+ "max_EE_quats": [
+  [
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   3,
+   0,
+   3
+  ],
+  [
+   2,
+   2,
+   1,
+   2
+  ],
+  [
+   3,
+   2,
+   1,
+   0
+  ]
+ ],
+ "best_count": 171,
+ "reproduce": {
+  "command": "python3 src/probes/ee_total.py",
+  "run_from": "src",
+  "script": "src/probes/ee_total.py",
+  "script_sha256_16": "69ce4d555c4bc64a",
+  "parameters": {
+   "n": 4,
+   "tried": 400
+  },
+  "recorded_utc": "2026-09-16T13:19:20Z",
+  "recorded_retrospectively": "stamped after the run; the script was written inline and has been rescued from scratch into src/probes/"
+ }
+}

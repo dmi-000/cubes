@@ -10,5 +10,23 @@
  "rank_coincidence_face": 13,
  "dim_coincidence_face": 2,
  "rank_both": 13,
- "plateau_face_dimension": 2
+ "plateau_face_dimension": 2,
+ "reproduce": {
+  "command": "python3 src/probes/plateau_face.py",
+  "run_from": "src",
+  "script": "src/probes/plateau_face.py",
+  "script_sha256_16": "a561cdd9f74f6b61",
+  "parameters": {
+   "n": 6,
+   "direction": "arc D"
+  },
+  "recorded_utc": "2026-09-13T15:09:10Z",
+  "recorded_retrospectively": "stamped after the run from the session record, not emitted by the script",
+  "inputs": [
+   {
+    "path": "data/plateau_container_n6.json",
+    "sha256_16": "037139d36e6e278f"
+   }
+  ]
+ }
 }

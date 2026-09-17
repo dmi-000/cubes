@@ -1,0 +1,21 @@
+{
+ "what": "control - shared axis without a quadruple point",
+ "tested": 150,
+ "c_distribution": {
+  "1": 149,
+  "2": 1
+ },
+ "n_c_gt_1": 1,
+ "reproduce": {
+  "command": "python3 src/probes/c_shared_corner_control.py",
+  "run_from": "src",
+  "script": "src/probes/c_shared_corner_control.py",
+  "script_sha256_16": "e42df1e06ec24c64",
+  "parameters": {
+   "n": 4,
+   "tested": 150
+  },
+  "recorded_utc": "2026-09-16T13:19:20Z",
+  "recorded_retrospectively": "stamped after the run; the script was written inline and has been rescued from scratch into src/probes/"
+ }
+}

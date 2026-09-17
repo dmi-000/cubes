@@ -1,0 +1,527 @@
+{
+ "what": "plateau dimension by order of vanishing -- the walls that CONTAIN the branch, which gradients cannot see",
+ "method": "P306",
+ "levels": {
+  "6": {
+   "n": 6,
+   "ambient": 15,
+   "record": 727,
+   "tight_walls": 27,
+   "rank_tight": 14,
+   "lineality_dimension": 1,
+   "old_premise_dimension": 1,
+   "lineality": [
+    {
+     "dir": 0,
+     "holds": false,
+     "probe": {
+      "neg": {
+       "at": "-1/7147",
+       "count": 685
+      },
+      "pos": {
+       "at": "1/7917",
+       "count": 685
+      },
+      "cell": [
+       "-793175725/5668128711173",
+       "191135393/1513127729928"
+      ]
+     }
+    },
+    {
+     "dir": "arcD",
+     "holds": true,
+     "probe": {
+      "neg": {
+       "at": "-1/2274",
+       "count": 727
+      },
+      "pos": {
+       "at": "1/4041",
+       "count": 727
+      },
+      "cell": [
+       "-593208466/1348582226801",
+       "375629385/1517753511992"
+      ]
+     },
+     "seeded": true
+    }
+   ],
+   "holding_directions": [
+    "arcD"
+   ],
+   "through_record_quadruples": 775,
+   "pairs": [
+    {
+     "hold_dir": "arcD",
+     "other_dir": 0,
+     "lambda": "1/64",
+     "combination_holds": false,
+     "probe": {
+      "neg": {
+       "at": "-1/2354",
+       "count": 685
+      },
+      "pos": {
+       "at": "1/4153",
+       "count": 685
+      },
+      "cell": [
+       "-185049461/435454396029",
+       "221718939/920672318017"
+      ]
+     },
+     "genuine_containing_walls": 222,
+     "rank_degenerate": 264
+    },
+    {
+     "hold_dir": "arcD",
+     "other_dir": 1,
+     "lambda": "1/64",
+     "combination_holds": false,
+     "probe": {
+      "neg": {
+       "at": "-1/2493",
+       "count": 685
+      },
+      "pos": {
+       "at": "1/4410",
+       "count": 685
+      },
+      "cell": [
+       "-292615417/729297870820",
+       "433481747/1911552448571"
+      ]
+     },
+     "genuine_containing_walls": 222,
+     "rank_degenerate": 264
+    }
+   ],
+   "branch_dimension_settled": 1,
+   "per_seed": {
+    "arcD": {
+     "free": [],
+     "cut": 2,
+     "undecided": 0,
+     "branch_dimension": 1
+    }
+   },
+   "SCOPE": "a dimension here is the dimension of the branch through the SEEDED directions, not of the plateau. Seeds: lineality basis plus arcD",
+   "seconds": 850.8
+  },
+  "7": {
+   "n": 7,
+   "ambient": 18,
+   "record": 1217,
+   "tight_walls": 51,
+   "rank_tight": 16,
+   "lineality_dimension": 2,
+   "old_premise_dimension": 2,
+   "lineality": [
+    {
+     "dir": 0,
+     "holds": true,
+     "probe": {
+      "neg": {
+       "at": "-1/529",
+       "count": 1217
+      },
+      "pos": {
+       "at": "1/888",
+       "count": 1217
+      },
+      "cell": [
+       "-3248723329/1716443476745",
+       "3387062689/3006673831056"
+      ]
+     }
+    },
+    {
+     "dir": 1,
+     "holds": false,
+     "probe": {
+      "neg": {
+       "at": "-1/45238",
+       "count": 1165
+      },
+      "pos": {
+       "at": "1/40835",
+       "count": 1165
+      },
+      "cell": [
+       "-15335250/693724908257",
+       "35767617/1460569566530"
+      ]
+     }
+    },
+    {
+     "dir": "fibre_e15",
+     "holds": true,
+     "probe": {
+      "neg": {
+       "at": "-1/529",
+       "count": 1217
+      },
+      "pos": {
+       "at": "1/888",
+       "count": 1217
+      },
+      "cell": [
+       "-3248723329/1716443476745",
+       "3387062689/3006673831056"
+      ]
+     },
+     "seeded": true
+    },
+    {
+     "dir": "base_arcD_lift",
+     "holds": true,
+     "probe": {
+      "neg": {
+       "at": "-1/2274",
+       "count": 1217
+      },
+      "pos": {
+       "at": "1/4041",
+       "count": 1217
+      },
+      "cell": [
+       "-593208466/1348582226801",
+       "375629385/1517753511992"
+      ]
+     },
+     "seeded": true
+    }
+   ],
+   "holding_directions": [
+    0,
+    "fibre_e15",
+    "base_arcD_lift"
+   ],
+   "through_record_quadruples": 1090,
+   "pairs": [
+    {
+     "hold_dir": 0,
+     "other_dir": 1,
+     "lambda": "1/64",
+     "combination_holds": false,
+     "probe": {
+      "neg": {
+       "at": "-1/707",
+       "count": 1163
+      },
+      "pos": {
+       "at": "1/987",
+       "count": 1163
+      },
+      "cell": [
+       "-7835920436/5538682514115",
+       "9919677833/9788150851124"
+      ]
+     },
+     "genuine_containing_walls": 520,
+     "rank_degenerate": 264
+    },
+    {
+     "hold_dir": "fibre_e15",
+     "other_dir": 1,
+     "lambda": "1/64",
+     "combination_holds": false,
+     "probe": {
+      "neg": {
+       "at": "-1/707",
+       "count": 1163
+      },
+      "pos": {
+       "at": "1/987",
+       "count": 1163
+      },
+      "cell": [
+       "-7835920436/5538682514115",
+       "9919677833/9788150851124"
+      ]
+     },
+     "genuine_containing_walls": 520,
+     "rank_degenerate": 264
+    },
+    {
+     "hold_dir": "base_arcD_lift",
+     "other_dir": 1,
+     "lambda": "1/64",
+     "combination_holds": true,
+     "probe": {
+      "neg": {
+       "at": "-1/2274",
+       "count": 1217
+      },
+      "pos": {
+       "at": "1/4041",
+       "count": 1217
+      },
+      "cell": [
+       "-593208466/1348582226801",
+       "375629385/1517753511992"
+      ]
+     },
+     "genuine_containing_walls": 0,
+     "rank_degenerate": 0
+    },
+    {
+     "hold_dir": "base_arcD_lift",
+     "other_dir": 2,
+     "lambda": "1/64",
+     "combination_holds": false,
+     "probe": {
+      "neg": {
+       "at": "-1/3930",
+       "count": 1165
+      },
+      "pos": {
+       "at": "1/6364",
+       "count": 1165
+      },
+      "cell": [
+       "-742151071/2916549387463",
+       "970353641/6174430927630"
+      ]
+     },
+     "genuine_containing_walls": 468,
+     "rank_degenerate": 264
+    }
+   ],
+   "branch_dimension_settled": 2,
+   "per_seed": {
+    "0": {
+     "free": [],
+     "cut": 1,
+     "undecided": 0,
+     "branch_dimension": 1
+    },
+    "fibre_e15": {
+     "free": [],
+     "cut": 1,
+     "undecided": 0,
+     "branch_dimension": 1
+    },
+    "base_arcD_lift": {
+     "free": [
+      1
+     ],
+     "cut": 1,
+     "undecided": 0,
+     "branch_dimension": 2
+    }
+   },
+   "SCOPE": "a dimension here is the dimension of the branch through the SEEDED directions, not of the plateau. Seeds: lineality basis plus fibre_e15, base_arcD_lift",
+   "seconds": 2458.7
+  },
+  "8": {
+   "n": 8,
+   "ambient": 21,
+   "record": 1895,
+   "tight_walls": 75,
+   "rank_tight": 18,
+   "lineality_dimension": 3,
+   "old_premise_dimension": 3,
+   "lineality": [
+    {
+     "dir": 0,
+     "holds": true,
+     "probe": {
+      "neg": {
+       "at": "-1/1832",
+       "count": 1895
+      },
+      "pos": {
+       "at": "1/1010",
+       "count": 1895
+      },
+      "cell": [
+       "-2677158825/4902890363312",
+       "761634007/769217508965"
+      ]
+     }
+    },
+    {
+     "dir": 1,
+     "holds": false,
+     "probe": {
+      "neg": {
+       "at": "-1/2883",
+       "count": 1837
+      },
+      "pos": {
+       "at": "1/3194",
+       "count": 1837
+      },
+      "cell": [
+       "-123748346/356700705477",
+       "747555715/2387109375138"
+      ]
+     }
+    },
+    {
+     "dir": 2,
+     "holds": true,
+     "probe": {
+      "neg": {
+       "at": "-1/338",
+       "count": 1895
+      },
+      "pos": {
+       "at": "1/1094",
+       "count": 1895
+      },
+      "cell": [
+       "-4393752687/1481906397518",
+       "1456571885/1593395604646"
+      ]
+     }
+    }
+   ],
+   "holding_directions": [
+    0,
+    2
+   ],
+   "through_record_quadruples": 1414,
+   "pairs": [
+    {
+     "hold_dir": 0,
+     "other_dir": 1,
+     "lambda": "1/64",
+     "combination_holds": false,
+     "probe": {
+      "neg": {
+       "at": "-1/1840",
+       "count": 1839
+      },
+      "pos": {
+       "at": "1/1015",
+       "count": 1839
+      },
+      "cell": [
+       "-891395000/1639651548733",
+       "424296779/430517423296"
+      ]
+     },
+     "genuine_containing_walls": 766,
+     "rank_degenerate": 264
+    },
+    {
+     "hold_dir": 0,
+     "other_dir": 2,
+     "lambda": "1/64",
+     "combination_holds": true,
+     "probe": {
+      "neg": {
+       "at": "-1/1836",
+       "count": 1895
+      },
+      "pos": {
+       "at": "1/1012",
+       "count": 1895
+      },
+      "cell": [
+       "-1770206239/3249649980623",
+       "1305402991/1320613634612"
+      ]
+     },
+     "genuine_containing_walls": 0,
+     "rank_degenerate": 0
+    },
+    {
+     "hold_dir": 2,
+     "other_dir": 0,
+     "lambda": "1/64",
+     "combination_holds": true,
+     "probe": {
+      "neg": {
+       "at": "-1/338",
+       "count": 1895
+      },
+      "pos": {
+       "at": "1/1094",
+       "count": 1895
+      },
+      "cell": [
+       "-4393752687/1481906397518",
+       "1456571885/1593395604646"
+      ]
+     },
+     "genuine_containing_walls": 0,
+     "rank_degenerate": 0
+    },
+    {
+     "hold_dir": 2,
+     "other_dir": 1,
+     "lambda": "1/64",
+     "combination_holds": false,
+     "probe": {
+      "neg": {
+       "at": "-1/334",
+       "count": 1835
+      },
+      "pos": {
+       "at": "1/1116",
+       "count": 1835
+      },
+      "cell": [
+       "-4857635195/1622343033778",
+       "1884517278/2101478862859"
+      ]
+     },
+     "genuine_containing_walls": 766,
+     "rank_degenerate": 264
+    }
+   ],
+   "branch_dimension_settled": 2,
+   "per_seed": {
+    "0": {
+     "free": [
+      2
+     ],
+     "cut": 1,
+     "undecided": 0,
+     "branch_dimension": 2
+    },
+    "2": {
+     "free": [
+      0
+     ],
+     "cut": 1,
+     "undecided": 0,
+     "branch_dimension": 2
+    }
+   },
+   "SCOPE": "a dimension here is the dimension of the branch through the SEEDED directions, not of the plateau. Seeds: lineality basis",
+   "seconds": 3122.1
+  }
+ },
+ "reproduce": {
+  "command": "python3 src/plateau_order.py 8",
+  "run_from": "src",
+  "script": "src/plateau_order.py",
+  "script_sha256_16": "8c6f03229596c597",
+  "parameters": {
+   "levels": [
+    8
+   ],
+   "lam": "1/64"
+  },
+  "written_utc": "2026-09-14T04:59:14Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

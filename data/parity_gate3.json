@@ -1,0 +1,24 @@
+{
+ "odd": 1999,
+ "even": 0,
+ "full_c_distribution": {
+  "1": 1999
+ },
+ "wall_c_distribution": {
+  "1": 1488,
+  "2": 12
+ },
+ "counterexamples": [],
+ "reproduce": {
+  "command": "python3 src/probes/parity_gate.py",
+  "run_from": "src",
+  "script": "src/probes/parity_gate.py",
+  "script_sha256_16": "f7894ae3c3ad146d",
+  "parameters": {
+   "configs": "records n=4,5,6 plus ~497 random",
+   "arc_to_surface_pairing": "attempt 3: creases at ell + walls at ell AND ell+1 -- 0 even, correct"
+  },
+  "recorded_utc": "2026-09-16T13:19:55Z",
+  "recorded_retrospectively": "stamped after the run; the first two files are the REFUTED pairings of P311 and are kept as the evidence that killed them"
+ }
+}

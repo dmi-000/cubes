@@ -1,0 +1,21 @@
+{
+ "what": "c on four-cubes-sharing-a-corner configurations",
+ "tested": 150,
+ "c_distribution": {
+  "1": 150
+ },
+ "hits": [],
+ "reproduce": {
+  "command": "python3 src/probes/c_shared_corner.py",
+  "run_from": "src",
+  "script": "src/probes/c_shared_corner.py",
+  "script_sha256_16": "9ea08e78cd984d9e",
+  "parameters": {
+   "n": 4,
+   "axis": "(1,1,1)",
+   "tested": 150
+  },
+  "recorded_utc": "2026-09-16T13:19:20Z",
+  "recorded_retrospectively": "stamped after the run; the script was written inline and has been rescued from scratch into src/probes/"
+ }
+}

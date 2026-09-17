@@ -44,6 +44,7 @@ ROOT = os.path.dirname(HERE) if os.path.basename(HERE) == 'src' else HERE
 import sympy as sp
 import dimension as D
 import wall_keys as W
+import provenance as PROV
 
 T = sp.Symbol('t')
 DEG = 8           # degree bound for the determinant along a ray; VERIFIED, not assumed
@@ -194,6 +195,49 @@ def sturm_count(c, lo, hi):
     return signs(lo) - signs(hi)
 
 
+def common_point(rows):
+    """The point where four planes meet, or None if they have no single common point."""
+    A = [r[:3] for r in rows[:3]]
+    b = [r[3] for r in rows[:3]]
+
+    def d3(M):
+        return (M[0][0] * (M[1][1] * M[2][2] - M[1][2] * M[2][1])
+                - M[0][1] * (M[1][0] * M[2][2] - M[1][2] * M[2][0])
+                + M[0][2] * (M[1][0] * M[2][1] - M[1][1] * M[2][0]))
+    dt = d3(A)
+    if dt == 0:
+        return None
+    out = []
+    for c in range(3):
+        B = [r[:] for r in A]
+        for r in range(3):
+            B[r][c] = b[r]
+        out.append(d3(B) / dt)
+    # the fourth plane must pass through it too, or the four are not concurrent
+    if sum(rows[3][z] * out[z] for z in range(3)) != rows[3][3]:
+        return None
+    return out
+
+
+def inside_all_cubes(P, pt, dirn, q0, s):
+    """Is the common point actually ON THE CUBES, or only on their infinite face PLANES?
+
+    A cube's boundary is six SQUARES.  Four face planes can meet far outside every cube, and
+    such a point is not a vertex of the arrangement: it bounds nothing and cannot change a
+    count.  Omitting this test made the whole family over-inclusive -- at one parameter all 12
+    "walls" had common points at 10x and 11/2 x the half-width, and the concurrence counts that
+    appeared to explain [P304]'s anomalies were entirely outside the compound ([P322], [P323]).
+    """
+    c = [pt[k] + s * dirn[k] for k in range(len(pt))]
+    quats = [q0] + [(1, c[k], c[k + 1], c[k + 2]) for k in range(0, len(c), 3)]
+    for q in quats:
+        M, n = mat_unnormalised(q)
+        for r in range(3):
+            if abs(sum(M[z][r] * P[z] for z in range(3))) > n:
+                return False
+    return True
+
+
 def moving_cubes(dirn):
     """Which cubes the direction actually moves.  Cube 0 is the gauge and fixed."""
     return {1 + k // 3 for k in range(len(dirn)) if dirn[k] != 0}
@@ -217,6 +261,7 @@ def concurrency_walls(quats, dirn, lo, hi, verbose=True):
     t0 = time.time()
 
     rows_out, n_quads, degree_fail = [], 0, 0
+    q0 = quats[0]
     for combo in combinations(labels, 4):
         if not any(lab[0] in mov for lab in combo):
             continue
@@ -236,9 +281,23 @@ def concurrency_walls(quats, dirn, lo, hi, verbose=True):
         roots = []
         for r in sp.real_roots(Pp.sqf_part(), radicals=False):
             fr = float(r)
-            if lo <= fr <= hi:
-                roots.append({'decimal': fr,
-                              'rational': str(sp.Rational(r)) if r.is_Rational else None})
+            if not (lo <= fr <= hi):
+                continue
+            rat = sp.Rational(r) if r.is_Rational else None
+            # CONTAINMENT, per root.  Only decidable exactly at a rational root; an irrational
+            # one is recorded as UNEVALUATED and counted, never scored as "inside".
+            inside = None
+            if rat is not None:
+                sv = F(int(rat.p), int(rat.q))
+                rows = [x[1] for x in planes_at(pt, dirn, q0, sv)]
+                idx2 = {lab: i for i, lab in
+                        enumerate(x[0] for x in planes_at(pt, dirn, q0, sv))}
+                pts4 = [rows[idx2[lab]] for lab in combo]
+                P = common_point(pts4)
+                inside = bool(P is not None and inside_all_cubes(P, pt, dirn, q0, sv))
+            roots.append({'decimal': fr,
+                          'rational': str(rat) if rat is not None else None,
+                          'common_point_inside_cubes': inside})
         if roots:
             rows_out.append({'planes': [list(l) for l in combo],
                              'cubes': sorted({l[0] for l in combo}),
@@ -295,7 +354,8 @@ def main():
     out = {'what': 'four-plane concurrency walls -- a codimension-1 wall family of the '
                    'COUNT that no coincidence condition sees',
            'found_by': 'G2 of the wall census, on ray e0 at t = -2/9 (P304)',
-           'n': a.n, 'quats': [list(q) for q in quats], 'rays': {}}
+           'n': a.n, 'quats': [list(q) for q in quats], 'rays': {},
+           'reproduce': PROV.stamp(parameters=dict(vars(a), DEG=DEG, CHECK=CHECK))}
     path = os.path.join(ROOT, 'data', 'concurrency_walls_n%d.json' % a.n)
     if os.path.exists(path):
         try:

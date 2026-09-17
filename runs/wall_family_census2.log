@@ -1,0 +1,6 @@
+n=4 | coincidence walls  12 | concurrency through record  354 | genuine  180 | rank-degenerate  174
+n=5 | coincidence walls  18 | concurrency through record  663 | genuine  294 | rank-degenerate  369
+n=6 | coincidence walls  27 | concurrency through record  775 | genuine  358 | rank-degenerate  417
+n=7 | coincidence walls  51 | concurrency through record 1090 | genuine  616 | rank-degenerate  474
+n=8 | coincidence walls  75 | concurrency through record 1414 | genuine  874 | rank-degenerate  540
+written data/wall_family_census.json

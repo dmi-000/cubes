@@ -1,0 +1,12 @@
+lemma at record n=4: max |<facet centre, face normal>| = 300/361  (<=1: True)
+lemma at record n=5: max |<facet centre, face normal>| = 6/7  (<=1: True)
+lemma at record n=6: max |<facet centre, face normal>| = 5088/5149  (<=1: True)
+hunting for c > 1 in 400 integer draws...
+found 9 configurations with c > 1 in the wall graph
+   1,0,0,0;16,7,25,-4;4,-5,16,-12;-19,21,16,20  level 1: wall c=2 [70, 70] -> full 1-skeleton c=1 [168]
+   1,0,0,0;-4,9,19,-2;24,2,23,-14;0,-12,21,-14  level 1: wall c=2 [64, 64] -> full 1-skeleton c=3 [156, 2, 2]
+   1,0,0,0;19,11,23,1;23,-7,6,4;19,1,2,-18  level 1: wall c=2 [88, 88] -> full 1-skeleton c=1 [188]
+   1,0,0,0;22,9,-14,13;24,24,-15,-18;13,2,-10,17  level 1: wall c=2 [64, 64] -> full 1-skeleton c=1 [156]
+   1,0,0,0;23,12,6,-20;16,7,-15,-1;-9,-10,-15,6  level 1: wall c=2 [62, 62] -> full 1-skeleton c=1 [156]
+   1,0,0,0;24,-10,-10,12;1,4,-22,-12;12,3,-15,10  level 1: wall c=2 [72, 72] -> full 1-skeleton c=5 [164, 2, 2, 2, 2]
+written data/facet_radial.json

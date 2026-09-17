@@ -1,0 +1,3 @@
+full-skeleton level-instances: odd c 1999 | EVEN c 0
+full c distribution : {1: 1999}
+wall c distribution : {1: 1488, 2: 12}

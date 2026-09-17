@@ -1,0 +1,1211 @@
+{
+ "what": "do the records' maximal plane concurrences lie ON the compound?",
+ "supports": "LEDGER P331",
+ "configs": {
+  "183": {
+   "max_concurrence": 6,
+   "points": 6,
+   "on_compound": 0,
+   "detail": [
+    {
+     "point": [
+      "1",
+      "1",
+      "1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "31/19",
+        "11/19",
+        "1/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "31/19",
+        "1/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    },
+    {
+     "point": [
+      "1",
+      "1",
+      "-1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "11/19",
+        "1/19",
+        "31/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "31/19",
+        "1/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      }
+     ]
+    },
+    {
+     "point": [
+      "1",
+      "-1",
+      "-1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "11/19",
+        "31/19",
+        "1/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "1/19",
+        "11/19",
+        "31/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    },
+    {
+     "point": [
+      "-1",
+      "1",
+      "1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "11/19",
+        "31/19",
+        "1/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "1/19",
+        "11/19",
+        "31/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    },
+    {
+     "point": [
+      "-1",
+      "-1",
+      "1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "11/19",
+        "1/19",
+        "31/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "31/19",
+        "1/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      }
+     ]
+    },
+    {
+     "point": [
+      "-1",
+      "-1",
+      "-1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "31/19",
+        "11/19",
+        "1/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "31/19",
+        "1/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    }
+   ]
+  },
+  "723": {
+   "max_concurrence": 9,
+   "points": 2,
+   "on_compound": 0,
+   "detail": [
+    {
+     "point": [
+      "1",
+      "1",
+      "1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      }
+     ]
+    },
+    {
+     "point": [
+      "-1",
+      "-1",
+      "-1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      }
+     ]
+    }
+   ]
+  },
+  "727": {
+   "max_concurrence": 6,
+   "points": 10,
+   "on_compound": 0,
+   "detail": [
+    {
+     "point": [
+      "1",
+      "1",
+      "-1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "11/19",
+        "1/19",
+        "31/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "31/19",
+        "11/19",
+        "1/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "11/7",
+        "5/7",
+        "1/7"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "331/271",
+        "259/271",
+        "209/271"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    },
+    {
+     "point": [
+      "-1",
+      "-1",
+      "1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "11/19",
+        "1/19",
+        "31/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "31/19",
+        "11/19",
+        "1/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "11/7",
+        "5/7",
+        "1/7"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "331/271",
+        "259/271",
+        "209/271"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    },
+    {
+     "point": [
+      "3/2",
+      "0",
+      "2/3"
+     ],
+     "on_compound": false,
+     "worst_ratio": "11/7",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "5/6",
+        "1",
+        "1"
+       ],
+       "on_planes": 2,
+       "outside": false
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "1",
+        "1",
+        "5/6"
+       ],
+       "on_planes": 2,
+       "outside": false
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "1/19",
+        "175/114",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "19/42",
+        "1/7",
+        "11/7"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "0",
+        "2/3",
+        "3/2"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "5/6",
+        "1",
+        "1"
+       ],
+       "on_planes": 2,
+       "outside": false
+      }
+     ]
+    },
+    {
+     "point": [
+      "-3/2",
+      "0",
+      "-2/3"
+     ],
+     "on_compound": false,
+     "worst_ratio": "11/7",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "5/6",
+        "1",
+        "1"
+       ],
+       "on_planes": 2,
+       "outside": false
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "1",
+        "1",
+        "5/6"
+       ],
+       "on_planes": 2,
+       "outside": false
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "1/19",
+        "175/114",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "19/42",
+        "1/7",
+        "11/7"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "0",
+        "2/3",
+        "3/2"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "5/6",
+        "1",
+        "1"
+       ],
+       "on_planes": 2,
+       "outside": false
+      }
+     ]
+    },
+    {
+     "point": [
+      "-1",
+      "1",
+      "1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "31/19",
+        "11/19",
+        "1/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "11/19",
+        "1/19",
+        "31/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "1/7",
+        "11/7",
+        "5/7"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "415/271",
+        "83/271",
+        "203/271"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    },
+    {
+     "point": [
+      "1",
+      "-1",
+      "-1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "31/19",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "31/19",
+        "11/19",
+        "1/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "11/19",
+        "1/19",
+        "31/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "1/7",
+        "11/7",
+        "5/7"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "415/271",
+        "83/271",
+        "203/271"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    },
+    {
+     "point": [
+      "1",
+      "-1",
+      "1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "455/271",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "11/19",
+        "1/19",
+        "31/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "31/19",
+        "11/19",
+        "1/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "5/7",
+        "1/7",
+        "11/7"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "107/271",
+        "455/271",
+        "43/271"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    },
+    {
+     "point": [
+      "-1",
+      "1",
+      "-1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "455/271",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "11/19",
+        "1/19",
+        "31/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "31/19",
+        "11/19",
+        "1/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "5/7",
+        "1/7",
+        "11/7"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "107/271",
+        "455/271",
+        "43/271"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    },
+    {
+     "point": [
+      "1",
+      "1",
+      "1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "455/271",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "23/271",
+        "113/271",
+        "455/271"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    },
+    {
+     "point": [
+      "-1",
+      "-1",
+      "-1"
+     ],
+     "on_compound": false,
+     "worst_ratio": "455/271",
+     "per_cube": [
+      {
+       "cube": 0,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 1,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 2,
+       "ratios": [
+        "1/19",
+        "31/19",
+        "11/19"
+       ],
+       "on_planes": 0,
+       "outside": true
+      },
+      {
+       "cube": 3,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 4,
+       "ratios": [
+        "1",
+        "1",
+        "1"
+       ],
+       "on_planes": 3,
+       "outside": false
+      },
+      {
+       "cube": 5,
+       "ratios": [
+        "23/271",
+        "113/271",
+        "455/271"
+       ],
+       "on_planes": 0,
+       "outside": true
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "reproduce": {
+  "command": "python3 src/probes/concurrence_containment.py",
+  "run_from": "src",
+  "script": "src/probes/concurrence_containment.py",
+  "script_sha256_16": "1796c719ce057a6c",
+  "parameters": {
+   "configs": [
+    "183",
+    "723",
+    "727"
+   ]
+  },
+  "written_utc": "2026-09-16T15:06:31Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

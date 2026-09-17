@@ -1,0 +1,11 @@
+level 1 sizes [70, 70] | in-every-arc [] / [] | COMMON [] | antipodal pair True -> FAILS
+level 1 sizes [64, 64] | in-every-arc [] / [] | COMMON [] | antipodal pair True -> FAILS
+level 1 sizes [88, 88] | in-every-arc [] / [] | COMMON [] | antipodal pair True -> FAILS
+level 1 sizes [64, 64] | in-every-arc [] / [] | COMMON [] | antipodal pair True -> FAILS
+level 1 sizes [62, 62] | in-every-arc [] / [] | COMMON [] | antipodal pair True -> FAILS
+level 1 sizes [72, 72] | in-every-arc [] / [] | COMMON [] | antipodal pair True -> FAILS
+level 1 sizes [74, 74] | in-every-arc [] / [] | COMMON [] | antipodal pair True -> FAILS
+level 1 sizes [64, 64] | in-every-arc [] / [] | COMMON [] | antipodal pair True -> FAILS
+level 1 sizes [75, 75] | in-every-arc [] / [] | COMMON [] | antipodal pair True -> FAILS
+level 1 sizes [68, 68] | in-every-arc [] / [] | COMMON [] | antipodal pair True -> FAILS
+prediction holds 0, fails 10
