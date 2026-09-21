@@ -1,0 +1,97 @@
+{
+ "what": "region-count search in the region P373 opened",
+ "supports": "OQ 39",
+ "evaluated": 5136,
+ "unevaluable": 0,
+ "n3_extremes": 16,
+ "best": 173,
+ "best_quats": [
+  [
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   0,
+   2,
+   -3,
+   -2
+  ],
+  [
+   1,
+   -5,
+   -2,
+   2
+  ],
+  [
+   -2,
+   -8,
+   0,
+   9
+  ]
+ ],
+ "distribution": {
+  "103": 1,
+  "105": 1,
+  "109": 1,
+  "111": 1,
+  "113": 2,
+  "115": 4,
+  "117": 7,
+  "119": 5,
+  "121": 11,
+  "123": 12,
+  "125": 17,
+  "127": 25,
+  "129": 36,
+  "131": 44,
+  "133": 81,
+  "135": 88,
+  "137": 127,
+  "139": 85,
+  "141": 154,
+  "143": 143,
+  "145": 178,
+  "147": 210,
+  "149": 300,
+  "151": 307,
+  "153": 430,
+  "155": 418,
+  "157": 460,
+  "159": 466,
+  "161": 360,
+  "163": 447,
+  "165": 184,
+  "167": 262,
+  "169": 77,
+  "171": 162,
+  "173": 30
+ },
+ "reproduce": {
+  "command": "python3 src/probes/refuter_region.py",
+  "run_from": "src",
+  "script": "src/probes/refuter_region.py",
+  "script_sha256_16": "3c425e7b6a42d29a",
+  "parameters": {
+   "seed": 183184,
+   "family_height": 5,
+   "climb_steps": 260,
+   "restarts": 20
+  },
+  "written_utc": "2026-09-20T07:38:29Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "note": "objective is the ENGINE region count, not the identity ([P374])"
+ }
+}

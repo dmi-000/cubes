@@ -1,0 +1,66 @@
+{
+ "what": "can EE exceed 36 while B = 128?",
+ "supports": "LEDGER P352",
+ "record": {
+  "EE": 36,
+  "SC2": 6,
+  "T3": 128,
+  "Q4": 0,
+  "two_body": 48,
+  "B": 128,
+  "objective": 176
+ },
+ "local": {
+  "tried": 1500,
+  "at_cap": 747,
+  "EE_hist": {
+   "12": 2,
+   "14": 1,
+   "16": 5,
+   "18": 52,
+   "20": 2,
+   "22": 85,
+   "24": 274,
+   "26": 29,
+   "28": 51,
+   "30": 47,
+   "32": 47,
+   "36": 152
+  },
+  "max_EE": 36,
+  "best_objective": 176
+ },
+ "global": {
+  "tried": 1500,
+  "at_cap": 6,
+  "max_EE_anywhere": 28,
+  "max_EE_at_cap": 22,
+  "best_objective": 154
+ },
+ "conclusion": "EE = 36 is the largest observed at B = 128; EE = 42 occurs only at B = 84. Sampled evidence only, unlike the constructed corner ladder.",
+ "reproduce": {
+  "command": "python3 src/probes/ee_direction.py",
+  "run_from": "src",
+  "script": "src/probes/ee_direction.py",
+  "script_sha256_16": "cc7840f4547dac3e",
+  "parameters": {
+   "seeds": [
+    307,
+    401
+   ]
+  },
+  "written_utc": "2026-09-18T21:23:24Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

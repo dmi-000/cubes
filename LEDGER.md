@@ -404,6 +404,37 @@ with `index_ledger.py` after appending.
 - [Postscript 332](#p332) — every refuted claim in the ledger has a stated cause — and the backlog is a DIFFERENT kind…
 - [Postscript 333](#p333) — the gap is NOT in unbounded terms — it is 12 of 15 in the two-body term, which is already…
 - [Postscript 334](#p334) — [OQ 36] SOLVED — four cubes CAN pairwise share corners, the two-body cap IS attainable, and…
+- [Postscript 335](#p335) — the trade-offs among n-tuple points — merging is locally free money, and the records refuse it
+- [Postscript 336](#p336) — [P335]'s lead, spent — merging without a shared axis EXISTS, costs exactly the same, and the…
+- [Postscript 337](#p337) — **[CORRECTION]** [OQ 37]'s inequality does not bound the count — `T3 + two-body` is not the whole half-excess
+- [Postscript 338](#p338) — YES — there is an argument, and it says both caps at once means every 3-subset is a 67
+- [Postscript 339](#p339) — **[CORRECTION]** a 4-compound containing a genuine 67 exists TRIVIALLY — and the right target is the…
+- [Postscript 340](#p340) — a configuration's count IS predictable from its subsets' — exactly, with one correction of…
+- [Postscript 341](#p341) — the count is EXACT inclusion-exclusion over subsets — so "which subsets are simultaneously…
+- [Postscript 342](#p342) — every subset of the golden 177 is SIMULTANEOUSLY MAXIMAL — and its 6-region shortfall is…
+- [Postscript 343](#p343) — degeneracy is not avoided by having FEWER coincidences — the budget is the same, and it is…
+- [Postscript 344](#p344) — SYMMETRY determines how the coincidence budget is spent — and TRANSITIVITY on the cubes is…
+- [Postscript 345](#p345) — can subset SYMMETRY predict the count? — one implication holds, the converse fails, and no…
+- [Postscript 346](#p346) — the taxonomy question is STRICTLY HARDER than the count question — and it derives [P343]'s…
+- [Postscript 347](#p347) — the component space is CHARACTERISED, and the room to beat 183 is a 12-region window in one…
+- [Postscript 348](#p348) — `h <= 47.5` is PROVED, not measured — so `max(4) = 183` reduces to ONE two-dimensional…
+- [Postscript 349](#p349) — the constructive attempt on the window — the obvious search target is the WRONG one, and…
+- [Postscript 350](#p350) — the PAW is constructed — `SC2 = 8` on distinct corners with `B = 128` EXISTS, and still…
+- [Postscript 351](#p351) — `SC2 = 10` does NOT exist — imposing five corner-sharings FORCES the sixth, and the result…
+- [Postscript 352](#p352) — the EE direction finds nothing above 36 at `B = 128` — but it is closed by SAMPLING, not by…
+- [Postscript 353](#p353) — the 4-CYCLE built — `two-body = 52` exists at `B = 128`, the first above the record, and it…
+- [Postscript 354](#p354) — why every attempt to exceed the record failed — a chain with one measured link and one…
+- [Postscript 355](#p355) — the two K4s differ by GEOMETRIC transitivity, not by their sharing graph
+- [Postscript 356](#p356) — geometric transitivity is SUFFICIENT for `Q4 > 0` and NOT necessary — and no symmetry…
+- [Postscript 357](#p357) — the quadruple points are FORCED, not bought — a degrees-of-freedom argument, and what still…
+- [Postscript 358](#p358) — the discriminant found — a cube with ONE shared axis can rotate away from a quadruple point;…
+- [Postscript 359](#p359) — **[FAILED DERIVATION]** the per-3-subset route gives `EE <= 40` at `B = 128`, not the observed 36
+- [Postscript 360](#p360) — the 36-vs-40 gap is GEOMETRIC, not combinatorial — and a consolidation pass on this…
+- [Postscript 361](#p361) — `EE <= 36` at `B = 128` survives a DIRECTED attack from both sides
+- [Postscript 362](#p362) — which of the `max(4)` arguments extend to `n > 4` — and a NEW obstruction that only appears…
+- [Postscript 363](#p363) — **[CORRECTION]** complete corner-sharing at n = 5 is the COMPOUND OF FIVE CUBES — it was the believed…
+- [Postscript 364](#p364) — the records follow ONE management policy — saturate a single hub at degree 4, and leave…
+- [Postscript 365](#p365) — the golden 177 IS UC09's 4-subset — the project's founding assumption, and exactly where it…
 
 <!-- INDEX:END -->
 
@@ -21776,6 +21807,13 @@ sweep was right and my reason for doubting it was wrong, though it was also genu
 
 ## [VERIFIED] Postscript 307: plateau dimensions SETTLED at n = 6, 7, 8 — 1, 2, 2 — by the walls that contain the branch
 
+> **CORRECTED 2026-09-20 by [P383](#p383): the n = 8 figure is 3, not 2.** The n = 6
+> and n = 7 values are independently confirmed by the contact-system tangent, which
+> returns 1 and 2. At n = 8 the tangent is 3, and all three directions INTEGRATE —
+> displacement survives Newton with the census unchanged across steps from 1e-8 to
+> 1e-4, as do random combinations of them. So the dimensions are **1, 2, 3**, and
+> this entry's n = 8 value is a lower bound reported as an equality.
+
 Applying [P306]'s instrument (`src/plateau_order.py`) to the three levels that have a record
 with a chart. Each dimension is an equality, not a bound, and each is read off the same
 signature: where a plateau extends there are **zero** genuine containing walls, and where it
@@ -23248,6 +23286,17 @@ and did not follow.
 Answering [OQ 36] the way it was posed — solved, not searched.
 `src/probes/k4_corner_sharing.py`, `src/kfield.py`, `data/k4_corner_sharing.json`.
 
+> **CORRECTED 2026-09-19 by [P370](#p370).** The CONSTRUCTION below is right and the compound
+> is real. **Its `T3 = 74` is not.** `count_T3` tests a point's signature against the three
+> cubes of each triple and never the fourth, so a generic four-fold vertex passes as a triple
+> point of all four triples and is counted once: the function returns `T3 + Q4generic`, and
+> `74 = 56 + 18`. **This compound IS the golden 177 of [P342]** — same four cubes, checked
+> normal for normal in `Q(sqrt3, sqrt5)`. So `B = 128`, not 74; `Q4 = 18`, not 0; the region
+> count is 177, not ~141. The gate could not have caught this: it runs on the n = 4 record,
+> where `Q4generic = 0`, so `T3` and `T3 + Q4generic` are the same number there.
+> Read everything below about the TRADE (`B` collapsing to 74) as withdrawn; what stands is
+> that six sharings are attainable and reach `two-body = 60`.
+
 **THE REDUCTION.** Two cubes share a corner iff they share a BODY-DIAGONAL direction. A cube's
 four diagonals, correctly signed, are a regular tetrahedron — pairwise inner product exactly
 `-1/3`. So label each EDGE of K4 with an axis and require the three axes at each VERTEX to
@@ -23283,7 +23332,7 @@ same code path on the n = 4 record returns **128**, which is the known value.
 
     configuration        T3         two-body     T3 + two-body    count
     n = 4 RECORD      128 / 128     48 / 60          176           183
-    K4 compound        74 / 128     60 / 60          134       138 + holes
+    K4 compound        -- is the golden; 74 was T3 + Q4generic ([P370]) --
     body-diagonal      72 / 128     36 / 60          108           145
     the bound assumes 128 / 128     60 / 60          188           198
 
@@ -23292,8 +23341,11 @@ trade; this pins it with an exact second endpoint. The `holes <= 1` branch of [O
 impossible, therefore `max(4) = 183`" — is CLOSED, and closed the other way.
 
 **THE SUCCESSOR, and it is sharper than its parent.** The bound 198 assumes `T3 + two-body = 188`.
-The record achieves 176 and is the best of the three known points. **Prove
-`T3 + two-body <= 176` at n = 4 and `max(4) = 183` follows**: `1 + 176 + L + holes = 1 + 176 + 3 + 3
+The record achieves 176 and is the best of the three known points. ~~**Prove
+`T3 + two-body <= 176` at n = 4 and `max(4) = 183` follows**~~ **CORRECTED 2026-09-16
+([P337](#p337)): the quantity to cap is `(1/2) sum excess`, of which `T3 + two-body` is only part
+— they coincide at the n = 4 record because its bracket of higher-order vertices is empty, and
+nowhere else. Prove `(1/2) sum excess <= 176` and `max(4) = 183` follows**: `1 + 176 + L + holes = 1 + 176 + 3 + 3
 = 183`. That is [OQ 37], and it asks for one coupling inequality rather than two separate caps.
 
 **A METHOD NOTE THAT COST AN AFTERNOON.** The first `T3` for this compound was **8**, from a
@@ -23304,3 +23356,2845 @@ below the noise floor of the arithmetic underneath it.** Rewritten over an exact
 field (`src/kfield.py`, where zero-testing is a tuple comparison because `1, sqrt3, sqrt5,
 sqrt15` are independent over `Q`), the oracle returns 128 and the compound returns 74. Three
 wrong values were reported to the oracle before the right one; none reached a document.
+
+<a id="p335"></a>
+
+## [VERIFIED] Postscript 335: the trade-offs among n-tuple points — merging is locally free money, and the records refuse it
+
+Asked directly: what ARE the trade-offs among n-tuple points? Measured rather than read off
+[P328]'s table, which records generic values only. `src/probes/ntuple_tradeoffs.py`,
+`data/ntuple_tradeoffs.json`.
+
+**THE EXCESS OF A b-FOLD VERTEX.** Measuring `sum_levels (deg - 2)` per vertex over families
+chosen to exhibit each type — common face diagonal for edge-concurrences, common body diagonal
+for shared corners, the records for the rest:
+
+    type              signature       excess         verified at
+    generic           (1,1,...,1)    (b-1)(b-2)      b = 3, 4
+    edge-concurrent   (2,2,...,2)    2(b-1)^2        b = 2, 3, 4, 5, 6
+    corner-shared     (3,3,...,3)    (b-1)(3b-2)     b = 2, 3, 4, 5
+
+The middle law is [P330]'s pattern, now confirmed at five points instead of fitted at four.
+The corner law is new. *(The generic law is the one [P324] warned about: it has two points, and
+[P324]'s "b = 5 gives 52" was measuring a `(3,3,3,3,3)` corner point — which the corner law above
+returns exactly, so the two records are consistent and the generic law is simply untested past
+b = 4.)*
+
+**THE MERGE IDENTITY, and it is exact in both multi-cube families at every b tested:**
+
+    e_X(b)  =  C(b,2) * e_X(2)  +  (b-1)(b-2)
+
+    corner  b=2..6   merged  4, 14, 30, 52, 80   split  4, 12, 24, 40, 60   gain 0, 2, 6, 12, 20
+    edge    b=2..6   merged  2,  8, 18, 32, 50   split  2,  6, 12, 20, 30   gain 0, 2, 6, 12, 20
+
+**A b-fold vertex is worth its `C(b,2)` pairwise contributions PLUS a free generic b-fold point**,
+and the gain is exactly `(b-1)(b-2)` — the generic b-fold excess — in both families. So
+concentrating b incidences at one point is LOCALLY strictly better than spreading them, for
+every `b >= 3`.
+
+**AND THE RECORDS DO NOT DO IT.** Because forcing b cubes through a common point requires a
+shared axis, and a shared axis is precisely what destroys generic TRIPLE points — which dominate
+the sum (128 of the n = 4 record's 176 half-excess, 73 %). At n = 4:
+
+    configuration            corner pairs      T3      two-body   count
+    random (3 sampled)             0         96-100      8-24    107-135
+    n = 4 RECORD                   3         128 CAP       48       183
+    K4 compound ([P334])  -- is the golden ([P370]); the 74 is T3 + Q4generic --
+    body-diagonal, MERGED     one 4-fold      72           36       145
+
+**The curve is not monotone and the record sits at its peak.** Three corner-sharings RAISE `T3`
+from a typical 100 to the cap 128 — the hub structure of [P333] is what attaining the cap looks
+like — and the sixth sharing collapses it.
+
+**THE EXCHANGE RATE PAST THE OPTIMUM.** Going from 3 to 6 corner-sharing pairs:
+
+    gain    3 further pairs x excess 4, halved   =   +6 regions
+    cost    T3 falls 128 -> 74                   =  -54 regions
+    net                                             -48
+
+**So the trade-off is not between n-tuple types; it is between ALL of them and the triple
+points.** Every device for buying degenerate excess — merging, corner-sharing, edge-concurrence —
+is paid for in `T3` at roughly nine regions lost per region gained, once past the record's
+configuration. This is why [OQ 37] asks for ONE cap rather than separate ones: the terms are not
+independent budgets but a single one being spent several ways. *(Corrected 2026-09-16 by
+[P337](#p337): the single cap is on `(1/2) sum excess`, not on `T3 + two-body`, which omits the
+higher-order vertices — including, at n = 5, 36 from quadruple points.)*
+
+**A COROLLARY WORTH STATING.** The merge identity says a merged b-fold point is never worse
+LOCALLY, so if the T3 cost could be avoided, merging would be strictly preferred. That is the
+shape of a possible improvement: **find a configuration that merges incidences without sharing an
+axis.** Nothing in this project has produced one, and whether it is possible is open.
+
+<a id="p336"></a>
+
+## [VERIFIED] Postscript 336: [P335]'s lead, spent — merging without a shared axis EXISTS, costs exactly the same, and the merged branch is RIGID
+
+Asked: a non-result lead may still be useful, so how might this one be used? [P335] closed with
+one — *find a configuration that merges incidences without sharing an axis* — flagged as a lead
+and not a result. Spending it. `src/probes/merge_without_axis.py`,
+`data/merge_without_axis.json`.
+
+**THE LEAD'S PREMISE, and why it looked right.** Every merge observed so far came from a common
+rotation axis through a special point of the cube — a body diagonal (corner) or a face diagonal
+(edge midpoint) — fixed by every rotation in the family. Since a shared axis is what destroys
+triple points, the natural question is whether the axis is separable from the merge.
+
+**IT IS.** A cube has a corner at `p` iff `R s = p` for SOME corner vector `s`, which does not
+require `R` to fix `p`. The shared-axis families are the degenerate case where every cube uses
+the SAME diagonal, `s = p`. Sending DIFFERENT diagonals to `p` merges without any common axis:
+
+    q = (2,1,-1,0)   sends (1,1,-1) -> p        axis (1,-1,0)
+    q = (2,-1,0,1)   sends (1,-1,1) -> p        axis (-1,0,1)
+    q = (2,0,1,-1)   sends (-1,1,1) -> p        axis (0,1,-1)
+
+*(That exact triple collapses — the three rotations are conjugate under cube 0's own 3-fold
+symmetry about `p`, so they are the SAME cube and every pair shares a face plane. The fix is the
+free parameter: `{R : R s = p} = Rot(p,psi) . R_0`, and `Rot(p,psi)` fixes `p`, so sweeping `psi`
+keeps the corner and breaks the conjugacy.)*
+
+**AND IT COSTS EXACTLY THE SAME.** Over **1152** non-degenerate merged 4-tuples, the maximum
+`T3` is **72** — precisely the shared-axis family's value. The best found:
+
+    1,0,0,0; 1,-7,-8,0; 2,-13,0,-11; 1,0,-4,-5
+    axes (-7,-8,0), (-13,0,-11), (0,-4,-5)   -- no two alike, none equal to p
+    T3 = 72/128   EE = 36   SC2 = 0   two-body = 36   count = 145
+
+Identical to the body-diagonal family in every measured quantity. **The shared axis was never
+the cause. The merge is.** The lead is refuted as stated.
+
+**AND REFUTING IT PAID BETTER THAN CONFIRMING IT WOULD HAVE.** Every one of **240** merged
+compounds returns the SAME profile:
+
+    (T3, EE, SC2, count) = (72, 36, 0, 145)      240 of 240, ONE distinct profile
+
+with the congruence control run deliberately, because [P227] is the standing warning that a
+statistic can be a property of the quaternion SPELLING: the multiset of pairwise
+relative-rotation traces — congruence-invariant and spelling-independent — takes **78 distinct
+values**. So these are 78 genuinely non-congruent compounds agreeing exactly.
+
+**Forcing four cubes through one corner DETERMINES the region count at 145.**
+
+**WHAT THIS BUYS [OQ 37].** The merged branch is a single POINT of the `(T3, two-body)` plane at
+`(72, 36)`, not a region: `T3 + two-body = 108` against the record's 176. **No merged-corner
+compound can beat 183, and none can threaten the inequality [OQ 37] proposes to prove** — a whole
+branch of the configuration space closed by one measurement, and closed before any proof effort
+was spent on it. That is what the lead was for.
+
+**THE GENERAL SHAPE, worth keeping.** A lead names a configuration that would falsify the target
+if it existed. Building it does one of two things, and both are wins: it produces a
+counterexample, or — as here — it converts a vague worry into a closed branch plus a rigidity
+statement. **The cheap move is to construct the feared object rather than to argue about it.**
+
+<a id="p337"></a>
+
+## [CORRECTION] Postscript 337: [OQ 37]'s inequality does not bound the count — `T3 + two-body` is not the whole half-excess
+
+Found by the user asking what the `0` was in [P336]'s rigid profile `(72, 36, 0, 145)`. The `0`
+is `SC2`: when four cubes merge at ONE corner there are no PAIRWISE shared corners, so that
+vertex is `(3,3,3,3)` and not `(3,3)`. Chasing where its excess went exposed the defect.
+
+**THE IDENTITY, and what my target inequality left out.**
+
+    TOTAL = 1 + L + sum holes + (1/2) sum excess
+
+    (1/2) sum excess  =  T3  +  two-body  +  [ higher-order vertices ]
+
+and the bracket is not always zero:
+
+    configuration      T3 + two-body    higher-order    half-excess    count
+    n = 4 RECORD           176                0            176          183
+    merged ([P336])        108               30            138          145
+    n = 5 RECORD           348               36            384          393
+
+**The n = 4 record has no vertex above signature `(3,3)`, so its bracket is 0 and
+`T3 + two-body = 176` happens to BE its half-excess.** [P334] read the target off that one
+configuration and stated it as `prove T3 + two-body <= 176`. **That inequality does not bound the
+count.** A configuration with `T3 + two-body = 176` AND a quadruple point would score above 183
+while satisfying it. The n = 5 record already has `higher-order = 36`, from 12 quadruple points
+at excess 6 — so the bracket is not exotic, it is what the tower does one level up.
+
+**THE CORRECTED TARGET:**
+
+    prove   (1/2) sum excess <= 176   at n = 4    =>   max(4) = 183
+
+since `TOTAL = 1 + 176 + L + holes = 1 + 176 + 3 + 3 = 183`. `T3 + two-body` is a LOWER bound on
+the quantity that needs bounding, which is the wrong direction for a cap.
+
+**WHAT SURVIVES UNCHANGED.** [P336]'s branch closure stands, and stands more simply than it was
+argued: every merged-corner compound COUNTS 145, measured directly by the engine on all 240, so
+none beats 183 whatever the bookkeeping. Under the corrected inequality they sit at 138 <= 176
+and still do not threaten it. [P334]'s construction, its `two-body = 60`, and `T3 = 74` are
+untouched — they were measured, not derived from the decomposition.
+
+**THE SPECIES, and this is its third appearance in one session.** Each time, a decomposition
+verified on the records was used as though it were universal:
+
+    [P328]  excess is a function of the SIGNATURE          -- false off the records ([P330])
+    [OQ 35] the degenerate terms are unbounded             -- they are the two-body term ([P333])
+    [OQ 37] T3 + two-body is the whole half-excess         -- only when the bracket is 0 (here)
+
+**A decomposition is only as complete as the configurations it was checked on**, and the records
+are the least representative configurations available — they are extremal, and extremal objects
+have empty terms. The check that catches all three is the same: evaluate the decomposition on a
+DEGENERATE family, where the terms the records zero out are the ones that fire.
+
+<a id="p338"></a>
+
+## [VERIFIED] Postscript 338: YES — there is an argument, and it says both caps at once means every 3-subset is a 67
+
+Asked whether the measured trade-offs have an ARGUMENT behind them: does increasing one term
+provably prevent increasing another? They do. `src/probes/subset_coupling.py`.
+
+**THE LOAD-BEARING LEMMA: excess is INTRINSIC to a vertex's supporting cubes.** `deg(v)` counts
+the wall ARCS through `v`. An arc through `v` lies on `dA_i ^ dA_j` for two cubes whose
+boundaries contain `v` — supporting cubes. A non-supporting cube does not contain `v` on its
+boundary and contributes no arc through it. And [P248] gives `m_v = b_v - 1` levels, independent
+of `n`. So the number of levels and the degree at each depend only on the supporting cubes, hence
+so does `excess(v) = sum_levels (deg - 2)`.
+
+**Verified, not assumed** — each vertex's excess recomputed inside the sub-arrangement of its own
+supporting cubes: **0 mismatches in 936 vertices**, over the n = 4 and n = 5 records AND the
+degenerate merged, body-diagonal and face-diagonal families, which is where [P337] says such
+checks belong.
+
+**THE COUPLING.** Fix a 3-subset `S`. Its supported vertices have the same excess in the full
+arrangement as in `S`'s own 3-cube arrangement, so the identity applies to `S` alone with `L = 2`
+and `sum c >= 2`, and `max(3) = 67` is PROVED:
+
+    Q(S) := (1/2) * sum of excess over S-supported vertices  <=  67 - 1 - 2 - 2  =  62
+
+    n = 4 RECORD    Q(S) = 50, 58, 58, 58          max 58
+    n = 5 RECORD    Q(S) = 46..54                  max 54
+    merged / body-diagonal / face-diagonal          max 36, 36, 44
+
+**AND THE AGGREGATE IS EXACTLY THE TWO KNOWN CAPS.** Summing over all 3-subsets counts each
+triple point once and each pair `(n-2)` times:
+
+    T3 + (n-2) * two-body  <=  62 * C(n,3)
+
+and since `(n-2) * C(n,2) = 3 * C(n,3)`, the right-hand side equals
+`32*C(n,3) + 10*(n-2)*C(n,2)` — *identically, for every n*. Checked n = 3..8.
+
+**SO THE TWO CAPS ARE NOT INDEPENDENT STATEMENTS. They are one statement, per 3-subset:**
+
+    T3 = 32*C(n,3)  AND  two-body = 10*C(n,2)
+      <=>  every 3-subset attains Q(S) = 62
+      <=>  every 3-subset is a 67-MAXIMISER (with no holes)
+
+**THAT is the argument that raising one prevents raising the other.** The terms draw on a single
+per-3-subset budget of 62. Spending it on `two-body` — pairs at 10 — leaves less for that
+subset's triple points, and conversely.
+
+**AND THE OBSTRUCTION IS ALREADY KNOWN.** `max(3) = 67` is attained by exactly two configurations
+up to congruence, the octahedral `Q(sqrt2)` and golden `Q(sqrt5)` triples, and **both are
+irrational**, while every subset of a rational compound is rational. The best 3-subset inside any
+record is **63**, which gives `Q = 58` — precisely the n = 4 record's maximum, and the reason its
+gap is 15 rather than 0.
+
+**WHAT THIS DOES NOT DO, stated before what it does.** **It improves no number.** The summed
+coupling is IDENTICALLY the bound already in hand — that is the point of the `62*C(n,3) =
+32*C(n,3) + 10*(n-2)*C(n,2)` identity, and it means [P338] re-derives the existing ceiling rather
+than lowering it. Two further gaps stand between this and any improvement:
+
+  * ~~**`Q(S) <= 58` is not proved.**~~ **FALSE, settled 2026-09-17 ([P339](#p339)):** append any
+    non-degenerate fourth cube to the octahedral 67 and the 3-subset is still a genuine 67. So
+    `Q(S) = 62` occurs and this improvement path is dead as stated. Its replacement is the
+    SUBSET-SUM `sum_S count(S) <= 244`, which assumes nothing about which subsets are 67s and,
+    with the proved `T3 <= 128`, gives exactly [OQ 37]'s 176.
+  * **Higher-order vertices are untouched.** A `b >= 4` vertex lies in NO 3-subset, so this
+    argument says nothing about the `H` term — exactly [P337]'s gap. The n = 5 record already
+    carries `H = 36`.
+
+What it would be worth IF both closed, with `Q(S) <= 58`:
+
+    n         4      5      6      7      8      9     10
+    record  183    393    727   1217   1895   2787   3925
+    now     198    433    806   1349   2094   3073   4318
+    then    190    420    786   1321   2057   3025   4258
+
+The n = 4 gap falls from 15 to 7; the n = 10 gap from 393 to 333. Real, and not a closure.
+
+**WHAT IT ACTUALLY BUYS, which is leverage rather than a number.** The bound at EVERY n is now a
+statement about THREE cubes. One theorem about 3-cube arrangements moves the whole tower at once,
+and n = 3 is the case that is already proved, classified and catalogued. That is a better place
+to spend effort than n-cube search, and it is the first time the tower's ceiling has been reduced
+to a bounded, finite object.
+
+**WHAT THIS MAKES [OQ 37] INTO, and it is a better question.** Instead of *prove
+`(1/2) sum excess <= 176`*, ask: **how large can `Q(S)` be for a 3-subset that is NOT a
+67-maximiser?** If the answer at n = 4 is 58, then `T3 + 2*two-body <= 4*58 = 232`, and with
+`T3 <= 128` that gives `two-body <= 52` and `max(4) <= 187` — an improvement on 198 from a
+question about THREE cubes rather than four. The input needed is the spectrum of achievable
+3-cube counts below 67, which is a small, finite, already-studied object (`N3_STRUCTURE.md`).
+
+<a id="p339"></a>
+
+## [CORRECTION] Postscript 339: a 4-compound containing a genuine 67 exists TRIVIALLY — and the right target is the SUBSET-SUM, which reduces [OQ 37] to a 3-cube statement
+
+Asked whether such a compound can be found or ruled out. **Found, in one line, and the gap as
+[P338] stated it was wrong in the easy direction.**
+
+**EXISTENCE IS TRIVIAL.** Take the octahedral 67 — `1,0,0,0; 1,1,sqrt2,0; -1,1,sqrt2,0` over
+`Q(sqrt2)`, engine-confirmed at 67 — and append any non-degenerate fourth cube. The 3-subset
+`{0,1,2}` is untouched and is still a genuine 67. No argument against existence is possible.
+
+**SO `Q(S) <= 58` IS FALSE, and [P338]'s sketched improvement 198 -> 190 is DEAD as stated.**
+That path assumed no 3-subset could be a 67. They can.
+
+**BUT CONTAINING A 67 IS EXPENSIVE, measured.** Over 3 136 fourth cubes the best total is **175**,
+against the record's 183. Anatomy of the best one (fourth cube `0,4,-5,1`):
+
+    3-subset      count      Q(S) <=          pair      count
+    {0,1,2}         67          62            (0,1)       13   = max(2)
+    {0,1,3}         57          52            (0,2)       13   = max(2)
+    {0,2,3}         57          52            (0,3)       13   = max(2)
+    {1,2,3}         47          42            (1,2)       13   = max(2)
+                                              (1,3)        4
+                                              (2,3)        4
+
+The 67's rigidity leaves the fourth cube no good relation to cubes 1 and 2: **two pairs collapse
+to 4 against a maximum of 13.** The 67 subset gains 4 over a 63 and the other three lose 20.
+
+**THE RIGHT INVARIANT IS THE SUBSET-SUM.** `sum_S Q(S) = T3 + (n-2)*two-body`, and
+`Q(S) <= count(S) - 5`, so `sum_S count(S)` is the coupling's own budget. Measured:
+
+    n = 4 RECORD                    sum_S count(S) = 244      total 183
+    containing the octahedral 67                     228      total 175
+    best random of 700 by total                      208      total 159
+    best random of 700 by subset-sum                 212      total 155
+
+**The record maximises it**, and the 67-containing compounds come closer than random draws while
+still falling short — which is the same trade every other structure in this project pays.
+
+**AND 244 IS EXACTLY THE NUMBER NEEDED.** With `sum_S Q(S) <= 224` (= 244 - 20) and the PROVED
+`T3 <= 32*C(4,3) = 128`, maximise `T3 + two-body` subject to `T3 + 2*two-body <= 224` and
+`T3 <= 128`:
+
+    max (T3 + two-body) = 176,  at T3 = 128, two-body = 48  -- the record's own values
+
+`176` is precisely [OQ 37]'s target, so `TOTAL <= 1 + 176 + L + holes + H = 183 + H`.
+
+**WHAT THIS BUYS, and it is the first genuine reduction in this thread.** [OQ 37] becomes:
+
+    prove   sum over the four 3-subsets of count(S)  <=  244   at n = 4
+
+a statement about **3-CUBE COUNTS ONLY** — no 4-cube quantity appears in it — which with the
+already-proved `T3 <= 128` yields `max(4) <= 183 + H`. It does not assume anything about which
+subsets are 67s, which is exactly what killed the previous formulation. The remaining gap is `H`,
+the `b >= 4` vertices, untouched by any 3-subset argument ([P337]).
+
+<a id="p340"></a>
+
+## [VERIFIED] Postscript 340: a configuration's count IS predictable from its subsets' — exactly, with one correction of size (number of n-fold vertices)
+
+Asked directly. `src/probes/subset_predictor.py`, `data/subset_predictor.json`.
+
+**THE DERIVATION, from [P338]'s lemma.** `excess(v)` depends only on `supp(v)`. Writing `E(T)`
+for the half-excess carried by vertices whose support is exactly `T`, the identity applied to any
+subset `S` reads
+
+    count(S)  =  1 + (|S| - 1) + sum c(S) + sum over T subset S, |T| >= 2 of E(T)
+
+This is a ZETA TRANSFORM over the subset lattice, so it inverts by Moebius. Predicting the full
+count from PROPER subsets therefore omits exactly one term: `E([n])`, the vertices where ALL `n`
+cubes meet.
+
+**MEASURED, n = 4, using only the 2- and 3-cube counts to predict the 4-cube count:**
+
+    evaluated 199   refused 1 (reported, not scored)
+    EXACT           194 of 199   = 97.5 %
+    defect -2         5 of 199
+    max |defect|      2
+
+    n = 4 RECORD     183 predicted 183     n-fold vertices 0
+    n = 5 RECORD     393 predicted 393     n-fold vertices 0
+    merged corner    145 predicted 147     n-fold vertices 2
+    body-diagonal    145 predicted 147     n-fold vertices 2
+    face-diagonal    145 predicted 147     n-fold vertices 2
+
+**And the defect is not noise — it is the omitted term, counted.** Cross-tabulating defect
+against the number of `n`-fold vertices gives two cells and no others:
+
+    (defect, n-fold vertices)  =  (0, 0)  in 194 cases,  (-2, 2)  in 5
+
+**Conjecture, exact on every case tested: `defect = -(number of n-fold vertices)`** — one region
+per vertex where all `n` cubes meet, independent of that vertex's TYPE. The three named families
+carry `(3,3,3,3)` at excess 30, `(3,3,3,3)` again, and `(2,2,2,2)` at excess 18, and all three
+give `-2`. *Stated as a conjecture: it is a fit to two cells, and [P324] is the standing warning.*
+
+**WHY THIS MATTERS PRACTICALLY.** The 4-cube count costs an engine call on the full arrangement;
+the prediction costs ten calls on 2- and 3-cube subsets, which are far cheaper and cacheable
+across a search — every candidate extension of a fixed base reuses the same subset counts. And
+it makes [P339]'s target natural rather than ad hoc: **the subset-sum is not a proxy for the
+count, it very nearly IS the count.**
+
+**A TRAP WALKED INTO, kept because the number was seductive.** The first run reported a defect of
+**-93**. The engine had answered `{"error": "outside must be a single region"}`, and the helper
+scored that refusal as a count of 0 — four concentric cubes always contain the origin, so 0 is
+impossible and should have been caught on sight. **This is FAILURE_MODES' own entry: unevaluable
+is not a negative result.** With refusals raised and counted the maximum defect is 2. A predictor
+with rare huge errors is a different object from one with bounded errors, and the difference here
+was entirely an unhandled refusal.
+
+<a id="p341"></a>
+
+## [VERIFIED] Postscript 341: the count is EXACT inclusion-exclusion over subsets — so "which subsets are simultaneously attainable" is the whole remaining question
+
+Asked what subsets are simultaneously attainable. [P340] made that the right question; this makes
+it the ONLY one. `src/probes/subset_predictor.py`.
+
+**THE COUNT, WRITTEN OUT.** At n = 4, exactly:
+
+    TOTAL = sum(triple counts) - sum(pair counts) + 4
+            + [ c(full) - sum_S c(S) + sum_P c(P) ]        hole correction
+            - (number of n-fold vertices)
+
+Verified on 120 random configurations: **119 of 120 with defect 0**, and the one carrying n-fold
+vertices off by exactly `-2`, as [P340] predicts. The bare form `sum t - sum p + 5` is the
+special case where every subset has `c = 1` at every level — true of the records and of all three
+named degenerate families, which is why it fit them and drifted by up to 5 on random draws.
+
+**SO max(4) IS A QUESTION ABOUT ATTAINABLE SUBSET-COUNT VECTORS, and nothing else.** No 4-cube
+geometry survives in the formula. Since each pair lies in exactly two triples,
+
+    TOTAL = sum over the four triples of h(S) + 4 + holecorr - nfold,
+    where   h(S) = count(S) - (1/2)(its three pair counts)
+
+**WHAT ONE TRIPLE CAN REACH.** Over 900 random 3-cube compounds, `max h = 43.5` (count 59, pairs
+13, 13, 5). The octahedral 67 does better: **`h = 47.5`**, count 67 with all three pairs at 13 —
+the 2-cube maximum. So `h <= 47.5` as far as anything measured goes, and if all four triples
+could attain it, `max(4) <= 4*47.5 + 5 = 195`.
+
+**AND THEY COMPETE, measured rather than argued:**
+
+    configuration            h per triple                 sum h    TOTAL
+    n = 4 RECORD             41.5, 45.5, 45.5, 45.5        178      183
+    containing a 67          47.5, 42.0, 42.0, 36.5        168      175
+
+**Buying the maximum on one triple costs more than it gains on the other three.** The 67 forces
+two of its pairs down to count 4, and those pairs sit in the other triples. This is [P339]'s
+finding in the coordinate that makes it arithmetic.
+
+**THE QUESTION, now in its final form.** Which vectors `(h(S1), h(S2), h(S3), h(S4))` are
+realizable? Two points are known exactly — the record's `178` and the 67-extension's `168` — and
+the ceiling `4 x 47.5 = 190` is certainly not attainable, since it requires all four triples to be
+67s and the 67's pairs are rigid. **The decisive sub-question is whether TWO triples can both be
+67s**, i.e. whether a pair from one 67 admits a second completion to another 67. That is a finite
+question about two rigid configurations, and it caps `sum h` directly.
+
+<a id="p342"></a>
+
+## [VERIFIED] Postscript 342: every subset of the golden 177 is SIMULTANEOUSLY MAXIMAL — and its 6-region shortfall is exactly its 18 quadruple points
+
+The user: *all triples of a 4-compound can be 67, but it falls short of the record.* Correct, and
+already in the record as [P131] — see the correction at the end. What is new is the SUBSET
+DECOMPOSITION, which explains the shortfall to the unit.
+
+**THE CONFIGURATION, derived rather than searched.** [P341] observed that the octahedral 67 is a
+C3 ORBIT: `{I, R, R^2}` with `R` a 120-degree rotation. A 4-compound whose every triple is a C3
+orbit is one permuted by **A4** — each 3-cycle fixes one cube and cycles the other three. That
+means four cubes rotated by a common angle about the FOUR BODY DIAGONALS. Solving for the angle
+that makes the relative rotation 120 degrees gives `cos(theta/2) = sqrt10/4`, i.e.
+
+    q_k = (sqrt5, +-1, +-1, +-1),  even sign patterns        -- in Q(sqrt5), the golden field
+
+The rational members of this A4 family count 153 with all triples at 55; only the golden angle
+reaches 67.
+
+**EVERY SUBSET IS AT ITS PROVED MAXIMUM.**
+
+    four triples    67, 67, 67, 67      max(3) = 67, PROVED
+    six pairs       13 x 6              max(2) = 13, PROVED
+    TOTAL           177                 record 183
+
+**AND THE SHORTFALL IS ACCOUNTED FOR EXACTLY.** [P341]'s inclusion-exclusion gives
+`sum(triples) - sum(pairs) + 5 = 268 - 78 + 5 = 195`. Counting the vertices exactly over
+`Q(sqrt5)`:
+
+    signature (1,1,1)       8 vertices
+    signature (1,1,1,1)    18 vertices      <- four-fold
+
+**18 quadruple points, and the correction is exactly -18: 195 - 18 = 177.** [P340]'s conjectured
+`defect = -(number of n-fold vertices)` was fitted where that number was 2; **here it is 18, on an
+irrational, highly symmetric configuration of a different vertex TYPE, and it holds to the unit.**
+
+**THE MECHANISM, now visible.** `(1,1,1)` carries excess 2 and `(1,1,1,1)` carries 6. A quadruple
+point is four triple points merged: they would have carried `4 x 2 = 8`, it carries 6, so each
+merge loses 2 excess = **one region**. Eighteen of them, eighteen regions. And the compound's
+surviving generic triple count is only **8**, against the cap of 128 — nearly every triple point
+it could have had has been absorbed into a quadruple point.
+
+**SO THE ANSWER TO "WHICH SUBSETS ARE SIMULTANEOUSLY ATTAINABLE" IS: ALL OF THEM, AT MAXIMUM —
+AND THAT IS NOT THE ROUTE TO THE RECORD.** Making every subset extremal requires A4 symmetry, and
+symmetry forces high-order coincidences. The record instead runs its subsets at 63, 63, 63, 55
+and 13, 13, 13, 9, 9, 9 — strictly worse in every subset — and wins by carrying **no** quadruple
+points at all. This is the session's trade-off in its sharpest form: **subset-optimality and
+degeneracy-avoidance are themselves in conflict.**
+
+**AND THE TWO 67s DO NOT BEHAVE ALIKE — a control, reported with its scope.** A brute-force
+search launched before the derivation above scanned **21 608** fourth cubes extending the
+OCTAHEDRAL 67 over `Z[sqrt2]` and found **zero** all-67 extensions, while the GOLDEN 67 extends
+to the A4 compound by construction. So the two maximisers, congruent in count and both rigid,
+differ in whether they sit inside an all-67 four-compound.
+
+**Scope, because this is a search and searches yield lower bounds ([METHODS 1]):** the window was
+`a, b, c, e in [-3,3]` with `sqrt2` parts only on the first two quaternion components. **Zero
+found is not zero existing.** What is proved here is the positive half — the golden family exists
+and is exhibited exactly; the octahedral half is an unproved negative, and [P131]'s exhaustion of
+the "two 67 triples" family is the statement to consult for the settled version.
+
+**CORRECTION TO [P341] AND [OQ 38].** [P341] said the ceiling "requires all four triples to be
+67s and the 67's pairs are rigid", and [OQ 38] posed *can two triples both be 67s?* as the
+decisive open sub-question. **Four can, and this was settled on 2026-08-18 by [P131]** — the
+"two 67 triples" family was exhausted by solving (960 candidates, zero refusals, best 177), and
+`RESULTS.md` has carried it since. **I posed as open a question the record had already closed.**
+See [INTERVENTIONS A17].
+
+<a id="p343"></a>
+
+## [VERIFIED] Postscript 343: degeneracy is not avoided by having FEWER coincidences — the budget is the same, and it is spent MERGED or UNMERGED
+
+Asked how degeneracy is avoided. It is not avoided in the sense of being absent; the
+triple-point budget is fixed and the records spend all of it. What varies is whether it is spent
+in single points or in collided ones.
+
+**THE BUDGET, counting merges with multiplicity.**
+
+    T3 + 4*Q4  <=  32*C(n,3)          [Q4 = the GENERIC (1,1,1,1) count -- see below]
+
+    configuration        T3     Q4    T3 + 4*Q4     cap
+    n = 4 RECORD        128      0        128       128    AT CAP
+    golden 177           56     18        128       128    AT CAP
+    n = 5 RECORD        272     12        320       320    AT CAP
+    n = 6 RECORD        584     12        632       640
+    body-diagonal        72      0         72       128
+    random n = 4, 80 configurations: **0 violations**, best 128
+
+**A quadruple point IS four triple points collided**, and the arithmetic of the collision is the
+whole answer:
+
+    four separate triple points    4 vertices x excess 2  =  8 half-excess  ->  4 regions
+    one quadruple point            1 vertex   x excess 6  =  3 half-excess  ->  3 regions
+                                                                   LOSS      1 region
+
+**Exactly one region per merge** — which derives [P340]'s empirical `defect = -(n-fold vertices)`
+rather than fitting it, and accounts to the unit for the golden 177: it spends 72 of its 128
+budget merged into 18 quadruple points, `128 - 18 = 110` regions from the triple-point term
+instead of 128, and `195 - 18 = 177`.
+
+**SO THE ANSWER: degeneracy is avoided by spending the budget UNMERGED, and what merges it is
+SYMMETRY.** The golden 177's `A4` symmetry acts on its triple points in orbits of four and
+collides them 18 times. The n = 4 record has the same budget of 128 and collides none of it.
+
+    n = 4 RECORD        Q4 =  0     pure avoidance
+    golden 177          Q4 = 18     every subset maximal, and 18 regions paid for it
+    n = 5, n = 6        Q4 = 12     forced by the shared body-diagonal axis ([P315])
+
+**Above n = 4 the records do NOT avoid it entirely** — they carry exactly 12, forced by the very
+structure that makes extension work. So the principle is not "avoid degeneracy" but **spend the
+coincidence budget on the cheap kind**: edge-edge contacts and shared corners ADD regions
+(+1 and +2 each), while quadruple points SUBTRACT one. The n = 4 record holds 36 of the first
+kind, 6 of the second, and none of the third.
+
+> **RESTRICTION ADDED 2026-09-18 ([P346](#p346)).** `Q4` here means the GENERIC `(1,1,1,1)`
+> count, which is what this postscript's probe measured. A `(3,3,3,3)` vertex appears in a
+> 3-subset as `(3,3,3)` and a `(2,2,2,2)` as `(2,2,2)` — neither is a triple point, so neither
+> counts with multiplicity four. Under the unrestricted reading the three degenerate rows above
+> would give 80, 80 and 92 instead of 72, 72 and 84. [P346] also DERIVES the law rather than
+> measuring it: the left side is `sum over 3-subsets of their triple-point counts`.
+
+**AND THIS REFINES THE KNOWN CAP.** `T3 <= 32*C(n,3)` is proved. The measured statement is
+stronger and, if provable, is the form to use: the cap counts COLLIDED triple points with
+multiplicity four, so a configuration cannot buy extra quadruple points without giving back
+triple points at four-to-one. *Stated as measured, not proved: 0 violations in 80 random
+configurations plus five named ones, and the n = 6 record sits 8 below it.*
+
+<a id="p344"></a>
+
+## [VERIFIED] Postscript 344: SYMMETRY determines how the coincidence budget is spent — and TRANSITIVITY on the cubes is what forces the costly kind
+
+Asked what determines how the budget can be spent. `src/probes/` (the golden-compound census in
+`kfield`), continuing [P343].
+
+**THE RAW BUDGET IS DIMENSION, AND IT IS FAR TOO SMALL.** The configuration space is
+`SO(3)^n` modulo a global rotation: `3(n-1)` conditions, so **9** at n = 4. The cost of each
+coincidence type:
+
+    triple point   (1,1,1)      3 planes meet a point       0 conditions -- GENERIC   value +1
+    edge-edge      (2,2)        two lines meet              1                          value +1
+    quadruple pt   (1,1,1,1)    a 4th plane through it      1                          value -1
+    shared corner  (3,3)        corner coincides            2                          value +2
+
+The n = 4 record carries 36 edge-edge contacts (18 antipodal pairs) and 6 shared corners (3
+pairs): a naive `18 + 3*2 = 24` conditions against **9** available. **So they cannot be
+independent, and something is multiplying them.**
+
+**WHAT MULTIPLIES THEM IS SYMMETRY.** A symmetry group `G` turns ONE condition into an orbit of
+up to `|G|` coincidences — the configuration pays once and collects `|G|` times. That is how 9
+dimensions support 24 conditions' worth of structure.
+
+**AND THE ORBIT STRUCTURE, NOT THE SEARCHER, DECIDES THE MIX.** Locating the golden 177's 18
+quadruple points exactly over `Q(sqrt5)`:
+
+    6 lie ON the three 2-fold (coordinate) axes, at +-2/phi        orbit 12/2, stabilised
+    12 lie in the coordinate planes, at 1/phi coordinates          orbit 12/1, free
+
+`|A4| = 12`, and `6 = 12/2`, `12 = 12/1`. **The quadruple points are A4 orbits** — the 12 are one
+condition replicated twelve times, and the 6 sit on loci the 2-fold rotations FIX, where all four
+cubes' planes must concur whether or not that is wanted.
+
+**THE DISCRIMINANT IS TRANSITIVITY ON THE CUBES, and it is readable straight off the pair
+profile:**
+
+    n = 4 RECORD   pairs 13,13,13 / 9,9,9   cube 3 DISTINGUISHED
+                   a C3 fixing cube 3 and cycling 0,1,2 -- NOT transitive
+                   no locus forces all four planes together        Q4 = 0
+
+    golden 177     all six pairs 13         uniform
+                   A4, TRANSITIVE on the four cubes
+                   its fixed loci force four-fold concurrence      Q4 = 18
+
+**A group that fixes one of the cubes cannot force a four-fold coincidence**, because no orbit
+relation ties the fixed cube's planes to the other three at a common point. A group transitive on
+all four can, and does.
+
+**AND THIS UNIFIES TWO SEPARATE FINDINGS FROM THIS SESSION.** [P333] found that the records run a
+HUB — one distinguished cube sharing a corner with every other, 3 of 6 pairs at the two-body cap.
+[P343] found the records avoid quadruple points. **These are the same fact**: the record's
+symmetry fixes one cube, which simultaneously makes that cube the hub and makes four-fold
+concurrence impossible. The hub is not a separate design choice; it is what a non-transitive
+symmetry looks like.
+
+**SO THE ANSWER.** How the budget can be spent is determined by the symmetry group's ACTION on
+the cubes: its order sets how far each paid condition is multiplied, and its transitivity sets
+whether the multiplication includes the coincidences that cost regions. **More symmetry buys more
+coincidences per dimension and less control over their kind** — which is why the most symmetric
+4-compound available (every subset provably maximal, [P342]) loses to a less symmetric one.
+
+<a id="p345"></a>
+
+## [VERIFIED] Postscript 345: can subset SYMMETRY predict the count? — one implication holds, the converse fails, and no collision exists in 600 draws
+
+Asked whether subset symmetries predict the count, and separately whether the scratch evidence
+behind [P339]–[P344] was in the repository. It was not; see [INTERVENTIONS A18].
+`src/probes/golden_a4.py`, `src/probes/subset_objective.py`.
+
+**THE SETUP.** Subset COUNTS predict the total exactly except for the n-fold term ([P340]), and
+[P344] says symmetry is what creates that term. So define `Aut` = the permutations of the cubes
+preserving every pair and triple count — an invariant read purely off subset data — and ask
+whether its transitivity predicts `Q4`.
+
+**ONE DIRECTION HOLDS.** Over 74 configurations:
+
+    Aut transitive, Q4 > 0     2        Aut transitive, Q4 = 0     0
+    Aut not transitive, Q4 > 0 2        Aut not transitive, Q4 = 0 70
+
+**`Aut` transitive => `Q4 > 0`, with no exception** — the mechanism of [P344]. **The converse is
+FALSE:** two configurations carry quadruple points with a non-transitive `Aut`. Their `Q4` is of
+type `(2,2,2,2)` or `(3,3,3,3)`, not `(1,1,1,1)` — a SHARED-AXIS mechanism rather than a
+transitivity one, and [P336] already showed that kind survives without a shared axis at all.
+
+**So the n-fold term has at least two independent sources**, and subset-derived symmetry sees only
+the first. Subset symmetry is a sufficient condition for the costly degeneracy, never a necessary
+one.
+
+**BUT SUBSET DATA STILL DETERMINED THE COUNT EVERY TIME.** The decisive test is a COLLISION: two
+configurations with identical pair and triple multisets and different totals. Over 600 draws
+spanning 539 distinct subset profiles (and a repeat run of 299 over 282 profiles):
+
+    profiles carrying more than one total:  0
+
+**Scope, because this is a search and searches yield lower bounds ([METHODS 1]): no collision
+found is not no collision existing.** What is established is the pair of statements — subset
+counts have never failed to determine the total, and [P342] shows they nonetheless cannot
+identify the MAXIMUM, since the compound with every subset provably maximal counts 177 against
+183. Determining the count and locating the optimum are different questions, and subset data
+answers the first while demonstrably failing the second.
+
+<a id="p346"></a>
+
+## [VERIFIED] Postscript 346: the taxonomy question is STRICTLY HARDER than the count question — and it derives [P343]'s budget law instead of measuring it
+
+Asked whether the full TAXONOMY, not just the count, is predictable from subset taxonomies.
+`src/probes/taxonomy_prediction.py`, `data/taxonomy_prediction.json`.
+
+**IT IS THE HARDER QUESTION, and that is worth stating first.** The count is
+`1 + L + sum c + (1/2) sum excess`, and the excesses follow from the taxonomy. **So a taxonomy
+predictor implies an exact count predictor** — strictly stronger than [P340], whose prediction
+from subset COUNTS carries a defect of `-Q4`.
+
+**AND THE DERIVATION GOES FURTHER THAN MEASUREMENT DID.** A vertex's support determines its
+signature ([P338]), so vertices with support exactly `T` belong to `T`'s own sub-arrangement. A
+GENERIC 4-fold vertex `(1,1,1,1)` lies on one facet of each of four cubes, so in every 3-subset
+of those four it appears as a TRIPLE POINT, while a genuine triple point appears in exactly one.
+Hence
+
+    sum over 3-subsets of t_S  =  T3 + 4 * Q4_generic
+
+**This DERIVES [P343]'s budget law `T3 + 4*Q4 <= 32*C(n,3)`**, which was recorded there as
+measured with 0 violations in 85 configurations. The cap is then just `max(3) = 67` applied to
+each 3-subset, exactly as in [P338].
+
+**A RESTRICTION [P343]'s PROSE DID NOT CARRY.** Only `(1,1,1,1)` counts with multiplicity four. A
+`(3,3,3,3)` vertex appears in a 3-subset as `(3,3,3)`, a three-cube shared CORNER, and a
+`(2,2,2,2)` as `(2,2,2)` — neither is a triple point, so neither enters the sum:
+
+    config            sum t_S     T3   Q4 generic   Q4 other   T3 + 4*Q4gen
+    n = 4 RECORD          128    128        0           0          128   OK
+    merged corner          72     72        0           2           72   OK
+    body-diagonal          72     72        0           2           72   OK
+    face-diagonal          84     84        0           2           84   OK
+    golden 177            128     56       18           0          128   OK
+
+[P343]'s probe used `sig[(1,1,1,1)]` and so measured the right thing; its **prose** said
+"quadruple points" without the restriction, and on the three middle rows the unrestricted reading
+gives 80, 80 and 92 against a true 72, 72 and 84. Corrected there.
+
+**WHAT SUBSETS PIN, AND WHAT THEY DO NOT.** Writing `tau_S` for the vertices supported by exactly
+`S`, every generic 4-fold point lies in ALL FOUR 3-subsets, so
+
+    t_S = tau_S + Q4_generic     for every S       =>     Q4_generic <= min_S t_S
+
+a real constraint, verified on all five. But the relations fix only `T3 + 4*Q4_generic`; **the
+SPLIT is not determined by them** — and the split is precisely what the count needs
+(`T3 + 3*Q4`), which is why [P340]'s defect is `-Q4` and not zero.
+
+**AND YET NO COUNTEREXAMPLE EXISTS IN THE DATA.** Over 260 configurations spanning 251 distinct
+proper-subset taxonomies, **no two shared a subset taxonomy while differing in the full one**.
+*Scope: a search, hence a lower bound ([METHODS 1]). No collision found is not no collision
+existing, and the derivation above says where to look for one — two configurations agreeing on
+every `t_S` but splitting `T3 + 4*Q4_generic` differently.* **That is a construction target, not
+a hope**: it would refute taxonomy-predictability, and by the implication at the top it would
+also be the first demonstration that subset data cannot determine the count.
+
+<a id="p347"></a>
+
+## [VERIFIED] Postscript 347: the component space is CHARACTERISED, and the room to beat 183 is a 12-region window in one unmapped frontier
+
+Asked whether we can tell if there is room to beat the records, by new COMBINATIONS of known
+components or by new COMPONENTS. Both halves are now answerable.
+`src/probes/component_space.py`, `data/component_space.json`.
+
+**PART 1 — NEW COMPONENTS: the space is closed, and the answer is no.**
+
+**THEOREM, one line and the same shape as [P311].** A cube is `{x : |<x,v_k>| <= 1}` with `v_k`
+orthonormal, so `|x|^2 = sum_k <x,v_k>^2 <= 3`, with equality **iff every term is 1** — i.e. only
+at a CORNER. The only boundary points at distance `sqrt3` from the centre are the corners. A
+corner of cube `j` is at distance `sqrt3`, so a vertex that is a corner of `j` must be a corner of
+**every** cube whose boundary contains it:
+
+    a signature is ALL 3s, or contains NO 3.
+    (1,3), (2,3), (1,1,3), (1,2,3), ... are IMPOSSIBLE, not merely unobserved.
+
+Verified: **0 mixed-3 signatures in 200 configurations.** And a signature is a VERTEX only if its
+facet conditions sum to `>= 3`, which kills `(1,1)` — two surfaces meeting transversally give a
+curve, not a point. So the component space is exactly: all-3 signatures `(3,...,3)`, and no-3
+multisets from `{1,2}` summing to at least 3.
+
+**[P328]'s TAXONOMY IS INCOMPLETE, and this is the third time this session a table verified on the
+records has turned out narrower than reality.** Two components occur and are not in it:
+
+    (1,1,2)   excess 2        never tabulated
+    (1,2,2)   excess 2 or 4   never tabulated
+
+Both appear only in random configurations, never in a record — which is why the table missed
+them. Permitted and still unobserved: `(1,1,1,2)`, `(1,1,2,2)`, `(1,2,2,2)` and their higher-`b`
+analogues.
+
+**But new components cannot beat a record.** Every one of them carries excess `<= 4`, i.e. one or
+two regions, and they occupy conditions that a triple point occupies for free. **There is no
+undiscovered high-value component, because the space is now closed and every member of it is
+cheap.**
+
+**PART 2 — NEW COMBINATIONS: a window of at most 12 regions, in one unmapped place.**
+
+With `TOTAL = sum_S h(S) + 5 - Q4` and `h(S) = count(S) - (1/2)(its pair counts)`:
+
+    configuration        sum h     Q4    sum h - Q4    TOTAL
+    n = 4 RECORD         178.0      0        178.0       183
+    golden 177           190.0     18        172.0       177
+    67-extension         168.0      0        168.0       175
+    body-diagonal        142.0      2        140.0       145
+    best of 160 random   149.0      0        149.0       157
+
+`h(S) <= 47.5` — **PROVED, not measured ([P348](#p348)): `h = 0.5 + (1/2) sum E_i + E_S` with
+`E_i <= 10` [P237] and `E_S <= 32` (PROOF_67 Lemma 1a)** — so `sum_h <= 190` and
+**`TOTAL <= 195`**. Beating 183 requires `sum_h - Q4 > 178`.
+
+**AND THE WINDOW SITS ENTIRELY IN THE UNMAPPED MIDDLE.** The record is the `Q4 = 0` endpoint at
+`sum_h = 178`; the golden is the `sum_h = 190` endpoint at `Q4 = 18`. Nothing is known between
+them. The two endpoints give a frontier slope of `18/12 = 1.5`, and:
+
+    if  Q4 >= 1.5 * (sum_h - 178)  along the frontier,  then  sum_h - Q4 <= 178  and
+    **183 is optimal at n = 4.**
+
+**So the answer is: room exists only in the region `178 < sum_h <= 190` with `Q4` sub-linear in
+`sum_h - 178`, and the entire question is the SHAPE OF THAT FRONTIER.** Two points do not
+determine it — [P324] is the standing warning about fitting a law to few points — but they do
+localise the search completely: not new components, not new signature types, but the minimum `Q4`
+attainable at each `sum_h` between 178 and 190.
+
+<a id="p348"></a>
+
+## [VERIFIED] Postscript 348: `h <= 47.5` is PROVED, not measured — so `max(4) = 183` reduces to ONE two-dimensional feasibility question
+
+The user: *if we can prove the new combinations infeasible, we can prove records cannot be beaten.*
+Correct, and checking the chain upgraded one of its links from measured to proved.
+`src/probes/component_space.py`.
+
+**THE UPGRADE.** [P347] called `h(S) <= 47.5` measured — the best of 900 random 3-compounds plus
+the 67. It follows from caps already in hand. Writing the identity for a 3-compound (`L = 2`) and
+a pair (`L = 1`):
+
+    count(S) = 3 + sum c(S) + sum_i E_i + E_S           count(P) = 2 + c_P + E_P
+
+    h(S) = count(S) - (1/2) sum_i count(P_i)
+         = sum c(S) - (1/2) sum c_i + (1/2) sum E_i + E_S
+         = 0.5 + (1/2) sum E_i + E_S                    (trivial holes)
+
+    E_i <= 10   two-body per pair          PROVED [P237]
+    E_S <= 32   triple points per 3-subset PROVED (PROOF_67 Lemma 1a)
+    =>  h(S) <= 0.5 + 15 + 32 = 47.5       PROVED
+
+Checked against the record's four triples, which decompose as `E_S = 32` in ALL FOUR — every
+3-subset at the per-subset triple cap — with `h` varying only through the pairs
+(`41.5, 45.5, 45.5, 45.5`). The 67 attains 47.5 exactly, with all three pairs at `E_i = 10`.
+
+**SO THE CHAIN.** With `TOTAL = sum_S h(S) + 4 + holecorr - Q4` ([P341]) and trivial holes:
+
+    h(S) <= 47.5  (PROVED)   =>   sum_h <= 190   =>   TOTAL <= 195 - Q4
+
+    and therefore:   prove  sum_h - Q4 <= 178   =>   max(4) = 183.
+
+**`max(4) = 183` is now ONE inequality in TWO measured quantities.** That is the reduction the
+user's statement names, and it holds. Four caveats, all of which must be discharged and none of
+which is hidden:
+
+1. **Holes.** Every step above assumes `c = 1` at every level, of every subset and of the whole.
+   The hole term enters both the `h` bound and `holecorr`. This is [OQ 30]'s hypothesis; with
+   `holes <= 1` the constants shift by bounded amounts and the argument survives, but it must be
+   REDONE rather than waved.
+2. **Which `Q4`.** The `TOTAL` identity uses ALL n-fold vertices; [P343]/[P346]'s budget law uses
+   the GENERIC `(1,1,1,1)` ones. Conflating them is precisely the error [P346] corrected in
+   [P343]'s prose, and the frontier statement must name which.
+3. **n = 4 only.** At `n >= 5` the records themselves carry `Q4 = 12` ([P315]), so the `Q4 = 0`
+   endpoint does not exist there and the frontier must be re-derived per level.
+4. **"Infeasible" must mean for ALL configurations.** [P342] is the warning: the configuration
+   that MAXIMISES `sum_h` — the golden 177, at the extreme `sum_h = 190` — was found by
+   derivation from a symmetry argument, not by search, and a frontier mapped by sampling would
+   have missed it. The two endpoints of this frontier were both obtained by construction.
+
+**WHAT REMAINS IS GENUINELY SMALL.** Not a search over `SO(3)^3`, not a new component type — the
+space of those is closed and every member is cheap ([P347]) — but the minimum `Q4` attainable at
+each `sum_h` in `(178, 190]`. Two points of that curve are known exactly, `(178, 0)` and
+`(190, 18)`, and their slope `1.5` already exceeds the `1` that would suffice.
+
+<a id="p349"></a>
+
+## [VERIFIED] Postscript 349: the constructive attempt on the window — the obvious search target is the WRONG one, and both directions out of the record are downhill
+
+The user: *if we cannot prove new combinations infeasible, we can try to attain them.* Correct,
+and the framework makes the target exact. Attempting it found that the natural search target does
+not mean what it appears to. `src/probes/attain_window.py`, `data/attain_window.json`.
+
+**THE TARGET, in searchable form.** Since each pair lies in two triples,
+`sum_h = 2 + two-body + B` with `B := T3 + 4*Q4_generic`, so
+
+    TOTAL = 7 + two-body + B - Q4        beating 183  <=>  two-body + B - Q4 > 176
+
+    n = 4 RECORD    two-body 48   B 128   Q4  0   ->  176    TOTAL 183
+    golden 177      two-body 60   B 128   Q4 18   ->  170    TOTAL 177
+    K4 ([P334])     -- the same compound as the golden; B is 128, not 74 ([P370]) --
+
+So the window needs `two-body > 48` while `B` stays at 128.
+
+**AND THE OBVIOUS SEARCH TARGET IS WRONG.** A pair counts 13 iff its two-body is 10, so "get more
+pairs to 13" looks like the way in. **Isolated pair quality does not transfer to the compound:**
+
+    configuration     isolated pair counts        compound two-body   TOTAL
+    n = 4 RECORD      9, 9, 13, 9, 13, 13                48            183
+    body-diagonal     13, 13, 13, 13, 13, 13             36            145
+    face-diagonal     13, 13, 13, 9, 9, 9                42            145
+
+**The body-diagonal family has ALL SIX pairs at the proved 2-cube maximum and counts 145.** Its
+four cubes share ONE corner, so the six `(3,3)` vertices merge into a single `(3,3,3,3)` and
+`SC2` collapses to 0 — the merge mechanism of [P335] and [P343], here destroying exactly the
+quantity the search was aiming at. **A configuration can be pairwise optimal and compoundwise
+mediocre**, and the record is the reverse: three of its six pairs are not maximisers at all.
+
+**RANDOM SEARCH CANNOT REACH THE WINDOW ANYWAY.** Over 1 200 draws the number of pairs counting
+13 distributes `0: 894, 1: 287, 2: 18, 3: 1` — **four or more: zero**. The record's three is
+already the tail of the distribution. This is [METHODS 1] again: the window has to be SOLVED
+into, not sampled into, and both of its known endpoints were reached by construction ([P342]'s
+golden by a symmetry derivation, [P334]'s K4 by an axis-labelling argument).
+
+**BOTH AVAILABLE DIRECTIONS OUT OF THE RECORD ARE DOWNHILL, measured:**
+
+    corner route   +1 corner-sharing pair:  two-body +4,  B -18       NET -14
+                   (record SC2 = 6, B = 128  ->  golden SC2 = 12, B = 128 -- [P370]:
+                    B does NOT collapse; the 74 was T3 + Q4generic)
+    edge route     face-diagonal: EE 36 -> 42, B 128 -> 84            NET -38
+
+`two-body` rises only through `SC2` or `EE`, and each costs more in `B` than it returns.
+
+**STATUS, stated exactly.** This is a LOCAL optimality result, not a proof: the record is a
+maximum along the two directions that have been measured, which is evidence for [OQ 39]'s
+infeasibility and not a demonstration of it. The constructive programme is therefore well posed
+and still open — **construct a configuration with `SC2 = 8` or `10` on DISTINCT corners while
+holding `B = 128`**. That is an algebraic target of the same kind [P334] already solved once, and
+it is the cheapest thing that would either beat 183 or close the window by exhaustion.
+
+<a id="p350"></a>
+
+## [VERIFIED] Postscript 350: the PAW is constructed — `SC2 = 8` on distinct corners with `B = 128` EXISTS, and still loses by 8
+
+[P349]'s one concrete move, taken. `src/probes/paw_construction.py`, `data/paw_construction.json`.
+
+**THE CONSTRUCTION, solved not searched.** Corner-sharing graph = the PAW, edges
+`(3,0), (3,1), (3,2), (0,1)`. Two cubes share a corner iff they share a body-diagonal DIRECTION,
+and the axes at each cube must extend to a regular tetrahedron. Cube 3 supplies three of its own
+diagonals `a, b, c`; cubes 0 and 1 additionally share an axis `x` with
+`|<x,a>| = |<x,b>| = 1/3` — **the same system [P334] solved**, so `x = (p, q, 0)` with
+`p, q = (sqrt3 +- sqrt15)/6`. Cube 2 is constrained only by `c`, leaving a free parameter
+`Rot((1,-1,1), psi)`.
+
+Two diagonals determine the rest of a tetrahedron via `w = (sqrt3/2)(u1 x u2)`, and
+`|u1 x u2|^2 = 8/9` makes `|w|^2 = 2/3` exactly — so the whole configuration stays in
+`Q(sqrt3, sqrt5)`, and every decision below is exact.
+
+**THE TARGET IS MET.** At `psi = (2:1)` and `(3:4)`:
+
+    configuration    EE  SC2    T3  Q4   two-body     B   objective
+    n = 4 RECORD     36    6   128   0         48   128       176
+    PAW (new)        24    8   128   0         40   128       168
+    K4 ([P334])      -- DOES NOT EXIST: it IS the golden, T3 74 was T3 + Q4gen ([P370]) --
+
+`SC2 = 8` on four DISTINCT corners, `B = 128` at the cap, `Q4 = 0`. Exactly what [P349] asked
+for — **and the objective is 168, eight below the record.**
+
+**BECAUSE THE COST LANDS SOMEWHERE [P349] DID NOT PREDICT.** It forecast that a fourth
+corner-sharing would cost `B`, extrapolating from the record-to-K4 endpoints. It does not:
+
+    4th corner-sharing:  SC2 +2 (two-body +4),  EE -12,  B unchanged     NET -8
+    5th and 6th (K4):    EE recovers to 36,     B does NOT collapse ([P370]: it stays 128)
+
+**`B` is untouched until the fifth sharing; the first step away from the record is paid in
+EDGE-EDGE contacts.** The record's 36 fall to 24 — the four cubes' edges cannot keep meeting once
+a fourth corner is pinned. This is a NEW exactly-known point on [OQ 39]'s frontier, and the
+predicted exchange rate of `-14` per sharing was wrong in both its size and its term.
+
+**WHAT THIS CLOSES, AND WHAT IT DOES NOT.** The `SC2 = 8` direction is closed: it exists, it is
+exact, and it scores 168. `SC2 = 10` remains unbuilt. More importantly the frontier is no longer
+two points with a line between them — it is three, and they are not collinear, so the slope
+argument of [P347] cannot be run on them as though it were.
+
+**AND THE CONTAINMENT TRAP CAUGHT ME A FOURTH TIME.** The first census returned `EE = 0` and
+`SC2 = 0` **for a construction that FORCES four corner-sharings** — a contradiction visible on
+sight. The facet test discarded any point lying outside some cube, and a shared corner is at
+distance `sqrt3`, outside the others by construction. Fourth occurrence in this session
+([FAILURE_MODES 38]); the tell each time has been a census returning zero for something the
+construction guarantees.
+
+<a id="p351"></a>
+
+## [VERIFIED] Postscript 351: `SC2 = 10` does NOT exist — imposing five corner-sharings FORCES the sixth, and the result is the golden 177 re-derived
+
+[P350] left `SC2 = 10` unbuilt. It cannot be built. `src/probes/sc2_ladder.py`.
+
+**THE SYSTEM.** Five sharings on four cubes is K4 minus an edge — here minus `(0,1)`, degrees
+`(2,2,3,3)`. Cube 3 supplies `a, b, c`; the unknowns are `y = l20` and `z = l21` with
+
+    |<a,y>| = |<c,y>| = 1/3 ,   |<b,z>| = |<c,z>| = 1/3 ,   |<y,z>| = 1/3
+
+Two of the four sign branches survive, e.g. `y = (p,0,q)`, `z = (0,q,-p)`, with the same
+`p, q = (sqrt3 +- sqrt15)/6` that [P334] and [P350] both produced — **the third independent
+appearance of those two numbers.**
+
+**AND THE SIXTH SHARING IS FORCED.** Building the cubes from those axes and reading the sharing
+structure back off their DIAGONALS:
+
+    imposed    (0,2), (0,3), (1,2), (1,3), (2,3)                      five
+    realised   (0,1), (0,2), (0,3), (1,2), (1,3), (2,3)               SIX
+
+`(0,1)` is never imposed and appears regardless. **So the corner-sharing graph jumps from four
+to six; `SC2 = 10` is empty.**
+
+**AND THE COMPOUND IS THE GOLDEN 177, RE-DERIVED.** Its census here is
+`{(1,1,1): 56, (1,1,1,1): 18, (2,2): 36, (3,3): 12}` — identical to [P342]'s, reached from a
+five-edge graph instead of from the `A4` symmetry argument. **Two independent derivations of the
+same configuration**, which is a control [P342] did not have and could not easily get.
+
+**THE LADDER, now complete and exact at every attainable rung:**
+
+    SC2   configuration          EE  SC2    T3   Q4   two-body    B   objective
+      6   n = 4 RECORD           36    6   128    0        48   128      176
+      8   PAW ([P350])           24    8   128    0        40   128      168
+     10   -- INFEASIBLE --
+     12   golden 177 ([P342])    36   12    56   18        60   128      170
+     12   K4 ([P334])            -- DOES NOT EXIST: it IS the golden ([P370]) --
+
+**`176 -> 168 -> (none) -> 170`: the objective is NOT MONOTONE in `SC2`.** The golden at six
+sharings beats the paw at four. So "directions out of the record" was too simple a picture —
+this is not a hill with a single slope, it is four isolated rungs, two of which are occupied by
+non-congruent compounds with the same `SC2` and objectives 36 apart.
+
+**The record still leads at 176.** *(Corrected 2026-09-18 by [P353](#p353): the ladder was NOT
+exhausted — `SC2 = 8` has TWO graph types and only the paw had been built. The 4-cycle is the
+other, it gives `two-body = 52`, the first value above the record's 48, and it pays `Q4 = 18`.
+The record still leads.)*
+
+<a id="p352"></a>
+
+## [VERIFIED] Postscript 352: the EE direction finds nothing above 36 at `B = 128` — but it is closed by SAMPLING, not by construction
+
+[P351]'s remaining move. `src/probes/ee_direction.py`, `data/ee_direction.json`.
+
+**THREE PROBES, none of which beats the record.**
+
+    A  four-tuples drawn from the 72 quaternions with per-pair EE = 10 ([P330])
+       900 tested        compound EE reaches 36        best objective 160
+    B  perturbations of the record, where B = 128 already holds
+       747 at B = 128    EE never exceeds 36           best objective 176
+    C  independent draws
+       1 500 tested      max EE ANYWHERE is 28         best objective at B = 128 is 154
+
+**`EE = 36` is the largest value seen at `B = 128`.** The face-diagonal family reaches `EE = 42`
+([P330]) but only with `B = 84` — so the one configuration known to exceed 36 pays for it in the
+triple budget, which is the same trade every other direction has shown.
+
+**AND 36 RECURS ACROSS UNRELATED CONSTRUCTIONS**: the n = 4 record, [P334]'s K4, [P342]'s golden
+177, and probe A's best — four configurations with nothing else in common, all at exactly
+`EE = 36 = 6*C(4,2)`. That is [P329]'s refuted `EE <= 6*C(n,2)` reappearing as a soft ceiling
+rather than a hard one: it is exceeded (42), but apparently never while `B` is full.
+
+**THE ASYMMETRY, and it is the reason this entry is not a closure.** [P351] closed the corner
+direction by CONSTRUCTION — every attainable `SC2` built exactly, `SC2 = 10` shown empty by
+solving its axis system. **This direction is closed only by sampling**, and [P342] is the
+standing warning: the configuration that maximises `sum_h` was reached by a symmetry derivation
+and no amount of sampling would have found it. Probe C is the demonstration in miniature — over
+1 500 independent draws the maximum `EE` anywhere is **28**, so random search never even reaches
+the record's 36, let alone exceeds it. **A direction that sampling cannot reach is a direction
+sampling cannot close.**
+
+**WHAT WOULD CLOSE IT.** The corner case became tractable because "two cubes share a corner" is
+an equation between DISCRETE objects — a corner is one of eight points, so sharing is an
+axis-labelling problem with finitely many branches. An edge-edge contact has no such rigidity:
+the contact point ranges over a continuum, so there is no finite labelling to enumerate. Closing
+this direction needs a different handle — most plausibly a bound on `EE` in terms of `B`, of
+which two points are known: `(EE, B) = (36, 128)` and `(42, 84)`.
+
+**STATUS OF [OQ 39] AFTER BOTH DIRECTIONS.** The record's objective 176 was not exceeded in any
+of the roughly 3 700 configurations tested here, nor at any rung of the constructed corner
+ladder. That is strong evidence and not a proof, and the two halves rest on different footings —
+one exhaustive by construction, one sampled.
+
+<a id="p353"></a>
+
+## [VERIFIED] Postscript 353: the 4-CYCLE built — `two-body = 52` exists at `B = 128`, the first above the record, and it costs `Q4 = 18`
+
+[P350] built the paw and called the `SC2 = 8` rung done. There are **two** connected 4-edge graphs
+on four vertices, and the 4-cycle was never built. `src/probes/c4_sharing.py`.
+
+**THE CONSTRUCTION, rational throughout.** `cube0 = I` shares diagonal `a` with
+`cube1 = Rot(a,alpha)` and `b` with `cube3 = Rot(b,beta)` — a rotation about a diagonal keeps that
+diagonal — and `cube2` completes one diagonal of `cube1` with one of `cube3`. Using
+`e`-representatives (`|e|^2 = 3`, `<e_i,e_j> = -1`, normals `(e_i+e_j)/2`, completion
+`(-(u+v) +- u x v)/2`) every coordinate stays in `Q`.
+
+**608 non-degenerate C4 configurations, all with `SC2 = 8`.** And a new point:
+
+    configuration          two-body   Q4    B   objective
+    paw ([P350])                 40    0  128         168
+    n = 4 RECORD                 48    0  128         176
+    C4, second best              48   18  128         158
+    C4, BEST                     52   18  128         162
+    golden 177 ([P342])          60   18  128         170
+
+**`two-body = 52` is the first value above the record's 48 at `B = 128`** — so the quantity the
+record was thought to maximise is NOT maximal. It simply costs `Q4 = 18` to exceed it.
+
+**AND `Q4` IS ONLY EVER 0 OR 18.** Across every configuration constructed exactly in this thread —
+paw, record, both C4 branches, golden, K4 — `Q4` at `B = 128` takes no intermediate value. That
+sharpens [OQ 39] to a single implication:
+
+    CONJECTURE:  at B = 128,  two-body > 48  =>  Q4 >= 18
+    then  objective <= max(48 + 128 - 0,  60 + 128 - 18) = max(176, 170) = 176 = the RECORD
+
+**TWO TRAPS, both already catalogued, both caught by the same tell.**
+
+1. `q = (1,1,1,1)` is a 120-degree rotation about a body diagonal — **a cube symmetry**, so
+   `cube1` IS `cube0`. Unfiltered, the first run produced 6 152 "C4 configurations" of which
+   **none** had `SC2 = 8`, and reported a best objective of 162 from configurations that were not
+   C4 at all.
+2. Face normals are the COLUMNS of `mat(q)`. `apply(M,e) = M.e` correctly ROTATES a diagonal, but
+   the normal matrix needs the TRANSPOSE. Untransposed, one of the four shared corners came back
+   with signature `(3,)` instead of `(3,3)` — **the fifth occurrence of rows-versus-columns in
+   this session** ([FAILURE_MODES 38]).
+
+**The tell was identical both times, and it is the one [FAILURE_MODES 44] names: a count the
+construction GUARANTEES coming back wrong.** `SC2 = 8` was built in by solving; 6 was impossible,
+not surprising. Reading it as a result rather than as a contradiction cost a run each time.
+
+<a id="p354"></a>
+
+## [VERIFIED] Postscript 354: why every attempt to exceed the record failed — a chain with one measured link and one unexplained dichotomy
+
+Asked directly, and the project's own standard ([A16]) is that a refutation without a mechanism
+is an open question wearing a closed question's label. So: which failures are EXPLAINED, and
+which are only measured?
+
+**THE CHAIN, and it closes at the level of the sharing graph.**
+
+    1.  Beating the record needs  two-body - Q4 > 48   (since objective = two-body + B - Q4
+        and B <= 128).
+    2.  EE <= 36 at B = 128 ([P352], measured), and two-body = EE + 2*SC2, so two-body > 48
+        forces SC2 >= 8 -- at least FOUR corner-sharing pairs.
+        *(REFUTED 2026-09-20 by [P373](#p373): `EE <= 36` at `B = 128` is FALSE -- `EE = 38`
+        occurs. Step 2 has no premise left, so the chain below it does not run.)*
+        *(Scope note added 2026-09-18 by [P367](#p367): step 2 conditions on `B = 128`, which
+        nothing proved forces. The proved floor is `B >= 117`, so the columns `B = 118..126`
+        are live and carry NO measured EE ceiling. Step 1 is unaffected -- `B <= 128` makes
+        `T - Q4 > 48` necessary at every B -- but the chain's coverage is one column of a
+        twelve-column grid.)*
+    3.  The sharing graphs with >= 4 edges are: the paw and the 4-cycle (4 edges), nothing at
+        5 edges ([P351]: five sharings FORCE the sixth), and K4 (6 edges).
+    4.  Of those, **only the PAW is not vertex-transitive**:
+
+            sharing graph          edges   vertex-transitive   SC2   Q4 observed
+            K1,3 star (RECORD)         3         no             6        0
+            paw ([P350])               4         no             8        0
+            4-cycle ([P353])           4        YES             8       18
+            K4 ([P334], golden)        6        YES            12    0 or 18
+
+    5.  And [P344] gives the mechanism: **transitivity on the cubes is what forces four-fold
+        concurrence** — a group fixing one cube cannot tie all four cubes' planes together at a
+        common point; a transitive one has fixed loci where they must meet.
+    6.  So every route to `two-body > 48` passes through a vertex-transitive sharing graph, and
+        those are the ones that carry quadruple points. **The one non-transitive route — the paw —
+        reaches only `two-body = 40`.**
+        *(Corrected 2026-09-18 by [P356](#p356): the GRAPH classification above is right, but
+        "vertex-transitivity is precisely what brings the quadruple points" is not. Geometric
+        transitivity is sufficient and NOT necessary — [P353]'s 4-cycle has `Q4 = 18` with three
+        distinct pair-classes — and no symmetry statistic tried predicts `Q4`. The step holds as
+        an enumeration of available structures; its stated REASON does not.)*
+
+**So the failures are not independent accidents.** They are one obstruction seen four times: the
+record's star and the paw keep `Q4 = 0` and cannot raise two-body; the 4-cycle and K4 raise it and
+pay `Q4 = 18`.
+
+**WHAT IS GENUINELY DERIVED**, not just observed:
+
+    * one region lost per merge -- a quadruple point is four triple points collided, carrying
+      excess 6 where they carried 8 ([P343], [P346])
+    * SC2 = 10 is empty -- solving the axis system, five sharings force the sixth ([P351])
+    * transitivity forces four-fold concurrence, with the golden's 18 resolved into A4 orbits:
+      6 on the three 2-fold axes (12/2) and 12 free (12/1) ([P344])
+
+**WHAT IS ONLY MEASURED, and these are the gaps:**
+
+    * **why the paw's `EE` is pinned at 24** -- the single non-transitive route with SC2 = 8,
+      and it fails on EE rather than on Q4. No mechanism; the value simply does not move across
+      the family's free parameter.
+    * **why `EE <= 36` at `B = 128`** -- sampled over ~3 700 configurations ([P352]), never
+      derived, and random draws do not even reach 36.
+    * **why `Q4` is only ever 0 or 18** -- no intermediate value in ANY exactly-constructed
+      configuration, and no reason known.
+    * **why [P334]'s K4 has `Q4 = 0` while the golden K4 has `Q4 = 18`** -- the same sharing
+      graph, both vertex-transitive, different outcomes. So transitivity is NECESSARY for `Q4 > 0`
+      in all data here and demonstrably NOT SUFFICIENT, and what separates the two is unknown.
+
+**The honest summary: the failures are understood at the level of WHICH STRUCTURES ARE AVAILABLE,
+and not at the level of what each one costs.** Step 4 of the chain is a complete enumeration and
+step 5 is a proved mechanism; steps 2 and 6 rest on measured values that have never moved.
+
+<a id="p355"></a>
+
+## [VERIFIED] Postscript 355: the two K4s differ by GEOMETRIC transitivity, not by their sharing graph
+
+[P354] named this the most tractable gap: [P334]'s K4 has `Q4 = 0` and the golden K4 has
+`Q4 = 18`, with the same sharing graph, both vertex-transitive as graphs. Settled.
+
+**THE DISCRIMINANT IS THE PAIRWISE RELATIVE-ROTATION TRACE**, a congruence invariant. Computed
+exactly:
+
+    golden     all six traces = 0        trace 0 means 1 + 2cos(theta) = 0, so theta = 120 deg
+                                         -- every pair related by the SAME rotation.  UNIFORM.
+    P334's K4  -3/2, 0, 0, (1-sqrt5)/4, 3/2, 3/2      six distinct values.  NOT uniform.
+
+**So the golden realises its vertex-transitivity GEOMETRICALLY and [P334]'s K4 does not.** Both
+have `SC2 = 12` and six shared axes; both have 10 distinct axes; even the multiset of pairwise
+inner products among the six shared axes agrees up to sign — a sign that is a labelling artifact,
+since an axis is a line. **The shared-axis data does not separate them; the relative rotations
+do.**
+
+This is exactly [P344]'s mechanism at the right level: a group transitive on the cubes has fixed
+loci where all four cubes' planes must meet, and only the golden actually carries such a group.
+**Graph vertex-transitivity is a property of the combinatorics; what forces `Q4` is the
+configuration REALISING it.**
+
+**WHAT THIS DOES NOT SETTLE, and one check of mine was void.** Whether geometric transitivity is
+NECESSARY for `Q4 > 0` is untested. I ran a comparison across the record, a body-diagonal family
+and [P353]'s 4-cycle intending to test it, and **the 4-cycle row was meaningless**: its cube 2 is
+built as a tetrahedron completion, not from a quaternion, and I substituted `(1,1,1,1)` as a
+placeholder. That row tested nothing and is withdrawn. The other rows show only that the record
+and the body-diagonal family are non-uniform, which is consistent with either reading.
+
+**So the state is:** geometric transitivity is SUFFICIENT for `Q4 > 0` (the golden), and its
+absence is compatible with `Q4 = 0` ([P334]'s K4). Whether a non-transitive configuration can
+carry `Q4 > 0` -- and hence whether [P353]'s 4-cycle has a second, independent source of
+quadruple points -- needs the 4-cycle's own traces, computed from its actual cube 2.
+
+<a id="p356"></a>
+
+## [VERIFIED] Postscript 356: geometric transitivity is SUFFICIENT for `Q4 > 0` and NOT necessary — and no symmetry statistic tried predicts it
+
+Completing [P355]'s open half with the 4-cycle's own geometry, computed from its actual cube 2
+rather than the placeholder that voided the first attempt.
+
+**THE INVARIANT.** A cube is fixed only up to signed permutation of its normals, so a raw trace is
+not well defined for a pair. The multiset of the nine `|<n_i^a, n_j^b>|` IS — it is unchanged by
+signed permutation of either cube's normals, hence a genuine congruence invariant of an unordered
+pair. Two configurations are "geometrically uniform" when all six pairs share one invariant.
+
+**THE 4-CYCLE IS NOT UNIFORM AND CARRIES `Q4 = 18` ANYWAY.** Rebuilt exactly (`SC2 = 8`,
+`Q4 = 18`, `EE = 36`), its six pairs fall into **3 distinct classes**. So:
+
+    geometric transitivity  =>  Q4 > 0        SUFFICIENT  (the golden, [P355])
+    Q4 > 0  =>  geometric transitivity        FALSE       (the 4-cycle)
+
+**There is a second source of quadruple points, independent of transitivity.**
+
+**AND NO SYMMETRY STATISTIC TRIED PREDICTS `Q4`.** Counting the distinct pair-classes — fewer
+classes meaning more symmetry:
+
+    configuration          pair classes   Q4
+    golden 177                   1        18
+    n = 4 RECORD                 2         0
+    4-cycle ([P353])             3        18
+    face-diagonal family         5         2
+    body-diagonal family         6         2
+    [P334]'s K4                  6         0
+
+**The relation is not monotone and not a threshold.** The record is among the MOST symmetric by
+this measure — two classes, second only to the golden — and carries no quadruple points at all,
+while the 4-cycle at three classes carries eighteen. A configuration can be highly symmetric and
+`Q4`-free.
+
+**WHAT THIS LEAVES.** [P344]'s mechanism stands where it was derived: a group transitive on the
+cubes has fixed loci where all four cubes' planes must meet, and the golden's 18 resolve exactly
+into `A4` orbits (6 on the 2-fold axes, 12 free). But it explains ONE configuration, not the
+phenomenon. **`Q4` is not a function of the symmetry, and what the second source is remains
+open** — it is now the sharpest unexplained item in the [OQ 39] chain, since step 6 of [P354]
+("every route to two-body > 48 is vertex-transitive, and that brings Q4") is correct about the
+graphs and wrong about the reason.
+
+<a id="p357"></a>
+
+## [VERIFIED] Postscript 357: the quadruple points are FORCED, not bought — a degrees-of-freedom argument, and what still does not decide them
+
+Chasing [P356]'s second source. The answer is structural rather than symmetric, and it is a
+counting argument.
+
+**WHERE THE 4-CYCLE'S 18 SIT.** Located exactly: all of signature `(1,1,1,1)`, **none on a shared
+axis**, 12 lying in exactly one plane spanned by two shared axes, 2 in two such planes, 4 in
+none. Their `|p|^2` takes six values with multiplicities `4, 4, 4, 2, 2, 2` — nine antipodal
+pairs at six different radii. **Nothing like the golden's**, whose 18 resolved cleanly into `A4`
+orbits on the 2-fold axes. So they are not placed by a symmetry.
+
+**AND THEY CANNOT HAVE BEEN PAID FOR.**
+
+    SO(3)^4 modulo a global rotation                     9
+    four corner-sharings x 2 conditions each            -8
+                                                       ---
+    remaining                                            1     (and the family IS 1-parameter)
+
+A quadruple point is one condition. **With one degree of freedom left, at most ONE of the
+eighteen could have been imposed; at least seventeen are consequences of the corner-sharings.**
+They are forced, not chosen — which is why no search would find a configuration with `SC2 = 8` on
+the 4-cycle and fewer of them.
+
+**THIS IS THE SECOND SOURCE [P356] WAS LOOKING FOR, and it is not symmetry.** [P344]'s mechanism
+places quadruple points at a symmetry's fixed loci; this one produces them as algebraic
+consequences of corner-sharing constraints, at no fixed locus and no uniform radius.
+
+**WHAT STILL DOES NOT DECIDE THEM.** Neither the condition count nor the graph topology:
+
+    configuration     sharings   conditions   DOF left   Q4
+    paw                   4          8            1       0
+    4-cycle               4          8            1      18
+    [P334]'s K4           6         12           -3*      0
+    golden K4             6         12           -3*       18
+
+    (* negative, so K4's twelve conditions are dependent -- consistent with [P334] having
+       found solutions at all, and with two non-congruent families existing there)
+
+**The paw and the 4-cycle are indistinguishable by this accounting** — same number of sharings,
+same conditions, same one remaining parameter — and one forces eighteen quadruple points while
+the other forces none. So the deciding structure is finer than the sharing graph and finer than
+the dimension count, and it remains unidentified. **What IS now settled is the character of the
+phenomenon: quadruple points in these families are consequences, not purchases**, which is why
+they cannot be optimised away and why every route to `two-body > 48` has carried them.
+
+<a id="p358"></a>
+
+## [VERIFIED] Postscript 358: the discriminant found — a cube with ONE shared axis can rotate away from a quadruple point; a cube pinned by two cannot
+
+[P357] left the sharpest gap: the paw and the 4-cycle have the same four sharings, the same
+eight conditions and the same single remaining parameter, yet one forces 18 quadruple points and
+the other none. The difference is **where that parameter lives.**
+
+**THE COUNT, done per cube instead of in aggregate.**
+
+    PAW   axes l30, l31, l32, l01 = 8 DOF; conditions 3 + 1 + 1 + 0 = 5
+          8 - 5 - 3 (global rotation) = 0    the AXIS configuration is RIGID
+          the one free parameter is CUBE 2 rotating about its single shared axis
+
+    C4    axes l01, l12, l23, l30 = 8 DOF; conditions 1 + 1 + 1 + 1 = 4
+          8 - 4 - 3 = 1                      the free parameter IS the axis geometry
+          every cube is pinned by TWO axes, so no cube can rotate
+
+**A cube with ONE shared axis keeps a free rotation about it; a cube with two or more is rigid.**
+And a 4-fold coincidence is codimension 1 in a cube rotation — so a free cube can move off it.
+
+**THE PREDICTION, and it is confirmed on both sides:**
+
+    PAW   Q4 over 36 values of the free rotation:  {0: 33, 2: 2, 32: 1}
+          zero GENERICALLY, nonzero only at isolated parameter values -- codimension 1
+    C4    Q4 over all 608 members of the family:   18 throughout
+          forced; the freedom is in the axes and the coincidences ride along with them
+
+**AND IT EXPLAINS EVERY CONFIGURATION IN THE LADDER:**
+
+    configuration        per-cube shared axes   free parameters          Q4
+    K1,3 star (RECORD)   3 / 1 / 1 / 1          THREE cube rotations     0 generically
+    paw                  3 / 2 / 2 / 1          ONE cube rotation        0 generically
+    4-cycle              2 / 2 / 2 / 2          one AXIS parameter       18 always
+    K4 (both families)   3 / 3 / 3 / 3          NONE -- isolated points  0 or 18 by branch
+
+**The record is the extreme case: three of its four cubes carry only one shared axis each, so it
+has THREE free rotations** — the most avoidance available at `SC2 = 6` — which is why it holds
+`Q4 = 0` while reaching `two-body = 48`. And K4, being over-determined (12 conditions on 9
+degrees of freedom), has no parameter at all: its solutions are isolated, genericity says
+nothing, and both `Q4 = 0` ([P334]) and `Q4 = 18` (the golden) occur as separate branches.
+
+**So the chain of [P354] now rests on a mechanism rather than on a symmetry claim.** Raising
+`two-body` past 48 requires `SC2 >= 8`, which requires four or more sharings, which pins every
+cube with at least two axes in every graph except the paw — and the paw's free cube buys `Q4 = 0`
+at the cost of `EE = 24`, leaving `two-body = 40`. **Freedom to avoid quadruple points and
+freedom to raise two-body are the same resource, spent on one or the other.**
+
+<a id="p359"></a>
+
+## [FAILED DERIVATION] Postscript 359: the per-3-subset route gives `EE <= 40` at `B = 128`, not the observed 36
+
+Attacking the one measured link in [P354]'s chain — `EE <= 36` at `B = 128` ([P352], sampled over
+~3 700 configurations) — by the method that worked for the coupling ([P338]) and the budget
+([P346]): push it down to 3-subsets.
+
+**THE ROUTE.** `B = T3 + 4*Q4gen = sum_S E_S` and `E_S <= 32` per 3-subset, so
+
+    B = 128  =>  E_S = 32 for ALL FOUR 3-subsets
+
+and since each pair lies in exactly two subsets, a bound `sum_{pairs in S} EE <= m` at `E_S = 32`
+gives `2 * EE_total <= 4m`, i.e. `EE_total <= 2m`.
+
+**THE HOPE, and it is false.** The record's four subsets all have `E_S = 32` with EE per pair
+`6, 6, 6` — `sum EE = 18` — and the golden's are 67s whose pairs are all of type `(EE, SC2) =
+(6, 2)`, again 18. If 18 were the maximum, `EE_total <= 36` would follow exactly.
+
+**It is not.** Over 1 400 three-cube compounds the maximum `sum EE` at `E_S = 32` is **20**,
+attained by `1,0,0,0; -2,-8,3,-3; 0,4,-6,7` with pairs `[10, 6, 4]`. So the route yields
+
+    EE <= 40  at  B = 128
+
+**four above the observed maximum of 36, and the gap is not closed.**
+
+*(REFUTED 2026-09-19 by [P369](#p369): the maximum at `E_S = 32` is **26**, not 20 — the 1 400
+draws never placed two face-diagonal members against each other. Enumerating the `EE = 10`
+family settles it at 26, so this route gives `EE <= 52`, and the gap is 16 rather than 4.)*
+
+**A SUBSIDIARY HOPE ALSO DIED.** Since a pair has `two-body = EE + 2*SC2 <= 10`, its type is
+`(10,0)` or `(6,2)` or lower, and `EE = 6` per pair would give exactly 36. So: can a 3-subset hold
+`E_S = 32` *and* a pair of type `EE = 10`? **Yes** — 14 such cases in 700 draws, e.g.
+`1,0,0,0; 5,8,5,0; 4,5,-9,-9` with pairs `[(10,0), (4,0), (0,0)]`. The high-EE pair is real; what
+happens is that its NEIGHBOURS collapse, which is why the SUM stays low even though no individual
+pair is capped at 6.
+
+**WHAT IS LEFT.** The per-subset method — which carried [P338], [P346] and [P348] — does not
+reach this one. It bounds `EE` by 40 where the truth appears to be 36, and the residual 4 is
+exactly the kind of gap that a sum-over-subsets argument cannot see, because it discards which
+pairs sit in which subsets. **`EE <= 36` at `B = 128` remains measured and underived**, and it is
+the single link between [P354]'s chain and a proof of `max(4) = 183`.
+
+<a id="p360"></a>
+
+## [VERIFIED] Postscript 360: the 36-vs-40 gap is GEOMETRIC, not combinatorial — and a consolidation pass on this session's own output
+
+Finishing [P359]. Its per-subset route gave `EE <= 40` at `B = 128` where the observed maximum is
+36. **The residual 4 is not recoverable by combinatorics.**
+
+**THE COMBINATORIAL OPTIMUM IS 40.** Maximising the six pair-EE values subject to every 3-subset
+summing to at most 20, with values drawn from the observed per-pair set `{0, 4, 6, 8, 10}`:
+
+    MAXIMUM total = 40,  attained by  (0,1) = 0, (2,3) = 0, and the four cross pairs at 10
+    assignments with all four triples exactly 20: 15
+
+So no counting argument over the subset lattice can improve 40 — **the gap is geometric.**
+
+*(REFUTED 2026-09-19 by [P369](#p369): the per-triple cap is 26, not 20, so the combinatorial
+optimum is **52**. And the geometry passed 40 as well — `EE_total = 44` is realised at
+`B = 120`. Both halves of this entry's conclusion fall; the arithmetic below it is correct for
+a cap of 20 and that cap is not the right one.)*
+
+**AND THE 40-PATTERN WAS NOT FOUND.** Searching for a 4-compound realising exactly that pattern —
+`q2, q3` in the per-pair `EE = 10` family, `q1^-1 q2` and `q1^-1 q3` also in it, with `EE(q1) = 0`
+and `EE(q2^-1 q3) = 0` — returned **zero** configurations. *Scope: the window built `q1` as
+`q2 * conj(s)` over 250 members of the family and capped quaternion height at 60. This is a
+narrow, structured search, so zero found is weak evidence and NOT a proof ([METHODS 1]).*
+
+**So the state of the last open link is exact:** `EE <= 40` is derivable at `B = 128`; `EE <= 36`
+is what occurs; the difference is a geometric obstruction to one specific pair-EE pattern, and
+neither the subset-sum method nor a targeted search settles it.
+
+**CONSOLIDATION, done because this session produced 31 postscripts and 50 probes.**
+
+    data files written since 2026-09-16          33     ALL carry a `reproduce` block
+    probes writing at IMPORT scope               14     the hazard of [FAILURE_MODES 42]
+    of those, written THIS session                1     `paw_construction.py` -- now guarded
+
+**One of my own probes had the import-write hazard I had documented two days earlier.** It has a
+`__main__` guard now. The other thirteen predate [FAILURE_MODES 42] and are listed there; they
+are a standing hazard rather than a new one, and the detector is four lines of `ast`.
+
+<a id="p361"></a>
+
+## [VERIFIED] Postscript 361: `EE <= 36` at `B = 128` survives a DIRECTED attack from both sides
+
+The question behind this entry, and where it came from, are recorded in [INTERVENTIONS A19].
+**The unconditional `EE <= 6*C(4,2) = 36` was REFUTED in [P330]** — the face-diagonal family
+reaches 42 — so the conditional version had a live precedent for being false, and [P352]'s
+evidence for it was a sampling maximum from draws that never even reach 36. That is the wrong
+kind of evidence for a ceiling. So: hunt for a counterexample rather than sample and report a
+maximum.
+
+**TWO DIRECTED CLIMBS, neither of which crosses.**
+
+    A.  hold B = 128, maximise EE
+        starts: the record plus random B = 128 states; 60 steps each
+        best EE reached: 36                                       (no improvement on the record)
+
+    B.  hold EE >= 38, maximise B
+        random seeding never reached EE >= 38 at all (best 34), so it was re-seeded from the
+        KNOWN EE = 42 family -- the face-diagonal compounds of [P330]
+        best B reached: 84                                        (target 128)
+
+**And the high-EE family's `B` is rigid.** Over 35 face-diagonal seeds:
+
+    EE 42, B 84   x20        EE 40, B 84   x10        EE 40, B 80   x5
+
+`B` takes only 84 or 80 across the entire family; the climb out of it moved neither.
+
+**So the two regimes do not meet.** `B = 128` pins `EE` at 36; `EE >= 40` pins `B` at 84. Two
+independent directed searches, each attacking from the side the other could not reach.
+
+**STATUS, stated precisely.** This is much stronger than [P352]'s sampling — a climb that tries
+to break the ceiling and fails is evidence of a different kind from a maximum over draws — but it
+is still a search, and searches yield lower bounds ([METHODS 1]). `EE <= 36` at `B = 128` remains
+**measured and underived**, and it is still the single link between [P354]'s chain and a proof of
+`max(4) = 183`. What has changed is that the most obvious reason to doubt it — [P330]'s
+refutation of the unconditional form — has been tested and does not transfer.
+
+*(REFUTED 2026-09-20 by [P373](#p373): `EE = 38` at `B = 128`, at
+`1,0,0,0; 0,2,-3,-2; 0,2,-3,2; -4,-2,-5,-6`. **Both climbs here seeded from the record and the
+face-diagonal family**; the refuter is built from neither, but from the n = 3 `EE + B` extreme.
+The caveat this entry ends on — that a failed climb is still a search — was the operative
+sentence, and the conclusion should have been written around it rather than after it.)*
+
+<a id="p362"></a>
+
+## [VERIFIED] Postscript 362: which of the `max(4)` arguments extend to `n > 4` — and a NEW obstruction that only appears at `n >= 6`
+
+Asked directly. Sorting this session's machinery by whether it survives above four cubes.
+
+**ALREADY GENERAL — the proofs do not mention n.**
+
+  * **[P347]'s component-space theorem.** A signature is all-3s or contains no 3, because
+    `|x|^2 = sum <x,v_k>^2 <= 3` with equality only at a corner. The argument is about ONE cube.
+    Fully general, and it closes the space of vertex types at every n.
+  * **[P338]'s locality lemma and per-3-subset coupling.** `excess(v)` depends only on `supp(v)`,
+    so `max(3) = 67` applies to every 3-subset at every n: `Q(S) <= 62`, hence
+    `T3 + (n-2)*two-body <= 62*C(n,3)` — already stated and verified for general n, and
+    identically the two known caps summed.
+  * **[P326]'s tower bound** `1 + 32*C(n,3) + 10*C(n,2) + 3(n-1)`, and the per-subset caps
+    `max(2) = 13`, `max(3) = 67` that drive everything.
+  * **The corner-sharing degree bound.** A cube has 4 antipodal corner-pairs and two partners
+    cannot use the same one, so the sharing graph has max degree 4.
+
+**EXTENSIBLE WITH RE-DERIVATION — the structure survives, the terms change.**
+
+  * **The inclusion-exclusion identity** ([P340], [P341]). Moebius over the subset lattice is
+    general; at `n >= 5` the 4-subsets contribute too, so the formula gains terms rather than
+    breaking.
+  * **The budget law** ([P343], [P346]), which generalises cleanly and is VERIFIED here:
+
+        sum over 3-subsets of t_S  =  sum_b C(b,3) * N_b(generic)   <=   32*C(n,3)
+
+        n = 4   N = {3:128}                 128 = 128    AT CAP
+        n = 5   N = {3:272, 4:12}           320 = 320    AT CAP
+        n = 6   N = {3:584, 4:12}           632 < 640    8 short
+        n = 7   N = {3:1050, 4:12}         1098 < 1120  22 short
+
+    **The records saturate the triple budget at n = 4 and 5 and stop doing so above** — so
+    either better configurations exist at n >= 6, or a constraint not in this framework binds.
+  * **`h <= 47.5`** ([P348]). Its ingredients (`E_i <= 10`, `E_S <= 32`) are per-subset and
+    general; the `h` packaging assumed each pair lies in exactly TWO triples, which is n = 4.
+
+**NOT FEASIBLY EXTENSIBLE.**
+
+  * **The `SC2` ladder exhaustion** ([P350], [P351], [P353]). It rests on enumerating sharing
+    graphs on four vertices — and each rung needed its OWN algebraic construction, three separate
+    solves. Connected graphs grow 11, 34, 156 on 4, 5, 6 vertices; the method does not scale.
+  * **`EE <= 36` at `B = 128`** ([P361]). Not derived even at n = 4.
+  * **The specific compounds** — the golden `A4`, the paw, the 4-cycle. Each was a bespoke
+    derivation in its own field.
+
+**AND A NEW OBSTRUCTION APPEARS AT `n >= 6`, which n = 4 does not have.** Max degree 4 caps the
+sharing pairs at `2n` against `C(n,2)` available:
+
+    n         4    5    6    7    8
+    C(n,2)    6   10   15   21   28
+    2n        8   10   12   14   16
+    complete  yes yes  NO   NO   NO
+
+**Complete corner-sharing is impossible from n = 6 upward.** *(And at n = 5 it IS attained, by
+the classical compound of five cubes — see [P363](#p363): believed to be `max(5)` at 351 until
+[P16] beat it with 393. So the two sizes where complete sharing exists are exactly the two where
+it has been CONSTRUCTED and shown sub-maximal.)* So the structure that drives `two-body` toward
+its cap is unavailable at exactly the sizes where the records stop saturating the triple
+budget — two independent signals that `n >= 6` is a different regime, and the more
+constrained one. That is the reverse of the usual situation, where larger n is harder to bound.
+
+<a id="p363"></a>
+
+## [CORRECTION] Postscript 363: complete corner-sharing at n = 5 is the COMPOUND OF FIVE CUBES — it was the believed `max(5)`, and [P16] beat it
+
+I asserted that no claim of a complete-corner-sharing maximum existed in the record. **That was
+wrong, and I had grepped three files.** The user named the sources; both hold it.
+
+**THE CONFIGURATION IS UC09, the classical compound of five cubes inscribed in a dodecahedron**
+(`cb/six_cube_search_results.md`: *"five-cube compound (5 cubes of the dodecahedron, UC09): 351
+bounded"*). Verified here from `golden_six.golden_five()`:
+
+    all 10 of C(5,2) = 10 cube-pairs share a corner
+    0 axes lie on three or more cubes
+    each cube uses ALL FOUR of its antipodal corner-pairs, one per partner
+
+Five cubes carry 40 vertices; the dodecahedron has 20, in 10 antipodal pairs — **every vertex
+belongs to exactly two cubes.** This saturates [P362]'s degree bound `2n = 10 = C(5,2)` exactly,
+at the last size where it is attainable.
+
+**AND IT WAS THE BELIEVED `max(5)`, then beaten.** *(More precisely — [P365](#p365): the whole
+belief was that `max(n <= 5)` is solved by UC09's subsets. It is RIGHT at n = 2 and n = 3, whose
+subset counts 13 and 67 are the proved maxima, and WRONG at n = 4 and n = 5. The project began
+at n = 6 for that reason.)* [P16]: *"351 is called into question —
+decisively."* A 5-subset of the 723 record counts **393**, `+42` over golden 351, and **all five**
+5-subsets beat it (375, 381, 381, 381, 387, 393).
+
+**SO THE n = 4 RESULT OF THIS SESSION HAS A PRECEDENT THREE MONTHS OLD, AT n = 5.**
+
+    n = 5   complete corner-sharing (UC09)        351   believed maximal, beaten by 393
+    n = 4   complete corner-sharing (golden 177)  177   every subset maximal, loses to 183
+
+Both are the maximally-symmetric complete-sharing compound at their size; both lose. [P342]'s
+golden 177 is the n = 4 analogue of UC09, and [P334]'s K4 is a second, non-congruent
+complete-sharing compound at n = 4 counting far less. **The pattern "complete corner-sharing is
+sub-maximal" now has two independent instances at two different sizes**, which is considerably
+stronger than the single n = 4 observation this session recorded.
+
+**WHAT I GOT WRONG, and it is the same failure as [A17].** I grepped `LEDGER.md`, `RESULTS.md`
+and `OPEN_QUESTIONS.md` for "complete corner" — a phrase the record never uses — concluded the
+claim was absent, and said so. The record states it as *the five-cube compound*, *UC09*, and
+*golden 351*, none of which my search would match, and one of the sources was not among the three
+files at all. **Searching for my own phrasing rather than the object's name is how [A17] happened
+too**: there I grepped for a postscript number instead of the subject, here for a description
+instead of the name. The check that works is the one [METHODS 29] already states — search for the
+OBJECT, and when a user names a source, read that source before answering.
+
+<a id="p364"></a>
+
+## [VERIFIED] Postscript 364: the records follow ONE management policy — saturate a single hub at degree 4, and leave every other cube free
+
+Asked whether we know how to MANAGE the trade-offs, not merely catalogue them. Measuring the
+corner-sharing structure of the records themselves answers it.
+
+**EVERY RECORD IS A STAR, AND THE HUB SATURATES:**
+
+    n   sharings   corner-sharing edges                per-cube degree (antipodal pairs)
+    4       3      (0,3) (1,3) (2,3)                   hub 3, others 1 each
+    5       4      (0,4) (1,4) (2,4) (3,4)             hub 4 -- SATURATED, others 1 each
+    6       4      (0,4) (1,4) (2,4) (3,4)             hub 4, others 1, and cube 5 shares NOTHING
+    7       3+     hub still cube 4 at degree 4        others 1 or 0
+
+**The policy, stated as the records execute it:**
+
+  1. **One hub**, carrying corner-sharings with as many partners as it can.
+  2. **Saturate it at degree 4** — a cube has only four antipodal corner-pairs ([P362]), and from
+     n = 5 the hub sits exactly there.
+  3. **Every other cube gets at most ONE shared axis**, so it keeps a free rotation.
+  4. **Never a second hub and never a cycle.**
+  5. **Above n = 5, additional cubes join with NO sharing at all** — the n = 6 record is the
+     n = 5 structure plus a cube that shares nothing.
+
+**AND THIS IS EXACTLY [P358]'s MECHANISM AS A DESIGN RULE.** A cube with one shared axis retains
+a free rotation, and a forced coincidence is codimension 1 in it, so such a cube can avoid the
+costly degeneracies. Rule 3 keeps every non-hub cube in that state. Rules 4 and 5 are the
+negative half: a second hub or a cycle pins cubes at two axes each, and pinned cubes cannot
+dodge.
+
+**IT PREDICTS THE n = 4 LADDER CORRECTLY.** Of the structures constructed this session, the star
+is the ONLY one with every non-hub cube at degree 1:
+
+    star (RECORD)  degrees 3/1/1/1   objective 176      <- the policy
+    paw            3/2/2/1           168
+    4-cycle        2/2/2/2           162
+    K4 / golden    3/3/3/3         134 / 170
+
+**And it explains both sub-maximal complete-sharing compounds.** UC09 at n = 5 ([P363]) and the
+golden 177 at n = 4 ([P342]) pin every cube at degree 4 and 3 respectively — the policy's exact
+opposite — and both lose.
+
+**WHY THE POLICY STOPS GROWING.** The degree bound caps the hub at 4, so from n = 6 the sharing
+structure cannot grow with n at all; the records simply stop adding sharings rather than pay to
+pin another cube. That is consistent with [P362]'s other finding — the n = 6 and n = 7 records
+fall 8 and 22 short of the triple budget — **the policy declines the available corner-sharings
+because they cost more than they return.**
+
+**HONEST LIMIT.** This is what the records DO, verified at four sizes. It is a policy, not a proof
+of optimality, and no argument here shows a better policy does not exist. But it is ACTIONABLE in
+a way the catalogue was not: it says what to build at a given n, and it says what not to.
+
+<a id="p365"></a>
+
+## [VERIFIED] Postscript 365: the golden 177 IS UC09's 4-subset — the project's founding assumption, and exactly where it holds and fails
+
+The user's recollection: the project began as a search for `max(6)` because `max(n <= 5)` was
+believed solved by subsets of the compound of five cubes in a dodecahedron. Verified, and it
+explains [P342] completely.
+
+**UC09 AND ITS SUBSETS, counted exactly.** Every subset of a given size gives the SAME count —
+the compound's symmetry is transitive on subsets of each size:
+
+    5-subset   351          4-subset   177          3-subset   67          2-subset   13
+
+**WHERE THE FOUNDING ASSUMPTION IS RIGHT:**
+
+    n = 2   UC09's 2-subset = 13 = max(2)      PROVED maximum
+    n = 3   UC09's 3-subset = 67 = max(3)      PROVED maximum -- this IS the golden 67
+
+**AND WHERE IT FAILS:**
+
+    n = 4   UC09's 4-subset = 177   <   183    beaten by a rational compound
+    n = 5   UC09           = 351    <   393    beaten by a 5-subset of the 723 record ([P16])
+
+So the belief was correct at exactly the two sizes that are PROVED, and wrong at both sizes above
+them. That is why the project's search began at n = 6 — and [P16] is where the floor moved.
+
+**AND THIS EXPLAINS [P342] WITHOUT ANY FURTHER ARGUMENT.** The golden 177 has every subset at its
+proved maximum — four 67s and six 13s — **because it IS UC09's 4-subset**, and UC09's subsets
+realise `max(3)` and `max(2)` by construction. What looked like a remarkable coincidence when
+[P342] found it is a structural consequence of where the compound comes from.
+
+**A THIRD INDEPENDENT DERIVATION OF THE SAME OBJECT.** This session reached the golden 177 twice
+without knowing what it was: once from the `A4` symmetry argument ([P342] — the four body
+diagonals at `cos(theta/2) = sqrt10/4`), once from a five-edge corner-sharing graph that forced
+its sixth edge ([P351]). It is UC09's 4-subset. Three routes, one compound — and the identity of
+the third is the one that makes the other two intelligible.
+
+**WHAT THE SESSION ADDED, stated against that background.** Not the discovery that complete
+corner-sharing loses — [P16] had that at n = 5 three months ago. What is new is WHY: the
+accounting that prices the loss exactly ([P343]: 18 quadruple points, one region each,
+`195 - 18 = 177`), the mechanism that produces them ([P358]: pinned cubes cannot dodge), and the
+policy the records follow instead ([P364]: one saturated hub, everything else free).
+
+<a id="p366"></a>
+
+## [VERIFIED] Postscript 366: what a derivation of `EE <= 36` at `B = 128` needs — the per-pair route is DEAD, and the level sets are cut out by 144 quartics
+
+Asked directly: what would it now take to derive the last measured link. Four findings, one of
+which kills the most natural route and one of which makes an exact attack possible.
+Probe: `src/probes/ee_determinantal.py`; data: `data/ee_determinantal.json`.
+
+**1. AN INDEPENDENT EXACT ORACLE, and it agrees — after being wrong first.** Every `EE` in this
+thread comes from one function, `ee_bound_refute.vertices`, which reads the `(2,2)` count off the
+arrangement. Two variants of one method agreeing proves they share assumptions ([METHODS 1]), so
+`EE` is recomputed here from the edges up: 12 exact rational segments per cube, pairwise exact
+intersection, no tolerance. **36 of 36 agree.**
+
+**The first version of that oracle disagreed on 7 of 36, and it was the oracle that was wrong** —
+it counted crossings at a CORNER of a cube, which are `(3,2)` or `(3,3)` vertices and not `EE`.
+The tell was `q = (1,1,0,0)` and `(1,1,1,1)`, rotations that map the cube TO ITSELF, both
+reporting exactly 8 — one per corner. **This is [P329]'s error reproduced independently**, three
+weeks later, by someone who had written the correction: at a shared corner three edges meet three
+edges, nine incidences, one vertex, wrong type.
+
+**2. `EE > 0` IS CODIMENSION 1 — every census in this project has been reading its own window.**
+The same exact count at three quaternion heights, degenerate (shared face plane) pairs excluded:
+
+    height       nonzero EE / 120      distribution
+    6                103               {0:17, 4:52, 6:28, 8:22, 10:1}
+    400               6                {0:114, 4:4, 6:2}
+    1 000 000         0                {0:120}
+
+`EE` is a property of small denominators, not of rotations. This is [METHODS]'s
+representative-cost trap in a new place — but here it is the good news, because it means the
+level sets are algebraic varieties rather than clouds, and therefore **solvable**.
+
+*(Degenerate pairs reach `EE = 16`, above the admissible per-pair maximum of 10 ([P330]). Both
+oracles agree on them; they are excluded project-wide, not miscounted.)*
+
+**3. THE LEVEL SETS ARE CUT OUT BY 144 QUARTICS.** Edge `e` of cube 1 meets edge `f` of cube 2
+iff a `3x3` determinant vanishes and the crossing lies in range. Cleared of denominators that
+determinant is a homogeneous **degree-4** form in the quaternion, and computed symbolically over
+all `12 x 12` ordered edge pairs: **144 forms, all of degree exactly 4, none identically zero.**
+
+So `EE(q) = #{forms vanishing with the crossing in range}`, central symmetry pairs them to 72
+classes, and `EE >= 10` is **five simultaneous quartics on a 3-dimensional space** — an
+overdetermined system. That is a Groebner computation, not a search.
+
+**4. THE KILL LIST IS 105 PATTERNS.** Exhaustively, every assignment of `EE` to the six pairs
+with total `>= 37`, values from the observed set `{0,4,6,8,10}`, subject to [P360]'s per-triple
+cap of 20: **105 patterns, 90 at total 38 and 15 at total 40.** These and only these are what a
+derivation has to rule out. The list is finite, explicit, and in the data file.
+
+*(CORRECTED 2026-09-19 by [P369](#p369): the per-triple cap is **26**, not 20, so the list is
+**3 995 patterns**, not 105. Still finite and still explicit — but "short" was doing real work
+in this entry's argument and it is gone.)*
+
+**5. AND THE PER-PAIR ROUTE IS DEAD.** The lemma that would have closed it immediately —
+
+> if a pair has `EE >= 8`, at least one of its two containing 3-subsets has `E_S < 32`
+
+would force every pair to `EE <= 6` at `B = 128`, hence `EE <= 36`. It is **FALSE**: 36
+violations in 118 high-`EE` pairs over 260 four-compounds (0 unevaluable). And one violation sits
+squarely in the regime that matters:
+
+    1,0,0,0 ; -2,-8,3,-3 ; -7,1,-4,-1 ; 9,-1,-8,6
+    all four E_S = 32,  so B = 128,  with pair (0,1) at EE = 10  --  and EE_total = 18
+
+**A pair can sit at the per-pair maximum while `B = 128`.** The record, at `EE = 36`, has all six
+pairs at 6. So the ceiling is not a cap on any pair — it is an ANTI-CORRELATION among the six,
+and the witness above shows the collapse falling on the other five pairs rather than on the big
+one, exactly as [P359] saw inside a single triple.
+
+**WHAT THIS LEAVES.** The question has a sharper shape than before: not *why is no pair large*,
+but *why does one large pair cost more than it gains*. The route with the best odds is now
+computational-exact rather than combinatorial — the 144 quartics make `EE >= 8` an explicit
+variety, the cocycle `q_ij^-1 q_ik = q_jk` turns a 4-compound into a closed system on it, and
+the 105 patterns are a finite list to eliminate. **It is still open, and nothing here narrows the
+gap `EE <= 40` from [P359]; what is new is that the remaining work is an elimination rather than
+a search.**
+
+<a id="p367"></a>
+
+## [VERIFIED] Postscript 367: every way to beat 183, enumerated over subset profiles — and [P354]'s chain covers ONE COLUMN of it
+
+The user: *a 183-beating configuration's subsets are already catalogued, and maximising their
+counts is known not to work; what has to be maximised is the count of their UNION — so enumerate
+the unions that could plausibly beat it.* That is the right reduction, and carrying it out
+exposes a coverage gap in this project's own chain.
+Probe: `src/probes/union_enumeration.py`; data: `data/union_enumeration.json`.
+
+**THE REDUCTION.** Subset counts are fully determined by two numbers each:
+
+    count(pair)   = 3 + E_i                  E_i <= 10   PROVED ([P237])
+    count(triple) = 5 + sum_i E_i + E_S      E_S <= 32   PROVED (PROOF_67 Lemma 1a)
+    TOTAL         = 7 + T + B - Q4           T := sum E_i,  B := sum E_S
+
+checked on both endpoints: record `7 + 48 + 128 - 0 = 183`, golden `7 + 60 + 128 - 18 = 177`.
+So "beat 183" is one inequality, `T + B - Q4 >= 177`, over a profile space small enough to
+enumerate exactly — 262 144 pair profiles, no sampling.
+
+**TWO CONSEQUENCES FROM THE PROVED BOX ALONE.**
+
+  * **`Q4 <= 11`.** `T <= 60` and `B <= 128` give `TOTAL <= 195 - Q4`. Every construction in
+    this project has `Q4` in `{0, 2, 18, 32}`, so a 183-beating compound must have `Q4` in
+    `{0, 2}`. **The `Q4 = 18` branch — the 4-cycle, the golden, UC09's whole mechanism — is
+    closed by arithmetic and never needed a search.**
+  * **`B >= 117 + Q4`.** A corner sharing contributes exactly 2 to `SC2` (an antipodal pair of
+    shared corners; 6/6 across every construction), so a sharing pair obeys `EE_i <= 6` and
+    `T = EE + 4s <= 60` for every sharing count `s`. Then `T + B - Q4 >= 177` forces
+    `B >= 117` at `Q4 = 0`. **Twelve values of `B`, not one.**
+
+**THE GRID — required `EE` per `(s, B)` cell at `Q4 = 0`, against the per-pair cap `60 - 4s`:**
+
+          B:  116 118 120 122 124 126 128       cap
+    s=0        .   59  57  55  53  51  49        60
+    s=1        .   55  53  51  49  47  45        56
+    s=2        .   51  49  47  45  43  41        52
+    s=3        .   47  45  43  41  39  37        48      <- the RECORD's row
+    s=4        .   43  41  39  37  35  33        44
+    s=6        .   35  33  31  29  27  25        36
+
+`s = 5` is empty ([P351]). Every non-blank cell is a distinct way to beat 183.
+
+**AND HERE IS THE GAP.** [P354] step 2 reads *"`EE <= 36` at `B = 128`, so `two-body > 48`
+forces `SC2 >= 8`"* — and `B = 128` is **not forced by anything proved**. The measured ceiling
+covers the `B = 128` COLUMN ONLY. The columns `B = 118..126` are live under every proved
+constraint in the project, and **no `EE` ceiling has ever been measured in them.** Step 1 is
+unaffected (`B <= 128` makes `T - Q4 > 48` necessary regardless); step 2's scope is narrower
+than the chain that uses it. A scope note is recorded at [P354].
+
+**A FIRST SCAN OF THE BAND, and it is a sample.** 900 perturbations of the record, 0
+unevaluable, bucketed by `B`:
+
+    B=128  n=214  best TOTAL 183     B=120  n=114  best TOTAL 167
+    B=124  n=162  best TOTAL 173     B=118  n=  6  best TOTAL 155
+    B=122  n=  4  best TOTAL 161     B=116  n=102  best TOTAL 163
+
+`EE` falls faster than `B` does, so the band looks worse — but this is 900 perturbations of ONE
+compound, the required `EE` (45 at `B = 120`, s = 3) was never approached, and `B = 126` was not
+sampled at all. **Unexplored, not closed.**
+
+**WHAT THE ENUMERATION SAYS TO DO.** Three live rows remain at `B = 128` once the measured
+`EE <= 40` ([P360]) is applied — `s = 3` needing `EE >= 37` (the 105-pattern kill list of
+[P366]), `s = 4` needing `EE >= 33` against a measured 24, and `s = 6` needing `EE >= 25` with
+`Q4 = 0`. **The `s = 6` row is the sharpest target in the project**, because both of its halves
+already exist separately: the golden has `B = 128` with `Q4 = 18`, and the other `K4` has
+`Q4 = 0` with `B = 74`. A six-sharing compound holding the golden's `B` and `K4`'s `Q4` would
+count `7 + 60 + 128 = 195` — the bound itself. Whether that trade is forced is exactly
+[P358]'s pinning mechanism, which is a mechanism and not yet a theorem.
+
+<a id="p368"></a>
+
+## [VERIFIED] Postscript 368: exploring [P367]'s band produced a BETTER-SHAPED law — `EE + B <= 164`, and it reproduces the record exactly
+
+The user: *if there's unexplored, we may want to explore there.* [P367] had shown the chain
+covers only the `B = 128` column of a twelve-column grid. Exploring the rest found the band
+itself is worse — and found the reason, which is a single inequality covering every column.
+Probes: `src/probes/band_frontier.py`, `ee_plus_b.py`, `paw_ee_plus_b.py`, `extend_ee26.py`.
+
+**THE BAND IS WORSE, MEASURED.** A climb held inside `B` in `[112, 128]`, 2 279 compounds, 0
+unevaluable: best `TOTAL` 183 at `B = 128`, then 171, 169, 167, 163 at `B = 124, 122, 120, 118`.
+`EE` falls faster than `B` does.
+
+**AND HERE IS WHY — THE FRONTIER IS A LINE.**
+
+    B = 128  ->  EE 36        B = 124  ->  EE 40        B = 120  ->  EE 44
+
+    36 + 128  =  40 + 124  =  44 + 120  =  164
+
+**FOUR STRUCTURALLY UNRELATED COMPOUNDS SIT EXACTLY ON IT**, which is what separates a law from
+a sampling artefact:
+
+    construction     EE    B   EE+B   slack   TOTAL
+    record           36  128    164      0      183
+    4-cycle          36  128    164      0      169
+    golden 177       36  128    164      0      177
+    EE = 44 band     44  120    164      0      169
+    paw              24  128    152     12      175
+    face-diagonal    42   84    126     38      133
+    K4               -- does not exist; it IS the golden above ([P370]) --
+
+> **REFUTED 2026-09-20 by [P373](#p373).** `EE + B = 166` at
+> `1,0,0,0; 0,2,-3,-2; 0,2,-3,2; -4,-2,-5,-6` (`EE 38, B 128, SC2 0, Q4 0`, 173 regions,
+> confirmed by the engine). The measurements below stand -- the band IS worse, the paw IS
+> rigid, the four compounds DO sit at 164 -- but 164 is not a ceiling, and every consequence
+> drawn from it, including [P371]'s case analysis, is withdrawn.
+
+**WHY IT IS THE RIGHT SHAPE.** `TOTAL = 7 + EE + 2*SC2 + B - Q4`, so
+
+    EE + B <= 164   =>   TOTAL <= 171 + 2*SC2 - Q4
+
+and the record is **`171 + 12 - 0 = 183` exactly**. One inequality covering every column of
+[P367]'s grid, where `EE <= 36 at B = 128` covered one. It survived five directed climbs from
+seeds chosen to be hard for it — the record (on the line), the face-diagonal family (highest
+known `EE`), the paw and a band compound (the two extremes of `SC2` at `Q4 = 0`), and random —
+and holds across **all 3 730 four-compounds** now in the cache. **It is measured, not proved
+([METHODS 1]).**
+
+**IT IS NOT SUFFICIENT ALONE, and the two escapes have exact thresholds.** `SC2 <= 6` is capped
+at 183 immediately. Above that:
+
+    branch                        needs EE + B <=   measured
+    paw       SC2 = 8,  Q4 = 0          160            152
+    K4/s = 6  SC2 = 12, Q4 = 0          152            110
+
+**THE PAW BRANCH IS NOW CLOSED ACROSS ITS WHOLE FAMILY.** The paw has one free parameter
+([P350]), and sweeping it exactly in `Q(sqrt3, sqrt5)` over 92 rational values, 0 unevaluable:
+
+    EE + B spectrum   {152: 47, 148: 5, 144: 39, 134: 1}        max 152, needs 160
+    Q4 spectrum       {0: 89, 2: 2, 32: 1}                      [P358]'s codimension 1, again
+    max TOTAL         175                                       record 183
+
+`EE = 24, B = 128` holds for 47 of the 92; the paw is rigid in exactly the quantities that
+matter. *(Scope: the geometry is exact, the PARAMETER is sampled — 92 rationals in the `w:k`
+chart. A one-parameter family sampled at 92 points is strong evidence and not a proof.)*
+
+**SO ONE BRANCH IS LEFT**: six sharings with `Q4 = 0`, needing `EE + B >= 152` where `K4`
+measures 110. That is the same target [P367] named, reached independently — and it is
+**finite**. Fixing cube 0 and writing cube `i` as `Rot(d_i, theta_i)` about its shared diagonal,
+the three remaining sharings are three conditions on `(theta_1, theta_2, theta_3)`; a numeric
+scan of one of them returns ISOLATED solutions, not curves. **The row is enumerable rather than
+searchable**, which is the first time that has been true of any live cell in this grid.
+
+<a id="p369"></a>
+
+## [REFUTATION] Postscript 369: [P359]'s per-triple maximum of 20 is FALSE — it is 26, and [P360] and [P366] both rest on it
+
+Found while exploring [P367]'s band. [P359] measured *"over 1 400 three-cube compounds the
+maximum `sum EE` at `E_S = 32` is 20"* and [P360] and [P366] each built on it. It is wrong, and
+the reason is the window it was measured in.
+Probes: `src/probes/band_frontier.py` (found it), `ee10_triples.py` (settles it).
+
+**THE WITNESS, verified two independent ways:**
+
+    1,0,0,0 ; 3,2,2,0 ; 3,-4,0,-3        E_S = 32,  pairs [10, 10, 6],  sum EE = 26
+
+The arrangement census gives `{(2,2): 26, (1,1,1): 32, (1,2): 8}`; the independent exact edge
+oracle of [P366] gives `10 + 10 + 6` on the three relative rotations. **26, not 20.**
+
+**AND IT IS 26 BY ENUMERATION, not by a better sample.** Every pair at the per-pair maximum
+`EE = 10` lies in one finite family ([P330]); enumerating all 54 432 triples whose two
+non-identity cubes both lie in it (336 members, coprime, height <= 6), 0 unevaluable:
+
+    E_S takes only two values in the family:  32  and  24
+    max sum EE at E_S = 32:  26     (spectrum there is bimodal: 26 x 4 032, 20 x 34 944)
+    max sum EE at E_S = 24:  22
+    no triple anywhere reaches [10, 10, 10]
+
+**WHY [P359] MISSED IT.** It drew 1 400 random 3-compounds. The 26 lives where two members of
+the face-diagonal family are placed AGAINST EACH OTHER — a control chosen because it is hard
+for the method, not because it is convenient. [METHODS]'s rule, and the third time this session
+that the hard control was the one that moved a number.
+
+**WHAT FALLS WITH IT.**
+
+  * **[P359]'s `EE <= 40` at `B = 128`** becomes `EE <= 52`: each pair sits in two triples, so
+    the route gives `EE_total <= 2 * 26`. The gap to the observed 36 widens from 4 to **16**.
+  * **[P360]'s "the combinatorial optimum is 40"** is false — at cap 26 it is **52**. And the
+    geometry confirms it independently: a fourth cube on the `EE = 26` triple reaches
+    **`EE_total = 44`** (`1,0,0,0 ; 3,2,2,0 ; 3,-4,0,-3 ; 1,1,0,3`, at `B = 120, Q4 = 2`),
+    above the old "optimum" and above [P330]'s previous best total of 42.
+  * **[P366]'s kill list of 105 patterns** becomes **3 995** (90 at total 38 and 15 at 40 were
+    the whole list at cap 20; at cap 26 the totals run to 52). The list is still finite and
+    still explicit, but "short" was load-bearing and is gone.
+
+**WHAT DOES NOT FALL.** `EE <= 36` at `B = 128` is measured directly on 4-compounds and is
+untouched. So is [P366]'s determinantal description, its codimension-1 finding, and the
+per-pair box `E_i <= 10`. The damage is confined to the per-subset ROUTE, which [P359] had
+already reported as failing — it fails by more than it said.
+
+**AND THE REPLACEMENT IS BETTER SHAPED.** The same exploration produced `EE + B <= 164`
+([P368]), which is one inequality across all twelve columns and gives the record exactly. The
+per-triple route is not worth repairing at cap 26; the line is.
+
+<a id="p370"></a>
+
+## [REFUTATION] Postscript 370: [P334]'s `K4` IS the golden 177 — its `T3 = 74` is `T3 + Q4generic`, and its gate could not have caught it
+
+Found while enumerating the six-sharing branch ([P371](#p371)). The ladder has carried TWO
+entries at `SC2 = 12` since [P342] — "`K4` ([P334]): `T3 74, Q4 0, B 74`, objective 134" and
+"golden 177 ([P342]): `T3 56, Q4 18, B 128`, objective 170". **They are the same compound.**
+
+**THE CUBES ARE IDENTICAL, checked exactly.** Reconstructing the four cubes from [P334]'s own
+axes `a, b, c, x, y, z` and comparing face normals in `Q(sqrt3, sqrt5)` against `k4_corner_
+sharing.build()`: the same four cubes, normal for normal. And the census the paw work uses,
+run on [P334]'s own cube objects, returns
+
+    {(3,3): 12, (2,2): 36, (1,1,1): 56, (1,1,1,1): 18}      -- the golden, exactly
+
+**AND THE ARITHMETIC NAMES THE BUG: `74 = 56 + 18`.** `count_T3` iterates over TRIPLES of cubes
+and tests the signature against those three only — it never asks about the fourth. A generic
+four-fold vertex therefore passes as a triple point of each of the four triples, and since the
+results are collected in a set of POINTS it is counted once. So the function returns
+`T3 + Q4generic`, not `T3`.
+
+**THE GATE COULD NOT HAVE CAUGHT IT.** [P334] gated `count_T3` on the n = 4 record, where
+`T3 = 128` is known, and it passes — **because the record has `Q4generic = 0`.** The control was
+the convenient one, not the one that is hard for the method: an oracle with no four-fold points
+cannot distinguish `T3` from `T3 + Q4generic`. [METHODS]'s rule, and the cost is a
+non-existent compound carried in the ladder for eight days.
+
+**WHAT CHANGES.**
+
+  * The `SC2 = 12` rung has ONE occupant, not two: the golden, `B = 128`, `Q4 = 18`,
+    objective 170, `TOTAL` 177. The `objective 134 / TOTAL 141` row is deleted, not corrected —
+    there is no compound with those numbers.
+  * [P333]'s "both caps individually attainable, jointly not" survives unchanged: the golden
+    does attain `two-body = 60` with `B = 128`. What falls is the claim that attaining
+    `two-body = 60` COLLAPSES `B` to 74. **It does not collapse at all.**
+  * **[P368]'s last live branch is EMPTY.** It read "the other `K4` has `Q4 = 0` with `B = 74`,
+    so a compound holding the golden's `B` and `K4`'s `Q4` would count 195". There is no such
+    other `K4`. Every six-sharing compound carries `Q4 = 18`.
+
+<a id="p371"></a>
+
+## [VERIFIED] Postscript 371: every six-sharing 4-compound, ENUMERATED — there are exactly two and both are the golden
+
+The last live cell of [P367]'s grid, closed by enumeration rather than search.
+`src/probes/six_sharing_enumeration.py`; `data/six_sharing.json`.
+
+**THE REDUCTION.** Two cubes share a corner iff they share a body-diagonal direction. Fix cube 0
+as the standard cube sharing `d1, d2, d3` with cubes 1, 2, 3 (legitimate: the octahedral group
+acts as `S4` on the four diagonals). The other three sharings are directions `s12, s13, s23`, and
+**every constraint on them is an inner product taking one of four values**: each `s` is a
+diagonal of two cubes, so its dots against those cubes' known diagonals lie in `{+-1/3, +-1}`,
+and the three at each cube must be co-diagonal. Two linear conditions plus the norm give at most
+two directions per `(alpha, beta)`, so the variety is a finite explicit list.
+
+The coordinates come out as `0, +-sqrt3/3, +-(sqrt3 +- sqrt15)/6` — **the fourth independent
+appearance of [P334]'s `p, q`** — so `Q(sqrt3, sqrt5)` closes over it and every test is exact.
+
+**THE RESULT.**
+
+    candidate directions        s12 6,  s13 6,  s23 6      (unrecognised coordinates: 0)
+    satisfying every condition  96
+      of which three cubes share one axis   52
+      rejected as coincident cubes          58
+      not a cube's diagonals                36
+      unevaluable                            0
+    CENSUSED                     2      both  EE 36, SC2 12, B 128, Q4 18,  TOTAL 177
+
+**So `SC2 = 12` contains the golden and nothing else**, confirming [P370] from a second
+direction: the enumeration that ought to have produced [P334]'s `B = 74` compound produces the
+golden instead, because that compound does not exist.
+
+**AND THIS CLOSES THE CASE ANALYSIS.** With `EE + B <= 164` ([P368], measured) and
+`TOTAL = 7 + EE + 2*SC2 + B - Q4`:
+
+    SC2 <= 6            TOTAL <= 171 + 12      = 183     the RECORD attains it
+    SC2 = 8, paw        EE + B <= 152 swept    <= 175    [P368], 92 exact members
+    SC2 = 8, 4-cycle    Q4 = 18 always         <= 169    [P358], 608 members
+    SC2 = 10            EMPTY                            [P351]
+    SC2 = 12            golden only, Q4 = 18   <= 177    THIS ENTRY
+
+**Every branch is capped at 183 or below, and the record attains 183.** So `max(4) = 183`
+now rests on ONE measured inequality — `EE + B <= 164` — instead of a chain with a measured
+link, an unexplored band and two open branches.
+
+*(WITHDRAWN 2026-09-20 by [P373](#p373): `EE + B <= 164` is FALSE, so the case analysis above
+has no premise. The `SC2 = 12` row survives on its own — the golden's 164 IS its proved box
+bound `188 - 2*SC2` — and the six-sharing enumeration in this entry is unaffected. The rest is
+open. **`max(4) = 183` is again unproved.**)* **That inequality is still measured
+([METHODS 1]): 3 730 compounds, five directed climbs, four unrelated compounds exactly on the
+line, and no proof.**
+
+**TWO FAULTS OF MY OWN IN THIS ENTRY'S PROBE, both caught by the same tell.** The first version
+dropped the 52 "three cubes on one axis" solutions while printing that it had censused them;
+the second rejected all 96 through an identity test that compared frozensets of `|components|`
+and collapsed distinct cubes onto one key. Both showed as **a count the construction guarantees
+coming back empty** ([FAILURE_MODES 44]) — 0 censused where the golden was known to be. The
+third version handles the two-pinned-diagonal case via `tet2` and compares exact normal axes.
+
+<a id="p372"></a>
+
+## [VERIFIED] Postscript 372: what `EE` and `B` ARE — a subset law with a merge correction, the excess sum, and two families of walls
+
+Asked directly: what influences `EE` and `B`, and how do they relate to subsets, depth,
+symmetry, Euler counts and polynomial roots. Five answers, four measured and one derived.
+`src/probes/ee_b_structure.py`; `data/ee_b_structure.json`.
+
+**1. SUBSETS — `B` is an identity, `EE` is a sum MINUS a merge term.**
+
+`B = sum_S E_S` held with deficit 0 on every compound tested — [P346]'s budget law is exact, as
+it should be, since a generic four-fold vertex is a triple point of each of its four subsets.
+
+`EE` is not. It is at most the sum of the pairs' isolated `EE`, and the shortfall has a closed
+form: a vertex whose signature has `m >= 2` entries equal to 2 is a `(2,2)` vertex of `C(m,2)`
+PAIRS in isolation, but contributes to compound `EE` only when its signature is exactly `(2,2)`.
+
+    EE  =  sum over pairs of EE_pair  -  sum over vertices of C(m(v), 2),
+           the second sum over vertices with m(v) >= 2 twos and signature not (2,2)
+
+**60 of 60 agree, 0 disagree.** The face-diagonal compound is the visible case: `sum EE = 52`,
+compound `EE = 40`, **deficit exactly 12** — it carries two `(2,2,2,2)` vertices, and
+`2 * C(4,2) = 12`. **This is the anti-correlation of [P368] with a mechanism**: raising pair
+contacts drives them onto shared points, where they merge and stop counting.
+
+**2. DEPTH — they live at different depths, and that is why they trade.**
+
+    compound        (2,2) by containment count      (1,1,1) by containment count
+    n = 4 RECORD    {2: 36}                         {3: 84, 4: 44}
+    n = 5 RECORD    {2: 60}                         {3: 144, 4: 84, 5: 44}
+    face-diagonal   {2: 36, 3: 4}                   {3: 48, 4: 28}
+
+**`EE` vertices sit on exactly two cubes and inside no others**; `B`'s triple points sit on
+three and are routinely inside a fourth (44 of 128 in the n = 4 record). So `EE` is an OUTER-
+LAYER quantity and `B` reaches inward — consistent with [P319]'s holes at `ell = +1` and
+ceiling saturation at `ell = -1`.
+
+**3. SYMMETRY — the records are the UNIFORM configurations, and not by pair-transitivity.**
+
+    n = 4 RECORD    per-pair EE  [6,6,6,6,6,6]      per-triple E_S [32,32,32,32]
+    n = 5 RECORD    per-pair EE  [6]*10             per-triple E_S [32]*10
+    face-diagonal   per-pair EE  [10,10,8,8,8,8]    per-triple E_S [24,20,20,12]
+
+Both records hold **every pair at the same `EE` and every triple at the cap `E_S = 32`**, while
+the high-`EE` family is uneven and loses. And the uniformity is NOT an orbit effect: the
+record's sharing graph is a star ([P364]), so its pairs are not equivalent — `SC2` is
+concentrated on three pairs (`E_i = 10, 10, 10, 6, 6, 6`) while `EE` stays flat at 6 on all
+six. **`EE` is spread and `SC2` is concentrated, in the same compound.**
+
+**4. EULER — `EE` and `B` ARE the excess sum, weighted by vertex type.**
+
+With `TOTAL = 1 + L + sum c_ell + (1/2) sum_v excess(v)` and the per-signature excesses
+`(2,2): 2`, `(1,1,1): 2`, `(3,3): 4`, `(1,1,1,1): 6`:
+
+    (1/2) sum excess  =  EE + 2*SC2 + T3 + 3*Q4gen  =  T + (B - Q4)
+
+which is exactly `TOTAL = 7 + T + B - Q4`. **The `max(4)` objective is not a proxy for the
+Euler count; it is the Euler count**, with `EE` and `B` its two largest terms.
+
+**5. POLYNOMIAL ROOTS — two wall families, same total degree, different shape.**
+
+  * **`EE` walls.** An edge of one cube meeting an edge of another is one determinant; cleared
+    of denominators it is a homogeneous **degree-4** form in the pair's RELATIVE quaternion, and
+    all 144 are degree exactly 4 with none identically zero ([P366]). A two-body condition.
+  * **`B` walls.** Three planes always meet, so `T3` does not change when a concurrence appears
+    — it changes when an existing triple point CROSSES A FACET EDGE, i.e. lands on a fourth
+    plane of one of the same three cubes. Computed symbolically over all 54 plane choices with
+    one cube fixed: **bidegree (2,2)** in the other two quaternions, 54 of 54, none identically
+    zero. A genuine three-body condition.
+
+So both are codimension-1 algebraic, both total degree 4, and they differ in ARITY: `EE` is a
+quartic in one relative rotation, `B` a (2,2)-form in two. That is the formal reason no
+sum-over-pairs argument reaches `B` and no sum-over-triples argument reaches `EE` — the failure
+[P359] and [P366] each hit from one side.
+
+<a id="p373"></a>
+
+## [REFUTATION] Postscript 373: `EE <= 36` at `B = 128` is FALSE, and so is `EE + B <= 164` — one configuration kills both, and with them [P371]'s case analysis
+
+The user asked whether `EE + B <= 164` can be established and what the analogue is at other `n`.
+The second question answered the first. `src/probes/ee_plus_b_scaling.py`;
+`data/ee_plus_b_scaling.json`.
+
+**THE WITNESS.**
+
+    1,0,0,0 ; 0,2,-3,-2 ; 0,2,-3,2 ; -4,-2,-5,-6
+
+    EE 38   SC2 0   T3 128   Q4generic 0   Q4 0   B 128   EE + B 166   TOTAL 173
+
+**Verified four independent ways.** Non-degenerate (`shares_plane` false). The signature census
+gives `{(1,1,1): 128, (1,2): 44, (2,2): 38}`. The exact edge oracle of [P366], run on the six
+relative rotations, gives `10 + 10 + 0 + 6 + 6 + 6 = 38` with zero merge deficit ([P372]'s law).
+All four 3-subsets carry `E_S = 32`, so `B = 128` is exact and not an artefact. And the region
+engine returns `{1, 82, 66, 24, 1}` — **173 regions, exactly what the identity predicts.**
+
+**WHAT FALLS.**
+
+  * **`EE <= 36` at `B = 128`** ([P352], measured over ~3 700 configurations; [P361], which
+    attacked it from both sides with directed climbs and reported it surviving). `EE = 38`.
+  * **`EE + B <= 164`** ([P368], across 3 730 compounds and five climbs, with four unrelated
+    compounds exactly on the line). `EE + B = 166`.
+  * **[P371]'s case analysis**, which reduced `max(4) = 183` to that single inequality. The
+    reduction was sound; its premise is false. **`max(4) = 183` is again unproved**, and the
+    consolidation reported on 2026-09-19 is WITHDRAWN.
+
+What does NOT fall: [P370] (the phantom `K4`), [P371]'s six-sharing enumeration itself, [P372]'s
+merge law and wall degrees, and the record — 183 still stands as the largest count known; this
+compound counts 173.
+
+**WHY EVERY EARLIER SEARCH MISSED IT, and it is the same reason twice.** [P352] and [P361] both
+seeded from the record and from the face-diagonal family. This configuration is built from
+neither: it is the n = 3 `EE + B` extreme — two members of the `EE = 10` family placed AGAINST
+each other, the same control that refuted [P359]'s per-triple 20 — extended by an unremarkable
+fourth cube. **The third time this session that the hard control moved a number**, and the
+second time it moved one that two directed searches had certified.
+
+**THE LADDER, and it is what pointed here.** `max(EE + B)` against `6*C(n,2) + 32*C(n,3)`:
+
+    n    max EE+B seen    6*C(n,2)+32*C(n,3)    source
+    2         10                  6             per-pair EE max 10, B = 0 ([P330])
+    3         58                 50             exhaustive over the EE = 10 family ([P369])
+    4        166                164             this entry
+    5        380                380             the n = 5 RECORD (not a search)
+
+The closed form is exact at n = 4 and n = 5 **and exceeded at n = 2 and n = 3** — 10 > 6 and
+58 > 50. A form that fails at two sizes and holds at two more is a coincidence until something
+explains the split, and the test it suggested — extend the sizes where it FAILS — is what
+produced the refuter.
+
+**WHAT IS LEFT OF THE ARGUMENT.** The proved box stands: `E_i = EE_i + 2*SC2_i <= 10` ([P237])
+and `E_S <= 32` (PROOF_67), giving `EE + B <= 188 - 2*SC2` at n = 4, and
+`TOTAL <= 195 - Q4` ([P367]). The golden attains `EE + B = 164` at `SC2 = 12`, which is
+**exactly its box bound**, so that branch is still closed by proof. Everything below
+`SC2 = 12` is open again, and the 105/3 995-pattern kill lists, the band grid, and the
+`EE + B` line are all superseded by one question: **what actually bounds `EE` at `B = 128`?**
+Two searches have now certified a false answer to it.
+
+<a id="p374"></a>
+
+## [CORRECTION] Postscript 374: `TOTAL = 7 + T + B - Q4` is not an identity — the `7` varies, and the formula is blind to three signature types
+
+Found by checking a climb result against the engine rather than against itself. At
+`1,0,0,0; 0,2,-3,-2; 0,2,3,2; -4,0,-5,-6` the formula predicts 177 and **the engine returns
+175**. `src/probes/identity_constant.py`; `data/identity_constant.json`.
+
+**WHAT THE `7` IS.** The identity is `TOTAL = 1 + L + sum c_ell + (1/2) sum_v excess(v)`, and
+`(1/2) sum excess = EE + 2*SC2 + T3 + 3*Q4gen = T + B - Q4` **when the only signatures present
+are the tabulated ones**. So the leading term is `1 + L + sum c_ell`, the level component count
+([P312], [P319]) — not a constant, and 7 only because that is what the n = 4 record has.
+
+**MEASURED, 202 compounds, 1 engine refusal (counted, not scored as zero):**
+
+    census contains ONLY tabulated signatures      171    leading term in {-3,-1,1,3,5,7}
+                                                          NEVER above 7;  = 7 in 18 cases
+    census contains other signatures                31    leading term up to 17
+
+    n = 4 RECORD      engine 183   T+B-Q4 176   leading 7
+    refuter [P373]    engine 173   T+B-Q4 166   leading 7
+    TOTAL=179 climb   engine 179   T+B-Q4 172   leading 7
+    EE=42 climb       engine 175   T+B-Q4 170   leading 5      <- clean census, still 5
+
+**TWO SEPARATE FAULTS, and conflating them hid both.**
+
+  1. **The leading term genuinely varies** even on a clean census — the `EE = 42` compound has
+     only `{(1,1,1), (1,2), (2,2)}` and leads with 5. So the formula OVERSTATES `TOTAL` there.
+  2. **`T + B - Q4` omits the excess of `(1,1,2)`, `(1,2,2)`, `(2,2,2)` and their kin** — the
+     signatures [P328]'s table never listed. Those compounds are not covered by the formula at
+     all, which is why they appear to lead with 17.
+
+**WHAT IS SAFE AND WHAT IS NOT.**
+
+  * **`TOTAL <= 7 + T + B - Q4` holds on every clean compound measured (171 of 171)**, with
+    equality attained by the record. So the bound direction used throughout [P367], [P368] and
+    [P371] is sound **for compounds whose vertex census contains only the tabulated
+    signatures** — which the record, the golden, the paw, the 4-cycle and the refuter all are.
+  * **It is not a bound outside that class.** Any compound carrying a `(1,1,2)`, `(1,2,2)` or
+    `(2,2,2)` vertex contributes excess the formula never counts, so exclusions drawn from
+    `(T, B, Q4)` alone do not apply to it. **[P367]'s grid, and every "this cell cannot beat
+    183" argument, carries that unstated scope.** 15 % of a random sample fell outside it.
+
+**WHAT DOES NOT CHANGE.** [P373]'s refutation: the refuter is clean, leads with 7, and its
+`EE = 38` and `B = 128` are census quantities each confirmed by a second oracle, with the engine
+agreeing at 173. And `TOTAL <= 195 - Q4` ([P348], [P367]) comes from `h(S) <= 47.5` by a
+different route and is untouched.
+
+**THE HABIT THIS BREAKS.** Every `TOTAL` quoted in this thread since [P367] was computed from
+`(T, B, Q4)`, not read from the engine. That is the cheap step being trusted because the
+expensive one agreed once — on the record, where the leading term is 7 by coincidence of
+structure. **Quote engine counts, or say which formula produced the number.**
+
+<a id="p375"></a>
+
+## [VERIFIED] Postscript 375: the refuter's region is `EE`-rich and count-poor — it tops out at 173 — and region counts are ODD by central symmetry
+
+Two results from searching the region [P373] opened, which no earlier n = 4 search had visited.
+`src/probes/refuter_region.py`; `data/refuter_region.json`. **Objective: the ENGINE count, not
+the formula** ([P374]) — and the engine costs 18 ms against the census's 66, so the formula was
+never even the cheap option.
+
+**THE REGION DOES NOT BEAT THE RECORD.** 5 136 compounds, 0 engine refusals, seeded from the 16
+n = 3 `EE + B` extremes and climbed from the best 20:
+
+    best region count                    173      record 183
+    count distribution, top              173 x30, 171 x162, 169 x77, 167 x262, ...
+    the maximiser                        1,0,0,0; 0,2,-3,-2; 1,-5,-2,2; -2,-8,0,9
+                                         EE 38  SC2 0  B 128  Q4 0  -- engine 173
+
+**A SECOND, INDEPENDENT `EE = 38` AT `B = 128`**, at different quaternions from [P373]'s, so the
+refutation of `EE <= 36` does not rest on one point.
+
+**AND THE STRUCTURE IS CLEAR.** This region buys `EE` and pays in `SC2`: every high-`EE`
+compound here has `SC2 = 0`, worth 0, while the record's `SC2 = 6` is worth `2*SC2 = 12`. The
+record's 183 is **moderate `EE` (36) + maximal `B` (128) + corner sharing (12)**; the refuter
+region reaches `EE 38-42` and `B 128` but forfeits the 12. That is why it refutes the `EE`
+ceilings without threatening the record — and why [P368]'s earlier 179 came from drifting OUT
+of this region toward corner sharing (`SC2 6, Q4 4`).
+
+**REGION COUNTS AT n = 4 ARE ODD, and it is a two-line proof.** 35 distinct counts observed in
+this run, **every one odd**; likewise every record, `183, 393, 727, 1217, 1895, 2787, 3925`.
+Each cube is centrally symmetric about the shared origin, so `x -> -x` maps the compound to
+itself and permutes the regions. A region fixed by that map must contain the origin — and the
+only region containing the origin is the depth-`n` core, which is convex and therefore a single
+region. So the regions split into antipodal pairs plus exactly one fixed region:
+
+    TOTAL is ODD, at every n.
+
+**A consequence worth having**: "beating 183" means reaching **185**, not 184. This probe's own
+stated stopping condition was 184, a count that cannot occur.
+
+> **REFUTED 2026-09-20, the same day, by the parity check built into `hunt_185.py`.** Even
+> counts occur — 26 distinct ones in 24 337 compounds, verified directly:
+>
+>     100   by_depth {1: 29, 2: 48, 3: 22, 4: 1}   1,0,0,0; -6,4,-6,-5; -3,6,-12,-7; 1,-5,11,9
+>     112   by_depth {1: 39, 2: 50, 3: 22, 4: 1}   1,0,0,0; -10,10,10,-12; 11,-1,1,-10; -4,-2,-10,1
+>
+> **THE ERROR:** *"a region fixed by `x -> -x` must contain the origin"* is FALSE. A fixed SET
+> need not contain a fixed POINT — a spherical shell is centrally symmetric and misses the
+> origin, and a depth-1 region can wrap the same way. What is true is only
+>
+>     TOTAL  ==  (number of self-antipodal regions)   mod 2
+>
+> which is odd for the records and for the whole sampled region of [P375], and even elsewhere.
+> **So "beating 183 means 185" does not follow either**; 184 is not excluded.
+>
+> The tell I should have used: the claim was made from 35 counts drawn from ONE region of
+> configuration space — the same mistake, in the same entry, that the rest of [P373] is about.
+> A parity argument is cheap to test against a wide sample and I tested it against a narrow one.
+
+<a id="p376"></a>
+
+## [VERIFIED] Postscript 376: the `EE` strata have codimension 1 and 2, EXACTLY — and the parameter budget predicts `EE <= 42`
+
+After [P373] refuted two `EE` ceilings, the per-subset route is exhausted: `max(3) = 67` gives
+`sum E_i + E_S <= 62`, so at `E_S = 32` a triple obeys `sum EE_i <= 30` PROVED, and summing over
+the four triples of an n = 4 compound (each pair in two) returns `EE <= 60` — exactly the box
+bound already in hand. So the binding constraint is not per-subset. It is how many PAIRS can sit
+on a high-`EE` stratum at once, which is a question about DIMENSION.
+`src/probes/ee_jacobian_rank.py`, `ee_stratum_dimension.py`.
+
+**MEASURED EXACTLY, BY JACOBIAN RANK — not by counting.** At a rational `q`, the ACTIVE forms
+are those of [P366]'s 144 quartics that vanish there; the codimension of the stratum is the rank
+of their Jacobian modulo the radial direction. Integer forms, rational points, exact rank over
+`Q`, six representatives per value, **unanimous**:
+
+    EE     vanishing forms   Jacobian rank   codim   dim of stratum
+     0            0                0            0      3   (generic)
+     4           12                1            1      2   a surface
+     6           36                2            2      1   a CURVE
+     8           22                2            2      1   a CURVE
+    10           22                2            2      1   a CURVE
+
+**`EE = 6` already costs codimension 2 — the same as `EE = 10`.** The jump in price is from 4 to
+6, not from 6 upward, which is why the record sits at 6 on every pair and why `EE` values above
+it buy so little.
+
+**THE PARAMETER BUDGET, and it lands on the observed maximum.** A 4-compound has 9 parameters
+(three cube rotations, the fourth gauge-fixed) and six pairs. Counting the conditions as
+independent:
+
+    sum over pairs of codim  <=  9     =>   at most THREE pairs above EE = 4
+                                      =>   EE <= 3*10 + 3*4 = 42
+
+**42 is exactly the largest `EE` this session has produced** (the climb from [P373]'s refuter,
+at `B = 128`). That is the first time a predicted ceiling and an observed one have met in this
+thread.
+
+**IT IS NOT A PROOF, AND THE RECORD SAYS WHY.** The n = 4 record has all six pairs at `EE = 6` —
+six codimension-2 conditions, a naive cost of 12 against 9 parameters. It exists, so its
+conditions are DEPENDENT. Any configuration that arranges enough dependency can beat the budget,
+and the record does. `src/probes/compound_rigidity.py` measures the true rank at the compound
+level.
+
+**`B` AND `EE` ARE DIFFERENT KINDS OF QUANTITY, and this is the sharpest consequence.** Forty
+small perturbations of each compound, one coordinate at a time:
+
+    compound     base            B = 128 survives    EE survives
+    n=4 RECORD   B 128, EE 36        18 / 40            0 / 40
+    refuter      B 128, EE 38         7 / 40            0 / 40
+
+**`B = 128` is an OPEN condition — a chamber — and costs no parameters. `EE` is a stratum
+condition and dies instantly.** So the two are not symmetric competitors: a configuration can
+hold `B` at its cap for free and spend its whole 9-parameter budget on `EE`. That is why the
+codimension budget above is the relevant constraint at `B = 128`, and why reading the
+`EE`-versus-`B` frontier as a LINE ([P368]) was reading a plateau as a boundary.
+
+**AND ONE HYPOTHESIS KILLED CHEAPLY.** The record's non-sharing pairs also sit at `EE = 6`,
+suggesting the hub structure might FORCE edge contacts. It does not: over 1 758 pairs whose two
+cubes each share a body diagonal with a common third cube, `EE` is `{0: 1051, 4: 280, 6: 421,
+8: 6}` — 60 % have no edge contact at all. The record's uniformity is not a consequence of its
+star.
+
+**AND A FAILED MEASUREMENT, recorded because it was the obvious one.** The dimensions were first
+attacked by counting primitive quaternions of height `<= H` on each stratum and reading the
+growth exponent. **Inconclusive, and the reason matters:** `EE = 0` is the generic value — 95 %
+of quaternions at height 400 — yet it does not occur AT ALL below height 5, and is 11 % at
+height 6. The entire census sits in a transient where low height makes every rotation special.
+The instrument was fine; every input was special. [METHODS]'s representative-cost trap, in the
+place it is hardest to see, and the exact method cost less than the census would have.
+
+<a id="p377"></a>
+
+## [VERIFIED] Postscript 377: the record's 18 corner-sharing conditions are IMPLIED by its edge contacts — and its contact system has rank 8, not 9
+
+Measuring the dependency that [P376]'s parameter budget said must exist. A 4-compound has 9
+parameters; the record's six pairs at `EE = 6` cost codimension 2 each, a naive 12, and it
+exists — so its conditions are dependent. This measures the true rank.
+`src/probes/compound_rigidity.py`; `data/compound_rigidity.json`.
+
+**METHOD, after one correction.** The system is every ACTIVE edge-edge contact, as an exact
+polynomial in the 9 parameters (12 quaternion coordinates with the three per-cube scalings
+quotiented out), Jacobian rank over `Q`. *The first version counted every VANISHING form,
+including pairs of edge LINES that are coplanar while the segments miss entirely — a
+coincidence at the point, not a condition the family must keep. That inflates the rank. The
+in-range filter is gated against the independent exact oracle of [P366]: 4 of 4, including a
+zero case and the record's own pair.*
+
+    compound                    EE   active   sharing rows   rank   naive budget
+    n=4 RECORD                  36       36        18          8         12
+    refuter [P373] EE=38        38       38         0          7         10
+    EE=42 climb                 42       42         0          8         11
+    refuter-region best (173)   38       38         0          7         10
+    face-diagonal EE=40         40       52         0          6         12
+
+**THE RECORD'S CORNER SHARINGS ADD NOTHING TO THE RANK.** Its three shared body diagonals
+supply 18 scalar conditions, and including them leaves the rank at 8 — **they are entirely
+implied by the 36 edge contacts.** The record does not buy its corner sharing; the edge
+structure hands it over. That is a mechanism for [P364]'s hub policy rather than a restatement
+of it.
+
+*(And it kills the natural reading of [P376]'s budget: corner sharing is not a separate
+purchase competing with `EE` for parameters. Every configuration measured here shows the same
+collapse — naive 10-12 against rank 6-8.)*
+
+**THE FACE-DIAGONAL COMPOUND IS THE CONSISTENCY CHECK.** Its 52 active contacts against
+`EE = 40` is exactly [P372]'s merge law: `52 - 40 = 12`, the two `(2,2,2,2)` vertices at
+`C(4,2) = 6` merged pairs each. Two unrelated computations, the same 12.
+
+**RANK 8, NOT 9 — AND WHAT THAT MIGHT MEAN.** Nine parameters and rank 8 leave a
+one-dimensional TANGENT SPACE at the record. [P287] concluded the 183 plateau is
+0-dimensional, and its evidence is 19 682 straight-line Cayley probes plus straight walks
+between the two 183 classes. **A curved family is invisible to every one of those.** So either
+the record is a singular point of the contact variety (tangent space larger than the variety),
+or it lies on a curve no previous probe could follow. `src/probes/record_curve.py` decides it
+by Newton continuation; **until it reports, the tangent dimension is an upper bound on the
+family dimension and nothing more.**
+
+<a id="p378"></a>
+
+## [REFUTATION] Postscript 378: the count IS constant along the 183 curve — refuting [P136]'s own reading of it and [P287]'s isolation
+
+**PRIOR ART I SHOULD HAVE FOUND FIRST, and did not.** [P136] already established this curve, in
+a different system and five weeks earlier: the two 183 classes share 88 wall conditions whose
+**gradients have rank 8 of 9 at each point, so the common locus is 1-dimensional at both.** Same
+rank, same deficiency, arrived at from walls rather than from edge contacts. I found rank 8 in
+[P377] and wrote it up as new. Grepping `LEDGER.md` for `183.*1-dimensional` returns [P136] in
+one command — the [A17]/[P363] lesson, third occurrence: **search for the OBJECT, not for your
+own phrasing.**
+
+**WHAT IS ACTUALLY NEW, and it contradicts [P136]'s conclusion rather than confirming it.**
+[P136] wrote: *"The count is NOT constant along it — both points are isolated, so it drops
+immediately — making this a curve in the WALL SYSTEM rather than a constant-count locus."* That
+inference leans on [P287]'s isolation, which is straight-line evidence. **Continuation shows the
+full vertex census is PRESERVED along the curve**, so it is a constant-count locus after all.
+`src/probes/record_curve.py`; `data/record_curve.json`.
+
+**THE CONTINUATION.** Exact Jacobian at the record: rank 8 in 12 unknowns, null space 4, of
+which 3 are the per-cube scalings — **exactly one genuine direction**. Stepping along it and
+Newton-correcting in 50-digit arithmetic:
+
+    step    |F| after Newton    moved by      contacts in range   full census
+    1e-3    4.7e-24             0.00099999    36 of 36            MATCHES the record
+    1e-4    1.4e-13             9.99995e-5    36 of 36            MATCHES the record
+    1e-6    2.5e-21             9.999999e-7   36 of 36            MATCHES the record
+
+**The displacement SURVIVES correction** — Newton keeps essentially the whole step rather than
+returning to the record — and every contact stays a genuine contact, margin 0.013 to 0.05,
+three orders from any degeneracy. The full signature census at each displaced point is
+`{(1,1,1): 128, (1,2): 24, (2,2): 36, (3,3): 6}`, **identical to the record's**: `EE = 36`,
+`SC2 = 6`, `T3 = 128`, `Q4 = 0`, `B = 128`.
+
+**SO THE 183 PLATEAU IS AT LEAST 1-DIMENSIONAL.** Cube 0 is pinned, which spends the global
+rotation gauge exactly, so every move along the curve changes the congruence class.
+
+**AND [P136] PREDICTS WHERE THE CURVE GOES**: through the SECOND 183 class. That is a testable
+consequence and is not yet tested here.
+
+**ADDENDUM 2, 2026-09-20 — THE PLATEAU IS A BOUNDED ARC, and what bounds it is not an
+equation.** Arc-length continuation with the census recomputed at every step
+(`src/probes/curve_extent.py`, `data/curve_extent.json`), starting from the gauge-fixed record
+with unit quaternions:
+
+    arc 0.01   |F| 1.0e-46   36/36 contacts   census SAME
+    arc 0.02   |F| 1.6e-46   36/36 contacts   census SAME
+    arc 0.04   |F| 2.3e-46   36/36 contacts   census SAME
+    arc 0.06   |F| 2.3e-46   24/36 contacts   census CHANGED
+
+The residual never leaves `1e-46` — the continuation tracks the curve exactly throughout, so the
+break is not numerical. **The census is preserved to arc 0.04 and breaks before 0.06**, where
+**12 of the 36 contacts slide OUT OF RANGE**: `EE` falls 36 -> 30 and `(1,2)` rises 24 -> 36,
+while `T3 = 128` and `SC2 = 6` are untouched. Past that the count is 177, not 183.
+
+**So the equations hold along the whole curve and the COMBINATORICS do not.** The plateau ends
+where crossings leave their segments — a cube's boundary is six SQUARES, not six planes, which
+is this project's oldest lesson appearing as the boundary of a moduli space rather than as a
+bug.
+
+**AND IT EXPLAINS THE MISS EXACTLY.** [P287] stepped `1/32 = 0.031` in straight lines — INSIDE
+this arc's length, yet a straight step leaves a curved variety at second order immediately. The
+probe was simultaneously large enough to matter and the wrong shape to see anything.
+
+**THREE FAULTS OF MINE IN THE CONTINUATION, each reported by the run as "the curve ends here".**
+A step size too large for the corrector; a null space taken as three of the SVD's trailing rows
+when it is 4-dimensional, so the "tangent" was not tangent; and a Tikhonov regulariser of
+`1e-38` against a `J^T J` whose entries are `1e12`, because gauge-fixing multiplies every
+quaternion height by `|q0|^2` and the forms are degree 4. **The tell for the last one is
+[METHODS]'s own: the failures split cleanly by the SIZE of the input** — the un-gauge-fixed
+record converged at step `1e-3`, the gauge-fixed one failed at `6e-7`. Height is a free choice
+of representative; unit quaternions fixed it.
+
+**ADDENDUM, 2026-09-20 — THE SECOND 183 CLASS HAS THE IDENTICAL STRUCTURE.**
+`src/probes/curve_extent.py`; `data/curve_extent.json`. Gauge-fixing each class so cube 0 is
+the identity cube and repeating the measurement:
+
+    class                  census                                     contacts  rank  genuine
+    n = 4 RECORD           {(1,1,1):128, (1,2):24, (2,2):36, (3,3):6}    36       8       1
+    second class ([P133])  {(1,1,1):128, (1,2):24, (2,2):36, (3,3):6}    36       8       1
+
+**Neither 183 is isolated.** [P287]'s "isolated in both senses" is wrong about both points, not
+just the record, and [P136]'s 88 shared walls cutting a 1-dimensional locus AT BOTH is exactly
+what a single constant-count curve through the two would look like. *This does not prove the two
+are joined* — [P133] records them as identical on every invariant, so no invariant can detect
+arrival, and the classes live in different gauges. Structure and extent are what the method
+supports; joinedness is not.
+
+**WHY [P287] MISSED IT, and it is not a defect in its arithmetic.** Its evidence is 19 682
+signed Cayley directions, straight walks between the two 183 classes, and a quaternion-axis
+probe at two step sizes — **every one a STRAIGHT LINE.** A curved family is invisible to all of
+them: the tangent direction leaves the variety at second order, so a straight step off the
+record loses 183 immediately, exactly as [P287] measured. Its remaining line, `isolate183.log`'s
+"second-order variety empty", is the only one that genuinely conflicts, and it predates this
+session's finding that several concurrency conditions of that era were spurious ([P321],
+[P323]). **[P287]'s measurements stand; its conclusion does not.**
+
+**THE ONE STEP NOT INDEPENDENTLY VERIFIED.** The region count along the curve follows from the
+preserved census plus the leading term `1 + L + sum c_ell` being unchanged. That term is locally
+constant and nothing in the data suggests a wall crossing at displacement 1e-6, but it was not
+computed at the displaced points — the engine takes integer quaternions and the curve's points
+are irrational. **Stated as an assumption, not as a measurement.**
+
+**TWO DOCUMENTED TRAPS, BOTH MINE, BOTH CAUGHT ONLY BY THE GATE.**
+
+  1. **Rows vs columns, sixth occurrence** — face normals are the COLUMNS of the rotation
+     matrix; the first census took the rows. Tell: zero `(2,2)` vertices at a point where 36
+     contact equations hold to 1e-24.
+  2. **The containment filter, fifth occurrence** ([FAILURE_MODES 38], ORIENTATION trap 1) —
+     the second census discarded any vertex lying outside a cube. A vertex lies on the facets
+     of its OWN cubes and may be outside every other. Tell: `{(1,1,1): 44}` for a compound
+     whose `T3` is 128.
+
+Neither was visible in the continuation output, which looked clean throughout. **Both were
+caught because the probe runs its census on the RECORD first and refuses to report the
+continuation unless that comes back right** — the known-answer gate, built before the result
+rather than after it.
+
+<a id="p379"></a>
+
+## [VERIFIED] Postscript 379: the 183 plateau arc, both ends — length 0.687, and the record sits 8 % from one end
+
+Completing [P378]. The user asked for the backward end; it is 12 times longer than the forward
+one. `src/probes/backward_end.py`, `plateau_arc.py`; `data/backward_end.json`,
+`data/plateau_arc.json`.
+
+**THE ARC, in the 12 unit-quaternion coordinates with cube 0 gauge-fixed:**
+
+    direction   extent        boundary                                        verified
+    forward     0.0516797     EE drops 36 -> 30, twelve contacts leave         bisected to 4e-5
+    backward    0.63560749    a contact reaches a CORNER, margin -> 1.2e-17    margin closed
+    TOTAL       0.6872872     the record sits 7.5 % from the forward end
+
+**`B = 128` and `EE = 36` hold at EVERY step of the backward walk** — full census recomputed at
+each of 37 steps, not sampled. So the count is 183 along the whole arc, and the plateau is a
+genuinely long interval rather than the point [P287] reported.
+
+**THE BOUNDARY IS AN INEQUALITY REACHING ITS LIMIT, and the two ends differ in kind.** Forward,
+twelve crossings slide off their edges at once and `EE` collapses to 30. Backward, a single
+crossing arrives at a CORNER — pair `(1,2)` at `t = 1`, cube 2 — turning a `(2,2)` vertex into a
+`(3,2)`. **The margin closes geometrically**, 1.3e-10 -> 1.2e-17 in thirteen steps, because the
+margin falls at very nearly 1 per unit arc and the step is taken proportional to it: the
+endpoint is SOLVED, not approached. *(Two runs stopping at the same arc named different dying
+contacts — pair `(0,1)` at `s=1` versus pair `(1,2)` at `t=1` — so two contacts reach corners
+within 1e-17 of each other and the endpoint is doubly degenerate. Reported, not resolved.)*
+
+**THREE FAULTS OF MINE, AND A RETRACTION I MADE TOO FAST.**
+
+  1. **A stopping rule that prevents its own progress.** Shrinking the step when the margin is
+     small guarantees the margin stops changing: the first run froze at arc 0.635417 for 580
+     steps of size 1e-10 and reported "budget exhausted". The margin is not a hazard to back
+     away from — it IS the distance remaining.
+  2. **A gate on the wrong quantity.** `contacts_at` tracks the 36 `EE` contacts and nothing
+     else, so `T3` and `Q4generic` can move with all 36 intact. I described the proxy as
+     "gated, not trusted" when the full census ran only on contact loss — which is worse than
+     no gate, because it reads as coverage. **Fixed by computing the census every step, and
+     `B = 128` then held throughout: the conclusion was right, and had not been checked.**
+  3. **A census read below its own tolerance.** The endpoint census at margin 2.9e-19 returned
+     `SC2 = 14`, which would make two-body 64 against a PROVED cap of 60 — impossible on sight,
+     and the tell that the sign tests were inside the noise (census tolerance 1e-18). I
+     retracted the whole backward result on the strength of that reading before checking
+     whether the reading itself was admissible.
+
+<a id="p380"></a>
+
+## [VERIFIED] Postscript 380: the two 183 classes are NOT on the same arc — proved by a Lipschitz bound, not by extrapolation
+
+[P136] predicted a curve through both 183 classes. [P379] measured the record's arc: 0.0516797
+forward, 0.63560749 backward. This settles the prediction.
+`src/probes/two_183s_joined.py`; `data/two_183s_joined.json`.
+
+**THE DISTANCE, gauge-free.** Each cube compared as a COSET `q*O` minimised over its 24 right
+multiplications, the configuration over the 24 global rotations fixing cube 0's cube and the 6
+relabellings — necessary because [P133] records the two classes as identical on every invariant,
+so a coarser comparison would read zero everywhere or never.
+
+    symmetry-minimal distance, record -> second class:   0.06504044
+
+**THE WALK, and it is NOT monotone.**
+
+    backward   arc 0.004   distance 0.06845
+               arc 0.18    distance 0.23853     rising
+               arc 0.48    distance 0.15885     FALLING -- it turns around
+               arc 0.60    distance 0.05072     closest approach, nearer than the record itself
+
+**My earlier reading was wrong and the error is instructive.** Having measured to arc 0.252 and
+seen the distance climb at slope 0.971 throughout, I reported the classes as "not joined" on
+that basis. The slope held only over the stretch I had measured; past 0.25 the curve turns.
+**A monotone trend over the measured part is not a monotone function**, and the conclusion
+happened to be right for reasons that had nothing to do with the argument I gave.
+
+**THE ACTUAL PROOF NEEDS NO EXTRAPOLATION.** Distance to a fixed point is **1-Lipschitz in arc
+length**, so:
+
+    forward    the whole arc is 0.0516797 long, so every point on it lies within 0.0516797
+               of the record; the second class is at 0.0650404.        EXCLUDED
+    backward   at arc 0.60 the distance is 0.0507216, and 0.0356 of arc remains to the end
+               at 0.6356075; closing that needs slope 1.42 > 1.        EXCLUDED
+
+**So the two 183 classes lie on TWO DISTINCT maximal constant-count arcs.** Each carries 183
+along its whole length, and neither contains the other's basepoint.
+
+**WHAT THIS DOES NOT SHOW.** Not that the 183 locus is globally disconnected — a connection
+through components of a different contact type is untouched by this. And [P136]'s 88-wall locus
+through both points remains a DIFFERENT object from the constant-count arc, exactly as [P136]
+itself said when it called its curve "a curve in the WALL SYSTEM rather than a constant-count
+locus". **[P136] was right about its own object and wrong only about the count along it.**
+
+<a id="p381"></a>
+
+## [VERIFIED] Postscript 381: the tangent dimension is a FAMILY feature and it GROWS — 1, 1, 1, 1, 2, 3 for n = 3..8
+
+Asked whether the arc of [P378]-[P380] is a property of n = 4 or of the family. It is the
+family's. `src/probes/rank_by_n.py`; `data/rank_by_n.json`.
+
+**THE SAME COMPUTATION AT EVERY n WITH A KNOWN MAXIMISER.** Parameters after gauge-fixing cube
+0 are `3(n-1)`; rank `r` leaves tangent dimension `3(n-1) - r`.
+
+    configuration              n  contacts  params  rank  tangent   [P307]   gap
+    n=3  67, Q(sqrt2)          3     26        6      5      1        --     4.3e+59
+    n=3  67, Q(sqrt5)          3     18        6      5      1        --     1.2e+57
+    n=4  RECORD 183 (CONTROL)  4     36        9      8      1        --     2.7e+54
+    n=5  RECORD 393            5     60       12     11      1        --     2.4e+54
+    n=6  RECORD 727            6     78       15     14      1         1     3.9e+53
+    n=7  RECORD 1217           7     90       18     16      2         2     6.5e+53
+    n=8  RECORD 1895           8    102       21     18      3         2     9.5e+52
+
+**THE TANGENT GROWS: 1, 1, 1, 1, 2, 3 for n = 3..8.** So the n = 4 arc is the LOW end of the
+family, not an anomaly, and the title of this entry is corrected: `rank = params - 1` is NOT
+universal — it fails from n = 7 on, **which is what rules out the systematic-redundancy
+artefact this entry was written to suspect.**
+
+**THREE CONTROLS, ALL PASS.** n = 4 returns 36 contacts and rank 8, reproducing the exact
+rational computation of [P377]. And **n = 6 and n = 7 return 1 and 2, which are [P307]'s
+independently measured plateau dimensions** — a different method, the same answers, at two
+sizes. The gaps are 1e52 to 1e59, so no rank call is close.
+
+**THE ONE DISAGREEMENT, at n = 8: tangent 3 against [P307]'s 2.** It is not automatically a
+contradiction — tangent dimension is an UPPER bound on local dimension, so 3 is consistent with
+a true dimension of 2 if the n = 8 record is a SINGULAR point of its contact variety, exactly
+the possibility [P377] raised for n = 4 before continuation settled it. But [P307] states its
+1, 2, 2 as EQUALITIES, so one of the two readings is wrong at n = 8. **The distinguishing test
+is the continuation of [P378], run there.** Recorded as open, not resolved.
+
+**WHAT IT SAYS ABOUT n - 1.** Both n = 3 maximisers — the octahedral `Q(sqrt2)` and the golden
+`Q(sqrt5)` — carry a 1-dimensional tangent. **That is the structure n = 4 had while it was
+believed isolated**, and [GLOSSARY] still records n = 3 as isolated ("no continuum of the same
+count around it (true at n = 3)"). On the evidence here that belief is UNTESTED rather than
+established: it would have been reached the same way [P287] reached its wrong answer at n = 4,
+by probes that cannot see a curved family. *Tangent dimension is an upper bound on local
+dimension, so this does NOT show the 67s lie on arcs — it shows the question is open and
+decidable by the continuation of [P378].*
+
+**WHAT DOES NOT TRANSFER.** The lengths. `0.0516797` and `0.63560749` belong to the n = 4
+record, as do its boundary types — twelve contacts leaving at one end, one crossing reaching a
+corner at the other. Those are properties of one configuration's contact set.
+
+**THE UNIFORMITY WAS SUSPECTED AND THE SUSPICION WAS DISCHARGED.** `rank = params - 1` held at
+every size up to 6 and is exactly the shape a systematic redundancy would take, the gauge
+quotient here removing only the `n-1` per-cube scalings. It **breaks at n = 7**, where the
+tangent is 2 and the rank is `params - 2`. A redundancy would not switch off at one size, so
+the 1s at n = 3..6 are the family's structure and not the method's.
+
+<a id="p382"></a>
+
+## [VERIFIED] Postscript 382: "isolated at n = 3" STANDS — and the mechanism is that the 67 sits at an ENDPOINT of its own arc
+
+[P381] found both 67s carrying a 1-dimensional tangent, the structure n = 4 had while [P287]
+wrongly believed it isolated. So the [GLOSSARY]'s "isolated at n = 3" needed the test that
+settled n = 4 rather than the straight-line probes that failed there.
+`src/probes/n3_arc.py`; `data/n3_arc.json`.
+
+**THE TEST, both fields, BOTH DIRECTIONS, three step sizes each.** Gates first: `|F|` at the 67
+is `1.3e-51` and `1.6e-50`, the tangent's `|J d|` is `5.3e-52` and `5.3e-51`, and the census
+routine reproduces each 67's own census before anything is continued.
+
+    Q(sqrt2)   census {(1,1,1):32, (2,2):30}            26 contacts
+      +/- 1e-3, 1e-4, 1e-5   |F| stays 1e-51, displacement KEPT, census CHANGES every time
+                             (2,2) 30 -> 26, eight (1,2) appear
+
+    Q(sqrt5)   census {(1,1,1):32, (2,2):18, (3,3):6}   18 contacts
+      + direction            (3,3) 6 -> 4
+      - direction            (3,3) 6 -> 4, (2,2) 18 -> 16      -- the two sides differ
+
+**THE CONTACT CURVE IS REAL AND THE COUNT LOCUS IS A POINT.** The displacement survives
+correction — `moved` equals the step exactly, `|F|` never leaves 1e-50 — so this is not the
+n = 4 situation of a curve nobody had followed. It is a curve whose count-preserving portion has
+**zero length on both sides**: the 67 sits AT a boundary of its own arc.
+
+**SO THERE ARE THREE RELATIONSHIPS between tangent and plateau, and all three occur:**
+
+    n = 4, 6, 7   tangent = plateau dimension            the maximiser is INTERIOR to an arc
+    n = 3         tangent 1, plateau 0                   the maximiser is an ENDPOINT
+    n = 8         tangent 3 = plateau 3 ([P383])         RESOLVED: [P307]'s 2 was a lower
+                                                         bound; all three directions integrate
+
+**AND IT CONFIRMS THE PROJECT'S OWN ACCOUNT OF WHY n = 3 IS DIFFERENT**, by a route that never
+mentioned it. [GLOSSARY] on frustration: *"n = 3's maximum is forced to be irrational (rigid
+demands land on isolated points; trades live on open sets)"*. Measured here: at n = 3 the
+maximiser is a SPIKE — 30 contacts at the point, 26 on either side — while the n = 4 record
+holds `EE = 36` across an arc of length 0.687 ([P379]). **Rigid demands give an endpoint; trades
+give a plateau.** The contact census sees the same distinction the depth-layer argument does.
+
+**A WORDING FAULT IN MY OWN PROBE, fixed.** Its first version stepped only along `+d` and
+printed "no surviving displacement" — when the displacement plainly survived and it was the
+CENSUS that failed. Those are different claims, and the printed one would have recorded that no
+contact curve exists at n = 3, which is false. At n = 4 the two directions differ by a factor of
+twelve, so a one-sided test could not have supported the word "isolated" either.
+
+<a id="p383"></a>
+
+## [REFUTATION] Postscript 383: the n = 8 plateau is 3-DIMENSIONAL, not 2 — [P307]'s figure is a lower bound stated as an equality
+
+[P381] measured tangent dimensions `1, 1, 1, 1, 2, 3` for n = 3..8, agreeing with [P307]'s
+independently measured plateau dimensions at n = 6 and n = 7 and disagreeing at n = 8 (3 against
+2). Tangent dimension is an upper bound, so the disagreement had three possible resolutions —
+[P307] wrong, or the n = 8 record a singular point, or the tangent miscounted. It is the first.
+`src/probes/n8_dimension.py`, `fast_census.py`; `data/n8_dimension.json`.
+
+**THE TANGENT IS EXACTLY 3.** Inverse iteration with deflation returns three directions with
+`|J d|` of `9.3e-42`, `8.3e-42`, `1.3e-41`; the fourth candidate has `|J d| = 0.36`, so the
+basis closes at three and the count is not a threshold artefact.
+
+**ALL THREE INTEGRATE, and so do random combinations of them.**
+
+    direction       step 1e-4   1e-6   1e-8      census
+    basis 0          SAME       SAME   SAME      unchanged at every step
+    basis 1          SAME       SAME   SAME
+    basis 2          SAME       SAME   SAME
+    random mix 0     SAME       SAME   SAME
+    random mix 1     SAME       SAME   SAME
+
+Five displacements, four orders of magnitude of step size, census identical throughout
+(`7 signature classes, 2114 vertices`). **So the plateau really is 3-dimensional at n = 8** and
+[P307]'s `1, 2, 2`, stated as equalities, is `1, 2, 3` with the last a missed direction.
+
+**A CRITERION OF MINE THAT MEASURED NOTHING.** The first run stepped `1e-4` against a census
+margin of `6.9e-5` — a displacement LARGER than the nearest vertex's distance to a facet
+boundary — so I retested inside the margin and scored directions by `step/margin < 0.5`. The
+retest shows **the margin scales exactly with the step**: `2.06e-6` at step `1e-6`, `2.06e-8` at
+step `1e-8`, ratio constant to three digits. The near-degenerate vertex is CREATED by the
+displacement at a fixed fraction of it, which is what a smooth deformation does — so there is no
+"inside the margin" to get to, and a 0.5 cutoff on a scale-invariant ratio separated basis 1
+(0.546) from basis 0 (0.486) for no reason. **The count of 4 it produced is discarded; the
+evidence is the census holding across four orders of magnitude.**
+
+**AND THE RUN ONLY BECAME POSSIBLE AFTER THE COST WAS FOUND.** Two earlier attempts were killed
+at the wall-clock limit after an hour of CPU each, at 19.7 MB resident — **not** a memory
+problem, though I spent a rewrite on that hypothesis before the user's own process capture
+refuted it. Staged timing put 10.5 s in the form load, 0.2 s in the contact search, 85 s in the
+lambdify, and **about an hour in a single census**: `C(48,3) = 17 296` plane triples at 45
+digits with an `O(P^2)` dedup. `fast_census.py` vectorises it and drops to double precision —
+justified because every decision is a sign test and the measured margins are `0.013` and up —
+and is GATED against the exact census at n = 3 and n = 4: identical output, 157x to 1705x. One
+census at n = 8 then costs seconds.
+
+<a id="p384"></a>
+
+## [VERIFIED] Postscript 384: the distance along the 183 arc has a CLOSED FORM — two sinusoids per branch, and the kink is a symmetry switch
+
+The user asked whether the distance curve of [P380] is piecewise linear, and then whether a
+smooth function describes it. It is neither linear nor globally smooth: it is **piecewise
+analytic**, and the pieces are identified exactly.
+
+**WHY D-SQUARED AND NOT D.** Everything is unit quaternions, so
+`D^2(s) = |gamma(s)|^2 + |p|^2 - 2<gamma(s), p>` has the first two terms constant and the whole
+shape lives in the inner product. The configuration is THREE free quaternions, so the arc runs
+on a product of three 3-spheres and that inner product is a sum of sinusoids -- one per cube, at
+that cube's own angular rate.
+
+**THE RATES ARE MEASURED, NOT FITTED**, from the tangent at the record:
+
+    cube 1   omega = 0.64888568        cubes 1 and 2 move at IDENTICAL rates
+    cube 2   omega = 0.64888568
+    cube 3   omega = 0.39735971        sum of squares = 1.0000000000 (unit speed)
+
+Two distinct frequencies, not three — a symmetry of the record's arc that nothing in this thread
+had noticed.
+
+**THE FIT, with only the five linear coefficients free:**
+
+    D^2(s) = c0 + a1 cos(wa s) + b1 sin(wa s) + a2 cos(wb s) + b2 sin(wb s)
+
+    whole curve                   R^2 0.9589     RMS 7.0e-03      POOR
+    rising branch, 9 points       R^2 0.9999014  max|dD| 2.0e-03
+    falling branch, 6 points      R^2 1.0000000  max|dD| 9.9e-08
+    straight-line model (D^2 quadratic)  R^2 0.8264
+
+**THE KINK AT ARC 0.30 IS A BRANCH SWITCH.** `D` is a MINIMUM over discrete symmetries — per-cube
+cosets, relabelling, the residual global rotation — so it is the lower envelope of several
+analytic functions, and a minimum of smooth functions is smooth except where the minimiser
+changes. Excellent fits on each side and a poor fit across is exactly that signature.
+
+**So the curve LOOKS piecewise linear because it IS piecewise**, each piece a sum of two
+sinusoids running nearly straight over its range — `|slope| <= 1` is saturated (measured 0.99)
+wherever the motion is radial with respect to the target, which is the same 1-Lipschitz fact
+that proved the two 183 classes disjoint in [P380].
+
+**HONESTY ON THE FIT QUALITY.** The falling branch has 6 points against 5 parameters, so its
+`R^2 = 1` is nearly guaranteed and is NOT confirmation. **The rising branch is the real test** —
+9 points, 4 degrees of freedom, max deviation `2.0e-03` against a range of 0.27, about 0.6 %.
+Its residual is plausibly the per-cube rates drifting slightly along the arc rather than holding
+exactly constant, which the model assumes; that is testable and was not tested.
+
+<a id="p385"></a>
+
+## [VERIFIED] Postscript 385: the n = 8 plateau DELIMITED — a 38-vertex polytope, bounded by two cube pairs, aspect ratio 14.5
+
+[P383] showed the n = 8 plateau is 3-dimensional; this gives its shape. Rays were the wrong
+instrument — the first ray of `n8_boundary.py` spent all 70 steps and measured its own step
+budget — because the inequalities define the body directly.
+`src/probes/n8_polytope.py`; `data/n8_polytope.json`.
+
+**THE REDUCTION.** What bounds the plateau is an INEQUALITY: each contact survives only while
+its crossing parameters `s, t` stay in `[0,1]`, and it dies when one reaches an endpoint — the
+crossing arrives at a corner, `(2,2) -> (3,2)` ([P379]). 102 contacts give **408 constraints**
+on a 3-dimensional plateau. Linearised at the record in the plateau coordinates each is a
+half-space, so the plateau is a POLYTOPE and every facet NAMES the contact that owns it.
+
+    polytope        38 vertices    72 facets    volume 0.1632
+    inradius        0.059473       circumradius 0.859442      ASPECT RATIO 14.5
+
+**TWO CUBE PAIRS DO THE BOUNDING.** The nearest facets are four symmetry-related contacts of
+**pair (0,5)** at distance `0.059473`, then six of **pair (3,7)** at `0.111933`. Nothing else is
+within twice the inradius. The plateau is not bounded by its contacts collectively; it is
+bounded by two pairs, and the four-fold and six-fold degeneracies are the cube symmetry acting
+on contacts of the same pair.
+
+**THE SAME ANISOTROPY AS n = 4.** The n = 4 arc ran `0.0516797` one way and `0.63560749` the
+other, a ratio of **12.3** ([P379]); this polytope's circumradius/inradius is **14.5**. Both
+maximisers sit far off-centre in a strongly elongated plateau, which is why a symmetric probe
+finds a boundary quickly in one direction and not at all in another — and why [P287]'s
+straight-line probes at step `1/32` read n = 4 as isolated.
+
+**CONSISTENT WITH THE ONE RAY THAT RAN.** `basis 0 +` reached `0.0105` with the census intact
+and stopped on budget; the nearest facet is at `0.0595`, so it had not reached the boundary.
+
+**SCOPE, and it matters.** This is FIRST ORDER — the tangent cone at the record. The true
+boundary is curved and the polytope is its linearisation, exact as a local description and an
+approximation to the body. The same tangent-versus-actual distinction decided [P382] (n = 3:
+tangent 1, plateau 0) and [P383] (n = 8: tangent 3, plateau 3), so it is not a formality here.
+
+**A REPORTING WEAKNESS, recorded rather than smoothed over.** The facet labels name only the
+CUBE PAIR, not the full contact, so four distinct contacts of pair (0,5) print identically. They
+are genuinely distinct constraints at equal distance by symmetry — not duplicates — but the
+output cannot show that, and a reader could take it for a repeated row.

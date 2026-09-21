@@ -1,0 +1,87 @@
+{
+ "what": "facets of the 3-dimensional n=8 plateau, from the contact inequalities",
+ "supports": "OQ 39; delimits P383",
+ "contacts": 102,
+ "constraints": 408,
+ "nearest_facets": [
+  {
+   "constraint": "s<=1 pair(0,5)",
+   "distance": 0.0594733048654461,
+   "grad_norm": 0.17514860978776206
+  },
+  {
+   "constraint": "s>=0 pair(0,5)",
+   "distance": 0.05947330486803856,
+   "grad_norm": 0.17514860978012695
+  },
+  {
+   "constraint": "t<=1 pair(0,5)",
+   "distance": 0.05947330487031984,
+   "grad_norm": 0.1751486097734089
+  },
+  {
+   "constraint": "t>=0 pair(0,5)",
+   "distance": 0.05947330487303105,
+   "grad_norm": 0.17514860976542443
+  },
+  {
+   "constraint": "t<=1 pair(3,7)",
+   "distance": 0.11193321455779988,
+   "grad_norm": 1.1221322038369632
+  },
+  {
+   "constraint": "s<=1 pair(3,7)",
+   "distance": 0.1119332145587184,
+   "grad_norm": 1.1221322038277541
+  },
+  {
+   "constraint": "t>=0 pair(3,7)",
+   "distance": 0.11193321455916708,
+   "grad_norm": 1.122132203823257
+  },
+  {
+   "constraint": "s>=0 pair(3,7)",
+   "distance": 0.11193321455932695,
+   "grad_norm": 1.1221322038216528
+  },
+  {
+   "constraint": "t>=0 pair(3,7)",
+   "distance": 0.11193321455933651,
+   "grad_norm": 1.1221322038215584
+  },
+  {
+   "constraint": "t>=0 pair(3,7)",
+   "distance": 0.11193321455956048,
+   "grad_norm": 1.1221322038193127
+  }
+ ],
+ "inradius": 0.0594733048654461,
+ "vertices": 38,
+ "circumradius": 0.8594418653271185,
+ "volume": 0.1631969805234973,
+ "facets": 72,
+ "reproduce": {
+  "command": "python3 src/probes/n8_polytope.py",
+  "run_from": "src",
+  "script": "src/probes/n8_polytope.py",
+  "script_sha256_16": "56468c423683d6b0",
+  "parameters": {
+   "dps": 40,
+   "fd_step": "1e-5"
+  },
+  "written_utc": "2026-09-21T10:09:07Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "note": "first-order: the tangent cone at the record"
+ }
+}

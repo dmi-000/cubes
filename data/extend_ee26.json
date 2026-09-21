@@ -1,0 +1,82 @@
+{
+ "what": "extending the EE = 26 triple to four cubes",
+ "supports": "OQ 39",
+ "base": [
+  [
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   2,
+   2,
+   0
+  ],
+  [
+   3,
+   -4,
+   0,
+   -3
+  ]
+ ],
+ "evaluated": 822,
+ "unevaluable": 0,
+ "best_TOTAL": 175,
+ "best": {
+  "q4": [
+   -2,
+   2,
+   -2,
+   3
+  ],
+  "EE": 36,
+  "SC2": 2,
+  "B": 128,
+  "Q4": 0
+ },
+ "best_EE_total": 44,
+ "B_distribution": {
+  "96": 1,
+  "98": 33,
+  "100": 3,
+  "102": 1,
+  "104": 2,
+  "106": 66,
+  "108": 14,
+  "110": 6,
+  "112": 109,
+  "114": 51,
+  "116": 148,
+  "118": 6,
+  "120": 195,
+  "122": 4,
+  "124": 117,
+  "128": 66
+ },
+ "reproduce": {
+  "command": "python3 src/probes/extend_ee26.py",
+  "run_from": "src",
+  "script": "src/probes/extend_ee26.py",
+  "script_sha256_16": "973aa981eb57105a",
+  "parameters": {
+   "seed": 626,
+   "family_height": 5,
+   "random": 600
+  },
+  "written_utc": "2026-09-19T07:01:21Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

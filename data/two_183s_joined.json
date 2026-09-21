@@ -1,0 +1,127 @@
+{
+ "what": "are the two 183 classes on one arc?",
+ "supports": "OQ 39; tests P136",
+ "initial_distance": "0.0650404371",
+ "directions": {
+  "backward": {
+   "closest": "0.0507215892",
+   "at_arc": "0.6",
+   "final_arc": "0.6",
+   "trajectory": [
+    {
+     "arc": "0.004",
+     "distance": "0.0684509169",
+     "margin": "0.053648386"
+    },
+    {
+     "arc": "0.012",
+     "distance": "0.0754578531",
+     "margin": "0.060856205"
+    },
+    {
+     "arc": "0.028",
+     "distance": "0.0900142665",
+     "margin": "0.074922596"
+    },
+    {
+     "arc": "0.06",
+     "distance": "0.1203766297",
+     "margin": "0.10170972"
+    },
+    {
+     "arc": "0.12",
+     "distance": "0.1791434252",
+     "margin": "0.14743008"
+    },
+    {
+     "arc": "0.18",
+     "distance": "0.2385349019",
+     "margin": "0.18784101"
+    },
+    {
+     "arc": "0.24",
+     "distance": "0.2979859901",
+     "margin": "0.22371833"
+    },
+    {
+     "arc": "0.3",
+     "distance": "0.3352032125",
+     "margin": "0.24419161"
+    },
+    {
+     "arc": "0.36",
+     "distance": "0.2760688218",
+     "margin": "0.21097121"
+    },
+    {
+     "arc": "0.42",
+     "distance": "0.2171908018",
+     "margin": "0.17389282"
+    },
+    {
+     "arc": "0.48",
+     "distance": "0.1588463507",
+     "margin": "0.13237722"
+    },
+    {
+     "arc": "0.54",
+     "distance": "0.1018679392",
+     "margin": "0.085720675"
+    },
+    {
+     "arc": "0.6",
+     "distance": "0.0507215892",
+     "margin": "0.033060477"
+    }
+   ]
+  },
+  "forward": {
+   "closest": "0.0442122345",
+   "at_arc": "0.028",
+   "final_arc": "0.028",
+   "trajectory": [
+    {
+     "arc": "0.004",
+     "distance": "0.0617087969",
+     "margin": "0.04632547"
+    },
+    {
+     "arc": "0.012",
+     "distance": "0.0553244694",
+     "margin": "0.038886112"
+    },
+    {
+     "arc": "0.028",
+     "distance": "0.0442122345",
+     "margin": "0.02363956"
+    }
+   ]
+  }
+ },
+ "joined": false,
+ "reproduce": {
+  "command": "python3 src/probes/two_183s_joined.py",
+  "run_from": "src",
+  "script": "src/probes/two_183s_joined.py",
+  "script_sha256_16": "17d5e571fae4b1d9",
+  "parameters": {
+   "dps": 50,
+   "step": "0.004",
+   "max_arc": "0.25"
+  },
+  "written_utc": "2026-09-20T22:15:36Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "note": "distance minimised over global rotation, per-cube cosets and relabelling"
+ }
+}

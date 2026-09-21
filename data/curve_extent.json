@@ -1,0 +1,147 @@
+{
+ "what": "extent of the 183 curve; structure at the second 183 class",
+ "supports": "OQ 39; follows P378, P136",
+ "classes": {
+  "record": {
+   "quats": [
+    [
+     19,
+     0,
+     0,
+     0
+    ],
+    [
+     19,
+     -1,
+     31,
+     11
+    ],
+    [
+     19,
+     1,
+     -31,
+     -11
+    ],
+    [
+     5,
+     1,
+     5,
+     5
+    ]
+   ],
+   "census": {
+    "(1, 1, 1)": 128,
+    "(1, 2)": 24,
+    "(2, 2)": 36,
+    "(3, 3)": 6
+   },
+   "contacts": 36,
+   "rank": 8,
+   "nullspace": 4,
+   "genuine_directions": 1
+  },
+  "second class [P133]": {
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     5,
+     3,
+     2
+    ],
+    [
+     1,
+     -4,
+     -1,
+     1
+    ],
+    [
+     1,
+     1,
+     -1,
+     -4
+    ]
+   ],
+   "census": {
+    "(1, 1, 1)": 128,
+    "(1, 2)": 24,
+    "(2, 2)": 36,
+    "(3, 3)": 6
+   },
+   "contacts": 36,
+   "rank": 8,
+   "nullspace": 4,
+   "genuine_directions": 1
+  }
+ },
+ "gate": {
+  "census": {
+   "(2, 2)": 36,
+   "(1, 2)": 24,
+   "(3, 3)": 6,
+   "(1, 1, 1)": 128
+  },
+  "pass": true
+ },
+ "start_residual": "1.6968849e-46",
+ "continuation": [
+  {
+   "step": 0,
+   "arc": "0.01",
+   "residual": "1.00581e-46",
+   "contacts_in_range": 36,
+   "census_same": true
+  },
+  {
+   "step": 1,
+   "arc": "0.02",
+   "residual": "1.64215e-46",
+   "contacts_in_range": 36,
+   "census_same": true
+  },
+  {
+   "step": 2,
+   "arc": "0.04",
+   "residual": "2.29558e-46",
+   "contacts_in_range": 36,
+   "census_same": true
+  },
+  {
+   "step": 3,
+   "arc": "0.06",
+   "residual": "2.30927e-46",
+   "contacts_in_range": 24,
+   "census_same": false
+  }
+ ],
+ "arc_reached": "0.06",
+ "reproduce": {
+  "command": "python3 src/probes/curve_extent.py",
+  "run_from": "src",
+  "script": "src/probes/curve_extent.py",
+  "script_sha256_16": "8fb7ced7e1c4ac6e",
+  "parameters": {
+   "dps": 50,
+   "step": "0.02",
+   "max_steps": 60
+  },
+  "written_utc": "2026-09-20T14:51:43Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

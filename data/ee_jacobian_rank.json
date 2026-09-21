@@ -1,0 +1,96 @@
+{
+ "what": "codimension of each EE stratum by exact Jacobian rank",
+ "supports": "OQ 39",
+ "strata": {
+  "0": {
+   "sampled": 6,
+   "vanishing_forms": {
+    "0": 6
+   },
+   "ranks": {
+    "0": 6
+   },
+   "codim": 0,
+   "dim": 3
+  },
+  "4": {
+   "sampled": 6,
+   "vanishing_forms": {
+    "12": 6
+   },
+   "ranks": {
+    "1": 6
+   },
+   "codim": 1,
+   "dim": 2
+  },
+  "6": {
+   "sampled": 6,
+   "vanishing_forms": {
+    "36": 6
+   },
+   "ranks": {
+    "2": 6
+   },
+   "codim": 2,
+   "dim": 1
+  },
+  "8": {
+   "sampled": 6,
+   "vanishing_forms": {
+    "22": 6
+   },
+   "ranks": {
+    "2": 6
+   },
+   "codim": 2,
+   "dim": 1
+  },
+  "10": {
+   "sampled": 6,
+   "vanishing_forms": {
+    "22": 6
+   },
+   "ranks": {
+    "2": 6
+   },
+   "codim": 2,
+   "dim": 1
+  }
+ },
+ "budget": {
+  "parameters": 9,
+  "pairs": 6,
+  "codim_by_EE": {
+   "0": 0,
+   "4": 1,
+   "6": 2,
+   "8": 2,
+   "10": 2
+  }
+ },
+ "reproduce": {
+  "command": "python3 src/probes/ee_jacobian_rank.py",
+  "run_from": "src",
+  "script": "src/probes/ee_jacobian_rank.py",
+  "script_sha256_16": "8cbe03af685321a2",
+  "parameters": {
+   "representative_height": 5,
+   "samples_per_stratum": 6
+  },
+  "written_utc": "2026-09-20T08:47:06Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "note": "exact rational Jacobian rank; no tolerance, no height census"
+ }
+}

@@ -175,3 +175,11 @@ repository under the names their `reproduce` blocks cite.
 **Read the caveat fields.** Several of these carry `IMPORTANT`, `CAVEATS` or
 `POWER_IS_NEAR_ZERO` keys recording what the measurement does not cover; those were
 written at the time and are load-bearing.
+
+**One unprovenanced file, 2026-09-19.** `data/ee10_family_triples.json` was written by an
+ad-hoc `python3 -c` before the probe existed, so it carries no `reproduce` block. It is
+**superseded by `data/ee10_triples.json`**, which is the same enumeration run from
+`src/probes/ee10_triples.py` with provenance: 336 family members, 54 432 triples, max
+`sum EE = 26` at `E_S = 32` — identical numbers, a different tie-broken witness. It is kept
+rather than deleted because it is a run's output ([METHODS]: data is immutable), and flagged
+here because an unstamped file in `data/` is otherwise indistinguishable from a stamped one.

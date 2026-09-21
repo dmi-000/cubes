@@ -1,0 +1,268 @@
+{
+ "what": "candidate law EE + B <= 164 at n = 4",
+ "supports": "OQ 39",
+ "limit": 164,
+ "climbs": {
+  "record": {
+   "best": 164,
+   "EE": 36,
+   "B": 128,
+   "SC2": 6,
+   "Q4": 0,
+   "TOTAL": 183,
+   "quats": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     3,
+     7,
+     3
+    ],
+    [
+     5,
+     -1,
+     -5,
+     -5
+    ],
+    [
+     1,
+     1,
+     1,
+     1
+    ]
+   ]
+  },
+  "face-diagonal": {
+   "best": 162,
+   "EE": 34,
+   "B": 128,
+   "SC2": 2,
+   "Q4": 0,
+   "TOTAL": 173,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     6,
+     4,
+     5,
+     0
+    ],
+    [
+     9,
+     3,
+     0,
+     3
+    ],
+    [
+     7,
+     1,
+     4,
+     -4
+    ]
+   ]
+  },
+  "EE=44 band": {
+   "best": 164,
+   "EE": 44,
+   "B": 120,
+   "SC2": 0,
+   "Q4": 2,
+   "TOTAL": 169,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     2,
+     2,
+     0
+    ],
+    [
+     3,
+     -4,
+     0,
+     -3
+    ],
+    [
+     1,
+     1,
+     0,
+     3
+    ]
+   ]
+  },
+  "mixed": {
+   "best": 162,
+   "EE": 34,
+   "B": 128,
+   "SC2": 4,
+   "Q4": 2,
+   "TOTAL": 175,
+   "quats": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     0,
+     7,
+     -5
+    ],
+    [
+     0,
+     1,
+     0,
+     1
+    ],
+    [
+     3,
+     -3,
+     3,
+     -7
+    ]
+   ]
+  },
+  "random": {
+   "best": 160,
+   "EE": 32,
+   "B": 128,
+   "SC2": 0,
+   "Q4": 0,
+   "TOTAL": 167,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     4,
+     1,
+     11
+    ],
+    [
+     9,
+     9,
+     0,
+     11
+    ],
+    [
+     1,
+     9,
+     11,
+     0
+    ]
+   ]
+  }
+ },
+ "known": [
+  {
+   "name": "record",
+   "EE": 36,
+   "SC2": 6,
+   "B": 128,
+   "Q4": 0,
+   "EE_plus_B": 164
+  },
+  {
+   "name": "paw",
+   "EE": 24,
+   "SC2": 8,
+   "B": 128,
+   "Q4": 0,
+   "EE_plus_B": 152
+  },
+  {
+   "name": "4-cycle",
+   "EE": 36,
+   "SC2": 8,
+   "B": 128,
+   "Q4": 18,
+   "EE_plus_B": 164
+  },
+  {
+   "name": "golden 177",
+   "EE": 36,
+   "SC2": 12,
+   "B": 128,
+   "Q4": 18,
+   "EE_plus_B": 164
+  },
+  {
+   "name": "K4",
+   "EE": 36,
+   "SC2": 12,
+   "B": 74,
+   "Q4": 0,
+   "EE_plus_B": 110
+  },
+  {
+   "name": "face-diagonal",
+   "EE": 42,
+   "SC2": 0,
+   "B": 84,
+   "Q4": 0,
+   "EE_plus_B": 126
+  },
+  {
+   "name": "EE=44 band",
+   "EE": 44,
+   "SC2": 0,
+   "B": 120,
+   "Q4": 2,
+   "EE_plus_B": 164
+  }
+ ],
+ "cache": {
+  "n": 3730,
+  "max_EE_plus_B": 164
+ },
+ "reproduce": {
+  "command": "python3 src/probes/ee_plus_b.py",
+  "run_from": "src",
+  "script": "src/probes/ee_plus_b.py",
+  "script_sha256_16": "b6f30b6aa1353c8d",
+  "parameters": {
+   "seed": 164164,
+   "steps": 700
+  },
+  "written_utc": "2026-09-19T07:09:43Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "inputs": [
+   {
+    "path": "data/band_cache.jsonl",
+    "sha256_16": "df19cf72f7f1587a"
+   }
+  ]
+ }
+}

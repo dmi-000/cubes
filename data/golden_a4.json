@@ -1,0 +1,107 @@
+{
+ "what": "the A4 golden compound: every subset maximal, 18 quadruple points",
+ "supports": "LEDGER P342, P343, P344",
+ "rational_A4": [
+  {
+   "w": 1,
+   "t": 5,
+   "total": 153,
+   "triples": [
+    55,
+    55,
+    55,
+    55
+   ]
+  },
+  {
+   "w": 4,
+   "t": 1,
+   "total": 153,
+   "triples": [
+    55,
+    55,
+    55,
+    55
+   ]
+  },
+  {
+   "w": 5,
+   "t": 2,
+   "total": 153,
+   "triples": [
+    55,
+    55,
+    55,
+    55
+   ]
+  }
+ ],
+ "golden": {
+  "triples": [
+   67,
+   67,
+   67,
+   67
+  ],
+  "pairs": [
+   13,
+   13,
+   13,
+   13,
+   13,
+   13
+  ],
+  "total": 177,
+  "ie_bare": 195,
+  "all_subsets_maximal": true
+ },
+ "census": {
+  "signatures": {
+   "(1, 1, 1)": 56,
+   "(1, 1, 1, 1)": 18
+  },
+  "T3": 56,
+  "Q4": 18,
+  "T3_plus_4Q4": 128,
+  "cap": 128,
+  "ie_minus_Q4": 177,
+  "matches_engine": true
+ },
+ "q4_directions": {
+  "coordinate axis (2-fold)": 6,
+  "coordinate plane": 12
+ },
+ "octahedral_control": {
+  "candidates": 21608,
+  "all67_found": 0,
+  "scope": "search window a,b,c,e in [-3,3], sqrt2 parts on the first two components only; lower bound, not a proof"
+ },
+ "reproduce": {
+  "command": "python3 src/probes/golden_a4.py",
+  "run_from": "src",
+  "script": "src/probes/golden_a4.py",
+  "script_sha256_16": "af9ae9b4364d22ff",
+  "parameters": {
+   "field": "Q(sqrt5)",
+   "compound": [
+    "0:1,1,1,1",
+    "0:1,1,-1,-1",
+    "0:1,-1,1,-1",
+    "0:1,-1,-1,1"
+   ]
+  },
+  "written_utc": "2026-09-17T18:49:23Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

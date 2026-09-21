@@ -1,0 +1,118 @@
+{
+ "what": "can EE + B <= 164 be established; the analogue at other n",
+ "supports": "OQ 39",
+ "extension": {
+  "n3_extremes": 12,
+  "evaluated": 7557,
+  "unevaluable": 0,
+  "max_EE_plus_B": 166,
+  "witness": [
+   [
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    2,
+    -3,
+    -2
+   ],
+   [
+    0,
+    2,
+    -3,
+    2
+   ],
+   [
+    -4,
+    -2,
+    -5,
+    -6
+   ]
+  ],
+  "witness_anat": {
+   "EE": 38,
+   "SC2": 0,
+   "B": 128,
+   "Q4": 0,
+   "sum": 166,
+   "TOTAL": 173
+  },
+  "distribution": {
+   "124": 7,
+   "126": 24,
+   "128": 384,
+   "130": 36,
+   "132": 5,
+   "134": 77,
+   "136": 39,
+   "138": 971,
+   "140": 53,
+   "142": 492,
+   "144": 92,
+   "146": 541,
+   "148": 534,
+   "150": 1453,
+   "152": 397,
+   "154": 756,
+   "156": 942,
+   "158": 129,
+   "160": 473,
+   "162": 40,
+   "164": 107,
+   "166": 5
+  }
+ },
+ "ladder": {
+  "2": {
+   "max_seen": 10,
+   "six_form": 6,
+   "ten_form": 10,
+   "source": "per-pair EE max 10, B = 0 ([P330])"
+  },
+  "3": {
+   "max_seen": 58,
+   "six_form": 50,
+   "ten_form": 62,
+   "source": "exhaustive over the EE=10 family ([P369])"
+  },
+  "4": {
+   "max_seen": 166,
+   "six_form": 164,
+   "ten_form": 188,
+   "source": "this session, 3730 compounds + these extensions"
+  },
+  "5": {
+   "max_seen": 380,
+   "six_form": 380,
+   "ten_form": 420,
+   "source": "the n = 5 RECORD (not a search)"
+  }
+ },
+ "reproduce": {
+  "command": "python3 src/probes/ee_plus_b_scaling.py",
+  "run_from": "src",
+  "script": "src/probes/ee_plus_b_scaling.py",
+  "script_sha256_16": "f61e8704bc963980",
+  "parameters": {
+   "seed": 164,
+   "family_height": 5,
+   "random": 400
+  },
+  "written_utc": "2026-09-20T07:09:18Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

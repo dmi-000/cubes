@@ -1,0 +1,214 @@
+<title>The 183 Plateau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#f4f6f6; --surface:#ffffff; --ink:#131a1c; --muted:#5d6b6e;
+    --rule:#d5dedd; --data:#0b6e75; --data-soft:#8fc2c4; --target:#9c3a12;
+    --bound:#8c2740; --excl:rgba(201,138,46,.16); --excl-line:#b8862f;
+    --card-shadow:0 1px 2px rgba(19,26,28,.06), 0 8px 24px rgba(19,26,28,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0e1416; --surface:#151d1f; --ink:#e8eeed; --muted:#9bacae;
+      --rule:#28383a; --data:#4fc0c8; --data-soft:#2c6a6e; --target:#e08a52;
+      --bound:#e0728c; --excl:rgba(201,138,46,.13); --excl-line:#c79a4e;
+      --card-shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0e1416; --surface:#151d1f; --ink:#e8eeed; --muted:#9bacae;
+    --rule:#28383a; --data:#4fc0c8; --data-soft:#2c6a6e; --target:#e08a52;
+    --bound:#e0728c; --excl:rgba(201,138,46,.13); --excl-line:#c79a4e;
+    --card-shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  }
+  body{background:var(--ground);color:var(--ink);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.55;margin:0;padding:0 20px 72px;}
+  .wrap{max-width:1080px;margin:0 auto;}
+  header{padding:56px 0 8px;}
+  h1{font-family:Newsreader,Georgia,"Times New Roman",serif;font-weight:600;
+    font-size:clamp(2.1rem,4.4vw,3rem);line-height:1.08;margin:0 0 .35em;
+    letter-spacing:-.015em;text-wrap:balance;}
+  .stand{font-size:1.06rem;color:var(--muted);max-width:62ch;margin:0;}
+  h2{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:1.42rem;
+    margin:52px 0 6px;letter-spacing:-.01em;}
+  .sub{color:var(--muted);font-size:.94rem;margin:0 0 20px;max-width:70ch;}
+  .card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;
+    box-shadow:var(--card-shadow);padding:22px 22px 14px;overflow-x:auto;}
+  svg{display:block;width:100%;height:auto;min-width:660px;}
+  .lbl{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;fill:var(--muted);}
+  .lbl-b{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;
+    fill:var(--ink);font-weight:500;}
+  .axis{stroke:var(--rule);stroke-width:1;}
+  .grid{stroke:var(--rule);stroke-width:1;stroke-dasharray:2 4;}
+  table{border-collapse:collapse;width:100%;font-size:.94rem;margin-top:6px;}
+  th,td{text-align:left;padding:9px 14px 9px 0;border-bottom:1px solid var(--rule);
+    vertical-align:baseline;}
+  th{font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;
+    color:var(--muted);}
+  td.n{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;
+    white-space:nowrap;}
+  .key{display:flex;flex-wrap:wrap;gap:18px 26px;margin:16px 0 0;font-size:.88rem;
+    color:var(--muted);}
+  .key span{display:flex;align-items:center;gap:8px;}
+  .sw{width:22px;height:3px;border-radius:2px;flex:none;}
+  .swd{width:11px;height:11px;border-radius:50%;flex:none;}
+  .argue{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--data);
+    border-radius:8px;padding:18px 22px;margin-top:22px;}
+  .argue p{margin:.45em 0;}
+  code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.9em;}
+  .foot{color:var(--muted);font-size:.86rem;margin-top:44px;border-top:1px solid var(--rule);
+    padding-top:16px;}
+</style>
+
+<div class="wrap">
+<header>
+  <h1>The 183 Plateau</h1>
+  <p class="stand">The n&nbsp;=&nbsp;4 record is not an isolated point. It lies on an arc of
+  length 0.687 along which every region count stays 183 — and the second 183 class lies on a
+  different arc, which a Lipschitz bound settles without extrapolation.</p>
+</header>
+
+<h2>Distance to the second 183 class, along the record's arc</h2>
+<p class="sub">Horizontal axis: arc length from the record, forward to the left, backward to the
+right. Vertical axis: the gauge-free distance to the second class — each cube compared as a
+coset, minimised over the octahedral group, relabelling, and the residual global rotation.
+Reaching the second class means touching zero. The arc ends before either branch can.</p>
+
+<div class="card">
+<svg viewBox="0 0 1080 480" role="img" aria-label="Distance to the second 183 class plotted against arc length; the measured curve rises to 0.335 and falls to 0.051, and Lipschitz cones from the last measured points stop at 0.021 and 0.015, never reaching zero.">
+  <!-- excluded region: below the zero line is unreachable; shade the Lipschitz shadow -->
+  <polygon points="908.5,375.1 951.8,413.6 951.8,430 908.5,430" fill="var(--excl)"/>
+  <polygon points="145.3,382.1 116.5,407.8 116.5,430 145.3,430" fill="var(--excl)"/>
+
+  <!-- grid -->
+  <line class="grid" x1="70" y1="430" x2="1030" y2="430"/>
+  <line class="grid" x1="70" y1="321.7" x2="1030" y2="321.7"/>
+  <line class="grid" x1="70" y1="213.3" x2="1030" y2="213.3"/>
+  <line class="grid" x1="70" y1="105" x2="1030" y2="105"/>
+  <text class="lbl" x="34" y="434">0</text>
+  <text class="lbl" x="18" y="325.7">0.10</text>
+  <text class="lbl" x="18" y="217.3">0.20</text>
+  <text class="lbl" x="18" y="109">0.30</text>
+
+  <!-- axes -->
+  <line class="axis" x1="70" y1="40" x2="70" y2="430"/>
+  <line class="axis" x1="70" y1="430" x2="1030" y2="430"/>
+
+  <!-- zero line emphasis -->
+  <line x1="70" y1="430" x2="1030" y2="430" stroke="var(--target)" stroke-width="2"/>
+  <text class="lbl-b" x="700" y="449" fill="var(--target)">distance 0 — the two classes coincide</text>
+
+  <!-- arc-end boundaries -->
+  <line x1="116.5" y1="40" x2="116.5" y2="430" stroke="var(--bound)" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <line x1="951.8" y1="40" x2="951.8" y2="430" stroke="var(--bound)" stroke-width="1.6" stroke-dasharray="5 4"/>
+  <text class="lbl-b" x="122" y="58" fill="var(--bound)">forward end 0.0517</text>
+  <text class="lbl-b" x="820" y="58" fill="var(--bound)">backward end 0.6356</text>
+  <text class="lbl" x="122" y="74" fill="var(--bound)">12 contacts leave</text>
+  <text class="lbl" x="806" y="74" fill="var(--bound)">one contact hits a corner</text>
+
+  <!-- measured backward curve -->
+  <polyline fill="none" stroke="var(--data)" stroke-width="2.4" stroke-linejoin="round"
+    points="179.4,359.5 184.2,355.8 193.9,348.2 213.4,332.5 252.3,299.6 325.2,235.9 398.1,171.6 471.0,107.2 543.9,66.9 616.8,130.9 689.7,194.7 762.7,257.9 835.6,319.6 908.5,375.1"/>
+  <!-- measured forward curve -->
+  <polyline fill="none" stroke="var(--data)" stroke-width="2.4" stroke-linejoin="round"
+    points="179.4,359.5 174.5,363.2 164.8,370.1 145.3,382.1"/>
+
+  <!-- Lipschitz cones -->
+  <line x1="908.5" y1="375.1" x2="951.8" y2="413.6" stroke="var(--excl-line)" stroke-width="2" stroke-dasharray="4 3"/>
+  <line x1="145.3" y1="382.1" x2="116.5" y2="407.8" stroke="var(--excl-line)" stroke-width="2" stroke-dasharray="4 3"/>
+  <circle cx="951.8" cy="413.6" r="4" fill="var(--excl-line)"/>
+  <circle cx="116.5" cy="407.8" r="4" fill="var(--excl-line)"/>
+  <text class="lbl-b" x="836" y="408" fill="var(--excl-line)">&#8805; 0.0151</text>
+  <text class="lbl-b" x="126" y="400" fill="var(--excl-line)">&#8805; 0.0205</text>
+
+  <!-- data points -->
+  <g fill="var(--data)">
+    <circle cx="184.2" cy="355.8" r="3.4"/><circle cx="193.9" cy="348.2" r="3.4"/>
+    <circle cx="213.4" cy="332.5" r="3.4"/><circle cx="252.3" cy="299.6" r="3.4"/>
+    <circle cx="325.2" cy="235.9" r="3.4"/><circle cx="398.1" cy="171.6" r="3.4"/>
+    <circle cx="471.0" cy="107.2" r="3.4"/><circle cx="543.9" cy="66.9" r="3.4"/>
+    <circle cx="616.8" cy="130.9" r="3.4"/><circle cx="689.7" cy="194.7" r="3.4"/>
+    <circle cx="762.7" cy="257.9" r="3.4"/><circle cx="835.6" cy="319.6" r="3.4"/>
+    <circle cx="908.5" cy="375.1" r="3.4"/>
+    <circle cx="174.5" cy="363.2" r="3.4"/><circle cx="164.8" cy="370.1" r="3.4"/>
+    <circle cx="145.3" cy="382.1" r="3.4"/>
+  </g>
+
+  <!-- the record -->
+  <circle cx="179.4" cy="359.5" r="6" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.4"/>
+  <text class="lbl-b" x="192" y="340">the record — distance 0.06504</text>
+
+  <!-- turning point -->
+  <text class="lbl" x="502" y="56">turns at arc 0.30</text>
+  <line class="grid" x1="543.9" y1="66.9" x2="543.9" y2="430"/>
+
+  <text class="lbl" x="470" y="470">arc length along the curve &#8594;</text>
+  <text class="lbl" x="86" y="470">&#8592; forward</text>
+</svg>
+
+<div class="key">
+  <span><i class="sw" style="background:var(--data)"></i>measured distance, 16 continuation points</span>
+  <span><i class="sw" style="background:var(--excl-line)"></i>1-Lipschitz bound from the last measurement</span>
+  <span><i class="sw" style="background:var(--bound)"></i>arc boundary — the census changes</span>
+  <span><i class="swd" style="background:var(--excl)"></i>region the distance cannot enter</span>
+</div>
+</div>
+
+<div class="argue">
+  <p><strong>Why this is a proof and not an extrapolation.</strong> Distance to a fixed point is
+  1-Lipschitz in arc length: moving a distance <code>s</code> along the curve can reduce it by at
+  most <code>s</code>.</p>
+  <p><strong>Forward.</strong> The whole branch is 0.0517 long, so every point on it lies within
+  0.0517 of the record. The second class is at 0.06504. It cannot be there.</p>
+  <p><strong>Backward.</strong> At arc 0.60 the distance is 0.05072, with 0.0356 of arc left.
+  Closing that gap needs slope 1.42&nbsp;&gt;&nbsp;1.</p>
+  <p>So the two 183 classes lie on <strong>two distinct maximal constant-count arcs</strong>. What
+  this does <em>not</em> show: that the 183 locus is globally disconnected — a link through
+  components of a different contact type is untouched.</p>
+</div>
+
+<h2>The arc itself</h2>
+<p class="sub">Count 183 holds along the whole length. The record sits close to one end, not in
+the middle — and the two ends fail in different ways.</p>
+
+<div class="card">
+<svg viewBox="0 0 1080 172" role="img" aria-label="The plateau arc: total length 0.687, with the record 7.5 percent from the forward end.">
+  <line x1="70" y1="86" x2="1010" y2="86" stroke="var(--data)" stroke-width="7" stroke-linecap="round"/>
+  <line x1="70" y1="66" x2="70" y2="106" stroke="var(--bound)" stroke-width="2.6"/>
+  <line x1="1010" y1="66" x2="1010" y2="106" stroke="var(--bound)" stroke-width="2.6"/>
+  <circle cx="140.7" cy="86" r="8" fill="var(--surface)" stroke="var(--ink)" stroke-width="2.6"/>
+  <text class="lbl-b" x="96" y="58">the record</text>
+  <text class="lbl" x="96" y="74">7.5 % from this end</text>
+  <text class="lbl-b" x="70" y="128" fill="var(--bound)">forward end</text>
+  <text class="lbl" x="70" y="144" fill="var(--bound)">EE 36 &#8594; 30, twelve contacts leave at once</text>
+  <text class="lbl-b" x="836" y="128" fill="var(--bound)">backward end</text>
+  <text class="lbl" x="742" y="144" fill="var(--bound)">one crossing reaches a corner: (2,2) &#8594; (3,2)</text>
+  <text class="lbl-b" x="486" y="72">0.687</text>
+  <text class="lbl" x="452" y="112">B = 128 and EE = 36 at every step</text>
+</svg>
+</div>
+
+<h2>The numbers</h2>
+<table>
+  <thead><tr><th>Quantity</th><th>Value</th><th>How it was obtained</th></tr></thead>
+  <tbody>
+    <tr><td>Forward arc</td><td class="n">0.0516797</td><td>bisected to 4&times;10<sup>&#8722;5</sup></td></tr>
+    <tr><td>Backward arc</td><td class="n">0.63560749</td><td>margin closed to 1.2&times;10<sup>&#8722;17</sup></td></tr>
+    <tr><td>Total plateau</td><td class="n">0.6872872</td><td>sum of the two branches</td></tr>
+    <tr><td>Distance between the classes</td><td class="n">0.06504044</td><td>minimised over cosets, relabelling, global rotation</td></tr>
+    <tr><td>Closest the arc comes</td><td class="n">0.05072159</td><td>at arc 0.60, backward</td></tr>
+    <tr><td>Backward turning point</td><td class="n">0.33520 at arc 0.30</td><td>the distance is not monotone</td></tr>
+    <tr><td>Contact-system rank</td><td class="n">8 of 9</td><td>exact rational Jacobian, both classes</td></tr>
+    <tr><td>Newton residual along the curve</td><td class="n">&#8804; 2.3&times;10<sup>&#8722;46</sup></td><td>50-digit arithmetic</td></tr>
+  </tbody>
+</table>
+
+<p class="foot">Postscripts 377–380. The curve was found from the edge-contact system, whose 36
+equations have rank 8 on 9 parameters; the record's three corner sharings add nothing to that
+rank, being implied by the contacts. Postscript 136 located the same 1-dimensional locus five
+weeks earlier from the wall system, and concluded the count was not constant along it — that
+conclusion was wrong, but its object was a different curve, which is what it said.</p>
+</div>

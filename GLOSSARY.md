@@ -192,6 +192,62 @@ trace(Rᵢᵀ Rⱼ H). Necessary for congruence, **not sufficient** — see §7.
 **Step T** — a step in the max(3) = 67 proof. Its first route was false and was
 replaced.
 
+## 4b. The n = 4 accounting vocabulary
+
+Added 2026-09-19. These eight symbols carry the whole `max(4) = 183` argument and, until now,
+were defined only inside the postscripts that introduced them — 392 occurrences of `EE` alone
+across the documents, with no entry here. **`B` is also an overload** (see §8's table): §4's
+`B_j` is a completely different quantity.
+
+Every one of them is a count of ARRANGEMENT VERTICES sorted by **signature** — the tuple giving,
+for each cube whose boundary passes through the vertex, how many of that cube's facets do.
+
+| symbol | signature counted | meaning |
+|---|---|---|
+| **EE** | `(2,2)` | edge-edge contacts: an edge of one cube crosses an edge of another |
+| **SC2** | `(3,3)` | shared corners: two cubes meet at a common corner, which happens iff they share a body-diagonal direction. One shared axis contributes **2** (an antipodal pair) |
+| **T3** | `(1,1,1)` | triple points: three cubes' face planes meet, one facet each |
+| **Q4generic** | `(1,1,1,1)` | four cubes, one facet each |
+| **Q4** | all 4-cube signatures | every four-fold vertex, generic or not |
+
+and three derived quantities:
+
+**`E_i` / two-body / `T`** **(ours)** — `E_i = EE_i + 2*SC2_i` for a pair; `T = sum_i E_i` over
+all `C(n,2)` pairs. A pair's region count is exactly `3 + E_i`, so `max(2) = 13` is the same
+statement as `E_i <= 10` ([P237], PROVED). Not to be confused with §2's **type**.
+
+**`E_S`** **(ours)** — a 3-subset's own triple-point count, `E_S <= 32` PROVED
+(PROOF_67 Lemma 1a). A triple's region count is exactly `5 + sum_i E_i + E_S`, so `max(3) = 67`
+is the statement `sum E_i + E_S <= 62`.
+
+**`B`** **(ours)** — the **triple budget**, `B := sum over 3-subsets of E_S`. Equivalently, in
+the whole compound, `B = T3 + 4*Q4generic` ([P346]'s budget law): a generic four-fold vertex is
+a triple point of each of the four subsets containing it, hence the 4. At n = 4, `B <= 128`.
+
+    record       T3 = 128, Q4gen =  0   ->  B = 128
+    golden 177   T3 =  56, Q4gen = 18   ->  B = 56 + 72 = 128
+    K4           T3 =  74, Q4gen =  0   ->  B = 74
+
+**`h(S)`** **(ours)** — `count(S) - (1/2)(sum of its pair counts)`, the inclusion-exclusion
+share of a 3-subset. `h = 0.5 + (1/2) sum E_i + E_S <= 47.5` PROVED ([P348]).
+
+**THE IDENTITY these exist for**, at n = 4 with trivial holes:
+
+    TOTAL = 7 + T + B - Q4
+
+    record  7 + 48 + 128 -  0 = 183        golden  7 + 60 + 128 - 18 = 177
+
+`Q4` is subtracted because `B` has already counted each four-fold vertex four times. Every
+current question about `max(4)` is a question about which `(T, B, Q4)` are jointly attainable.
+
+**BUT IT IS NOT AN IDENTITY** ([P374](LEDGER.md#p374), 2026-09-20). The `7` is
+`1 + L + sum c_ell`, the level component count, and it VARIES — measured in `{-3,...,7}` across
+171 compounds whose census holds only the tabulated signatures, and equal to 7 on the record by
+structure rather than by law. `TOTAL <= 7 + T + B - Q4` held on all 171, so the bound direction
+is safe **within that class**; outside it the formula omits the excess of `(1,1,2)`, `(1,2,2)`
+and `(2,2,2)` vertices entirely and is not a bound at all. Roughly 15 % of random compounds fall
+outside. Quote engine counts, or name the formula.
+
 ## 5. Workstream code-names
 
 Older reports are named after these; without the key they are opaque.
@@ -324,7 +380,10 @@ whose vanishing defines it. One wall, one condition, but a condition may factor
 (edge-edge conditions factor into two rational planes).
 
 **Isolated** — for a *configuration*, means no continuum of the same count
-around it (true at n = 3). For a *type*, means a zero-width chamber. The two
+around it (true at n = 3, and CONFIRMED 2026-09-20 by [P382](LEDGER.md#p382) with a mechanism:
+the 67 lies on a real contact curve but sits at an ENDPOINT of the count-preserving portion,
+in both directions. **It is NOT true at n = 4** — [P378](LEDGER.md#p378) — where the record is
+interior to an arc of length 0.687). For a *type*, means a zero-width chamber. The two
 are different and n = 6 has the second without the first.
 
 ## 8. Overloaded symbols — `c`, and how each occurrence is told apart
@@ -337,6 +396,8 @@ proposed.
 
 | form | meaning | how you know |
 |---|---|---|
+| `B` (bare) | the TRIPLE BUDGET `T3 + 4*Q4generic` (§4b) — the n = 4 accounting sense, ~90 occurrences | appears with `T`, `EE`, `Q4`, `E_S`, or the value 128 |
+| `B_j` | the increment bound `Delta_j <= 1 + c + sum_v (deg(v)/2 - 1)` (§4) | always SUBSCRIPTED by a cube index, and appears with `Delta` |
 | `c_ell`, `c_1`, `c3` | connected components of the level-ℓ graph — the dominant use, 115+ occurrences | appears alongside `d_ell`, `V`, `E`, `tau3`, `W0`, or in `E − V + c + 1` |
 | `c0` | the ZERO-COORDINATE INDEX of a wall key, a value in 0..2 | always inside `(frame, group, sig, c0)` or indexing a 3-vector: `m1[c0]`, `sum_{c != c0}` |
 | `C3` | the cyclic group of order 3 | capital C, and the word *quotient* or *symmetry* nearby |

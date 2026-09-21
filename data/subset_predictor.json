@@ -1,0 +1,77 @@
+{
+ "what": "predicting a count from its subsets",
+ "supports": "LEDGER P340",
+ "named": [
+  {
+   "label": "n=4 RECORD",
+   "total": 183,
+   "predicted": 183,
+   "defect": 0,
+   "n_fold": 0
+  },
+  {
+   "label": "n=5 RECORD",
+   "total": 393,
+   "predicted": 393,
+   "defect": 0,
+   "n_fold": 0
+  },
+  {
+   "label": "merged corner",
+   "total": 145,
+   "predicted": 147,
+   "defect": -2,
+   "n_fold": 2
+  },
+  {
+   "label": "body-diagonal",
+   "total": 145,
+   "predicted": 147,
+   "defect": -2,
+   "n_fold": 2
+  },
+  {
+   "label": "face-diagonal",
+   "total": 145,
+   "predicted": 147,
+   "defect": -2,
+   "n_fold": 2
+  }
+ ],
+ "random": {
+  "evaluated": 199,
+  "refused": 1,
+  "defects": {
+   "-2": 5,
+   "0": 194
+  },
+  "defect_vs_nfold": {
+   "(-2, 2)": 5,
+   "(0, 0)": 194
+  },
+  "conjecture_defect_eq_minus_nfold": true
+ },
+ "reproduce": {
+  "command": "python3 src/probes/subset_predictor.py",
+  "run_from": "src",
+  "script": "src/probes/subset_predictor.py",
+  "script_sha256_16": "a0e67090087d42f4",
+  "parameters": {
+   "trials": 200,
+   "seed": 19
+  },
+  "written_utc": "2026-09-17T17:50:48Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

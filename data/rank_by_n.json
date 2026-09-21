@@ -1,0 +1,86 @@
+{
+ "what": "contact-system rank at every n with a known maximiser",
+ "supports": "OQ 39; extends P378-P380",
+ "cases": {
+  "n=3  67, field Q(sqrt2)": {
+   "n": 3,
+   "contacts": 26,
+   "params": 6,
+   "rank": 5,
+   "tangent_dim": 1,
+   "singular_value_gap": "4.347e+59"
+  },
+  "n=3  67, field Q(sqrt5)": {
+   "n": 3,
+   "contacts": 18,
+   "params": 6,
+   "rank": 5,
+   "tangent_dim": 1,
+   "singular_value_gap": "1.235e+57"
+  },
+  "n=4  RECORD 183 (control)": {
+   "n": 4,
+   "contacts": 36,
+   "params": 9,
+   "rank": 8,
+   "tangent_dim": 1,
+   "singular_value_gap": "2.689e+54"
+  },
+  "n=5  RECORD 393": {
+   "n": 5,
+   "contacts": 60,
+   "params": 12,
+   "rank": 11,
+   "tangent_dim": 1,
+   "singular_value_gap": "2.413e+54"
+  },
+  "n=6  RECORD 727": {
+   "n": 6,
+   "contacts": 78,
+   "params": 15,
+   "rank": 14,
+   "tangent_dim": 1,
+   "singular_value_gap": "3.892e+53"
+  },
+  "n=7  RECORD 1217": {
+   "n": 7,
+   "contacts": 90,
+   "params": 18,
+   "rank": 16,
+   "tangent_dim": 2,
+   "singular_value_gap": "6.45e+53"
+  },
+  "n=8  RECORD 1895": {
+   "n": 8,
+   "contacts": 102,
+   "params": 21,
+   "rank": 18,
+   "tangent_dim": 3,
+   "singular_value_gap": "9.492e+52"
+  }
+ },
+ "reproduce": {
+  "command": "python3 src/probes/rank_by_n.py",
+  "run_from": "src",
+  "script": "src/probes/rank_by_n.py",
+  "script_sha256_16": "6d53f21bf539a24d",
+  "parameters": {
+   "dps": 60,
+   "rank_threshold": "1e-25"
+  },
+  "written_utc": "2026-09-20T22:40:37Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "note": "rank from the singular-value gap; n=4 is the control"
+ }
+}

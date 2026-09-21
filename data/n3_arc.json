@@ -1,0 +1,198 @@
+{
+ "what": "is the n=3 maximiser on an arc?",
+ "supports": "OQ 39; tests GLOSSARY \"isolated at n=3\" and follows P381",
+ "fields": {
+  "Q(sqrt2)": {
+   "census": {
+    "(2, 2)": 30,
+    "(1, 1, 1)": 32
+   },
+   "vertices": 62,
+   "contacts": 26,
+   "start_residual": "1.3363824e-51",
+   "tangent_residual": "5.3236711e-52",
+   "continuation": [
+    {
+     "dirn": "+",
+     "step": "1e-3",
+     "moved": "0.001",
+     "census_same": false,
+     "census": {
+      "(2, 2)": 26,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 8
+     }
+    },
+    {
+     "dirn": "+",
+     "step": "1e-4",
+     "moved": "0.0001",
+     "census_same": false,
+     "census": {
+      "(2, 2)": 26,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 8
+     }
+    },
+    {
+     "dirn": "+",
+     "step": "1e-5",
+     "moved": "1.0e-5",
+     "census_same": false,
+     "census": {
+      "(2, 2)": 26,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 8
+     }
+    },
+    {
+     "dirn": "-",
+     "step": "1e-3",
+     "moved": "0.001",
+     "census_same": false,
+     "census": {
+      "(2, 2)": 26,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 8
+     }
+    },
+    {
+     "dirn": "-",
+     "step": "1e-4",
+     "moved": "0.0001",
+     "census_same": false,
+     "census": {
+      "(2, 2)": 26,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 8
+     }
+    },
+    {
+     "dirn": "-",
+     "step": "1e-5",
+     "moved": "1.0e-5",
+     "census_same": false,
+     "census": {
+      "(2, 2)": 26,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 8
+     }
+    }
+   ],
+   "verdict": "the CONTACT curve is real (displacement survives, |F| stays at 1e-50) but the COUNT does not extend: the 67 sits AT a boundary of its own arc, in both directions"
+  },
+  "Q(sqrt5)": {
+   "census": {
+    "(3, 3)": 6,
+    "(2, 2)": 18,
+    "(1, 1, 1)": 32
+   },
+   "vertices": 56,
+   "contacts": 18,
+   "start_residual": "1.6036588e-50",
+   "tangent_residual": "5.2699095e-51",
+   "continuation": [
+    {
+     "dirn": "+",
+     "step": "1e-3",
+     "moved": "0.001",
+     "census_same": false,
+     "census": {
+      "(3, 3)": 4,
+      "(2, 2)": 18,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 8
+     }
+    },
+    {
+     "dirn": "+",
+     "step": "1e-4",
+     "moved": "0.0001",
+     "census_same": false,
+     "census": {
+      "(3, 3)": 4,
+      "(2, 2)": 18,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 8
+     }
+    },
+    {
+     "dirn": "+",
+     "step": "1e-5",
+     "moved": "1.0e-5",
+     "census_same": false,
+     "census": {
+      "(3, 3)": 4,
+      "(2, 2)": 18,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 8
+     }
+    },
+    {
+     "dirn": "-",
+     "step": "1e-3",
+     "moved": "0.001",
+     "census_same": false,
+     "census": {
+      "(3, 3)": 4,
+      "(2, 2)": 16,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 12
+     }
+    },
+    {
+     "dirn": "-",
+     "step": "1e-4",
+     "moved": "0.0001",
+     "census_same": false,
+     "census": {
+      "(3, 3)": 4,
+      "(2, 2)": 16,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 12
+     }
+    },
+    {
+     "dirn": "-",
+     "step": "1e-5",
+     "moved": "1.0e-5",
+     "census_same": false,
+     "census": {
+      "(3, 3)": 4,
+      "(2, 2)": 16,
+      "(1, 1, 1)": 32,
+      "(1, 2)": 12
+     }
+    }
+   ],
+   "verdict": "the CONTACT curve is real (displacement survives, |F| stays at 1e-50) but the COUNT does not extend: the 67 sits AT a boundary of its own arc, in both directions"
+  }
+ },
+ "reproduce": {
+  "command": "python3 src/probes/n3_arc.py",
+  "run_from": "src",
+  "script": "src/probes/n3_arc.py",
+  "script_sha256_16": "7757fccf70a70799",
+  "parameters": {
+   "dps": 50,
+   "steps": [
+    "1e-3",
+    "1e-4",
+    "1e-5"
+   ]
+  },
+  "written_utc": "2026-09-20T22:45:39Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

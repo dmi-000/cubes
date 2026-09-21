@@ -1,0 +1,46 @@
+{
+ "what": "full extent of the 183 plateau arc",
+ "supports": "OQ 39; completes P378",
+ "directions": {
+  "forward": {
+   "last_good_arc": "0.05",
+   "stop_reason": "census changed",
+   "boundary_lo": "0.0516796875",
+   "boundary_hi": "0.05171875",
+   "census_beyond": {
+    "(3, 3)": 6,
+    "(1, 2)": 36,
+    "(2, 2)": 30,
+    "(1, 1, 1)": 128
+   }
+  },
+  "backward": {
+   "last_good_arc": "0.3",
+   "stop_reason": "budget exhausted"
+  }
+ },
+ "reproduce": {
+  "command": "python3 src/probes/plateau_arc.py",
+  "run_from": "src",
+  "script": "src/probes/plateau_arc.py",
+  "script_sha256_16": "e77e4099f4c25844",
+  "parameters": {
+   "dps": 50,
+   "step": "0.01",
+   "bisections": 8
+  },
+  "written_utc": "2026-09-20T15:09:20Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

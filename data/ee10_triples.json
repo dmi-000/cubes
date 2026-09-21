@@ -1,0 +1,67 @@
+{
+ "what": "max sum-EE at E_S = 32, enumerated over the EE = 10 family",
+ "supports": "OQ 39; refutes P359 max of 20",
+ "family_size": 336,
+ "triples": 54432,
+ "unevaluable": 0,
+ "max_EE_at_ES32": 26,
+ "witness": [
+  [
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   0,
+   2,
+   -3,
+   -2
+  ],
+  [
+   0,
+   2,
+   -3,
+   2
+  ]
+ ],
+ "EE_spectrum_at_ES32": [
+  [
+   26,
+   4032
+  ],
+  [
+   20,
+   34944
+  ]
+ ],
+ "dist": {
+  "24,18": 8064,
+  "24,22": 7392,
+  "32,20": 34944,
+  "32,26": 4032
+ },
+ "reproduce": {
+  "command": "python3 src/probes/ee10_triples.py",
+  "run_from": "src",
+  "script": "src/probes/ee10_triples.py",
+  "script_sha256_16": "d98af71f684550a3",
+  "parameters": {
+   "family_height": 6
+  },
+  "written_utc": "2026-09-19T07:22:52Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "note": "exhaustive over the height<=6 EE=10 family; a LOWER bound on the envelope outside it"
+ }
+}

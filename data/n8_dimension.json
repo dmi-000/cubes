@@ -1,0 +1,116 @@
+{
+ "what": "n=8 plateau dimension: contact tangent vs P307",
+ "supports": "OQ 39",
+ "contacts": 102,
+ "params": 21,
+ "start_residual": "6.7273274e-44",
+ "census_classes": 7,
+ "census_vertices": 2114,
+ "tangent_directions": 3,
+ "surviving": 4,
+ "tests": [
+  {
+   "direction": "basis 0",
+   "step": "1e-6",
+   "moved": "1.0e-6",
+   "census_same": true,
+   "margin": "2.05953e-06",
+   "step_over_margin": 0.4855480237390585
+  },
+  {
+   "direction": "basis 0",
+   "step": "1e-8",
+   "moved": "1.0e-8",
+   "census_same": true,
+   "margin": "2.05953e-08",
+   "step_over_margin": 0.4855484346754769
+  },
+  {
+   "direction": "basis 1",
+   "step": "1e-6",
+   "moved": "1.0e-6",
+   "census_same": true,
+   "margin": "1.83091e-06",
+   "step_over_margin": 0.5461778631447992
+  },
+  {
+   "direction": "basis 1",
+   "step": "1e-8",
+   "moved": "1.0e-8",
+   "census_same": true,
+   "margin": "1.83091e-08",
+   "step_over_margin": 0.546177458131727
+  },
+  {
+   "direction": "basis 2",
+   "step": "1e-6",
+   "moved": "1.0e-6",
+   "census_same": true,
+   "margin": "2.94802e-06",
+   "step_over_margin": 0.33921120421329104
+  },
+  {
+   "direction": "basis 2",
+   "step": "1e-8",
+   "moved": "1.0e-8",
+   "census_same": true,
+   "margin": "2.94801e-08",
+   "step_over_margin": 0.339211610372493
+  },
+  {
+   "direction": "random mix 0",
+   "step": "1e-6",
+   "moved": "1.0e-6",
+   "census_same": true,
+   "margin": "2.6643e-06",
+   "step_over_margin": 0.3753336510453303
+  },
+  {
+   "direction": "random mix 0",
+   "step": "1e-8",
+   "moved": "1.0e-8",
+   "census_same": true,
+   "margin": "2.66429e-08",
+   "step_over_margin": 0.37533405553535154
+  },
+  {
+   "direction": "random mix 1",
+   "step": "1e-6",
+   "moved": "1.0e-6",
+   "census_same": true,
+   "margin": "3.71947e-06",
+   "step_over_margin": 0.26885547256635706
+  },
+  {
+   "direction": "random mix 1",
+   "step": "1e-8",
+   "moved": "1.0e-8",
+   "census_same": true,
+   "margin": "3.71946e-08",
+   "step_over_margin": 0.2688558830485227
+  }
+ ],
+ "reproduce": {
+  "command": "python3 src/probes/n8_dimension.py",
+  "run_from": "src",
+  "script": "src/probes/n8_dimension.py",
+  "script_sha256_16": "fac7e7ceef5015d1",
+  "parameters": {
+   "dps": 45,
+   "step": "1e-4"
+  },
+  "written_utc": "2026-09-21T02:45:29Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

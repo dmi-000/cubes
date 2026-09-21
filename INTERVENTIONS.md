@@ -349,7 +349,7 @@ premise was about to reverse, on the strength of six agreeing scales that were s
 measurements of the same axis-aligned direction set ([FAILURE_MODES 29](FAILURE_MODES.md)).
 
 **Also this session, same shape, no defect found:** *"While that runs on this machine, do you
-want to start something on the cubes64 machine?"* — the [A5](#a5-2026-09-01--three-challenges-three-defects-one-campaign)
+want to start something on the other machine?"* — the [A5](#a5-2026-09-01--three-challenges-three-defects-one-campaign)
 pattern of a resource simply not being in mind. It is what caused the 12a re-measurement to
 be attempted at all.
 
@@ -631,3 +631,127 @@ sat for five weeks looking settled.
 the bug's discovery and claims that were verified against a different defect. A claim that
 survived one audit is not thereby audited; it was audited for one thing. Every class above took
 minutes to sweep, and one of the four returned a live wrong claim.
+
+## A17 (2026-09-17) — I opened as OPEN a question the ledger had closed a month earlier
+
+The user, in one sentence: *all triples of a 4-compound can be 67, but it falls short of the
+record.* Both halves correct, and both already in `RESULTS.md` §4, from
+[P131](LEDGER.md#p131), 2026-08-18: *"The 'two 67 triples' family at n = 4 is EXHAUSTED and caps
+at 177 ... 960 candidates, zero engine refusals, best 177, six short of 183."*
+
+**What I did.** [P341] asserted the all-67 ceiling was "certainly not attainable, since it
+requires all four triples to be 67s and the 67's pairs are rigid", and [OQ 38] then posed *can
+two triples both be 67s?* as **the decisive open sub-question**. It was neither open nor
+decisive. The answer was four, not two, and it had been obtained by exactly the method I was
+recommending — solving rather than searching.
+
+**Why it happened, and it is not ignorance of the file.** I had read `RESULTS.md` this same
+session — I edited §3d into it, and wrote new rows into its superseded-claims table. The failure
+was not in reading but in DIRECTION: when a new formalism (the subset decomposition) produced a
+question, I asked whether the question was interesting, not whether it was answered. **A
+reformulation feels like new territory even when it is a change of coordinates on old ground.**
+
+**The check that would have caught it, in one command.** The question was about 67s inside
+4-compounds. `grep -n "67" RESULTS.md` returns the exhausted-family bullet directly. Cost: three
+seconds, against a postscript and an open question that had to be corrected.
+
+**The rule.** Before opening an OPEN QUESTION, grep the record for its SUBJECT — not for the
+postscript number, not for the formalism, but for the object it is about. [A13] established that
+rule for propagating corrections; it applies identically to posing questions. **The record is as
+easy to duplicate as it is to contradict, and duplication is harder to notice** because nothing
+in the new entry looks wrong.
+
+**What survives.** The measurement in [P342] is new and stands: every subset of the golden 177 is
+simultaneously maximal, and its 6-region shortfall is exactly its 18 quadruple points, confirming
+[P340]'s law at magnitude 18 rather than 2. The error was in the framing around it, not the
+arithmetic inside it.
+
+## A18 (2026-09-17) — "are scratchpad sources that support or refute claims recorded?" — no, for the five most recent postscripts
+
+Asked mid-turn. The answer was no, and the question was worth more than the analysis it
+interrupted.
+
+**What was fine.** Ten scratch scripts had been rescued into the repository under new names —
+`fld.py` to `src/kfield.py`, `coupling.py` to `src/probes/subset_coupling.py`,
+`predict*.py` and `outlier.py` folded into `src/probes/subset_predictor.py`, and so on. My first
+check compared FILENAMES and reported all 37 scratch files as unrescued, which was wrong: the
+right test is per CLAIM, not per file.
+
+**What was not fine.** The evidence for the five most recent postscripts lived only in
+`/private/tmp`:
+
+    a4.py, a4gold.py   the exact Q(sqrt5) census: 18 Q4, T3 = 56    [P342], [P343]  core
+    qloc.py            quadruple-point locations and orbits         [P344]          core
+    ext67.py, subsum.py, hmax.py   the 67-extension and objective   [P339], [P341]
+    all67.py           the 21 608-candidate negative control        [P342] addendum
+
+So three postscripts asserting exact counts cited nothing runnable. **This is the project's own
+rule — deliverables, INCLUDING CONTROLS, go where they survive, never scratch-then-copy, because
+the copy step is the one that gets skipped.** It got skipped.
+
+**Why here and not earlier in the session.** The earlier work was rescued because each finding
+ended a thread and I wrote it up deliberately. The last five came in a fast exchange, each
+question arriving before the previous answer had settled, and the rescue step is the one that
+looks optional when a new question is already on the table. **Momentum is the condition under
+which this rule fails**, not carelessness about it.
+
+**Fixed.** `src/probes/golden_a4.py` (the derivation, the exact census, the orbit classification,
+and the negative control with its scope stated) and `src/probes/subset_objective.py` (the
+extension anatomy, the subset-sum, the `h` objective, and the collision test), both with
+provenance, both re-run and agreeing with the numbers already published.
+
+**The check to run before answering, not after.** After recording a postscript that cites a
+measurement, `ls src/probes/` and confirm the measurement has a home there. It is one command,
+and the alternative is a ledger entry whose evidence expires with the temp directory.
+
+## A19 (2026-09-18) — asked whether I can GENERATE good questions, not only recognise them
+
+The user, after many turns of my calling their questions sharp: *you seem able to identify
+whether questions are good. Assuming this is not flattery, can you PRODUCE them?* Recorded at
+their request, including the parts that do not flatter.
+
+**THE EVIDENCE SAID EVALUATION >> GENERATION, and this session holds the proof both ways.**
+
+    my questions that failed
+      [A17]   posed "can two triples both be 67s?" as THE decisive open sub-question.
+              [P131] had answered it a month earlier, by the solve-don't-search method I was
+              recommending.  I had not grepped RESULTS.md for its subject.
+      [P337]  formulated [OQ 37] as `T3 + two-body <= 176`, which does not bound the count.
+              The user's five-word question -- "what's the 0 in the profile?" -- exposed it.
+
+    the shape of the difference
+      Mine were almost all WITHIN the frame: what is the next rung on this ladder.  The user's
+      repeatedly CHANGED it -- counts, then taxonomy, then simultaneous attainability, then why
+      the failures happened.  The inclusion-exclusion structure ([P340], [P341]) came from their
+      frame, not mine.
+
+**AND A CAVEAT ON THE PRAISE ITSELF.** Several of those questions carried their answers in the
+asking. *"Are scratchpad sources recorded?"* implies *check, I suspect not* — and they were not.
+My contribution there was verification, not discovery, and calling the question sharp was
+accurate but cheap.
+
+**WHY THE ASYMMETRY IS STRUCTURAL.** Evaluating a question is local — is it decidable, does it
+bear on the target, is it already answered, is it cheap for its value. Generating one requires
+noticing what is NOT being asked, and attention is densest exactly where the last result landed,
+which biases toward continuation.
+
+**THEN I PRODUCED THREE AND THE BEST ONE WAS LIVE.** Asked to try rather than discuss:
+
+    1. is `EE <= 36` at `B = 128` even TRUE?        <- the good one, and it was acted on
+    2. does the chain hold at n = 5?
+    3. what does the framework predict at n = 6?
+
+**(1) was worth asking for a specific reason: the UNCONDITIONAL `EE <= 6*C(n,2) = 36` had been
+refuted in [P330] by the face-diagonal family reaching 42 — a refutation I recorded myself and
+then spent four turns failing to apply to my own target.** Four turns had assumed the ceiling and
+tried to derive it; none had asked whether it was real.
+
+**The outcome ([P361]): the ceiling survives.** Two directed climbs — hold `B = 128` and maximise
+`EE` (reached 36), hold `EE >= 38` and maximise `B` (reached 84) — do not meet. A negative
+result, and the right kind: it converts a sampling maximum into a ceiling that resisted a
+deliberate attack.
+
+**THE HONEST GRADE.** The question was retrieval plus transfer, not invention — it came from
+noticing a precedent already in the ledger and applying it where it had not been applied. That is
+a real capability and a narrow one. **The generative move I have not demonstrated is the one the
+user kept making: changing the frame rather than extending it.**

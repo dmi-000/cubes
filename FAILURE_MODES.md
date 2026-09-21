@@ -1563,3 +1563,124 @@ A module that writes a data file must never do it at import scope. The detector 
 immutable and corrections go in documents. That rule is enforced by discipline, and this is a way
 for the rule to be broken by an `import` statement — by the person being most careful, in the act
 of checking someone else's work.
+
+## 43. The engine can answer with a REFUSAL, and `.get(...) or {}` scores it as zero
+
+[P340], 2026-09-17.
+
+`cube_regions_n` answers `{"seed":null,"error":"outside must be a single region"}` for some
+configurations. The idiom used throughout this project's probes is
+
+    by = engine(qs).get('by_depth') or {}
+    total = sum(v for k, v in by.items() if k != '0')
+
+which turns that refusal into **0**. In [P340] it produced a phantom prediction error of **-93**
+and made a predictor that is never wrong by more than 2 look wild.
+
+**It should have been caught on sight.** Four concentric cubes always contain the origin, so a
+count of 0 is geometrically impossible, not merely surprising. The number was accepted for one
+run because it arrived as an interesting outlier rather than as an error.
+
+**The check.** Raise on refusal, count refusals separately, and report them:
+
+    r = engine(qs)
+    if 'error' in r or not r.get('by_depth'):
+        raise Refused(r.get('error'))
+
+**And the wider exposure.** `data/`-producing probes in this tree use the `or {}` idiom in
+several places. Where the total feeds a gate the refusal shows up as a visible FAIL, but where it
+feeds a statistic it is silent, and a silent zero drags any mean, maximum or correlation with it.
+This is [METHODS]'s "unevaluable is not a negative result" wearing the clothes of an ordinary
+dictionary default.
+
+## 44. The containment filter, four times in one session — and the tell is always the same
+
+[P334], [P342], [P346], [P350], 2026-09-16 to 09-18.
+
+The rule: **a vertex lies on the facets of its OWN supporting cubes and may be outside every
+other one.** A test that discards points outside any cube silently deletes whole signature
+classes.
+
+    P334   T3 on a new compound came back 8; the oracle (the record, known 128) returned 38,
+           then 90 after a first fix, never 128
+    P342   the golden 177's T3 came back 8 instead of 56; Q4 was unaffected and correct
+    P346   the same filter in the taxonomy census
+    P350   a construction that FORCES four corner-sharings reported SC2 = 0 and EE = 0
+
+**Why 4-fold vertices survive the bug and 3-fold ones do not**: a vertex on all four boundaries
+passes any containment test, so `Q4` stays right while `T3` collapses. That is what makes the
+failure look like a plausible result rather than a crash — the number that matters most in the
+formula is the one that stays correct.
+
+**The tell, every time: a census returning ZERO for something the construction guarantees.**
+[P350] is the cleanest case — the corner-sharings were built in by solving an axis-labelling
+problem, so `SC2 = 0` was impossible, not surprising. Reading the count as data rather than as a
+contradiction costs a run each time.
+
+**The check.** Classify each vertex by the cubes whose boundary contains it, and never let a
+non-supporting cube veto the point:
+
+    good, n = facets(M, p)          # (is p in the closed cube?, how many facets through it)
+    if good and n: sig.append(n)    # NOT: if not good: discard the whole point
+
+## 45. A gate whose control lacks the feature cannot fail — [P334]'s `T3 = 74`
+
+`k4_corner_sharing.count_T3` tested a candidate point's signature against the three cubes of
+each triple and never against the fourth. A generic four-fold vertex therefore passes as a
+triple point of every triple containing it, and — collected into a set of POINTS — is counted
+once. The function returns `T3 + Q4generic`, not `T3`.
+
+**It had a gate, and the gate passed for eight days.** The gate runs the same code path on the
+n = 4 record, where `T3 = 128` is known independently, and it returns 128.
+
+**Because the record has `Q4generic = 0`.** On that control the two quantities are the same
+number, so no possible output could have distinguished them. The gate was not weak; it was
+*blind to this defect by construction*, and nothing in its PASS carried that information.
+
+    the compound it produced       reported  T3 74, Q4 0, B  74, count ~141
+    what it actually is            the GOLDEN 177: T3 56, Q4 18, B 128, count 177
+    the arithmetic that names it   74 = 56 + 18
+
+**THE RULE.** A gate's control must CONTAIN the feature whose handling is in doubt. Before
+trusting a PASS, ask what value the suspect quantity takes in the control — if it is zero, or
+absent, or degenerate, the gate cannot see the bug and its PASS means only that the easy case
+works. This is [METHODS]'s "choose controls that are hard for the method" stated for oracles
+rather than for measurements, and it is the same failure as a gate whose two sides are
+identical strings.
+
+**THE COST.** A compound that does not exist was carried in the `SC2` ladder as a second
+occupant of the `SC2 = 12` rung, was cited as evidence that attaining `two-body = 60` collapses
+`B` from 128 to 74, and — on 2026-09-19 — was named as the single sharpest remaining target for
+beating `max(4) = 183`, because it appeared to supply `Q4 = 0` where the golden supplies
+`B = 128`. All three claims rested on one unchecked signature.
+
+## 46. Three ways a continuation says "the curve ends here" and means something else
+
+Following the 183 curve ([P378]) produced that message three times, from three unrelated faults,
+none of them about the curve.
+
+    what the run said                          what was actually wrong
+    Newton fails at H = 0.02                   the step was too big for the corrector
+    Newton fails even at H = 6.1e-7            the tangent was not tangent: the null space is
+                                               4-dimensional and I took 3 of the SVD's
+                                               trailing rows
+    Newton fails, |F| = 0.0021 at H = 6.1e-7   J^T J had entries ~1e12 against a Tikhonov
+                                               regulariser of 1e-38
+
+**The last one is [METHODS]'s representative trap wearing new clothes**, and its tell is the one
+that entry names: the failures split cleanly by the SIZE of the input. The same curve, same
+code, converged at step `1e-3` from the RAW record and failed at `6e-7` from the GAUGE-FIXED
+one — because gauge-fixing by `q -> conj(q0)*q` multiplies every height by `|q0|^2` and the
+contact forms are degree 4. Height is a free choice; unit quaternions fixed it in one line.
+
+**THE RULE.** A continuation that stops is reporting on the PREDICTOR, the TANGENT, the
+CONDITIONING or the OBJECT, and it cannot tell you which. Before recording "the curve ends
+here", gate all three of the others:
+
+  * `|F|` at the starting point must be zero — if it is not, nothing downstream means anything;
+  * `|J d|` for the chosen tangent must be at the arithmetic's floor;
+  * the step must be halved until the corrector converges, not once but to exhaustion.
+
+All three gates are two lines each, and all three were added only after the fault they catch.
+The first version had none of them and would have reported the plateau as 0-dimensional — the
+same wrong answer [P287] reached, arrived at by a different mistake.

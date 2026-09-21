@@ -1,0 +1,74 @@
+{
+ "what": "what determines Q4",
+ "supports": "LEDGER P355-P358",
+ "pair_classes": [
+  {
+   "label": "n=4 RECORD",
+   "pair_classes": 2,
+   "Q4": 0
+  },
+  {
+   "label": "body-diagonal",
+   "pair_classes": 6,
+   "Q4": 2
+  },
+  {
+   "label": "face-diagonal",
+   "pair_classes": 5,
+   "Q4": 2
+  }
+ ],
+ "known": {
+  "golden": {
+   "classes": 1,
+   "Q4": 18
+  },
+  "four_cycle": {
+   "classes": 3,
+   "Q4": 18
+  },
+  "P334_K4": {
+   "classes": 6,
+   "Q4": 0
+  }
+ },
+ "dof": {
+  "total": 9,
+  "sharing_conditions": 8,
+  "remaining": 1,
+  "Q4": 18,
+  "at_most_imposed": 1,
+  "forced": 17
+ },
+ "discriminant": {
+  "paw_Q4_by_parameter": {
+   "0": 33,
+   "2": 2,
+   "32": 1
+  },
+  "c4_Q4": 18,
+  "c4_members": 608
+ },
+ "reproduce": {
+  "command": "python3 src/probes/q4_discriminant.py",
+  "run_from": "src",
+  "script": "src/probes/q4_discriminant.py",
+  "script_sha256_16": "76fdefd7e1509c2b",
+  "parameters": {
+   "note": "exact values for golden/C4/K4 come from golden_a4.py, c4_sharing.py, k4_corner_sharing.py"
+  },
+  "written_utc": "2026-09-18T23:51:21Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

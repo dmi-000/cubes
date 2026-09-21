@@ -1,0 +1,162 @@
+{
+ "what": "how far EE at B=128, EE+B and TOTAL go from the refuter",
+ "supports": "OQ 39; follows P373",
+ "seed": [
+  [
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   0,
+   2,
+   -3,
+   -2
+  ],
+  [
+   0,
+   2,
+   -3,
+   2
+  ],
+  [
+   -4,
+   -2,
+   -5,
+   -6
+  ]
+ ],
+ "climbs": {
+  "EE + B": {
+   "best": 170,
+   "EE": 42,
+   "SC2": 0,
+   "B": 128,
+   "Q4": 0,
+   "sum": 170,
+   "TOTAL": 177,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     -3,
+     -2
+    ],
+    [
+     0,
+     2,
+     3,
+     2
+    ],
+    [
+     -4,
+     0,
+     -5,
+     -6
+    ]
+   ]
+  },
+  "EE, holding B = 128": {
+   "best": 38,
+   "EE": 38,
+   "SC2": 0,
+   "B": 128,
+   "Q4": 0,
+   "sum": 166,
+   "TOTAL": 173,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     -3,
+     -2
+    ],
+    [
+     0,
+     2,
+     -3,
+     2
+    ],
+    [
+     -4,
+     -2,
+     -5,
+     -6
+    ]
+   ]
+  },
+  "TOTAL": {
+   "best": 179,
+   "EE": 36,
+   "SC2": 6,
+   "B": 128,
+   "Q4": 4,
+   "sum": 164,
+   "TOTAL": 179,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     2,
+     -2,
+     -4
+    ],
+    [
+     0,
+     2,
+     -3,
+     5
+    ],
+    [
+     -4,
+     0,
+     -10,
+     -6
+    ]
+   ]
+  }
+ },
+ "evaluated": 3067,
+ "unevaluable": 0,
+ "reproduce": {
+  "command": "python3 src/probes/ee38_climb.py",
+  "run_from": "src",
+  "script": "src/probes/ee38_climb.py",
+  "script_sha256_16": "e5fcffbb4c1683c3",
+  "parameters": {
+   "seed": 38128,
+   "steps": 1200
+  },
+  "written_utc": "2026-09-20T07:13:39Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

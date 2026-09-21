@@ -1,0 +1,61 @@
+{
+ "what": "the paw: SC2=8 on distinct corners with B=128, constructed exactly",
+ "supports": "LEDGER P350",
+ "field": "Q(sqrt3,sqrt5)",
+ "paw": {
+  "EE": 24,
+  "SC2": 8,
+  "T3": 128,
+  "Q4": 0,
+  "two_body": 40,
+  "B": 128,
+  "objective": 168
+ },
+ "record": {
+  "EE": 36,
+  "SC2": 6,
+  "T3": 128,
+  "Q4": 0,
+  "two_body": 48,
+  "B": 128,
+  "objective": 176
+ },
+ "K4_P334": {
+  "EE": 36,
+  "SC2": 12,
+  "T3": 74,
+  "Q4": 0,
+  "two_body": 60,
+  "B": 74,
+  "objective": 134
+ },
+ "exchange_fourth_sharing": {
+  "SC2": 2,
+  "two_body": 4,
+  "EE": -12,
+  "B": 0,
+  "net": -8
+ },
+ "reproduce": {
+  "command": "python3 src/probes/paw_construction.py",
+  "run_from": "src",
+  "script": "src/probes/paw_construction.py",
+  "script_sha256_16": "edd71a583acb40c4",
+  "parameters": {
+   "psi_range": "w,k in 0..6 coprime"
+  },
+  "written_utc": "2026-09-18T21:02:39Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}

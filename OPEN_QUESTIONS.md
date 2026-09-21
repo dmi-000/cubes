@@ -1566,7 +1566,7 @@ band of [P326].
 
 <a id="37"></a>
 
-## 37. Prove `T3 + two-body <= 176` at n = 4 — one coupling inequality, and `max(4) = 183` follows
+## 37. Prove `(1/2) sum excess <= 176` at n = 4 — one coupling inequality, and `max(4) = 183` follows
 
 **Opened 2026-09-16 by [P334](LEDGER.md#p334), the successor to [OQ 36].**
 
@@ -1575,18 +1575,29 @@ known configurations say that is not reachable:
 
     configuration        T3         two-body     T3 + two-body    count
     n = 4 RECORD      128 / 128     48 / 60          176           183
-    K4 compound        74 / 128     60 / 60          134       138 + holes
+    K4 compound        -- is the golden; 74 was T3 + Q4generic ([P370]) --
     body-diagonal      72 / 128     36 / 60          108           145
     assumed by bound  128 / 128     60 / 60          188           198
 
 Each cap is attained by SOME configuration and never both. **The record is the best of the three
 at 176, and 176 is exactly what is needed:**
 
-    1 + (T3 + two-body) + L + holes  =  1 + 176 + 3 + 3  =  183
+    1 + (1/2) sum excess + L + holes  =  1 + 176 + 3 + 3  =  183
 
-**So proving `T3 + two-body <= 176` at n = 4 proves `max(4) = 183`** — the first proved maximum
-above n = 3, and it asks for ONE coupling inequality instead of two separate caps that are known
-not to be simultaneously tight.
+> **CORRECTED 2026-09-16 ([P337](LEDGER.md#p337)).** This question was opened as
+> *prove `T3 + two-body <= 176`*. **That inequality does not bound the count.** The identity is
+> `TOTAL = 1 + L + sum holes + (1/2) sum excess`, and
+> `(1/2) sum excess = T3 + two-body + [higher-order vertices]`. The n = 4 record has no vertex
+> above `(3,3)`, so its bracket is 0 and the two agree there — which is where the target was read
+> off. They do not agree in general: the merged compounds have bracket 30, and the **n = 5 record
+> has 36**, from 12 quadruple points. A configuration with `T3 + two-body = 176` AND a quadruple
+> point would satisfy the old inequality and score above 183. `T3 + two-body` is a LOWER bound on
+> the quantity needing a cap, which is the wrong direction.
+
+**So proving `(1/2) sum excess <= 176` at n = 4 proves `max(4) = 183`** — the first proved maximum
+above n = 3, and it asks for ONE coupling inequality instead of separate caps that are known not
+to be simultaneously tight. Equivalently: cap `T3 + two-body + (higher-order)` together, since
+the three compete for the same vertices.
 
 **Why this is more tractable than it looks.** Both terms are vertex counts in the same exact
 identity `TOTAL = 1 + L + sum holes + (1/2) sum excess` ([P327]), so a coupling is a statement
@@ -1595,7 +1606,270 @@ about how one arrangement's vertices are distributed between signatures `(1,1,1)
 the mechanism concretely: forcing every pair to share a corner pins six axes, and the pinned
 axes are what the triple points were using.
 
+**THE COUPLING IS NOW AN ARGUMENT, NOT A MEASUREMENT ([P338](LEDGER.md#p338)).** Excess is
+intrinsic to a vertex's supporting cubes (verified, 0 mismatches in 936), so `max(3) = 67` acts on
+every 3-subset: `Q(S) <= 62`. Summing counts each triple point once and each pair `(n-2)` times,
+giving `T3 + (n-2)*two-body <= 62*C(n,3)` — which, because `(n-2)*C(n,2) = 3*C(n,3)`, is
+**identically** `32*C(n,3) + 10*(n-2)*C(n,2)`, the two caps summed. So
+
+    both caps at once  <=>  every 3-subset attains Q(S) = 62  <=>  every 3-subset is a 67
+
+and both 67-maximisers are IRRATIONAL while every subset of a rational compound is rational. The
+best 3-subset in any record counts 63, giving `Q = 58` — exactly the n = 4 record's maximum.
+
+~~**The sharpened form:** how large can `Q(S)` be for a 3-subset that is NOT a 67-maximiser?~~
+**Superseded 2026-09-17 ([P339](LEDGER.md#p339)).** That form assumed no 3-subset could be a 67.
+One can: append any non-degenerate fourth cube to the octahedral 67. Such compounds are costly —
+best total 175 over 3 136 extensions, with two pairs collapsing to count 4 — but they exist, so
+the assumption is false.
+
+**THE CORRECT FORM, and it is a 3-cube statement:**
+
+    prove   sum over the four 3-subsets of count(S)  <=  244   at n = 4
+
+The record attains 244; the best 67-containing compound reaches 228; the best of 700 random
+draws, 212. Since `sum_S Q(S) = T3 + 2*two-body <= sum_S count(S) - 20`, this gives
+`T3 + 2*two-body <= 224`, and combined with the PROVED `T3 <= 128` it maximises
+`T3 + two-body` at **exactly 176** — at `T3 = 128, two-body = 48`, the record's own values. No
+4-cube quantity appears in the hypothesis, and nothing is assumed about which subsets are 67s.
+
+**One branch is already closed ([P336](LEDGER.md#p336)).** Merging — forcing several cubes
+through one point — is locally the best thing available (`e_X(b) = C(b,2) e_X(2) + (b-1)(b-2)`,
+[P335]), so it is the obvious threat to any `T3 + two-body` cap. It is not a threat: **every**
+merged-corner compound returns `(T3, EE, SC2, count) = (72, 36, 0, 145)` — 240 of 240, across 78
+distinct congruence classes — so their half-excess is 138 against the record's 176 — and they COUNT 145,
+measured directly on all 240. Merging cannot beat 183 and cannot break the inequality, whether or
+not the cubes share an axis. *(Their `T3 + two-body` is only 108; the missing 30 is the
+`(3,3,3,3)` vertices, which is exactly what [P337] shows the old formulation dropped.)*
+
 **First things to do.** Map more of the frontier — the three points above are the only exactly
 known ones; the curve between 134 and 176 is unmeasured. Then ask whether `T3 + two-body` has a
 proof by the same charging argument that gives `T <= 32*C(n,3)`, which is already per-3-subset
 and might extend to count both.
+
+
+<a id="38"></a>
+
+## 38. Which subset-count vectors are simultaneously attainable? — **sub-question ANSWERED: ALL FOUR triples can be 67 ([P131](LEDGER.md#p131), [P342](LEDGER.md#p342))**
+
+**Opened 2026-09-17 by [P341](LEDGER.md#p341), which makes this the whole remaining question at
+n = 4.**
+
+The count is EXACT inclusion-exclusion over subsets ([P340], [P341]):
+
+    TOTAL = sum(triples) - sum(pairs) + 4 + [hole correction] - (n-fold vertices)
+          = sum over the four triples of h(S) + 4 + holecorr - nfold
+    where  h(S) = count(S) - (1/2)(its three pair counts)
+
+verified 119 of 120 exactly, the exception carrying n-fold vertices and off by exactly -2. **No
+4-cube geometry appears in the formula**, so `max(4)` is determined entirely by which
+subset-count vectors can occur together.
+
+**What is known:**
+
+    one triple, best measured        h = 47.5   the octahedral 67 (count 67, all pairs 13)
+    one triple, best of 900 random   h = 43.5   (count 59, pairs 13, 13, 5)
+    n = 4 RECORD                     h = 41.5, 45.5, 45.5, 45.5   sum 178   TOTAL 183
+    containing a 67                  h = 47.5, 42.0, 42.0, 36.5   sum 168   TOTAL 175
+    ceiling if all four were 67s     4 x 47.5 = 190               TOTAL <= 195
+
+> ~~**THE DECISIVE SUB-QUESTION: can two triples both be 67s?**~~ **ANSWERED, and it was already
+> answered before this question was opened — see [INTERVENTIONS A17].** **All FOUR can.** The
+> golden four-cube compound `q_k = (sqrt5, +-1, +-1, +-1)` (even signs) has all four triples at
+> **67** and all six pairs at **13** — every subset simultaneously at its proved maximum — and
+> counts **177**, six short of the record. [P131](LEDGER.md#p131) exhausted this family by solving
+> on 2026-08-18 (960 candidates, zero refusals, cap 177); `RESULTS.md` §4 has carried it since.
+
+**SO THE CEILING 190 IS ATTAINED IN `sum h` AND STILL LOSES.** `sum(triples) - sum(pairs) + 5 =
+268 - 78 + 5 = 195`, and the compound carries **18 quadruple points**, each costing exactly one
+region: `195 - 18 = 177`. Its surviving generic triple count is 8 against a cap of 128.
+
+**The real question is therefore not which subset vectors are attainable, but the trade between
+subset-optimality and DEGENERACY.** Making every subset extremal requires A4 symmetry, and
+symmetry forces high-order coincidences. The record runs its subsets strictly lower — triples
+63, 63, 63, 55 and pairs 13, 13, 13, 9, 9, 9 — and wins by carrying **no** quadruple points at
+all. Bounding `max(4)` needs a bound on the n-fold term, which is [P337]'s `H` and which no
+subset argument reaches.
+
+**Why this is the right place to work.** Every quantity in the formula is a 2- or 3-cube count.
+Those are cheap, cacheable across a search, and n = 3 is the case that is already proved and
+classified. The n = 4 maximum is now a statement about the joint realizability of small
+configurations, not about four-cube geometry.
+
+
+<a id="39"></a>
+
+## 39. The frontier: what is the minimum `Q4` at each `sum_h`? — the last inequality before `max(4) = 183`
+
+**Opened 2026-09-18 by [P347](LEDGER.md#p347) and [P348](LEDGER.md#p348), and it subsumes
+[OQ 37] and [OQ 38].**
+
+At n = 4 with trivial holes, `TOTAL = sum_S h(S) + 5 - Q4` where
+`h(S) = count(S) - (1/2)(its pair counts)` ([P341]). And `h(S) <= 47.5` is **PROVED**
+([P348]): `h = 0.5 + (1/2) sum E_i + E_S` with `E_i <= 10` ([P237]) and `E_S <= 32`
+(PROOF_67 Lemma 1a). Hence `sum_h <= 190` and `TOTAL <= 195 - Q4`.
+
+**THE QUESTION.** For each value of `sum_h` in `(178, 190]`, what is the minimum attainable
+`Q4`? Two points are known exactly, both obtained by CONSTRUCTION rather than search:
+
+    sum_h = 178,  Q4 =  0     the n = 4 RECORD          TOTAL 183
+    sum_h = 190,  Q4 = 18     the golden 177 ([P342])   TOTAL 177
+
+**Proving `sum_h - Q4 <= 178` proves `max(4) = 183`** — the first proved maximum above n = 3. The
+endpoints give slope `18/12 = 1.5`, and any slope `>= 1` throughout suffices.
+
+**THE CORNER-SHARING LADDER IS NOW EXHAUSTED AT n = 4** ([P350](LEDGER.md#p350),
+[P351](LEDGER.md#p351)). Every attainable `SC2` has been CONSTRUCTED exactly, and none beats the
+record:
+
+    SC2   configuration          EE  SC2    T3   Q4   two-body    B   objective
+      6   n = 4 RECORD           36    6   128    0        48   128      176
+      8   PAW                    24    8   128    0        40   128      168
+      8   4-CYCLE ([P353])       36    8    56   18        52   128      162
+     10   -- INFEASIBLE: imposing five sharings FORCES the sixth --
+     12   golden 177             36   12    56   18        60   128      170
+     12   K4                     -- DOES NOT EXIST: it IS the golden ([P370]) --
+
+**`SC2 = 8` has TWO graph types** — the paw and the 4-cycle — and only the paw was built in
+[P350]. The 4-cycle gives **`two-body = 52`, the first value above the record's 48 at
+`B = 128`**, so the record does NOT maximise two-body; exceeding it costs `Q4 = 18`.
+
+**AND `Q4` IS ONLY EVER 0 OR 18** across every exactly-constructed configuration. That sharpens
+this question to one implication:
+
+    at B = 128,  two-body > 48  =>  Q4 >= 18
+    then objective <= max(48 + 128, 60 + 128 - 18) = 176 = the RECORD
+
+`176 -> 168 -> (none) -> 170` — **not monotone**: the golden at six sharings beats the paw at
+four, and two non-congruent compounds share `SC2 = 12` with objectives 36 apart. The frontier is
+not a slope but a set of isolated rungs, so [P347]'s two-point slope argument cannot be run on
+it. **What remains untouched is the EE direction** — every rung above has `EE` at 36 or 24, and
+nothing has been built with `EE > 42`.
+
+**THE CONSTRUCTIVE DUAL ([P349](LEDGER.md#p349)).** If infeasibility cannot be proved, attain it.
+In searchable form the target is `two-body + B - Q4 > 176` with `B := T3 + 4*Q4gen <= 128`.
+**The obvious search target is wrong**: isolated pair quality does not transfer — the
+body-diagonal family has ALL SIX pairs at the proved 2-cube maximum and counts 145, because its
+cubes share ONE corner and the six `(3,3)`s merge into a `(3,3,3,3)`. And random search cannot
+reach the window: over 1 200 draws, configurations with four or more 13-pairs numbered **zero**.
+Both measured directions out of the record are downhill — a corner-sharing costs `-14` net, the
+edge route `-38`. **The concrete construction to attempt: `SC2 = 8` or `10` on DISTINCT corners
+while holding `B = 128`.**
+
+**What is NOT needed.** Not a search over `SO(3)^3`; not new component types, since that space is
+closed by [P347]'s theorem (a signature is all-3s or no-3s) and every member carries excess
+`<= 4`. The whole remaining question is one curve in two measured quantities.
+
+**Four things to discharge, from [P348]:** the hole hypothesis ([OQ 30]) enters both the `h`
+bound and the identity's hole correction; the `TOTAL` identity uses ALL n-fold vertices while the
+budget law uses the GENERIC ones ([P346]); this is n = 4 only, since at `n >= 5` the records
+themselves carry `Q4 = 12` ([P315]); and infeasibility must be shown for ALL configurations —
+[P342] is the warning that the extreme point was found by derivation and a sampled frontier would
+have missed it.
+
+**WHAT A DERIVATION OF `EE <= 36` AT `B = 128` NEEDS** ([P366](LEDGER.md#p366), 2026-09-18).
+The per-pair route is **dead** — this compound sits at `B = 128` with a pair at the per-pair
+maximum:
+
+    1,0,0,0 ; -2,-8,3,-3 ; -7,1,-4,-1 ; 9,-1,-8,6
+    all four E_S = 32  (so B = 128),  pair (0,1) at EE = 10,  and EE_total = 18
+
+The record reaches `EE = 36` with all six pairs at 6. **So the ceiling is an anti-correlation
+among the six pairs, not a cap on any one**, and the question is not *why is no pair large* but
+*why does one large pair cost more than it gains*. Three things are now in hand for an exact
+attack, and none of them is a search:
+
+  * **the level sets are varieties.** `EE > 0` is codimension 1 — at quaternion height `10^6`,
+    0 of 120 pairs have any edge-edge contact at all, against 103 of 120 at height 6. Every
+    `EE` census in this project has been reading its own window.
+  * **cut out by 144 quartics.** Edge `e` meets edge `f` iff one `3x3` determinant vanishes;
+    cleared of denominators it is a homogeneous degree-4 form in the quaternion, and all 144 are
+    degree exactly 4 with none identically zero. `EE >= 10` is five simultaneous quartics on a
+    3-dimensional space — overdetermined, hence a Groebner computation.
+  * **a finite kill list.** 105 pair-EE patterns have total `>= 37` under [P360]'s per-triple cap
+    of 20: 90 at total 38, 15 at total 40. Eliminating those 105 closes the link.
+
+The cocycle `q_ij^-1 q_ik = q_jk` is what turns the four cubes into a closed system on those
+varieties. **The remaining work is an elimination, not a search** — which is the first time that
+has been true of this question.
+
+**THE FULL TARGET SET, enumerated** ([P367](LEDGER.md#p367), 2026-09-18). Subset counts are
+`3 + E_i` and `5 + sum E_i + E_S`, so `TOTAL = 7 + T + B - Q4` and "beat 183" is the single
+inequality `T + B - Q4 >= 177` over 262 144 pair profiles — enumerable, not searchable. From the
+PROVED box (`E_i <= 10`, `E_S <= 32`) alone:
+
+    Q4 <= 11      so a beating compound has Q4 in {0, 2}; the Q4 = 18 branch is closed
+                  by ARITHMETIC -- 4-cycle, golden, UC09's whole mechanism
+    B >= 117      since a sharing pair is capped at EE <= 6, T = EE + 4s <= 60 for every s
+
+    required EE per (s, B) cell at Q4 = 0, against the per-pair cap 60 - 4s:
+
+          B:  116 118 120 122 124 126 128       cap
+    s=0        .   59  57  55  53  51  49        60
+    s=1        .   55  53  51  49  47  45        56
+    s=2        .   51  49  47  45  43  41        52
+    s=3        .   47  45  43  41  39  37        48    <- the record's row
+    s=4        .   43  41  39  37  35  33        44
+    s=6        .   35  33  31  29  27  25        36
+
+**[P354]'s chain covers the `B = 128` column only** — its step 2 conditions on `B = 128`, which
+nothing proved forces. `B = 118..126` is live and has never had an `EE` ceiling measured in it.
+A first scan (900 perturbations, 0 unevaluable) finds the band worse — best `TOTAL` 173 at
+`B = 124`, 167 at `B = 120` — but the required `EE` was never approached and `B = 126` was not
+sampled. **Unexplored, not closed.**
+
+**The sharpest single target is the `s = 6` row**, because both halves exist separately: the
+golden has `B = 128` with `Q4 = 18`; the other `K4` has `Q4 = 0` with `B = 74`. A six-sharing
+compound with the golden's `B` and `K4`'s `Q4` counts `7 + 60 + 128 = 195` — the bound itself.
+Whether that trade is forced is [P358]'s pinning mechanism, which is not yet a theorem.
+
+*(CLOSED 2026-09-19 by [P370](LEDGER.md#p370) and [P371](LEDGER.md#p371): **there is no other
+`K4`.** [P334]'s `T3 = 74` is `T3 + Q4generic = 56 + 18` — the same cubes as the golden, checked
+normal for normal. Enumerating the branch exactly returns 2 compounds and both are the golden
+with `Q4 = 18`. This row is EMPTY, so the "sharpest target" was a counting bug.)*
+
+**EXPLORING THE BAND — a refutation and a better-shaped law** ([P368](LEDGER.md#p368),
+[P369](LEDGER.md#p369), 2026-09-19).
+
+**[P359]'s per-triple maximum of 20 is FALSE; it is 26.** Witness
+`1,0,0,0 ; 3,2,2,0 ; 3,-4,0,-3` — `E_S = 32`, pairs `[10,10,6]` — verified by the arrangement
+census and by the independent exact edge oracle, then settled by ENUMERATION: all 54 432 triples
+whose two non-identity cubes lie in the `EE = 10` family, 0 unevaluable, max 26. [P359]'s 1 400
+random draws never placed two face-diagonal members against each other. Consequences:
+`EE <= 40` becomes `EE <= 52`; [P360]'s "combinatorial optimum 40" is false (`EE_total = 44` is
+realised at `B = 120`); [P366]'s kill list goes from 105 patterns to **3 995**.
+
+**The replacement is one inequality, not twelve.** The band's frontier is a line —
+`36 + 128 = 40 + 124 = 44 + 120 = 164` — with the record, the golden, the 4-cycle and the band
+compound all sitting exactly on it:
+
+    EE + B <= 164    =>    TOTAL <= 171 + 2*SC2 - Q4    and the record is 171 + 12 - 0 = 183
+
+Measured across 3 730 four-compounds and five directed climbs from seeds chosen to be hard for
+it; **unproved**. `SC2 <= 6` is then capped at 183 outright, and exactly two branches escape:
+
+    branch                        needs EE + B <=   measured     status
+    paw       SC2 = 8,  Q4 = 0          160            152      CLOSED across its family
+    K4/s = 6  SC2 = 12, Q4 = 0          152             --      EMPTY -- no such compound
+                                                                exists ([P370], [P371])
+
+The paw was swept exactly over 92 values of its one free parameter: `EE + B` never exceeds 152,
+`max TOTAL` 175. **So the remaining question is the six-sharing row with `Q4 = 0`** — and it is
+finite: fixing cube 0 and writing cube `i` as `Rot(d_i, theta_i)` about its shared diagonal makes
+the three remaining sharings three conditions on `(theta_1, theta_2, theta_3)`, whose solutions
+a numeric scan returns as ISOLATED POINTS rather than curves. Enumerable, not searchable.
+
+
+**BOTH CEILINGS REFUTED** ([P373](LEDGER.md#p373), 2026-09-20). Asked whether `EE + B <= 164`
+could be established and what the analogue is at other `n`. The second question answered the
+first: the closed form `6*C(n,2) + 32*C(n,3)` is exact at n = 4 and n = 5 but EXCEEDED at n = 2
+(10 > 6) and n = 3 (58 > 50), so extending the sizes where it fails was the obvious test —
+and it produced
+
+    1,0,0,0 ; 0,2,-3,-2 ; 0,2,-3,2 ; -4,-2,-5,-6
+    EE 38   B 128   SC2 0   Q4 0   EE + B 166   TOTAL 173   (engine-confirmed)
+
+killing **`EE <= 36` at `B = 128`** ([P352], [P361]) and **`EE + B <= 164`** ([P368]) together,
+and with them [P371]'s reduction of `max(4) = 183` to a single inequality. **`max(4) = 183` is
+unproved again.** The proved box survives: `EE + B <= 188 - 2*SC2`, attained exactly by the
+golden at `SC2 = 12`, so only that branch is closed by proof.

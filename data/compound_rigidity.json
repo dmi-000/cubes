@@ -1,0 +1,197 @@
+{
+ "what": "compound-level Jacobian rank of the EE contact system",
+ "supports": "OQ 39",
+ "compounds": {
+  "n=4 RECORD": {
+   "EE": 36,
+   "active_contacts": 36,
+   "sharing_rows": 18,
+   "rank": 8,
+   "tangent_dim": 1,
+   "naive_budget": 12,
+   "quats": [
+    [
+     4,
+     1,
+     1,
+     -1
+    ],
+    [
+     3,
+     3,
+     7,
+     3
+    ],
+    [
+     5,
+     -1,
+     -5,
+     -5
+    ],
+    [
+     1,
+     1,
+     1,
+     1
+    ]
+   ]
+  },
+  "refuter [P373] EE=38": {
+   "EE": 38,
+   "active_contacts": 38,
+   "sharing_rows": 0,
+   "rank": 7,
+   "tangent_dim": 2,
+   "naive_budget": 10,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     -3,
+     -2
+    ],
+    [
+     0,
+     2,
+     -3,
+     2
+    ],
+    [
+     -4,
+     -2,
+     -5,
+     -6
+    ]
+   ]
+  },
+  "EE=42 climb": {
+   "EE": 42,
+   "active_contacts": 42,
+   "sharing_rows": 0,
+   "rank": 8,
+   "tangent_dim": 1,
+   "naive_budget": 11,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     -3,
+     -2
+    ],
+    [
+     0,
+     2,
+     3,
+     2
+    ],
+    [
+     -4,
+     0,
+     -5,
+     -6
+    ]
+   ]
+  },
+  "refuter-region best (173)": {
+   "EE": 38,
+   "active_contacts": 38,
+   "sharing_rows": 0,
+   "rank": 7,
+   "tangent_dim": 2,
+   "naive_budget": 10,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     -3,
+     -2
+    ],
+    [
+     1,
+     -5,
+     -2,
+     2
+    ],
+    [
+     -2,
+     -8,
+     0,
+     9
+    ]
+   ]
+  },
+  "face-diagonal EE=40": {
+   "EE": 40,
+   "active_contacts": 52,
+   "sharing_rows": 0,
+   "rank": 6,
+   "tangent_dim": 3,
+   "naive_budget": 12,
+   "quats": [
+    [
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     2,
+     2,
+     0
+    ],
+    [
+     5,
+     3,
+     3,
+     0
+    ],
+    [
+     7,
+     2,
+     2,
+     0
+    ]
+   ]
+  }
+ },
+ "reproduce": {
+  "command": "python3 src/probes/compound_rigidity.py",
+  "run_from": "src",
+  "script": "src/probes/compound_rigidity.py",
+  "script_sha256_16": "c066eaa347f3304d",
+  "parameters": {},
+  "written_utc": "2026-09-20T09:05:41Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "note": "exact rational Jacobian rank, gauge = q1 fixed, three per-cube scalings quotiented"
+ }
+}

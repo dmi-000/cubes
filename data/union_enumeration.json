@@ -1,0 +1,273 @@
+{
+ "what": "every subset profile whose UNION could beat 183",
+ "supports": "OQ 39",
+ "q4_cap": {
+  "bound": "TOTAL <= 195 - Q4",
+  "requires": "Q4 <= 11",
+  "observed_Q4": [
+   0,
+   2,
+   18,
+   32
+  ]
+ },
+ "live_proved": {
+  "0": {
+   "EE_lo": 50,
+   "EE_hi": 60,
+   "obj_hi": 188
+  },
+  "1": {
+   "EE_lo": 46,
+   "EE_hi": 56,
+   "obj_hi": 188
+  },
+  "2": {
+   "EE_lo": 42,
+   "EE_hi": 52,
+   "obj_hi": 188
+  },
+  "3": {
+   "EE_lo": 38,
+   "EE_hi": 48,
+   "obj_hi": 188
+  },
+  "4": {
+   "EE_lo": 34,
+   "EE_hi": 44,
+   "obj_hi": 188
+  },
+  "5": {
+   "EE_lo": 30,
+   "EE_hi": 40,
+   "obj_hi": 188
+  },
+  "6": {
+   "EE_lo": 26,
+   "EE_hi": 36,
+   "obj_hi": 188
+  }
+ },
+ "live_measured": {
+  "3": {
+   "EE_lo": 38,
+   "EE_hi": 48,
+   "obj_hi": 185
+  },
+  "4": {
+   "EE_lo": 34,
+   "EE_hi": 44,
+   "obj_hi": 185
+  },
+  "2": {
+   "EE_lo": 42,
+   "EE_hi": 52,
+   "obj_hi": 184
+  },
+  "1": {
+   "EE_lo": 48,
+   "EE_hi": 56,
+   "obj_hi": 184
+  },
+  "0": {
+   "EE_lo": 54,
+   "EE_hi": 60,
+   "obj_hi": 184
+  },
+  "6": {
+   "EE_lo": 26,
+   "EE_hi": 36,
+   "obj_hi": 188
+  }
+ },
+ "B_floor": {
+  "bound": "B >= 117 + Q4",
+  "window_at_Q4_0": [
+   117,
+   128
+  ]
+ },
+ "grid": {
+  "0,118": 59,
+  "0,120": 57,
+  "0,122": 55,
+  "0,124": 53,
+  "0,126": 51,
+  "0,128": 49,
+  "1,118": 55,
+  "1,120": 53,
+  "1,122": 51,
+  "1,124": 49,
+  "1,126": 47,
+  "1,128": 45,
+  "2,118": 51,
+  "2,120": 49,
+  "2,122": 47,
+  "2,124": 45,
+  "2,126": 43,
+  "2,128": 41,
+  "3,118": 47,
+  "3,120": 45,
+  "3,122": 43,
+  "3,124": 41,
+  "3,126": 39,
+  "3,128": 37,
+  "4,118": 43,
+  "4,120": 41,
+  "4,122": 39,
+  "4,124": 37,
+  "4,126": 35,
+  "4,128": 33,
+  "6,118": 35,
+  "6,120": 33,
+  "6,122": 31,
+  "6,124": 29,
+  "6,126": 27,
+  "6,128": 25
+ },
+ "coverage_gap": "P354 step 2 conditions on B = 128; the proved floor is B >= 117, so the columns B = 118..126 carry no measured EE ceiling at all",
+ "known": [
+  {
+   "name": "n=4 RECORD  star",
+   "s": 3,
+   "EE": 36,
+   "SC2": 6,
+   "B": 128,
+   "Q4": 0,
+   "T": 48,
+   "TOTAL": 183
+  },
+  {
+   "name": "paw",
+   "s": 4,
+   "EE": 24,
+   "SC2": 8,
+   "B": 128,
+   "Q4": 0,
+   "T": 40,
+   "TOTAL": 175
+  },
+  {
+   "name": "4-cycle",
+   "s": 4,
+   "EE": 36,
+   "SC2": 8,
+   "B": 128,
+   "Q4": 18,
+   "T": 52,
+   "TOTAL": 169
+  },
+  {
+   "name": "golden 177  K4",
+   "s": 6,
+   "EE": 36,
+   "SC2": 12,
+   "B": 128,
+   "Q4": 18,
+   "T": 60,
+   "TOTAL": 177
+  },
+  {
+   "name": "K4 (other)",
+   "s": 6,
+   "EE": 36,
+   "SC2": 12,
+   "B": 74,
+   "Q4": 0,
+   "T": 60,
+   "TOTAL": 141
+  }
+ ],
+ "band_scan": {
+  "n": 900,
+  "unevaluable": 0,
+  "by_B": {
+   "128": {
+    "n": 214,
+    "best_obj": 176,
+    "EE": 36,
+    "SC2": 6,
+    "Q4": 0
+   },
+   "124": {
+    "n": 162,
+    "best_obj": 166,
+    "EE": 36,
+    "SC2": 4,
+    "Q4": 2
+   },
+   "122": {
+    "n": 4,
+    "best_obj": 154,
+    "EE": 24,
+    "SC2": 4,
+    "Q4": 0
+   },
+   "120": {
+    "n": 114,
+    "best_obj": 160,
+    "EE": 32,
+    "SC2": 4,
+    "Q4": 0
+   },
+   "118": {
+    "n": 6,
+    "best_obj": 148,
+    "EE": 22,
+    "SC2": 4,
+    "Q4": 0
+   },
+   "116": {
+    "n": 102,
+    "best_obj": 156,
+    "EE": 34,
+    "SC2": 4,
+    "Q4": 2
+   },
+   "114": {
+    "n": 11,
+    "best_obj": 148,
+    "EE": 30,
+    "SC2": 2,
+    "Q4": 0
+   },
+   "112": {
+    "n": 127,
+    "best_obj": 146,
+    "EE": 26,
+    "SC2": 4,
+    "Q4": 0
+   }
+  }
+ },
+ "reproduce": {
+  "command": "python3 src/probes/union_enumeration.py",
+  "run_from": "src",
+  "script": "src/probes/union_enumeration.py",
+  "script_sha256_16": "742bf0d8679becae",
+  "parameters": {
+   "EE_values": [
+    0,
+    4,
+    6,
+    8,
+    10
+   ],
+   "objective": "T + B - Q4 >= 177"
+  },
+  "written_utc": "2026-09-19T06:34:02Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "note": "exhaustive over pair profiles; B maximised per triple, Q4 taken optimistically 0"
+ }
+}

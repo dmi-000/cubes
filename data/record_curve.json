@@ -1,0 +1,94 @@
+{
+ "what": "is the n=4 record on a curve invisible to straight-line probes?",
+ "supports": "OQ 39",
+ "jacobian_rank": 8,
+ "nullspace_dim": 4,
+ "genuine_directions": 2,
+ "gate": {
+  "in_range": 36,
+  "expected": 36,
+  "pass": true,
+  "census": {
+   "(2, 2)": 36,
+   "(1, 2)": 24,
+   "(3, 3)": 6,
+   "(1, 1, 1)": 128
+  },
+  "census_pass": true,
+  "census_skipped": 288
+ },
+ "newton": [
+  {
+   "step": "1e-3",
+   "residual": "4.7034592885e-24",
+   "moved": "0.000999992799878",
+   "contacts_in_range": 36,
+   "of": 36,
+   "margin": "0.049910024",
+   "census": {
+    "(2, 2)": 36,
+    "(1, 2)": 24,
+    "(3, 3)": 6,
+    "(1, 1, 1)": 128
+   },
+   "census_matches": true,
+   "census_skipped": 288
+  },
+  {
+   "step": "1e-4",
+   "residual": "1.43803286977e-13",
+   "moved": "9.99995133251e-5",
+   "contacts_in_range": 36,
+   "of": 36,
+   "margin": "0.049991003",
+   "census": {
+    "(2, 2)": 36,
+    "(1, 2)": 24,
+    "(3, 3)": 6,
+    "(1, 1, 1)": 128
+   },
+   "census_matches": true,
+   "census_skipped": 288
+  },
+  {
+   "step": "1e-6",
+   "residual": "2.46334506777e-21",
+   "moved": "9.99999941409e-7",
+   "contacts_in_range": 36,
+   "of": 36,
+   "margin": "0.04999991",
+   "census": {
+    "(2, 2)": 36,
+    "(1, 2)": 24,
+    "(3, 3)": 6,
+    "(1, 1, 1)": 128
+   },
+   "census_matches": true,
+   "census_skipped": 288
+  }
+ ],
+ "verdict": "a genuine tangent direction exists; whether it integrates to a real curve is read from whether Newton keeps the displacement",
+ "reproduce": {
+  "command": "python3 src/probes/record_curve.py",
+  "run_from": "src",
+  "script": "src/probes/record_curve.py",
+  "script_sha256_16": "111b729a76cba670",
+  "parameters": {
+   "dps": 50
+  },
+  "written_utc": "2026-09-20T09:21:27Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  },
+  "note": "exact Jacobian; Newton in 50-digit arithmetic"
+ }
+}

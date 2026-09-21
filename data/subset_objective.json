@@ -1,0 +1,67 @@
+{
+ "what": "the subset objective and whether subset data determines the count",
+ "supports": "LEDGER P339, P341, P345",
+ "oct67_extension": {
+  "fourth": "0,4,-5,1",
+  "total": 175,
+  "triples": [
+   57,
+   57,
+   47,
+   67
+  ],
+  "pairs": [
+   13,
+   13,
+   13,
+   13,
+   4,
+   4
+  ]
+ },
+ "subset_sum": {
+  "record_triples": 244,
+  "record_pairs": 66
+ },
+ "h": {
+  "record": [
+   41.5,
+   45.5,
+   45.5,
+   45.5
+  ],
+  "record_sum": 178.0,
+  "sixtyseven": 47.5,
+  "random_max": 43.5
+ },
+ "collisions": {
+  "configs": 299,
+  "refused": 1,
+  "profiles": 282,
+  "profiles_with_multiple_totals": 0,
+  "scope": "search over integer quaternions in [-8,8]; lower bound only"
+ },
+ "reproduce": {
+  "command": "python3 src/probes/subset_objective.py",
+  "run_from": "src",
+  "script": "src/probes/subset_objective.py",
+  "script_sha256_16": "0438e6efa0a8934a",
+  "parameters": {
+   "trials": 300,
+   "seed": 67
+  },
+  "written_utc": "2026-09-17T18:50:25Z",
+  "python": "3.14.2",
+  "sympy": "1.14.0",
+  "engines": {
+   "ENG": {
+    "path": "src/cube_regions_n",
+    "sha256_16": "69915e8771a93a17"
+   },
+   "ENGW": {
+    "path": "src/cube_regions_q2w",
+    "sha256_16": "1a15ca90f4f4f7f4"
+   }
+  }
+ }
+}
