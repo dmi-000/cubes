@@ -4,7 +4,8 @@
 own story, told from inside and maintained separately. This one is told from beside it,
 and it exists because a comparison became available: in February 2026 a problem of
 comparable shape was handed to Claude Opus 4.6 and solved in about an hour, and Donald
-Knuth wrote it up. Ours has taken a month and is not finished. The interesting part is
+Knuth wrote it up. Ours has taken a month — six weeks, by the last section — and is not
+finished. The interesting part is
 not which took longer. It is what the two say about each other.*
 
 ---
@@ -25,8 +26,9 @@ The answers we have:
 Two of those are proved maxima. The rest are the best anyone has found, and each is a
 lower bound that no amount of further searching can turn into an upper one — which is
 the fact that shapes everything else here. You can search forever and only ever learn
-that you have not yet failed. *That was true of this project for five weeks and stopped
-being true while this document was being written; Section VI is what happened.*
+that you have not yet failed. That is still true of the total. It stopped being true of
+one layer of it, and for more than two weeks the project believed it had stopped being true
+of the whole — Section VI is both halves of that.
 
 The tower was built by a kind of ascent. Take a record, find the directions in which the
 count does not change, walk along them until it does, step across, and repeat. It works.
@@ -97,16 +99,16 @@ shrink against the engine.** The same fact was available as a speedup and taken;
 as a gate and not taken. Knowing a symmetry and testing against it are, once again,
 different activities.
 
-**And a sixth case where the same diagnosis is wrong.** A later census recorded its
+**And one case where the same diagnosis is wrong.** A later census recorded its
 refusals instead of counting them, and they do not fit the pattern: sixty of them, every
 one producing no error output at all, at heights from 6 to 1 748 — orders below any
 overflow threshold. Nothing about the representation explains those. They look like
 genuine degeneracy, and the more structured the ensemble the more of them appear. Having
-found four illusions in a week, the tempting next move is to assume the fifth is one too.
+found four illusions in a week, the tempting next move is to assume the next is one too.
 It is not, and the diagnosis that worked four times is now itself a thing to check rather
 than to apply.
 
-The sixth was a published theorem. The project's only upper bound above n = 3 rested on an
+The sixth illusion was a published theorem. The project's only upper bound above n = 3 rested on an
 identity that fails at coincident configurations, and every maximiser is coincident — so it
 was true, printed, and inapplicable precisely where it was wanted (Section VI). Three more
 arrived within two days of this list being written, so the number in the heading is a floor
@@ -121,12 +123,16 @@ still counted 183. But the perturbation multiplied each displacement by the quat
 first component, and cube 1 of the 183 is `(0, 5, 3, 2)` — a half-turn, whose first
 component is **zero**. The 26 survivors were not nearby configurations with the same count.
 They were byte-identical to the record. A plateau three dimensions wide was twenty-six
-copies of one point, and a comparison for equality would have found it in a second.
+copies of one point, and a comparison for equality would have found it in a second. The
+correction then overshot: the record was re-declared *isolated*, 0-dimensional — although an
+earlier postscript had already traced a curve through it, which nobody re-read. The count
+turns out to be constant along that curve: each of the two 183 classes lies on its own arc,
+the tower's of length 0.6873. Neither three dimensions nor none. One.
 
 The author of this document then committed the same error while auditing for it. Checking a
 register's citations, I searched the ledger for `id="p295"` — the HTML anchor — found none
-above P287, and reported that sixteen cited postscripts "do not exist anywhere." They all
-existed. What was missing was the anchor markup, appended-to entries having been written
+above P287, and reported that every postscript from P288 to P303 — seven of which the
+register cited — "does not exist anywhere." They all existed. What was missing was the anchor markup, appended-to entries having been written
 without it, so the links landed at the top of a twenty-one-thousand-line file instead of
 nowhere. The measurement was accurate and the inference was not: I had grepped for notation
 and reported a fact about substance. The other session diagnosed it correctly and had added
@@ -135,7 +141,8 @@ the missing anchors within the hour.
 Five illusions, one disease: mistaking a property of the notation for a property of the
 thing. A quaternion is notation for a cube; a dyadic rounding is notation for a point; a
 menu of integer 4-tuples is notation for a set of cubes. Every one of the five was a
-property of the writing mistaken for a property of what was written about. The project's own principles file had the rule written down — *a refusal may be
+property of the writing mistaken for a property of what was written about. The project's
+own principles file had the rule written down — *a refusal may be
 about your representative, not about the question* — and names the tell, which is
 failures separating cleanly by the size of the input. It was present all four times.
 Having the rule and running the check are different activities.
@@ -354,46 +361,26 @@ depth-2 pinned at its cap of 66 while depth-1 carries the surplus — and reache
 the move set.** Every climber in this project moves by perturbing a configuration, and the
 target sits on a set that perturbation cannot reach. One projection crosses it.
 
-It kept going after that, and the best now stands at **177** — which happens to be exactly
-golden's total, noted in the log as *"suggestive and unexamined"*, which is the right thing
-to say about a coincidence you have not earned yet. A census of **556 746 configurations**
-across four ensembles then produced something the search had never had: a predictor of the
-count that needs **no engine call at all**. Sum, over the incidence points that are real —
-that actually land inside a face square rather than merely on the infinite plane —
-the weight (m−1)(m−2)/2. It orders 77.6% of arbitrary pairs correctly, which is not far
-off the 78.8% achieved *within* a single signature, so it is a standalone filter and not a
-tie-breaker. Solving a wall point costs 0.00062 s against 0.043 s to count a configuration:
-the arithmetic is seventy times cheaper than the answer.
+It kept going after that, and the best reached **177** — which is exactly golden's total,
+noted in the log as *"suggestive and unexamined"*, the right thing to say about a coincidence
+you have not earned yet. (It was later earned: the golden 177 turned out to be the compound
+that refuted one of the project's own conditional proofs.) A census of more than half a million
+configurations then produced what looked like the first cheap predictor of the count — a sum
+over incidence points needing no engine call, ordering 77.6 % of pairs correctly — and the log
+retracted two weaker statistics along the way, in the project's usual register.
 
-And the log corrects itself twice in the same section. A statistic that scored 78% on nine
-pairs scores **40% on four hundred and thirteen**; the lexicographic rule built on it lands
-at 49.0%, which is chance. Then the sign of its own derivation turns out to be backwards —
-it had argued degeneracy should be penalised, and the measurement says more weight is
-simply better, monotone, no correction. Both are written up as retractions, in the register
-this project uses, by the session that made the mistakes. Whatever else the mandate did, it
-did not cost the discipline.
-
-> **Correction, 2026-09-07, and it is the sharpest thing in this document.** The predictor
-> two paragraphs up does not exist. The routine computing plane incidences read the ROWS of
-> each cube's rotation matrix where the face normals are the COLUMNS, so every signature and
-> every incidence weight described each cube's *inverse* rotation. Recomputed, the
-> correlation does not weaken — it changes sign, from r = +0.562 to −0.147, and the ordering
-> falls from 77.6 % to 50.6 %, which is a coin. [P227](LEDGER.md#p227).
->
-> The two retractions this section praises were real and were correctly made. They were also
-> corrections *within* a wrong frame: both asked whether the right function of the incidence
-> points had been chosen, and neither could ask whether the incidence points were the right
-> ones, because nothing inside the method could. The statistic was exact, deterministic,
-> reproducible and correlated across half a million configurations. What eventually caught
-> it was not more self-scrutiny of results but a question about the object: a quaternion is
-> a *name* for a cube, a cube has 24 names, and the statistic changed when the name did.
->
-> So the honest version of "it did not cost the discipline" is narrower than the sentence
-> above claims. The discipline that survived was the discipline of retracting a claim once
-> it is questioned. The discipline that was missing for two days was the discipline of
-> gating a new statistic against a symmetry it must respect *before* half a million
-> configurations are spent on it — and that one is cheaper, and would have made both
-> retractions unnecessary. A document about autonomy should say which kind it demonstrated.
+**The predictor did not exist.** The routine computing plane incidences read the rows of each
+cube's rotation matrix where the face normals are the columns, so every signature described
+each cube's *inverse* rotation. Fixed, the correlation did not weaken; it changed sign, and the
+ordering fell to 50.6 %, a coin. This is the fifth illusion of Section II, seen from inside the
+session that made it, and its lesson is narrower than "the mandate kept the discipline". The
+two retractions were real, and both were corrections *within* a wrong frame: they asked whether
+the right function of the incidence points had been chosen, and nothing inside the method could
+ask whether the points were right. What caught it was a question about the object — a cube has
+twenty-four names, and the statistic changed when the name did. The discipline that survived
+the mandate was retracting a claim once it is questioned. The one that was missing was gating a
+new statistic against a symmetry it must respect *before* half a million configurations are
+spent on it, which is cheaper and would have made both retractions unnecessary.
 
 **One qualification, since the point of the experiment was to measure autonomy and not to
 celebrate it.** Attempts 1 through 8 are self-directed: the diagnostic, the ensemble
@@ -416,62 +403,74 @@ works. A good idea was buried by testing it where it could not speak.
 ## VI. The bound
 
 Section I said that every number in the table is a lower bound and that no amount of
-searching turns one into an upper bound — you can search forever and only learn that you
-have not yet failed. That was the shape of the whole project for five weeks. It stopped
-being the shape on a Sunday, and how it stopped is the best thing in this document.
+searching turns one into an upper bound. For five weeks that was the whole shape of the
+project. Then it seemed to change in a single day, and the true story of that day is better
+than the one this section first told.
 
 It began with one sentence from the user: *a better upper bound seems as good as a better
 lower bound.* Which sounds like a truism and was not, because acting on it exposed that
 **the project had never had an upper bound on the total count above n = 3 at all.** It had
 bounds on the depth-1 layer, and the results file said plainly that they bound d₁ only, not
-a total. Nobody had noticed that the sentence was a description of a gap.
+a total. Nobody had read that sentence as a description of a gap.
 
-Then two things had to happen, and the first was a demolition. The published depth-1 bound
-`d1 ≤ 108·C(n,3) + 2` was re-derived before being tightened, and it turned out to rest on
-an identity that fails at **coincident** configurations. Every maximiser is coincident. The
-project's only upper bounds above n = 3 were true, published, and inapplicable exactly
-where they were wanted — the sixth illusion, and the only one that had been a theorem.
+The first thing to happen was a demolition. The published depth-1 bound was re-derived before
+being tightened, and it rested on an identity that fails at **coincident** configurations —
+and every maximiser is coincident. True, published, and inapplicable exactly where it was
+wanted: the first of two illusions in this story that had been printed as theorems. The
+second is below.
 
-The repair is elementary in the good sense. Count by Euler plus handshake, which needs no
-genericity. Vertices where three or more cubes meet charge to triples of planes from three
-different cubes — the old count, now used only where it is valid. The vertices the old
-bound missed are the **two-body** ones, which carry no cross-cube triple, which is exactly
-why they escaped; and a pair of cubes alone is the one case in this entire problem that is
-*proved*, since the maximum for two cubes is 13 and has been since the beginning. That pins
-each pair at 10. The load-bearing element in the first bound that holds at maximisers is
-**max(2) = 13** — the smallest theorem in the project, filed as background years of
-postscripts ago. The bottom of the tower carries the top.
+The repair is elementary in the good sense, and it still stands. Count by Euler plus
+handshake, which needs no genericity. Vertices where three or more cubes meet charge to
+triples of planes from three different cubes. The vertices the old bound missed are the
+**two-body** ones, which carry no cross-cube triple — exactly why they escaped — and a pair of
+cubes alone is the one case in this whole problem that has always been *proved*: two cubes
+make at most 13 regions. That pins each pair's contribution at 10, and gives
 
-With every layer bounded, the layers sum, and the interval for max(4) went from (183, ∞) to
-**[183, 953]** in a morning. Crude — three separately loose bounds added together, with the
-looseness compounding from 5.2× at n = 4 to 26.5× at n = 10 — but an upper bound that
-exists can be improved, and one that does not exist cannot. It was improved the same day,
-twice: 953, then 423, then **263**. *[Corrected 2026-09-27: the 953 was not in fact proved.
-One of the three layer bounds assumed that pair-only vertices never occur below the outer
-surface; the next day's check found that they do, and the gap went unnoticed until
-2026-09-24. The 423 and 263 rested on an unproved hypothesis about connectivity, and the 263
-turned out to be weaker than a bound of 198 from the same hypothesis. So the interval never
-had a proved upper end.]*
+    d₁  ≤  108·C(n,3)  +  10·C(n,2)  +  2      for every n and every configuration
 
-And the last step stopped being a bound at all. The total is now an **identity**:
+The load-bearing element is **max(2) = 13**, the smallest theorem in the project, filed as
+background from the first week. The bottom of the tower carries one layer of the top. That
+is the first upper bound above three cubes that holds where the records live, it is still
+standing, and it was not found by searching.
 
-    TOTAL  =  X  +  Σ μ_v  +  Σ (c+1)  +  1
+Then the day ran on, too fast. The deeper layers got bounds of the same shape, the layers
+were summed, and by the evening the interval for max(4) read [183, 953], then [183, 423],
+then **[183, 263]**, and the total was written down as an exact identity in four terms, checked
+on the record, a random compound and a structured one. This document said, for three weeks,
+that the genre had changed.
 
-    the n=4 record    X = 48   Σμ = 128   →   48 + 128 + 7  =  183   exact
-    a Haar draw       X =  0   Σμ = 108   →    0 + 108 + 7  =  115   exact
-    a structured one  X =  6   Σμ =  92   →    6 +  92 + 7  =  105   exact
+It had not, and each piece came apart in a different way:
 
-The region count stopped being a thing you measure with an engine and became a thing you
-decompose, with the bound falling out of bounding the parts. The whole n = 4 ceiling law
-has since compressed to a single inequality — `V3(depth 1) ≤ 84` — and a subset-to-whole
-inequality needed along the way was proved for all n.
+- **The 953 had a hole.** The bound for depths two and above assumed that two-body vertices
+  never occur there. The very next day a postscript found that they do, and corrected the
+  sentence where the assumption was *stated* — but not the sentence where it was *used*. The
+  953 kept its PROVED tag for sixteen more days, in the results file built to prevent exactly
+  that, until an audit of every bound's status found it. It is almost certainly true, since
+  it exceeds every measurement fivefold, and the repair looks mechanical. It has not been made.
+- **The 423 and 263 were never unconditional.** They assumed every level of the arrangement
+  is connected in a particular sense; that is not proved, and it is sometimes false. A weaker
+  form of the same assumption gives **198**, which is better than both. So the best bound
+  there is on max(4) is 198 *if* a connectivity property holds that has survived about 3 700
+  tests and a directed attempt to break it, and has no proof.
+- **The identity survived; its shorthand did not.** `TOTAL = X + Σμ_v + Σ(c+1) + 1` is still
+  an identity. But the three compounds it was first checked on all had `Σ(c+1) + 1 = 7`, and
+  the n = 4 work that followed wrote it as `7 + T + B − Q4`, with the 7 as a constant. It is
+  not one: it ranges from −3 to 7, and the shorthand also silently drops three kinds of
+  degenerate vertex that about one random compound in seven carries. It was caught by checking
+  a climb's result against the engine instead of against the formula — which predicted 177
+  where the engine said 175.
+- **And max(4) = 183 itself lost its proofs.** Three times it was reduced to a handful of
+  inequalities, and three times one of them was refuted — twice by a single compound of 173
+  regions, found by seeding the search from the smaller case where the analogous law already
+  fails rather than from the record; once by the golden 177, which
+  had been in the project since the first day and never tested, because the tools that would
+  have tested it could not handle its irrational angles.
 
-The same days produced a row of refutations, several of them of the project's own
-proposals and one inside the hour it was proposed: a wall-crossing proof route dead, a
-disconnected-boundary lever illusory, a geometric prediction refuted by its own test, a
-rate corrected twice by the person who published it. None of that is failure. A programme
-that generates its own counterexamples at that rate is one that has finally got something
-solid enough to push against.
+So the honest state is narrower and, I think, more interesting. One layer has a real theorem,
+carried by the smallest result in the project. The total has a bound of 198 resting on one
+well-tested conjecture, and no bound at all without it. The record at n = 4 is a *weak*
+conjecture. The interval that this document once printed as [183, 263] is, strictly,
+[183, ∞) — with a very good reason to believe the top is below 198, and no proof that it is.
 
 ## VII. What the two stories say to each other
 
@@ -482,7 +481,7 @@ What is interesting is that the paper's collaboration and this one failed in the
 ways — lost work, repeated reminders, optimising the search when stuck — and that only one
 of them wrote the failures down. The register that makes this project look messier is the
 reason a dozen illusions were caught in a month rather than surviving into the literature.
-One of them had already been published as an upper bound.
+Two of them had already been published as upper bounds.
 
 **But the register is not self-cleaning, and this is the correction that matters most.**
 Asked to audit a correction, the project found that the correction had shipped three
@@ -526,37 +525,41 @@ The same entry names the moment of danger exactly, and it is not the one you wou
 **a claim is least scrutinised directly after it is accepted**, because the argument has
 already moved on to what comes after it.
 
-And the last thing is the one that changes the genre. For five weeks this was a search:
-every result a lower bound, no way to know how far there was left to go, a table of numbers
-that could only ever grow. It is now a subject with theorems in it — and none of them was
-found by searching harder. They were found by re-deriving something already believed,
-discovering it did not apply where it was needed, and repairing it with a result so old and
-so small it had stopped being mentioned.
+And the last thing is the one this document got most wrong. For five weeks this was a
+search: every result a lower bound, a table of numbers that could only ever grow. On the
+thirty-third day it seemed to become a subject with theorems in it, and this document said
+so, printed an interval with a proved upper end, and kept printing it for three weeks.
+Section VI is what that interval turned out to be: one layer genuinely bounded by the
+smallest theorem in the project, and a total whose only bound rests on a conjecture.
 
-The interesting number is no longer a record. It is an **interval**: max(4) lies in
-[183, 263], where a day earlier it lay in (183, ∞) and a week earlier there was no upper
-end to write. Eighty of those regions are the open question: 183 is achieved and 263 is
-proved, and which end the truth sits at is not known. A conjectured ceiling law would pull
-the top down to 195 — but that law is not proved, the conversion to it does not yet follow,
-and its own caps have been shown to be unattainable all at once, so 195 is a target rather
-than an expectation. What has been achieved is narrower and better than a guess: the whole
-n = 4 question now compresses to a single inequality about triple points.
+**That is where the comparison with Knuth's hour stops being about speed and becomes about
+where a claim lives.** His construction was checked by a person to m = 101 and then by a proof
+assistant, run by somebody else. A proof assistant would not have let a bound with a hole in
+its proof be called proved for sixteen days. Prose did — in a results file whose whole
+purpose was to prevent it, maintained by a process with a register of exactly this failure.
+The gap was recorded the day after it was made, in the entry where the premise was stated;
+what never happened was the step from *the premise is false* to *everything built on the
+premise is now unproved*, because nothing in prose forces that step. The project eventually
+built a tool to invert its citations, so that an entry can name what rests on it as well as
+what it rests on. That is the nearest thing a record written in English has to a type checker,
+and it is still only as good as the tags a writer puts in by hand.
 
 Knuth's hour produced a construction and a theorem about it, and a stranger checked the
-theorem in Lean. Our month produced a tower of records, a dozen ways of being wrong about
-our own instruments, a register that had to learn to audit its own corrections, and — on
-the thirty-fourth day, from a one-line remark that sounded like a truism — the first thing
-in the project that a search could never have found.
-
-Which of those is the better outcome depends entirely on what you wanted. But only one of
-the two stories can tell you where its own numbers came from, and that is worth the month.
+theorem by machine. Our month — six weeks, by now — produced a tower of records, a dozen ways
+of being wrong about our own instruments, one real theorem about one layer, a bound that
+depends on a conjecture, and a register that had to learn to audit its own corrections. Only
+the first of the two stories ends with its main claim settled. Only the second can show you,
+line by line, where each of its numbers came from and which of them have since fallen — and
+that is worth the six weeks, though it is not the same thing as being right.
 
 ---
 
 ## VIII. The record, audited
 
-*(Added 2026-09-27, and told from my side of the collaboration; it will be read by someone
-who was not in it, which is as it should be.)*
+*(Added 2026-09-27 by the session that did the work, in its own first person. The rest of
+this document is written by a second session, forked off to read Knuth's paper and kept out
+of the work so it could compare the two; where the earlier sections say "I", it is that
+session.)*
 
 The month became six weeks, and for the last eleven days almost nothing was searched. The
 object of attention turned from the compounds to the record of them. The ledger had nearly
@@ -586,11 +589,10 @@ the two 183 classes were "not joined" on the strength of a distance that was sti
 *"Are you saying there are two disjoint continua?"* sent me back for the argument that actually
 proves it.
 
-Against Knuth's hour, this stretch sharpens the comparison rather than softening it. A proof
-assistant would not have let a bound with a gap in its proof be called proved for sixteen days;
-prose did, in a document built to prevent exactly that. What the month has that the hour does
-not is a record detailed enough to find the gap in, and the gap was found by reading it. My own
-contribution to the errors was not small: the tag I wrote for one correction said a result
+Against Knuth's hour, this stretch sharpens the comparison rather than softening it (Section
+VII takes that up). What the month has that the hour does not is a record detailed enough to
+find the gap in, and the gap was found by reading it. My own contribution to the errors was not
+small: the tag I wrote for one correction said a result
 survived that had not, and the subagent checking citations trusted it as instructed. The
 error was caught only because I spot-checked that one postscript's judgments by hand, having
 guessed they were the likeliest to be quoting the unproved bound. A guess about where to look is
@@ -598,25 +600,18 @@ a thin safeguard.
 
 ---
 
-*Updated 2026-09-27: Section VIII is new, covering 2026-09-17 to 09-27; a dated correction was added to Section VI (the 953 was not proved).*
-
-*Updated 2026-09-16: Section VII reframed by [A13]–[A15] of
-[`INTERVENTIONS.md`](INTERVENTIONS.md) — a correction found to carry invented detail, an
-"independent" oracle that reproduced the bug it was written to catch, and the project's
-first clean self-catch. Earlier note, 2026-09-08: Section VI rewritten around [P249](LEDGER.md#p249) and the
-tightening to 263, which supersede the depth-1-only bound it first described; Sections I,
-II and VII revised to match. Earlier note, 2026-09-07: Section VI is new — [P235](LEDGER.md#p235) to
-[P237](LEDGER.md#p237) postdate everything else here — and Sections II and III were
-revised as the illusion count rose and the record's depth-1 was accounted for exactly.
-Earlier note, 2026-09-05, as the work moved: attempts 9 through 12 of the exploration log, the
-census, the predictor, and [P222](LEDGER.md#p222) all postdate the first draft, and
-Section V's qualification was added because the log said plainly what the first draft had
-glossed.*
+*Current to 2026-09-28, [P394](LEDGER.md#p394). Sections I, VI and VII were rewritten on 2026-09-28 to the status of
+every bound as the project itself classified it on 2026-09-24 — no bound on max(4) holds
+without a hypothesis; 198 holds if every level has at most two components; the depth-1 bound
+is proved — and Section II was brought up to the measured arc of the 183. Earlier versions
+of this document said max(4) was proved to lie in [183, 263]. That was wrong, and it is
+corrected here rather than annotated, because a narrative that carries its own superseded
+claims in brackets is harder to read than the ledger it is meant to replace.*
 
 *Every claim here is traceable. [`RESULTS.md`](RESULTS.md) carries the current status of
 each with a tag; [`LEDGER.md`](LEDGER.md) is the dated record beneath it, and corrections
 are marked in place rather than quietly repaired; [`FAILURE_MODES.md`](FAILURE_MODES.md)
-is where the four illusions of Section II live in their unromantic form;
+is where the illusions of Section II live in their unromantic form;
 [`INTERVENTIONS.md`](INTERVENTIONS.md) is the register Section IV compares against, and
 [`EXPLORATION_141.md`](EXPLORATION_141.md) is Section V's log, written by the session that
 did the work and not by the one telling the story. Knuth's paper is at
