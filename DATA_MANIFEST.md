@@ -35,6 +35,7 @@ finished. The most trustworthy-looking artifact was the defective one.
 | `ee_bound_refute.json` | **Authoritative on edge-edge counts.** Counts `(2,2)` ARRANGEMENT VERTICES — the quantity [P328]'s identity uses — and MEASURES each vertex's excess instead of tabulating it, so the identity closes by construction and the deviations from [P328]'s constants are reported. Gated against the n = 4, 5, 6 records (183, 393, 727). |
 | `ee_audit.json` | The gates BEHIND `ee_bound_refute.json`, and behind [P330]'s own claims: [P329]'s 24 incidences resolved by LOCATION (6 singles + 2 corners x 9), the `(2,2)` counter agreeing with an independent edge-intersection enumerator on **all 1856 pairs, 0 disagreements**, and [P329]'s search pool shown to CONTAIN a violation (40 against a bound of 36), which refutes [P330]'s first explanation of the miss. |
 | `members_*.json`, `census_run1/members_*.json`, `members_t*.json` | The all-members census, **split across two runs and disjoint** — run 1 (790 classes) is snapshotted in `census_run1/`, run 2 (`t` tag, 36 n=9 classes) is the 4-way re-shard of 2026-08-17. Glob both; there are no duplicate keys. |
+<!-- reviewed 2026-09-24: the ee_audit.json row cites P329 for the audit that refuted P330's first explanation, not for P329's own fallen claim -->
 
 **Standing caveat on the census files.** `status` (empty / nonempty) and
 `lineality` come from `nullspace` + `variety_incremental` — algebra, no stepping,
@@ -57,6 +58,7 @@ gen4, and **gen4 is canonical** — it contains all 299 gen0 records plus 23 mor
 gen2 and gen3 are subsumed test runs. `census_variety_redo.json` is the
 `GeneratorsNeeded` rerun ([P117](LEDGER.md#p117)) and uses an incompatible key
 model (no `idxs`), so it cannot be merged mechanically.
+<!-- reviewed 2026-09-24: cites P117 for the GeneratorsNeeded rerun/crash provenance, not the isolation claim that fell -->
 
 **Four cross-generation disagreements, all gen0 vs gen4, all in `confirmed`:**
 (9,4,147) 27->23, (9,5,341) 45->38, (9,5,347) 12->10, (9,6,677) 15->14. `status`,
@@ -72,6 +74,7 @@ NOT established; both may be valid under different validation criteria.
 P117 counted CRASHES (keyed by `(n,k,count)`); the rerun evaluated every class
 matching those keys. 23 of the 26 records have lineality 1, matching P117's "every
 one of them lineality 1" exactly.
+<!-- reviewed 2026-09-24: cites P117's crash-count/lineality bookkeeping, not the isolation claim that fell -->
 
 The cause is this project's recurring one: `(n,k,count)` is an equivalence by
 INVARIANT, not by congruence, and this file carries no `idxs` field to
@@ -92,12 +95,16 @@ crashed with `GeneratorsNeeded` and were rerun, so at least one generation
 corrects an earlier one — but which file supersedes which is unverified, and is
 stated as unverified rather than guessed. All other `.json` files in the
 repository are likewise unaudited.
+<!-- reviewed 2026-09-24: cites P117's crash/rerun provenance, not the isolation claim that fell -->
 
 ## `data/continuum_boundaries.json` — CURRENT (2026-09-08)
 
 Measured boundaries of record count-plateaus and their extension regions
 ([P285](LEDGER.md#p285)–[P287](LEDGER.md#p287), [CONTINUUM_MAP.md](CONTINUUM_MAP.md)).
-Three regions: the n=9 line, the n=6 727 arc, the n=4 183 (isolated).
+Three regions: the n=9 line, the n=6 727 arc, the n=4 183 (isolated). **The n=4 183 is NOT
+isolated: [P287]'s "isolated in both senses" was REFUTED 2026-09-20 by
+[P378](LEDGER.md#p378) — its 19,682 probes were all straight lines, and the record in fact
+lies on a bounded 1-dimensional arc (full census preserved to arc length 0.04).**
 
 **Every boundary is a BRACKET between two sampled parameter values, not an exact locus.**
 The file says so in its own `IMPORTANT` field. It also carries one unresolved ANOMALY —
@@ -150,7 +157,7 @@ per record (1, 1, 1, 2, 3 at n = 4..8) which this one does not.
 | `data/plateau_container_n6.json`, `data/plateau_face_n6.json`, `data/plateau_face_extent_n6.json` | the first-order container of the n = 6 plateau: the flat of the 20 walls arc D keeps, rank 13, dimension 2; unchanged by adding the concurrency family; face left at λ = 763/3124 exactly |
 | `data/plateau_leading_n6.json`, `data/plateau_decider_n6.json` | **the decider** ([P306](LEDGER.md#p306)): 486 quadruples change leading behaviour off arc D, of which **222 are genuine** (rank 3 = rank augmented) and 264 are parallel-pair degeneracies with no common point. Those 222 contain the arc and pin the plateau to dimension exactly 1 |
 | `data/plateau_sector_n6.json` | **SUPERSEDED.** Its first cell was built from coincidence roots only — ungated and ~200× too wide, so it reported a distant cell's count as local. Kept because P306's reasoning quotes it |
-| `data/plateau_order.json` | plateau dimensions settled at n = 6, 7, 8 as **1, 2, 2** by order of vanishing ([P307](LEDGER.md#p307)). Every level carries a `SCOPE` field naming the seeds — a dimension here is the branch through those directions, and seeding n = 7 from the lineality alone returns 1 instead of 2 |
+| `data/plateau_order.json` | plateau dimensions settled at n = 6, 7, 8 as **1, 2, 2** by order of vanishing ([P307](LEDGER.md#p307)). Every level carries a `SCOPE` field naming the seeds — a dimension here is the branch through those directions, and seeding n = 7 from the lineality alone returns 1 instead of 2. *(CORRECTED 2026-09-21 by [P383](LEDGER.md#p383): the n = 8 figure was a lower bound stated as an equality; the dimensions are 1, 2, 3.)* |
 | `data/attribution_audit_n8.json`, `data/boundary_cause_n7.json` | the attribution audit ([P308](LEDGER.md#p308)): the recorded boundaries are caused by coincidence conditions, and n = 7's are re-derived from both families to 0.002550224044 and 0.049672585064, matching the recorded values digit for digit |
 | `data/VOID_2026-09-12_concurrency_walls_n6_transposed_planes.json`, `data/VOID_2026-09-12_wall_census_n6_transposed_concurrency.json` | **VOID, kept not deleted.** Produced with face normals taken as the ROWS of the rotation instead of the COLUMNS, i.e. the plane set of a different configuration ([FAILURE_MODES 39](FAILURE_MODES.md#39)). Every concurrency number in them describes that other object. Retained so the corrected entry's claims about what was wrong stay checkable |
 

@@ -5,7 +5,7 @@ a human and a shifting cast of AI models actually produced it. Everything here
 is stated plainly and without proof; each section says where to read the real
 thing. [`JOURNEY.md`](JOURNEY.md) is the same story told at length and in
 order, with the wrong turns left in. [`RESULTS.md`](RESULTS.md) is the current
-state of belief, every claim tagged. Last updated 2026-08-02.*
+state of belief, every claim tagged. Begun 2026-08-02, last brought up to date 2026-09-27; it knows nothing later.*
 
 *One disclosure up front, because it changes how to read everything else: the
 code, the searches, the analysis, and this document were written by an AI
@@ -111,9 +111,11 @@ finds the answer. Above it, you have to search.
 
 It also explains the irrationality at three cubes: hitting every ceiling
 simultaneously is a rigid demand, and rigid demands land on isolated,
-irrational points. Trades, by contrast, live on open sets, and open sets
-always contain rational points. That is why the record tower from four cubes
-up is entirely rational.
+irrational points. Trades, by contrast, leave room to move: every record from
+four cubes up that has been examined sits on a continuum of equally good
+arrangements (an arc, a surface, a thin solid) rather than at a point, and a
+continuum like that contains rational points. That is why the record tower
+from four cubes up is entirely rational.
 
 ## The tower
 
@@ -130,7 +132,9 @@ up is entirely rational.
 | 10 | **3925** | best found |
 
 The records **nest**: the 393 is five of the six cubes of the 727, the 727 is
-six of the seven of the 1217, and so on down. Adding a good cube to a good
+six of the seven of the 1217, and so on down. (At nine cubes the record swaps out
+the eighth cube instead of keeping it, and yet its best eight-cube subset still
+counts 1895.) Adding a good cube to a good
 arrangement beats searching the larger space from scratch — reliably enough
 that it became the standard method.
 
@@ -151,7 +155,11 @@ is now an exact identity — see below — but the identity is not this formula.
 
 **And since 2026-09-16 the ceiling for every size at once is a tight one.** Proved
 upper bounds for every *n* have existed since 2026-09-07, but they were about five
-times the records — true and not yet useful. Writing
+times the records — true and not yet useful. *[Corrected 2026-09-27: those were not
+proved. One of the per-depth bounds summed to make them assumed that no pair-only
+vertex lies below the outer surface, and such vertices do occur, as a check on
+2026-09-08 had already shown. They are almost certainly true, but no upper bound
+without a hypothesis is currently established.]* Writing
 the count as an accounting identity — every region paid for by "degree excess" at
 a vertex, and every triple point spent twice — gives
 
@@ -162,6 +170,23 @@ proved except for one hypothesis about connectivity. The records sit at a steady
 five to a few per cent, in exchange for that one hypothesis. So the tower is now bracketed at both
 ends, and the interesting question has moved: the remaining 10 % is not spread
 evenly, and finding where it lives is what the project is doing now.
+
+**Not one record is a point.** For weeks the project believed each record was an
+isolated configuration, found by a test that reported "no direction keeps the
+count". That test had a bug, and once continuation methods followed the records
+instead of probing straight lines, the picture reversed. The best count at each
+size sits on a set of equally good arrangements, whose dimension runs:
+
+| cubes | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|---|---|---|---|---|---|---|
+| shape of the best set | an arc | two points | an arc | not yet measured | a node of arcs | a pentagon | a polytope |
+| dimension | 1 | 0 | 1 | ? | 1 | 2 | 3 |
+
+Three cubes is the lone exception, the one size where the answer is rigid, and
+the reason is the same rigidity that makes it irrational. At two cubes the whole
+maximum turns out to be a single arc, which passes through both of the ways
+three cubes can do best: the pairs inside the two 67s sit at particular points
+of the two-cube arc.
 
 ## How a search actually works
 
@@ -193,19 +218,23 @@ walls at all.
 
 ## The record, close up
 
-Seven hundred and twenty-seven is not a point. It is a **plateau**: at least
-161 genuinely different arrangements reach it, falling into 54 distinct
-combinatorial types. In configuration space they form a union of
-one-dimensional segments — move along a segment and the count holds; step off
-it in any other direction and the count drops to 715–721.
+Seven hundred and twenty-seven is not a point. It is a **plateau**: uncountably
+many genuinely different arrangements reach it, including ones whose angles
+need square roots, in every quadratic field that has been tried. In configuration space
+they form one-dimensional arcs: move along an arc and the count holds, step off
+it in any other direction and the count drops. At the record itself two arcs
+cross at a shallow 4.5°, which makes it a node. Two other arcs in the catalogue
+turn out to be those same two arcs, seen through a symmetry of the five-cube
+base, and one more arc is a separate piece.
 
 Within the plateau, the segments are cut into **chambers**. Crossing from one
 chamber to the next, exactly two regions swap between labels at the same
 depth — the smallest move the arrangement permits, and the quantum of 2 is
 forced by the fact that every configuration is symmetric through its centre,
-so regions come in antipodal pairs. Chamber boundaries were recently shown to
-be exactly the wall crossings, and the walls doing that work are mostly the
-never-enumerated kind.
+so regions come in antipodal pairs. What decides where a plateau *ends* is
+still not understood. The obvious candidates, the "walls" where two cubes'
+edges or corners line up, are often crossed with no change in the count, and
+the count sometimes changes where none is crossed.
 
 Two things about this picture are worth saying plainly because both contradict
 what the project believed earlier.
@@ -291,6 +320,14 @@ worth more than any individual entry:
   about file timestamps. The corrective register is where nobody looks for a
   mistake, which is exactly what makes it dangerous.
 
+- **Testing a hypothesis only where the tools can reach** — a cap on how many
+  edge crossings can sit on the outer surface was tested for weeks with tools
+  that only handled rational angles. The arrangement that breaks it is the classical
+  golden one, and its angles are irrational.
+- **Correcting a claim where it was stated, not where it was used** — an
+  observation was corrected in place, but the bound built on top of it kept
+  being called proved for sixteen more days.
+
 Every one of these produced *plausible numbers*, not obvious failures.
 [`FAILURE_MODES.md`](FAILURE_MODES.md) catalogues them by symptom — what you
 notice first — so a later reader can triage rather than rediscover. That is
@@ -360,6 +397,20 @@ computer-algebra system for the Gröbner-basis work that found configurations no
 numeric grid lands on, and a small browser visualiser — which is what the human
 was looking at when the remark that opened Act VII got made.
 
+**In the last stretch the record itself became the object of work.** The
+ledger had grown to nearly four hundred entries, many correcting earlier ones,
+and nothing ran the other way: an entry names what it relies on, but when
+something falls, nothing names what relied on it. A tool was built to invert
+that, and its first versions were wrong about direction three times, reading a
+refutation as its victim, and a name in a heading as a role. Only a structured
+tag, written at both ends of every correction, fixed that for good. The
+documents were then sorted by what each promises: the ledger as an audit record,
+summaries stating current belief and nothing else, and narratives like this one,
+written for people and dated. The human kept finding the gaps, by asking the plain
+question: whether a figure already showed what a summary called unknown, why a
+text said one thing and a diagram another, whether the claims a tool could not
+see could be made visible.
+
 **The filesystem was the long-term memory.** Sessions end, context windows
 fill, models get swapped mid-project. What survives is the append-only ledger,
 the specification files, and a log recording exactly what each delegated agent
@@ -372,6 +423,11 @@ with the session, taking the gates with it.
 
 - **Is 729 reachable at six cubes?** The formula predicts it; exhaustive
   searches of three separate strata cap out at 727, 725 and 723.
+- **Is 183 the maximum at four cubes?** Three separate attempts to reduce this
+  to a few named statements have each been refuted, the last one by the golden
+  four-cube arrangement: four of the five cubes of the classical compound in a
+  dodecahedron. No upper bound on four cubes that
+  needs no hypothesis currently stands; the best conditional one is 198.
 - **Are 183, 393, 727, 1217, 1895, 2787, 3925 actually maximal?** None is proved.
   Only *n* = 2 and *n* = 3 have theorems. 1895 replaced 1891 on 2026-08-05, and it
   was sitting inside a window an earlier sweep had already covered — the
@@ -393,6 +449,8 @@ with the session, taking the gates with it.
   proposed and refuted — the test had forgotten that a cube's boundary is six
   *squares*, not six planes, so most of its "walls" were points floating outside
   the compound. The question is open again.
+- **Is the five-cube record a point or a continuum?** It is the one size in the
+  tower's middle whose shape has not been measured.
 - **The ceiling law** — fits everything, proved only for the shallowest layer.
 - **A universal ceiling on the one-cube increment** — the per-arrangement
   bound is proved and tight; the universal version is still crude.

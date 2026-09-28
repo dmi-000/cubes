@@ -32,7 +32,10 @@ and why coincidence count is a certificate but never a compass.
 **Start with [`RESULTS.md`](RESULTS.md)** — what the project currently
 believes, every claim tagged by how strongly it is established, with
 superseded claims confined to a table at the end so nothing in the body has
-to be walked back.
+to be walked back. For the same picture organised **by number of cubes** — each level's
+record, whether it is proved, the shape of the set where it holds, and how the
+levels connect — read [`LEVELS.md`](LEVELS.md). Which documents state current belief, which are
+the record, and which are narratives, and how each is corrected: [`DOCUMENTS.md`](DOCUMENTS.md).
 
 The scientific record lives in **[`LEDGER.md`](LEDGER.md)**
 (append-only and ordered by write time, not by postscript number; it opens

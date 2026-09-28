@@ -1,6 +1,6 @@
 # Six glass cubes: weeks of experimental mathematics with a team of AIs
 
-*An informal account, updated 2026-08-02. This is the LONG version — for a
+*An informal account, begun 2026-07-13 and brought up to 2026-09-27; it knows nothing later. This is the LONG version — for a
 ten-minute, low-jargon tour that hits the same beats and links onward, read
 [`OVERVIEW.md`](OVERVIEW.md) instead. Self-contained, but every claim
 here has a paper trail: `RESULTS.md` is the recommended starting point —
@@ -677,9 +677,14 @@ are 720 of them altogether. Feeding these to a computer-algebra system: the
 36 conditions that hold at the real 727 cube have a Gröbner basis with
 exactly one real solution point — the 727 cube itself — and every one of
 the other 684 conditions is inconsistent with those 36 (Gröbner basis {1},
-each, all 684 checked). So on the 393 base, 727 is not just unbeaten, it
-is *isolated*: no continuous family of sixth cubes passes through it, and
-its coincidence pattern cannot be augmented by even one more condition.
+each, all 684 checked). So on the 393 base, 727's pattern of coincidences
+can be met in exactly one place, and cannot be augmented by even one more
+condition. At the time this was read as saying the record itself is
+*isolated*, with no continuous family of sixth cubes passing through it.
+[CORRECTED 2026-09-24: that reading claimed more than the algebra proved.
+The count stays 727 along a line of sixth cubes through the record, where
+the coincidences change and the count does not. What had been isolated was
+the pattern, not the record.]
 Two things this does *not* show: a 729 configuration need not share 727's
 coincidence pattern at all, so this is not a proof that 729 is
 unreachable; and the Cayley chart used omits the 180° rotations, which
@@ -1132,7 +1137,10 @@ open is part of the story.
    fundamentally new five-cube arrangement ≥ 390, or proving none exists.
    On the 393 base the room left is exactly 729, and three independent
    lines now bound it: E1's cap, the elimination proving 727 isolated with
-   an unaugmentable coincidence pattern (Postscript [47](LEDGER.md#p47)), and the three-wall
+   an unaugmentable coincidence pattern (Postscript [47](LEDGER.md#p47)) [CORRECTED 2026-09-27: what
+   it proved is that the COINCIDENCE PATTERN is met at one point and cannot be extended; the
+   count is not isolated, since 727 holds along a line of sixth cubes through the record, so the
+   elimination does not bound the room left], and the three-wall
    enumeration (Postscript [48](LEDGER.md#p48)). The rational-tangent slice reached 387 at five cubes
    (breaking the old "constant-8 deficit") but has not passed a record.
    [CORRECTED 2026-08-01: this item previously described the *723* summit
@@ -1320,7 +1328,12 @@ for every n at once ([P326]):
 
 and the records land at a stable **90–92 %** of it from n = 4 to n = 10. The project already had
 unconditional bounds for every n — [P249]'s 953 at n = 4, and so on up — but they were 5.2x the
-record; these are 1.08x, at the price of resting on one unproved hypothesis. Then the arithmetic delivers its verdict on the question that
+record; these are 1.08x, at the price of resting on one unproved hypothesis. [CORRECTED
+2026-09-27: the 953 family was not unconditional after all. One of its per-depth bounds assumed
+that pair-only vertices never lie below the outer surface, and a check eight days earlier had
+already found some that do ([P274]). Nobody traced that back to the bound built on it until
+2026-09-24, so at the time of this chapter the project had no proved upper bound without a
+hypothesis, and it still has none.] Then the arithmetic delivers its verdict on the question that
 produced it. The hole term is `n − 1` out of thousands. **At n = 10, settling it moves the
 bound from 4318 to 4309, against a record of 3925.** Nine regions of a 393-region gap. The
 question that had been called "the last ingredient" for weeks turns out to be worth 2 % of the
@@ -1417,3 +1430,104 @@ failures were never in the mathematics; they were in the apparatus, in the defin
 twice in the checking code written to catch failures in the apparatus. The corrective register —
 writing up someone else's error, or your own from yesterday — turned out to be the single most
 dangerous place to put an unsourced claim, because that is where nobody is looking for one.
+
+## Act XV: the records are not points, and the audit that found mathematics
+
+*(2026-09-17 to 09-27. Again the tower does not move. This time the picture of what a record IS
+changes completely, and most of the mathematics is found by checking documents.)*
+
+The act opens with four cubes and an accounting. The count at n = 4 was written as a budget,
+`TOTAL ≤ 7 + two-body + B − Q4`: a two-body term from pairs of cubes, a triple budget `B`, and a
+penalty for points where four cubes meet. The record sits at `48 + 128 − 0`. Beating it needs
+more of one term without losing the others, and the natural suspect was the golden four-cube
+compound, whose every pair and every triple is at its proved maximum. A second compound with the
+same corner-sharing seemed to have the golden's two-body weight and no four-fold points at all,
+which would have counted 195.
+
+It did not exist. Its "triple budget" of 74 was the golden's 56 triple points plus its 18
+four-fold points, because the counting routine never checked the fourth cube ([P370]). The gate
+meant to catch that was run on the record, **where four-fold points happen to number zero**, so it
+could not fail. An enumeration settled the branch exactly: every compound in which all four cubes
+share corners pairwise is the golden, with its 18 four-fold points, and counts 177 ([P371]).
+
+What was left looked like one inequality. Twice the proof of `max(4) = 183` was reduced to a single
+measured statement, `EE ≤ 36` at a full triple budget and then `EE + B ≤ 164`, each the maximum
+over directed searches from the record and its relatives. One compound refuted both
+([P373]), and it came from outside every family those searches had seeded: the three-cube
+extreme, extended by an ordinary fourth cube. It counts only 173. The inequalities were false, and
+183 was not threatened, and those are different facts. The same day the budget itself turned out
+to be a bound and not the identity it had been treated as ([P374]), and a parity argument
+("region counts are odd, so beating 183 means 185") was made and refuted within hours: a region
+fixed by the symmetry need not contain its fixed point ([P375]).
+
+**Then the records stopped being points.** For weeks every record had been called isolated: no
+direction keeps the count. That had been established by straight-line probes and a second-order
+test. Continuation, following the equations that hold at the 183 instead of stepping along
+straight lines, found a curve on which the count stays 183 the whole way: an arc of length 0.687
+([P378]). Getting to its ends took three faults in the continuation code, and each one announced
+"the curve ends here": a step too large, a null space taken one dimension too small, and a
+regulariser far too small for the scale of the system it was meant to steady. The user watched one of them stall and pointed
+out that the step it had shrunk to, 1.0e-10, was all but zero; it had frozen for 580 steps.
+
+The second 183 class lies on a different arc. The first statement of that ("the two are not
+joined") rested on a distance that fell steadily over the first quarter of the arc, and the arc
+turns at 0.30. The user asked whether that meant *"two disjoint continua"*. What actually proves
+it is a one-line argument: distance to a fixed point can shrink no faster than arc length, and the
+arc runs out first ([P380]).
+
+After that the rest of the tower followed. The tangent dimension, the number of directions that
+keep the count to first order, is 1, 1, 1, 1, 2, 3 from three cubes to eight ([P381]). At every size
+where both have been measured it equals the dimension of the plateau itself, with one exception:
+three cubes, where a curve through each 67 keeps every contact but the count changes on both sides
+at once ([P382]). At eight cubes the plateau is three-dimensional, not the two that had been
+"settled", and delimited exactly it is a polytope with 38 vertices ([P383], [P385]).
+
+**The second half of the act is about the record itself.** The ledger had nearly four hundred
+entries, many correcting earlier ones, and the corrections only ever pointed backward: an entry
+names what it rests on, and nothing names what rests on it. A tool built to invert that ([P386])
+first reported that 73 % of citations of refuted entries carried no warning, and then turned out
+to be wrong about direction three times in a row ([P387], [P388]): it read a refutation as its
+victim, then a corrector's heading as a status, then a name in a heading as a role. The fix was
+not a better parser but a structured tag, written by hand at both ends of every correction.
+
+The user drew the conclusion that shaped the rest: the ledger was too tangled to give a person a
+clear picture, so it should serve audits, and people should read documents built from it. That
+split the documents into records, current beliefs and narratives, each corrected differently, and
+set an order: records first, then current beliefs, then stories like this one.
+
+**And the audit kept finding mathematics.**
+
+- Classifying the upper bounds, as the user asked, on a scale from theorem to hope, turned up a
+  gap. The only bound that needed no hypothesis, 953 at four cubes, summed a per-depth bound
+  whose proof assumed that pair-only vertices never lie below the outer surface. A check on
+  2026-09-08 had found some that do ([P274]). The observation was corrected in place, the bound
+  built on it was not, and for sixteen days it was called proved.
+- Rebuilding the summary, the proof of `max(4) = 183` "conditional on three hypotheses" had to be
+  checked. The first hypothesis capped the two-body weight on the outer surface at 48. The golden
+  compound has 60 there ([P389]). It had never been tested, because the tools that measure that
+  weight only handle rational angles, and the golden's angles are irrational. The golden had been
+  known all along.
+- Applying the narrative rule, that an old belief must be told with its successor, to a sentence
+  saying "727 is proved isolated" found that the proof behind it proved something narrower: 727's
+  pattern of coincidences is met at one point, but the count is not ([P47], corrected via [P293]).
+- The user asked whether a figure did not already map two cubes completely. It did, and checking
+  what that meant in class space showed the whole two-cube maximum is a single arc. What had been
+  drawn as two unrelated arcs plus isolated classes is one: a family of body-diagonal rotations
+  joined end to end to a family of edge rotations. Its closed end is exactly the pair inside the
+  octahedral 67 ([P390]).
+- The user noticed that two drawings of the 727 disagreed. Both were partial. At the record exactly
+  two arcs cross, and two others in the catalogue are those same arcs seen through a symmetry of
+  the base ([P391]).
+
+### What the act is actually about
+
+Nothing beat anything, again. What changed is that the records are no longer thought of as
+points. Every size from four cubes up where anyone has looked sits on a continuum. The one rigid
+size is three, and even there the rigidity is precise: a curve through the maximum exists, and the
+count leaves it immediately.
+
+And the lesson of the audit is less comfortable than the lesson of the searches. Two patterns
+recur. A correction written where an error was *stated* does not reach the places where it was
+*used*; the 953 stood for sixteen days after its premise fell. And a hypothesis tested only where
+the tools can reach is a hypothesis about the tools: the counterexample to T was the most
+familiar compound in the project, sitting just outside the rational world the tests could see.

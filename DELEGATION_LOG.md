@@ -129,6 +129,7 @@ quaternions the main session derived **independently** from
 n=3 non-congruence wording; (2) propagate records n=7 = 1211, n=8 = 1889;
 (3) supersede those with 727 / 1217 / 1891 the same day; (4) add Postscript [47](LEDGER.md#p47)
 (727's structure and the elimination), and later Postscripts [48](LEDGER.md#p48)–[51](LEDGER.md#p51).
+<!-- reviewed 2026-09-24: historical delegation task list, passing mention of P47 -->
 
 **Standing instruction across all four:** update live "current record" claims,
 but *annotate rather than rewrite* dated or historical passages — a report of a

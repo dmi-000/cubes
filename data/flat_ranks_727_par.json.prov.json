@@ -15,5 +15,5 @@
  "python": "3.14.2",
  "retroactive": true,
  "hash_taken": "at stamp time, NOT at run time -- cannot certify the producer",
- "note": "Parallel lattice BFS on cube64, 4 cores, 23241s, 2026-08-30. Per-rank counts identical to the 11.3h serial run (flat_ranks.py); rank-14 mask has all 27 bits. Recovered to the repository immediately per P164."
+ "note": "Parallel lattice BFS on the second machine, 4 cores, 23241s, 2026-08-30. Per-rank counts identical to the 11.3h serial run (flat_ranks.py); rank-14 mask has all 27 bits. Recovered to the repository immediately per P164."
 }

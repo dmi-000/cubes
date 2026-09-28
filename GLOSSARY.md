@@ -228,6 +228,13 @@ a triple point of each of the four subsets containing it, hence the 4. At n = 4,
     golden 177   T3 =  56, Q4gen = 18   ->  B = 56 + 72 = 128
     K4           T3 =  74, Q4gen =  0   ->  B = 74
 
+*(CORRECTED 2026-09-21 by [P370](LEDGER.md#p370): the third row DOES NOT EXIST. That compound
+IS the golden — same four cubes, checked normal for normal — and its `T3 = 74` was
+`T3 + Q4generic = 56 + 18`, because the routine that produced it never checked the fourth cube.
+It is kept here because it is exactly the trap the entry illustrates: a four-fold vertex read
+as a triple point inflates `T3` and hides `Q4generic`, and `B` then looks like 74 when it is
+128.)*
+
 **`h(S)`** **(ours)** — `count(S) - (1/2)(sum of its pair counts)`, the inclusion-exclusion
 share of a 3-subset. `h = 0.5 + (1/2) sum E_i + E_S <= 47.5` PROVED ([P348]).
 
@@ -321,6 +328,7 @@ rational family, with the type identical at the point and both neighbours in
 **"Chamber boundary"** — was inferred from k ≥ 3 active walls. That inference
 is wrong: most wall crossings leave the type unchanged, so k is not a proxy for
 boundary. Postscripts [60](LEDGER.md#p60) → 61.
+<!-- reviewed 2026-09-24: states the correction (P60 -> P61) itself -->
 
 **"Records concentrate at high-multiplicity concurrences"** — reversed.
 Measured over 1200 unselected draws, configurations counting ≥ 700 average 1.6
@@ -352,6 +360,7 @@ lines in CONFIGURATION space, minutes after this very section was cited.)
 | "line"   | crossing line, edge line | arc, wall line |
 | "plane"  | face plane | wall plane, locus plane |
 | "isolated" | — | "isolated in the level set" vs "isolated as a solution of its conditions" — Postscript [47](LEDGER.md#p47) means the SECOND |
+<!-- reviewed 2026-09-24: the 'isolated' row says P47 means isolated as a solution of its conditions, which stands -->
 
 Two more that need a named space rather than a compound word:
 

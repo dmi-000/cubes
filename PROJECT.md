@@ -1,6 +1,6 @@
 # How many regions do overlapping cubes make? — a self-contained write-up
 
-*Last updated 2026-08-01. This document is standalone: every term is
+*Begun 2026-07-12, last brought up to date 2026-09-27; it knows nothing later. This document is standalone: every term is
 defined here, and no other file is required to follow it. For the current
 state of every claim in the project — each tagged PROVED / VERIFIED /
 EXHAUSTED / CONJECTURE, with superseded claims confined to one table at the
@@ -759,9 +759,13 @@ polynomial equation in (a, b, c). The 36 conditions active at the known 727
 cube have a Gröbner basis that is zero-dimensional with exactly one real
 solution point — the 727 cube itself — and all 684 remaining conditions
 are inconsistent with those 36 (Gröbner basis {1}, each). So on the 393
-base, **727 is proved isolated** (no continuous family of sixth cubes
-passes through it) and its coincidence pattern is **unaugmentable** (no
-sixth cube realises those 36 conditions plus a 37th). Two caveats: this
+base, the 727 cube is the only place those 36 conditions hold together, and
+the pattern is **unaugmentable** (no sixth cube realises those 36 conditions
+plus a 37th). This was first read as proving 727 itself isolated, with no
+continuous family of sixth cubes through it. **[Correction, 2026-09-24]** That
+reading claimed more than was proved: the count stays 727 along a line of sixth
+cubes through the record, on which the coincidences change and the count does
+not (Postscripts [293](LEDGER.md#p293), [306](LEDGER.md#p306)). Two caveats: this
 does *not* prove no 729 configuration exists — a 729 config need not
 contain 727's coincidence pattern at all — and the Cayley chart used omits
 the 180° rotations (w = 0), which need a separate chart.
@@ -1069,11 +1073,13 @@ corner-on-face altogether (Postscript [51](LEDGER.md#p51) addendum 3).
    depth-1, depth-2, and depth-4, so whether sacrificing depth-3 further
    (or another combination) nets higher is open and is the active line of
    attack. Depth-1 can already reach 224, so there is shallow headroom. On
-   the specific 393 base, the question is now settled by elimination
-   (Section 8): 727 is proved isolated there and its coincidence pattern
-   is unaugmentable, so no better completion of *this* five-cube base
-   exists. That does not rule out a 729 built on a different coincidence
-   pattern, or on a different five-cube base entirely — but this question
+   the specific 393 base, elimination (Section 8) shows that 727's
+   coincidence pattern is met at a single point and cannot be extended,
+   which closes one route to a better completion of this five-cube base
+   (corrected 2026-09-24: this passage had said no better completion exists,
+   which the elimination does not show).
+   It does not rule out a 729 built on a different coincidence pattern,
+   on this base or on a different five-cube base entirely — but this question
    is now closed over several more strata than it was, though still not
    proved: random menus, swap-completion, worst-subset climbing, and
    core-and-clique construction found nothing above 727; the three-wall
@@ -1206,6 +1212,32 @@ miscount of a different quantity. Both stories are in
 constraint in any case: the configurations that maximise them lose more in triple points than
 they gain, scoring 145 at n = 4 against the record's 183. **The object to bound is the trade,
 not either term.**
+
+### Where the frontier is (2026-09-27)
+
+Three things changed in the eleven days after the section above.
+
+**The records are continua, not points.** At every size from four cubes up where it has been
+measured, the best count holds on a set of positive dimension: an arc at n = 4 (for each of the
+two known 183 classes), a node of two crossing arcs at n = 6, a pentagon at n = 7, and a
+three-dimensional polytope at n = 8 ([P378](LEDGER.md#p378), [P391](LEDGER.md#p391),
+[P301](LEDGER.md#p301), [P385](LEDGER.md#p385)). The dimension equals the number of directions
+that keep the count to first order, except at n = 3, where each 67 lies on a curve that keeps
+every contact while the count changes on both sides at once, so the two 67s stay isolated
+([P382](LEDGER.md#p382)). At n = 2 the whole maximum is a single arc, and the pairs inside both
+67s sit at particular points of it ([P390](LEDGER.md#p390)).
+
+**max(4) = 183 has no argument behind it but search.** Three reductions of it to a few named
+statements have been refuted: `EE ≤ 36` at a full triple budget and `EE + B ≤ 164` by one
+compound ([P373](LEDGER.md#p373)), and a cap of 48 on the two-body weight at the outer surface
+by the golden four-cube compound, which carries 60 there ([P389](LEDGER.md#p389)).
+
+**And the only upper bound that needed no hypothesis has a gap.** The per-depth bounds summed to
+give 953 at n = 4 assumed that pair-only vertices never lie below the outer surface, and they do
+([P274](LEDGER.md#p274), [P249](LEDGER.md#p249)). The ceiling above, conditional on
+`holes ≤ 1`, is unaffected, because its two-body term counts those vertices wherever they lie.
+Today the interval for max(4) is [183, 198] if the hypothesis holds, and has no proved upper end
+if it does not.
 
 ## 11. The code, briefly
 

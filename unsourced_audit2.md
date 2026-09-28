@@ -56,6 +56,7 @@ contradicted:
   all three, verbatim as methods, from Postscript 47 (`balance_hunt.py`,
   "balanced climb, objective (min 5-subset, total): no move at all",
   `clique_hunt.py`).
+<!-- reviewed 2026-09-24: cites P47's search methods, not its refuted isolation claim -->
 - "the exhausted three-wall family (2 733 configurations)" — Postscript 49:
   "2 733 distinct configurations after symmetry dedup and the height cap ...
   NOTHING ABOVE 727."
@@ -126,6 +127,7 @@ already known.
 
 **Verdict: SUPPORTED** — Postscript 47 (quadrics) + Postscript 48 (codimension
 1, Bézout).
+<!-- reviewed 2026-09-24: cites P47's surviving quadric-conditions fact, not its refuted isolation claim -->
 
 - Postscript 47 (`LEDGER.md#p47`): "**ALL CONDITIONS ARE QUADRICS** (total
   degree 2 in (a,b,c); measured over cube 0's full set of 144)."
@@ -133,6 +135,7 @@ already known.
   is **codimension 1**, three walls in the sixth cube's 3-DOF space form a
   DETERMINED system, and Bézout caps it at 2³ = 8 points. That is why records
   sit at three-wall intersections: it is forced, not coincidental."
+<!-- reviewed 2026-09-24: quotes P47's surviving quadric-conditions fact, not its refuted isolation claim -->
 
 Not contradicted later — Postscript 49's finding that edge-edge conditions
 factor into two rational planes does not contradict "quadric" (a product of

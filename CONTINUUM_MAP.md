@@ -122,6 +122,12 @@ values. Needs a finer walk before it amends MAXIMISERS.
 > the n = 2 maximiser 13 is a continuum, the 67s are isolated points, and **727 is isolated
 > while sitting in an uncountable plateau. Plateau membership and local isolation are
 > independent facts.**
+<!-- reviewed 2026-09-24: a verbatim docstring quote; corrected in the paragraph below -->
+
+**CORRECTED 2026-09-24 ([P47](LEDGER.md#p47)'s note).** The docstring conflates the two senses it
+says to keep apart. 727 is isolated as a SOLUTION of its 36 coincidence conditions ([P47](LEDGER.md#p47));
+it is not isolated in its level set, since the count is 727 along arc D, a line of sixth cubes
+through the record on the same base ([P293](LEDGER.md#p293), [P306](LEDGER.md#p306)).
 
 | | what it measures | test |
 |---|---|---|
@@ -136,6 +142,18 @@ Measured, the two disagree sharply:
 | 727 (n = 6) | **0** — isolated | uncountable — the arcs below |
 | 2787 (n = 9) | not measured | ≥ 1 measured here; 4 per RESULTS |
 
+> **REFUTED IN PART, recorded 2026-09-24 (LEDGER.md#p117):** the 727 coincidence-variety
+> cell above is also wrong. [P306](LEDGER.md#p306)/[P307](LEDGER.md#p307) establish 727 as a
+> 1-dimensional plateau in the coincidence sense too, not merely in the count-plateau column.
+> See LEDGER.md#p117's note.
+
+> **CORRECTED 2026-09-21 by [P378](LEDGER.md#p378) and [P379](LEDGER.md#p379):** the 183 row
+> above is wrong in both columns. Continuation along the genuine (non-gauge) null direction
+> found at the record survives Newton correction and preserves the full census throughout, so
+> neither the coincidence variety nor the count plateau is 0-dimensional at 183. The count
+> plateau is a bounded ARC of total length 0.6872872 (0.0516797 forward, 0.63560749 backward),
+> with the record 7.5 % from the forward end. See Map 0 below.
+
 **AND "dimension" is not always the right word.** `runs/dim2785.log` on the 727 arc D:
 
     v1 (14,2,-3)   +eps 727  -eps 727   holds
@@ -148,7 +166,13 @@ at the record, not a 2-dimensional surface. A single dimension number would misd
 
 ## Map 0 — the 183 (n = 4): ISOLATED in BOTH senses
 
-`runs/isolate183.log`:
+> **REFUTED ([P378](LEDGER.md#p378)).** Both 183 classes lie on arcs; see [`LEVELS.md`](LEVELS.md), n = 4.
+
+> **CORRECTED 2026-09-21 by [P378](LEDGER.md#p378) and [P379](LEDGER.md#p379): NEITHER 183 is
+> isolated in either sense.** A curved, genuine (non-gauge) direction survives Newton
+> correction at both 183 classes, preserving the full census. The count plateau is a bounded
+> arc of length 0.6872872. The straight-line probes below are correct measurements — they
+> just cannot see a curved family — and the section is kept for that record.
 
     183 class 1 (canonical)    count 183 | 108 tight | lineality 1 of 9
                                second-order variety: empty, 0 directions -> ISOLATED
@@ -156,6 +180,10 @@ at the record, not a 2-dimensional surface. A single dimension number would misd
                                second-order variety: empty, 0 directions -> ISOLATED
 
 Both 183s are isolated **in the coincidence sense** (lineality 1 = the global-rotation gauge).
+*(CORRECTED 2026-09-21 by [P378](LEDGER.md#p378): this is wrong — the genuine null-space
+direction at each 183 is 1, not 0, and a curved continuation along it survives Newton
+correction with the full census preserved. Neither 183 is isolated in the coincidence sense
+either.)*
 The count plateau was believed to be 3-dimensional from `runs/n4_183_dim.out`:
 
     step 1/32    probed 19682, still 183:  26     (3^d - 1:  d=3 -> 26)
@@ -171,8 +199,19 @@ byte-identical to the record**, and they are exactly the 26 directions touching 
 independent quaternion-axis probe (`src/map_all_shapes.py`) finding 0 of 12 axes holding at two
 step sizes.
 
+*(CORRECTED 2026-09-21 by [P378](LEDGER.md#p378) and [P379](LEDGER.md#p379): this is false.
+Every probe listed here is a STRAIGHT LINE, which is invisible to a curved family: the
+tangent direction leaves the variety at second order, so a straight step off the record loses
+183 immediately even though a curved continuation along it does not. The count plateau is a
+bounded arc of length 0.6872872, not a point.)*
+
 **RESULTS' phrase "183 is a PLATEAU, not a point" means MORE THAN ONE configuration reaches
 183** — two congruence classes — not that a continuum was demonstrated.
+
+*(CORRECTED 2026-09-21 by [P378](LEDGER.md#p378) and [P379](LEDGER.md#p379): a continuum HAS
+now been demonstrated — each of the two classes lies on its own constant-count arc, length
+0.6872872 at the record. "Two congruence classes" and "a continuum" are both true; they were
+not mutually exclusive.)*
 
 Extension is per-pair even between these two: with the same five candidate fifth cubes, class 1
 reaches 369 / 355 / 359 / 367 and class 2 reaches 363 / 371 / 353 / 375 — **neither dominates**,
@@ -194,6 +233,7 @@ exact polynomial `P` with `f = 1  <=>  P = 0`. **The key is the polynomial.** Re
 n = 4..8 (12 / 18 / 27 / 51 / 75 distinct walls) and arcA (20). `n4_183` is recorded as
 UNEVALUABLE rather than skipped — cube 1 is a half-turn, so the record sits at Cayley infinity
 and this chart has no point for it ([P287](LEDGER.md#p287)).
+<!-- reviewed 2026-09-24: cites P287's surviving no-op-artefact explanation, which P378 left standing -->
 
 Two restrictions are provided, and the second is the one this map needs:
 `W.on_line` restricts a wall to a **Cayley** line; `W.on_quat_line` restricts it to a
@@ -221,6 +261,12 @@ argument about typical ones.)*
       lineality     1    1    1    2    3      (unaffected -- from gradients)
       2nd-order     0    0    0    1    2      directions surviving
       verdict     ISO  ISO  ISO  NOT  NOT
+
+  > **CORRECTED 2026-09-21 by [P378](LEDGER.md#p378): the n = 4 column above is wrong.** This
+  > bug fix did not test for a curved family, only re-ran the same straight-line probes. A
+  > genuine (non-gauge) null direction of dimension 1 exists at the record, and a curved
+  > continuation along it survives Newton correction with the full census preserved. n = 4's
+  > verdict is NOT ISO, matching n = 7 and n = 8, not ISO.
 
   The 1217 record is **not** an isolated point of the coincidence variety; it lies on a curve,
   and the pre-fix run said the opposite. n = 8 had never been reached and reads 2 directions.
@@ -339,6 +385,7 @@ enumeration. The polynomial route needed one fix to run over a field — `sympif
 `1/2+1/2√5`, and `dimension`'s own converter `_sp = qf_to_sp` handles both Fractions and QF —
 after which `P(record) = 0` on all 60 and all 72 conditions. **Gate G2 does not apply over a
 field** (its probe line is rational) and is recorded as unevaluated, not as a pass.
+<!-- reviewed 2026-09-24: cites P118's isolation verdict/wall-count enumeration, unaffected by P119's correction to the adaptive-eps method -->
 
 **The extension to n = 4 is not unmapped either.** [P134](LEDGER.md#p134) caps it at **177** by
 three methods with different biases — 11 927 configurations from `extend67.py`, 960 candidates
@@ -375,8 +422,13 @@ scan lands on either angle — both are irrational, which is what makes them pun
 This is a candidate explanation for the neighbourhood asymmetry [P121](LEDGER.md#p121) recorded
 as a bare fact (728 faces vs 2 196): a point on a wall and a point deep inside a uniform region
 are different objects. Candidate, not derivation.
+<!-- reviewed 2026-09-24: cites P121's surviving bare-fact neighbourhood asymmetry, not the "odd unless a second shell" claim P130 corrected -->
 
-## Map 6 — the 727 four-arc node: ONE structural class
+## Map 6 — the 727 node: two branches, ONE structural class
+
+**The node has two branches, not four arcs** ([P391](LEDGER.md#p391)): D1 and D2 cross at the record;
+arcs B and C are their images under the 393 base's C₃ symmetry, at the record's other two spellings;
+arc A is a separate piece.
 
 [P293](LEDGER.md#p293). Representatives are the simplest rational strictly inside each solved
 extent, each gated on counting 727:
@@ -398,6 +450,7 @@ ARC.** That predicted arcs A, B and C each hold their own special points.
 **They do, and the prediction's payoff was negative — [P294](LEDGER.md#p294).** Solving each
 arc's wall polynomials (rather than walking `s`) gives nine special points, with arc D's `s = 0`
 rediscovered as the control. `congruent.py` collapses the nine to **six compounds**:
+<!-- reviewed 2026-09-27: cites P294's special points and six classes, which stand -->
 
     class 0   725   D@-2/19,  B@43/105
     class 1   727   D@0,      B@16/35,   C@132/29      <- the record
@@ -406,8 +459,8 @@ rediscovered as the control. `congruent.py` collapses the nine to **six compound
     class 4   725   A@19/6
     class 5   723   C@164/87
 
-**The record lies on three of the four arcs** — which is what makes the node a node: the arcs
-cross there. Arc A does not reach it (the record's sixth cube would sit at `s = -13/3`, far
+**The record is spelled on three of the four catalogued arcs** — D, B and C — but these are two
+branches, not three: B and C are the base's C₃ images of D1 and D2 ([P391](LEDGER.md#p391)). Arc A does not reach it (the record's sixth cube would sit at `s = -13/3`, far
 outside A's extent) and carries two compounds found on no other arc.
 
 So there is **no new extension base here**: every 727 among the special points is the record
@@ -416,6 +469,13 @@ the tower extends one point of one arc because the other arcs' special points ar
 same compound or count less.
 
 ## Map 7 — the 1217 plateau, and how boundaries travel up the tower
+
+**Scope note, 2026-09-28 ([P393](LEDGER.md#p393)):** what follows is the sheet over D1. The n = 7 plateau
+has a second sheet over D2, crossing this one along the fibre over the record.
+
+**CORRECTED 2026-09-28 ([P394](LEDGER.md#p394)):** the sheet is not a pentagon. Its bottom and right
+edges below were the edges of the 5x5 grid's box; the sheet is a curved triangle bounded by the base
+wall at −2/19, the fibre wall above, and the third wall, which is its whole lower-right side.
 
 Solved 2026-09-12. The n = 7 plateau is **2-dimensional** — a pentagon, not the parallelogram
 its two directions span ([P299](LEDGER.md#p299), [P301](LEDGER.md#p301)):

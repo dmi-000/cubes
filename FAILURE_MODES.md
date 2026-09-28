@@ -92,6 +92,7 @@ most confident wrong statements.
   leaves the combinatorial type unchanged, so k is not that property. Tested
   directly, most of them *are* interior. (Postscripts [60](LEDGER.md#p60) → 61; the wrong
   version stood for one hour.)
+<!-- reviewed 2026-09-24: narrates the error and correction of P60 -->
 
 **Check.** When the direct test is cheap — and here it always was, minutes at
 most — run the direct test. Use a proxy only when you have shown it is
@@ -1493,6 +1494,7 @@ killed the identification before the construction was written rather than after.
 ## 41. Two counters wore the same name, and the bound was tested against the wrong one
 
 [P330], correcting [P329], 2026-09-16.
+<!-- reviewed 2026-09-24: narrates the correction of P329 -->
 
 `EE` meant edge-edge contacts. There were two functions computing it, and they compute different
 quantities:
@@ -1596,6 +1598,7 @@ dictionary default.
 ## 44. The containment filter, four times in one session — and the tell is always the same
 
 [P334], [P342], [P346], [P350], 2026-09-16 to 09-18.
+<!-- reviewed 2026-09-24: narrates the containment-filter bug in P334 and siblings -->
 
 The rule: **a vertex lies on the facets of its OWN supporting cubes and may be outside every
 other one.** A test that discards points outside any cube silently deletes whole signature
@@ -1624,6 +1627,7 @@ non-supporting cube veto the point:
     if good and n: sig.append(n)    # NOT: if not good: discard the whole point
 
 ## 45. A gate whose control lacks the feature cannot fail — [P334]'s `T3 = 74`
+<!-- reviewed 2026-09-24: explains the error; the fallen value is the subject -->
 
 `k4_corner_sharing.count_T3` tested a candidate point's signature against the three cubes of
 each triple and never against the fourth. A generic four-fold vertex therefore passes as a
@@ -1684,3 +1688,4 @@ here", gate all three of the others:
 All three gates are two lines each, and all three were added only after the fault they catch.
 The first version had none of them and would have reported the plateau as 0-dimensional — the
 same wrong answer [P287] reached, arrived at by a different mistake.
+<!-- reviewed 2026-09-24: narrates P287's error as a comparison case -->

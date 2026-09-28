@@ -17,20 +17,23 @@
 <!-- n = 2 : a punctured circle, plus the edge arc -->
 <text class="n" x="105" y="118" text-anchor="middle">n = 2</text>
 <text class="max" x="105" y="152" text-anchor="middle">13</text>
-<path d="M 140.6 230.0 A 36 36 0 0 0 91.5 201.6" fill="none" stroke="#c2553a" stroke-width="4"/>
-<path d="M 82.8 206.6 A 36 36 0 0 0 82.8 263.4" fill="none" stroke="#c2553a" stroke-width="4"/>
-<path d="M 91.5 268.4 A 36 36 0 0 0 140.6 240.0" fill="none" stroke="#c2553a" stroke-width="4"/>
-<circle cx="141.0" cy="235.0" r="4" fill="#faf9f7" stroke="#6a7180" stroke-width="2.5"/>
-<circle cx="87.0" cy="203.8" r="4" fill="#faf9f7" stroke="#6a7180" stroke-width="2.5"/>
-<circle cx="87.0" cy="266.2" r="4" fill="#faf9f7" stroke="#6a7180" stroke-width="2.5"/>
-<path d="M 79 302 A 30 30 0 0 1 131 302" fill="none" stroke="#c2553a" stroke-width="4" opacity=".55"/>
-<line x1="84.2" y1="305.0" x2="73.8" y2="299.0" stroke="#c2553a" stroke-width="3" opacity=".55"/>
-<line x1="125.8" y1="305.0" x2="136.2" y2="299.0" stroke="#c2553a" stroke-width="3" opacity=".55"/>
+<!-- n = 2 : ONE arc in class space (P390): open at the identity, body-diagonal part to 60 deg,
+     joined there to the edge part, which ends CLOSED at the 90 deg edge rotation -->
+<path d="M 56 262 Q 80 196 108 214" fill="none" stroke="#c2553a" stroke-width="4"/>
+<path d="M 108 214 Q 136 232 152 204" fill="none" stroke="#c2553a" stroke-width="4" opacity=".7"/>
+<circle cx="56" cy="262" r="4.5" fill="#faf9f7" stroke="#6a7180" stroke-width="2.5"/>
+<circle cx="108" cy="214" r="3.2" fill="#15181d"/>
+<line x1="146.8" y1="200.0" x2="157.2" y2="208.0" stroke="#c2553a" stroke-width="3"/>
+<text class="k" x="58" y="283" text-anchor="middle">identity</text>
+<text class="k" x="108" y="204" text-anchor="middle">60°</text>
+<text class="k" x="150" y="193" text-anchor="middle">90° edge</text>
+<text class="k" x="83" y="300" text-anchor="middle">body diagonal</text>
+<text class="k" x="140" y="248" text-anchor="middle">edge</text>
 <line x1="41" y1="320" x2="169" y2="320" stroke="#dcd9d3" stroke-width="1"/>
 <text class="k" x="105" y="344" text-anchor="middle">dimension</text>
-<text class="v" x="105" y="358" text-anchor="middle">1 — arc (circle in chart)</text>
+<text class="v" x="105" y="358" text-anchor="middle">1 — one arc</text>
 <text class="k" x="105" y="371" text-anchor="middle">components</text>
-<text class="v" x="105" y="385" text-anchor="middle">2 arcs + isolated classes</text>
+<text class="v" x="105" y="385" text-anchor="middle">1, two parts joined</text>
 <text class="k" x="105" y="398" text-anchor="middle">symmetry</text>
 <text class="v" x="105" y="412" text-anchor="middle">D₆</text>
 <text class="k" x="105" y="425" text-anchor="middle">arithmetic</text>
@@ -56,16 +59,17 @@
 <text class="k" x="260" y="452" text-anchor="middle">drops to</text>
 <text class="v" x="260" y="466" text-anchor="middle">59</text>
 
-<!-- n = 4 : was a dashed patch labelled >=3-dim; the figure behind that was withdrawn -->
+<!-- n = 4 : two classes, each on its own arc (P378, P380) -->
 <text class="n" x="415" y="118" text-anchor="middle">n = 4</text>
 <text class="max" x="415" y="152" text-anchor="middle">183</text>
 <line x1="338" y1="104" x2="338" y2="480" stroke="#dcd9d3" stroke-width="1"/>
-<circle cx="415" cy="235" r="7" fill="#faf9f7" stroke="#15181d" stroke-width="2.5"/>
+<line x1="381" y1="223" x2="441" y2="223" stroke="#c2553a" stroke-width="4"/>
+<line x1="393" y1="249" x2="449" y2="249" stroke="#c2553a" stroke-width="4"/>
 <line x1="351" y1="320" x2="479" y2="320" stroke="#dcd9d3" stroke-width="1"/>
 <text class="k" x="415" y="344" text-anchor="middle">dimension</text>
-<text class="v" x="415" y="358" text-anchor="middle">0 by every probe</text>
+<text class="v" x="415" y="358" text-anchor="middle">1 — two arcs</text>
 <text class="k" x="415" y="371" text-anchor="middle">components</text>
-<text class="v" x="415" y="385" text-anchor="middle">≥1, one class found</text>
+<text class="v" x="415" y="385" text-anchor="middle">2 classes</text>
 <text class="k" x="415" y="398" text-anchor="middle">symmetry</text>
 <text class="v" x="415" y="412" text-anchor="middle">C₃</text>
 <text class="k" x="415" y="425" text-anchor="middle">arithmetic</text>
@@ -73,14 +77,14 @@
 <text class="k" x="415" y="452" text-anchor="middle">drops to</text>
 <text class="v" x="415" y="466" text-anchor="middle">173</text>
 
-<!-- n = 5 : zero only against single-cube moves, so hollow -->
+<!-- n = 5 : tangent dimension 1; the plateau itself not measured, so dashed -->
 <text class="n" x="570" y="118" text-anchor="middle">n = 5</text>
 <text class="max" x="570" y="152" text-anchor="middle">393</text>
 <line x1="493" y1="104" x2="493" y2="480" stroke="#dcd9d3" stroke-width="1"/>
-<circle cx="570" cy="235" r="7" fill="#faf9f7" stroke="#15181d" stroke-width="2.5"/>
+<circle cx="570" cy="235" r="7" fill="#faf9f7" stroke="#15181d" stroke-width="2.5" stroke-dasharray="3 2.5"/>
 <line x1="506" y1="320" x2="634" y2="320" stroke="#dcd9d3" stroke-width="1"/>
 <text class="k" x="570" y="344" text-anchor="middle">dimension</text>
-<text class="v" x="570" y="358" text-anchor="middle">0 vs single-cube moves</text>
+<text class="v" x="570" y="358" text-anchor="middle">not measured (tangent 1)</text>
 <text class="k" x="570" y="371" text-anchor="middle">components</text>
 <text class="v" x="570" y="385" text-anchor="middle">≥1</text>
 <text class="k" x="570" y="398" text-anchor="middle">symmetry</text>
@@ -90,21 +94,22 @@
 <text class="k" x="570" y="452" text-anchor="middle">drops to</text>
 <text class="v" x="570" y="466" text-anchor="middle">391</text>
 
-<!-- n = 6 : the 727 arcs, with the record where two of them cross -->
+<!-- n = 6 : in class space, a node of TWO branches (D1, D2, 4.51 deg apart) at the record, and a
+     separate arc A. Arcs B and C are D1 and D2 again under the base's C3 symmetry (P391). -->
 <text class="n" x="725" y="118" text-anchor="middle">n = 6</text>
 <text class="max" x="725" y="152" text-anchor="middle">727</text>
 <line x1="648" y1="104" x2="648" y2="480" stroke="#dcd9d3" stroke-width="1"/>
-<line x1="679" y1="205" x2="755" y2="205" stroke="#c2553a" stroke-width="4"/>
-<line x1="691" y1="227" x2="771" y2="227" stroke="#c2553a" stroke-width="4"/>
-<line x1="685" y1="249" x2="743" y2="249" stroke="#c2553a" stroke-width="4"/>
-<line x1="709" y1="265" x2="755" y2="281" stroke="#c2553a" stroke-width="4"/>
-<line x1="711" y1="281" x2="755" y2="265" stroke="#c2553a" stroke-width="4" opacity=".7"/>
-<circle cx="733" cy="273" r="6" fill="#faf9f7" stroke="#c2553a" stroke-width="3"/>
+<line x1="683" y1="236" x2="771" y2="256" stroke="#c2553a" stroke-width="4"/>
+<line x1="683" y1="256" x2="771" y2="238" stroke="#c2553a" stroke-width="4" opacity=".7"/>
+<circle cx="727" cy="246.5" r="6" fill="#faf9f7" stroke="#c2553a" stroke-width="3"/>
+<line x1="691" y1="290" x2="759" y2="290" stroke="#c2553a" stroke-width="4"/>
+<text class="k" x="725" y="222" text-anchor="middle">the node</text>
+<text class="k" x="725" y="309" text-anchor="middle">arc A</text>
 <line x1="661" y1="320" x2="789" y2="320" stroke="#dcd9d3" stroke-width="1"/>
 <text class="k" x="725" y="344" text-anchor="middle">dimension</text>
-<text class="v" x="725" y="358" text-anchor="middle">1 — arcs</text>
+<text class="v" x="725" y="358" text-anchor="middle">1 — two branches cross</text>
 <text class="k" x="725" y="371" text-anchor="middle">components</text>
-<text class="v" x="725" y="385" text-anchor="middle">≥4</text>
+<text class="v" x="725" y="385" text-anchor="middle">≥2: node + arc A</text>
 <text class="k" x="725" y="398" text-anchor="middle">symmetry</text>
 <text class="v" x="725" y="412" text-anchor="middle">trivial</text>
 <text class="k" x="725" y="425" text-anchor="middle">arithmetic</text>
@@ -116,29 +121,31 @@
 <text class="n" x="880" y="118" text-anchor="middle">n = 7</text>
 <text class="max" x="880" y="152" text-anchor="middle">1217</text>
 <line x1="803" y1="104" x2="803" y2="480" stroke="#dcd9d3" stroke-width="1"/>
-<line x1="866" y1="235" x2="894" y2="235" stroke="#c2553a" stroke-width="4"/>
+<ellipse cx="880" cy="235" rx="30" ry="17" fill="#4a6fb0" opacity=".22"/>
+<ellipse cx="880" cy="235" rx="30" ry="17" fill="none" stroke="#4a6fb0" stroke-width="2"/>
+<text class="k" x="880" y="239" text-anchor="middle" style="fill:#4a6fb0">2-dim</text>
 <line x1="816" y1="320" x2="944" y2="320" stroke="#dcd9d3" stroke-width="1"/>
 <text class="k" x="880" y="344" text-anchor="middle">dimension</text>
-<text class="v" x="880" y="358" text-anchor="middle">≥1</text>
+<text class="v" x="880" y="358" text-anchor="middle">2 — two sheets cross</text>
 <text class="k" x="880" y="371" text-anchor="middle">components</text>
 <text class="v" x="880" y="385" text-anchor="middle">≥1</text>
 <text class="k" x="880" y="398" text-anchor="middle">symmetry</text>
 <text class="v" x="880" y="412" text-anchor="middle">trivial</text>
 <text class="k" x="880" y="425" text-anchor="middle">arithmetic</text>
-<text class="v" x="880" y="439" text-anchor="middle">rational</text>
+<text class="v" x="880" y="439" text-anchor="middle">rational (D1 sheet)</text>
 <text class="k" x="880" y="452" text-anchor="middle">drops to</text>
 <text class="v" x="880" y="466" text-anchor="middle">1215</text>
 
-<!-- n = 8 : 1895 since 2026-08-05; still two independent aligned directions -->
+<!-- n = 8 : 3-dimensional, a 38-vertex polytope (P383, P385) -->
 <text class="n" x="1035" y="118" text-anchor="middle">n = 8</text>
 <text class="max" x="1035" y="152" text-anchor="middle">1895</text>
 <line x1="958" y1="104" x2="958" y2="480" stroke="#dcd9d3" stroke-width="1"/>
 <ellipse cx="1035" cy="235" rx="40" ry="20" fill="#4a6fb0" opacity=".22"/>
-<ellipse cx="1035" cy="235" rx="40" ry="20" fill="none" stroke="#4a6fb0" stroke-width="2" stroke-dasharray="5 4"/>
-<text class="k" x="1035" y="239" text-anchor="middle" style="fill:#4a6fb0">≥2-dim</text>
+<ellipse cx="1035" cy="235" rx="40" ry="20" fill="none" stroke="#4a6fb0" stroke-width="2"/>
+<text class="k" x="1035" y="239" text-anchor="middle" style="fill:#4a6fb0">3-dim</text>
 <line x1="971" y1="320" x2="1099" y2="320" stroke="#dcd9d3" stroke-width="1"/>
 <text class="k" x="1035" y="344" text-anchor="middle">dimension</text>
-<text class="v" x="1035" y="358" text-anchor="middle">≥2</text>
+<text class="v" x="1035" y="358" text-anchor="middle">3 — a polytope</text>
 <text class="k" x="1035" y="371" text-anchor="middle">components</text>
 <text class="v" x="1035" y="385" text-anchor="middle">≥1</text>
 <text class="k" x="1035" y="398" text-anchor="middle">symmetry</text>
@@ -149,34 +156,34 @@
 <text class="v" x="1035" y="466" text-anchor="middle">1893</text>
 
 <line x1="40" y1="514" x2="1140" y2="514" stroke="#dcd9d3" stroke-width="1"/>
-<text class="capb" x="40" y="540">THE MARK IS THE DIMENSION — A HOLLOW MARK MEANS THE ZERO IS ONLY A READING, A TICK MEANS THE END IS IN THE SET</text>
+<text class="capb" x="40" y="540">THE MARK IS THE DIMENSION — A DASHED MARK MEANS IT IS NOT YET MEASURED, A TICK MEANS THE END IS IN THE SET</text>
 <circle cx="48" cy="565" r="7" fill="#15181d"/>
 <text class="lg" x="64" y="569">0-dimensional, argued</text>
-<circle cx="232" cy="565" r="7" fill="#faf9f7" stroke="#15181d" stroke-width="2.5"/>
-<text class="lg" x="248" y="569">reads 0 — none found</text>
+<circle cx="232" cy="565" r="7" fill="#faf9f7" stroke="#15181d" stroke-width="2.5" stroke-dasharray="3 2.5"/>
+<text class="lg" x="248" y="569">not yet measured</text>
 <line x1="404" y1="565" x2="434" y2="565" stroke="#c2553a" stroke-width="4"/>
 <text class="lg" x="442" y="569">a continuum</text>
 <path d="M 546.4 571.4 A 9 9 0 1 1 546.4 558.6" fill="none" stroke="#c2553a" stroke-width="4"/>
 <circle cx="548.5" cy="565" r="3" fill="#faf9f7" stroke="#6a7180" stroke-width="2"/>
 <text class="lg" x="558" y="569">one that wraps</text>
 <ellipse cx="678" cy="565" rx="15" ry="9" fill="#4a6fb0" opacity=".22"/>
-<ellipse cx="678" cy="565" rx="15" ry="9" fill="none" stroke="#4a6fb0" stroke-width="2" stroke-dasharray="5 4"/>
-<text class="lg" x="700" y="569">≥2 dimensions</text>
+<ellipse cx="678" cy="565" rx="15" ry="9" fill="none" stroke="#4a6fb0" stroke-width="2"/>
+<text class="lg" x="700" y="569">2+ dimensions</text>
 <line x1="812" y1="565" x2="842" y2="565" stroke="#c2553a" stroke-width="4"/>
 <line x1="842" y1="558" x2="842" y2="572" stroke="#c2553a" stroke-width="3"/>
 <text class="lg" x="850" y="569">its end is in the set</text>
 <text class="cap" x="40" y="596">Dimension is measured in CLASS space; the 3 gauge dimensions of rotating a whole compound are quotiented out and never counted. "Drops to" is the best</text>
 <text class="cap" x="40" y="616">count among 290 primitive Cayley directions at ε = 1/64, so the gap is readable by subtraction: 4, 8, 10, 2, 4, 2, 2 — and the neighbourhood is NOT one</text>
 <text class="cap" x="40" y="634">value but 4, 6, 14, 14, 22 and 32 distinct counts as n runs 2 to 8. No direction preserves the count except along a tangent: every maximiser lies on walls.</text>
-<text class="cap" x="40" y="658">n = 2's mark is the one exception, drawn in the Cayley chart: there the body-diagonal family wraps into a circle, but its three punctures are a single C₃ orbit,</text>
-<text class="cap" x="40" y="676">so in class space it is one arc. The fainter arc beneath is the edge family, and its two ticks are the only closed ends in the table — 13 holds AT both.</text>
+<text class="cap" x="40" y="658">n = 2 is drawn in class space: ONE arc, open at the identity, along body-diagonal rotations to 60°, where it meets the edge family, and on to a closed end</text>
+<text class="cap" x="40" y="676">at the 90° edge rotation (tick) — the octahedral 67's pair. Every rational 13 up to height 5, on any axis, lies on it (P390); nothing at n = 2 is isolated.</text>
 <text class="cap" x="40" y="694">A bare end is not in the set: at a 727 arc end the count is 725, between the 727 inside and the 723 beyond — and n = 7's two ends and n = 8's upper,</text>
 <text class="cap" x="40" y="712">solved in ℚ(√7809), ℚ(√601) and ℚ(√109), are open too, at 1215 and 1893. In every step measured the wall carries exactly the MEAN of the two</text>
 <text class="cap" x="40" y="730">chambers it separates. Boundary points also carry MORE edge-edge coincidences than either side — 10 → 24, 144 → 162, 24 → 48 — except at a W4 wall.</text>
 <text class="capb" x="40" y="762">n = 3 IS THE ONLY FINITE CASE</text>
 <text class="cap" x="40" y="784">Every level set here is semialgebraic, so it has finitely many components and each is a point or a continuum: a maximiser set is finite or</text>
-<text class="cap" x="40" y="804">uncountable, never countably infinite. Only n = 3 takes the finite option — two classes, both irrational, in ℚ(√2) and ℚ(√5). The other two</text>
-<text class="cap" x="40" y="824">zeros on this figure are drawn hollow for exactly that reason: they are what no search has found, not what an argument rules out.</text>
-<text class="cap" x="40" y="854">Caveats carried on the figure: n = 8's ≥2 is a LOWER bound from the axis-aligned probe, which cannot see a locus in general position. n = 5's zero</text>
-<text class="cap" x="40" y="874">holds only against moving ONE cube. And no method's zeros are yet trustworthy — the one that would upgrade them fails its control at the n = 6 record.</text>
+<text class="cap" x="40" y="804">uncountable, never countably infinite. Only n = 3 is known to take the finite option — two classes, both irrational, in ℚ(√2) and ℚ(√5).</text>
+<text class="cap" x="40" y="824">Every other measured level is a continuum; n = 5 is drawn dashed because only its tangent (dimension 1) has been measured, not the set itself.</text>
+<text class="cap" x="40" y="854">Current as of 2026-09-27. Dimensions: n = 4 (P378, P380), n = 6 (P306), n = 7 (P301), n = 8 (P383, P385); tangent dimensions (P381). Per-level</text>
+<text class="cap" x="40" y="874">summary in words: LEVELS.md. "Drops to" and the neighbourhood counts are from the probe sweep of 2026-08-06 and were not re-measured.</text>
 </svg>

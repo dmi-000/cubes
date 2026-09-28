@@ -78,6 +78,7 @@
     background:var(--card);border:2px solid var(--accent);flex:none;
   }
   .node.solid{background:var(--accent);}
+  .node.unk{border-style:dashed;}
   .lvl{
     font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--faint);
     margin-top:.45rem;letter-spacing:.04em;
@@ -180,8 +181,10 @@
 </header>
 
 <h2>The spine</h2>
-<p class="sub">Reading down the page climbs the tower. A solid node marks a record whose
-coincidence variety is a single isolated point; a hollow node marks one that lies on a curve.</p>
+<p class="sub">Reading down the page climbs the tower. A <b>solid</b> node marks a best count
+that holds at an isolated point; a <b>hollow</b> node, one that holds on a plateau of positive
+dimension; a <b>dashed</b> node, one where only the tangent has been measured. Current as of
+2026-09-27; the per-level summary in words is <code>LEVELS.md</code>.</p>
 
 <div class="tower">
 
@@ -191,7 +194,7 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
     <div class="card">
       <div class="head">
         <span class="count">67</span>
-        <span class="tag iso">isolated &#183; rank = ambient</span>
+        <span class="tag iso">isolated &#183; plateau = 0</span>
         <span class="adds">two <em>non-congruent</em> maximisers &#8212; octahedral in &#8474;(&#8730;2), golden in &#8474;(&#8730;5)</span>
       </div>
       <div class="strip">
@@ -201,20 +204,21 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
         <div class="cell"><span class="k">lineality</span><span class="v hl">0</span></div>
         <div class="cell"><span class="k">free dirs</span><span class="v">0</span></div>
       </div>
-      <p class="note">The only level pinned at <em>first</em> order &#8212; rank 6 equals the ambient
-      dimension. Every rational record below needs second order to be pinned. Both are
-      irrational, so no rational search reaches either: they are punctures, not peaks.</p>
+      <p class="note">The only level whose best count is an isolated point. Its coincidence walls
+      have full rank, 6 = ambient; a curve through each 67 still keeps every contact, but the count
+      changes on both sides at once, so the plateau has zero length (P382). Both maximisers are
+      irrational, so no rational search reaches either.</p>
     </div>
   </div>
 
   <!-- n=4 -->
   <div class="rung">
-    <div class="gutter"><div class="node solid"></div><div class="lvl">n=4</div></div>
+    <div class="gutter"><div class="node"></div><div class="lvl">n=4</div></div>
     <div class="card">
       <div class="head">
         <span class="count">183</span>
-        <span class="tag iso">isolated in both senses</span>
-        <span class="adds">a plateau in the <em>climb</em>, a point in the variety</span>
+        <span class="tag free">plateau = 1 &#183; an arc</span>
+        <span class="adds">two classes, <em>each on its own arc</em></span>
       </div>
       <div class="strip">
         <div class="cell"><span class="k">ambient</span><span class="v">9</span></div>
@@ -224,20 +228,20 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
         <div class="cell"><span class="k">free dirs</span><span class="v hl">0</span></div>
         <div class="cell"><span class="k">min feature</span><span class="v">1.58 &#215; 10&#8315;&#178;</span></div>
       </div>
-      <p class="note">A cube here is a half-turn, so the record sits at Cayley infinity: this
-      chart has no point for it, and an earlier reading of &#8220;3-dimensional plateau&#8221; was a
-      no-op artefact of probing a coordinate that cannot move.</p>
+      <p class="note">The count is 183, and all 36 edge-edge contacts persist, along an arc of
+      length 0.6873 through the tower's 183, which is cubes {0,1,2,4} of the 393 base. The second
+      183 class lies on a different arc (P378, P380). The lineality 1 is that arc's tangent.</p>
     </div>
   </div>
 
   <!-- n=5 -->
   <div class="rung">
-    <div class="gutter"><div class="node solid"></div><div class="lvl">n=5</div></div>
+    <div class="gutter"><div class="node unk"></div><div class="lvl">n=5</div></div>
     <div class="card">
       <div class="head">
         <span class="count">393</span>
         <span class="delta">+210</span>
-        <span class="tag iso">isolated</span>
+        <span class="tag free">tangent 1 &#183; plateau not measured</span>
         <span class="adds">adds <code>2,1,1,1</code></span>
       </div>
       <div class="strip">
@@ -253,13 +257,13 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
 
   <!-- n=6 -->
   <div class="rung">
-    <div class="gutter"><div class="node solid"></div><div class="lvl">n=6</div></div>
+    <div class="gutter"><div class="node"></div><div class="lvl">n=6</div></div>
     <div class="card pivot">
       <div class="head">
         <span class="count">727</span>
         <span class="delta">+334</span>
         <span class="tag iso">plateau = 1 &#183; <em>not</em> isolated</span>
-        <span class="adds">adds <code>7,14,1,&#8722;5</code> &#8212; and sits where <em>four arcs cross</em></span>
+        <span class="adds">adds <code>7,14,1,&#8722;5</code> &#8212; and sits where <em>two branches cross</em></span>
       </div>
       <div class="strip">
         <div class="cell"><span class="k">ambient</span><span class="v">15</span></div>
@@ -268,20 +272,15 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
         <div class="cell"><span class="k">lineality</span><span class="v">1</span></div>
         <div class="cell"><span class="k">free dirs</span><span class="v hl">0</span></div>
         <div class="cell"><span class="k">last-cube tangents</span><span class="v">2 &#8212; a node</span></div>
-        <div class="cell"><span class="k">plateau dim</span><span class="v hl">1 &#183; settled</span></div>
+        <div class="cell"><span class="k">plateau dim</span><span class="v hl">1</span></div>
         <div class="cell"><span class="k">min feature</span><span class="v">6.91 &#215; 10&#8315;&#179;</span></div>
       </div>
       <p class="note">The pivot of the whole tower: everything above extends <em>this one point</em>.
-      See the node inset below. <b>Corrected 2026-09-13:</b> the &#8220;isolated&#8221; reading was wrong.
-      Arc D holds 727 on both sides at solved points (t = &#8722;1/10, +1/6) <em>while crossing 7 of
-      the 27 tight walls</em>, so those 7 are decisively not plateau boundaries and the plateau is
-      at least 1-dimensional. <b>Settled to an equality the same day:</b> the plateau branch through
-      arc D is <b>exactly 1-dimensional</b>. Its first-order container is the flat of the other
-      <b>20</b> walls &#8212; rank 13, a 2-dimensional stratum &#8212; but that over-estimates:
-      <b>222 genuine concurrency walls CONTAIN arc D</b> and are left by any step off it. Such a
-      wall vanishes identically along the arc, so its gradient is zero there and every rank
-      computation files it as a wall the plateau does not leave. The walls that pin a plateau
-      down are the ones gradients cannot see.</p>
+      See the node inset below. The plateau is <b>exactly 1-dimensional</b> (P306, P381): arc D
+      holds 727 on both sides of the record at solved points <em>while crossing 7 of the 27 tight
+      walls</em>, so coincidence walls are not what bounds it. What does is open: P306 attributed
+      it to 222 concurrency walls containing the arc, but those were never tested for lying on
+      the compound, and at the n = 4 record every such point lies outside it (P323).</p>
     </div>
   </div>
 
@@ -292,22 +291,24 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
       <div class="head">
         <span class="count">1217</span>
         <span class="delta">+490</span>
-        <span class="tag free">on a curve &#183; 1 direction</span>
+        <span class="tag free">plateau = 2 &#183; two crossing sheets</span>
         <span class="adds">adds <code>4,&#8722;3,&#8722;4,&#8722;4</code></span>
       </div>
       <div class="strip">
         <div class="cell"><span class="k">ambient</span><span class="v">18</span></div>
         <div class="cell"><span class="k">tight</span><span class="v">300</span></div>
         <div class="cell"><span class="k">walls</span><span class="v">51</span></div>
-        <div class="cell"><span class="k">plateau dim</span><span class="v hl">2 &#183; settled</span></div>
+        <div class="cell"><span class="k">plateau dim</span><span class="v hl">2</span></div>
         <div class="cell"><span class="k">lineality</span><span class="v wr">2</span></div>
         <div class="cell"><span class="k">free dirs</span><span class="v wr">1</span></div>
         <div class="cell"><span class="k">min feature</span><span class="v">1.08 &#215; 10&#8315;&#179;</span></div>
       </div>
       <p class="note warn"><b>The rigidity ends here.</b> Rank stops keeping up with ambient &#8212; each
       added cube brings 3 coordinates but only 2 rank from now on &#8212; so lineality reaches 2 and a
-      direction survives to all orders. The curve preserves every coincidence but <em>not</em> the
-      count, which falls 1217 &#8594; 1213 immediately. The record is still pinned as a maximiser.</p>
+      direction survives to all orders. That curve preserves every coincidence but <em>not</em> the
+      count, which falls 1217 &#8594; 1213 at once. The count's own plateau is a different object:
+      two 2-dimensional sheets, one over each branch of the n = 6 node, crossing along the fibre over
+      the record (the node figure above; each sheet is drawn flat in the detail below).</p>
     </div>
   </div>
 
@@ -318,14 +319,14 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
       <div class="head">
         <span class="count">1895</span>
         <span class="delta">+678</span>
-        <span class="tag free">2 directions</span>
+        <span class="tag free">plateau = 3 &#183; a polytope</span>
         <span class="adds">adds <code>24,&#8722;24,24,&#8722;61</code></span>
       </div>
       <div class="strip">
         <div class="cell"><span class="k">ambient</span><span class="v">21</span></div>
         <div class="cell"><span class="k">tight</span><span class="v">384</span></div>
         <div class="cell"><span class="k">walls</span><span class="v">75</span></div>
-        <div class="cell"><span class="k">plateau dim</span><span class="v hl">2 &#183; settled</span></div>
+        <div class="cell"><span class="k">plateau dim</span><span class="v hl">3 &#183; 38 vertices</span></div>
         <div class="cell"><span class="k">lineality</span><span class="v wr">3</span></div>
         <div class="cell"><span class="k">free dirs</span><span class="v wr">2</span></div>
         <div class="cell"><span class="k">min feature</span><span class="v">1.08 &#215; 10&#8315;&#179;</span></div>
@@ -335,17 +336,18 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
 
   <!-- n=9 -->
   <div class="rung">
-    <div class="gutter"><div class="node"></div><div class="lvl">n=9</div></div>
+    <div class="gutter"><div class="node unk"></div><div class="lvl">n=9</div></div>
     <div class="card break">
       <div class="head">
         <span class="count">2787</span>
         <span class="delta">+892</span>
-        <span class="tag brk">the chain breaks</span>
+        <span class="tag brk">a new eighth cube</span>
         <span class="adds"><em>drops</em> <code>24,&#8722;24,24,&#8722;61</code>, adds two cubes</span>
       </div>
       <p class="note warn"><b>Not an extension.</b> Every rung below is the one before it plus a
       cube. This one is the <em>seven</em> of 1217 plus two new cubes &#8212; the eighth cube of 1895 is
-      discarded. The tower is not a nested chain after n = 8.</p>
+      replaced. It still nests by count: its best 8-subset counts 1895 (P198), the new cube lying on
+      the same Cayley line as the old eighth.</p>
       <div class="strip">
         <div class="cell"><span class="k">ambient</span><span class="v">24</span></div>
         <div class="cell"><span class="k">tight</span><span class="v">420 / 396</span></div>
@@ -361,7 +363,7 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
 
   <!-- n=10 -->
   <div class="rung">
-    <div class="gutter"><div class="node"></div><div class="lvl">n=10</div></div>
+    <div class="gutter"><div class="node unk"></div><div class="lvl">n=10</div></div>
     <div class="card">
       <div class="head">
         <span class="count">3925</span>
@@ -387,13 +389,10 @@ coincidence variety is a single isolated point; a hollow node marks one that lie
 
 <h2>Two different shapes, which must not be conflated</h2>
 <p class="sub" style="border-left:3px solid var(--warn);padding-left:.7em">
-<b>Correction, 2026-09-13.</b> Every <span class="num">walls</span> figure on this page counts
-<em>coincidence</em> conditions. That is not the wall family of the count: four face planes through
-a common point is a second codimension-1 family, invisible to the tight set, and at n = 6 it
-supplies 663 of the 684 crossings on one solved ray. The two behave differently &#8212; a coincidence
-wall is a <b>step</b> (the count differs across it, always by 4), a concurrency wall is a
-<b>puncture</b> (the count is equal on both sides and lower <em>on</em> it). Of the coincidence
-walls crossed on that ray, <b>8 of 21 change the count and 13 do not</b>.</p>
+Every <span class="num">walls</span> figure on this page counts <em>coincidence</em> conditions,
+and those do not bound the count by themselves: of the coincidence walls crossed on one ray at
+727, <b>8 of 21 change the count and 13 do not</b>, and the count also changes where no
+coincidence wall is crossed. What changes it there is not known.</p>
 <p class="sub">A record sits in two regions at once, and they have different dimensions. Confusing
 them is the single easiest mistake to make here.</p>
 
@@ -408,7 +407,7 @@ them is the single easiest mistake to make here.</p>
       <circle cx="31" cy="23" r="4.2" fill="var(--accent)"/>
     </svg>
     <span class="lab"><b>Coincidence variety.</b> Configurations holding the same tight
-    conditions. Walls meet at a point &#8212; nothing can move.</span>
+    conditions: where the walls through a record meet.</span>
   </div>
   <div class="gl">
     <svg width="62" height="46" viewBox="0 0 62 46" aria-hidden="true">
@@ -418,8 +417,8 @@ them is the single easiest mistake to make here.</p>
       </g>
       <circle cx="31" cy="23" r="4.2" fill="var(--gold)"/>
     </svg>
-    <span class="lab"><b>A surviving direction.</b> From n = 7 the variety is a curve: coincidences
-    are preserved along it, the count is not.</span>
+    <span class="lab"><b>A surviving direction.</b> A curve on which every coincidence is kept.
+    The count may or may not be kept along it; at n = 7 it is not.</span>
   </div>
   <div class="gl">
     <svg width="62" height="46" viewBox="0 0 62 46" aria-hidden="true">
@@ -427,17 +426,10 @@ them is the single easiest mistake to make here.</p>
                stroke-width="1.4"/>
       <circle cx="31" cy="23" r="4.2" fill="var(--accent)"/>
     </svg>
-    <span class="lab"><b>Count plateau.</b> Configurations with the same region count. A different
-    object with different boundaries. The published 0, 0, 2, 1, 1 at n = 4&#8230;8 counts
-    <em>last-cube</em> tangents only, and a count of directions rather than a dimension.
-    <b>Settled 2026-09-13:</b> the plateau dimensions at n = 6, 7, 8 are <b>1, 2, 2</b> &#8212;
-    equalities, pinned by the walls that <em>contain</em> each branch (zero of them where a
-    plateau extends, hundreds where it stops). n = 7 agrees with the pentagon measured here by
-    counting a grid. Which directions seed the search decides the answer: from the lineality
-    alone n = 7 returns 1, because the plateau lives in a strictly larger container. <b>Corrected 2026-09-13:</b> at n = 6 the premise
-    behind those counts does not merely undercount &#8212; its candidate space does not
-    <em>contain</em> the plateau. The plateau lies in the flat of the walls it does not leave
-    (20 walls, rank 13, dimension 2), not in the intersection of all 27.</span>
+    <span class="lab"><b>Count plateau.</b> Configurations with the same region count, a different
+    object with different boundaries, and the one the spine's nodes describe. Its dimension is
+    <b>0, 1, 1, 2, 3</b> at n = 3, 4, 6, 7, 8, equal to the tangent dimension everywhere except
+    n = 3 (P381&#8211;P383); at n = 5, 9 and 10 only the tangent is known.</span>
   </div>
 </div>
 
@@ -447,281 +439,176 @@ it stops being a chain.</p>
 
 <div class="inset" style="margin-top:1rem">
   <h3>The 727 node: its extents, and what stands over it</h3>
-  <p class="who">n = 5 base &#183; n = 6 arcs, arc D to scale in s &#183; n = 7 fibres</p>
-<svg viewBox="0 0 880 512" role="img" aria-label="Three layers: the 393 base, four arcs with arc D to scale in its parameter carrying the nested 727 and 1217 extents, and the n=7 fibres above.">
-
-  <!-- ===================== n = 7 ===================== -->
-  <text x="4" y="14" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--faint)">n = 7 &#8212; a fibre over each copy of 727: the added cube's three coordinates, drawn as one line</text>
-  <defs>
-    <linearGradient id="fade2" x1="0" y1="1" x2="0" y2="0">
-      <stop offset="0" stop-color="var(--accent)" stop-opacity="1"/>
-      <stop offset=".6" stop-color="var(--accent)" stop-opacity="1"/>
-      <stop offset="1" stop-color="var(--accent)" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <!-- TWO DIFFERENT THINGS, previously one line.
-       (a) THE FIBRE: the 3-dim space of 7-cube configurations over a given 727,
-           drawn as a short faded axis THROUGH the 1217 dot and living entirely in
-           the n=7 layer. A motion can lie in this -- the gold does.
-       (b) ADDING THE CUBE: a correspondence between a 6-cube configuration and a
-           7-cube one, drawn dotted. It is NOT a path and nothing can lie along it:
-           the two ends are points of different spaces (ambient 15 and 18). -->
-  <g fill="none" stroke="url(#fade2)" stroke-width="1.8" stroke-linecap="round">
-    <line x1="235" y1="125" x2="251" y2="46"/>
-    <line x1="504" y1="125" x2="520" y2="46"/>
-    <line x1="624" y1="125" x2="640" y2="46"/>
-  </g>
-  <!-- CURVED, deliberately. A straight line reads as a direction; these are
-       correspondences, and nothing can travel along them. Curving them also keeps
-       them off the fibre axes, which run at nearly the same slope -- an earlier
-       straight version passed through a fibre axis's endpoint to within half a
-       pixel, so the two read as one line that mysteriously faded. -->
-  <g fill="none" stroke="var(--rule)" stroke-width="1.1" stroke-dasharray="2 4">
-    <path d="M243 80 Q 196 180 202 294"/>
-    <path d="M512 80 Q 465 180 471 294"/>
-    <path d="M632 80 Q 585 180 591 294"/>
-  </g>
-  <text x="180" y="182" font-family="IBM Plex Mono, monospace" font-size="8.5"
-        fill="var(--faint)" text-anchor="end">adds the 7th cube &#8212;</text>
-  <text x="180" y="193" font-family="IBM Plex Mono, monospace" font-size="8.5"
-        fill="var(--faint)" text-anchor="end">a correspondence, not a path</text>
-  <!-- the 1217 plateau: one direction inside the fibre, asymmetric about the record -->
-  <!-- the 1217 plateau as ONE object: a 2-dimensional patch at the record, spanned by
-       its two independent directions. The fibre direction runs along the fibre; the
-       base direction is the arc D lift. They are TRANSVERSE -- drawing them parallel
-       would collapse the plateau to a curve, which is exactly the error the last-cube
-       instrument made. The bar beside arc D is this patch's SHADOW, two layers down. -->
-  <!-- MEASURED shape, not a schematic span. A 5x5 grid over the two directions,
-       each axis scaled by its own bracketed extent, holds 1217 at 22 of 25 points:
-       the corner with fibre negative and base positive is cut by a THIRD wall,
-       aligned with neither direction. So the region is a pentagon, not the full
-       parallelogram the two directions would span. -->
-  <!-- the region in place: the two directions thinned to act as its boundaries, with the
-       region itself shaded between them. At this scale it is ~13px across, so the solved
-       shape is legible only in the detail panel below; here it reads as "a patch, not a
-       cross", which is the one thing this scale can honestly carry. -->
-  <!-- The two directions are drawn TRANSVERSE. Previously the base was vertical and
-       the fibre near-vertical, so the pair read as a cross and the region as a sliver.
-       This layer has no axes, so the angle is free -- and a free angle should be spent
-       making the 2-dimensionality visible. Proportions here are schematic; the solved
-       shape is in the detail panel. -->
-  <polygon points="217,125 231,54 258,54 249.6,96.6 230.5,125" fill="var(--gold)" opacity=".28"/>
-  <line x1="249.6" y1="96.6" x2="230.5" y2="125" stroke="var(--warn)" stroke-width="1.8"/>
-  <line x1="235" y1="125" x2="249" y2="54" stroke="var(--gold)" stroke-width="2.2"
-        stroke-linecap="round" opacity=".95"/>
-  <line x1="229" y1="66" x2="256" y2="66" stroke="var(--gold)" stroke-width="2.2"
-        stroke-linecap="round" opacity=".95"/>
-  <path d="M244 86 L 215 268" stroke="var(--gold)" stroke-width="1.2" stroke-dasharray="4 3"
-        opacity=".75" fill="none"/>
-  <path d="M247 66 L 636 66" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="4 3"
-        opacity=".8" fill="none"/>
-  <circle cx="247" cy="66" r="7" fill="var(--accent)"/>
-  <circle cx="516" cy="66" r="7" fill="var(--accent)"/>
-  <circle cx="636" cy="66" r="7" fill="var(--accent)"/>
-  <g font-family="IBM Plex Mono, monospace" text-anchor="middle">
-    <text x="266" y="60" font-size="11" fill="var(--ink)" font-weight="600" text-anchor="start">1217</text>
-    <text x="266" y="72" font-size="9" fill="var(--muted)" text-anchor="start">4,&#8722;3,&#8722;4,&#8722;4</text>
-    <text x="516" y="90" font-size="9" fill="var(--muted)">7,7,9,7</text>
-    <text x="636" y="90" font-size="9" fill="var(--muted)">15,1,1,&#8722;1</text>
-    <text x="430" y="56" font-size="9.5" fill="var(--muted)">&#8773; the same extension, lifted</text>
-    <text x="760" y="62" font-size="10" fill="var(--warn)">no fibre</text>
-    <text x="760" y="75" font-size="9" fill="var(--warn)">nothing to lift</text>
-  </g>
-  <text x="266" y="92" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--gold)">2-dim plateau: in-fibre (1/512,1/266)&#8593; (4/89,1/22)&#8595;</text>
-  <text x="266" y="104" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--gold)">and along the base (the arc D lift); shadow = bar below</text>
-  <text x="258" y="128" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--faint)">faded axis = the fibre, a 3-dim space drawn as one line</text>
-  <text x="258" y="140" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--gold)">the region these span is drawn to scale below</text>
-
-  <!-- ===================== n = 6 ===================== -->
-  <g font-family="IBM Plex Mono, monospace" font-size="9.5" fill="var(--faint)">
-    <text x="4" y="100">n = 6 &#8212; four arcs. ARC D IS TO SCALE in s;</text>
-    <text x="4" y="112">the other three each use their own scale.</text>
-  </g>
-
-  <!-- arc D: metric, with the three nested extents drawn ON it -->
-  <line x1="200" y1="120" x2="200" y2="400" stroke="var(--accent)" stroke-width="2"/>
-  <line x1="200" y1="390" x2="200" y2="134" stroke="var(--warn)" stroke-width="22" opacity=".22"/>
-  <line x1="200" y1="376" x2="200" y2="170" stroke="var(--accent)" stroke-width="12"/>
-  <line x1="215" y1="376" x2="215" y2="270" stroke="var(--gold)" stroke-width="5"/>
-  <text x="166" y="262" font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--warn)"
-        text-anchor="middle" transform="rotate(-90 166 262)">SWEPT &#8212; not a bound</text>
-  <g font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--warn)" text-anchor="end">
-    <text x="186" y="132">1/4</text><text x="186" y="398">&#8722;1/8</text>
-  </g>
-  <circle cx="200" cy="376" r="6" fill="var(--card)" stroke="var(--warn)" stroke-width="2"/>
-  <circle cx="200" cy="304" r="6.5" fill="var(--accent)"/>
-  
-  <circle cx="200" cy="153" r="6" fill="var(--card)" stroke="var(--muted)" stroke-width="2"/>
-  <g font-family="IBM Plex Mono, monospace" font-size="10">
-    <text x="234" y="150" fill="var(--muted)">713 &#183; s = 2/9 &#8212; outside the plateau</text>
-    <text x="234" y="176" fill="var(--accent)">727 plateau ends 0.19648797&#8230;</text>
-    <text x="234" y="274" fill="var(--gold)">1217 shadow ends &#8776; 0.0497</text>
-    <text x="234" y="298" fill="var(--ink)" font-weight="600">727 &#183; s = 0 &#183; the record</text>
-    <text x="234" y="382" fill="var(--warn)">725 &#183; s = &#8722;2/19 &#183; shared wall</text>
-  </g>
-
-  <!-- the congruence tie: three points of ONE compound, at three different parameters -->
-  <path d="M200 304 L 590 304" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="4 3"
-        opacity=".8" fill="none"/>
-  <text x="530" y="296" font-family="IBM Plex Mono, monospace" font-size="9.5"
-        fill="var(--muted)" text-anchor="middle">&#8773; one compound, three spellings</text>
-
-  <!-- the other three arcs, each on its own scale -->
-  <g stroke-width="2" fill="none">
-    <line x1="470" y1="150" x2="470" y2="400" stroke="var(--accent)"/>
-    <line x1="590" y1="150" x2="590" y2="400" stroke="var(--accent)"/>
-    <line x1="760" y1="150" x2="760" y2="400" stroke="var(--warn)" stroke-dasharray="6 4"/>
-  </g>
-  <circle cx="470" cy="304" r="6.5" fill="var(--accent)"/>
-  
-  <circle cx="590" cy="304" r="6.5" fill="var(--accent)"/>
-  
-  <circle cx="470" cy="372" r="5" fill="var(--card)" stroke="var(--muted)" stroke-width="1.8"/>
-  <circle cx="590" cy="366" r="5" fill="var(--card)" stroke="var(--muted)" stroke-width="1.8"/>
-  <circle cx="760" cy="240" r="5" fill="var(--card)" stroke="var(--warn)" stroke-width="1.8"/>
-  <circle cx="760" cy="350" r="5" fill="var(--card)" stroke="var(--warn)" stroke-width="1.8"/>
-  <g font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--muted)">
-    <text x="482" y="376">725</text><text x="602" y="370">723</text>
-    <text x="772" y="244" fill="var(--warn)">725</text>
-    <text x="772" y="354" fill="var(--warn)">725</text>
-  </g>
-  <g font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle" font-weight="600">
-    <text x="200" y="422" fill="var(--ink)">arc D</text>
-    <text x="470" y="422" fill="var(--faint)">arc B</text>
-    <text x="590" y="422" fill="var(--faint)">arc C</text>
-    <text x="760" y="422" fill="var(--warn)">arc A</text>
-  </g>
-  <g font-family="IBM Plex Mono, monospace" font-size="9" text-anchor="middle">
-    <text x="200" y="435" fill="var(--accent)">TO SCALE in s</text>
-    <text x="470" y="435" fill="var(--faint)">own scale &#183; s = 16/35</text>
-    <text x="590" y="435" fill="var(--faint)">own scale &#183; s = 132/29</text>
-    <text x="760" y="435" fill="var(--warn)">own scale &#183; s = 13/6, 19/6</text>
-  </g>
-
-  <!-- ===================== n = 5 ===================== -->
-  <path d="M160 462 L 160 470 L 800 470 L 800 462" fill="none" stroke="var(--rule)" stroke-width="1.4"/>
-  <path d="M480 470 L 480 484" fill="none" stroke="var(--rule)" stroke-width="1.4"/>
-  <circle cx="480" cy="492" r="6.5" fill="var(--accent)"/>
-  <g font-family="IBM Plex Mono, monospace">
-    <text x="498" y="490" font-size="11" fill="var(--ink)" font-weight="600">393</text>
-    <text x="498" y="503" font-size="9" fill="var(--muted)">n = 5 &#8212; all four arcs lie in ONE fibre over it</text>
-  </g>
+  <p class="who">n = 5 base &#183; n = 6 node, both branches to scale &#183; n = 7 over the record</p>
+<svg viewBox="0 0 1010 1110" role="img" aria-label="The 727 node in class space and what lies over it. At n = 7, the 1217 plateau: two sheets crossing along the fibre segment over the record. At n = 6, two branches, D1 and D2, crossing at the record, each to scale in its own parameter, with the segment of each that lifts to 1217 marked beside it; arc A separate. The 393 base beneath.">
+<text x="4.0" y="18.0" font-size="11" fill="var(--ink)" text-anchor="start" font-weight="normal">n = 7 &#8212; over the node: 1217 = the record + 4,&#8722;3,&#8722;4,&#8722;4. Its plateau is two sheets, one over each</text>
+<text x="4.0" y="34.0" font-size="11" fill="var(--ink)" text-anchor="start" font-weight="normal">branch, CROSSING along the fibre segment over the record, as the branches cross at the record below.</text>
+<path d="M 296.2,372.0 L 296.2,120.2 L 296.2,120.2 L 300.3,125.9 L 304.3,131.6 L 308.3,137.2 L 312.3,142.8 L 316.2,148.4 L 320.0,154.0 L 323.8,159.6 L 327.5,165.1 L 331.2,170.7 L 334.8,176.2 L 338.4,181.7 L 341.9,187.1 L 345.4,192.6 L 348.8,198.0 L 352.2,203.5 L 355.6,208.9 L 358.9,214.2 L 362.1,219.6 L 365.3,225.0 L 368.5,230.3 L 371.6,235.6 L 374.7,241.0 L 377.7,246.3 L 380.7,251.5 L 383.7,256.8 L 386.6,262.1 L 389.5,267.3 L 392.3,272.5 L 395.1,277.7 L 397.9,282.9 L 400.6,288.1 L 403.3,293.3 L 406.0,298.4 L 408.6,303.6 L 411.2,308.7 L 413.8,313.9 L 416.3,319.0 L 418.8,324.1 L 421.3,329.1 L 423.7,334.2 L 426.1,339.3 L 428.5,344.3 L 430.8,349.4 L 433.1,354.4 L 435.4,359.4 L 437.6,364.5 L 439.9,369.5 L 442.1,374.4 L 444.2,379.4 L 446.4,384.4 L 448.5,389.4 L 450.6,394.3 L 452.6,399.2 L 454.6,404.2 L 456.6,409.1 L 458.6,414.0 L 460.6,418.9 L 462.5,423.8 L 464.4,428.7 L 466.3,433.6 Z" fill="var(--gold)" fill-opacity=".20" stroke="var(--accent)" stroke-width="1.6" />
+<path d="M 207.8,402.1 L 343.8,96.6 L 343.8,96.6 L 345.9,103.2 L 347.8,109.8 L 349.7,116.4 L 351.4,122.9 L 353.1,129.5 L 354.6,135.9 L 356.1,142.4 L 357.4,148.8 L 358.7,155.1 L 359.9,161.5 L 361.0,167.8 L 362.0,174.1 L 363.0,180.3 L 363.9,186.6 L 364.7,192.8 L 365.4,199.0 L 366.1,205.1 L 366.7,211.2 L 367.2,217.3 L 367.7,223.4 L 368.1,229.5 L 368.4,235.5 L 368.7,241.5 L 368.9,247.5 L 369.1,253.5 L 369.2,259.4 L 369.2,265.4 L 369.2,271.3 L 369.2,277.2 L 369.1,283.1 L 368.9,288.9 L 368.7,294.8 L 368.5,300.6 L 368.2,306.4 L 367.9,312.2 L 367.5,318.0 L 367.1,323.7 L 366.6,329.5 L 366.1,335.2 L 365.6,340.9 L 365.0,346.6 L 364.4,352.3 L 363.8,358.0 L 363.1,363.6 L 362.4,369.3 L 361.6,374.9 L 360.8,380.6 L 360.0,386.2 L 359.1,391.8 L 358.2,397.4 L 357.3,403.0 L 356.4,408.5 L 355.4,414.1 L 354.4,419.6 L 353.3,425.2 L 352.3,430.7 L 351.2,436.2 L 350.1,441.7 L 348.9,447.2 L 347.8,452.7 Z" fill="var(--gold)" fill-opacity=".20" stroke="var(--accent-ink)" stroke-width="1.6" stroke-dasharray="6 4"/>
+<line x1="341.8" y1="388.5" x2="341.8" y2="186.9" stroke="var(--warn)" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="253.4" y1="418.6" x2="362.1" y2="174.5" stroke="var(--warn)" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="359.3" y1="390.7" x2="233.2" y2="345.1" stroke="var(--warn)" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="300.0" y1="373.4" x2="300.0" y2="109.0" stroke="var(--accent)" stroke-width="3" />
+<line x1="211.6" y1="403.5" x2="348.8" y2="95.4" stroke="var(--accent-ink)" stroke-width="3" stroke-opacity=".85"/>
+<line x1="368.1" y1="229.6" x2="296.2" y2="203.6" stroke="var(--gold)" stroke-width="4" />
+<circle cx="300.0" cy="205.0" r="7" fill="var(--accent)" stroke="var(--card)" stroke-width="2"/>
+<line x1="371.1" y1="232.6" x2="518.1" y2="289.6" stroke="var(--gold)" stroke-width="1"/>
+<text x="522.1" y="287.6" font-size="10" fill="var(--gold)" text-anchor="start" font-weight="normal">the crossing: over the record,</text>
+<text x="522.1" y="301.6" font-size="10" fill="var(--gold)" text-anchor="start" font-weight="normal">t = 0, u from &#8722;0.0453 to +0.00255</text>
+<text x="288.0" y="195.0" font-size="11" fill="var(--ink)" text-anchor="end" font-weight="600">1217 &#183; the record + its 7th cube</text>
+<text x="475.4" y="449.3" font-size="12" fill="var(--accent)" text-anchor="start" font-weight="600">D1 sheet</text>
+<text x="203.6" y="407.5" font-size="12" fill="var(--accent-ink)" text-anchor="end" font-weight="600">D2 sheet</text>
+<text x="375.1" y="151.3" font-size="10" fill="var(--muted)" text-anchor="start" font-weight="normal">&#8722;u (the fibre) &#8600;</text>
+<text x="294.0" y="103.0" font-size="10" fill="var(--accent)" text-anchor="end" font-weight="normal">D1 at u = 0</text>
+<text x="354.8" y="89.4" font-size="10" fill="var(--accent-ink)" text-anchor="start" font-weight="normal">D2 at u = 0</text>
+<text x="640.0" y="70.0" font-size="10" fill="var(--ink)" text-anchor="start" font-weight="normal">each sheet: a curved triangle, three walls</text>
+<text x="640.0" y="84.0" font-size="10" fill="var(--muted)" text-anchor="start" font-weight="normal">left &#8212; its branch&#8217;s lower 727 wall</text>
+<text x="640.0" y="98.0" font-size="10" fill="var(--muted)" text-anchor="start" font-weight="normal">top &#8212; u = 0.00255, flat, the same on both</text>
+<text x="640.0" y="112.0" font-size="10" fill="var(--muted)" text-anchor="start" font-weight="normal">lower right &#8212; one wall (P301&#8217;s third wall)</text>
+<text x="640.0" y="132.0" font-size="10" fill="var(--warn)" text-anchor="start" font-weight="normal">dotted: seams, zero-width lines of lower</text>
+<text x="640.0" y="146.0" font-size="10" fill="var(--warn)" text-anchor="start" font-weight="normal">count with 1217 on both sides</text>
+<text x="640.0" y="166.0" font-size="10" fill="var(--muted)" text-anchor="start" font-weight="normal">t and u to one scale; the angle between</text>
+<text x="640.0" y="180.0" font-size="10" fill="var(--muted)" text-anchor="start" font-weight="normal">the sheets drawn at 19&#176;, really 4.51&#176;</text>
+<text x="4.0" y="476.0" font-size="10" fill="var(--gold)" text-anchor="start" font-weight="normal">&#8593; each gold bar below is its sheet&#8217;s u = 0 line: add the 7th cube to any point of it and the count is 1217</text>
+<line x1="0" y1="486" x2="1010" y2="486" stroke="var(--rule)" stroke-width="1"/>
+<g transform="translate(0,490)">
+<text x="4.0" y="18.0" font-size="11" fill="var(--muted)" text-anchor="start" font-weight="normal">n = 6 &#8212; the node: D1 and D2 cross at the record, each TO SCALE in its own t;</text>
+<text x="4.0" y="34.0" font-size="11" fill="var(--muted)" text-anchor="start" font-weight="normal">arc A is a separate piece (own scale). Arcs B and C of the catalogue are D1 and D2 respelled.</text>
+<rect x="319.0" y="85.0" width="22" height="412.5" fill="var(--warn-soft)"/>
+<text transform="rotate(-90 354.0 208.8)" x="354.0" y="208.8" font-size="10" fill="var(--warn)" text-anchor="middle" font-weight="normal">SWEPT &#8212; not a bound</text>
+<line x1="330.0" y1="143.9" x2="330.0" y2="475.8" stroke="var(--accent)" stroke-width="8"/>
+<line x1="346.0" y1="305.3" x2="346.0" y2="475.8" stroke="var(--gold)" stroke-width="5"/>
+<line x1="428.8" y1="138.2" x2="269.3" y2="496.4" stroke="var(--accent-ink)" stroke-width="8" stroke-opacity=".85"/>
+<line x1="376.0" y1="296.0" x2="283.9" y2="503.0" stroke="var(--gold)" stroke-width="5"/>
+<circle cx="330.0" cy="475.8" r="6" fill="var(--card)" stroke="var(--warn)" stroke-width="2.5"/>
+<text x="356.0" y="491.8" font-size="11" fill="var(--warn)" text-anchor="start" font-weight="normal">725 &#183; t = &#8722;2/19 &#183; shared wall</text>
+<circle cx="330.0" cy="115.6" r="6" fill="var(--card)" stroke="var(--muted)" stroke-width="2.5"/>
+<text x="316.0" y="119.6" font-size="11" fill="var(--muted)" text-anchor="end" font-weight="normal">713 &#183; t = 2/9 &#183; outside the plateau</text>
+<text x="316.0" y="147.9" font-size="11" fill="var(--accent-ink)" text-anchor="end" font-weight="normal">727 plateau ends 0.19648797&#8230;</text>
+<text x="300.0" y="309.3" font-size="11" fill="var(--gold)" text-anchor="end" font-weight="normal">lifts to 1217 up to &#8776; 0.0497</text>
+<text x="390.0" y="300.0" font-size="11" fill="var(--gold)" text-anchor="start" font-weight="normal">lifts to 1217 up to &#8776; 0.0702</text>
+<circle cx="286.7" cy="457.2" r="6" fill="var(--card)" stroke="var(--muted)" stroke-width="2.5"/>
+<text x="274.7" y="461.2" font-size="11" fill="var(--muted)" text-anchor="end" font-weight="normal">723 &#183; t = &#8722;3/31 &#183; a puncture</text>
+<text x="438.8" y="132.2" font-size="11" fill="var(--accent-ink)" text-anchor="start" font-weight="normal">D2 ends 0.2207</text>
+<text x="257.3" y="500.4" font-size="11" fill="var(--accent-ink)" text-anchor="end" font-weight="normal">D2 (= C) ends &#8722;0.1358</text>
+<text x="330.0" y="521.5" font-size="13" fill="var(--ink)" text-anchor="middle" font-weight="600">D1 (= B)</text>
+<text x="330.0" y="537.5" font-size="10" fill="var(--accent)" text-anchor="middle" font-weight="normal">TO SCALE in t</text>
+<circle cx="330" cy="360" r="9" fill="var(--accent)" stroke="var(--card)" stroke-width="2"/>
+<text x="352.0" y="382.0" font-size="12" fill="var(--ink)" text-anchor="start" font-weight="600">727 &#183; t = 0 &#183; the record</text>
+<text x="352.0" y="398.0" font-size="10" fill="var(--muted)" text-anchor="start" font-weight="normal">two branches cross here: really 4.51&#176;, drawn at 24&#176;</text>
+<line x1="890.0" y1="180.0" x2="890.0" y2="470.0" stroke="var(--warn)" stroke-width="6" stroke-dasharray="7 5"/>
+<circle cx="890.0" cy="443.0" r="6" fill="var(--card)" stroke="var(--warn)" stroke-width="2.5"/>
+<text x="902.0" y="447.0" font-size="11" fill="var(--warn)" text-anchor="start" font-weight="normal">725</text>
+<circle cx="890.0" cy="180.0" r="6" fill="var(--card)" stroke="var(--warn)" stroke-width="2.5"/>
+<text x="902.0" y="184.0" font-size="11" fill="var(--warn)" text-anchor="start" font-weight="normal">725</text>
+<text x="890.0" y="494.0" font-size="13" fill="var(--warn)" text-anchor="middle" font-weight="600">arc A</text>
+<text x="890.0" y="510.0" font-size="10" fill="var(--warn)" text-anchor="middle" font-weight="normal">own scale &#183; s &#8712; (2.064, 19/6)</text>
+<text x="890.0" y="150.0" font-size="10" fill="var(--warn)" text-anchor="middle" font-weight="normal">a separate piece:</text>
+<text x="890.0" y="164.0" font-size="10" fill="var(--warn)" text-anchor="middle" font-weight="normal">meets no spelling of the record</text>
+<path d="M 230 560 V 568 H 800 V 560" fill="none" stroke="var(--rule)" stroke-width="1.5"/>
+<circle cx="515" cy="590" r="8" fill="var(--accent)"/>
+<text x="533.0" y="594.0" font-size="11" fill="var(--ink)" text-anchor="start" font-weight="normal">393 &#183; n = 5 &#8212; every arc lies in ONE fibre over this base</text>
+</g>
 </svg>
 
-<p>Nine special points across the four arcs collapse to <b>six compounds</b> under a constructive
-congruence test. Ringed points are the record's class, joined by the dashed tie: arcs D, B and C
-each carry a <em>different</em> configuration congruent to it &#8212; at s = 0, 16/35 and 132/29
-respectively &#8212; and arc A carries none. <b>The tie is a congruence, not a coincidence of parameter</b>:
-the three are drawn at one height for legibility, and since arc D's height is metric while B's and
-C's are not, each point's own s is printed beneath its arc.</p>
-<p><b>Arc D is drawn to scale, so its three extents can be read off directly.</b> The 727 plateau
-runs from <span class="num">s = &#8722;2/19</span>, exactly rational, to
-<span class="num">0.196487974607&#8230;</span> &#8212; a quadratic irrational, root of
-<span class="num">1007x&#178; &#8722; 21390x + 4164</span>. The 1217 plateau nests inside it, sharing the
-lower wall and ending about four times earlier. The pale bar is the figure that was on file: it
-is wider at both ends, and the 713 special point at <span class="num">s = 2/9</span> sits inside
-it but <em>outside</em> the plateau, counting 713 rather than 727.</p>
-<p><b>The chain closes here for the first time.</b> Count-stepping brackets the upper end in
-(179/911, 56/285); the wall keys name the two conditions &#8212; a &#177; pair &#8212; whose polynomials have a
-root there; restricted to the arc's line that polynomial is the quadratic above; its root lies
-inside the bracket that found it. The solve had missed this end because it is irrational and the
-search looks for rational roots &#8212; it was one of the ten the run reported as "irrational, not
-testable". <em>Arc D's other crossing tangent is still swept.</em></p>
-<p><b>The 1217 plateau is one object, drawn once &#8212; and it really is a surface.</b> The gold patch
-at the record is spanned by two <em>transverse</em> directions, one inside the fibre and one along
-the base (the arc D lift). Only one of the two gold elements is a projection: the patch is the
-plateau, the bar beside arc D is its <b>shadow</b> two layers down, whose extent (&#8722;2/19, &#8776;0.0497)
-is a subset of the 727 extent (&#8722;2/19, &#8776;0.1965) beside it, sharing the lower wall.</p>
-<p><b>Straight means a direction; curved means a correspondence.</b> The dotted links to the 727
-dots are drawn as curves because nothing travels along them &#8212; and because straightened they ran at
-almost exactly the fibre axes' slope, close enough that a fibre axis's endpoint landed on one, so
-the pair read as a single line that inexplicably faded. That faint point meant nothing; it was an
-artifact of where I stopped a stroke.</p>
-<p><b>A gold line is a motion; the dotted line is not.</b> The faded axis through the 1217 dot is
-the <em>fibre</em> &#8212; the 3-dimensional space of seven-cube configurations sharing that 727 &#8212; and a
-motion can lie in it, which is what the gold in-fibre direction does. The <em>dotted</em> line to
-the 727 dot is the addition of the seventh cube: a correspondence between a point of ambient 15
-and a point of ambient 18, so nothing can lie along it and it is drawn so that nothing looks as
-though it does. An earlier version ran a single solid line from the 727 dot to the 1217 dot,
-fusing the two and inviting exactly the question of what a motion along it would mean.</p>
-<p>Both strokes are directions <em>at</em> the record, so both pass through the 1217 dot and their
-crossing <b>is</b> that dot &#8212; a crossing anywhere else would assert a second distinguished point
-that does not exist. Each is drawn asymmetric about the record in the ratio its brackets give:
-about 23 : 1 along the fibre, about 2 : 1 along the base.</p>
-<p><b>The filled shape is measured, and it is not the span.</b> Five directions first confirmed
-the plateau is 2-dimensional rather than a node &#8212; the n = 6 comparison that stood here
-(&#8220;two directions hold and no combination does&#8221;) was drawn from the same last-cube slice and
-is withdrawn; n = 6 is now known to hold 727 along a direction crossing 7 walls. But directions are rays, and a region
-needs two parameters. A 5&#215;5 grid, each axis scaled by its own bracketed extent, holds 1217 at
-<b>22 of 25</b> points: the corner with fibre negative and base positive is cut, at roughly
-<span class="num">b &#8722; a = 1.25</span>. So a <b>third wall</b> bounds the region, aligned with
-neither direction, and the shape is a pentagon. The cut edge is drawn in red. <em>The cut is
-bracketed by a 5&#215;5 grid, not solved; its true position lies between the sampled rows.</em></p>
-<p><b>Reading the figure.</b> A <b>filled</b> dot is a configuration counting its level's record
-value; a <b>hollow</b> dot is an interruption, where the count differs &#8212; so the hollow 725, 723 and
-713 points are breaks in the 727 plateau rather than objects sitting on it. The dashed tie means
-congruence. The thick teal stroke <em>on</em> arc D is the 727 extent, a property of six-cube
-configurations; the gold stroke <em>beside</em> it is the 1217 shadow, a property of those same
-configurations once extended by the fixed seventh cube. Two different predicates over one
-parameter, so they run parallel &#8212; an earlier version drew them concentric, which implied they were
-the same kind of claim. The pale stroke is the swept figure, which is a claim about the 727 extent
-and is drawn on the arc with it.</p>
-<p><b>The gold stroke and the gold dot are one object.</b> The 1217 plateau is at least
-<em>2-dimensional</em>: it runs one way inside the fibre &#8212; bracketed at (1/512, 1/266) upward and
-(4/89, 1/22) downward, about 23&#215; longer down than up &#8212; and the other way along arc D itself, which
-is the bar. The bar is the plateau's shadow on the arc, not a second thing; the dashed line is the
-projection. That the plateau has a base direction at all was invisible until it was looked for:
-the instrument that reported "one tangent" at n = 7 searches the last-cube slice only.</p>
-<p><b>1217 is above the picture, not on it.</b> Its first six cubes are exactly the record, so it
-projects onto arc D's ringed point, and the seventh cube's three coordinates are the fibre over
-it. The upper dashed tie is the lower one lifted: applying each witnessing rotation to 1217's
-seventh cube gives <code>7,7,9,7</code> over arc B and <code>15,1,1,&#8722;1</code> over arc C, both
-counting 1217 and both congruent to it. Fibres fade rather than stop &#8212; a fibre has no end.</p>
+<p><b>Two branches cross at the record</b> (P391). Through the 727 record pass exactly two arcs of
+equally good configurations, D1 and D2, really 4.51&#176; apart (drawn wider). Each holds 727 on its own;
+no combination of them does. The arc catalogue's B and C are these same two branches, carried by the
+393 base's own 120&#176; symmetry to the record's other two spellings: B is D1 and C is D2, end for end,
+their solved extents coinciding exactly (P392). Arc A is a separate piece and meets no spelling of
+the record.</p>
+<p><b>D1 is drawn to scale in its parameter.</b> The 727 plateau runs from
+<span class="num">t = &#8722;2/19</span>, exactly rational, to <span class="num">0.196487974607&#8230;</span>, a root of
+<span class="num">1007x&#178; &#8722; 21390x + 4164</span>: the first plateau boundary carried all the way from a
+count bracket to a wall to a polynomial to a root. The pale bar is the swept window that was on file
+before, (&#8722;1/8, 1/4): wider at both ends, and the 713 point at <span class="num">t = 2/9</span> lies inside it but
+outside the plateau.</p>
+<p><b>D2 is drawn to the same scale in its own parameter.</b> Its plateau, (&#8722;0.13578, 0.22073), was
+solved from arc C's ends and checked with the exact engine on both sides of each. It is punctured at
+<span class="num">t = &#8722;3/31</span>, where the count is 723: arc C's special point at s = 164/87, seen from the
+record.</p>
+<p><b>Special points.</b> Nine special points on the catalogue's four arcs are six compounds (P294).
+In the node's own terms: D1 carries a 725 at its lower end (the same compound as arc B's lower end),
+the record, and the 713 outside; D2 carries the record and the 723 puncture; arc A carries two 725s
+found nowhere else.</p>
+<p><b>At n = 7 the crossing is carried up one dimension</b> (P393, P394). The 1217's first six
+cubes are exactly the record, and its seventh cube's coordinates are the fibre above it. Adding that
+seventh cube, <code>4,&#8722;3,&#8722;4,&#8722;4</code>, to a point of either branch gives 1217 along a
+<em>segment</em> (the gold bars): on D1 from its lower wall, &#8722;2/19, up to &#8776;0.0497; on D2 from its
+lower end, &#8722;0.1358, up to &#8776;0.0702. Over each segment the seventh cube can also slide along the
+fibre, which sweeps the segment out into a <b>sheet</b> (the top of the figure). Both sheets contain the
+fibre segment over the record, from u = &#8722;0.0453 to +0.00255, and each extends to both sides of it,
+so the two sheets <b>cross</b> along that segment, as the two branches cross at the record. The record's
+own 1217 is one point on the crossing. Beyond the bars, and everywhere on arc A, this seventh cube gives
+1213 or fewer; other seventh cubes have not been tried there. (The 1217s found over the record's other
+spellings, <code>7,7,9,7</code> and <code>15,1,1,&#8722;1</code>, are the same 1217 respelled.)</p>
+<p><b>Reading the figure.</b> A <b>filled</b> dot is a configuration at its level's record count; a
+<b>hollow</b> dot is an interruption, where the count differs. The thick strokes are 727 extents; the
+gold bars are the segments that lift to 1217, a different predicate over each branch's parameter, so
+they run beside the branches and not on them. The pale stroke is the old swept figure. Arc A is on its
+own scale and is dashed because nothing connects it to the node. In the n = 7 sketch each sheet is
+exact in its own plane, with t and u at one scale; only the angle between the two planes is widened.
+The detail below shows each sheet flat.</p>
 </div>
 
 
 <div class="insets">
   <div class="inset">
-    <h3>Detail: the 1217 region, measured</h3>
-    <p class="who">n = 7 &#183; two directions, three walls &#183; solved</p>
-    <svg viewBox="0 0 300 268" role="img" aria-label="The 1217 count plateau on a grid of its two directions: a pentagon, with one corner cut by a third wall.">
-      <!-- region bounded by the two directions and the SOLVED third wall, which is a
-           CURVE of total degree 4 (degree 2 in each variable), not the straight line an
-           earlier version inferred from two grid points. -->
-      <path d="M50,40 L250,40 L250,134.4 L225.0,158.8 L200.0,181.8 L175.0,203.4 L150.0,223.7 L50,220 Z" fill="var(--gold)" opacity=".22"/>
-      <path d="M150.0,223.7 L175.0,203.4 L200.0,181.8 L225.0,158.8 L250.0,134.4" fill="none" stroke="var(--warn)" stroke-width="2"/>
-      <g stroke="var(--rule)" stroke-width="1">
-        <line x1="40" y1="130" x2="264" y2="130"/>
-        <line x1="150" y1="28" x2="150" y2="232"/>
-      </g>
-      <circle cx="150" cy="130" r="6" fill="var(--accent)"/>
-      <g font-family="IBM Plex Mono, monospace" font-size="9" fill="var(--faint)">
-        <text x="150" y="20" text-anchor="middle">fibre direction +1</text>
-        <text x="150" y="248" text-anchor="middle">fibre direction &#8722;1</text>
-        <text x="272" y="134">base +1</text>
-        <text x="38" y="134" text-anchor="end">&#8722;1</text>
-        <text x="162" y="126" fill="var(--ink)">the record</text>
-      </g>
-      <g font-family="IBM Plex Mono, monospace" font-size="8.5">
-        <text x="264" y="200" fill="var(--warn)" text-anchor="end">1213 outside</text>
-        <text x="70" y="66" fill="var(--gold)" font-size="11">1217 throughout</text>
-        <text x="150" y="252" fill="var(--warn)" text-anchor="middle">third wall &#8212; SOLVED, a degree-4 curve</text>
-      </g>
-    </svg>
-    <p>Each axis is scaled by its <em>own</em> bracketed extent, so &#177;1 is that direction's
-    measured end. The corner with fibre negative and base positive is cut by a <b>third wall</b>
-    aligned with neither direction, so the region is not the parallelogram they span. A 5&#215;5
-    grid first found the cut; it is not drawn, because the wall is now solved and the grid adds
-    nothing the curve does not say better.</p>
-    <p><b>The cut is now solved, and it is a curve.</b> A ray into the cut quadrant crosses two
-    walls; the count survives the first and dies at the second, whose polynomial restricted to this
-    plane has total degree 4 &#8212; degree 2 in each direction. Its positions
-    (b, a) = (0, &#8722;1.041), (&#189;, &#8722;0.576), (1, &#8722;0.049) have successive differences
-    0.225, 0.240, 0.255, 0.272: not constant, so <em>not</em> a line. The straight cut inferred
-    earlier from two grid points was wrong by about 0.17.</p>
-    <p><em>That a ray crosses a wall without the count changing is the same fact that makes every
-    tangent count in this project a lower bound: a wall is a coincidence condition, and crossing
-    one need not create or destroy a region.</em></p>
+    <h3>Detail: the two 1217 sheets, measured</h3>
+    <p class="who">n = 7 &#183; each sheet in its own plane &#183; three walls &#183; solved</p>
+<svg viewBox="0 0 300 434" role="img" aria-label="The two sheets of the 1217 plateau, each in its own plane, to one scale: a curved triangle bounded by its branch's lower 727 wall, a flat fibre wall on top, and one curved wall; the fibre segment over the record lies in both.">
+<g stroke="var(--rule)" stroke-width="1">
+<line x1="34.0" y1="33.1" x2="290.0" y2="33.1"/>
+<line x1="195.4" y1="22.0" x2="195.4" y2="164.5"/>
+</g>
+<path d="M 78.2,30.3 L 253.4,30.3 L 253.4,30.3 L 250.5,33.3 L 247.6,36.3 L 244.6,39.3 L 241.7,42.2 L 238.8,45.1 L 235.9,47.9 L 233.0,50.7 L 230.0,53.5 L 227.1,56.2 L 224.2,58.9 L 221.3,61.5 L 218.4,64.2 L 215.4,66.7 L 212.5,69.3 L 209.6,71.8 L 206.7,74.2 L 203.8,76.7 L 200.8,79.1 L 197.9,81.5 L 195.0,83.8 L 192.1,86.1 L 189.2,88.4 L 186.3,90.7 L 183.3,92.9 L 180.4,95.1 L 177.5,97.2 L 174.6,99.4 L 171.7,101.5 L 168.7,103.5 L 165.8,105.6 L 162.9,107.6 L 160.0,109.6 L 157.1,111.6 L 154.1,113.5 L 151.2,115.4 L 148.3,117.3 L 145.4,119.2 L 142.5,121.1 L 139.5,122.9 L 136.6,124.7 L 133.7,126.4 L 130.8,128.2 L 127.9,129.9 L 124.9,131.6 L 122.0,133.3 L 119.1,135.0 L 116.2,136.6 L 113.3,138.3 L 110.3,139.9 L 107.4,141.4 L 104.5,143.0 L 101.6,144.5 L 98.7,146.1 L 95.7,147.6 L 92.8,149.1 L 89.9,150.5 L 87.0,152.0 L 84.1,153.4 L 81.1,154.8 L 78.2,156.2 Z" fill="var(--gold)" fill-opacity=".24"/>
+<line x1="78.2" y1="156.2" x2="78.2" y2="30.3" stroke="var(--accent)" stroke-width="2.5"/>
+<line x1="78.2" y1="30.3" x2="253.4" y2="30.3" stroke="var(--muted)" stroke-width="1.5"/>
+<path d="M 78.2,156.2 L 81.1,154.8 L 84.1,153.4 L 87.0,152.0 L 89.9,150.5 L 92.8,149.1 L 95.7,147.6 L 98.7,146.1 L 101.6,144.5 L 104.5,143.0 L 107.4,141.4 L 110.3,139.9 L 113.3,138.3 L 116.2,136.6 L 119.1,135.0 L 122.0,133.3 L 124.9,131.6 L 127.9,129.9 L 130.8,128.2 L 133.7,126.4 L 136.6,124.7 L 139.5,122.9 L 142.5,121.1 L 145.4,119.2 L 148.3,117.3 L 151.2,115.4 L 154.1,113.5 L 157.1,111.6 L 160.0,109.6 L 162.9,107.6 L 165.8,105.6 L 168.7,103.5 L 171.7,101.5 L 174.6,99.4 L 177.5,97.2 L 180.4,95.1 L 183.3,92.9 L 186.3,90.7 L 189.2,88.4 L 192.1,86.1 L 195.0,83.8 L 197.9,81.5 L 200.8,79.1 L 203.8,76.7 L 206.7,74.2 L 209.6,71.8 L 212.5,69.3 L 215.4,66.7 L 218.4,64.2 L 221.3,61.5 L 224.2,58.9 L 227.1,56.2 L 230.0,53.5 L 233.0,50.7 L 235.9,47.9 L 238.8,45.1 L 241.7,42.2 L 244.6,39.3 L 247.6,36.3 L 250.5,33.3 L 253.4,30.3" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<line x1="78.2" y1="64.0" x2="218.5" y2="64.0" stroke="var(--warn)" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="195.4" y1="83.5" x2="195.4" y2="30.3" stroke="var(--gold)" stroke-width="3.5"/>
+<circle cx="195.4" cy="33.1" r="4.5" fill="var(--accent)"/>
+<text x="34.0" y="14.0" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--accent)" text-anchor="start">D1 sheet</text>
+<text x="290.0" y="14.0" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--faint)" text-anchor="end">t along D1 &#8594; &#183; u (fibre) &#8593;</text>
+<text x="75.2" y="176.5" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--accent)" text-anchor="start">t = &#8722;2/19</text>
+<text x="253.4" y="26.3" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--faint)" text-anchor="end">0.0521</text>
+<text x="82.2" y="159.2" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--faint)" text-anchor="start">u = -0.1106</text>
+<g stroke="var(--rule)" stroke-width="1">
+<line x1="34.0" y1="233.6" x2="290.0" y2="233.6"/>
+<line x1="195.4" y1="222.5" x2="195.4" y2="364.9"/>
+</g>
+<path d="M 44.3,230.8 L 276.9,230.8 L 276.9,230.8 L 273.0,234.0 L 269.2,237.1 L 265.3,240.1 L 261.4,243.1 L 257.5,246.0 L 253.6,248.8 L 249.8,251.6 L 245.9,254.2 L 242.0,256.9 L 238.1,259.4 L 234.3,261.9 L 230.4,264.4 L 226.5,266.8 L 222.6,269.1 L 218.7,271.4 L 214.9,273.6 L 211.0,275.7 L 207.1,277.9 L 203.2,279.9 L 199.4,282.0 L 195.5,283.9 L 191.6,285.9 L 187.7,287.7 L 183.9,289.6 L 180.0,291.4 L 176.1,293.1 L 172.2,294.9 L 168.3,296.5 L 164.5,298.2 L 160.6,299.8 L 156.7,301.4 L 152.8,302.9 L 149.0,304.4 L 145.1,305.9 L 141.2,307.3 L 137.3,308.7 L 133.4,310.1 L 129.6,311.4 L 125.7,312.7 L 121.8,314.0 L 117.9,315.2 L 114.1,316.5 L 110.2,317.7 L 106.3,318.8 L 102.4,320.0 L 98.5,321.1 L 94.7,322.2 L 90.8,323.2 L 86.9,324.3 L 83.0,325.3 L 79.2,326.3 L 75.3,327.3 L 71.4,328.2 L 67.5,329.2 L 63.6,330.1 L 59.8,331.0 L 55.9,331.8 L 52.0,332.7 L 48.1,333.5 L 44.3,334.3 Z" fill="var(--gold)" fill-opacity=".24"/>
+<line x1="44.3" y1="334.3" x2="44.3" y2="230.8" stroke="var(--accent-ink)" stroke-width="2.5"/>
+<line x1="44.3" y1="230.8" x2="276.9" y2="230.8" stroke="var(--muted)" stroke-width="1.5"/>
+<path d="M 44.3,334.3 L 48.1,333.5 L 52.0,332.7 L 55.9,331.8 L 59.8,331.0 L 63.6,330.1 L 67.5,329.2 L 71.4,328.2 L 75.3,327.3 L 79.2,326.3 L 83.0,325.3 L 86.9,324.3 L 90.8,323.2 L 94.7,322.2 L 98.5,321.1 L 102.4,320.0 L 106.3,318.8 L 110.2,317.7 L 114.1,316.5 L 117.9,315.2 L 121.8,314.0 L 125.7,312.7 L 129.6,311.4 L 133.4,310.1 L 137.3,308.7 L 141.2,307.3 L 145.1,305.9 L 149.0,304.4 L 152.8,302.9 L 156.7,301.4 L 160.6,299.8 L 164.5,298.2 L 168.3,296.5 L 172.2,294.9 L 176.1,293.1 L 180.0,291.4 L 183.9,289.6 L 187.7,287.7 L 191.6,285.9 L 195.5,283.9 L 199.4,282.0 L 203.2,279.9 L 207.1,277.9 L 211.0,275.7 L 214.9,273.6 L 218.7,271.4 L 222.6,269.1 L 226.5,266.8 L 230.4,264.4 L 234.3,261.9 L 238.1,259.4 L 242.0,256.9 L 245.9,254.2 L 249.8,251.6 L 253.6,248.8 L 257.5,246.0 L 261.4,243.1 L 265.3,240.1 L 269.2,237.1 L 273.0,234.0 L 276.9,230.8" fill="none" stroke="var(--warn)" stroke-width="2"/>
+<line x1="44.3" y1="264.5" x2="230.1" y2="264.5" stroke="var(--warn)" stroke-width="1" stroke-dasharray="2 3"/>
+<line x1="87.7" y1="324.1" x2="87.7" y2="230.8" stroke="var(--warn)" stroke-width="1" stroke-dasharray="2 3"/>
+<text x="90.7" y="319.1" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--warn)" text-anchor="start">t = &#8722;3/31</text>
+<line x1="195.4" y1="284.0" x2="195.4" y2="230.8" stroke="var(--gold)" stroke-width="3.5"/>
+<circle cx="195.4" cy="233.6" r="4.5" fill="var(--accent)"/>
+<text x="34.0" y="214.5" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--accent-ink)" text-anchor="start">D2 sheet</text>
+<text x="290.0" y="214.5" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--faint)" text-anchor="end">t along D2 &#8594; &#183; u (fibre) &#8593;</text>
+<text x="41.3" y="376.9" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--accent-ink)" text-anchor="start">t = &#8722;0.1358</text>
+<text x="276.9" y="226.8" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--faint)" text-anchor="end">0.0732</text>
+<text x="48.3" y="337.3" font-family="IBM Plex Mono, monospace" font-size="8" fill="var(--faint)" text-anchor="start">u = -0.0905</text>
+<text x="34.0" y="404.0" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--gold)" text-anchor="start">gold bar: the crossing, in both sheets</text>
+<text x="34.0" y="415.0" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--warn)" text-anchor="start">red: the one curved wall &#183; dotted: seams</text>
+<text x="34.0" y="426.0" font-family="IBM Plex Mono, monospace" font-size="8.5" fill="var(--faint)" text-anchor="start">t and u to one scale, both panels</text>
+</svg>
+    <p>Each sheet is a <b>curved triangle</b>. Its left edge is its branch's lower 727 wall; its top is a
+    flat fibre wall at u = 0.00255, the same on both sheets; and its whole lower-right side is one
+    curved wall, of total degree 4, found first on the D1 sheet (P301). Its exact root matches the
+    measured boundary on 33 of 34 measured lines; the 34th stopped on a seam, and direct counts put it
+    on the wall too. The corners are its roots on the other two walls. The gold bar at t = 0 is the
+    crossing: the same fibre segment lies in both sheets.</p>
+    <p><b>Seams.</b> Two dotted lines cross the sheets with 1217 on both sides and a lower count on
+    the line itself: u = &#8722;1/36 on both (1215), and t = &#8722;3/31 on D2 (1213), which is the n = 6
+    723 puncture, lifted.</p>
+    <p><b>This replaces a pentagon</b> (P394). The earlier panel came from a 5&#215;5 grid spanning the
+    measured extents at the axes, and drew the grid's bottom row and right column as edges. Neither is a
+    wall: the sheet continues below that row, to u = &#8722;0.11, and past that column. The curved wall
+    and its solution stand; the region they were drawn around was the grid's box.</p>
+    <p><em>Not measured: anything outside each sheet's own plane of fibre and branch.</em></p>
   </div>
   <div class="inset">
     <h3>The n = 9 fork &#8212; one count, two compounds</h3>

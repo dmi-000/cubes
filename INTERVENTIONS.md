@@ -115,6 +115,7 @@ case where the human supplied the remedy and the remedy was later ignored:
   scratch and may not have gotten archived... we should strengthen our policy." On
   2026-08-31 a 3 216-second n=10 measurement turned out to have been launched from an
   unsaved heredoc ([FAILURE_MODES 19a](FAILURE_MODES.md#19a)).
+<!-- reviewed 2026-09-24: P175 narrates its own step-size defect later found by P184; P183 cites its audit finding, not its own sampled-direction error -->
 
 ### A4. Interventions recovered from transcripts that no ledger entry records
 
@@ -140,6 +141,7 @@ That count is an **undercount and should not be quoted as a measurement**:
 [P182](LEDGER.md#p182), one of the largest corrections in the project, carries no
 such marker even though it exists entirely because of the sampling question. The
 marker records what I remembered to attribute.
+<!-- reviewed 2026-09-24: passing mention of P182 as an example correction, not its retracted endpoint claim -->
 
 ---
 
@@ -471,6 +473,7 @@ while a drawing cannot:
 | "what does a yellow line along a blue line mean?" | the blue line was doing two incompatible jobs — a fibre and a cube-addition |
 | "is the region a linear combination?" | it is not: a THIRD wall cuts a corner ([P301](LEDGER.md#p301)) |
 | "does that wall project down or up?" | created by the 7th cube, inherited unchanged by the 8th ([P302](LEDGER.md#p302)) |
+<!-- reviewed 2026-09-28: cites P301's pentagon, which stands as the sheet over D1 (P393 adds a second sheet) -->
 
 **Six postscripts came out of a request for a picture** — P295, P299, P301, P302, P303, and
 the gap register P297 that P298 then overturned.
@@ -509,6 +512,7 @@ mathematics changed.
 
 **What the user asked.** After [P323] voided [P304]'s mechanism and listed the casualties:
 *are we sure we caught any prior propagation?*
+<!-- reviewed 2026-09-24: narrates that P304's mechanism was voided -->
 
 **The honest answer was no.** The casualty list went into the LEDGER and never reached the
 documents that get read:
@@ -534,6 +538,7 @@ and the sentence was false.
 `concurrency_walls.py` and re-running its own gate: **G4's anchor — the `t = -2/9` wall that
 [P304] was built on — returns `common_point_inside_cubes: false`.** The founding example of the
 family is not an arrangement wall. [P323] is confirmed from the gate's own reference point.
+<!-- reviewed 2026-09-24: narrates the defect that refuted P304's mechanism -->
 
 **The rule this leaves.** After voiding a claim, grep the READ documents for its NUMBERS, not
 its postscript number — `258`, `282`, `663` found the stale text; searching for `P309` would
@@ -545,6 +550,7 @@ have found correct citations and missed all of it.
 immediately before, marked [VERIFIED], and handed forward as the lead. The instruction that
 caught it was the user's standing one — "we have solvers not just samplers" — applied to the
 first step of the proof attempt rather than to the proof.
+<!-- reviewed 2026-09-24: narrates the self-catch that led to correcting P329 -->
 
 **What the catch cost.** Four lines of Python, run before any proof work began: recompute the
 published counterexample under the definition the identity uses. `24` became `6`.
@@ -612,6 +618,7 @@ turned into a mechanical search over `src/`:
 | no containment predicate ([P322]/[P323]) | modules that solve plane intersections, checked for an inside test | **`concurrence.py` — a live claim, now [P331]** |
 | incidences counted as objects ([P330]) | the two EE counters, gated against an independent enumerator | 0 disagreements on 1856 pairs |
 | import-time file writes ([A15]) | `ast` walk of every top level | 68 writers, 4 imported, 3 nondeterministic — [FAILURE_MODES 42] |
+<!-- reviewed 2026-09-24: passing mention, rows/columns bug class, unrelated to P304's containment defect -->
 
 **The find.** `concurrence.py` counts plane concurrences with no containment test. Not one
 top-multiplicity point in 183, 723 or 727 lies on the compound — they sit 63–68 % past the
@@ -619,6 +626,7 @@ nearest face. 723's celebrated 9-fold is three cubes sharing a corner that **sti
 the other three cubes**, so it is not an arrangement vertex and buys no regions. The claim had
 been re-verified once already, for the ROWS bug, and the containment question was never asked of
 it because [P304] came three weeks later and nobody went back.
+<!-- reviewed 2026-09-24: narrates the containment defect that refuted P304's mechanism -->
 
 **And it closed an older loose end.** [P55]/[P57] measured the "high concurrence" heuristic as
 NEGATIVELY correlated with the count and recorded the reversal with no cause. The cause is this:
@@ -738,6 +746,9 @@ which biases toward continuation.
 **THEN I PRODUCED THREE AND THE BEST ONE WAS LIVE.** Asked to try rather than discuss:
 
     1. is `EE <= 36` at `B = 128` even TRUE?        <- the good one, and it was acted on
+                                                       ANSWER, 2026-09-20: NO. EE = 38 occurs
+                                                       at B = 128 ([P373]). The question was
+                                                       worth asking because the answer was no.
     2. does the chain hold at n = 5?
     3. what does the framework predict at n = 6?
 
@@ -755,3 +766,23 @@ deliberate attack.
 noticing a precedent already in the ledger and applying it where it had not been applied. That is
 a real capability and a narrow one. **The generative move I have not demonstrated is the one the
 user kept making: changing the frame rather than extending it.**
+
+## A20 (2026-09-24) — "doesn't viewers/n2map fully map n=2?" — yes; a narrative I had just written said it was not mapped
+
+**What happened.** Writing `LEVELS.md`, the first document meant to state current knowledge
+per level, I called the n = 2 plateau "at least 1-dimensional; not fully mapped". The phrasing came
+from `MAXIMISER_TAXONOMY.md` §3 and the "not yet mapped" lists in `CONTINUUM_MAP.md`. The user
+asked whether the `n2map` viewer did not already map it. It does: [P69] is titled *"n=2 mapped
+completely"*, [P70] gives the structure, and [P76], [P83], [P86] refine it without reopening it.
+<!-- reviewed 2026-09-24: passing mention of P70's structure, not its fallen 13-locus-as-graph claim -->
+
+**Why it was missed.** I built the narrative from SUMMARIES of the ledger rather than from the
+entries that did the work, which is the failure the narrative was supposed to cure, one level
+removed: a summary document read as the source for another summary. **Grep the ledger for the
+object's name ("n=2", "13-locus") before writing a status, not the summaries.**
+
+**What it surfaced.** Checking the correction, the audit tool reported [P76] as having no status.
+Its heading, `## Postscript 76 (CORRECTION to Postscript 70):`, was a fourth heading form the tool
+could not read, the one form that actually states role, and three entries used it. Fixed; see
+[P388]'s last addendum.
+<!-- reviewed 2026-09-24: cites P70's heading form, an audit-tooling detail, not its fallen claim -->

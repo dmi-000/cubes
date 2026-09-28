@@ -1,6 +1,6 @@
 # How max(3) = 67 got proved — a narrative
 
-*A readable account of the proof that three concentric unit cubes make at
+*Written 2026-07-21, last revised 2026-08-12.* *A readable account of the proof that three concentric unit cubes make at
 most 67 bounded regions. It is a companion to the formal write-up
 (`PROOF_FORMAL.md`); here the goal is the shape of the argument and how it
 was found, including a couple of wrong turns, told briefly. Written by an

@@ -1354,6 +1354,7 @@ and you have an anchor outside the procedure ([METHODS 4](#4), [FAILURE_MODES 14
 that costs nothing and fires on every run rather than on the one you thought to check.
 Coset representatives, basis extensions, feature-addition sweeps, ablation studies: the
 identity element is usually in the menu and usually unexamined.
+<!-- reviewed 2026-09-24: cites P223 only as the session that shipped the --base engine bug, unrelated to the "filtering before counting is dead" claim P231 reversed -->
 
 ## 25. [TECHNIQUE] A wall IS its key — restrict it to a line and solve, instead of walking
 
@@ -1403,6 +1404,7 @@ end to end for the first time ([P296](LEDGER.md#p296)); the 727 arcs' special po
 ([P294](LEDGER.md#p294)); the 1217 plateau's third wall, a degree-4 curve
 ([P301](LEDGER.md#p301)); and the walls that contract it at n = 8 and n = 9
 ([P303](LEDGER.md#p303)).
+<!-- reviewed 2026-09-27: cites P294's special points, which stand -->
 
 **What it cannot do.** Tell you which walls BOUND THE COUNT. Crossing a wall need not change
 the region count — 4 of 6 measured crossings do not — so solving every wall on a ray gives
@@ -1445,6 +1447,7 @@ pairs".
 
 Note that `cellcomplex.count()` is NOT this — it shells out to the engine ([FAILURE_MODES
 38](FAILURE_MODES.md#38)).
+<!-- reviewed 2026-09-24: cites P304's confirmed count drops (703, 691), which P323 lists as the surviving measurement -->
 
 
 <a id="25-a-data-file-records-its-own-command-line"></a>
@@ -1460,6 +1463,7 @@ script's SHA-256 is its version — and this session produced the exact case tha
 `concurrency_walls_n6.json` files, hours apart, one computed with the face normals taken as
 the rows of the rotation matrix and one with the columns. Same name, same shape, same day,
 entirely different objects ([P304]). A timestamp cannot separate those; a hash does.
+<!-- reviewed 2026-09-24: uses P304 only as a naming-collision example for provenance practice, not its refuted mechanism -->
 
 And the corollary that cost nine files here: **a probe script is a deliverable.** Nine data
 files in `data/` were written by scripts in a temp directory, which is the deliverables rule's
@@ -1521,6 +1525,7 @@ one:
 3. Prefer the negative half. In [P304] the durable finding was "there are count-changing
    parameters invisible to the coincidence family" -- a measurement. The identification of what
    they are was the part that fell.
+<!-- reviewed 2026-09-24: already states current knowledge — P304's mechanism fell, the negative finding stands -->
 4. If a cause cannot be gated yet, record it as an OPEN QUESTION with its evidence, not as a
    finding. [OQ 34] survived being wrongly closed precisely because its evidence was written out
    in full.

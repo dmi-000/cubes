@@ -53,7 +53,9 @@ non-congruence outright — an invariant independent of Theorem R's μ.
     # -> 183, by_depth {1:92, 2:66, 3:24, 4:1}, symmetry order 3 (C₃)
 
 Pair label (9,9,9,13,13,13); O-reduced pair angles three at 43.004° and three at
-46.826°. All five independent climbs that reached 183 give this class.
+46.826°. All five independent climbs that reached 183 give this class. **It is one of TWO 183 classes**:
+the other is the 393 base's 4-subset {0, 1, 2, 4}, the one the tower contains. Both lie on arcs
+([P378](LEDGER.md#p378), [P380](LEDGER.md#p380)); see [`LEVELS.md`](LEVELS.md). (Scope note 2026-09-24.)
 
 ## n = 5, max 393  ·  n = 6, max 723 and 727  ·  n = 7, max 1217  ·  n = 8, max 1895
 
@@ -92,7 +94,9 @@ the arc for every d ≤ 97:
       | ./cube_regions_q2w --d 3 --quats-stdin
     # -> 727 ; works identically for d = 2, 5, 6, 7, 10, 11, 97, ...
 
-Three further arcs are known, pairwise skew with this one and with each other:
+Three further arcs are catalogued. Arcs B and C are the 393 base's C₃ images of the two branches
+through the record, D1 and D2, so they carry the same compounds; arc A is a separate piece
+([P391](LEDGER.md#p391)).
 
 | arc | Cayley direction | through | fields on it |
 |---|---|---|---|

@@ -8,6 +8,7 @@ This is the n = 3 configuration space described through the n = 2 map of
 [Postscript 70](LEDGER.md). It is complete at the level of
 **cells** (proved), partial at the level of **dimensions** and **edges**
 (measured at representatives).
+<!-- reviewed 2026-09-24: uses P70's region-count value set {1,4,5,9,13}, unaffected by P76's correction to the 13-locus topology -->
 
 ---
 

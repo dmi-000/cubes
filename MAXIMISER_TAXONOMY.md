@@ -1,5 +1,9 @@
 # Maximiser taxonomy — results
 
+> **Superseded as the current per-level picture by [`LEVELS.md`](LEVELS.md) (2026-09-24).** This
+> file predates the continuum results: where it calls a record isolated (n = 4, 5, 6, 7, 8), it
+> is out of date. Kept as the detailed working record for generation methods and wall data.
+
 What is known about each maximiser, how to generate members of each category,
 why each cell reads what it does, and what would fill the gaps. **No chronology
 here** — the running record is [`LEDGER.md`](LEDGER.md); exact canonical
@@ -368,10 +372,10 @@ is the inverse rotation and the same congruence class.
 **The two arcs carry the SAME type.** Both count 13 with per-label (1, 6, 6, 1)
 at every sampled point of both, so the n=2 type column is 1 globally, not 1
 per arc — an invariant that does not separate the two components even though
-they are geometrically unrelated. The edge arc does NOT wrap: t → ∞ is the
+they are geometrically unrelated. **CORRECTED 2026-09-27 ([P390](LEDGER.md#p390)):** in class space they are not two components: the edge family's end t = 1/2 is the same compound as the 60° body-diagonal rotation, so the two join into one arc, which is why the type agrees. The edge arc does NOT wrap: t → ∞ is the
 half-turn about (1,1,0), which counts 1, and t = 3/2, 3, 10, 100 all count 9.
 
-The extra classes are the half-turns about (1,2,3) and (1,1,2).
+The extra classes are the half-turns about (1,2,3) and (1,1,2). **REFUTED 2026-09-27 ([P390](LEDGER.md#p390)):** both lie on the arc, the first on the body-diagonal part (cos 11/14), the second at the junction.
 
 ### n = 3, max 67 — two classes, so two members
 
@@ -382,6 +386,11 @@ Both {I, R, R²} with R a 120° turn about the dihedral axis; derivation in
 `MAXIMISERS.md`. There is nothing else to generate — the set is these two.
 
 ### n = 4, max 183 — one known class, and every probe reads isolated
+
+> **CORRECTED 2026-09-21 by [P378](LEDGER.md#p378) and [P379](LEDGER.md#p379): every probe in
+> this section is a straight line, and 183 is NOT isolated.** A curved, genuine (non-gauge)
+> direction survives Newton correction at the record with the full census preserved. The count
+> plateau is a bounded arc of total length 0.6872872. See CONTINUUM_MAP.md, Map 0.
 
     ./cube_regions_n --quats "1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4"
 
@@ -898,6 +907,10 @@ that reports 0 must first recover a known tangent, or its zeros are void.
   [P196](LEDGER.md#p196) (preserving rank = deficit − 1 at 1895, 2785, 3917) and
   [P204](LEDGER.md#p204) (183 and 393 verified 0-dimensional, gated on 727 where a
   null-space-only pool gives a FALSE negative). Still a pool rather than a proof.
+  *(CORRECTED 2026-09-21 by [P378](LEDGER.md#p378): 183's "verified 0-dimensional" is wrong —
+  a genuine null direction of dimension 1 exists at the record and a curved continuation along
+  it preserves the full census, so 183 lies on a bounded arc, not a point. 393 is not addressed
+  by this correction.)*
 * **Components at n ≥ 4** — each needs its arcs found first. Path: the 727
   route, sweeping the maximiser locus inside each catalogue wall plane. Note
   arc A lies in only ONE catalogue plane, so a complete enumeration also needs
@@ -1114,9 +1127,23 @@ projective space of the null space). Controls: n = 2 both arcs, arc A recovering
 | 67 (n=3) | **UNKNOWN** — irrational (ℚ(√2), ℚ(√5)), outside the rational Cayley chart. Neighbourhood characterised only along the dihedral family: the octahedral 67 is a zero-width spike inside a uniform 55-region, the golden 67 sits ON that region's boundary |
 | 183, 393, 727, 1217, 1895, **2785** | **isolated points** — second-order variety EMPTY at every one |
 
+> **CORRECTED 2026-09-21 by [P378](LEDGER.md#p378): 183 does not belong in this row.** Its
+> second-order variety is NOT empty — a genuine (non-gauge) null direction of dimension 1
+> exists at the record, and a curved continuation along it survives Newton correction with the
+> full census preserved, giving a bounded arc rather than a point. The other records in this
+> row are not addressed by this correction.
+>
+> **REFUTED IN PART, recorded 2026-09-24 (LEDGER.md#p117).** 727, 1217 and 1895 also do not
+> belong in this row: they are continua (dimensions 1, 2, 3 respectively). 393 is open, its
+> "second-order EMPTY" verdict is not evidence (the method is discredited). 2785 is not
+> addressed by LEDGER.md#p117's note. See that note for detail.
+
 So "records are rigid" is now a computation rather than a heuristic, for the
 rational records n = 4..9. [Postscript 114](LEDGER.md#p114)'s claim that they lie on 1-dimensional
 loci was the first-order tangent space mistaken for the locus, and is refuted.
+**REINSTATED IN PART, recorded 2026-09-24 (LEDGER.md#p117).** 183 and 727 do lie
+on 1-dimensional loci as P114 claimed; 1217 and 1895 lie on loci of dimension 2
+and 3 respectively (P114's error was only "exactly 1"). See LEDGER.md#p117's note.
 
 **SUBSET LOCI (221 classes, n = 6..9):** 148 nonempty, 73 empty. The
 positive-dimensional loci belong to the LOWER-count classes; a record never has
@@ -1210,6 +1237,7 @@ as the climb reports 3925's facet census.
 *Added 2026-08-31, after `k` was found to carry two conflicting definitions that
 differ by exactly 1 and had produced an apparent contradiction between this file and
 [P187](LEDGER.md#p187) (both were right).*
+<!-- reviewed 2026-09-24: cites P187's parameter convention, not the endpoint values P192 replaced -->
 
 **Every maximiser family in this project is a straight line in Cayley space.** That
 includes the ones written in other forms: a 13-pair curve `q(t) = b*(1, t*axis)` is a
@@ -1297,6 +1325,12 @@ which first appears at n = 7.
     2787     9      5         4                                  4   ok
     3917    10      6         5                                  5   ok
     3925    10      6         5                                  5   ok
+
+> **CORRECTED 2026-09-21 by [P378](LEDGER.md#p378): the 183 row above is wrong.** Its largest
+> preserving subspace is 1, not 0 — a genuine (non-gauge) direction survives Newton
+> correction with the full census preserved, giving a bounded arc. `deficit - 1` at n = 4 is
+> then 0 against a measured 1, which EXCEEDS like 727 rather than matching it. 393's row is
+> not addressed by this correction.
 
 183 and 393 VERIFIED 0-dimensional 2026-08-31 (`verify393.py`) with a pool that finds
 arcs — 47 and 72 candidates from the null space AND every cube-slice, 0 unevaluated,

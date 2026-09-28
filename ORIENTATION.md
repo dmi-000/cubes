@@ -1,7 +1,7 @@
 # Orientation — read this FIRST after any context loss
 
-One screen. Not a summary of results (that is `RESULTS.md`) and not the record
-(`LEDGER.md`). This is the frame whose absence has caused real errors: three in the
+One screen. Not a summary of results (that is `RESULTS.md`; per level, `LEVELS.md`) and not
+the record (`LEDGER.md`, which is for audits, not for reading straight through). This is the frame whose absence has caused real errors: three in the
 session of 2026-09-18 alone, each because a named object was not recognised.
 
 ## Why this project exists
@@ -66,17 +66,59 @@ n = 5 the records add cubes with NO sharing at all.
 ## Status
 
 * **Proved:** `max(2) = 13`, `max(3) = 67`.
-* **`max(4) = 183` is UNPROVED, and two successive attempts to reduce it to one
-  inequality have both been refuted BY THE SAME KIND OF SEED.** `EE <= 36` at `B = 128`
+* **`max(4) = 183` is UNPROVED, and three reductions have been refuted** — `T <= 48` by the golden
+  177, whose level-1 two-body weight is 60 ([P389]), and the two below BY THE SAME KIND OF SEED. `EE <= 36` at `B = 128`
   ([P352], [P361]) and `EE + B <= 164` ([P368]) both died to
   `1,0,0,0; 0,2,-3,-2; 0,2,-3,2; -4,-2,-5,-6` — `EE 38, B 128`, 173 regions ([P373]) — and a
   climb from it reaches `EE = 42` at `B = 128`. Both refuted ceilings were maxima over searches
   seeded from the record and the face-diagonal family; the refuter is the n = 3 `EE + B`
   extreme extended. **What bounds `EE` at `B = 128` is open.**
 * **Proved and still standing:** `E_i <= 10` ([P237]), `E_S <= 32` (PROOF_67), hence
-  `EE + B <= 188 - 2*SC2` and `TOTAL <= 195 - Q4`. The golden attains `EE + B = 164` at
+  `EE + B <= 188 - 2*SC2`, and `TOTAL <= 195 - Q4` **only for compounds with no `(1,1,2)`,
+  `(1,2,2)` or `(2,2,2)` vertices** (Scope note 2026-09-24: the framework paragraph above says
+  so, and this line did not). The golden attains `EE + B = 164` at
   `SC2 = 12`, exactly its box bound — the one branch closed by proof.
 * Complete corner-sharing is sub-maximal at both sizes where it exists (n = 4, n = 5).
+
+## Before trusting any claim in a summary, run the dependency check
+
+    python3 src/claim_deps.py --audit        FALLEN postscripts with unflagged dependents
+    python3 src/claim_deps.py P352           everything that cites P352
+
+**Measured 2026-09-23: about half of all citations to fallen postscripts carry no correction
+marker** — 227 of 480, over 25 fallen postscripts, as of 2026-09-24. The SUSPECT tier is empty:
+all nine were resolved by hand, seven as fallen and marked, two as not fallen and recorded in
+`RESOLVED_NOT_FALLEN`. The exact figure drifts with every
+edit, so `--audit` prints the live one and the number here is only a scale. Three successive
+measurements ([P386] 73 %, [P387] 52 %, [P388] 48 %) all sat near half while the set being
+measured changed twice underneath them — **the percentage was never the finding.**
+<!-- reviewed 2026-09-24: cites P386/P387 as the history of the tool, not for their fallen figures -->
+
+**READ THE TWO TIERS AS DIFFERENT THINGS.** `FALLEN` means the entry carries its own in-place
+correction marker: not in doubt. `SUSPECT` means it is NAMED in a refutation-family heading and
+the role is unverified — a heading title says who is mentioned, not who lost, and the winner and
+the corrector get named in exactly the same sentence shape. Resolve a SUSPECT by hand; if it
+really fell, write the marker into its own entry, which promotes it to FALLEN. Do not propagate
+from the SUSPECT list. *This figure moves every time a document is written or
+a postscript is marked — run `--audit` for the live one rather than quoting this.* Treating a
+stale copy of a measurement as current is the failure this whole section is about. Citations point BACKWARD (claim names evidence);
+refutation travels FORWARD (evidence invalidates claims). Nothing in the documents runs that
+direction, so propagation was done from memory — and memory is what a compaction destroys.
+
+> **CORRECTED 2026-09-23.** This section previously read *73 %, 207 of 284, measured
+> 2026-09-21 ([P386])*. **That figure was wrong and so was the list under it.** The audit
+> keyed on the ledger heading TAG — but the tag names the entry's ACTION, not its status:
+> `[REFUTATION] Postscript 378` is P378 refuting [P136] and [P287], and P378 itself stands.
+> So the audit was listing the CORRECTORS: 13 of its 18 rows were current results, and
+> propagating from it would have stamped REFUTED markers on [P330], [P374], [P378], [P383].
+> The selector now reads two structural signals instead — a `[Pnnn]` named in a
+> refutation-family heading and an in-place `> **CORRECTED/REFUTED** ` blockquote inside an
+> entry. **[P388] then demoted the first of those to SUSPECT** — it read names as roles and
+> falsely reported [P16] and [P272] fallen — and fixed a heading regex that could see only 200
+> of 383 entries, which had hidden eight genuinely fallen postscripts. Oracle for the fix: [P304] (59 dependents,
+> `[VERIFIED**]`, skipped because its tag said neither word) and [P334] (42 dependents,
+> refuted by [P370], not detected at all) must both appear. They do. So does [P375], the
+> example this tool was built for, which the broken selector also missed.
 
 ## The traps — each cost a run, and the tell is always the same
 

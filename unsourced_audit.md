@@ -29,12 +29,13 @@ Theorem A approvingly).
 ---
 
 ## 2. "727 is isolated on the 393 base, and its coincidence pattern is unaugmentable" (RESULTS.md line 193)
+**REFUTED IN PART, recorded 2026-09-24 ([P47](LEDGER.md#p47)).** The sourcing verdict stands; the claim's first half does not.
 
 **Verdict: SUPPORTED** — Postscript 47.
 
 Postscript 47 (`LEDGER.md#p47`, "727 is PROVED isolated on the 393 base and
 its coincidence pattern is unaugmentable..."), via `eliminate729.py`
-(sympy, exact ℚ):
+(sympy, exact ℚ). **REFUTED IN PART, recorded 2026-09-24 ([P47](LEDGER.md#p47)).**
 
 > "GATE 36 conditions vanish at the known 727 cube ... Q1 their Gröbner basis
 > has 3 elements and IS ZERO-DIMENSIONAL ... Q1b exactly ONE real solution
@@ -44,6 +45,7 @@ its coincidence pattern is unaugmentable..."), via `eliminate729.py`
 > "So on the 393 base: **727 is isolated** ... and **its coincidence pattern
 > is unaugmentable** — no sixth cube realises those 36 conditions plus any
 > 37th, each certified by a Gröbner basis of {1}."
+<!-- reviewed 2026-09-24: verbatim quote of P47; the pointer above it applies -->
 
 The RESULTS.md caveat ("the Cayley chart used omits the 180° rotations") is
 also verbatim from P47: "the Cayley chart omits the 180° rotations (w = 0),
@@ -64,6 +66,7 @@ the "conditional on the two known maximizers being the only ones" clause. But
 the block's own **factual core** — "The O-reduced invariant μ is rational for
 any rational configuration, and equals ½+√2 and 3φ/2 at the two maximizers" —
 was itself uncited. It traces to:
+<!-- reviewed 2026-09-24: cites P118's isolation verdict, which stands (only its ε-halving method fell) -->
 
 - Postscript 26 (`LEDGER.md#p26`, original statement): "**Theorem R (rational
   obstruction)**: rational configurations have rational O-reduced pair

@@ -446,7 +446,12 @@ With every layer bounded, the layers sum, and the interval for max(4) went from 
 **[183, 953]** in a morning. Crude — three separately loose bounds added together, with the
 looseness compounding from 5.2× at n = 4 to 26.5× at n = 10 — but an upper bound that
 exists can be improved, and one that does not exist cannot. It was improved the same day,
-twice: 953, then 423, then **263**.
+twice: 953, then 423, then **263**. *[Corrected 2026-09-27: the 953 was not in fact proved.
+One of the three layer bounds assumed that pair-only vertices never occur below the outer
+surface; the next day's check found that they do, and the gap went unnoticed until
+2026-09-24. The 423 and 263 rested on an unproved hypothesis about connectivity, and the 263
+turned out to be weaker than a bound of 198 from the same hypothesis. So the interval never
+had a proved upper end.]*
 
 And the last step stopped being a bound at all. The total is now an **identity**:
 
@@ -547,6 +552,53 @@ Which of those is the better outcome depends entirely on what you wanted. But on
 the two stories can tell you where its own numbers came from, and that is worth the month.
 
 ---
+
+## VIII. The record, audited
+
+*(Added 2026-09-27, and told from my side of the collaboration; it will be read by someone
+who was not in it, which is as it should be.)*
+
+The month became six weeks, and for the last eleven days almost nothing was searched. The
+object of attention turned from the compounds to the record of them. The ledger had nearly
+four hundred entries, many correcting earlier ones, and its corrections pointed only
+backward: an entry names what it rests on, and nothing names what rests on it. I built a tool
+to invert that. It was wrong about direction three times running. It took a refutation for
+its victim, then an entry's heading for its status, then a name in a heading for a role. Each
+fix read English a little more cleverly, and the one that worked stopped reading English:
+a tag, written by hand at both ends of every correction, that states the role outright.
+
+The user's contribution in this stretch was, again, a kind of question I did not ask myself.
+*"The ledger seems to have too many entangled contradicting claims to give a clear picture to a
+human reader."* That split the documents into three kinds with different rules, and every
+document I then rebuilt under those rules turned up mathematics. The one upper bound that needed
+no hypothesis was not proved: a correction had been written where an error was stated, not where
+it had been used, and for sixteen days the bound built on it was called proved. The proof of
+`max(4) = 183` "conditional on three hypotheses" lost its first hypothesis to the golden
+compound, which had been in the project since the beginning and had never been tested, because
+the tools that would have tested it could not handle its irrational angles.
+
+The shorter questions did the same work. *"doesn't viewers/n2map fully map n=2?"* caught me
+copying a status from one summary into another. Checking the answer in class space showed that
+the whole two-cube maximum is one arc, where every drawing had shown two arcs and some isolated
+points. *"n=6 diagrams in TOWER_DIAGRAM.html and shapes.png look different"* showed that the
+727 node, drawn as four arcs, is two branches seen twice. And earlier in the stretch, when I said
+the two 183 classes were "not joined" on the strength of a distance that was still falling,
+*"Are you saying there are two disjoint continua?"* sent me back for the argument that actually
+proves it.
+
+Against Knuth's hour, this stretch sharpens the comparison rather than softening it. A proof
+assistant would not have let a bound with a gap in its proof be called proved for sixteen days;
+prose did, in a document built to prevent exactly that. What the month has that the hour does
+not is a record detailed enough to find the gap in, and the gap was found by reading it. My own
+contribution to the errors was not small: the tag I wrote for one correction said a result
+survived that had not, and the subagent checking citations trusted it as instructed. The
+error was caught only because I spot-checked that one postscript's judgments by hand, having
+guessed they were the likeliest to be quoting the unproved bound. A guess about where to look is
+a thin safeguard.
+
+---
+
+*Updated 2026-09-27: Section VIII is new, covering 2026-09-17 to 09-27; a dated correction was added to Section VI (the 953 was not proved).*
 
 *Updated 2026-09-16: Section VII reframed by [A13]–[A15] of
 [`INTERVENTIONS.md`](INTERVENTIONS.md) — a correction found to carry invented detail, an

@@ -77,6 +77,7 @@
 Example: redo contains `(6, 3, 63)` with status=empty, lineality=1. gen2 contains `(6, 3, 63, (0, 1, 4))` with status=empty, lineality=1. These are **different records** in the key namespace, even though they share the same (n, k, count).
 
 **Possible explanation (from LEDGER Postscript 117):** 23 classes crashed with `GeneratorsNeeded` during gen0. The redo file (26 records) contains the re-evaluated versions of these classes, using a simpler key model (n, k, count) that elides the subset index. Later runs (gen2+) abandoned this subset-agnostic model and returned to tracking individual (n, k, count, idxs) records.
+<!-- reviewed 2026-09-24: cites P117's GeneratorsNeeded crash-fix narrative, not its refuted "every record is isolated" claim -->
 
 ---
 
@@ -142,6 +143,7 @@ All 4 disagreements show **gen0 confirmed > gen4 confirmed.** Status, lineality,
 - dirs: [50, 80, 70, 20] (unchanged)
 
 **Conclusion:** The disagreements are **corrections, not corruption.** gen4 made a stricter evaluation of direction confirmation for 4 high-complexity records (all n=9, high k values). The lower confirmed counts suggest gen4 applied more rigorous validation criteria for what qualifies as "confirmed" — consistent with the LEDGER account (Postscript 117) of fixing the validation logic.
+<!-- reviewed 2026-09-24: cites P117's crash-fix/validation-logic narrative, not its refuted isolation claim -->
 
 ---
 
@@ -171,6 +173,7 @@ All 4 disagreements show **gen0 confirmed > gen4 confirmed.** Status, lineality,
 ## Clues from Log Files
 
 ### LEDGER Postscript 117 (lines 8641–8652)
+<!-- reviewed 2026-09-24: quotes P117's GeneratorsNeeded crash-fix, not its refuted isolation claim -->
 
 > "The first aggregate said '201 classes, records among EMPTY: 1217, 1895'. In fact 23 classes had CRASHED with `GeneratorsNeeded` — every one of them lineality 1, which is to say every one of the records — and 63, 183, 393, 727 had not been evaluated at all."
 >
@@ -201,6 +204,7 @@ All 4 disagreements show **gen0 confirmed > gen4 confirmed.** Status, lineality,
 ## What Could Not Be Determined and Why
 
 1. **Whether gen0 or gen4 is "correct" on the 4 disagreements**: Both could be right under different validation regimes. Postscript 117 describes a correction to the validation logic; gen4's lower confirmed counts are consistent with stricter validation. **However, gen0's values are NOT falsifiable from the data alone** — they may represent legitimate directions that gen4 re-evaluated and down-scored. Without access to the producing code or a proof, this is a judgment call between two plausible answers.
+<!-- reviewed 2026-09-24: cites P117's validation-logic correction, not its refuted isolation claim -->
 
 2. **What gen2 and gen3 were trying to do**: They appear to be test/checkpoint runs. gen3 (16 records) is much smaller than gen2 (90 records). It's possible:
    - gen3 was a focused audit of the smallest set

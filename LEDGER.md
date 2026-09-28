@@ -435,6 +435,35 @@ with `index_ledger.py` after appending.
 - [Postscript 363](#p363) — **[CORRECTION]** complete corner-sharing at n = 5 is the COMPOUND OF FIVE CUBES — it was the believed…
 - [Postscript 364](#p364) — the records follow ONE management policy — saturate a single hub at degree 4, and leave…
 - [Postscript 365](#p365) — the golden 177 IS UC09's 4-subset — the project's founding assumption, and exactly where it…
+- [Postscript 366](#p366) — what a derivation of `EE <= 36` at `B = 128` needs — the per-pair route is DEAD, and the…
+- [Postscript 367](#p367) — every way to beat 183, enumerated over subset profiles — and [P354]'s chain covers ONE…
+- [Postscript 368](#p368) — exploring [P367]'s band produced a BETTER-SHAPED law — `EE + B <= 164`, and it reproduces…
+- [Postscript 369](#p369) — **[REFUTATION]** [P359]'s per-triple maximum of 20 is FALSE — it is 26, and [P360] and [P366] both rest on it
+- [Postscript 370](#p370) — **[REFUTATION]** [P334]'s `K4` IS the golden 177 — its `T3 = 74` is `T3 + Q4generic`, and its gate could not…
+- [Postscript 371](#p371) — every six-sharing 4-compound, ENUMERATED — there are exactly two and both are the golden
+- [Postscript 372](#p372) — what `EE` and `B` ARE — a subset law with a merge correction, the excess sum, and two…
+- [Postscript 373](#p373) — **[REFUTATION]** `EE <= 36` at `B = 128` is FALSE, and so is `EE + B <= 164` — one configuration kills both,…
+- [Postscript 374](#p374) — **[CORRECTION]** `TOTAL = 7 + T + B - Q4` is not an identity — the `7` varies, and the formula is blind to…
+- [Postscript 375](#p375) — the refuter's region is `EE`-rich and count-poor — it tops out at 173 — and region counts…
+- [Postscript 376](#p376) — the `EE` strata have codimension 1 and 2, EXACTLY — and the parameter budget predicts `EE <= 42`
+- [Postscript 377](#p377) — the record's 18 corner-sharing conditions are IMPLIED by its edge contacts — and its contact…
+- [Postscript 378](#p378) — **[REFUTATION]** the count IS constant along the 183 curve — refuting [P136]'s own reading of it and [P287]'s…
+- [Postscript 379](#p379) — the 183 plateau arc, both ends — length 0.687, and the record sits 8 % from one end
+- [Postscript 380](#p380) — the two 183 classes are NOT on the same arc — proved by a Lipschitz bound, not by extrapolation
+- [Postscript 381](#p381) — the tangent dimension is a FAMILY feature and it GROWS — 1, 1, 1, 1, 2, 3 for n = 3..8
+- [Postscript 382](#p382) — "isolated at n = 3" STANDS — and the mechanism is that the 67 sits at an ENDPOINT of its own arc
+- [Postscript 383](#p383) — **[REFUTATION]** the n = 8 plateau is 3-DIMENSIONAL, not 2 — [P307]'s figure is a lower bound stated as an…
+- [Postscript 384](#p384) — the distance along the 183 arc has a CLOSED FORM — two sinusoids per branch, and the kink is…
+- [Postscript 385](#p385) — the n = 8 plateau DELIMITED — a 38-vertex polytope, bounded by two cube pairs, aspect ratio 14.5
+- [Postscript 386](#p386) — the citation graph was never a dependency graph — 73 % of citations to refuted postscripts…
+- [Postscript 387](#p387) — **[CORRECTION]** [P386]'s audit was keyed on the wrong field — the ledger's `[TAG]` names the ACTION, not the…
+- [Postscript 388](#p388) — **[CORRECTION]** the same tool is wrong about direction a THIRD time — a heading title carries names, not…
+- [Postscript 389](#p389) — **[REFUTATION]** Hypothesis T is FALSE — the golden 177 has level-1 two-body weight 60, so the third…
+- [Postscript 390](#p390) — in class space the n = 2 maximum is ONE arc — the two families join end to end, the "extra…
+- [Postscript 391](#p391) — the 727 node has TWO branches, not four arcs — arcs B and C are the base's C3 images of D1…
+- [Postscript 392](#p392) — arcs B and D1 have the SAME solved extent, exactly, and D2's extent is solved for the first…
+- [Postscript 393](#p393) — the 1217 plateau is TWO sheets near the record, not one pentagon — the n = 6 node carries up…
+- [Postscript 394](#p394) — the two 1217 sheets are CURVED TRIANGLES that cross along the fibre line; the pentagon was…
 
 <!-- INDEX:END -->
 
@@ -3763,6 +3792,16 @@ at 393). Log: record_hunt_n6b.jsonl.
 
 <a id="p47"></a>
 ## Postscript 47: 727 is PROVED isolated on the 393 base and its coincidence pattern is unaugmentable; the record has FEWER coincidences than 723, and every condition is a quadric
+<!-- status: corrected-by=P293; corrected-by=P306; fell="727 is PROVED isolated on the 393 base" | "727 is proved isolated" | "no continuous family of sixth cubes" | "no continuous family through it" | "727 is isolated"; stands="the 36-condition coincidence pattern is realised only at the record, and is unaugmentable" -->
+
+> **REFUTED IN PART, recorded 2026-09-24 ([P293](#p293), [P306](#p306)).** What the Gröbner
+> computation below proves is that the configuration satisfying ALL 36 of these coincidence
+> conditions is an isolated point, and that no 37th can be added. That stands. **"727 is isolated
+> on the 393 base (no continuous family through it)" does not**: the count is 727 along arc D,
+> a line of sixth cubes through the record with the base fixed, on both sides of it. Checked
+> exactly: `16,30,2,-11` (s = 1/8) and `224,462,34,-163` (s = -1/16) both count 727, with the
+> record between them on one line in Cayley coordinates. Off the record the coincidence pattern
+> changes and the count does not. The n = 6 plateau is 1-dimensional ([P306], [P307]).
 
 2026-07-30, main session, following the user's programme: constraints that
 individually have degrees of freedom may, taken together, have finitely many
@@ -3861,6 +3900,7 @@ append-only and ordered by write time, not by number).
 2026-07-30, main session, executing the structural route Postscript [47](#p47) left
 open. Tooling: locus_probe.py, locus_enum.py (conditions cached in
 locus_polys.pkl).
+<!-- reviewed 2026-09-24: passing motivational reference, not the "727 isolated" claim that fell -->
 
 **CODIMENSION (A).** Taking the 12 coincidence conditions active at the 727
 cube against a single fixed cube: the Gröbner basis for cube 1 has ONE
@@ -3871,6 +3911,7 @@ DETERMINED system, and Bézout caps it at 2³ = 8 points. That is why records
 sit at three-wall intersections: it is forced, not coincidental. (The earlier
 guess in Postscript [47](#p47) that the loci are codim-2 curves — which would make
 727's existence a codim-6 accident — is wrong. Codim 1 is the right picture.)
+<!-- reviewed 2026-09-24: already narrates a correction to a different P47 guess (codim-2 curves), not the "isolated" claim that fell -->
 
 **PAYOFF (B): a census of 500 sampled wall triples**, one wall against each
 of three fixed cubes, solved exactly (lex Gröbner → rational roots → back
@@ -3885,6 +3926,7 @@ random sixth cubes, a **~30x hit rate**. Every solution point came out
 RATIONAL with small components, so cube_regions_n counts them directly and no
 algebraic engine is needed for this family (reinforcing Postscript [47](#p47)'s
 verdict against a C++ port).
+<!-- reviewed 2026-09-24: cites P47's tooling verdict, unrelated to the "isolated" claim that fell -->
 
 **727 IS A PLATEAU — two non-congruent compounds.** The census turned up two
 further sixth cubes on the 393 base:
@@ -3917,6 +3959,8 @@ If it completes without exceeding 727, that is an EXHAUSTIVE negative over
 the family that contains both 723 and 727 — which, with Postscript [47](#p47)'s
 elimination (727 isolated, its pattern unaugmentable) and E1's cap of 729,
 boxes n=6 on three independent sides.
+**REFUTED IN PART, recorded 2026-09-24 ([P293](#p293), [P306](#p306)):** "727 isolated" is
+false (the count is 727 along arc D); only "its pattern unaugmentable" stands.
 
 **Coverage gaps, stated honestly.** The enumeration keeps only RATIONAL
 solution points, so an irrational stratum could hide a configuration; and the
@@ -4828,6 +4872,7 @@ concurrence. The stratum is the 723 family and it caps at 723.
 matches the incidence census (Postscript [47](#p47)): 727 carries 18 interior edge-edge
 crossings to 723's 48, and no maximal (13) pair where 723 has two. **The new
 record beat the old one by LEAVING the stratum the old one occupied.**
+<!-- reviewed 2026-09-24: cites P47's incidence-census structure, unrelated to the "isolated" claim that fell -->
 
 **SO POSTSCRIPT 12'S FRAMING NEEDS NARROWING.** "Records concentrate at corner
 concurrences" was a true statement about 723 and the chain below it — 699, 705,
@@ -4860,6 +4905,7 @@ pair the frustration story says optima avoid. The generalisation was drawn
 from the single configuration then in hand, the same error as "the √-parts are
 identical" and "these configurations are near-half-turns" (Postscript [52](#p52)
 addendum 4's caution).
+<!-- reviewed 2026-09-24: already narrates a correction to a different P47 claim (the 9-pair framing), not the "isolated" claim that fell -->
 
 The discovered record is therefore structurally atypical of its own plateau —
 found first because extension-from-1207 and wide-height menus happened to land
@@ -5142,6 +5188,7 @@ Files: `cube_regions_q2w.cpp`, `wide_gate.py`, `wide_engine_report.md`,
 
 <a id="p60"></a>
 ## Postscript 60: the irrational configurations are the SEAMS between rational continua — never interior to one, and the split is total
+<!-- status: corrected-by=P61; fell="Every irrational 727 is a crossing" | "confined to the seams"; stands="the k=4 wall count and the observation that irrationality enters only through a quadric root on a rational line stand; irrational 727s are interior to continua, not merely crossings" -->
 
 2026-08-02, main session, answering "are all the irrational configurations
 with rational shadows part of a continuum?"
@@ -5197,6 +5244,7 @@ Files: `shadow_type.py`, `shadow_dim.py`.
 
 <a id="p61"></a>
 ## Postscript 61 (CORRECTION to Postscript 60): the irrational configurations ARE in continua — k counted walls, not chamber boundaries, and most of those walls are combinatorially inert
+<!-- status: corrects=P60 -->
 
 2026-08-02, main session, same day, answering "what is the relationship
 between an irrational configuration and its rational shadow?"
@@ -5231,6 +5279,7 @@ configurations are interior to their own type-chamber. **They are part of
 continua.** What survives from Postscript [60](#p60) is the wall count itself (161
 rational reps: 159 at k=2; 183 irrational: all at k=4) and the observation
 that irrationality enters only through a quadric root on a rational line.
+<!-- reviewed 2026-09-24: this is P61's own refutation of P60's headline -->
 
 **AND THE SECOND CLAIM FALLS TOO.** Postscript [60](#p60) reported 10 of 21 irrational
 per-label types occurring at "no rational configuration", hedged as relative to
@@ -5240,12 +5289,14 @@ artifact: of the sampled configurations whose type is absent from those 161,
 line. The 161 representatives are k=2 points from the edge-edge three-wall
 enumeration — a different family — so their absence from that list says
 nothing about attainability. No type is known to be irrational-only.
+<!-- reviewed 2026-09-24: this is P61's own refutation of P60's second claim -->
 
 **METHODOLOGICAL NOTE.** This is the fourth time in this project a structural
 claim has been made from a proxy invariant rather than the thing itself
 (after: rigidity by openness, μ-multiset for congruence, and describing a
 family from its first member). The proxy was reasonable and the direct test
 was cheap. Postscript [60](#p60) stood for about an hour.
+<!-- reviewed 2026-09-24: this is P61's own note on why P60 fell -->
 
 **WHAT IRRATIONALITY DOES AT n = 6, FINALLY.** Nothing. Not to the count
 (rationally shadowed, Postscript [52](#p52)), and not to the combinatorial type
@@ -5420,6 +5471,7 @@ Files: `w3_poly.py`, `endpoint.py`.
 
 <a id="p63"></a>
 ## Postscript 63: the LINE catalogue was never symmetry-closed — the richest 727 continuum's own C3 images were missing, and a uniform parameter grid is not equivariant
+<!-- status: corrected-by=P66; fell="22 of the 129 have images that" | "A UNIFORM PARAMETER GRID IS NOT EQUIVARIANT"; stands="none of P63's structural claims stand; the 129-line catalogue was symmetry-closed all along, per P66" -->
 
 2026-08-03, main session, answering "do lines fit into our TYPOLOGY?"
 
@@ -5591,6 +5643,8 @@ Files: `q3_count.py` (existed, never run), `dihedral_family_counts.out`.
 
 <a id="p66"></a>
 ## Postscript 66 (CORRECTION to Postscript 63): the line catalogue WAS symmetry-closed — the test compared quaternion representatives instead of configurations
+<!-- status: corrects=P63 -->
+<!-- reviewed 2026-09-24: P66's own heading and body withdraw P63's structural claims throughout -->
 
 2026-08-03, main session, after a chain script failed and forced a re-read of
 the previous hour's work.
@@ -5640,6 +5694,7 @@ t in [-20, 20] at step 1/2:
 Locations differ within an orbit only because each line carries its own
 (p0, dir) convention; the widths agree everywhere. That is the equivariance
 Postscript [63](#p63) claimed was absent.
+<!-- reviewed 2026-09-24: this is P66's own refutation of P63's equivariance claim -->
 
 **HOW IT SURFACED.** A chain script died with "continua_shard_0.jsonl: No such
 file or directory" — because the file had been renamed while the census still
@@ -5874,6 +5929,7 @@ Files: `n2_adjacency.py`.
 
 <a id="p70"></a>
 ## Postscript 70: the topology of the n=2 stratification — it is the OCTAHEDRAL MIRROR ARRANGEMENT on the axis sphere, fibred by the rotation angle
+<!-- status: corrected-by=P76; fell="the 13-locus is a GRAPH embedded in SO(3)" | "on an arc of each of the 6 edge circles"; stands="the fibration of the n=2 stratification over the octahedral mirror arrangement by rotation angle stands; the 13-locus has additional mirror-plane components this entry omitted"; corrected-by=P390 -->
 
 2026-08-03, main session, answering "if we fill the 3-DOF space with dimension
 labels, what is the topology of that structure?"
@@ -5975,6 +6031,9 @@ maximum locus, and within that cell the maximum is attained only at points no
 rational configuration reaches. The user's reading is the right one: three-cube
 compounds are built from components of the two-cube graph, and the best ones
 are built from its best components.
+**Scope note, recorded 2026-09-24 ([P76](#p76)):** the n=2 maximum locus also has
+components in the nine mirror planes, omitted here — the octahedral 67's pairs
+lie there, not on the body-diagonal circles or edge arcs.
 
 Files: `n2_adjacency.py`, and the pair-triple census in this postscript.
 
@@ -6284,6 +6343,8 @@ Files: `climb_limit.py`, `region_shape.py`.
 
 <a id="p76"></a>
 ## Postscript 76 (CORRECTION to Postscript 70): the n=2 13-locus is bigger than recorded — and that is what a structural proof of max(3) would have to be built on
+<!-- status: corrects=P70 -->
+<!-- reviewed 2026-09-24: P76's own heading and body correct P70's 13-locus description throughout -->
 
 2026-08-03, main session, from the question of whether the region/neighbourhood
 graphs could guide a simpler proof of max(3) = 67. Testing the first structural
@@ -6293,6 +6354,7 @@ fact such a proof would need immediately found an error in the graph.
 circles (every angle) and an arc of each of the six edge circles" and
 summarised mirror-plane axes as giving "5 or 9". The sweeps behind it each
 showed a `13x1` in the mirror-plane rows, which the summary dropped.
+<!-- reviewed 2026-09-24: this is P76's own diagnosis of P70's error -->
 
 It matters because the OCTAHEDRAL 67's three pairs are 13-pairs whose relative
 rotations have axes [1,-1,sqrt2-1] and the like — not body diagonals, not edge
@@ -8149,6 +8211,9 @@ Postscript [47](#p47) proved 727 isolated on that base with all 684 augmentation
 pattern infeasible. A sixth-cube search there could only ever return 727, or a 729
 arriving by a pattern the elimination says the base does not support. This is
 `METHODS.md` §5 at scale: **searches produce lower bounds forever.**
+**REFUTED IN PART, recorded 2026-09-24 ([P293](#p293), [P306](#p306)):** "727 isolated"
+is false (the n = 6 plateau is 1-dimensional along arc D); the 684-augmentation
+infeasibility of the 36-condition pattern stands.
 
 **THE EXCHANGE RATE, measured on one day.** Thirty hours of search on a core
 produced a point on a known plateau. Twenty minutes of factoring a determinant —
@@ -8657,6 +8722,13 @@ subsets" that no existing tool could reach.
 <a id="p114"></a>
 ## Postscript 114: the count is bought with CODIMENSION — every level's best sits on a locus of dimension exactly 1
 
+> **REINSTATED IN PART, recorded 2026-09-24.** [P117] declared this entry "refuted outright",
+> and [P117] is itself REFUTED IN PART: the records DO lie on positive-dimensional loci. 183
+> (n = 4, [P378](#p378)) and 727 (n = 6, [P306](#p306)) lie on loci of dimension exactly 1, as
+> claimed here. **"Exactly 1" fails above n = 6:** 1217 has dimension 2 and 1895 dimension 3
+> ([P307](#p307), [P383](#p383)). 393 is unmeasured, and the n = 3 maximisers are isolated
+> ([P382](#p382)).
+
 `dimension.py` ([Postscript 113](#p113)) solved for local dimension in the full moduli space;
 `census_dimension.py` ran it over every (count, profile) class of the n = 6 and
 n = 7 records — 52 classes, k = 3..6. The invariant reported is the LINEALITY
@@ -8697,6 +8769,8 @@ ZERO count-preserving directions while the arc-A member of the same plateau,
 counting the same 727, verifies ONE. That is not an inconsistency:
 [Postscript 47](#p47) proved 727 isolated on the 393 base, while arc A lies on an arc. The
 solver separates an isolated maximiser from a plateau member of equal count.
+**REFUTED IN PART, recorded 2026-09-24 ([P293](#p293), [P306](#p306)):** the record
+configuration is not isolated on the 393 base either — it too lies on arc D.
 
 **COST NOTE.** `sp.simplify` was consuming 93% of the conditions build for no
 effect on any number produced — only values at rational points are ever used, and
@@ -8795,6 +8869,8 @@ a ~90 s symbolic build, without which it cannot actually steer a search.
 bound), that records lie on 1-dimensional families ([Postscript 114](#p114) claimed this and is
 corrected — `verified` = 0 at every record, consistent with [Postscript 47](#p47)'s proof that
 727 is isolated), or that this is a compass. It is a filter, conjecturally.
+**[Postscript 114] REINSTATED IN PART, recorded 2026-09-24 ([P117](#p117)):** 727
+does lie on a positive-dimensional locus (dimension 1), and is not isolated.
 
 **ADDENDUM to [Postscript 115](#p115), 2026-08-14 — the lineality/verified gap is REAL CURVATURE,
 now that the tool can tell.** The second-order solve searched only the plane of
@@ -8809,6 +8885,8 @@ admit a 3-dimensional space of directions and the second-order condition d'Hd = 
 kills all of them. That is what [Postscript 114](#p114)'s correction argued from `verified = 0`
 at every record, and it is now established rather than inferred — consistent with
 [Postscript 47](#p47)'s Groebner proof that 727 is isolated.
+**[Postscript 114] REINSTATED IN PART, recorded 2026-09-24 ([P117](#p117)):** 727
+is a continuum of dimension 1, not isolated — see [P117]'s note.
 
 `verified` remains a LOWER bound: directions not lying in a coordinate 2-plane of
 the chosen basis are still unreachable. Closing that needs the common zero set of
@@ -8898,6 +8976,33 @@ re-run over all 221 classes is the job that does it.
 ---
 <a id="p117"></a>
 ## Postscript 117: EVERY record is an isolated point — the census completed, and [Postscript 114](#p114) definitively refuted
+<!-- status: corrected-by=P378; corrected-by=P306; corrected-by=P307; corrected-by=P295; corrected-by=P383; fell="EVERY record is an isolated point" | "ALL SIX RECORDS COME BACK EMPTY"; stands="isolation of the n=3 maximisers (63) stands (P382); 393 remains open" -->
+
+> **REFUTED IN PART, recorded 2026-09-24.** "EVERY record is an isolated point" is FALSE for
+> four of the six records listed, each of which is now known to lie on a CONTINUUM of its own
+> count:
+>
+>     183   n = 4   an arc, both classes, count constant along it     [P378](#p378)
+>     727   n = 6   1-dimensional plateau                             [P306](#p306), [P307](#p307)
+>                   (already a plateau in [P79](#p79)/[P80](#p80), BEFORE this entry)
+>     1217  n = 7   2-dimensional plateau                             [P295](#p295), [P307](#p307)
+>     1895  n = 8   3-dimensional plateau                             [P383](#p383)
+>     393   n = 5   OPEN: tangent dimension 1 ([P381](#p381)), plateau never measured
+>     63    (the n = 6 record's top 3-subset)  never re-examined
+>
+> **The method is not evidence for the two that remain.** [P288] found a wrong formula in the
+> wall polynomials that "had been silently reporting ISOLATED"; fixed, n = 7 and n = 8 read
+> not-isolated. At n = 4 and n = 6 the second-order verdict still reads empty against measured
+> continua; [P378] attributes the conflict to concurrency conditions of this era later shown
+> spurious ([P321], [P323]). That is a hypothesis, not a demonstration. **So "second-order
+> variety EMPTY" below does not establish isolation anywhere,** including 393.
+>
+> Two further claims below fall with it: *"records are points; the positive-dimensional loci
+> belong to the LOWER-count classes"* is false, and so is *"[P114] is refuted outright"*. [P114]
+> said every level's best lies on a locus of dimension 1, which is what 183 and 727 do; its
+> error was only "exactly", since 1217 and 1895 have dimension 2 and 3. The isolation of the
+> n = 3 maximisers, which this entry does not list, stands ([P382](#p382)): the 67 sits at an
+> ENDPOINT of its own arc.
 
 `census_variety.py` over all 221 (count, profile) classes of the n = 6..9 records,
 using the validated incremental solver ([Postscript 116](#p116)) and engine-verifying every
@@ -8934,6 +9039,7 @@ returned EMPTY.
 
 <a id="p118"></a>
 ## Postscript 118: the two 67s enter the machinery at last — both are ISOLATED, by enumerating every face rather than probing directions
+<!-- status: corrected-by=P119; fell="ε now halves from 1/64 until two consecutive steps agree"; stands="both 67s isolated, 0 faces reaching 67, verdict unaffected; only the adaptive-eps METHOD and its face counts fell" -->
 
 The n = 3 maximisers are the only records every crossing-based result has
 skipped, because both live outside ℚ — octahedral in ℚ(√2), golden in ℚ(√5) —
@@ -9059,12 +9165,14 @@ stronger than it.**
 
 <a id="p119"></a>
 ## Postscript 119: an ordered field containing an infinitesimal — the step size is gone, and it immediately falsified 36 faces measured by halving
+<!-- status: corrects=P118 -->
 
 Every displaced count this project has ever taken is count(base + ε·d) for a
 finite ε. A finite ε is a SAMPLE, and [Postscript 118](#p118) showed it failing in
 the open: 333 of 2196 faces at the golden 67 disagreed across three fixed step
 sizes, always with the coarsest step dissenting, because the step left the face
 across one of the loose walls sitting at positive distance from the vertex.
+<!-- reviewed 2026-09-24: this is P119's own discussion of the victim it corrects -->
 
 **THE FIX IS ARITHMETIC, NOT A SMALLER NUMBER.** ℚ(√D)(ε), elements truncated
 polynomials ordered by the sign of the lowest-degree nonzero coefficient, is a
@@ -9108,6 +9216,7 @@ derivation stays valid.
 
 **RESULT, AND A CORRECTION TO [Postscript 118](#p118).** Re-running both face
 enumerations with no step size:
+<!-- reviewed 2026-09-24: this is P119's own correction of P118, narrated in prose -->
 
     octahedral   728 faces   IDENTICAL histogram to halving   44s (was 226s)
     golden      2196 faces   36 FACES DISAGREE                383s (was 641s)
@@ -9155,7 +9264,9 @@ sufficient, and a result at one member does not transfer to another.
 confirming [Postscript 117](#p117) without relying on class representatives. Note
 the pattern: the records' LINEALITY rises 1, 2, 3, 4 with n while the locus stays
 a point every time — first-order tangent space and locus dimension diverging
-exactly as [Postscript 117](#p117) says they must.
+exactly as [Postscript 117](#p117) says they must. **REFUTED IN PART, recorded
+2026-09-24 ([P117](#p117)).** 727, 1217 and 1895 are now known to lie on
+continua (dimensions 1, 2, 3); 2785 (n = 9) is not addressed by P117's note.
 
 **THE 57 UNEVALUABLE ARE IN THIS HEADLINE ON PURPOSE**, and the 2 116 "changed"
 carry the [Postscript 119](#p119) caveat: they come from stepping at fixed
@@ -9213,6 +9324,7 @@ namespacing), `diag_stuck.py`, `members_all.json`.
 
 <a id="p121"></a>
 ## Postscript 121: region counts are ODD, by central symmetry — and the rare even ones detect a SHELL
+<!-- status: corrected-by=P130; fell="the count is ODD unless a SECOND self-antipodal region exists"; stands="the parity proof and 'even ⇒ a shell exists' stand; the converse 'odd ⇒ shell-free' does not" -->
 
 Noticed while answering "what surrounds the isolated points": of the 826
 all-members census counts, **820 are odd**; of the 2 331 neighbouring-chamber
@@ -9281,6 +9393,7 @@ n-agnostic; it has simply not been run.
 
 Files: `shells.py`, `isolation67_eps.json` (per-face data), `members_all.json`
 ## Postscript 122: isolated points come in TWO KINDS — the 67s are pinned at first order, every rational record only at second
+<!-- status: corrected-by=P378; corrected-by=P295; corrected-by=P307; corrected-by=P383; fell="isolated only because the second-order" | "Every one has a positive-dimensional tangent space"; stands="the rank/lineality table and 'both 67s have full rank' stand" -->
 
 Asked "how many walls do isolated points lie on?", and the answer separates the
 maximisers into two mechanisms that had been conflated under one word.
@@ -9307,6 +9420,10 @@ maximisers into two mechanisms that had been conflated under one word.
 > record, so the counts below are CORRECT and P122 is reinstated.** The
 > reasoning below stood while the measurement was outstanding.
 >
+> *[The next paragraph is the WITHDRAWN reasoning of the CORRECTED note above, kept as
+> written. Its "NOT ESTABLISHED" was lifted by the RESOLVED line; the paragraph was left
+> below that line, which is why the two appear to contradict. Note added 2026-09-24.]*
+>
 > Consequence, in both directions. The measured rank is a LOWER bound and
 > the measured lineality an UPPER bound, so **the claim below that no
 > rational record has full rank is NOT ESTABLISHED** -- 727 has lineality
@@ -9315,6 +9432,13 @@ maximisers into two mechanisms that had been conflated under one word.
 > of the instrument. What IS unaffected: the isolation results. A missing
 > wall enlarges the search space, and a second-order variety that is EMPTY
 > in the larger space is empty in the smaller.
+>
+> **REFUTED, recorded 2026-09-24: the isolation results are the part that FELL.** The
+> rank and lineality in the table stand, and the lineality column (1, 1, 2, 3 at n = 5..8)
+> matches the later tangent dimensions exactly ([P381](#p381)). But "isolated only because the
+> second-order variety comes back empty" ([P117](#p117)) is false at 183, 727, 1217 and 1895,
+> which are continua. **Wherever both have been measured (n = 4, 6, 7, 8), the lineality WAS
+> the plateau dimension, not a dimension the plateau avoided.** See [P117]'s note.
 
 **BOTH 67s HAVE FULL RANK.** Rank = ambient = 6, lineality 0: they lie on enough
 INDEPENDENT walls to pin them completely, so nothing survives even to first order.
@@ -9330,6 +9454,7 @@ This also explains the neighbourhood asymmetry recorded in [Postscript 121](#p12
 The 67s' faces were enumerable (728 and 2 196, complete) because their walls are
 independent; 727's 27 walls have rank 14, so 26 of them cannot be crossed alone
 and the codimension-1 layer is degenerate.
+<!-- reviewed 2026-09-24: cites the neighbourhood-asymmetry fact, unrelated to the parity converse that fell -->
 
 **AN ARITHMETIC REGIME, AND ITS BOUNDARY.** For n = 6..9 every column is linear:
 
@@ -9373,6 +9498,7 @@ not absent. Files: `wallcount.py`, `record_neighbours.py`, `wallcount.json`.
 [Postscript 122](#p122) reported that every wall at n = 5..9 involves 2 or 3
 cubes and none involves 4. **That is a fact about the instrument, not the
 geometry**, and asking whether it was one was the whole value of the check.
+<!-- reviewed 2026-09-24: cites the wall-arity claim P123 itself is examining, not the isolation-mechanism claim that fell -->
 
 `dimension.py` builds its conditions from Step A (pairs of normals) and Step B
 (triples), so a group names at most THREE cubes BY CONSTRUCTION. The fourth
@@ -9407,6 +9533,8 @@ every isolation result. Omitting walls ENLARGES the space the second-order
 variety is searched in, and EMPTY in a larger space implies empty in a smaller
 one. [Postscript 117](#p117), [120](#p120) and both 67s stand — the 67s doubly so,
 being at full rank already with n = 3, where a 4-cube wall cannot exist.
+**REFUTED IN PART, recorded 2026-09-24 ([P117](#p117)).** The 67s stand, but
+[P117]/[P120]'s isolation of 727, 1217 and 1895 does not — those are continua.
 
 **WHAT IS NEEDED.** A gradient for the (1,1,1,1) condition. The condition is
 "four planes concurrent", i.e. the 4x4 determinant of the four plane equations
@@ -9417,6 +9545,7 @@ Files: `check_4cube_walls.py`, `wall_support.py`, `check_4cube_walls.json`.
 
 <a id="p124"></a>
 ## Postscript 124: δ = 0 — the (1,1,1,1) walls add no rank, and [Postscript 122](#p122) is REINSTATED
+<!-- reviewed 2026-09-24: P124's own heading, narrating its (partial, later superseded) reinstatement of P122 -->
 
 [Postscript 123](#p123) withdrew P122's two-mechanism claim because every rank in
 this project is computed from a wall list that structurally omits the (1,1,1,1)
@@ -9442,6 +9571,7 @@ both 67s are pinned at FIRST order (rank = ambient = 6, lineality 0), and no
 rational record is (lineality 1, 2, 3, 4), and that difference is a fact about the
 configurations rather than an artefact of the condition list. `walls = 24n - 117`
 and `lineality = n - 5` are restored as descriptions of the n ≥ 6 regime.
+<!-- reviewed 2026-09-24: cites the rank/lineality table, which P122's tag says stands -->
 
 **THE GATES THAT MAKE THIS BELIEVABLE**, since the computation was delegated:
 the concurrency determinant was required to evaluate to EXACTLY 0 at the
@@ -9468,6 +9598,7 @@ Fixed to merge rather than overwrite. Files: `quad_walls.py`, `quad_walls.json`.
 
 <a id="p125"></a>
 ## Postscript 125: extension is a THREE-dimensional problem, and only 12 of 6 864 walls are local — the climb is enumerable after all
+<!-- status: corrected-by=self; fell="only 12 of 6 864 walls are local" | "the climb is enumerable after all"; stands="extension is a 3-dimensional problem; 727 is exactly locally maximal under perturbation of its sixth cube" -->
 
 Asked whether the relation between (n-1)-cube walls and n-cube walls helps
 climbing. It does, by a route that rescues the enumeration that failed in
@@ -9582,6 +9713,7 @@ unmeasurable because 183 contains (0,5,3,2), a half-turn at Cayley infinity. Tha
 was an artefact of cube ORDER, not an obstruction: only the PARAMETERISED cubes
 need finite Cayley coordinates, since the gauge cube is frozen and never inverted.
 Reordering to freeze the half-turn:
+<!-- reviewed 2026-09-24: cites P122's measurability note, unrelated to the isolation-mechanism claim that fell -->
 
     183: count 183 | 108 tight | 12 walls | ambient 9 | rank 8 | LINEALITY 1
 
@@ -9661,6 +9793,7 @@ It does. **The n = 2 maximiser is a CONTINUUM** ([Postscript 44](#p44)): 13 hold
 at every angle about a body diagonal, so the arc is full of IRRATIONAL points, and
 each is an irrational MAXIMISER. Evaluated with the Q(sqrt d) port
 ([Postscript 118](#p118)), Cayley point (t,t,t):
+<!-- reviewed 2026-09-24: cites the Q(sqrt d) port, which stands; unrelated to the adaptive-eps method that fell -->
 
     t = sqrt2 - 1           d=2   count 13   3 walls   rank 2 of 3   LINEALITY 1
     t = 1/2 + sqrt2/4       d=2   count 13   3 walls   rank 2 of 3   LINEALITY 1
@@ -9744,6 +9877,7 @@ Files: `shell_field.py`, `shell_field.json`.
 
 <a id="p130"></a>
 ## Postscript 130: the shell detector is one-sided — TWO shells restore odd parity, and the octahedral anomaly was never measured
+<!-- status: corrects=P121 -->
 
 Splitting 3 000 random 3-cube configurations by the parity of each DEPTH, not
 just of the total (count = d1 + d2 + d3, with d3 = 1 always):
@@ -9757,6 +9891,7 @@ just of the total (count = d1 + d2 + d3, with d3 = 1 always):
 #{self-antipodal regions} (mod 2), so an EVEN count implies a shell. The converse
 — odd implies shell-free — was never proved, and those 3 configurations show it is
 FALSE: an even number of shells is invisible to parity.
+<!-- reviewed 2026-09-24: this is P130's own correction of P121, cites the part that stands -->
 
 **WHAT THIS COSTS.** [Postscript 129](#p129) sharpened the shell question to "the
 octahedral 67 has ZERO shells where ~70 are predicted". That anomaly is NOT
@@ -9803,6 +9938,7 @@ reach, and the subset-spectrum constraint points straight at it.
 making that triple a 67 is determined up to FINITELY MANY completions. Enumerating
 them is exact, where `extend67.py` had been sampling the same object blindly
 (11 927 random tries, best 177).
+<!-- reviewed 2026-09-24: cites the 67s' full-rank/lineality fact, which P122's tag says stands -->
 
 **RESULT — a complete enumeration, 960 candidates, ZERO engine refusals:**
 
@@ -9853,6 +9989,7 @@ rather than that the space is empty. The next exact construction would be
 compounds carrying ONE 67 triple and optimising the fourth cube over the wall
 chambers, which is the extension-chamber machinery ([Postscript 125](#p125))
 applied against an irrational base.
+<!-- reviewed 2026-09-24: cites P125's surviving 3-dimensional extension framing, not the "12 of 6864" claim that fell -->
 
 <a id="p132"></a>
 ## Postscript 132: the 2026-08-18 campaigns sampled where they should have SOLVED — records live on measure-zero sets
@@ -9916,6 +10053,7 @@ quadric along that line gives a quadratic in one parameter whose roots are
 rational or Q(sqrt d). [Postscript 60](#p60) records exactly this — *"every
 irrational 727 arose as a root of a quadratic on a rational line"* — and it is
 how the 67s arise too.
+<!-- reviewed 2026-09-24: cites P60's quadric-on-a-rational-line mechanism, which its tag says stands, not the "confined to the seams" claim that fell -->
 
 Twice in one hour, then: a method was proposed without checking what the record
 already established about it. The first cost four campaigns; the second was
@@ -10019,6 +10157,7 @@ mismatch" (39) — and NOT overflow-budget rejections; component magnitudes stay
 far below the ceiling. Elsewhere today refusals were budget rejections
 ([Postscript 122](#p122)), so "refused" does not mean one thing and the reason
 must be read, not assumed.
+<!-- reviewed 2026-09-24: cites P122's budget-rejection measurement, unrelated to the isolation-mechanism claim that fell -->
 
 **AN OPERATIONAL LESSON, arrived at independently.** The campaign's first full run
 completed ~27 minutes of engine work and then crashed on its first hill-climb
@@ -10071,6 +10210,15 @@ POINT — and it was used to point.
 
 Files: `sixtyseven_glue.py` -> `sixtyseven_glue.json`; `irrational_n45.py` -> `irrational_n45.json`
 ## Postscript 136: the two 183s lie on 88 COMMON walls, cutting a 1-dimensional locus through both
+<!-- status: corrected-by=P378; corrected-by=P380; fell="The count is NOT constant along it"; stands="the 88 shared walls and the 1-dimensional common locus stand" -->
+
+> **CORRECTED IN PART 2026-09-20 by [P378](#p378) and [P380](#p380).** The 1-dimensional
+> curve through the record stands — [P378] rediscovered it, and credits this entry as prior art.
+> **Two conclusions drawn from it do not.** (1) *"The count is NOT constant along it — both
+> points are isolated"* is FALSE: continuation holds 183 along an arc of length 0.687; the
+> inference leaned on [P287]'s straight-line isolation. (2) The prediction that the curve runs
+> through the SECOND 183 class is FALSE: [P380] proves the two classes lie on distinct arcs
+> (distance is 1-Lipschitz in arc length, and the gap exceeds the arc).
 
 [Postscript 133](#p133) found 183 is a plateau with two non-congruent isolated
 members. Asked whether isolated points share walls:
@@ -10118,6 +10266,7 @@ members" into a count. Files: `shared_walls.py`, `shared_locus.py`.
 
 Wall membership compared across configurations by combinatorial LABEL
 ([Postscript 136](#p136)):
+<!-- reviewed 2026-09-24: cites P136's label-comparison method, unrelated to the "count not constant" claim that fell -->
 
                     67 oct   67 gold   183 c1   183 c2   393      727
     67 octahedral   60/60    60/60     48/60    48/60    36/60    36/60
@@ -10153,6 +10302,7 @@ cube lying along an axis of another — cube ALIGNMENT. Both 67s have none, whil
 the two 183s differ from each other precisely in their singletons
 ([Postscript 136](#p136)). Alignment coincidences are absent at n = 3 and
 discriminating at n = 4.
+<!-- reviewed 2026-09-24: cites P136's singleton-asymmetry fact, unrelated to the "count not constant" claim that fell -->
 
 **A LIMIT OF THE METHOD, stated because the matrix invites over-reading.** Labels
 are INDEX-DEPENDENT. 393 and 727 share 168/168 because 727 is literally 393 plus a
@@ -10304,6 +10454,7 @@ independent and 4 are combinations of the rest. Crossing one necessarily drags
 companions. Same at 727 (26 of 27 entangled, [Postscript 122](#p122)) and at the
 golden 67 (all 9 entangled, [Postscript 118](#p118)). **The octahedral 67 is the
 exception**, with 6 INDEPENDENT walls where single crossings exist at all.
+<!-- reviewed 2026-09-24: cites P122's and P118's entanglement counts, unaffected by either's fall -->
 
 **THIS EXPLAINS THE CLIFF.** The neighbourhood of a maximiser drops 4 to 12 regions
 with nothing in between — 63 from 67, 715 from 727, 1211 from 1217. Now the reason
@@ -10325,6 +10476,7 @@ one that already worked: enumerate the chambers of the whole local arrangement a
 jump, accepting that every jump is a multi-wall move ([Postscript 125](#p125),
 [131](#p131)). That is why chamber enumeration succeeded at 727 where the facet
 approach returned nothing.
+<!-- reviewed 2026-09-24: cites P125's surviving chamber-enumeration/3-dimensional-extension result, not the claim that fell -->
 
 **A METHOD NOTE.** The full face enumeration at 183 was attempted first and did NOT
 finish — 12 walls in ambient 9 is a nominal 3^12 tree against the 67s' 3^6 and 3^9,
@@ -10816,6 +10968,7 @@ distinct exact decisions.
 the face enumeration is 3^27 at 727 and died, and single-wall crossings do not
 exist because all walls are entangled ([P140](#p140)). This is the first one
 closed.
+<!-- reviewed 2026-09-24: cites P122's neighbourhood-measurement-failure note, unrelated to the isolation-mechanism claim that fell -->
 
 | | |
 |---|---|
@@ -12504,6 +12657,7 @@ postscript.
 <a id="p175"></a>
 
 ## Postscript 175: CORRECTION — the rank deficit is not a plateau, and the "loose cube" reading of P173/P174 is wrong
+<!-- status: corrected-by=P184; fell="Every one drops immediately" | "A direction crossing no wall still changes the"; stands="right at 727, the rung measured here; wrong as a general statement across n ≥ 7" -->
 
 Prompted by the question "do all points on a plateau generate the same tower?",
 which required first establishing that the deficit directions ARE plateaus. They
@@ -13351,6 +13505,7 @@ Files: `extend_n10.py`, `extend_n10.log`, `extend_n10.json`.
 <a id="p182"></a>
 
 ## [OBSERVED (endpoint half RETRACTED by P188)] Postscript 182: every rung tested is a CONTINUUM, and the recorded member is always an ENDPOINT of it
+<!-- status: corrected-by=P188; corrected-by=P183; fell="the recorded configuration is an ENDPOINT" | "727's locus is still unevaluated"; stands="continuum existence at each rung, and the solved 13-pair curves at 1217/2785" -->
 
 `rungshapes.py`, `refine_shapes.py`, `locus727.py`. Answers [OQ 9](OPEN_QUESTIONS.md)'s
 "untried: the shape of the 727, 1217 and 1895 loci", and changes what the tower is.
@@ -13452,6 +13607,7 @@ Files: `rungshapes.py`, `rungshapes.log`, `refine_shapes.py`, `refine_shapes.log
 <a id="p183"></a>
 
 ## [OBSERVED (CORRECTED by P187/P188)] Postscript 183: continuum registry audit — one rung is documented to standard and the rest are not, and P182 got 727 wrong
+<!-- status: corrected-by=P187; corrected-by=P188; corrects=P182; fell="sampled direction, NOT solved"; stands="the audit method, and 727's re-discovery of documented arc D" -->
 
 Prompted by the question "are all continua paths and endpoints documented?". The
 answer is no, and the audit found three errors, one of them mine from this session.
@@ -13523,6 +13679,7 @@ The UPPER end is a real boundary — the next step drops to 2781. The lower end 
 where the sweep window started. [P182](#p182)'s wide-engine sweep of the same curve
 found 2785 still holding at |t| = 3278/13335 ~ 0.24582, below 220/889 ~ 0.24747.
 **The continuum extends past its recorded left end**, and no bound there is known.
+<!-- reviewed 2026-09-24: cites P182's solved 13-pair curve sweep, which its tag says stands -->
 
 ### Error 3, already on record and worth re-surfacing: ends cannot be certified above n = 8
 
@@ -13556,6 +13713,7 @@ Files: `rungshapes.py`, `locus727.py`, `locus727.log`, `MAXIMISER_TAXONOMY.md`.
 <a id="p184"></a>
 
 ## [VERIFIED] Postscript 184: CORRECTION to P175 — null directions DO preserve the count, and the preserving set is a hyperplane
+<!-- status: corrects=P175 -->
 
 Prompted by the observation "I think we implemented epsilon as a step size". The
 engine did not; **[P175](#p175) did.**
@@ -13778,6 +13936,7 @@ Files: `extend_1217.py`, `extend_1217.log`, `extend_1217.json`.
 <a id="p187"></a>
 
 ## [VERIFIED (ends SUPERSEDED by P192)] Postscript 187: the n = 9 continuum's ends, SOLVED — and METHODS 7's bracket was on one side of the wall
+<!-- status: corrects=P183; corrected-by=P192 -->
 
 `solve_more_ends.py`, `n9_upper.py`. Prompted by "I'd like to solve any other
 feasible endpoints". [P183](#p183)/[OQ 13](OPEN_QUESTIONS.md) had said endpoints were
@@ -13844,6 +14003,7 @@ Files: `solve_more_ends.py`, `solve_more_ends.log`, `n9_upper.py`, `n9_upper.log
 <a id="p188"></a>
 
 ## [VERIFIED] Postscript 188: RETRACTION — "the recorded member sits at an ENDPOINT" is false in every case, and each was a different sweep artifact
+<!-- status: corrects=P182 -->
 
 [P182](#p182)'s headline was: *"In all four intervals containing the recorded
 configuration, the recorded configuration is an ENDPOINT. Never interior."* It is
@@ -13880,6 +14040,7 @@ The record is **INTERIOR**. (The level set is also punctured at t = 1, count 189
 window started, not a boundary. [P187](#p187) then solved the k-line: the record sits
 at s = 0 inside (-4.029e-6, +0.0325037). **INTERIOR**, though very asymmetrically
 placed, which is presumably what made the artifact plausible.
+<!-- reviewed 2026-09-24: cites P183's audit finding, part of what its tag says stands -->
 
 ### The part that should not have been written
 
@@ -13914,6 +14075,7 @@ Files: `refine_shapes.py` (window [0,4] — the defect is in the HITS table),
 <a id="p189"></a>
 
 ## [OBSERVED (SUPERSEDED by P192)] Postscript 189: every tower end n=7..9 is SOLVED, all open, and every one drops by exactly 2 — plus an out-of-sample test P184 could have failed
+<!-- status: corrected-by=P192; fell="every one an algebraic irrational, every one OPEN, and every one drops by"; stands="the P184 out-of-sample confirmation at n=3,4,5 stands; the quartic-factors-over-Q finding for 1895's lower end stands" -->
 
 Three results from "anything to run now?", in increasing order of what they cost.
 
@@ -13941,6 +14103,7 @@ directions both are **[0,1,0]** — and so is the k-family line [P187](#p187) so
 One line, described three ways. With [P188](#p188)'s retraction of the endpoint claim
 and the 1217 curve also turning out to be the Cayley axis (1,0,0), very little of
 P182 remains beyond "these rungs are continua".
+<!-- reviewed 2026-09-24: this is P189's own accounting of what stands (and how little does) in P182 -->
 
 ### 3. The last unsolved end, and "out of reach" was about the representation
 
@@ -14022,6 +14185,7 @@ those are exactly the two recovered. 0 unevaluated.
 **n=10 = 3913 is a CONTINUUM.** A count constant at pt + eps*v is constant on a real
 interval, so this is a genuine locus and not a first-order artefact. Its ends are
 solvable by the [P187](#p187)/[P189](#p189) machinery — running as `n10_ends.py`.
+<!-- reviewed 2026-09-24: cites the general endpoint-solving machinery, not specific endpoint values later corrected by P192 -->
 
 **n=4 = 183 shows no tangent at all**, and this is the first rung where the search
 came back empty with nothing unevaluated. Together with [P189](#p189)'s eps result
@@ -14113,9 +14277,11 @@ Files: `arc_eps.py`, `arc_eps.log`, `n10_ends.py`.
 <a id="p192"></a>
 
 ## [VERIFIED] Postscript 192: the endpoint solver had two defects; [P189](#p189)'s table reported the wrong components
+<!-- status: corrects=P189; corrects=P187 -->
 
 `allends.py`. Superseding the endpoint rows of [P187](#p187) and [P189](#p189).
 Nothing about the CONTINUA changes; what changes is which boundary was measured.
+<!-- reviewed 2026-09-24: this is P192's own statement of what it supersedes in P187/P189 -->
 
 ### Defect 1 — a lossy dedup made the walk step over intervals
 
@@ -14140,6 +14306,7 @@ exactly that.
 n=9's upper boundary is not a wall at all: walking up from the record reaches the
 cube-duplication puncture at s = 1/56 ([P187](#p187)) before any wall, so the
 component ends there.
+<!-- reviewed 2026-09-24: cites P187's puncture location, which P192 reuses as still correct -->
 
 **[P189](#p189)'s table measured OUTER components.** Its -0.045258752093 (n=7) and
 +0.101360157756 (n=8) are real walls with the counts reported, but the level sets are
@@ -14256,6 +14423,7 @@ The plateau is strongly ASYMMETRIC about the record — extending ~40x further i
 than -s on the first tangent, ~10x on the second. And the count immediately outside is
 **3913 on all four sides**, a drop of 4, where the ends measured at n=7..9 dropped by
 2 ([P189](#p189), now unfinished per [P192](#p192)).
+<!-- reviewed 2026-09-24: already notes P189's ends are superseded by P192 in its own prose -->
 
 Max on both lines is 3917; no improvement found along either.
 
@@ -14371,6 +14539,7 @@ Prompted by "so 2785 is also a 2-d region." It is not, where the moving cube mov
 1-dimensional in the slice and 3917's is 2-dimensional, and the reason is visible in
 the normals: 3917's slice carries two parallel normals, leaving a 2-dimensional
 orthogonal complement, where 2785's carries sixteen.
+<!-- reviewed 2026-09-24: cites the k-line direction P187 solved, not the endpoint values P192 corrected -->
 
 **Both are bigger than any sweep has seen.** [P184](#p184) gives preserving dimension
 = deficit - 1, so 2785 (deficit 4) is 3-dimensional and 3917 (deficit 6) is
@@ -14378,6 +14547,7 @@ orthogonal complement, where 2785's carries sixteen.
 invisible to every sweep in this project, all of which move only the last one.
 [P187](#p187)'s endpoint work therefore traced one line through a 3-dimensional
 object — the same understatement as sweeping 3917's surface one line at a time.
+<!-- reviewed 2026-09-24: notes a scope limitation of P187's endpoint work, unaffected by P192's numeric correction -->
 
 Files: `sub3917.py`, `sub3917.log`, `scan3917.py`, `scan3917.log`, `dim3917.py`,
 `dim2785.py`, `dim2785.log`.
@@ -14385,6 +14555,7 @@ Files: `sub3917.py`, `sub3917.log`, `scan3917.py`, `scan3917.log`, `dim3917.py`,
 <a id="p195"></a>
 
 ## [OBSERVED (RETRACTED by P196)] Postscript 195: the locus dimension is the DEFICIT — [P162](#p162) vindicated, at three records of four
+<!-- status: corrected-by=P196; fell="Dimension = deficit, exactly, at 727, 1895 and 2785" | "P162 is reinstated"; stands="nothing of this entry's claim stands; retracted in full. Correct values (deficit - 1) confirmed independently by P196" -->
 
 > **RETRACTED IN FULL 2026-08-31 — [P196](#p196).** This entry reported `len(list)`
 > as a dimension without ever testing linear independence. Measured by RANK, the
@@ -14463,6 +14634,7 @@ Files: `map_geometry.py`, `map_geometry.log`.
 <a id="p196"></a>
 
 ## [VERIFIED] Postscript 196: RETRACTION of [P195](#p195) — it counted VECTORS and called them dimensions
+<!-- status: corrects=P195 -->
 
 `rank_geometry.py`. P195 was recorded an hour before this and is wrong.
 
@@ -14636,6 +14808,7 @@ wall — with a fine step and bisection to the first crossing:
                         {0,5,6} at 0.0226, {3,4,5,7} at 0.0417 = exactly 1/24
     n=9 2785 (rank 3):  walls {1,3,6} at 0.0026, {0,6,8} at 4.4e-6, {3,6,7} at 0.101,
                         {8} at 1/56 exactly — the cube-duplication PUNCTURE ([P187])
+<!-- reviewed 2026-09-24: cites P187's puncture location, unaffected by P192's endpoint-value correction -->
 
 The regions are extremely anisotropic: at 1895 the nearest wall is 30x closer than the
 farthest; at 2785 one wall sits at 4.4e-6 and another at 0.101, a factor of 23 000.
@@ -16272,6 +16445,7 @@ Files: `census.py`, `census_merge.py`, `signature.py`, `realsig.py`, `signed_sig
 <a id="p223"></a>
 
 ## [REVERSED] Postscript 223: filtering before counting is dead — measured twice, built never
+<!-- status: corrected-by=P231; fell="filtering before counting is dead"; stands="the OQ 20 stderr/JSON diagnosis of silent engine refusals stands" -->
 
 > **REVERSED 2026-09-07 by [P231](#p231).** Filtering pays. Three things were wrong here:
 > the statistic was costed in a `Fraction` implementation 10× slower than an exact integer
@@ -16516,6 +16690,7 @@ Files: `n5family.py`, `SESSION_STATE.md`.
 
 *Written 2026-09-07, correcting [P222](#p222), [P223](#p223) and everything downstream of
 `signature.py`.*
+<!-- reviewed 2026-09-24: this is P227's own note declaring it corrects P223 -->
 
 **The bug.** `concurrence.planes()` built each cube's six face normals from the ROWS of its
 rotation matrix. In world coordinates the face normals are the COLUMNS; the rows are the
@@ -16836,6 +17011,7 @@ Files: `extend_n5.py`, `extend_n5_report.py`, `congruent.py`, `n5family_classes.
 <a id="p231"></a>
 
 ## [VERIFIED] Postscript 231: the full census re-signed — filtering is NOT dead, and the statistic that was crowned is the one that is worthless
+<!-- status: corrects=P223 -->
 
 *2026-09-07.* All **3 135 491** census rows re-signed with the corrected face normals
 ([P227]), 2 171 excluded for having no count. One incidence pass per row produced all four
@@ -16888,6 +17064,7 @@ exactly this. Unevaluable is not a negative result; neither is unevaluated.
     mean 115.5 122.0 112.1 128.0 106.7 123.0 136.1 120.9  13.0 133.4
 
 ### 4. [P223] IS REVERSED — filtering pays
+<!-- reviewed 2026-09-24: this is P231's own heading reversing P223 -->
 
 Three compounding errors killed it. **(a)** The economics were measured with a `Fraction`
 implementation. Every decision here is an exact sign test with a bounded multiply chain, so
@@ -16916,6 +17093,7 @@ mediocre-high configurations and none of the best.
 with n because the statistic is C(6n,3) solves. Measured: **0.22× (n=4), 0.28×, 0.29×,
 0.31×, 0.30× (n=8)** — it worsens slightly and then flattens, staying far below the 25 %
 break-even through n=8.
+<!-- reviewed 2026-09-24: this is P231's own test refuting P223's n-scaling objection -->
 
 ### 5. A data-quality finding, unlooked for
 
@@ -17600,6 +17778,17 @@ Files: `v3_outer.py`, `pair_term.py`.
 <a id="p243"></a>
 
 ## [VERIFIED] Postscript 243: Euler applies at EVERY depth — and the coincidence obstacle lives only at depth 1
+<!-- status: corrected-by=P274; fell="is proved for every ell >= 2 with no" | "identically **zero**" | "for every n and every ℓ ≥ 2, at EVERY configuration"; stands="the level identity d_ell = E_ell - V_ell + c_ell + 1 (the reformulation of the l >= 2 ceiling law does NOT stand: it is exact only when no two-body vertex lies below depth 1)" -->
+
+> **REFUTED IN PART, recorded 2026-09-24.** The in-place note below corrects the observation
+> ("two-body term identically zero at ell >= 2") but not what was built on it: consequence 1,
+> "`d_ell <= 108*C(n,3) + 2` is proved for every ell >= 2", is argued FROM that observation ("there
+> is no such term to drop"), so it falls with it. `tau3 = 2` occurs on simple configurations
+> ([P274](#p274)). The bound is not known to fail, and is loose by a factor of about five, but its
+> proof omits the two-body term exactly as [P235]'s depth-1 bound did before [P237] repaired it.
+> Consequently [P249]'s summed total, 953 at n = 4, is not proved either. **Consequence 2 falls
+> too**: `d_ell = (3-body gain) + 2` is exact only when no two-body vertex lies at depth ell, so the
+> ceiling law for l >= 2 is NOT equivalent to `3-body gain <= C(n-ell,n) - 2` in general.
 
 *2026-09-07.* A user question: can the Euler count be applied by level? Yes, exactly, and the
 answer reduces the conjectured ceiling law to a single quantity.
@@ -17617,6 +17806,7 @@ non-degenerate census configurations have `c_ell = 2` ([P245](#p245); an earlier
 The identity carries `c_ell` as a term and is unaffected; any closed form that substitutes 1
 for it is not.
 [P236] was the ell = 1 case of this.
+<!-- reviewed 2026-09-24: already narrates P245's "up to 16" correction to 2, by P246, in its own prose -->
 
 **And the decomposition says where the difficulty is.**
 
@@ -17664,6 +17854,7 @@ Files: `v3_outer.py`.
 *2026-09-07.* A user question following [P243]: limits on depth counts are now limits on Euler
 counts at depth — is that derivable from the radius signature? Partly, and the partition is
 clean at the extremes and genuinely ambiguous in the middle.
+<!-- reviewed 2026-09-24: passing mention, motivation only, not building on the claim that fell -->
 
 **The geometric constraint.** With side-2 cubes a corner sits at `r² = 3`, an edge point in
 `[2,3]`, a face point in `[1,3]`. So a vertex at `r² < 2` is strictly interior to every face
@@ -17699,12 +17890,16 @@ subsumes the other.
 exactly 2, and by [P240] these are shared corners, i.e. 13-pairs. Since [P243] shows the
 two-body term vanishes at every level `ell >= 2`, all `r² = 3` vertices live at depth 1 — which
 is [P242]'s frustration seen once more, now as a statement about a single radius value.
+**REFUTED 2026-09-08 ([P274](#p274)):** the premise, "the two-body term vanishes at every
+`ell >= 2`", is false (`tau3 = 2` on verified simple configurations), so this corollary is
+not established either.
 
 Files: `radii.py`, `v3_outer.py`.
 
 <a id="p245"></a>
 
 ## [VERIFIED] Postscript 245: a cross-level Euler identity — the whole count is `E − Σ m_v + 2n − 1`
+<!-- status: corrected-by=P246; fell="up to c = 16"; stands="the Euler identity itself stands unconditionally; c_ell != 1 is real but rare and reaches only 2, not 16" -->
 
 *2026-09-07.* A user question following [P243]/[P244]: can Euler counts constrain which depth
 profiles are possible? Yes, and the constraint is a single exact identity.
@@ -17712,6 +17907,7 @@ profiles are possible? Yes, and the constraint is a single exact identity.
 **Each arc lies at exactly one level** — an arc on `∂A_i ∩ ∂A_j` with s other cubes strictly
 containing it belongs to `∂U_{s+1}` and to nothing else. **Each vertex may lie at several.**
 Summing [P243]'s per-level identity over ell:
+<!-- reviewed 2026-09-24: cites P243's level identity d_ell = E_ell - V_ell + c_ell + 1, which its tag says stands -->
 
     SUM_ell d_ell  =  E_tot  -  SUM_ell V_ell  +  SUM_ell (c_ell + 1)
 
@@ -17778,6 +17974,7 @@ Files: `v3_outer.py`.
 <a id="p246"></a>
 
 ## [VERIFIED] Postscript 246: [OQ 23] answered — the engine passes its first external gate, the arc pipeline fails on shared face planes
+<!-- status: corrects=P245 -->
 
 *2026-09-07.* [OQ 23](OPEN_QUESTIONS.md) asked whether the depth machinery is gated against
 anything with a known answer. It was not. Now it is, and the two halves give opposite answers.
@@ -17888,6 +18085,7 @@ Files: `c_lever.log`.
 
 *2026-09-07.* [OQ 28] asked for a lower bound on `Σ_v m_v`, the one piece missing between
 [P245]'s identity and a real cap on the total. It is not a bound; it is an equality.
+<!-- reviewed 2026-09-24: cites P245's Euler identity, which its tag says stands unconditionally -->
 
 **The local law.** At a vertex v, let `b_v` be the number of bodies whose boundary contains v
 and `m_v` the number of depth levels its incident arcs occupy. Then
@@ -17932,6 +18130,14 @@ Files: `mv_law.log`.
 <a id="p249"></a>
 
 ## [VERIFIED] Postscript 249: the first PROVED upper bounds on max(n) for n >= 4
+<!-- status: corrected-by=P274; fell="max(n) ≤ 953" | "max(4) <= 953" | "[183, 953]"; stands="d1 <= 108*C(n,3) + 10*C(n,2) + 2 ([P237]), the l = 1 ceiling law, the method of summing per-depth bounds" -->
+
+> **Scope note, recorded 2026-09-24.** This total sums [P243]'s bound for every depth >= 2, whose
+> proof assumed no two-body vertices below depth 1. [P274] refuted that on 2026-09-08, so the
+> 953 at n = 4, and the whole row, is **not proved**: it needs a two-body term at each depth >= 2,
+> as [P237] supplied at depth 1. It is almost certainly true (the per-depth bounds are about five
+> times the records), and the repair looks mechanical, but it has not been made. No bound on
+> `max(4)` without a hypothesis is currently established.
 
 *2026-09-07.* Prompted by a user observation — *a better upper bound seems as good as a
 better lower bound* — which exposed that **this project has never had an upper bound on the
@@ -17943,6 +18149,7 @@ them gives one.
     d_ell     <= 108*C(n,3) + 2   (2<=ell<=n-2) [P243]  the two-body term vanishes there
     d_(n-1)   <= 6n                             PROVED, the l=1 ceiling law
     d_n        = 1                              the core
+<!-- reviewed 2026-09-24: the d_ell row uses P243's premise that fell; already addressed by this entry's own Scope note above -->
 
 | n | record | **PROVED ≤** | ratio | conjectured cap | ratio |
 |---|---|---|---|---|---|
@@ -17963,6 +18170,7 @@ and it is astonishingly tight — the records sit at **1.07–1.10×** the cap s
 4 to 10. Proving it would collapse the n=4 interval from [183, 953] to [183, 195], i.e. put
 max(4) within 7 % of the record. [P243] reduced that conjecture, for every l >= 2, to the
 single statement `3-body gain <= C(n−ell,n) − 2` — no coincidence term, no genericity.
+**REFUTED IN PART 2026-09-08 ([P274](#p274)):** the reduction holds only when no two-body vertex lies below depth 1, and `tau3 = 2` occurs.
 
 **And the identity of [P248] should beat all of this**, because summing per-layer bounds
 triple-counts: `TOTAL = E − Σ_v (b_v − 1) + 2L + 1` bounds the total in one step rather than
@@ -17982,6 +18190,7 @@ comparison is not decisive, but the formula predicts max(6) = 729 against a reco
 max(10) = 4261 against 3925, so it is either wrong or every record from n = 6 up is beatable.
 
 Files: computed from [P237], [P243]; no new code.
+<!-- reviewed 2026-09-24: passing files-provenance note, not a claim built on what fell -->
 
 <a id="p250"></a>
 
@@ -18020,6 +18229,7 @@ bound:
    degree 3, i.e. `d_ell = V3(ell)/2 + c + 1`. The claim becomes an exact count of triple
    points that lie inside exactly `ell-1` cubes, in general position. That is a combinatorial
    identity, not an estimate.
+   <!-- reviewed 2026-09-24: cites P243's level identity (stands) under a generic-position hypothesis, not the universal "always vanishes" claim that fell -->
 2. **Show coincidence only reduces.** Merging vertices raises degree, and [P240]'s arithmetic
    already shows a higher-multiplicity point buys less gain per plane-triple consumed than
    the simple points it replaces — the same convexity that made [P237]'s charging work.
@@ -18032,7 +18242,9 @@ to be exceeded. Neither happened in 1 970 configurations at n = 5..7 or 3.1M at 
 **What it would buy.** Proving it collapses the n=4 interval from **[183, 953]** ([P249]) to
 **[183, 195]**. Note the bound would still be loose at ell = 1 — `d1 <= 104` against a
 measured maximum of 96 — so even a full proof leaves max(4) undetermined in [183, 195]. The
-remaining 12 is the frustration [P242] located.
+remaining 12 is the frustration [P242] located. **PROOF GAP, recorded 2026-09-24 ([P249](#p249)):**
+953 is not proved (its proof omitted the two-body term at depth >= 2), so there is currently no
+established upper interval to collapse.
 
 Files: `ceiling_test.log`.
 
@@ -18047,6 +18259,7 @@ its payoff is 758 regions of interval against 12 and it is a prerequisite for th
 so [P243] gives `d_ell = V3(ell)/2 + 2`. Substituting the conjectured cap
 `C(l,n) = (12l-6)n - 2(l^2-1)` with `l = n - ell` turns the conjecture into a prediction about
 the arrangement itself, with no reference to region counting:
+<!-- reviewed 2026-09-24: cites P243's identity under a generic-position hypothesis, not the universal claim that fell -->
 
     V3(ell)  =  (24l - 12) n  -  4 l^2
 
@@ -18145,6 +18358,8 @@ failed is worth more than the refinement would have been.
 **All of the slack is at depth 1**, and by [P243] depth 1 is the *only* level carrying a
 two-body term. The ceiling law is a pure three-body count being asked to cover the one level
 with two contributions. That diagnosis stands and locates the refinement exactly.
+**REFUTED 2026-09-08 ([P274](#p274)):** depth 1 is not the only level carrying a two-body
+term; `tau3 = 2` occurs at deeper levels on verified simple configurations.
 
 **The refinement that fails.** Depth-1 three-body counts from a 30-draw sweep read 80, 140,
 200, 260 at n = 4..7 — differences of exactly 60 — suggesting `V3(depth 1) = 60n − 160`. With
@@ -18174,6 +18389,7 @@ is not:
 so **a refined depth-1 bound needs exactly one missing piece: a PROVED upper bound on V3 at
 depth 1.** That is a well-posed question about triple points on the outer boundary, it is the
 only place the ceiling law is loose, and nothing about it is known beyond samples.
+<!-- reviewed 2026-09-24: cites P243's depth-1 three-body relation, unaffected by the ell>=2 claim that fell -->
 
 **Method note.** This is the third time today a small sample produced a law that a slightly
 larger sample broke ([P233], [P245], here). The distinguishing feature of this one is that the
@@ -18297,6 +18513,7 @@ approaching it, or tightening a conditional one. It does all three, and the thir
 [P255] showed the layers are NOT independent: a configuration attaining all four deep caps at
 n=6 reaches only 657, while the record gives up 2, 8 and 2 there to take 82 at depth 1 and
 totals 727. Summing caps therefore adds a maximum that cannot be jointly realised.
+<!-- reviewed 2026-09-24: cites P249's method (summing per-layer caps), which its tag says stands, not the 953 figure that fell -->
 
 **The joint quantity, measured** (~1 000 configurations per n from the record neighbourhood,
 Haar and shared-axis ensembles):
@@ -18367,6 +18584,7 @@ and `|V1 ∩ V2|` reproduces [P251]'s depth-1 triple-point counts exactly.
     V3(depth 1) enters  d1        with coefficient  +1/2     ([P243]: it IS the 3-body gain)
     V3(depth 1) enters  d1 + d2   with coefficient  -1       (shared, subtracted twice)
     hence it enters     d2        with coefficient  -3/2
+<!-- reviewed 2026-09-24: cites P243's depth-1 three-body relation, unaffected by the ell>=2 claim that fell -->
 
 **Every depth-1 triple point buys half a region at depth 1 and costs one and a half at depth
 2.** That is the frustration of [P242] and [P255] as an identity rather than a correlation
@@ -18391,6 +18609,7 @@ path to break it? They support it, in a way that is stronger than the law itself
 
 **At each level ell >= 2 Euler does not add anything**: [P243] makes `d_ell <= C(n-ell,n)`
 equivalent to `V3(ell) <= 2(C(n-ell,n) - 2)`, a reformulation rather than support.
+**REFUTED IN PART 2026-09-08 ([P274](#p274)):** the equivalence holds only when no two-body vertex lies below depth 1, and `tau3 = 2` occurs.
 
 **In AGGREGATE it does.** Each triple point lies at exactly 2 levels ([P248]: `m_v = b_v - 1`),
 so `Σ_ell V3(ell) = 2T`, and `T <= 32*C(n,3)` is PROVED — PROOF_67's Lemma 1a applied per
@@ -18415,6 +18634,7 @@ ceiling of 256.
 Tested on 101 n=4 configurations: **exact on 56, wrong on 45**, always low by 2. The cause is
 the term I replaced: the true identity carries `Σ_ell (c_ell + 1)`, not `2L`, and `c_ell = 1`
 is not universal ([P245] correction). Each level with `c_ell = 2` adds 1.
+<!-- reviewed 2026-09-24: already narrates the c_ell correction to P245 in its own prose -->
 
     TOTAL  =  T  +  two-body  +  Σ_ell (c_ell + 1)  +  1
 
@@ -18478,6 +18698,7 @@ Files: `c2cause.log`, `antipodal.log`.
 
 *2026-09-07.* Tightening [P249]'s and the E-route's bounds by using the exact decomposition
 instead of a crude degree argument.
+<!-- reviewed 2026-09-24: passing reference to tightening P249's bound method, not the 953 figure that fell -->
 
 **The identity.** From `TOTAL = E - Σ_v (b_v - 1) + Σ_ell (c_ell + 1) + 1` ([P248]) and
 `E = Σ_pairs own + Σ_{b>=3} C(b_v,2)` (today), the vertex terms combine:
@@ -18498,6 +18719,7 @@ instead of a crude degree argument.
   record, 192 at n=6).
 * `Σ(c_ell+1)` — taken as `2(n-1)`, i.e. `c_ell = 1`, which is NOT proved ([P245] correction,
   [P259]). With `c_ell <= 2` the bounds rise by `n-1`: 282 rather than 279 at n = 4.
+<!-- reviewed 2026-09-24: this bullet list already narrates the P245 c_ell correction in its own prose -->
 
 **Ingredients checked on real configurations: zero violations** of `own <= 24*C(n,2)`,
 `Σ C(b,3) <= 32*C(n,3)`, or `mu <= Σ C(b,3)`, over records at n=4,5,6 and Haar draws.
@@ -18509,6 +18731,10 @@ instead of a crude degree argument.
 | 6 | 727 | **1 371** | 1 011 | 8 835 | 801 |
 | 8 | 1 895 | **3 151** | 2 479 | 36 629 | 2 087 |
 | 10 | 3 925 | **6 019** | 4 939 | 104 207 | 4 309 |
+
+**PROOF GAP, recorded 2026-09-24 ([P249](#p249)):** the `[P249]` column's values, including 953 at
+n = 4, are not proved (the depth >= 2 bound they sum omitted the two-body term); this entry's
+own `own ≤ 48`/`own ≤ 24` bounds are unaffected.
 
 **2.3x better than [P249] at n=4 and 17x better at n=10.** The ratio to the record now FALLS
 with n — 2.31 down to 1.53 — where [P249]'s rose from 5.2 to 26.5, because this bounds the
@@ -18526,6 +18752,14 @@ Files: `tighten.log`.
 <a id="p261"></a>
 
 ## [VERIFIED] Postscript 261: the V2 slack collapses — `TOTAL = X + Σ μ_v + Σ(c+1) + 1`, and n=4 falls to 263
+<!-- status: superseded-by=P326; fell="n=4 falls to 263" | "max(4) <= 263" | "≤ 263 (n=4)"; stands="the identity TOTAL = X + sum mu + sum(c+1) + 1, and the caps on X and sum mu" -->
+
+> **Scope note, recorded 2026-09-24.** The 263 is not an unconditional bound. Its closing `+ 7`
+> is `sum(c_ell + 1) + 1` with `c_ell = 1` on every level, which [P260] states is NOT proved and
+> which fails on real configurations, the n = 6 record among them. Under the weaker hypothesis
+> `c_ell <= 2` ([OQ 30]) this form gives 266, while [P258]/[P326]'s accounting gives **198** from
+> the same hypothesis, so 263 is dominated. The only bound on `max(4)` with no hypothesis is
+> **953** ([P249](#p249)). What stands here: the identity, and the caps on `X` and `sum mu`.
 
 *2026-09-07.* [P260] dropped `V2 >= 0` and identified that as the largest remaining slack (V2
 is 66 at the n=4 record). It does not need bounding: it cancels.
@@ -18559,6 +18793,7 @@ those per 3-subset. With `Σ mu_v <= 32*C(n,3)` ([P260]):
 | 5 | 393 | **649** | 809 | 3 377 | 429 |
 | 6 | 727 | **1 291** | 1 371 | 8 835 | 801 |
 | 10 | 3 925 | 6 019 | 6 019 | 104 207 | 4 309 |
+<!-- reviewed 2026-09-24: the [P249] column repeats the unproved 953 figure already pointed to VOID above; this entry's own bound is unaffected -->
 
 **n = 4 has gone 953 -> 423 -> 263 in one session**, a 3.6x reduction. The X-form helps where
 `32*C(n,3)` is the smaller cap, i.e. n <= 6; beyond that the own-count binds and it agrees with
@@ -18918,6 +19153,7 @@ c_l + 1` ([P243]) is an identity about the FINISHED arrangement. `E`, `V` and `c
 unboundedly when a cube is added, and `c_l` is precisely the term no prefix pins down
 ([OQ 30]). The profile of a prefix bounds the completion from BELOW (adding a cube only
 refines, so `TOTAL` is monotone increasing) — the wrong direction for pruning.
+<!-- reviewed 2026-09-24: cites P243's level identity, which its tag says stands -->
 
 **But one term IS monotone, and [P266] is what identifies it.** A face-centre anchor killed by
 some cube stays killed (Lemma 1: `u in S_C(R)` iff `u in S_C({i})` for every `i`). So with
@@ -19005,6 +19241,7 @@ c separately**, not just against `c_ell`: n=4 record, `ell=1 V=150 E=240 c=1`,
 
 **Answer: never, in any valid measurement.** `c_ell >= 3` on non-degenerate configurations:
 **0** here (418 level-instances), consistent with [P245]'s 0 in 1 389.
+<!-- reviewed 2026-09-24: cites P245's c_ell=1-dominant measurement, unaffected by the "up to 16" claim that fell -->
 
 | | c=1 | c=2 | c=3 | c=4 | … | c=30 |
 |---|---|---|---|---|---|---|
@@ -19041,6 +19278,7 @@ unmatched components** in every case:
 | [P245]'s non-degenerate c=2 | 2 | 0 | 1 | [65, 65] |
 | degenerate ell=2 "c=3" | 3 | **1** | **1** | [84, **4, 4**] |
 | degenerate n=5 ell=3 "c=3" | 3 | **1** | **1** | [130, **6, 6**] |
+<!-- reviewed 2026-09-24: table cites P245's non-degenerate c=2 case, which its tag says stands -->
 
 `3 = 1 self + 1 pair` is a legal shape, and it is exactly the shape both degenerate instances
 take: one big self-antipodal component plus a small antipodal pair broken off. **So [P259]'s
@@ -19342,6 +19580,7 @@ with `n2k` the two-body vertices of degree `k`; degree-2 ones contribute nothing
 independently from graph degrees alone**, and confirming [P237]'s classification: degree-4
 two-body vertices are edge-edge (weight 1), degree-6 are corner-sharing (weight 2). The whole
 identity is `Σ_v (deg/2 − 1) + c + 1`, which is [P243]'s form with its vertex classes named.
+<!-- reviewed 2026-09-24: this is depth-1 (d1)'s split, unaffected by P243's ell>=2 claim that fell -->
 
 **2. THE REDUCTION.** Gating `W0 = budget − W1` DIRECTLY — both sides raw triple-point counts,
 no `d2`/`d3` conversion and no genericity assumption — it is exact on 11 of 12, failing only on
@@ -19492,6 +19731,7 @@ Files: `w0_violate.py`, `w0_violate.log`.
 <a id="p274"></a>
 
 ## [VERIFIED] Postscript 274: `W0 <= 82 + 2(tau3 + c3)` PROVED — and both conjuncts the route needed are FALSE, one of them refuting [P243]
+<!-- status: corrects=P243; corrects=P249 -->
 
 *2026-09-08.* Proceeding on [P273]'s open link `W1 >= 2(d3 - 2)`. It is not a new inequality
 — it dissolves — and what it dissolves into is refuted.
@@ -19910,6 +20150,11 @@ Files: `t60_solve.py`, `t60_solve.log`.
 <a id="p282"></a>
 
 ## [VERIFIED] Postscript 282: `T <= 48` is the LAST BRICK of max(4) = 183 — the star property that would prove it is refuted, but breaking the star costs more than it buys
+<!-- status: corrected-by=P389; fell="T <= 48 is the LAST BRICK" | "max `T` found anywhere is 48" | "Hypothesis T — `T ≤ 48`" | "CONDITIONAL — `max(4) = 183`"; stands="the anatomy d1 = W0/2 + T + c1 + 1, and the refutation of the star property" -->
+
+> **REFUTED 2026-09-27 by [P389](#p389).** `T <= 48` is false: the golden 177 has level-1 `T = 60`,
+> measured exactly over Q(sqrt5). It was not in the evidence below because the level tools were
+> rational-only. The conditional `max(4) = 183` built on it becomes `max(4) <= 195` given W and C.
 
 *2026-09-08.* User: *"assume it is true and see where it leads — maybe somewhere useful, maybe
 a contradiction."* Both happened.
@@ -20021,6 +20266,7 @@ none would say the tower had left its own core behind. Both are cheap to check o
 that would constrain growth is `k <= 4`: at most four pairs at two-body weight 10, at any n.
 Records give k = 3, 4, 4, 3, 2, and [P282] showed extra weight-10 pairs are purchasable but
 ruinously expensive (T = 32 against 48). That is the conjecture to test next, not this one.
+**REFUTED 2026-09-27 ([P389](#p389)):** the golden 177 has all six pairs at two-body weight 10 on level 1, `k = 6`, and `T = 60`.
 
 Files: `tower_conditional.py`, `tower_conditional.log`.
 
@@ -20215,6 +20461,13 @@ logs in `runs/`.
 <a id="p287"></a>
 
 ## [VERIFIED] Postscript 287: the 183's "3-dimensional plateau" is a NO-OP ARTEFACT — it is isolated in both senses
+<!-- status: corrected-by=P378; fell="isolated in both senses"; stands="the straight-line step measurements themselves stand; the no-op explanation of the earlier 3-dimensional reading stands" -->
+
+> **REFUTED IN PART 2026-09-20 by [P378](#p378).** *"Isolated in both senses"* is wrong about
+> BOTH 183 points. Its arithmetic is right — every straight-line step it took from the record
+> does lose 183, exactly as measured — but the plateau is a curved 1-dimensional arc, and a
+> straight line of step 1/32 leaves it at once. Straight-line evidence cannot show isolation
+> of anything but a point on no curve. The measurements stand; the conclusion does not.
 
 *2026-09-08.* Mapping the unmapped shapes of [CONTINUUM_MAP.md]. The n=4 gate disagreed with
 the recorded measurement, and the recorded measurement is the one that is wrong.
@@ -20769,6 +21022,7 @@ are not the same kind of object, and that is a candidate explanation for an
 asymmetry previously recorded as a bare fact. It is a candidate, not a
 derivation: nothing here connects the family's wall to the 9 walls of the golden
 67's own local arrangement.
+<!-- reviewed 2026-09-24: cites P121's neighbourhood asymmetry (unrelated to its parity fall) and P122's rank/lineality table, which stands -->
 
 <a id="p292"></a>
 
@@ -20788,6 +21042,7 @@ answer is pinned rather than bracketed. Squared distances are exact rationals
 throughout; floats are display only. Free control: `V = 150, E = 240` at n = 4,
 ℓ = 1 reproduces the values [P243](#p243)/`bylevel.log` recorded, so the
 coordinate-keeping rewrite is the same graph.
+<!-- reviewed 2026-09-24: cites P243's raw V, E count at depth 1, unrelated to the ell>=2 claim that fell -->
 
 **THE MINIMUM OVER LEVELS, per record** (cube = [−1,1]³, so 1.0 is a half-edge):
 
@@ -20850,6 +21105,7 @@ outside this class. Six tower records, not a survey.
 <a id="p293"></a>
 
 ## [VERIFIED] Postscript 293: the 727 node has ONE structural class — the record is the special POINT, not the special ARC
+<!-- status: corrects=P47 -->
 
 [OQ 17](OPEN_QUESTIONS.md) and CONTINUUM_MAP recorded that the whole tower above
 n = 6 extends one point of one arc of a four-arc node, with arcs A, B, C never
@@ -20895,6 +21151,7 @@ here the answer was sitting in plain sight in the `s` column.
 <a id="p294"></a>
 
 ## [VERIFIED] Postscript 294: the 727 node's special points, SOLVED — the record lies on THREE of the four arcs, and nine special points are six compounds
+<!-- status: corrected-by=P391; fell="the record lies on THREE of the four arcs" | "where four arcs cross" | "sits where four arcs cross"; stands="the nine special points, their counts, and the six congruence classes" -->
 
 [P293](#p293) established that the four arcs of the 727 node are structurally
 identical at a generic point, and predicted that arcs A, B and C hold special
@@ -20986,6 +21243,7 @@ method chose badly rather than that the problem is hard.
 <a id="p295"></a>
 
 ## [VERIFIED] Postscript 295: the 1217 count plateau is a SEGMENT, not a point — and the claim that it was a point was a step-size artefact of my own making
+<!-- status: corrects=P117; corrects=P122 -->
 
 **THE CORRECTION FIRST.** In [P288](#p288) and again while drawing the tower I
 reported that the count plateau at 1217 is a single point, on the evidence that
@@ -21087,6 +21345,7 @@ both sides should be.
 `bracket → wall → polynomial → root` as unbuilt at every link. Today
 [P288](#p288) supplied the wall keys and `on_line`; [P294](#p294) used them to
 solve special points; this closes the last link on a real boundary:
+<!-- reviewed 2026-09-27: cites P294's special points, which stand -->
 
     bracket      count-stepping puts the end in (179/911, 56/285)
     wall         the conditions whose polynomials have a root there
@@ -21097,6 +21356,7 @@ solve special points; this closes the last link on a real boundary:
 points [P294](#p294) returned by solving the wall polynomials — the one where 727
 drops to 725. Solving found it as a root; bracketing found it as a boundary. Same
 point, two roles, two methods.
+<!-- reviewed 2026-09-27: cites P294's special point at s = -2/19, which stands -->
 
 **WHY THE SOLVE MISSED THE UPPER END, AND WHY THAT IS THE HONEST ACCOUNTING PAYING
 OFF.** `arc_special` searches for RATIONAL roots and reported, for arc D, "10 roots
@@ -21345,6 +21605,16 @@ n = 8 from both sides, on current records, with no rung outside it fitting.
 <a id="p301"></a>
 
 ## [VERIFIED] Postscript 301: the 1217 plateau is a PENTAGON, not the span of its two directions — a third wall cuts a corner
+<!-- status: corrected-by=P393; corrected-by=P394; fell="parallelogram the directions span, with that corner removed"; stands="the third wall, solved as a degree-4 curve" -->
+
+> **Scope note, recorded 2026-09-28 ([P393](#p393)).** This pentagon is ONE of two sheets of the 1217
+> plateau near the record: the one over D1. A second sheet lies over D2, meeting this one along the fibre
+> line over the record.
+>
+> **CORRECTED 2026-09-28 ([P394](#p394)).** Two of the pentagon's five edges were the edges of the
+> 5x5 grid's box, not walls: the plateau continues below the box's bottom row and past its right
+> column. The sheet over D1 is bounded by three walls: the shared lower wall t = -2/19, a flat
+> fibre wall on top, and this entry's third wall, which is the whole lower-right boundary.
 
 [P299](#p299) established the plateau is 2-dimensional by testing five COMBINATION
 DIRECTIONS. A direction is a ray; a region needs two parameters, and the question
@@ -21403,6 +21673,7 @@ had to be found by counting rather than by asking which walls are crossed.
 [P301](#p301) solved the wall that cuts a corner off the 1217 plateau: frame 0,
 group `((5,1,1),(6,0,1))`. Asked where it comes from and where it goes, both
 answers are clean.
+<!-- reviewed 2026-09-28: cites P301's pentagon, which stands as the sheet over D1 (P393 adds a second sheet) -->
 
 **DOWNWARD: it cannot exist.** The condition involves cubes 0, 5 and **6**. At
 n = 6 the cubes are 0..5, so cube 6 is not there and the group cannot be formed.
@@ -21511,6 +21782,7 @@ leave the count untouched. [P298](#p298) argued from one example that the count
 plateau is bounded by a SUBSET of the walls; on the evidence now it is a minority
 of them, and identifying which is the open problem that every tangent count in
 this project depends on.
+<!-- reviewed 2026-09-28: cites P301's pentagon, which stands as the sheet over D1 (P393 adds a second sheet) -->
 
 **A METHODOLOGICAL TRAP, met here.** At n = 8 there is also a wall with group
 `((0,2,1),(5,2,1))` and frame 7 — the same KEY as n = 9's nearest wall — at a
@@ -21523,6 +21795,18 @@ are shared — but any future comparison must check the indices first.
 <a id="p304"></a>
 
 ## [VERIFIED] Postscript 304: the wall family is INCOMPLETE — four planes through a point is a second family, and it is a PUNCTURE where a coincidence is a step
+<!-- status: corrected-by=P323; corrected-by=P331; fell="four face planes through a common point"; stands="the census method, and the observation that coincidence walls alone do not account for every step" -->
+
+> **REFUTED in its mechanism 2026-09-13 by [P323](#p323), and the counts corrected by
+> [P331](#p331).** The four-plane concurrences tabulated below were computed with no
+> CONTAINMENT test: `concurrence.py` solved each 3x3 for the common point of three face
+> PLANES and never asked whether that point lies inside the cubes whose faces they are. A
+> cube's boundary is six SQUARES, not six planes. With the predicate added, the record's
+> concurrences are **all outside the compound**, so the "second family" does not explain the
+> count drops it was introduced to explain. What survives is the census method and the
+> observation that the coincidence walls alone do not account for every step; the mechanism,
+> the attribution, and every count in the tables below do not. **62 documents cite this entry
+> — see `python3 src/claim_deps.py P304`.**
 
 Attacking [OQ 33](OPEN_QUESTIONS.md#33) — which walls bound the count plateau — with a
 census that solves every condition on a ray and counts the regions in each cell between
@@ -21597,6 +21881,7 @@ extent, [P301]/[P302]/[P303]'s three walls of the 1217 plateau, and the arc exte
 What is now open is the ATTRIBUTION of each boundary to a particular condition, because a
 concurrency wall in the same straddle interval would be the real cause. Unchecked at n = 7,
 8, 9 as of this entry.
+<!-- reviewed 2026-09-28: cites P301's pentagon, which stands as the sheet over D1 (P393 adds a second sheet) -->
 
 **AND A SECOND, UNEXPLAINED EVENT — reported as unexplained.** One G2 failure survives on
 e0, at **t = −4/27: count 703, neighbours 705**, confirmed by both engines, by rescaling,
@@ -21760,6 +22045,16 @@ predicts 2; the sweep contradicts it; the sweep is the one without a gate. Settl
 <a id="p306"></a>
 
 ## [VERIFIED] Postscript 306: the n = 6 plateau is EXACTLY 1-dimensional — pinned by 222 walls that CONTAIN it, which no gradient can see
+<!-- status: corrects=P117; corrects=P47 -->
+
+> **MECHANISM UNVERIFIED since 2026-09-13 ([P323](#p323)); VALUE CONFIRMED ([P381](#p381)).**
+> The 222 "genuine" walls below were rank-tested but never containment-tested: they come from
+> `src/plateau_order.py`, which [P323]'s casualty table lists as SUSPECT for exactly that
+> reason, and no later entry re-examined this one. The rank test rules out a parallel pair; it
+> does not show the common point lies inside the compound, and at the n = 4 record every such
+> point was outside. So "pinned by 222 concurrency walls" is an open question, not a result.
+> **The dimension itself stands:** the contact-system tangent, a method that uses no
+> concurrency walls, returns 1 at n = 6.
 
 [P305] left n = 6 at ">= 1, <= 2". Solving closes it to **= 1**, and the reason is a blind spot
 in every gradient-based method this project has used.
@@ -21806,6 +22101,7 @@ sweep was right and my reason for doubting it was wrong, though it was also genu
 <a id="p307"></a>
 
 ## [VERIFIED] Postscript 307: plateau dimensions SETTLED at n = 6, 7, 8 — 1, 2, 2 — by the walls that contain the branch
+<!-- status: corrected-by=P383; corrects=P117; corrects=P122; fell="plateau dimensions SETTLED at n = 6, 7, 8"; stands="the n=6 and n=7 dimensions (1 and 2) stand, independently confirmed; n=8 is 3, not 2" -->
 
 > **CORRECTED 2026-09-20 by [P383](#p383): the n = 8 figure is 3, not 2.** The n = 6
 > and n = 7 values are independently confirmed by the contact-system tangent, which
@@ -21832,6 +22128,7 @@ no common point and are discarded, not counted.
 **n = 7 CONFIRMS [P301]'s PENTAGON BY A DIFFERENT ROUTE.** That 2-dimensionality was measured
 by counting a 5x5 grid at finite distances, 22 of 25 points holding 1217. This measures the
 tangent structure at the record, in the gated first cell, and agrees.
+<!-- reviewed 2026-09-28: cites P301's pentagon, which stands as the sheet over D1 (P393 adds a second sheet) -->
 
 **AND THE SEED IS THE WHOLE BALLGAME — the n = 7 run got it wrong first.** Seeded only from the
 lineality, n = 7 returned **1**: its lineality basis has one holding direction and one that
@@ -21841,6 +22138,7 @@ base lift of arc D -- changes everything, because **`base_arcD_lift`'s container
 dimension 3, while the lineality's is 2**. The plateau lives in the larger container, and a
 lineality-only search cannot reach it. This is the n = 6 lesson repeating one level up: there,
 too, the plateau's direction was outside the lineality ([P305]).
+<!-- reviewed 2026-09-28: cites P301's pentagon, which stands as the sheet over D1 (P393 adds a second sheet) -->
 
 **A FREE STRUCTURAL FACT.** `base_arcD_lift`'s gated first cell at n = 7 is
 `(-593208466/1348582226801, 375629385/1517753511992)` -- **identical** to arc D's cell at n = 6.
@@ -21879,6 +22177,7 @@ COINCIDENCE family only, so a concurrency wall at the same parameter would be an
 cause that no search could have seen. Audited at n = 7 and n = 8.
 `src/probes/attribution_audit.py`, `src/probes/boundary_cause.py`,
 `data/attribution_audit_n8.json`, `data/boundary_cause_n7.json`.
+<!-- reviewed 2026-09-24: cites P304's surviving observation/census framing, not the four-plane mechanism that fell -->
 
 **n = 8, at the recorded parameter.** At `t = -0.0236342201` two coincidence conditions vanish
 and two concurrency quadruples do. The quadruples have **rank(normals) = 3, rank(augmented) =
@@ -21903,6 +22202,7 @@ own normals** plus two planes of the added cube. Their determinant vanishes BECA
 coincidence does: a dependent event, not a rival explanation, and the rank test separates the
 two without ambiguity. So the attribution question is far narrower than [P304] feared -- only a
 concurrency wall with an INDEPENDENT plane set can compete for the cause, and none was found.
+<!-- reviewed 2026-09-24: narrows P304's concern rather than building on its four-plane mechanism, which fell -->
 
 **THE EXTENTS AND ATTRIBUTIONS IN [P296], [P301], [P302], [P303] STAND AS WRITTEN.**
 
@@ -21952,6 +22252,7 @@ being at Cayley infinity ([P287]). It does not: it counts **183** in ambient 9 w
 conditions. The Cayley-infinity artefact belongs to the OTHER 183 representative,
 `wall_keys.NAMED['n4_183']`, whose cube 1 is a half-turn. Two representatives of one record,
 one charted and one not -- and the charted one has never been used for this kind of measurement.
+<!-- reviewed 2026-09-24: cites P287's Cayley-representative note, unrelated to the "isolated in both senses" claim that fell -->
 
 <a id="p310"></a>
 
@@ -22307,6 +22608,7 @@ concurrency family was found six days later ([P304]) and was never in that check
 natural hypothesis was that `c > 1` is a concurrency phenomenon after all, which would have
 handed [OQ 30] to the wall-polynomial machinery. Tested over 871 non-degenerate n = 4
 configurations:
+<!-- reviewed 2026-09-24: tests and rejects P304's four-plane mechanism as a hypothesis, does not rely on it as true -->
 
                         c > 1     c = 1
     no quadruple point     14       856
@@ -22334,6 +22636,7 @@ ray -- stepping to the rational roots of a four-plane determinant -- produced **
 configurations from 12 sampled roots: all 12 were RANK-DEGENERATE**, determinant zeros with no
 common point. That is [P304]'s 264-of-486 phenomenon, and the genuineness guard caught every
 one. Reported as unevaluated, not as a negative result.
+<!-- reviewed 2026-09-24: cites P304's degenerate-determinant measurement, consistent with the later containment fix, not the false mechanism -->
 
 **THE CONSTRUCTION THAT WORKS IS GEOMETRIC.** Every rotation about the `(1,1,1)` body diagonal
 fixes the corner `(1,1,1)`, so four such cubes put four boundaries through it: a genuine
@@ -22363,6 +22666,13 @@ plus edge-edge contacts. What none of the 39 observed instances has is `b >= 4`.
 <a id="p318"></a>
 
 ## [VERIFIED] Postscript 318: a quintuple-point configuration reaches 301 of 393 — and the quintuple points cost 8 of the 92-region deficit
+<!-- status: corrected-by=P324; fell="8 regions for the two of them"; stands="the measured result stands — 301 of 393, 76.6%, with the quintuple points verified" -->
+
+> **CORRECTED IN PART 2026-09-16 by [P324](#p324).** The measured result stands — **301 of 393,
+> 76.6 %, with the quintuple points verified.** The COST ATTRIBUTION does not: *"the two
+> quintuple points cost 8 regions"* applied the excess formula for generic b-fold points to
+> CORNER concurrences, where it does not hold, and the sign is wrong too — those vertices
+> SUPPLY excess, they do not absorb it.
 
 Answering how close to a record a configuration carrying a 5-fold point can get.
 `data/quintuple_best.json`.
@@ -22410,6 +22720,7 @@ Asking directly where `c > 1` lives. `data/c_by_level.json`.
 **Every `c > 1` instance is at LEVEL 1, the outermost.** Zero in 3 382 instances at levels 2 and
 deeper. And `c > 2` is still never seen -- now zero across roughly 9 700 level-instances once
 [P245], [P269], [P311] and [P316]'s samples are added.
+<!-- reviewed 2026-09-24: aggregates P245's c<=2 measurement, which its tag says stands -->
 
 **WHY IT IS PLAUSIBLE STRUCTURALLY.** Level 1 is where the vertex taxonomy is richest: it
 carries essentially all the `b = 2` types -- curves through a cube edge, edge-edge contacts and
@@ -22456,7 +22767,7 @@ it:
 So `c = 1` ON the wall and `c = 2` strictly beyond it: `{c = 2}` is open and its closure
 excludes its own boundary. That matches the PUNCTURE behaviour [P304] found for region counts --
 a coincidence lowers the quantity AT the wall -- and it means `c` is upper semicontinuous from
-the `c = 2` side.
+the `c = 2` side. **VOID 2026-09-13 ([P323](#p323)).**
 
 **WHAT VANISHES THERE: A CONFLUENCE, NOT A SINGLE WALL.** 16 wall polynomials share the root
 `t = -1/22` -- **4 coincidence and 12 concurrency**. Whether all 16 are needed, whether the
@@ -22496,7 +22807,7 @@ separate is what decides `c`.** This is a saddle exchange, not a creation or des
 **AND `d_1` IS HIGHER ON THE WALL THAN ON EITHER SIDE**: 30 against 28 and 29. A spike, not the
 PUNCTURE [P304] found for total counts at concurrency walls. The two are different quantities --
 `d_1` here, the total there -- and nothing yet says how they relate, but the sign difference is
-worth not conflating.
+worth not conflating. **VOID 2026-09-13 ([P323](#p323)).**
 
 **THIS TIES [OQ 30] TO [OQ 33].** The wall that changes `c` is also a wall that changes `d_1`.
 So the walls bounding the count plateau and the walls bounding `{c = 1}` are not disjoint
@@ -22537,7 +22848,7 @@ stable across unrelated configurations and directions. It has NOT been rank-test
 found more than half of concurrency-determinant roots are rank-degenerate with no common point,
 so the 12 may be counting non-events. **Rank-testing those twelve is the next step**, and until
 it is done the phrase "concurrency wall" in the table above means "root of a concurrency
-determinant", not "four planes through a point".
+determinant", not "four planes through a point". **VOID 2026-09-13 ([P322](#p322)).**
 
 **THREE NULL RUNS PRECEDED THIS, ALL INSTRUMENTAL, AND THE LAST WAS MY OWN BUG.** Reported as
 unevaluated each time, never as "no transitions exist":
@@ -22579,8 +22890,9 @@ assumption.
              attribution of those changes to four-plane concurrency now needs the containment
              filter re-run before it can be repeated.
     UNAFFECTED  everything about the COINCIDENCE family, which comes from `conditions_on`;
-             [P307]'s plateau dimensions; [P315]'s vertex taxonomy and the 12 quadruple points
-             per record, which were counted from ARRANGEMENT VERTICES with containment built in.
+             [P307]'s plateau dimensions (**CORRECTED 2026-09-20 ([P383](#p383))**, for an unrelated
+             reason); [P315]'s vertex taxonomy and the 12 quadruple points per record, which were
+             counted from ARRANGEMENT VERTICES with containment built in.
 
 **THE FIX IS ONE PREDICATE**: after solving the 3x3 system for the common point, require
 `|<v_{j,k}, P>| <= 1` for every face normal of every cube in the quadruple -- the same test
@@ -22596,6 +22908,7 @@ an unexplained regularity rather than rounding it off is what made it findable.
 <a id="p323"></a>
 
 ## [REFUTED] Postscript 323: [P304]'s mechanism does not survive containment — the concurrency counts that "explained" the anomalies are all OUTSIDE the compound
+<!-- status: corrects=P304 -->
 
 Auditing [P322]'s defect across everything that used it. The answer is worse than [P322]
 allowed for: it reaches [P304] itself.
@@ -22603,6 +22916,7 @@ allowed for: it reaches [P304] itself.
 **THE TEST.** Re-count four-plane concurrences at the parameters [P304] built its case on, with
 the containment predicate added -- solve the 3x3 for the common point, require
 `|<v, P>| <= 1` for every face normal of every cube involved:
+<!-- reviewed 2026-09-24: this is P323's own re-test refuting P304's counts -->
 
     t         rank-genuine plane concurrences   common point INSIDE the compound
     -1/7                230                            2      (baseline)
@@ -22640,7 +22954,8 @@ claim to have identified what they are.
              ARRANGEMENT VERTICES, where containment is built into the b-profile.
     SAFE     every measured COUNT and every measured `c`: spurious walls only subdivide cells
              further, and a count taken strictly inside a sub-interval of a true cell is still
-             that cell's count.  [P307]'s plateau dimensions, [P320]/[P321]'s transitions and
+             that cell's count.  [P307]'s plateau dimensions (**CORRECTED 2026-09-20
+             ([P383](#p383))**, for an unrelated reason), [P320]/[P321]'s transitions and
              [P308]'s boundary attributions rest on values, not on wall identity, and stand.
 
 **THE DISTINCTION TO KEEP: SPURIOUS WALLS CORRUPT ATTRIBUTION, NEVER VALUES.** Adding walls
@@ -22651,6 +22966,7 @@ was built to measure counts in cells rather than to trust wall lists.
 <a id="p324"></a>
 
 ## [CORRECTION] Postscript 324: [P318]'s cost attribution is WRONG — the excess formula holds for generic b-fold points and not for CORNER concurrences
+<!-- status: corrects=P318 -->
 
 Auditing which claims rest on mistaken Euler counts. One does.
 
@@ -22660,6 +22976,7 @@ degree 3, excess 2) and `b = 4` (3 levels, degree 4, excess 6). The `b = 5` and 
 its cost table were EXTRAPOLATION and were never checked.
 
 **CHECKED NOW, ON [P318]'s OWN CONFIGURATION, AND IT FAILS:**
+<!-- reviewed 2026-09-24: this is P324's own refutation of P318's cost attribution -->
 
     b    vertices   levels   degrees            excess     predicted excess
     3      180        2      (3,3)                 2             2      OK
@@ -22836,6 +23153,7 @@ vertex kinds is NOT complete, and the gap is 6 and 18 respectively.
 
 **Recorded with that gap open rather than rounded away**, since attributing a total to named
 parts is precisely the step that failed in [P304], [P313], [P318] and [P321].
+<!-- reviewed 2026-09-24: cites P304 only as an example of the general failure mode, not its specific fallen counts -->
 
 <a id="p328"></a>
 
@@ -22895,6 +23213,7 @@ about reading a law off four points.
 <a id="p329"></a>
 
 ## [CORRECTED] Postscript 329: `EE <= 6` per pair is FALSE — but `sum EE <= 6*C(n,2)` survives, and the n = 4 record attains BOTH caps at once
+<!-- status: corrected-by=P330; fell="THE CORRECTED BOUND SURVIVES ITS TEST"; stands="the per-pair maximum of 10 stands" -->
 
 > **CORRECTED 2026-09-16 by [P330](#p330).** Two things below are wrong. (1) The witness:
 > `contacts()` counts edge-PAIR INCIDENCES, and 18 of the 24 at `q = (0,1,1,1)` are the
@@ -22953,6 +23272,7 @@ independent budgets, both tight at the bottom of the tower and loose higher up.
 <a id="p330"></a>
 
 ## [CORRECTION] Postscript 330: `sum EE <= 6*C(n,2)` is FALSE, and [P329]'s witness was counting incidences, not vertices
+<!-- status: corrects=P329 -->
 
 Re-deriving [P329] from its own definitions before attempting the proof [OQ 35] asks for.
 `data/ee_bound_refute.json`, `src/probes/ee_bound_refute.py`. **The three checks on this
@@ -22968,6 +23288,7 @@ ONE vertex, of signature `(3,3)`, and it contributes NINE edge-pair incidences.
 
 **SO [P329]'s COUNTEREXAMPLE IS NOT ONE.** `q = (0,1,1,1)` is a 180-degree rotation about a body
 diagonal, which fixes two opposite corners:
+<!-- reviewed 2026-09-24: this is P330's own refutation of P329's witness -->
 
     (3,3) shared-corner vertices  2       9 incidences each  ->  18
     (2,2) edge-edge vertices      6                              6
@@ -22977,6 +23298,7 @@ diagonal, which fixes two opposite corners:
 The `(2,2)` count at `(0,1,1,1)` is **6 -- exactly what the codimension derivation predicts.**
 The configuration [P329] published as refuting `EE <= 6` per pair by a factor of four agrees with
 the bound.
+<!-- reviewed 2026-09-24: this is P330's own refutation of P329's witness -->
 
 **THE PER-PAIR BOUND IS NEVERTHELESS FALSE, and the true witness is half the size.** Over the
 1856 admissible coprime integer quaternions with entries 0..6 the `(2,2)` counts run
@@ -22986,6 +23308,7 @@ the bound.
 
 **Maximum 10**, attained by 72 quaternions, e.g. `q = (3,2,2,0)` and `q = (0,2,2,3)` -- rotations
 about a FACE DIAGONAL, not a body diagonal. [P329]'s conclusion survives; its evidence does not.
+<!-- reviewed 2026-09-24: this is P330's own accounting of what stands (per-pair max 10) in P329 -->
 
 **AND THE TOTAL BOUND FALLS TOO.** Rotating every cube about ONE COMMON face diagonal keeps
 every pairwise rotation inside the high-EE family instead of trading:
@@ -23006,6 +23329,7 @@ whether the region-carrying version holds for n >= 4, and that is NOT claimed he
 postscript said the search was seeded from the wrong counter's argmaxima and so never looked
 where the `(2,2)` vertices are. **That is wrong, and it is a cause claim made without a gate
 ([METHODS 27]).** Checking [P329]'s pool instead of characterising it:
+<!-- reviewed 2026-09-24: this is P330's own analysis of why P329's search missed the counterexample -->
 
     P329's candidate pool                  255 quaternions (`hi` plus all entries 0..3)
     of which rotations about (1,1,0)         9 admissible
@@ -23019,6 +23343,7 @@ on the nine that mattered. The misdirected `hi` list made it worse but was not t
 is the project's oldest lesson and not a new one ([METHODS 1], solve don't sample): **a sampled
 maximum over a pool that CONTAINS the answer is still a lower bound**, and [P329] reported it
 as "never exceeded".
+<!-- reviewed 2026-09-24: this is P330's own diagnosis of P329's sampling miss -->
 
 **THE VERTEX COUNTER ITSELF IS GATED AGAINST AN INDEPENDENT PATH.** `vertices()` reaches the
 `(2,2)` points through `segments()` and the arrangement. A second enumerator built them the
@@ -23047,6 +23372,7 @@ optimum is known.
 **BUYING EE THIS WAY DOES NOT BUY REGIONS.** 145 at n = 4 against the record's 183, 497 at n = 6
 against 727. The gain is paid back in the generic term, which is the same trade [P329] saw and
 read correctly.
+<!-- reviewed 2026-09-24: this is P330's own note crediting the part of P329's reading that stands -->
 
 **A CAVEAT ON [P328]'s EXCESS CONSTANTS, which this probe measures rather than assumes.** The
 per-signature excesses were read off the records and are GENERIC values, not invariants of the
@@ -23069,6 +23395,8 @@ With the excesses MEASURED rather than tabulated the identity `TOTAL = 1 + L + s
 <a id="p331"></a>
 
 ## [CORRECTION] Postscript 331: the record "concurrences" are OUTSIDE the compound — [P304]'s defect, in a claim that predates it by three weeks
+<!-- status: corrects=P304 -->
+<!-- reviewed 2026-09-24: this is P331's own heading correcting P304 -->
 
 Asked by the user, after two rounds of correction: *do we understand the mistakes behind all the
 erroneous claims, and are the sources of the CURRENT claims free of them?* This is the answer to
@@ -23113,6 +23441,7 @@ arrangement and it contributes exactly zero regions.**
 This is the same error as [P304] with the same shape: a coincidence of infinite PLANES read as a
 feature of a solid bounded by SQUARES. It is older than [P304] by three weeks and survived both
 corrections because it was filed as a property of 723 rather than as a mechanism.
+<!-- reviewed 2026-09-24: this is P331's own comparison, naming P304's error directly -->
 
 **AND IT EXPLAINS A MEASUREMENT THAT HAS BEEN SITTING UNEXPLAINED SINCE [P55]/[P57].** The
 "records concentrate at high-multiplicity concurrences" heuristic was measured and found
@@ -23230,6 +23559,7 @@ are two ways:
 
 [P329] read the first as refuting a bound and the second as satisfying it. **Both are at the same
 cap.** `EE` alone was never the invariant.
+<!-- reviewed 2026-09-24: cites P329's two witnesses as raw data points, not its "corrected bound survives" claim that fell -->
 
 **WHERE THE RECORDS ACTUALLY SIT — a HUB.** Measuring two-body pair by pair:
 
@@ -23282,6 +23612,7 @@ and did not follow.
 <a id="p334"></a>
 
 ## [VERIFIED] Postscript 334: [OQ 36] SOLVED — four cubes CAN pairwise share corners, the two-body cap IS attainable, and it costs 42 triple points
+<!-- status: corrected-by=P370; fell="T3 = 74"; stands="the K4 corner-sharing construction is real; six sharings are attainable and reach two-body = 60" -->
 
 Answering [OQ 36] the way it was posed — solved, not searched.
 `src/probes/k4_corner_sharing.py`, `src/kfield.py`, `data/k4_corner_sharing.json`.
@@ -23401,6 +23732,7 @@ the sum (128 of the n = 4 record's 176 half-excess, 73 %). At n = 4:
     n = 4 RECORD                   3         128 CAP       48       183
     K4 compound ([P334])  -- is the golden ([P370]); the 74 is T3 + Q4generic --
     body-diagonal, MERGED     one 4-fold      72           36       145
+<!-- reviewed 2026-09-24: table already narrates the P370 correction to P334's T3=74 inline -->
 
 **The curve is not monotone and the record sits at its peak.** Three corner-sharings RAISE `T3`
 from a typical 100 to the cap 128 — the hub structure of [P333] is what attaining the cap looks
@@ -24205,6 +24537,7 @@ not mean what it appears to. `src/probes/attain_window.py`, `data/attain_window.
     n = 4 RECORD    two-body 48   B 128   Q4  0   ->  176    TOTAL 183
     golden 177      two-body 60   B 128   Q4 18   ->  170    TOTAL 177
     K4 ([P334])     -- the same compound as the golden; B is 128, not 74 ([P370]) --
+<!-- reviewed 2026-09-24: table already narrates the P370 correction to P334's B/T3=74 inline -->
 
 So the window needs `two-body > 48` while `B` stays at 128.
 
@@ -24227,6 +24560,7 @@ mediocre**, and the record is the reverse: three of its six pairs are not maximi
 already the tail of the distribution. This is [METHODS 1] again: the window has to be SOLVED
 into, not sampled into, and both of its known endpoints were reached by construction ([P342]'s
 golden by a symmetry derivation, [P334]'s K4 by an axis-labelling argument).
+<!-- reviewed 2026-09-24: cites P334's construction method, which its tag says stands, not the T3=74 figure that fell -->
 
 **BOTH AVAILABLE DIRECTIONS OUT OF THE RECORD ARE DOWNHILL, measured:**
 
@@ -24243,6 +24577,7 @@ infeasibility and not a demonstration of it. The constructive programme is there
 and still open — **construct a configuration with `SC2 = 8` or `10` on DISTINCT corners while
 holding `B = 128`**. That is an algebraic target of the same kind [P334] already solved once, and
 it is the cheapest thing that would either beat 183 or close the window by exhaustion.
+<!-- reviewed 2026-09-24: cites P334's construction method, which its tag says stands -->
 
 <a id="p350"></a>
 
@@ -24257,6 +24592,7 @@ diagonals `a, b, c`; cubes 0 and 1 additionally share an axis `x` with
 `|<x,a>| = |<x,b>| = 1/3` — **the same system [P334] solved**, so `x = (p, q, 0)` with
 `p, q = (sqrt3 +- sqrt15)/6`. Cube 2 is constrained only by `c`, leaving a free parameter
 `Rot((1,-1,1), psi)`.
+<!-- reviewed 2026-09-24: cites P334's construction method, which its tag says stands -->
 
 Two diagonals determine the rest of a tetrahedron via `w = (sqrt3/2)(u1 x u2)`, and
 `|u1 x u2|^2 = 8/9` makes `|w|^2 = 2/3` exactly — so the whole configuration stays in
@@ -24309,6 +24645,7 @@ construction guarantees.
 Two of the four sign branches survive, e.g. `y = (p,0,q)`, `z = (0,q,-p)`, with the same
 `p, q = (sqrt3 +- sqrt15)/6` that [P334] and [P350] both produced — **the third independent
 appearance of those two numbers.**
+<!-- reviewed 2026-09-24: cites P334's construction coordinates, which its tag says stands -->
 
 **AND THE SIXTH SHARING IS FORCED.** Building the cubes from those axes and reading the sharing
 structure back off their DIAGONALS:
@@ -24502,6 +24839,7 @@ pay `Q4 = 18`.
     * **why [P334]'s K4 has `Q4 = 0` while the golden K4 has `Q4 = 18`** -- the same sharing
       graph, both vertex-transitive, different outcomes. So transitivity is NECESSARY for `Q4 > 0`
       in all data here and demonstrably NOT SUFFICIENT, and what separates the two is unknown.
+      **CORRECTED 2026-09-19 ([P370](#p370)).**
 
 **The honest summary: the failures are understood at the level of WHICH STRUCTURES ARE AVAILABLE,
 and not at the level of what each one costs.** Step 4 of the chain is a complete enumeration and
@@ -24513,6 +24851,7 @@ step 5 is a proved mechanism; steps 2 and 6 rest on measured values that have ne
 
 [P354] named this the most tractable gap: [P334]'s K4 has `Q4 = 0` and the golden K4 has
 `Q4 = 18`, with the same sharing graph, both vertex-transitive as graphs. Settled.
+**CORRECTED 2026-09-19 ([P370](#p370)).**
 
 **THE DISCRIMINANT IS THE PAIRWISE RELATIVE-ROTATION TRACE**, a congruence invariant. Computed
 exactly:
@@ -24525,7 +24864,7 @@ exactly:
 have `SC2 = 12` and six shared axes; both have 10 distinct axes; even the multiset of pairwise
 inner products among the six shared axes agrees up to sign — a sign that is a labelling artifact,
 since an axis is a line. **The shared-axis data does not separate them; the relative rotations
-do.**
+do.** **CORRECTED 2026-09-19 ([P370](#p370)).**
 
 This is exactly [P344]'s mechanism at the right level: a group transitive on the cubes has fixed
 loci where all four cubes' planes must meet, and only the golden actually carries such a group.
@@ -24573,7 +24912,7 @@ classes meaning more symmetry:
     4-cycle ([P353])             3        18
     face-diagonal family         5         2
     body-diagonal family         6         2
-    [P334]'s K4                  6         0
+    [P334]'s K4                  6         0   **CORRECTED 2026-09-19 ([P370](#p370))**
 
 **The relation is not monotone and not a threshold.** The record is among the MOST symmetric by
 this measure — two classes, second only to the golden — and carries no quadruple points at all,
@@ -24627,6 +24966,7 @@ consequences of corner-sharing constraints, at no fixed locus and no uniform rad
 
     (* negative, so K4's twelve conditions are dependent -- consistent with [P334] having
        found solutions at all, and with two non-congruent families existing there)
+       **CORRECTED 2026-09-19 ([P370](#p370)).**
 
 **The paw and the 4-cycle are indistinguishable by this accounting** — same number of sharings,
 same conditions, same one remaining parameter — and one forces eighteen quadruple points while
@@ -24676,6 +25016,7 @@ has THREE free rotations** — the most avoidance available at `SC2 = 6` — whi
 `Q4 = 0` while reaching `two-body = 48`. And K4, being over-determined (12 conditions on 9
 degrees of freedom), has no parameter at all: its solutions are isolated, genericity says
 nothing, and both `Q4 = 0` ([P334]) and `Q4 = 18` (the golden) occur as separate branches.
+**CORRECTED 2026-09-19 ([P370](#p370)).**
 
 **So the chain of [P354] now rests on a mechanism rather than on a symmetry claim.** Raising
 `two-body` past 48 requires `SC2 >= 8`, which requires four or more sharings, which pins every
@@ -24686,6 +25027,13 @@ freedom to raise two-body are the same resource, spent on one or the other.**
 <a id="p359"></a>
 
 ## [FAILED DERIVATION] Postscript 359: the per-3-subset route gives `EE <= 40` at `B = 128`, not the observed 36
+<!-- status: corrected-by=P369; fell="the per-3-subset route gives `EE <= 40` at `B = 128`"; stands="the route/method framing (per-3-subset bound) stands as a route; its numeric conclusion (40, gap 4) does not — corrected to 52, gap 16" -->
+
+> **REFUTED 2026-09-20 by [P369](#p369).** The per-triple maximum *"sum EE at E_S = 32 is 20"*
+> is FALSE — it is **26**, attained at `10 + 10 + 6` by two face-diagonal members placed
+> against each other, which this entry's 1 400 draws never did. The route's bound therefore
+> becomes `EE <= 52` at `B = 128`, not 40, and the gap to the observed 36 widens from 4 to 16.
+> This entry already reported the per-subset route as failing; it fails by more than it said.
 
 Attacking the one measured link in [P354]'s chain — `EE <= 36` at `B = 128` ([P352], sampled over
 ~3 700 configurations) — by the method that worked for the coupling ([P338]) and the budget
@@ -24729,6 +25077,12 @@ the single link between [P354]'s chain and a proof of `max(4) = 183`.
 <a id="p360"></a>
 
 ## [VERIFIED] Postscript 360: the 36-vs-40 gap is GEOMETRIC, not combinatorial — and a consolidation pass on this session's own output
+<!-- status: corrected-by=P369; fell="THE COMBINATORIAL OPTIMUM IS 40"; stands="the consolidation-pass housekeeping stands; both halves of the 36-vs-40 conclusion fall" -->
+
+> **REFUTED IN PART 2026-09-20 by [P369](#p369).** *"The combinatorial optimum is 40"* rested
+> on [P359]'s per-triple cap of 20, which is 26; at the true cap the optimum is **52**. The
+> geometry agrees independently: `1,0,0,0 ; 3,2,2,0 ; 3,-4,0,-3 ; 1,1,0,3` reaches
+> `EE_total = 44` at `B = 120, Q4 = 2`, above the old "optimum".
 
 Finishing [P359]. Its per-subset route gave `EE <= 40` at `B = 128` where the observed maximum is
 36. **The residual 4 is not recoverable by combinatorics.**
@@ -24907,7 +25261,8 @@ decisively."* A 5-subset of the 723 record counts **393**, `+42` over golden 351
 
 Both are the maximally-symmetric complete-sharing compound at their size; both lose. [P342]'s
 golden 177 is the n = 4 analogue of UC09, and [P334]'s K4 is a second, non-congruent
-complete-sharing compound at n = 4 counting far less. **The pattern "complete corner-sharing is
+complete-sharing compound at n = 4 counting far less. **CORRECTED 2026-09-19 ([P370](#p370)).**
+**The pattern "complete corner-sharing is
 sub-maximal" now has two independent instances at two different sizes**, which is considerably
 stronger than the single n = 4 observation this session recorded.
 
@@ -25019,6 +25374,13 @@ policy the records follow instead ([P364]: one saturated hub, everything else fr
 <a id="p366"></a>
 
 ## [VERIFIED] Postscript 366: what a derivation of `EE <= 36` at `B = 128` needs — the per-pair route is DEAD, and the level sets are cut out by 144 quartics
+<!-- status: corrected-by=P369; fell="THE KILL LIST IS 105 PATTERNS"; stands="the determinantal description, the codimension-1 finding, and the independent exact edge oracle stand" -->
+
+> **CORRECTED IN PART 2026-09-20 by [P369](#p369).** The kill list of **105** patterns
+> becomes **3 995**: it was computed at [P359]'s per-triple cap of 20, and the cap is 26. The
+> list is still finite and explicit, but "short" was load-bearing and is gone. **What stands,
+> per [P369]:** the determinantal description, the codimension-1 finding, and the independent
+> exact edge oracle itself.
 
 Asked directly: what would it now take to derive the last measured link. Four findings, one of
 which kills the most natural route and one of which makes an exact attack possible.
@@ -25092,7 +25454,7 @@ computational-exact rather than combinatorial — the 144 quartics make `EE >= 8
 variety, the cocycle `q_ij^-1 q_ik = q_jk` turns a 4-compound into a closed system on it, and
 the 105 patterns are a finite list to eliminate. **It is still open, and nothing here narrows the
 gap `EE <= 40` from [P359]; what is new is that the remaining work is an elimination rather than
-a search.**
+a search.** **REFUTED 2026-09-20 ([P369](#p369)).**
 
 <a id="p367"></a>
 
@@ -25163,10 +25525,12 @@ already exist separately: the golden has `B = 128` with `Q4 = 18`, and the other
 `Q4 = 0` with `B = 74`. A six-sharing compound holding the golden's `B` and `K4`'s `Q4` would
 count `7 + 60 + 128 = 195` — the bound itself. Whether that trade is forced is exactly
 [P358]'s pinning mechanism, which is a mechanism and not yet a theorem.
+**REFUTED 2026-09-20 ([P369](#p369)).** **CORRECTED 2026-09-19 ([P370](#p370)).**
 
 <a id="p368"></a>
 
 ## [VERIFIED] Postscript 368: exploring [P367]'s band produced a BETTER-SHAPED law — `EE + B <= 164`, and it reproduces the record exactly
+<!-- status: corrected-by=P373; fell="EE + B <= 164   =>   TOTAL <= 171 + 2*SC2 - Q4"; stands="the band-is-worse measurement and the paw-is-rigid finding stand; 164 is not a ceiling" -->
 
 The user: *if there's unexplored, we may want to explore there.* [P367] had shown the chain
 covers only the `B = 128` column of a twelve-column grid. Exploring the rest found the band
@@ -25235,11 +25599,12 @@ measures 110. That is the same target [P367] named, reached independently — an
 **finite**. Fixing cube 0 and writing cube `i` as `Rot(d_i, theta_i)` about its shared diagonal,
 the three remaining sharings are three conditions on `(theta_1, theta_2, theta_3)`; a numeric
 scan of one of them returns ISOLATED solutions, not curves. **The row is enumerable rather than
-searchable**, which is the first time that has been true of any live cell in this grid.
+searchable**, which is the first time that has been true of any live cell in this grid. **REFUTED 2026-09-19 ([P370](#p370)).**
 
 <a id="p369"></a>
 
 ## [REFUTATION] Postscript 369: [P359]'s per-triple maximum of 20 is FALSE — it is 26, and [P360] and [P366] both rest on it
+<!-- status: corrects=P359; corrects=P360; corrects=P366 -->
 
 Found while exploring [P367]'s band. [P359] measured *"over 1 400 three-cube compounds the
 maximum `sum EE` at `E_S = 32` is 20"* and [P360] and [P366] each built on it. It is wrong, and
@@ -25252,6 +25617,7 @@ Probes: `src/probes/band_frontier.py` (found it), `ee10_triples.py` (settles it)
 
 The arrangement census gives `{(2,2): 26, (1,1,1): 32, (1,2): 8}`; the independent exact edge
 oracle of [P366] gives `10 + 10 + 6` on the three relative rotations. **26, not 20.**
+<!-- reviewed 2026-09-24: cites P366's edge oracle, which its tag says stands, not the "105 patterns" kill list that fell -->
 
 **AND IT IS 26 BY ENUMERATION, not by a better sample.** Every pair at the per-pair maximum
 `EE = 10` lies in one finite family ([P330]); enumerating all 54 432 triples whose two
@@ -25266,6 +25632,7 @@ non-identity cubes both lie in it (336 members, coprime, height <= 6), 0 unevalu
 the face-diagonal family are placed AGAINST EACH OTHER — a control chosen because it is hard
 for the method, not because it is convenient. [METHODS]'s rule, and the third time this session
 that the hard control was the one that moved a number.
+<!-- reviewed 2026-09-24: this is P369's own diagnosis refuting P359's numeric conclusion -->
 
 **WHAT FALLS WITH IT.**
 
@@ -25287,10 +25654,13 @@ already reported as failing — it fails by more than it said.
 **AND THE REPLACEMENT IS BETTER SHAPED.** The same exploration produced `EE + B <= 164`
 ([P368]), which is one inequality across all twelve columns and gives the record exactly. The
 per-triple route is not worth repairing at cap 26; the line is.
+**REFUTED 2026-09-20 ([P373](#p373)):** `EE + B <= 164` is false too (a witness reaches 166).
 
 <a id="p370"></a>
 
 ## [REFUTATION] Postscript 370: [P334]'s `K4` IS the golden 177 — its `T3 = 74` is `T3 + Q4generic`, and its gate could not have caught it
+<!-- status: corrects=P334 -->
+<!-- reviewed 2026-09-24: P370's own heading and body refute P334's T3=74 directly throughout -->
 
 Found while enumerating the six-sharing branch ([P371](#p371)). The ladder has carried TWO
 entries at `SC2 = 12` since [P342] — "`K4` ([P334]): `T3 74, Q4 0, B 74`, objective 134" and
@@ -25300,6 +25670,7 @@ entries at `SC2 = 12` since [P342] — "`K4` ([P334]): `T3 74, Q4 0, B 74`, obje
 axes `a, b, c, x, y, z` and comparing face normals in `Q(sqrt3, sqrt5)` against `k4_corner_
 sharing.build()`: the same four cubes, normal for normal. And the census the paw work uses,
 run on [P334]'s own cube objects, returns
+<!-- reviewed 2026-09-24: this is P370's own refutation of P334's T3=74 -->
 
     {(3,3): 12, (2,2): 36, (1,1,1): 56, (1,1,1,1): 18}      -- the golden, exactly
 
@@ -25314,6 +25685,7 @@ results are collected in a set of POINTS it is counted once. So the function ret
 the convenient one, not the one that is hard for the method: an oracle with no four-fold points
 cannot distinguish `T3` from `T3 + Q4generic`. [METHODS]'s rule, and the cost is a
 non-existent compound carried in the ladder for eight days.
+<!-- reviewed 2026-09-24: this is P370's own diagnosis of why P334's gate missed T3=74 -->
 
 **WHAT CHANGES.**
 
@@ -25330,6 +25702,13 @@ non-existent compound carried in the ladder for eight days.
 <a id="p371"></a>
 
 ## [VERIFIED] Postscript 371: every six-sharing 4-compound, ENUMERATED — there are exactly two and both are the golden
+<!-- status: corrected-by=P373; fell="Every branch is capped at 183 or below, and the record attains 183"; stands="the six-sharing enumeration (96 inner-product solutions, 2 compounds, both the golden) stands" -->
+
+> **REFUTED IN PART 2026-09-20 by [P373](#p373).** The six-sharing ENUMERATION stands — 96
+> inner-product solutions, 2 compounds, both the golden. The CASE ANALYSIS built on it does
+> not: it reduced `max(4) = 183` to the single inequality `EE <= 36` at `B = 128`, and [P373]
+> exhibits a compound with `EE = 38` there. The reduction was sound; its premise is false.
+> **`max(4) = 183` is unproved.**
 
 The last live cell of [P367]'s grid, closed by enumeration rather than search.
 `src/probes/six_sharing_enumeration.py`; `data/six_sharing.json`.
@@ -25344,6 +25723,7 @@ two directions per `(alpha, beta)`, so the variety is a finite explicit list.
 
 The coordinates come out as `0, +-sqrt3/3, +-(sqrt3 +- sqrt15)/6` — **the fourth independent
 appearance of [P334]'s `p, q`** — so `Q(sqrt3, sqrt5)` closes over it and every test is exact.
+<!-- reviewed 2026-09-24: cites P334's construction coordinates, which its tag says stands -->
 
 **THE RESULT.**
 
@@ -25370,7 +25750,7 @@ golden instead, because that compound does not exist.
 
 **Every branch is capped at 183 or below, and the record attains 183.** So `max(4) = 183`
 now rests on ONE measured inequality — `EE + B <= 164` — instead of a chain with a measured
-link, an unexplored band and two open branches.
+link, an unexplored band and two open branches. **REFUTED 2026-09-20 ([P373](#p373)).**
 
 *(WITHDRAWN 2026-09-20 by [P373](#p373): `EE + B <= 164` is FALSE, so the case analysis above
 has no premise. The `SC2 = 12` row survives on its own — the golden's 164 IS its proved box
@@ -25410,6 +25790,7 @@ PAIRS in isolation, but contributes to compound `EE` only when its signature is 
 compound `EE = 40`, **deficit exactly 12** — it carries two `(2,2,2,2)` vertices, and
 `2 * C(4,2) = 12`. **This is the anti-correlation of [P368] with a mechanism**: raising pair
 contacts drives them onto shared points, where they merge and stop counting.
+<!-- reviewed 2026-09-24: cites P368's band-is-worse measurement, which its tag says stands, not the EE+B<=164 claim that fell -->
 
 **2. DEPTH — they live at different depths, and that is why they trade.**
 
@@ -25460,10 +25841,12 @@ So both are codimension-1 algebraic, both total degree 4, and they differ in ARI
 quartic in one relative rotation, `B` a (2,2)-form in two. That is the formal reason no
 sum-over-pairs argument reaches `B` and no sum-over-triples argument reaches `EE` — the failure
 [P359] and [P366] each hit from one side.
+<!-- reviewed 2026-09-24: cites P359's route/method framing, which its tag says stands, not its numeric conclusion that fell -->
 
 <a id="p373"></a>
 
 ## [REFUTATION] Postscript 373: `EE <= 36` at `B = 128` is FALSE, and so is `EE + B <= 164` — one configuration kills both, and with them [P371]'s case analysis
+<!-- status: corrects=P368; corrects=P371 -->
 
 The user asked whether `EE + B <= 164` can be established and what the analogue is at other `n`.
 The second question answered the first. `src/probes/ee_plus_b_scaling.py`;
@@ -25480,6 +25863,7 @@ gives `{(1,1,1): 128, (1,2): 44, (2,2): 38}`. The exact edge oracle of [P366], r
 relative rotations, gives `10 + 10 + 0 + 6 + 6 + 6 = 38` with zero merge deficit ([P372]'s law).
 All four 3-subsets carry `E_S = 32`, so `B = 128` is exact and not an artefact. And the region
 engine returns `{1, 82, 66, 24, 1}` — **173 regions, exactly what the identity predicts.**
+<!-- reviewed 2026-09-24: cites P366's edge oracle, which its tag says stands -->
 
 **WHAT FALLS.**
 
@@ -25561,6 +25945,7 @@ are the tabulated ones**. So the leading term is `1 + L + sum c_ell`, the level 
     equality attained by the record. So the bound direction used throughout [P367], [P368] and
     [P371] is sound **for compounds whose vertex census contains only the tabulated
     signatures** — which the record, the golden, the paw, the 4-cycle and the refuter all are.
+    <!-- reviewed 2026-09-24: cites P368's general bound-direction framing, not the EE+B<=164 numeric claim that fell -->
   * **It is not a bound outside that class.** Any compound carrying a `(1,1,2)`, `(1,2,2)` or
     `(2,2,2)` vertex contributes excess the formula never counts, so exclusions drawn from
     `(T, B, Q4)` alone do not apply to it. **[P367]'s grid, and every "this cell cannot beat
@@ -25579,6 +25964,7 @@ structure. **Quote engine counts, or say which formula produced the number.**
 <a id="p375"></a>
 
 ## [VERIFIED] Postscript 375: the refuter's region is `EE`-rich and count-poor — it tops out at 173 — and region counts are ODD by central symmetry
+<!-- status: corrected-by=self; fell="region counts are ODD" | "TOTAL is ODD, at every n" | "means reaching **185**"; stands="the refuter region tops out at 173; TOTAL == number of self-antipodal regions mod 2" -->
 
 Two results from searching the region [P373] opened, which no earlier n = 4 search had visited.
 `src/probes/refuter_region.py`; `data/refuter_region.json`. **Objective: the ENGINE count, not
@@ -25602,6 +25988,7 @@ record's 183 is **moderate `EE` (36) + maximal `B` (128) + corner sharing (12)**
 region reaches `EE 38-42` and `B 128` but forfeits the 12. That is why it refutes the `EE`
 ceilings without threatening the record — and why [P368]'s earlier 179 came from drifting OUT
 of this region toward corner sharing (`SC2 6, Q4 4`).
+<!-- reviewed 2026-09-24: cites P368's raw 179 measurement, not the EE+B<=164 claim that fell -->
 
 **REGION COUNTS AT n = 4 ARE ODD, and it is a two-line proof.** 35 distinct counts observed in
 this run, **every one odd**; likewise every record, `183, 393, 727, 1217, 1895, 2787, 3925`.
@@ -25690,6 +26077,7 @@ condition and dies instantly.** So the two are not symmetric competitors: a conf
 hold `B` at its cap for free and spend its whole 9-parameter budget on `EE`. That is why the
 codimension budget above is the relevant constraint at `B = 128`, and why reading the
 `EE`-versus-`B` frontier as a LINE ([P368]) was reading a plateau as a boundary.
+<!-- reviewed 2026-09-24: already names P368's frontier reading as wrong, in its own prose -->
 
 **AND ONE HYPOTHESIS KILLED CHEAPLY.** The record's non-sharing pairs also sit at `EE = 6`,
 suggesting the hub structure might FORCE edge contacts. It does not: over 1 758 pairs whose two
@@ -25721,6 +26109,7 @@ including pairs of edge LINES that are coplanar while the segments miss entirely
 coincidence at the point, not a condition the family must keep. That inflates the rank. The
 in-range filter is gated against the independent exact oracle of [P366]: 4 of 4, including a
 zero case and the record's own pair.*
+<!-- reviewed 2026-09-24: cites P366's edge oracle, which its tag says stands -->
 
     compound                    EE   active   sharing rows   rank   naive budget
     n=4 RECORD                  36       36        18          8         12
@@ -25751,10 +26140,12 @@ the record is a singular point of the contact variety (tangent space larger than
 or it lies on a curve no previous probe could follow. `src/probes/record_curve.py` decides it
 by Newton continuation; **until it reports, the tangent dimension is an upper bound on the
 family dimension and nothing more.**
+<!-- reviewed 2026-09-24: this is P378's own build-up to refuting P287's "isolated in both senses" -->
 
 <a id="p378"></a>
 
 ## [REFUTATION] Postscript 378: the count IS constant along the 183 curve — refuting [P136]'s own reading of it and [P287]'s isolation
+<!-- status: corrects=P136; corrects=P287; corrects=P117; corrects=P122 -->
 
 **PRIOR ART I SHOULD HAVE FOUND FIRST, and did not.** [P136] already established this curve, in
 a different system and five weeks earlier: the two 183 classes share 88 wall conditions whose
@@ -25763,6 +26154,7 @@ rank, same deficiency, arrived at from walls rather than from edge contacts. I f
 [P377] and wrote it up as new. Grepping `LEDGER.md` for `183.*1-dimensional` returns [P136] in
 one command — the [A17]/[P363] lesson, third occurrence: **search for the OBJECT, not for your
 own phrasing.**
+<!-- reviewed 2026-09-24: this is P378's own discussion of P136 as prior art, citing the part that stands -->
 
 **WHAT IS ACTUALLY NEW, and it contradicts [P136]'s conclusion rather than confirming it.**
 [P136] wrote: *"The count is NOT constant along it — both points are isolated, so it drops
@@ -25770,6 +26162,7 @@ immediately — making this a curve in the WALL SYSTEM rather than a constant-co
 inference leans on [P287]'s isolation, which is straight-line evidence. **Continuation shows the
 full vertex census is PRESERVED along the curve**, so it is a constant-count locus after all.
 `src/probes/record_curve.py`; `data/record_curve.json`.
+<!-- reviewed 2026-09-24: this is P378's own refutation of the P136 claim that fell, quoted directly -->
 
 **THE CONTINUATION.** Exact Jacobian at the record: rank 8 in 12 unknowns, null space 4, of
 which 3 are the per-cube scalings — **exactly one genuine direction**. Stepping along it and
@@ -25790,7 +26183,7 @@ three orders from any degeneracy. The full signature census at each displaced po
 rotation gauge exactly, so every move along the curve changes the congruence class.
 
 **AND [P136] PREDICTS WHERE THE CURVE GOES**: through the SECOND 183 class. That is a testable
-consequence and is not yet tested here.
+consequence and is not yet tested here. **REFUTED 2026-09-20 ([P380](#p380)).**
 
 **ADDENDUM 2, 2026-09-20 — THE PLATEAU IS A BOUNDED ARC, and what bounds it is not an
 equation.** Arc-length continuation with the census recomputed at every step
@@ -25815,6 +26208,7 @@ bug.
 **AND IT EXPLAINS THE MISS EXACTLY.** [P287] stepped `1/32 = 0.031` in straight lines — INSIDE
 this arc's length, yet a straight step leaves a curved variety at second order immediately. The
 probe was simultaneously large enough to matter and the wrong shape to see anything.
+<!-- reviewed 2026-09-24: this is P378's own explanation of why P287's "isolated in both senses" missed the curve -->
 
 **THREE FAULTS OF MINE IN THE CONTINUATION, each reported by the run as "the curve ends here".**
 A step size too large for the corrector; a null space taken as three of the SVD's trailing rows
@@ -25839,6 +26233,7 @@ what a single constant-count curve through the two would look like. *This does n
 are joined* — [P133] records them as identical on every invariant, so no invariant can detect
 arrival, and the classes live in different gauges. Structure and extent are what the method
 supports; joinedness is not.
+<!-- reviewed 2026-09-24: cites P136's 88-shared-walls/1-dimensional-locus fact, which its tag says stands; and P287's own refutation -->
 
 **WHY [P287] MISSED IT, and it is not a defect in its arithmetic.** Its evidence is 19 682
 signed Cayley directions, straight walks between the two 183 classes, and a quaternion-axis
@@ -25888,6 +26283,7 @@ one. `src/probes/backward_end.py`, `plateau_arc.py`; `data/backward_end.json`,
 **`B = 128` and `EE = 36` hold at EVERY step of the backward walk** — full census recomputed at
 each of 37 steps, not sampled. So the count is 183 along the whole arc, and the plateau is a
 genuinely long interval rather than the point [P287] reported.
+<!-- reviewed 2026-09-24: this is P378's own refutation of P287's "isolated" point claim -->
 
 **THE BOUNDARY IS AN INEQUALITY REACHING ITS LIMIT, and the two ends differ in kind.** Forward,
 twelve crossings slide off their edges at once and `EE` collapses to 30. Backward, a single
@@ -25918,10 +26314,12 @@ within 1e-17 of each other and the endpoint is doubly degenerate. Reported, not 
 <a id="p380"></a>
 
 ## [VERIFIED] Postscript 380: the two 183 classes are NOT on the same arc — proved by a Lipschitz bound, not by extrapolation
+<!-- status: corrects=P136 -->
 
 [P136] predicted a curve through both 183 classes. [P379] measured the record's arc: 0.0516797
 forward, 0.63560749 backward. This settles the prediction.
 `src/probes/two_183s_joined.py`; `data/two_183s_joined.json`.
+<!-- reviewed 2026-09-24: this is P380's own settling of the P136 prediction -->
 
 **THE DISTANCE, gauge-free.** Each cube compared as a COSET `q*O` minimised over its 24 right
 multiplications, the configuration over the 24 global rotations fixing cube 0's cube and the 6
@@ -25959,6 +26357,7 @@ through components of a different contact type is untouched by this. And [P136]'
 through both points remains a DIFFERENT object from the constant-count arc, exactly as [P136]
 itself said when it called its curve "a curve in the WALL SYSTEM rather than a constant-count
 locus". **[P136] was right about its own object and wrong only about the count along it.**
+<!-- reviewed 2026-09-24: this is P380's own accounting of what stands and what fell in P136 -->
 
 <a id="p381"></a>
 
@@ -26004,6 +26403,7 @@ established: it would have been reached the same way [P287] reached its wrong an
 by probes that cannot see a curved family. *Tangent dimension is an upper bound on local
 dimension, so this does NOT show the 67s lie on arcs — it shows the question is open and
 decidable by the continuation of [P378].*
+<!-- reviewed 2026-09-24: already names P287's isolation claim at n=4 as wrong, in its own prose -->
 
 **WHAT DOES NOT TRANSFER.** The lengths. `0.0516797` and `0.63560749` belong to the n = 4
 record, as do its boundary types — twelve contacts leaving at one end, one crossing reaching a
@@ -26023,6 +26423,7 @@ the 1s at n = 3..6 are the family's structure and not the method's.
 wrongly believed it isolated. So the [GLOSSARY]'s "isolated at n = 3" needed the test that
 settled n = 4 rather than the straight-line probes that failed there.
 `src/probes/n3_arc.py`; `data/n3_arc.json`.
+<!-- reviewed 2026-09-24: already names P287's belief as wrong, in its own prose -->
 
 **THE TEST, both fields, BOTH DIRECTIONS, three step sizes each.** Gates first: `|F|` at the 67
 is `1.3e-51` and `1.6e-50`, the tangent's `|J d|` is `5.3e-52` and `5.3e-51`, and the census
@@ -26047,6 +26448,7 @@ n = 4 situation of a curve nobody had followed. It is a curve whose count-preser
     n = 3         tangent 1, plateau 0                   the maximiser is an ENDPOINT
     n = 8         tangent 3 = plateau 3 ([P383])         RESOLVED: [P307]'s 2 was a lower
                                                          bound; all three directions integrate
+<!-- reviewed 2026-09-24: already resolves P307's n=8 figure of 2 as a lower bound, in its own table -->
 
 **AND IT CONFIRMS THE PROJECT'S OWN ACCOUNT OF WHY n = 3 IS DIFFERENT**, by a route that never
 mentioned it. [GLOSSARY] on frustration: *"n = 3's maximum is forced to be irrational (rigid
@@ -26064,12 +26466,14 @@ twelve, so a one-sided test could not have supported the word "isolated" either.
 <a id="p383"></a>
 
 ## [REFUTATION] Postscript 383: the n = 8 plateau is 3-DIMENSIONAL, not 2 — [P307]'s figure is a lower bound stated as an equality
+<!-- status: corrects=P307; corrects=P117; corrects=P122 -->
 
 [P381] measured tangent dimensions `1, 1, 1, 1, 2, 3` for n = 3..8, agreeing with [P307]'s
 independently measured plateau dimensions at n = 6 and n = 7 and disagreeing at n = 8 (3 against
 2). Tangent dimension is an upper bound, so the disagreement had three possible resolutions —
 [P307] wrong, or the n = 8 record a singular point, or the tangent miscounted. It is the first.
 `src/probes/n8_dimension.py`, `fast_census.py`; `data/n8_dimension.json`.
+<!-- reviewed 2026-09-24: this is P383's own heading/opening refuting P307's n=8 figure -->
 
 **THE TANGENT IS EXACTLY 3.** Inverse iteration with deflation returns three directions with
 `|J d|` of `9.3e-42`, `8.3e-42`, `1.3e-41`; the fourth candidate has `|J d| = 0.36`, so the
@@ -26087,6 +26491,7 @@ basis closes at three and the count is not a threshold artefact.
 Five displacements, four orders of magnitude of step size, census identical throughout
 (`7 signature classes, 2114 vertices`). **So the plateau really is 3-dimensional at n = 8** and
 [P307]'s `1, 2, 2`, stated as equalities, is `1, 2, 3` with the last a missed direction.
+<!-- reviewed 2026-09-24: this is P383's own confirmation refuting P307's n=8 figure -->
 
 **A CRITERION OF MINE THAT MEASURED NOTHING.** The first run stepped `1e-4` against a census
 margin of `6.9e-5` — a displacement LARGER than the nearest vertex's distance to a facet
@@ -26185,6 +26590,7 @@ other, a ratio of **12.3** ([P379]); this polytope's circumradius/inradius is **
 maximisers sit far off-centre in a strongly elongated plateau, which is why a symmetric probe
 finds a boundary quickly in one direction and not at all in another — and why [P287]'s
 straight-line probes at step `1/32` read n = 4 as isolated.
+<!-- reviewed 2026-09-24: already explains why P287's straight-line probes read isolation wrongly -->
 
 **CONSISTENT WITH THE ONE RAY THAT RAN.** `basis 0 +` reached `0.0105` with the census intact
 and stopped on budget; the nearest facet is at `0.0595`, so it had not reached the boundary.
@@ -26198,3 +26604,813 @@ tangent 1, plateau 0) and [P383] (n = 8: tangent 3, plateau 3), so it is not a f
 CUBE PAIR, not the full contact, so four distinct contacts of pair (0,5) print identically. They
 are genuinely distinct constraints at equal distance by symmetry — not duplicates — but the
 output cannot show that, and a reader could take it for a repeated row.
+
+<a id="p386"></a>
+
+## [VERIFIED] Postscript 386: the citation graph was never a dependency graph — 73 % of citations to refuted postscripts carried no flag, and the tool found a live one on first use
+<!-- status: corrected-by=P387; fell="73 % of citations to refuted postscripts carried no flag"; stands="the mechanism (citations point backward, refutation must travel forward) stands" -->
+
+> **CORRECTED 2026-09-23 by [P387](#p387).** The mechanism below stands; **the measurement and
+> the audit list do not.** `--audit` keyed on the ledger heading `[TAG]`, which names an
+> entry's ACTION and not its status, so it selected the CORRECTORS — 13 of the 18 rows it
+> printed were current results ([P330], [P374], [P378], [P383] among them). The 73 % (207 of
+> 284) below is withdrawn; its denominator counted citations to postscripts that stand. The
+> corrected figure, over the 18 postscripts that have actually fallen, is **210 of 403, 52 %**
+> (part of that drop is the flagging heuristic loosening, not the documents improving — see
+> [P387]).
+> The tool missed [P304] (59 dependents), [P334] (42), and [P375] — the example this entry was
+> written around.
+
+The user asked whether the cross-references are sufficient to track what needs updating when a
+claim falls. **Measured: they are not.** `src/claim_deps.py`.
+
+**THE MEASUREMENT.** Over 13 postscripts refuted or corrected in one session, across the
+authored documents:
+
+    citations to refuted postscripts     284
+    carrying a correction marker          77
+    UNFLAGGED                            207   (73 %)
+
+    P375   0 of 6      refuted the same day it was made
+    P366   1 of 19
+    P360   1 of 11
+    P334   7 of 43
+
+*(The heuristic over-reports: a long postscript has parts that survive and citing those needs no
+flag. It is built to over-report — a false alarm costs a glance, a missed one leaves a wrong
+claim standing in a summary.)*
+
+**WHY, and it is structural rather than careless.** A citation points BACKWARD: a claim names
+the evidence under it. Refutation travels FORWARD: evidence invalidates what stood on it.
+Nothing in the documents runs that direction, so propagation is done from memory by whoever
+wrote the refutation — **and memory is exactly what a compaction destroys.** This is
+[METHODS]'s "corrections propagate inside a record and not out of it", measured again with a
+bigger number: 118 entries and 1 outward link then, 4 348 citation edges and 73 % unflagged now.
+
+**THE TOOL.** `claim_deps.py` builds the citation graph over the 72 authored documents (4 348
+edges, 385 postscripts cited), inverts it, and answers the only question that matters when
+something falls: **what did this hold up?**
+
+    python3 src/claim_deps.py P352       every dependent, with context and flag state
+    python3 src/claim_deps.py --audit    every refuted postscript with unflagged dependents
+    python3 src/claim_deps.py --stats    graph shape
+
+**IT FOUND A LIVE ONE IMMEDIATELY.** `SESSION_STATE.md` still asserted **"REGION COUNTS ARE ODD
+([P375]) — so beating 183 means reaching 185"**. That claim was refuted on 2026-09-20, the same
+day it was made; the ledger entry and [ORIENTATION] were both corrected and **the state
+document was not**. It survived a full day and several editing passes over that very file, and
+was found by the tool rather than by rereading. Now corrected.
+
+**THE MOST-DEPENDED-UPON POSTSCRIPTS**, which are where a refutation would cost most. Counts
+move as documents are written, so run `--stats` rather than reading them here; the shape is
+what matters, and the shape is that two of the top eight have already fallen.
+
+    P25  81 dependents      P46 78      P304 62 FALLEN      P51 52
+    P227 52                 P330 55                         P334 44 FALLEN
+
+> The `[VERIFIED*]` star printed here in the original was produced by the inverted prose loop
+> [P387] removed. Nothing emits that notation now; `FALLEN` replaces it, and unlike the star
+> it is derived from structure rather than from a regex over passive voice.
+
+<a id="p387"></a>
+## [CORRECTION] Postscript 387: [P386]'s audit was keyed on the wrong field — the ledger's `[TAG]` names the ACTION, not the status, so the tool was listing the CORRECTORS
+<!-- status: corrected-by=P388; corrects=P386; fell="210 of 403, 52 %"; stands="the selector fix (reading the entry's own marker, not the heading TAG) stands" -->
+
+> **CORRECTED 2026-09-23 by [P388](#p388), the same day.** The selector fix below stands. **Its
+> replacement was wrong in the same way, one level down**: the victim rule reads a `[Pnnn]` in a
+> heading title as the thing refuted, and a title carries names, not roles — [P16] is named by
+> [P363] as the WINNER, [P272] by [P271] as the CORRECTOR. Both were reported FALLEN and are
+> not. Separately, the heading regex below could see 200 of the ledger's 383 entries. The
+> measurement stated here (210 of 403, 52 %) is superseded; see [P388].
+
+*2026-09-23.* `src/claim_deps.py`, fixed in place; the number in [P386] and the copy of it in
+`ORIENTATION.md` are both corrected. No data file is touched — there is none; the tool reads
+the documents.
+
+**THE DEFECT.** `--audit` selected a postscript when its own heading tag contained `REFUT` or
+`CORRECT`. Those tags do not mean what the selector assumed:
+
+    ## [REFUTATION] Postscript 378: the count IS constant along the 183 curve — refuting
+                                    [P136]'s own reading of it and [P287]'s isolation
+
+P378 is the refuter and it stands. So did [P330], [P374], [P383], [P370], [P324], [P322],
+[P373], [P363], [P337], [P339], [P369], [P331] — **13 of the 18 rows the audit printed were
+current results.** Propagating from that list would have stamped REFUTED markers across the
+live n = 4 and n = 8 findings, in the documents, from a tool whose stated purpose is to stop
+exactly that.
+
+**AND THE TAG IS NOT EVEN CONSISTENT.** `[REFUTED] Postscript 323: [P304]'s mechanism does not
+survive containment` reads as an action; `[CORRECTED] Postscript 329` carries a
+`> **CORRECTED ... by [P330]**` blockquote and reads as a status. Same grammar, opposite
+direction. The field is unusable as a status and no repair of the word list fixes it.
+
+**WHAT REPLACED IT — two structural signals, neither depending on the tag's direction.**
+
+    (A) VICTIM   a [Pnnn] named in the HEADING LINE of a refutation-family entry.  That entry
+                 exists to overturn what it names, whichever way its own tag reads.
+    (B) MARKED   a `> **CORRECTED/REFUTED/RETRACTED/WITHDRAWN/SUPERSEDED/REVERSED` blockquote
+                 anywhere in the entry's own body.
+
+Both read curated text. What they replaced was prose inference — a regex for
+`(CORRECTED|REFUTED|...)[^\n]{0,200}?\[P(\d+)\]` — which **passive voice inverts**: *"was
+refuted by [P330]"* marked P330, the refuter. That loop was producing false stars all along; a
+guard (`if st[n] not in ('REFUTATION','CORRECTION')`) was accidentally suppressing them, so
+removing the guard alone would have unmasked a second inversion. Both went together.
+
+**THE ORACLE, and it was available in the broken tool's own `--stats` output.**
+
+    P304   59 dependents   [VERIFIED**]   the tool KNEW it had fallen — two stars — and the
+                                          selector skipped it: the tag says neither word
+    P334   42 dependents   [VERIFIED]     refuted by [P370]'s heading; not detected at all
+
+101 dependents between them, against the 13 false rows. Both now appear. So does [P375] — the
+example [P386] was written around, missed because its retraction is a PARTIAL one placed beside
+the claim it retracts, 37 lines into the entry, outside the head-only window the first version
+scanned. The scan now covers the whole body.
+
+**THE PROBE, before any cleanup was specced.** [P304]'s own entry was given the in-place
+marker it had never carried — the highest-value single edit in the project, since 62 documents
+cite it — and the audit did not move. Two defects, both in the flagging side rather than the
+selector:
+<!-- reviewed 2026-09-24: uses P304 as the tooling example, not its fallen four-plane content -->
+
+  * **A postscript citing itself is not a dependent.** `[P304]` inside [P304]'s own ledger
+    entry is the entry talking about itself. Counted as a stale dependent, it guarantees the
+    audit can never reach zero.
+  * **The flag window was one paragraph.** The convention puts an in-place marker in a
+    blockquote paragraph directly UNDER the heading it marks, so a strictly paragraph-local
+    test scored the correctly-written marker as absent. The window is now the paragraph plus
+    its two neighbours.
+
+Had the cleanup been delegated from the pre-probe audit, every edit in it would have failed to
+clear the thing it was made to clear, and the failure would have been invisible until 271 of
+them were done.
+
+**THE CORRECTED MEASUREMENT, 2026-09-23.** 18 fallen postscripts have unflagged dependents;
+**210 of 403 citations to fallen postscripts carry no correction marker, 52 %** at the moment
+this was written. Against
+[P386]'s 73 % this is two changes at once and they must not be conflated: the selector fix
+changed WHICH postscripts are counted, and the two probe fixes changed WHAT COUNTS AS FLAGGED.
+**Part of 64 % -> 52 % is the instrument loosening, not the documents improving** — only
+[P304]'s and [P386]'s markers were actually written. The denominator also moves with every
+document written, which is why the prose copies of this now point at `--audit` instead of
+repeating a number: a measurement quoted into a summary is the thing that rots.
+
+**WHAT IS NOT DONE.** No dependent has been flagged. The 210 stand, [P304] (29) and [P334]
+(30) heading the queue, and that work is now safe to start — which before the probe it was
+not. [P386]'s 73 % (207 of 284)
+is withdrawn: its denominator counted citations to correctors.
+
+**THE LESSON, and it is the one already written down.** *A theorem is a test oracle* — and a
+tool that classifies has one available for free: it must classify its own subject matter
+correctly. This tool's subject is falsity, [P386] is a postscript, and a single check of
+whether the audit's rows were actually false would have caught it at birth. Instead the row
+count (18) was reported to the user as a work item. Same shape as `count_T3`'s gate in [P370]:
+a check that ran only where it could not fail.
+
+
+<a id="p388"></a>
+## [CORRECTION] Postscript 388: the same tool is wrong about direction a THIRD time — a heading title carries names, not roles, and its tag regex could see 200 of 383 entries
+<!-- status: corrects=P387 -->
+
+*2026-09-23.* Found by the subagent delegated to do the cleanup [P387] cleared the way for.
+Two independent defects in `src/claim_deps.py`, both confirmed by hand before acting.
+<!-- reviewed 2026-09-24: this is P388's own opening, correcting P387's measurement -->
+
+**DEFECT 1 — the heading regex saw 200 of 383 entries.**
+
+    grep -cE '^## .*Postscript [0-9]+:'          383
+    grep -cE '^## \[[A-Z ]+\] *Postscript [0-9]+:' 200
+
+The tag was assumed present and upper-case. It is often neither: the early entries are untagged
+(`## Postscript 16:`), and several later ones carry the status inside the bracket in mixed case
+(`## [OBSERVED (SUPERSEDED by P192)] Postscript 189:`). **183 entries were invisible** — not
+misread, absent. The consequence was silent and wrong in both directions: an invisible entry's
+body falls inside the PRECEDING visible entry's computed span, so [P189]'s own `SUPERSEDED`
+marker was attributed to [P188], which had not fallen. With the tag made optional, eight
+postscripts that carry their own correction marker and had never once appeared in an audit did:
+**[P118], [P121], [P122], [P125], [P175], [P182], [P183], [P189]**, 56 unflagged dependents
+between them. [P188] correctly left the list.
+
+**DEFECT 2 — and this is the third repetition of one bug.** The victim rule read a `[Pnnn]` in a
+refutation-family heading as the thing refuted. A heading title carries names; it does not carry
+grammatical role, and all three roles occur in the same sentence shape:
+
+    [REFUTED] Postscript 323: [P304]'s mechanism does not survive ...        P304 = VICTIM
+    [CORRECTION] Postscript 363: ... and [P16] beat it                       P16   = WINNER
+    [SUPERSEDED IN PART] Postscript 271: ... corrected ... by [P272](#p272)  P272  = CORRECTOR
+
+So [P16] and [P272] were reported FALLEN and are not. The count of times this tool has been
+wrong about the DIRECTION of a relationship is now three:
+
+    the prose loop     "was refuted by [P330]"   marked the REFUTER      -- passive voice
+    the selector       [REFUTATION] as a status  listed the CORRECTORS   -- action tag
+    the victim rule    a name in a title         asserted the VICTIM     -- role not encoded
+
+**WHAT WAS DONE ABOUT IT, and it is deliberately not a fourth patch on the parse.** Three
+attempts to infer direction from English have produced three inversions; a fourth would be the
+same bet. Only the in-place marker is unambiguous — it sits in the victim's own entry and says
+so in its own voice. So the audit now has two tiers:
+
+    FALLEN    (B) the entry carries its own `> **CORRECTED/REFUTED/...` marker.  Asserted.
+    SUSPECT   (A) named in a refutation-family heading, ROLE UNVERIFIED.  Reported as a
+                  QUESTION, listed separately, and NOT counted in the headline figure.
+
+The durable fix for a genuine fall is to write the marker into the victim's own entry, which
+moves it from SUSPECT to FALLEN. That is a real edit to the record rather than a cleverer regex,
+and it is the only move that makes the documents self-describing rather than tool-dependent.
+
+**THE MEASUREMENT, restated on the corrected instrument.** 18 fallen postscripts with unflagged
+dependents; **175 of 361 citations to them carry no correction marker, 48 %** as this was
+written, [P386] and [P387] among them since both were marked in place today. A further 9
+postscripts are SUSPECT with 84 unflagged citations, uncounted, pending a by-hand call on each.
+[P387]'s 52 % and [P386]'s 73 % are both superseded — and note that all three figures have sat
+near half while the set being measured changed twice. **The percentage was never the finding.**
+
+**THE LESSON.** [P387] said the tool's own subject matter is its oracle: a classifier of falsity
+must classify itself correctly. It was checked against that and passed, because the check was
+"are the rows actually false?" and the rows it printed were. It was never checked the other way
+— **are there entries the instrument cannot see at all?** A `grep -c` against the strict pattern
+and a `grep -c` against the loose one, two commands, would have returned 200 and 383 at any
+point since the tool was written. *Unevaluable is not a negative result*: 183 entries scored as
+"nothing to report" and the audit reported a clean bill on all of them.
+
+**ADDENDUM 2026-09-24 — the nine SUSPECTS resolved by hand.** Reading each naming heading for
+role: **[P16] is the WINNER** in [P363]'s title and **[P272] is the CORRECTOR** in [P271]'s. Neither
+fell. Both are recorded in `RESOLVED_NOT_FALLEN` in the tool, with the role, so the verdict
+survives a compaction instead of being re-derived. The other seven DID fall, each in part, and
+each now carries an in-place marker stating what fell and what stands, taken from its refuter's
+own account: [P136] (its reading of the curve, and the prediction that it passes through the
+second 183 class, refuted by [P380]), [P287] (isolation; its measurements stand), [P318] (cost
+attribution; 301 of 393 stands), [P359] (the cap of 20 is 26), [P360] (optimum 40 is 52), [P366]
+(kill list 105 is 3 995; the determinantal description and codimension-1 finding stand), [P371]
+(the case analysis; the six-sharing enumeration stands). The SUSPECT tier is now empty.
+
+Also fixed: [OQ 36]'s `T3 = 74` / "near 138", which [P370] had corrected in the ledger but not in
+the open question. It carried no bracket citation, so no version of this tool could ever find
+it. It was found by the subagent READING the document.
+
+**ADDENDUM 2026-09-24 — VOID recognised, and what it exposed.** `VOID` is a term of art here (35
+uses): the claim was never validly measured, as opposed to REFUTED (validly measured, false) or
+CORRECTED (a replacement value exists). The audit now recognises it, case-sensitively, because
+lowercase "void" is ordinary prose. Four citations changed status. **Two of the four were
+wrong**: [P322]'s and [P323]'s casualty tables list [P307]'s plateau dimensions as UNAFFECTED /
+SAFE, which was true of the containment defect. But [P383] corrected those dimensions the same
+week for an unrelated reason, and a VOID about OTHER postscripts in the same table was counting
+them as handled. Both rows now carry a bare pointer, `CORRECTED 2026-09-20 ([P383])`.
+
+**The residual defect, not fixed:** the flag test is per PARAGRAPH, and a casualty table is one
+paragraph giving a different verdict to each postscript in it. Any marker word in the table
+marks every citation in the table, so the audit could not tell these two rows before the fix
+from after it; the count did not move. The marker convention adopted today is a BARE POINTER,
+`**VOID|CORRECTED <date> ([Pnnn])**`, valid only when Pnnn's text actually covers the specific
+claim: check by grepping the target for it. (The first example drafted pointed at [P323]; the
+twelve walls it was about are addressed in [P322].)
+
+**ADDENDUM 2026-09-24 — casualty-table rows are now checked one at a time.** Each
+`VOID / SUSPECT / SAFE / UNAFFECTED` row counts as its own unit: VOID and SUSPECT rows count as
+handled, and SAFE and UNAFFECTED rows count as handled only if a marker was written into the row
+itself. **Test, run against a copy with the two [P307] markers stripped out:** the paragraph
+check counted both rows as handled, and the row check reports both unhandled, at their own lines
+(22612, 22672). On the real tree the change moves nothing (0 of all fallen-citation groups
+differ), as expected, since both rows now carry markers.
+
+**ADDENDUM 2026-09-24 — the in-ledger pass.** A subagent went through all 147 unflagged in-ledger
+citations and marked 14, all bare pointers, each checked by searching the target for the specific
+claim: [P304] ×3, [P334] ×8, [P359]/[P360]/[P366]/[P370] ×2, [P368] ×1. Checked afterwards
+against a snapshot taken before the pass: every changed hunk only added text (0 hunks lost
+characters). It left about 95 alone with reasons; most cite surviving parts, or are the refuting
+entry's own discussion. Two items it declined to settle, resolved here:
+- [P368]'s "ONE BRANCH IS LEFT" (six sharings with `Q4 = 0`): marked REFUTED ([P370]), whose
+  text says "[P368]'s last live branch is EMPTY". It carried no bracket citation, so no audit
+  could surface it; the subagent found it by reading.
+- [P317]'s "[P304]'s 264-of-486 phenomenon": the count is [P306]'s, and it concerns parallel
+  normal pairs, which is linear algebra untouched by containment. No marker; the citation names
+  the wrong postscript for a claim that holds.
+
+**Found in resolving the second: an unpropagated casualty, [P306].** Its 222 walls come from
+`plateau_order.py`, which [P323] listed as SUSPECT, and nothing re-examined it. It now carries a
+note: the mechanism is unverified and the n = 6 dimension is confirmed independently by [P381].
+The note uses no recognised correction word, deliberately, because [P306] has not fallen; it is
+unresolved. Resolving it means re-running the 222 with the containment predicate.
+
+**Dates.** Citations of the same refuter disagree: [P378] is cited as 09-20 twice and 09-21 ten
+times, [P323] as 09-13 and 09-16, [P369] as 09-19 and 09-20. Data-file timestamps put [P373],
+[P378], [P380] and [P383] on 09-20. A timestamp is only the file's last write, so this is weak
+evidence, and no dates were rewritten on it. The one date changed was mine: [OQ 36]'s 09-20 for
+[P370], which contradicted [P334]'s own note (09-19).
+
+**ADDENDUM 2026-09-24 — a fourth heading form, and the one that encodes role.** Three entries are
+headed `## Postscript N (CORRECTION to Postscript M):` ([P61], [P66], [P76]). The heading regex
+required the colon directly after the number, so all three were invisible: their bodies were
+attributed to the preceding entry, and [P60], [P63], [P70] were never known to have been
+corrected. Unlike a name in a title, this form STATES the role, so it is read as an assertion
+(FALLEN), not a suspicion. The tool now reads 387 of the ledger's 389 postscript headings; the
+other two are addenda (`## Postscript 11 addendum:`, `## Postscript 17 addendum:`), which belong
+to their parent entry's span and are correctly not new entries. Found because [`LEVELS.md`]
+cited [P76] and the tool reported it as having no status.
+
+Also found in writing `LEVELS.md`: its first draft called the n = 2 plateau "not fully mapped",
+taken from MAXIMISER_TAXONOMY.md and the "not yet mapped" lists. [P69] is titled "n=2 mapped
+completely". Caught by the user.
+
+**ADDENDUM 2026-09-24 — document kinds, status tags, `--fell`.** [`DOCUMENTS.md`] now classifies
+every document as record, verbatim, current or narrative, and `claim_deps.py` reads that table:
+narratives citing a fallen postscript are listed but not counted, current-knowledge dependents are
+listed first, verbatim files are not scanned. Two new structured comments are read: the status
+tag (`<!-- status: corrected-by=Pn; fell="..."; stands="..." -->`, and `corrects=Pn` at the other
+end), which states role instead of leaving it to be parsed from English, and `<!-- reviewed ... -->`
+beside a citation deliberately left unmarked. `--fell` searches for the tag's fell strings.
+
+**Tested before use, on a copy with one tag added and one string planted in a current document,
+a record and a narrative.** The test found three defects in code that had passed on the live
+ledger only because no entry yet carried a tag: a loop variable named `tag` overwrote the
+dictionary of the same name; the fell strings accumulated across re-parses, doubling every hit;
+and a correction word about something ELSE in the paragraph next to the plant in `LEVELS.md`
+masked it. Fixed: `--fell` now requires the marker in the hit's own paragraph. After the fixes the
+current and record plants are found and the narrative plant is skipped, as designed.
+
+**ADDENDUM 2026-09-24 — the retrofit, and what `--fell` found on its first real run.** All 30
+fallen postscripts now carry a status tag, and 27 correctors a `corrects=` tag. P125 and P375 were
+refuted within their own entries and carry `corrected-by=self`. A subagent tagged 28; P125 and P375
+were tagged by hand after it reported that no corrector existed to name. Checked afterwards against
+a snapshot: text was only added.
+
+**The first real run of `--fell` found 77 spurious hits and one genuinely stale claim.**
+- **The spurious hits** came from this entry's own prose, which quotes the tag format inline as an
+  example: the parser read the example as a real tag, and its `fell="..."` then matched every
+  ellipsis in the repository. Fixed: a tag counts only at the start of its own line, and an inline
+  example is tested to be ignored.
+- **The stale claim was in `SESSION_STATE.md`**: `EE + B <= 164 => TOTAL <= 171 + 2*SC2 - Q4`,
+  stated as a live law. It sat 50 lines BELOW the same file's own section saying
+  `EE + B <= 164` is false, with no citation, so no citation-based check could see it. It was
+  the head of a 75-line stale tail (the band exploration, the per-triple maximum of 20, the kill
+  list of 105, "the case analysis is complete"), now pruned, with a pointer to [P354]–[P373]. The
+  published copy of 2026-09-21 holds the text.
+- **The self-tags found one more**: SESSION_STATE.md's "beating 183 means reaching **185**",
+  which carried an italic refutation note beneath it instead of being rewritten. Rewritten.
+
+After these, `--fell` reports 0 unmarked restatements, over 30 postscripts carrying fell strings.
+Three deliberate mentions of `T3 = 74` carry `reviewed` comments.
+
+**ADDENDUM 2026-09-24 — [P47]'s headline was false, and stood for weeks across 46 citations.**
+Found by applying the narrative rule (a superseded belief must be told with its successor) to
+`PROJECT.md` and `JOURNEY.md`, both of which said "727 is proved isolated: no continuous family of
+sixth cubes passes through it". [P47] proved that the 36-condition coincidence pattern is realised
+at a single point and is unaugmentable; its headline read that as the count being isolated. The
+count is not: `16,30,2,-11` and `224,462,34,-163` on the unchanged 393 base both count **727**
+(re-checked with `cube_regions_n` today), and in Cayley coordinates the record lies on the line
+between them, the second displacement exactly −½ the first. Off the record the per-label counts
+change and the total does not. [P293] had the numbers, and [P306] the plateau dimension; neither
+said what they did to [P47]. Now tagged and noted, with [P293] and [P306] as correctors. The same
+pass also found two overstatements that were never true: `PROJECT.md` concluded "no better
+completion of this five-cube base exists", contradicting its own caveat eight lines earlier, and
+`CONTINUUM_MAP.md`'s correction note (added earlier today) said 727 is not isolated "even in the
+coincidence-variety sense", which is backwards: that is the sense in which it IS isolated.
+
+**Narratives are no longer marked for the tool** (user, 2026-09-24): no correction vocabulary, no
+pointers, no comments. The audit and `--fell` list narrative passages as a reading list and count
+nothing there.
+
+**ADDENDUM 2026-09-24 — narrative dating, and one proof claim left UNEVALUATED.** Narratives now
+speak only up to an honest date (user, 2026-09-24): out of date is incomplete, not wrong; a false
+PROVED claim is wrong at any date. All four dated narratives carried stale headers
+(`JOURNEY.md` "updated 2026-08-02", `PROJECT.md` "2026-08-01", `OVERVIEW.md` "2026-08-02") while
+their content, and their last publication, run to 2026-09-16. Corrected to that date.
+
+**Open, and not evaluated here:** `OVERVIEW.md` states, as of 2026-09-16, that
+`TOTAL <= 1 + 32*C(n,3) + 10*C(n,2) + 3(n-1)` is proved except for one hypothesis ([P326]).
+[P326]'s derivation uses `sum(E - V) = T + two-body`, checked on four records. [P374] later found
+that the n = 4 accounting `T + B - Q4` omits the excess of `(1,1,2)`, `(1,2,2)` and `(2,2,2)`
+vertices and is not a bound for compounds carrying one. [P374] never mentions [P326]. **Whether
+the omitted excess can push `sum(E - V)` above `32*C(n,3) + 10*C(n,2)`**, which would leave
+[P326]'s proof with a gap and `OVERVIEW.md`'s proof claim flawed, has not been checked. It is a
+question about whether the per-triple box `E_S <= 32` already accounts for those vertices.
+
+**ADDENDUM 2026-09-24, same day — the [P326] question, resolved as far as [P374] goes.** [P326]'s
+own entry already records that attributing the excess to named vertex kinds is incomplete and
+names `(1,1,2)` as the likely missing type; its bound never used that attribution. Its triple term
+is the per-3-subset triple-point WEIGHT, bounded by 32 by PROOF_67 Lemma 1a as completed in
+`PROOF_STEP_T.md` "in full generality, including degenerate triple points". The `(1,1,2)`,
+`(1,2,2)` and `(2,2,2)` vertices are degenerate triple points of their 3-subset, so they are
+inside that bound. [P374]'s finding concerns the n = 4 formula `T + B - Q4` with `B` counted by
+generic signatures, a different object. **`OVERVIEW.md`'s proof claim survives.** Not checked
+here: [P326] writes `sum(E - V) = T + two-body` as an equality, while a four-cube vertex supplies
+excess 6 against the 8 its four triples charge, so it reads as `<=`. That direction only helps an
+upper bound; it is recorded, not verified.
+
+**ADDENDUM 2026-09-24 — the status of every upper bound on max(4), classified.** Asked (user) to
+say for each whether it is a proven theorem, a strong or weak conjecture, a hypothesis, or a hope:
+
+    max(4) <= 953          strong conjecture with a PROOF GAP  [P249] sums [P243]'s depth >= 2 bound,
+                                                               whose premise [P274] refuted
+    c_ell <= 2  =>  <= 198 proved implication                  [P258], [P326]
+    c_ell <= 2             strong conjecture                   ~3 700 level-instances, directed
+                                                               attempts, reduced to one claim [P259]
+    max(4) <= 195          hope                                needs c_ell = 1; c_ell = 2 occurs
+    max(4) <= 263          obsolete                            [P261]: needs c_ell = 1, dominated by 198
+
+**The finding that matters: no hypothesis-free bound on max(4) is currently established.** [P243]
+was corrected in place on 2026-09-08, but only its observation sentence; its consequence, "the
+bound is proved for every ell >= 2", was argued from that observation and stayed. [P249]'s 953
+summed it and was never revisited, and `RESULTS.md` has called it PROVED since. It is the pattern
+of [P386]: the correction was written where the error was, and not where the error had been used.
+The repair (a two-body term at each depth >= 2, as [P237] added at depth 1) is the obvious next
+piece of mathematics, and is not attempted here.
+
+**ADDENDUM 2026-09-24 — the record pass, and an error in a status tag that it propagated.** Two
+subagents resolved every unflagged citation in the record: about 160 `reviewed` comments and 10
+pointers, all insertions (checked against a snapshot). Unflagged citations fell from 276 of 713
+(39 %) to 78 of 595 (13 %), and all 78 are in current-knowledge documents, next in the audit order.
+
+**A tag can be wrong, and then it is copied.** [P243]'s status tag, written by the main session
+today, said its "reformulation of the l >= 2 ceiling law" stands. It does not: that reformulation
+is exact only when no two-body vertex lies below depth 1, the premise [P274] refuted. The subagent
+read the tag, as instructed, and marked a citation of the reformulation as fine. Checking its
+[P243] judgments by hand found it; the tag, [P243]'s note, that citation, and three restatements
+(in this ledger, `RESULTS.md` and `OPEN_QUESTIONS.md`) are corrected. **The `stands=` field is a
+claim like any other, and was written with less care than the notes it summarises.**
+
+**PROOF GAP joins the vocabulary**: a claim stated as proved whose proof has a hole, which may well
+be true. It is distinct from VOID (never validly measured), which the subagent had used for the
+953, the first case.
+
+**ADDENDUM 2026-09-24 — the current-knowledge tier.** The 78 citations of fallen postscripts left
+in current-knowledge documents are resolved: two REWRITES (`RESULTS.md`, which still called
+[P249]'s 953 "the first unconditional whole-tower bounds"; `OPEN_QUESTIONS.md` §27, which still
+called [P243]'s depth >= 2 bound proved outright) and about 75 `reviewed` comments where the
+citation uses the surviving part or already states the correction. Every change was checked
+against a snapshot; the only existing text altered is in those two rewrites. **`--audit` now
+reports no unflagged citation of a fallen postscript outside the narratives** (from 276 of 713
+before the record pass). Two loose ends noted, not fixed: [P230] cites [P223] for a `--base`
+engine bug that [P223]'s own text does not describe (an attribution, not a stale claim); and
+[P316]'s "since [P304] found the four-plane concurrency family" reads, out of context, as if the
+family were real at the records.
+
+<a id="p389"></a>
+## [REFUTATION] Postscript 389: Hypothesis T is FALSE — the golden 177 has level-1 two-body weight 60, so the third reduction of `max(4) = 183` fails too
+<!-- status: corrects=P282 -->
+
+*2026-09-27.* `src/probes/level1_twobody.py`; `data/level1_twobody.json`.
+
+**THE QUESTION.** `RESULTS.md` §3b rests `max(4) = 183` on three named hypotheses, T, W and C,
+through the anatomy `d1 = W0/2 + T + c1 + 1` ([P272]). Hypothesis T is `T <= 48` at n = 4, with
+`T` the two-body weight on LEVEL 1: `sum (deg/2 - 1)` over two-body vertices inside no other cube,
+i.e. `#EE + 2 #SC2` there. Its evidence ([P282]): "max `T` found anywhere is 48". But [P334]
+(2026-09-16) found the golden 177 with TOTAL two-body weight 60, `EE 36, SC2 12` ([P370]). Whether
+that refutes T turns on how much of the 60 lies on level 1, and the level tools (`w1_tau.py`) are
+rational-only, so it had never been measured.
+<!-- reviewed 2026-09-27: the refuting entry's own statement of its victim -->
+
+**THE MEASUREMENT, exact over Q(sqrt5), no tolerances.** Every two-body vertex enumerated (two
+facets of one cube, one of the other, solved exactly), classified against the remaining cubes as
+strictly inside one (deeper), on one's boundary (a 3-body vertex, excluded), or outside all (level 1).
+
+    GATES, known answers first:
+      n = 4 record    total 48   level-1 T 48   EE 36 + SC2 6, all on level 1
+                      = [P282]'s 48, and = w1_tau.tau_and_c(record, 1) = 48 (independent, rational)
+      golden 177      total two-body 60 = [P370]'s EE 36 + 2 * SC2 12
+
+    RESULT:
+      golden 177      level-1 T = 60    EE 36 on level 1 (0 deeper), SC2 12 on level 1 (0 deeper)
+<!-- reviewed 2026-09-27: the refuting entry's gate, quoting its victim's value -->
+
+**Hypothesis T is false.** The golden attains `T = 60 = 10*C(4,2)`, the proved cap, on level 1.
+[P279] and [P281] (2026-09-08) had found `T = 60` "overdetermined by 3 ... non-generic — not proved
+impossible"; it is realised, by the most symmetric compound there is, and nothing connected the
+two findings for eleven days.
+
+**WHAT FALLS.** RESULTS §3b's "CONDITIONAL — `max(4) = 183`": with `T <= 60` in place of 48, the
+same chain gives `d1 <= 42 + 60 + 1 + 1 = 104` and so, with W and C, `max(4) <= 195`, the ceiling
+law's value, not 183. [P282]'s "`T <= 48` is the LAST BRICK" fails. [P283]'s measurement (one
+4-subset at 183 in every record) is unconditional and stands; only its word "optimal" rested on T.
+[P283]'s proposed successor, `k <= 4` (at most four pairs at two-body weight 10, at any n), falls
+with it: the golden has all six pairs at weight 10 on level 1, `k = 6`.
+The golden itself does not come near 183, because it pays 18 four-fold points ([P370]); T bounds
+one term of `d1`, not the count.
+
+**THE PATTERN, now three times on one question.** `EE <= 36` at `B = 128` ([P352], refuted by
+[P373]), `EE + B <= 164` ([P368], refuted by [P373]), and `T <= 48` (refuted here): each was a
+maximum over searches seeded from the record and its relatives, and each was broken by a compound
+from outside that seed set. The golden was known the whole time; it was not in T's test set because
+T was measured with rational tools and the golden is irrational. **A hypothesis tested only where
+the instrument can reach is a hypothesis about the instrument's reach.**
+
+**ADDENDUM 2026-09-27 — `RESULTS.md` rebuilt.** Reorganised by strength rather than date, 832
+lines to about 260, on the outline the user approved: proved, measured, not proved (graded on the
+scale PROVED / PROVED IF / PROOF GAP / VERIFIED / EXHAUSTED / STRONG / WEAK CONJECTURE / HOPE),
+structure, search coverage, and a short table of overturned beliefs. The old version is in the
+published copy of 2026-09-12. **Found stale in the process, beyond what the audits had caught:**
+three bullets still asserting the records are isolated points, each carrying a correction word
+about a DIFFERENT aspect of the claim, which is why the word-based audit accepted them; the tower
+written as `1895 ⊂ 2787`, although 2787 replaces 1895's eighth cube; and an internal contradiction
+on the irrational count (224 184 against the completed 508 818). None of the post-09-12 results
+(the merge law, the 183 arcs, the n = 8 polytope, tangent dimensions, [P389]) were in it. The
+records table and the search section now cite their sources; the old ones cited none.
+**The check the rebuild needed and the audits could not give** (advisor's point): the audits
+catch stale claims and dead links, never DROPPED ones. Of 48 postscripts the old file cited and
+the new one did not, seven carried results still true and were restored: [P283] (one 4-subset at
+183 in every record, n = 4..8), [P291] (the golden 67 sits ON the 55/43 wall), [P296] (arc D's
+extent solved exactly), [P300] (n = 10 lineality 6, which `LEVELS.md` had as "not measured"),
+[P231] (the concurrence filter nets 1.81x), [P325] and [P17]. And the rebuilt file said whether
+2787's 8-subsets contain a 1895 "has not been checked"; [P198] checked it, and they do. The rest
+were pruned on purpose (wall catalogues, chamber arithmetic, per-search detail, superseded
+census and 2785-era figures), and the file now says so and where they live.
+
+**ADDENDUM 2026-09-27 — the figures.** `TOWER_DIAGRAM.html`: the spine's nodes now mark the COUNT
+plateau (solid isolated, hollow positive-dimensional, dashed where only the tangent is measured);
+n = 3 no longer says "pinned at first order" without the contact curve ([P382]); n = 4 shows the arc
+in place of "isolated in both senses"; n = 5 is unmeasured, not "isolated"; n = 6 drops the
+unverified 222-concurrency-wall mechanism; n = 7 no longer says "still pinned"; n = 8 is 3, not 2;
+n = 9 nests by count ([P198]); the four-plane "second wall family" paragraph is gone ([P323]).
+`viewers/shapes.svg` and its two PNGs: n = 4 was "0 by every probe", n = 5 "0", n = 7 "≥ 1", n = 8
+"≥ 2"; now two arcs, not measured, 2 and 3, with a dashed mark added for "not measured"; rendered
+and inspected. `plateau183.html` gains [P384]'s closed form with its own fit caveat. VIEWERS.md
+updated. The published copies under `github/` are not touched (the user's tree), so they are stale
+until synced.
+
+<a id="p390"></a>
+## [VERIFIED] Postscript 390: in class space the n = 2 maximum is ONE arc — the two families join end to end, the "extra classes" are on them, and the octahedral 67's pairs sit at its closed end
+<!-- status: corrects=P70 -->
+
+*2026-09-27.* `src/probes/n2_class_space.py`; `data/n2_class_space.json`. Asked (user): what does
+[P76]'s mirror-plane 13s mean in CLASS space, where a pair is its relative rotation R up to
+`R ~ g R h`, g and h in the cube's 24 rotations (re-spelling each cube by its own symmetry, so
+count-preserving and, with g = I, literally the same compound).
+
+**EXHAUSTIVE TO HEIGHT 5, EVERY AXIS.** All 6 928 primitive integer rotations with components at
+most 5 were counted; 1 312 count 13. Each was tested exactly (integer matrices, all 24 x 24 pairs)
+for being, up to symmetry, a rotation about a BODY diagonal (family B) or about an EDGE axis with
+`cos(theta)` in `[-1/3, 1/3]` (family E). **None is in neither**: 928 are in B only, 288 in E
+only, 96 in both. 144 of the 13s have an axis off every mirror plane, so the axis-angle chart's
+"the count depends only on the axis stratum" ([P70]) fails in the triangle interiors as well as on
+the mirror planes ([P76]). Gates: body-diagonal and edge controls, and [P233]'s `2,2,3,0`, land
+where they must.
+<!-- reviewed 2026-09-27: the correcting entry's own statement of what it corrects in P70 -->
+
+**THE "EXTRA CLASSES" ARE ON THE ARCS.** `MAXIMISER_TAXONOMY.md` lists the half-turns about
+(1,2,3) and (1,1,2) as extra classes, and `shapes.svg` drew "2 arcs + isolated classes". Exact
+witnesses, matrix equality checked: half-turn(1,2,3) . h = rot(5,1,1,-1), a body-diagonal rotation
+with `cos = 11/14`; half-turn(1,1,2) . h = rot(3,1,1,-1), the 60-degree body-diagonal rotation, and
+. h' = rot(2,-1,1,0), the edge family's end t = 1/2. All six spellings count 13.
+
+**BOTH ARCS FOLD, AND THEY JOIN.**
+- B, rotation by theta about a body diagonal: identified under theta <-> 120 - theta and
+  theta <-> theta + 120 (checked on 26 rational points). Its class arc is `theta in (0, 60]`: OPEN
+  at the identity (count 1), CLOSED at 60 degrees, which is also the half-turn.
+- E, `q = (d, n, n, 0)`, `t = n/d in [1/2, 1]`: identified under `t <-> 1/(2t)` (four pairs found,
+  each multiplying to 1/2). Its class arc is `t in [1/sqrt2, 1]`: one end the fold point
+  `t = 1/sqrt2`, the 90-degree rotation about an edge axis, IRRATIONAL; the other end
+  `t = 1 == t = 1/2`.
+- **The junction:** E's end `t = 1/2` is the same compound as B's 60-degree end. Interior points of
+  E are not on B.
+
+**So the n = 2 maximiser set, in class space, is a single arc**: from an open end at the identity,
+along body-diagonal rotations to 60 degrees, on along edge rotations to a closed end at the
+90-degree edge rotation. Not two components, and nothing isolated. That the per-label type is the
+same (1, 6, 6, 1) along "both arcs", which the taxonomy found puzzling for "geometrically unrelated"
+components, is explained: they are one connected set.
+
+**WHERE THE n = 3 MAXIMA SIT ON IT** (exact, sympy):
+- all three pairs of the **octahedral 67** are the same compound as the arc's closed end, the
+  90-degree edge rotation, `cos theta = 0`;
+- all three pairs of the **golden 67** sit at `theta = 44.4775` degrees on the body-diagonal part,
+  `cos theta = (3 sqrt5 - 1)/8`, an interior point.
+
+**SCOPE.** Exhaustive over rational rotations of height at most 5; the fold identifications were
+found on finitely many rational points and are consistent with the two symmetries named, not proved
+as the complete quotient. A 13 at larger height, or an irrational one, in neither family is not
+excluded by this computation, though every irrational 13 examined (both n = 3 maxima's pairs) is
+on the arc.
+
+<a id="p391"></a>
+## [VERIFIED] Postscript 391: the 727 node has TWO branches, not four arcs — arcs B and C are the base's C3 images of D1 and D2, and arc A never meets the record
+<!-- status: corrects=P294 -->
+
+*2026-09-27.* Asked (user): the n = 6 drawings in `TOWER_DIAGRAM.html` and `shapes.png` differ. They
+do, and each is a partial view. [P94]/[P102] measured TWO arcs through the record with the base
+fixed, D1 along `(-1, -1/7, 3/14)` and D2 along `(-1, -4/21, 2/7)`, crossing at 4.51 degrees, each
+holding 727 alone. [P293]–[P296]'s "arc D" is D1 (its control points lie exactly on the D1
+direction), and [P294] found the record respelled on arcs B and C, witnessed by `g = (1,-1,-1,-1)`,
+the 393 base's own C3 rotation.
+<!-- reviewed 2026-09-27: the correcting entry's own statement of its victim -->
+
+**WHERE B AND C GO.** Arcs are lines in the sixth cube's Cayley coordinates, and `q -> g q h`
+(h a cube symmetry) is projective-linear there, so it carries lines to lines. Carrying each arc
+through the witness onto the record's own spelling, exactly:
+
+    arc B  ->  direction at the record parallel to D1   (angle 0, to D2 4.5097)
+    arc C  ->  direction at the record parallel to D2   (checked exactly: -4/21 : -1 matches)
+
+**Arc B is the C3 image of D1, arc C the C3 image of D2.** Arc A's line passes through none of the
+record's three spellings, so neither A nor any C3 image of it meets the record.
+
+**THE CORRECTED PICTURE.** In class space the 727 record is a node where exactly TWO branches
+cross, each also visible at the record's two other spellings as B and C. Arc A is a separate
+piece. So `TOWER_DIAGRAM.html`'s "sits where four arcs cross" is wrong (two cross; A never touches
+it), its node inset draws only D1 and omits D2, and [P294]'s "the record lies on THREE of the four
+arcs" is true of spellings and misleading about classes: the three are two branches, one of them
+seen twice. `shapes.svg`'s n = 6 mark, drawn from [P94]'s fixed-base picture, shows the D1/D2
+crossing correctly but draws A, B and C as three further classes, and its "components >= 4"
+counts B and C a second time: the known components are the node and A, so `>= 2`.
+
+**CAVEAT, on extents.** B and C being images of D1 and D2 means their extents must be equal as
+rotation-angle lengths (left and right multiplication are isometries). The arc map's figures,
+D1 5.91 against B 7.04 and D2 7.31 against C 8.43 degrees, differ; the D1 figure is [P94]'s swept
+extent, which [P296] showed is not a bound (the solved extent is wider). Whether the solved extents
+agree has not been computed.
+
+**ADDENDUM 2026-09-27 — the arc map made to say what it draws.** The user saw "two branches cross"
+in the text and five arcs with three crossings in the figure. The figure was `viewers/arcmap`: five
+lines drawn with the base FIXED, and its three upper "crossings" are the W4 WALL crossing arcs A, C
+and B, not arcs meeting. Relabelled: the subtitle says the base is fixed and that up to congruence
+the five lines are three; B and C are labelled "= D1, respelled" and "= D2, respelled"; the dashed
+line is labelled "a WALL, not an arc"; D is labelled as the two branches through the record. The
+two HTML versions carried prose saying the component count "stays at four" and that "one
+representative per class is drawn"; both corrected, with a note. Consistent with this: B's
+lower end 43/105 is the same compound as D1's lower end -2/19 ([P294]'s class 0).
+
+**ADDENDUM 2026-09-27 — the narratives.** Following the audit order, the narratives came last.
+Proof claims first, since those are corrected whatever a narrative's date: `OVERVIEW.md`,
+`JOURNEY.md` and `AN_HOUR_AND_A_MONTH.md` each called the 953 proved, and `JOURNEY.md` repeated
+[P47]'s "727 proved isolated"; each now carries a dated correction in its own style. Then brought
+up to 2026-09-27: `OVERVIEW.md` (continua, the n = 4 status, two new failure patterns, the audit
+episode), `JOURNEY.md` (a new Act XV), `PROJECT.md` (a dated 2026-09-27 frontier section), and
+`AN_HOUR_AND_A_MONTH.md` (a new Section VIII, the collaboration's view of this stretch, to be
+reviewed externally). `PROOF_NARRATIVE.md` needed nothing. Checked in the writing: three
+overstatements in the first draft of `OVERVIEW.md`, a wrong magnitude in `JOURNEY.md`, and a
+false attribution in `AN_HOUR_AND_A_MONTH.md` (a check credited to the user that the main session
+made), all corrected before this entry. User quotations were checked against the transcript.
+
+<a id="p392"></a>
+## [VERIFIED] Postscript 392: arcs B and D1 have the SAME solved extent, exactly, and D2's extent is solved for the first time, from C's
+<!-- status: corrects=P97 -->
+
+*2026-09-27.* `src/make_arcmap_class.py` draws the result; the checks are recorded here.
+
+**THE CHECK THE USER ASKED FOR.** If arc B is D1 carried by the base's C3 symmetry ([P391]), then
+B's 727 segment must BE D1's, end for end. The map between the two lines is projective in the
+Cayley coordinates, so endpoints correspond exactly. With the witness `g = (1,1,1,1)`,
+`h = (0,1,0,1)` it is the Moebius map `t = 2(35s - 16)/(70s + 3)` from B's parameter s to D1's t:
+
+    B lower end  s = 43/105 (exact, [P93])        ->  t = -2/19     = D1's lower end, exact ([P296])
+    record's spelling on B, s = 16/35 ([P294])    ->  t = 0         = the record
+    D1's upper end, 1007t^2 - 21390t + 4164 = 0, pulled back to B:
+        405475 s^2 - 207445 s - 15929 = 0,   s = 5927/23170 + sqrt(2248773)/4634 = 0.5794110799...
+        = B's solved upper end, 0.579411080 to every digit [P93] recorded
+<!-- reviewed 2026-09-27: cites P294 for the record's spelling on B, which stands -->
+
+**B's segment is D1's, exactly, and both ends lie in the same field Q(sqrt 2248773).**
+
+**LENGTHS.** [P97]'s measure, rotation angle integrated along the arc, over SOLVED extents:
+<!-- reviewed 2026-09-27: cites P97's measure, which stands; only its D1/D2 figures fell -->
+
+    B  7.0449 deg      D1  7.0449 deg        C  8.4309 deg      D2  8.4309 deg
+
+So the arc map's D1 = 5.91 deg and D2 = 7.31 deg were [P94]'s swept windows (D1's reproduces
+exactly: 5.9099 over (-1/16, 3/16)), not extents.
+
+**D2 SOLVED, for the first time, from C.** Pulling C's solved ends ([P93]) back through the C -> D2
+map gives D2 in the record's frame, `t in (-0.135781, 0.220728)` along `(-1, -4/21, 2/7)`. Checked
+with the engine, independently of the map: t = -1357/10000 counts 727 and -1359/10000 counts 723;
+t = 2207/10000 counts 727 and 2208/10000 counts 723. (D1 control at its upper end: 727 at 0.1964,
+723 at 0.1966.)
+
+**THE FIELD STATIONS, placed.** Located from `data/wide_campaign_shard_*.jsonl` by their parameter
+on each line: on B (= D1) sqrt25561 < RECORD < sqrt12313 < sqrt1614; on C (= D2) 13461 < 13489 <
+5305 < 226 < RECORD < 27349 < 3459 < 1785 < 1930. The fixed-base map never showed the record on
+B or C; in class space it sits among their stations.
+
+**THE REDRAW.** `viewers/arcmap.svg` (and PNGs) now show the network up to congruence: arc A, and
+the node where D1 (= B, 7.04 deg, 3 fields) and D2 (= C, 8.43 deg, 8 fields) cross at the record,
+lengths to scale over solved extents. The fixed-base drawing is kept as
+`viewers/arcmap_fixed_base.svg`; the HTML pages still carry the fixed-base map with its prose and a
+note.
+
+**ADDENDUM 2026-09-28 — the tower's node inset redrawn to match.** The user: "if arcmap.png is
+right, then TOWER_DIAGRAM.html looks wrong." It was: its node inset drew four parallel arcs, D, B,
+C and A, which in class space shows D1 twice (as D and again as B), D2 only through its respelling
+C, and no crossing at all. Redrawn in class space by `src/make_tower_node_inset.py`: D1 and D2
+crossing at the record, each to scale in its own parameter; D1 with its 727 extent, the 1217
+shadow, the old swept window, and its 725 and 713 points; D2 with its solved extent and a 723
+puncture at t = -3/31, which is arc C's special point at s = 164/87 carried over (engine count at
+`31,65,5,-23`: 723); arc A separate, on its own scale; the single 1217 over the record; the 393
+base beneath. The captions under it were rewritten to match; the "dashed tie" between three
+spellings of the record is gone, since in class space they are one point.
+
+<a id="p393"></a>
+## [VERIFIED] Postscript 393: the 1217 plateau is TWO sheets near the record, not one pentagon — the n = 6 node carries up to n = 7
+<!-- status: corrects=P301 -->
+
+*2026-09-28.* Asked (user), of the redrawn node inset: it "suggests that it is only the single n6
+crossing point that extends to the n7 pentagon, with the rest of the arcs not extending at all."
+Measured with the exact engine, adding the record's seventh cube `4,-3,-4,-4` to points of each
+727 arc:
+
+    D1, t = -1/10, -1/20, 0, 1/40, 1/21      1217        t = 1/19, 1/10, 3/20     1213
+    D2, t = -1/10, -1/100, -1/1000, 0,       1217        t = 1/10                 1213
+            1/1000, 1/100
+    A,  s = 21/10, 5/2, 3                    1213, 1209, 1209
+
+So a SEGMENT of each branch extends, not the crossing point alone. D1's was known: it is the
+"1217 shadow", (-2/19, ~0.0497) ([P303]). **D2's is new**: it runs from D2's own lower end
+(-0.135781; the engine gives 1217 at -0.135780 and, with six cubes, 723 at -0.1358) up to a
+bracket `(35/499, 4/57)`, ~0.0702, where the count steps 1217 -> 1213. Each branch's lift shares
+its branch's lower wall and stops early above the record.
+
+**AND IT IS A SHEET, NOT A CURVE.** The pentagon of [P301] is spanned by the fibre direction `e15`
+(moving the seventh cube) and the base direction along D1. Over D2 points the same fibre moves
+hold 1217 (`u = +1/1024, -1/50, -1/30` at `t = -1/20, -1/200, +1/200`, exactly as over the record
+and over D1). So near the record the n = 7 plateau is two 2-dimensional sheets, fibre x D1 (the
+pentagon) and fibre x D2, meeting along the fibre line over the record: the n = 6 node, carried up
+one level. Its DIMENSION is still 2 ([P381]); what changes is that it is not one pentagon. The
+D2 sheet's full shape (its corners, whether a third wall cuts it too) is not measured; only its
+extent along D2 at the recorded seventh cube, and the fibre direction at three points.
+<!-- reviewed 2026-09-28: the correcting entry's own statement of what it adds to P301 -->
+
+**Why it went unseen, and it is the same reason as [P391]:** every study of the 1217 plateau used
+"the base direction along arc D", and arc D was D1. D2 was never drawn or probed as a base
+direction at n = 7.
+
+**A measurement fault caught on the way.** The first bracket of D2's lower end reported "exactly
+-1/10": the bisection's midpoints grew huge denominators, the engine refused them, and the
+refusals were scored as "outside". Redone with the simplest rational in each interval as the probe
+point, one refusal remained (a genuine degenerate plane triple, next to the end) and the end moved
+to D2's own lower wall. Unevaluable is not a negative result.
+
+**Figures updated, 2026-09-28.** The TOWER_DIAGRAM node inset (`src/make_tower_node_inset.py`) now
+draws both lifting segments beside their branches, D1 (-2/19, ~0.0497) and D2 (-0.135781,
+~0.0702), each banded to its own sheet, the two sheets meeting along the fibre line over the
+record; arc A is marked as not lifting with this seventh cube (others untried). The n = 7 rung,
+the 1217 detail inset (now titled as the D1 sheet), `viewers/shapes.svg` and its PNGs, and
+VIEWERS say "two sheets" where they said "a pentagon". The shapes panel's arithmetic entry is
+now "rational (D1 sheet)": the arithmetic of the D2 sheet's boundary is not established.
+
+<a id="p394"></a>
+
+## [VERIFIED] Postscript 394: the two 1217 sheets are CURVED TRIANGLES that cross along the fibre line; the pentagon was the grid's box
+<!-- status: corrects=P301 -->
+
+*2026-09-28.* Asked (user), of the node inset drawn for [P393]: crossing lines at n = 6 should
+lift to something crossing at n = 7, but the figure showed two halves of a pentagon meeting at a
+point. The figure was wrong, and measuring the D2 sheet showed the pentagon was too.
+
+**Method** (`src/probes/n7_two_sheets.py`, `data/n7_two_sheets.json`). In the plane
+p(t, u) = record + t * branch + u * e15 of each sheet (branch = D1 or D2 on the sixth cube, e15 =
+first Cayley coordinate of the seventh cube), lines at fixed t and at fixed u, each started at a
+point counting 1217 and walked outward: dyadic steps until the count leaves 1217, then
+simplest-rational refinement restricted to the middle half of the bracket. 0 counts unevaluated.
+Control, the D1 sheet: lower end -2/19, upper end 0.049673 at u = 0 ([P303]), fibre down 0.045259
+in (4/89, 1/22) and up 0.002550 in (1/512, 1/266) ([P299]): all reproduced.
+
+**Both sheets have the same three walls.**
+
+    left        the branch's own lower 727 wall: t = -2/19 on D1, t = -0.135781 on D2.
+                Checked by direct counts either side at u down to -0.11 (D1) and -0.09 (D2).
+    top         u = 0.0025502..., flat, the same on both sheets at every t (1217 at 0.002549,
+                1213 at 0.002551 on six lines): a wall that does not involve the sixth cube.
+    lower-right P301's third wall, group ((5,1,1),(6,0,1)). Its root on the line, from
+                `wall_keys.on_line`, equals the measured boundary to 2e-6 on 33 of the 34
+                vertical lines that reach it (18 on D1, 15 on D2); the 34th stopped on a seam
+                (below), and direct counts put its boundary on the third wall too.
+                It runs from (-2/19, -0.1105) to about (0.052, 0.00255) on D1, and from
+                (-0.1358, -0.0904) to about (0.073, 0.00255) on D2.
+
+So each sheet is a curved triangle, and both contain the fibre segment over the record,
+t = 0, u in (-0.045259, 0.0025502), with sheet on both sides of it. **The two sheets CROSS along
+that segment**: the n = 6 crossing of D1 and D2 at the record, carried up one dimension. The
+[P393] figure, which put the two sheets on opposite sides of a shared edge, was wrong.
+
+**The pentagon of [P301] was the grid's box.** Its 5x5 grid spanned the measured extents at the
+axes; its bottom row (fibre -1, u = -1/23) and right column (base +1, t = 0.0497) were drawn as
+edges, but neither is a wall: at t = -1/10 the sheet reaches u = -0.108, and at u = +1/500 it
+reaches t = 0.0516. The "fibre-down end" at t = 0 was the third wall itself, not a separate wall.
+The third wall and its degree-4 solution stand.
+
+**Zero-width seams, not boundaries.** Two lines of lower count cross the sheets with 1217 on
+both sides: u = -1/36 on both sheets (count 1215 on the line), and t = -3/31 on D2 (count 1213 on
+the line; the n = 6 723 puncture lifted). The first run's bracket at t = 1/50 stopped on the
+seam, because -1/36 is the simplest rational in its interval. Direct counts at u = -0.0278 to
+-0.0284 are 1217, and the boundary there is the third wall at -0.02844.
+
+**Two measurement faults, caught by the control.** (1) Unit-fraction descent: plain
+simplest-rational refinement from (1/512, 1/256) steps 1/257, 1/258, ..., so every line reported
+the same (1/512, 1/270). Identical brackets on unrelated lines was the tell. (2) The horizontal
+lines added below u = -1/23 start at t = 0, which is outside the sheet there; those 24 lines
+returned nothing, and were replaced by direct counts across the left wall.
+
+**Not covered.** Only the plane of e15 and the branch direction is examined in each sheet. The
+corners are not solved: the top-right corner is where the flat wall meets the third wall, and the
+bottom-left corner is where the third wall meets the left wall. The boundary between measured
+lines is taken to be the third wall because its root matched on every line; that is 34 lines,
+not a proof.
+
+
+**Figures, 2026-09-28.** Corners and a dense third-wall curve computed from the wall itself
+(`src/probes/n7_sheet_outline.py`, `data/n7_sheet_outline.json`; gate: every measured vertical
+boundary off the seams equals the wall's root, with one mismatch, the seam line t = 1/50). Corners:
+D1 (-2/19, -0.110578) and (0.052118, 0.0025502); D2 (-0.135781, -0.090514) and (0.073241,
+0.0025502). TOWER_DIAGRAM's node inset now draws the n = 7 sheets above the n = 6 X, crossing along
+the fibre segment (`src/make_tower_node_inset.py`), and the pentagon detail is replaced by both
+sheets flat, to one scale (`src/make_tower_sheets_inset.py`). LEVELS, RESULTS, VIEWERS,
+CONTINUUM_MAP, OPEN_QUESTIONS and `viewers/shapes.svg` updated to "two crossing sheets".

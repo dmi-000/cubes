@@ -19,6 +19,7 @@ An entry with no citation is a hunch, and is labelled as one.
 A shell is a self-antipodal region wrapping the origin without containing it. An
 EVEN region count detects one ([P121](LEDGER.md#p121)); counts are otherwise odd
 by central symmetry.
+<!-- reviewed 2026-09-24: cites the surviving "even => a shell exists" direction; the fallen converse is not asserted here -->
 
 **The puzzle.** The octahedral 67 has 0 even faces of 728; the golden 67 has 148
 of 2 196. Both are 3-cube configurations.
@@ -92,6 +93,7 @@ rational record does: 727, 1217, 1895, 2785 keep tangent spaces of dimension
 1, 2, 3, 4 ([P122](LEDGER.md#p122), [P124](LEDGER.md#p124)). The 67s are also the
 only irrational rung of the tower. Three facts about irrationality that may be
 one fact.
+<!-- reviewed 2026-09-24: cites P122's rank/lineality table, which stands; the "isolated only because second-order" claim that fell is not asserted here -->
 
 **Ruled out:** that the rank figures were an artefact of the omitted (1,1,1,1)
 wall type — those walls were differentiated and add exactly **zero** rank
@@ -145,6 +147,7 @@ clean to be coincidence.
 **Ruled out:** that it is a law of the family — the fit **FAILS at n = 5**
 (predicted 3 walls, measured 18), so it is a regime beginning at n = 6
 ([P122](LEDGER.md#p122)).
+<!-- reviewed 2026-09-24: cites P122's arithmetic-regime table, unaffected by the isolation claim that fell -->
 
 **AND IT FAILS AT n = 10 (2026-08-31, [P185](LEDGER.md#p185)).** The regime is a
 WINDOW of four rungs, closed at both ends, not a law with a starting point:
@@ -175,11 +178,13 @@ nominal 3²⁷ ≈ 7.6 × 10¹² sign vectors; the run died on memory); and the
 codimension-1 fallback, because only **1 of 27** walls at 727 can be crossed alone
 — 26 are entangled, and the one crossable direction exceeds the engine's overflow
 budget ([P122](LEDGER.md#p122)).
+<!-- reviewed 2026-09-24: cites P122's failed-enumeration finding, unaffected by the isolation claim that fell -->
 
 **What is known:** 727 is exactly locally maximal under perturbation of its sixth
 cube — all 24 combinatorially distinct moves evaluated, best 715
 ([P125](LEDGER.md#p125)). That is a certificate for one cube's movement, not the
 full neighbourhood.
+<!-- reviewed 2026-09-24: cites exactly what stands in P125; the fallen "12 of 6864 walls are local" claim is not asserted here -->
 
 **Needs:** directions crossing a MINIMAL SET of walls rather than one, plus
 shorter directions or a wider engine.
@@ -220,6 +225,7 @@ a rational line; a quadric along it gives a quadratic in one parameter with root
 rational or in ℚ(√d). This is how every irrational 727 arose
 ([P60](LEDGER.md#p60)) and how the 67s arise. **Irrationality is an OUTPUT of wall
 solving, not an input to sample over.**
+<!-- reviewed 2026-09-24: cites the k=4 construction mechanism, which P60's tag says stands; the fallen "confined to the seams" claim is not asserted here -->
 
 **Untried at n = 4 and n = 5:** that construction against the 13-pair and 67 bases.
 
@@ -374,6 +380,7 @@ correctness one.
 727 set: through-point, direction, and extent SOLVED as roots of the wall equation
 restricted to the arc's line. **Only 727 meets it** — six ends, two exactly rational
 (19/6, 43/105) and four algebraic irrationals no grid could land on.
+<!-- reviewed 2026-09-24: cites P183's audit method, which stands; the table below already carries P183's own P187/P188 correction -->
 
     continuum        path                                  endpoints
     n=2  13          body-diagonal family                  n/a, closed, no ends
@@ -395,6 +402,7 @@ restricted to the arc's line. **Only 727 meets it** — six ends, two exactly ra
 >     n=8  1895   BOTH ENDS SOLVED (P189 — the quartic factors over Q)
 >     n=9  2785   BOTH ENDS SOLVED (P187), record INTERIOR, punctured at s=1/56
 >     n=10 3913   CONTINUUM — tangent (15,220,86) verified with eps (P190); ends in progress
+<!-- reviewed 2026-09-24: the table and blockquote already carry P183's own P187/P188 correction in place -->
 
 
 **Why it is not bookkeeping.** A grid endpoint is the last sampled point that held,
@@ -519,8 +527,10 @@ higher record we haven't found?"*
 
 ### The strongest lead is an omission, not a pattern
 
-**The whole tower above n = 6 extends ONE POINT of ONE ARC of a four-arc node.** 727 is
-a node where arcs A, B, C, D meet ([MAXIMISER_TAXONOMY](MAXIMISER_TAXONOMY.md) §2a);
+**The whole tower above n = 6 extends ONE POINT of ONE BRANCH of a two-branch node.** 727 is
+a node where two branches cross, D1 and D2; arcs B and C are those branches again under the base's
+C₃ symmetry, so extending from them gives the same compounds, and arc A is separate
+([P391](LEDGER.md#p391)). The unexplored bases are therefore D2's members and arc A's;
 every record from 1217 upward was built from `BASE + (7,14,1,-5)`, a single member of
 arc D. Arcs A, B and C each carry 727 across SOLVED extents —
 
@@ -739,6 +749,7 @@ generating malformed input and the sample is biased in an unknown direction.
 >
 > *I wrote "there is no predictor" above on the strength of re-measuring one of the three.
 > The other two were unevaluated, and I scored them as negatives.*
+<!-- reviewed 2026-09-24: already states P223's reversal by P231 in its own text -->
 
 ~~[P222](LEDGER.md#p222) established `Σ over real, face-bounded incidence points of
 (m−1)(m−2)/2` as the best count predictor this project has (r = 0.562, orders 77.6 % of
@@ -916,6 +927,7 @@ line lacks.
 415 and 6555 and arrangements an order of magnitude larger, and they are the coincidence-rich
 cases where a generic-position argument is likeliest to fail — which is precisely how [P235]
 found the published `d1` bound invalid at maximisers.
+<!-- reviewed 2026-09-24: cites the level identity (P243) and its verification count (P245), neither the part that fell in either entry -->
 
 **What would close it.** Run `v3_outer.py`'s level decomposition on the n=7..10 records. The
 prediction is that `d_ell = E_ell − V_ell + c_ell + 1` still holds exactly and the two-body term
@@ -927,6 +939,7 @@ is still zero for `ell >= 2`.
 configurations**. That is the exact shape of the [P233] error — a small, partly nested sample
 reported as a law — committed the same day it was documented. If `m_v` is unbounded the
 cross-level identity still holds but its use as a constraint weakens.
+<!-- reviewed 2026-09-24: cites the m_v <= 3 observation, unrelated to P245's fallen c_ell "up to 16" figure -->
 
 **What would close it.** The census, which has 3.1M configurations and costs nothing to scan.
 A derivation would be better: `m_v` should be bounded by how many distinct depths the regions
@@ -946,14 +959,19 @@ about separating double cosets.
 
 ## 27. Does the charging argument give a TIGHTER bound at depth >= 2?
 
-[P243] shows the two-body term vanishes for `ell >= 2`, so `d_ell <= 108*C(n,3) + 2` is proved
-there. But that constant was derived for depth 1, where a triple point need only be outside
-every other body. At depth `ell` it must also lie INSIDE `ell−1` others — a strictly stronger
-condition that the count `216*C(n,3)` ignores entirely.
+[P243]'s claim that the two-body term vanishes for `ell >= 2` does not hold in general —
+[P274](LEDGER.md#p274) exhibits `tau3 = 2` on simple, non-degenerate configurations — so
+`d_ell <= 108*C(n,3) + 2` is proved only on configurations with no two-body vertex below depth 1,
+not unconditionally at every `ell >= 2`. That constant was derived for depth 1, where a triple
+point need only be outside every other body; at depth `ell` it must also lie INSIDE `ell−1`
+others — a strictly stronger condition that the count `216*C(n,3)` ignores entirely.
 
-**Why it matters.** The conjectured caps are far below the proved bound (`d2 <= 66` against
-434 at n=4), and [P243] reduced that conjecture to `3-body gain <= C(n−ell,n) − 2`. Exploiting
-the inside-`ell−1` condition is the obvious route and nobody has tried it.
+**Why it matters.** The conjectured caps are far below that bound where it applies (`d2 <= 66`
+against 434 at n=4), and on configurations with no two-body vertex below depth 1, [P243]'s
+identity reduces that conjecture to `3-body gain <= C(n−ell,n) − 2` (in general a two-body term
+remains, [P274]). Exploiting the inside-`ell−1` condition is the obvious route and nobody has
+tried it.
+<!-- reviewed 2026-09-24: rewritten to the current belief; P243's "two-body term vanishes at ell>=2" fell to [P274](LEDGER.md#p274) -->
 
 ## 28. What forces `m_v = 2`? — **ANSWERED 2026-09-07: `m_v = b_v − 1`, [P248](LEDGER.md#p248)**
 
@@ -972,6 +990,9 @@ containing it, how many distinct depths must the incident arcs realise?
 
 *Related and now known: `c_ell = 1` is NOT universal — 47 of 1 500 level-instances have
 `c_ell != 1`, up to 16 ([P245] correction). Any closed form substituting 1 is generic-only.*
+**Those 47/1500 and "up to 16" numbers are themselves CORRECTED, same day, in [P245](LEDGER.md#p245)'s
+own entry: that scan was contaminated by degenerate (face-plane-sharing) configurations. On the
+463 non-degenerate configurations, `c_ell != 1` occurs in 8 of 1 389 (0.6%) and never exceeds 2.**
 
 
 ## 29. Prove the ceiling law for l >= 2 — now an EQUALITY question, not a bound
@@ -985,7 +1006,7 @@ vertex is a simple triple point, so `d_ell = V3(ell)/2 + c + 1` — an exact cou
 points inside exactly `ell-1` cubes. (b) Coincidence reduces: merging vertices consumes
 plane-triples faster than it adds gain, the convexity [P237] already used.
 
-**Worth:** collapses max(4) from [183, 953] to [183, 195]. **Caveat:** the bound stays loose at
+**Worth:** would put max(4) in [183, 195]. (The upper end otherwise has no hypothesis-free bound: [P249]'s 953 is not proved, see its scope note, 2026-09-24.) **Caveat:** the bound stays loose at
 ell = 1 (104 against a measured max of 96), so even a proof leaves 12 regions undetermined —
 exactly the frustration of [P242].
 
@@ -1012,7 +1033,7 @@ arrangement.
 non-degenerate configurations ([P245] correction, [P246] for why degenerate ones are excluded).
 
 **Worth:** with `c_ell <= 2`, `max(4) <= 198`; with `c_ell = 1`, 195 — matching the ceiling law
-but PROVED, and collapsing the interval from [183, 953] to [183, 198].
+but PROVED, and giving max(4) in [183, 198]. (Rewritten 2026-09-24: this used to say "from [183, 953]"; [P249]'s 953 is not proved, see its scope note.)
 
 **REDUCED 2026-09-07 ([P259](LEDGER.md#p259)) to a connectivity claim.** Every cube is
 centrally symmetric, so the arrangement is invariant under `x -> -x`, a fixed-point-free
@@ -1098,6 +1119,7 @@ to bounding concurrency. It is not: over 871 non-degenerate n = 4 configurations
 `c > 1` instances have only triple points, no quadruple point at all**. Concurrency is not
 necessary for `c > 1`, and [P269]'s monodromy reading survives a test against the family it
 could not have known about.
+<!-- reviewed 2026-09-24: uses P304's concurrency family as a hypothesis to test and reject, not as an established mechanism; P304's fallen containment claim plays no role in the conclusion -->
 
 **AND THE CONVERSE IS OPEN TOO ([P317](LEDGER.md#p317)).** Whether a `c > 1` instance can carry
 a 4-fold point is untested by anything decisive: 150 configurations built to have a genuine
@@ -1130,6 +1152,7 @@ rewires them. One of the eight sits at a crossing with NO coincidence wall — o
 so `c` can move where `conditions_on` sees nothing, the same blind spot [P304] found for the
 region count. The constant "12 concurrency walls" at every crossing is NOT yet rank-tested and
 may be counting non-events.
+<!-- reviewed 2026-09-24: cites P304's surviving finding (coincidence walls alone miss real events), not its fallen containment-free mechanism -->
 
 **A DIRECTED ATTEMPT TO BREAK IT FAILED ([P325](LEDGER.md#p325)).** Since a hole is a band
 encircling a cube, near-aligned cubes are where rings should close most easily. 720 such
@@ -1150,12 +1173,14 @@ shape `1 self-antipodal + 1 pair` with the detached pair TINY — 4 or 6 nodes a
 component of 84 or 130. So the question to settle is: **can a small antipodal pair of
 components detach from a level graph without two cubes sharing a face plane?** A proof should
 target the smallness, not the count.
+<!-- reviewed 2026-09-24: cites P245's non-degenerate instance count (1389), the corrected figure, not the fallen "up to 16" -->
 
 ## 31. Prove `Σ_T d₂(T) ≤ 48 + d₃` at n=4 — **CLOSED 2026-09-07: PROVED, for all n ([P266](LEDGER.md#p266))**
 
 [P262](LEDGER.md#p262): at n = 4 this single inequality implies `d1 <= 104`, `d2 <= 66`,
-`d3 <= 24` — the entire ceiling law — and hence **max(4) <= 195**, collapsing the interval from
-[183, 263] to [183, 195].
+`d3 <= 24` — the entire ceiling law — and hence **max(4) <= 195**. (Scope note 2026-09-24: the
+implication needs further links that are still open, see §32; the interval this once quoted,
+[183, 263], was never proved either, see [P261]'s scope note.)
 
 **Two independent routes both need exactly 84.** Through the level chain, `W_1 <= 44` is proved
 so `V3(2) <= 128` needs `W_0 <= 84`. Through the two-body decomposition,
@@ -1199,6 +1224,7 @@ with `V3(3) = W₁` and `c₃ = 1`: it is an instance of the per-level Euler ide
 exact whenever the depth-3 level is generic and connected. It is exact on 1 441 of the 1 449
 budget-attaining configurations of [P263]. So this is a degeneracy-and-connectivity question
 about ONE level, overlapping [OQ 30], not a new inequality.
+<!-- reviewed 2026-09-24: cites the per-level Euler identity itself, which stands -->
 
 **What would settle it.** Either (a) prove `W̅₀ ≤ 84` directly from Theorem S without passing
 through `W₁` — the budget and `W₁` drop together, which is the same coupling Theorem S is
@@ -1229,6 +1255,7 @@ matter [what causes c>1] if we can find what determines W₀".)*
 **What `W₀` is.** Exactly the `(3,3)` class of the level-1 graph — triple points on the outer
 boundary where three cube boundaries meet transversally. `d₁ = W₀/2 + (n₂₄ + 2n₂₆) + c + 1`
 exactly, which is [P243]'s identity with its vertex classes named.
+<!-- reviewed 2026-09-24: cites the per-level Euler identity itself, which stands -->
 
 **The reduction.** `W₀ = budget − W₁` holds directly (both sides raw triple-point counts, no
 `d₂`/`d₃` conversion), and `W₁ = 44` — its proved cap — in 10 of 12 configurations checked.
@@ -1366,7 +1393,14 @@ vanishing along the ray.
 Equalities, not bounds, each read off the same signature: **zero** genuine containing walls in
 the directions a plateau extends, hundreds in the directions it stops (222/222 at n = 6,
 468/520 at n = 7, 766/766 at n = 8). n = 7 agrees with [P301]'s pentagon, which was measured
-by counting a grid at finite distance — two methods, different scales, same answer.
+by counting a grid at finite distance — two methods, different scales, same answer. (The
+dimension stands; the pentagon's outline is CORRECTED by [P394](LEDGER.md#p394): a curved
+triangle, and one of two crossing sheets.)
+
+**[P307]'s n = 8 figure is CORRECTED 2026-09-20 by [P383](LEDGER.md#p383): the plateau
+dimension there is 3, not 2** — independently confirmed by the contact-system tangent, and
+all three directions integrate. The n = 6 and n = 7 values (1 and 2) stand. So the settled
+row is **1, 2, 3**, not 1, 2, 2.
 
 **And the seed decides the answer.** Seeded from the lineality alone, n = 7 returns 1; seeded
 with the fibre and base directions [P299]/[P301] actually used, it returns 2 — because the
@@ -1379,6 +1413,7 @@ on non-axis rays; whether the 7-of-18 that do change the count are predictable f
 group's cube indices; and the ATTRIBUTION audit that [P304] opens — every boundary this
 project located as "nearest wall root where the count changes" searched the coincidence
 family only.
+<!-- reviewed 2026-09-24: cites P304's surviving census-method finding, not its fallen containment-free mechanism -->
 
 
 <a id="34"></a>
@@ -1436,6 +1471,7 @@ structural degeneracy of this configuration rather than an event. They are uncha
 parameter belonging to no enumerated family means the question cannot be closed by
 enumerating families that are already known. Until this is identified, any claim that a
 wall list is COMPLETE is unsupported, and that includes the two-family list [P304] uses.
+<!-- reviewed 2026-09-24: cites P304's wall-family enumeration as a list under question, not asserting its fallen containment-free mechanism -->
 
 **The cheap next probe**, not yet run: dump the six vanishing 0-cells at a parameter just
 before −4/27 and just after, and read off what they are incident to. The complex is built
@@ -1510,6 +1546,7 @@ trade between `EE` and `T3` — not either term by itself.**
 ## 36. Can four concentric cubes pairwise share corners? — **SOLVED 2026-09-16: YES ([P334](LEDGER.md#p334)); successor is OQ 37**
 
 **Opened and SOLVED 2026-09-16 ([P333](LEDGER.md#p333), [P334](LEDGER.md#p334)).**
+<!-- reviewed 2026-09-24: P334's fallen T3=74 figure is corrected in place in the blockquote below -->
 
 > **ANSWER: YES.** With `p, q = (sqrt3 +- sqrt15)/6` in `Q(sqrt3, sqrt5)`, the axis assignment
 > `cube 0: a,b,c` / `cube 1: a,x,y` / `cube 2: b,x,z` / `cube 3: c,y,z` with `x = (p,q,0)`,
@@ -1521,6 +1558,15 @@ trade between `EE` and `T3` — not either term by itself.**
 > and the total lands near 138 against the record's 183. Both caps are individually attainable
 > and **jointly they are not**. The hoped-for branch — "impossible, therefore `max(4) = 183`" —
 > is closed the other way. See [OQ 37].
+>
+> **CORRECTED 2026-09-19 by [P370](LEDGER.md#p370).** The two numbers above are wrong; the
+> conclusion is not. `T3 = 74` is `T3 + Q4generic = 56 + 18`: the census never checked a fourth
+> cube, and its gate ran on the record, where `Q4generic = 0`, so it could not fail. This
+> compound IS the golden 177: `T3 = 56`, `Q4 = 18`, `B = 128`, **count 177, not "near 138"**.
+> So attaining `two-body = 60` does NOT collapse the triple budget; `B` stays full, and the
+> cost is the 18 four-fold points. "Both caps individually attainable, jointly not" still holds,
+> since the caps are `T3 = 128` and `two-body = 60`, and the golden has `T3 = 56`.
+<!-- reviewed 2026-09-24: the P370 correction to P334's T3 figure is already quoted in place -->
 
 At n = 4 the gap between the record and the proved-modulo-holes bound is 15, and it is not
 spread across unbounded terms:
@@ -1569,6 +1615,7 @@ band of [P326].
 ## 37. Prove `(1/2) sum excess <= 176` at n = 4 — one coupling inequality, and `max(4) = 183` follows
 
 **Opened 2026-09-16 by [P334](LEDGER.md#p334), the successor to [OQ 36].**
+<!-- reviewed 2026-09-24: the table below already carries P370's correction to P334's K4-compound figures -->
 
 The n = 4 bound 198 assumes both caps at once, `T3 + two-body = 128 + 60 = 188`. Three exactly
 known configurations say that is not reachable:
@@ -1578,6 +1625,7 @@ known configurations say that is not reachable:
     K4 compound        -- is the golden; 74 was T3 + Q4generic ([P370]) --
     body-diagonal      72 / 128     36 / 60          108           145
     assumed by bound  128 / 128     60 / 60          188           198
+<!-- reviewed 2026-09-24: the K4-compound row already carries P370's correction in place -->
 
 Each cap is attained by SOME configuration and never both. **The record is the best of the three
 at 176, and 176 is exactly what is needed:**
@@ -1605,6 +1653,7 @@ about how one arrangement's vertices are distributed between signatures `(1,1,1)
 `(2,2)`/`(3,3)` — not a statement relating two unrelated quantities. [P334]'s construction shows
 the mechanism concretely: forcing every pair to share a corner pins six axes, and the pinned
 axes are what the triple points were using.
+<!-- reviewed 2026-09-24: cites P334's construction mechanism, which stands, not its fallen T3=74 figure -->
 
 **THE COUPLING IS NOW AN ARGUMENT, NOT A MEASUREMENT ([P338](LEDGER.md#p338)).** Excess is
 intrinsic to a vertex's supporting cubes (verified, 0 mismatches in 936), so `max(3) = 67` acts on
@@ -1773,6 +1822,7 @@ maximum:
 
     1,0,0,0 ; -2,-8,3,-3 ; -7,1,-4,-1 ; 9,-1,-8,6
     all four E_S = 32  (so B = 128),  pair (0,1) at EE = 10,  and EE_total = 18
+<!-- reviewed 2026-09-24: cites P366's per-pair-route finding, which stands; the kill-list correction is quoted further below in the same entry -->
 
 The record reaches `EE = 36` with all six pairs at 6. **So the ceiling is an anti-correlation
 among the six pairs, not a cap on any one**, and the question is not *why is no pair large* but
@@ -1788,10 +1838,14 @@ attack, and none of them is a search:
     3-dimensional space — overdetermined, hence a Groebner computation.
   * **a finite kill list.** 105 pair-EE patterns have total `>= 37` under [P360]'s per-triple cap
     of 20: 90 at total 38, 15 at total 40. Eliminating those 105 closes the link.
+    **[P360]'s per-triple cap of 20 was REFUTED 2026-09-20 by [P369](LEDGER.md#p369) — the true
+    cap is 26 — so this kill list is CORRECTED to 3 995 patterns, not 105.** The determinantal
+    description, the codimension-1 finding, and the per-pair box above are unaffected.
 
 The cocycle `q_ij^-1 q_ik = q_jk` is what turns the four cubes into a closed system on those
 varieties. **The remaining work is an elimination, not a search** — which is the first time that
 has been true of this question.
+<!-- reviewed 2026-09-24: the P369 correction to P366's kill-list figure is already quoted in place -->
 
 **THE FULL TARGET SET, enumerated** ([P367](LEDGER.md#p367), 2026-09-18). Subset counts are
 `3 + E_i` and `5 + sum E_i + E_S`, so `TOTAL = 7 + T + B - Q4` and "beat 183" is the single
@@ -1827,6 +1881,7 @@ Whether that trade is forced is [P358]'s pinning mechanism, which is not yet a t
 `K4`.** [P334]'s `T3 = 74` is `T3 + Q4generic = 56 + 18` — the same cubes as the golden, checked
 normal for normal. Enumerating the branch exactly returns 2 compounds and both are the golden
 with `Q4 = 18`. This row is EMPTY, so the "sharpest target" was a counting bug.)*
+<!-- reviewed 2026-09-24: the CLOSED note in this paragraph states the correction -->
 
 **EXPLORING THE BAND — a refutation and a better-shaped law** ([P368](LEDGER.md#p368),
 [P369](LEDGER.md#p369), 2026-09-19).
@@ -1852,6 +1907,7 @@ it; **unproved**. `SC2 <= 6` is then capped at 183 outright, and exactly two bra
     paw       SC2 = 8,  Q4 = 0          160            152      CLOSED across its family
     K4/s = 6  SC2 = 12, Q4 = 0          152             --      EMPTY -- no such compound
                                                                 exists ([P370], [P371])
+<!-- reviewed 2026-09-24: cites P371's surviving six-sharing enumeration, not its fallen case-analysis conclusion -->
 
 The paw was swept exactly over 92 values of its one free parameter: `EE + B` never exceeds 152,
 `max TOTAL` 175. **So the remaining question is the six-sharing row with `Q4 = 0`** — and it is
@@ -1873,3 +1929,4 @@ killing **`EE <= 36` at `B = 128`** ([P352], [P361]) and **`EE + B <= 164`** ([P
 and with them [P371]'s reduction of `max(4) = 183` to a single inequality. **`max(4) = 183` is
 unproved again.** The proved box survives: `EE + B <= 188 - 2*SC2`, attained exactly by the
 golden at `SC2 = 12`, so only that branch is closed by proof.
+<!-- reviewed 2026-09-24: this paragraph itself is the record of P368's and P371's ceilings falling, by P373 -->

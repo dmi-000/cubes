@@ -1,819 +1,284 @@
 # Current results
 
-**What this file is.** Everything below is what the project believes *now*,
-each item tagged with how strongly it is established. Nothing here is stated
-and later retracted — claims that turned out wrong are listed once, in
-[§7](#7-superseded-claims), with what replaced them.
+**What this file is.** What the project believes now, each claim tagged by how firmly it is
+established and citing the ledger entry it rests on today. It is organised by strength, not by
+date. The same picture organised by number of cubes is [`LEVELS.md`](LEVELS.md); open questions
+and what has been ruled out are in [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md); how each result was
+reached, and what was believed on the way, is in the ledger, [`LEDGER.md`](LEDGER.md), and told as
+a story in [`JOURNEY.md`](JOURNEY.md). Which data files are current: [`DATA_MANIFEST.md`](DATA_MANIFEST.md).
 
-For the dated blow-by-blow, including how each result was reached and what was
-believed along the way, read the ledger
-[`LEDGER.md`](LEDGER.md) (append-only,
-ordered by write time; it has a postscript index at the top). For the
-narrative synthesis read [`PROJECT.md`](PROJECT.md); for the story with the
-wrong turns in place, [`JOURNEY.md`](JOURNEY.md).
-
-Status tags:
+*Rebuilt 2026-09-27 from the version last updated 2026-09-12, which the published copy holds.
+Pruned in the rebuild, and still true: the wall catalogues and ruling statistics (in
+[`MAXIMISER_TAXONOMY.md`](MAXIMISER_TAXONOMY.md) and [P57](LEDGER.md#p57)–[P112](LEDGER.md#p112)),
+the chamber-fill arithmetic ([P151](LEDGER.md#p151)), and per-search enumeration detail (the
+ledger). Dropped as superseded: the second-order isolation census and every 2785-era figure.
+This is a current-knowledge document ([`DOCUMENTS.md`](DOCUMENTS.md)): corrected by rewriting,
+and every bracketed citation is tracked by `src/claim_deps.py`.*
 
 | tag | meaning |
 |---|---|
 | **PROVED** | a theorem, with the proof written down and its hypotheses stated |
-| **VERIFIED** | an exact count of a specific configuration, agreed by two independent engines |
-| **EXHAUSTED** | a search that was complete over a stated family, not a sample |
-| **CONJECTURE** | consistent with all evidence, not proved |
-| **CONDITIONAL** | follows from a NAMED hypothesis in section 3b, which is itself unproved. The hypothesis is always cited, and every conditional result is listed in that hypothesis's DEPENDENTS block, so a refutation propagates instead of leaving orphans |
-| **OBSERVED** | a PATTERN noticed, not yet checked against anything outside the sweeps that produced it. The discovery state: not a result, and the thing most likely to be retracted — 4 of the 17 ledger entries written on 2026-08-31 were retracted or superseded the same day, and **all four were pattern claims while every survivor was a measurement**. A hypothesis with a leading candidate belongs in [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md), not here. |
+| **PROVED IF** | a proved implication from a NAMED hypothesis, which is graded separately in §4 |
+| **PROOF GAP** | stated as proved, but the proof has a hole; it may well be true |
+| **VERIFIED** | an exact count of a specific configuration, agreed by two independent engines, or an exact measurement |
+| **EXHAUSTED** | a search complete over a stated family, not a sample |
+| **STRONG CONJECTURE** | not proved; supported by evidence aimed at breaking it, or reduced to a single clean claim |
+| **WEAK CONJECTURE** | not proved; supported only by samples, or by tests that could not reach a known kind of counterexample |
+| **HOPE** | wanted, with no support, or with evidence against |
+| **OBSERVED** | a pattern noticed and not yet tested beyond the data that produced it |
 
-Last updated 2026-09-12.  Open questions and what has been RULED OUT: [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md).  Run data: see [DATA_MANIFEST.md](DATA_MANIFEST.md) for which .json files are current, superseded, or wrong.
+The distinction between STRONG and WEAK matters here more than anywhere: three statements that
+were maxima over directed searches have been refuted this month, each by a compound from outside
+the searched family ([P373](LEDGER.md#p373), [P389](LEDGER.md#p389)).
 
 ---
 
 ## 1. The problem
 
-Given *n* congruent unit cubes sharing a centre, each independently rotated,
-count the bounded regions their surfaces cut space into. A region is a
-connected component of constant **cube-containment** — you cross a real face
-iff the set of containing cubes changes. Crossing the *infinite extension* of
-a face plane, where that cube is absent, does not split a region. Every count
-in this project uses that definition and exact arithmetic; no floating point
-enters any decision.
+Given *n* congruent unit cubes sharing a centre, each independently rotated, count the bounded
+regions their surfaces cut space into. A region is a connected component of constant
+**cube-containment**: you cross a real face iff the set of containing cubes changes. Crossing the
+*infinite extension* of a face plane, where that cube is absent, does not split a region. Every
+count uses this definition and exact arithmetic; no floating point enters any decision.
 
-## 2. Records
+## 2. Proved
 
-| n | best known | status | configuration |
-|---|---|---|---|
-| 2 | **13** | PROVED maximum | any angle about a shared body diagonal — *sufficient, NOT necessary: `1,0,0,0;2,2,3,0` counts 13 with a coordinate-plane axis. And "any angle" excludes the cube's own symmetries: `1,0,0,0;1,1,1,1` is a body-diagonal axis and counts **1**, the cubes coinciding. [P233](LEDGER.md#p233)* |
-| 3 | **67** | PROVED maximum | octahedral ℚ(√2), and golden ℚ(√5) — two non-congruent maximizers |
-| 4 | 183 | VERIFIED | wide-perturbation climb — a **PLATEAU**, see below |
-| 5 | 393 | VERIFIED | 5-subset of the n=6 record |
-| 6 | **727** | VERIFIED | 393's five cubes + `7,14,1,-5` |
-| 7 | **1217** | VERIFIED | the 727 six + `4,-3,-4,-4` |
-| 8 | **1895** | VERIFIED | the 1217 seven + `24,-24,24,-61` |
-| 9 | **2787** | VERIFIED | 1895's seven + `168,-168,168,-415` + `109,-11,91,140` — [P198](LEDGER.md#p198), representative simplified [P218](LEDGER.md#p218). Supersedes 2785. *The first published representative used `88787,-9061,74275,113786` (height 113 786); the region is 4-dimensional and contains this one at height 415, same count, same by_depth profile at every depth, both engines and three rotations. The old one remains valid — it is the same region — but costs 274x the height and is why the record's neighbourhood was largely unevaluable.* |
-| 10 | **3925** | VERIFIED | **CORRECTED 2026-09-08 ([P285](LEDGER.md#p285)):** the 2787 nine **in its ORIGINAL representative** (`…;168,-168,168,-415;88787,-9061,74275,113786`) + `6555,6555,6497,6555`, per [P200](LEDGER.md#p200)'s listed configuration. ~~the 2787 nine + `6555,6555,6497,6555`~~ — with the SIMPLIFIED n=9 representative (`109,-11,91,140`, the one listed in the n=9 row above) the same extension counts **3921**, not 3925. The two n=9 representatives agree in count and in `by_depth` at every depth and are still NOT interchangeable here. Found by the automated boundary climb, [P200](LEDGER.md#p200). Supersedes 3921, 3917, 3913 |
+- **max(2) = 13**, for any two convex cells with ≤ 6 faces each. PROVED
+  ([`max2_report.md`](max2_report.md)). A∖B is a union of at most 6 convex pieces, likewise B∖A,
+  plus one core. Equivalently, by Euler on the intersection curve, `d₁ ≤ 12` (`METHODS.md` §11).
+- **max(3) = 67**, for three concentric convex ≤ 6-facet cells meeting pairwise transversally, an
+  open dense set containing both maximisers. PROVED ([`PROOF_67.md`](PROOF_67.md),
+  [`PROOF_STEP_T.md`](PROOF_STEP_T.md)): `d₃ ≤ 1`, `d₂ ≤ 18`, `d₁ ≤ 48`, the last with the
+  triple-point weight ≤ 32 in full generality, degenerate triple points included. Remaining
+  caveat: tangential rather than transversal contact, a higher-codimension case. An elementary
+  second route: the singleton term obeys `s ≤ a + b + m − 2` by Mayer–Vietoris and Alexander
+  duality, giving `max(3) ≤ 1 + 18 + 3·16` with no measured input ([P110](LEDGER.md#p110)).
+- **The per-pair and per-triple caps, at every n.** PROVED. Each pair contributes two-body weight
+  `E_i = EE_i + 2·SC2_i ≤ 10` ([P237](LEDGER.md#p237), from max(2) = 13), and each triple a
+  triple-point weight `≤ 32` (PROOF_67 Lemma 1a with PROOF_STEP_T). Hence the two-body total
+  `≤ 10·C(n,2)` and the triple total `≤ 32·C(n,3)`.
+- **d₁ ≤ 108·C(n,3) + 10·C(n,2) + 2**, for every n and every configuration. PROVED
+  ([P237](LEDGER.md#p237)): 494 at n = 4, 2 312 at n = 6.
+- **d_{n−1} ≤ 6n**, the l = 1 ceiling law. PROVED ([P24](LEDGER.md#p24), [P33](LEDGER.md#p33)):
+  the radial envelope has local minima only at the 6n face centres.
+- **Theorem S.** For n ≥ 3, `Σ over (n−1)-subsets T of d_{n−2}(T) ≤ 6n(n−2) + d_{n−1}(S)`.
+  PROVED ([P266](LEDGER.md#p266), [`PROOF_SUBSET.md`](PROOF_SUBSET.md)); exactly tight at the
+  183 record (72 = 72). It does NOT by itself give `max(4) ≤ 195`: that conversion needs links
+  still open ([OQ 32](OPEN_QUESTIONS.md), [OQ 30](OPEN_QUESTIONS.md)).
+- **The counting identity.** `TOTAL = 1 + L + Σ holes + ½ Σ_v excess(v)`, exact
+  ([P327](LEDGER.md#p327), [P328](LEDGER.md#p328)): every region is paid for by degree excess at a
+  vertex, and every triple point is spent on two consecutive levels. Its level form,
+  `d_ℓ = E_ℓ − V_ℓ + c_ℓ + 1` ([P243](LEDGER.md#p243)), stands. **The named-signature shortcut
+  `TOTAL = 7 + T + B − Q4` at n = 4 is a bound, not this identity**, and not even a bound for
+  compounds with `(1,1,2)`, `(1,2,2)` or `(2,2,2)` vertices ([P374](LEDGER.md#p374)).
+- **The merge law.** `EE = Σ_pairs EE_pair − Σ_v C(m(v), 2)` over vertices where several pairs'
+  crossings merge; verified 60 of 60 ([P372](LEDGER.md#p372)). Edge-edge walls are degree-4
+  forms in one relative quaternion (144 of them); triple-budget walls are bidegree (2,2) in two
+  (54 of 54) ([P372](LEDGER.md#p372)).
+- **The facet-centre lemma.** Every facet centre lies inside every other cube, so depth never
+  increases along a ray from it. PROVED ([P311](LEDGER.md#p311)).
+- **The one-cube increment** is bounded by the cell count of the arrangement the other cubes trace
+  on the added cube's surface: `Δ_j ≤ B_j = 1 + c + Σ_v (deg(v)/2 − 1)`. PROVED
+  ([P56](LEDGER.md#p56)); measured slack 1.00–1.11.
+- **Every wall splits over ℚ.** PROVED ([P104](LEDGER.md#p104)): `det(Q) = (|p|² − 1)²` for a
+  four-cube wall through triple point p, `16(|m × q|² − 2|m|²)²` for a three-cube wall, squares for
+  every rational base datum.
+- **727's 36-condition coincidence pattern is realised at one point and is unaugmentable.** PROVED
+  by elimination ([P47](LEDGER.md#p47)). The COUNT is not isolated there: see §3.
+- **PROVED IF `c_ℓ ≤ 2` on every level: `max(n) ≤ 1 + 32·C(n,3) + 10·C(n,2) + 3(n−1)`**, which is
+  198 at n = 4, 433 at n = 5, … 4 318 at n = 10, with the records at a steady 90–92 % of it
+  ([P258](LEDGER.md#p258), [P326](LEDGER.md#p326)). The hypothesis is graded in §4.
+- **PROOF GAP: `max(n) ≤ 953` at n = 4**, 3 377 at n = 5, … 104 207 at n = 10
+  ([P249](LEDGER.md#p249)), the sum of per-depth bounds. The bound for depths ≥ 2
+  ([P243](LEDGER.md#p243)) omits two-body vertices, which do occur there
+  ([P274](LEDGER.md#p274)). Almost certainly true, since it exceeds every measurement fivefold, and
+  the repair (a two-body term per depth, as [P237] supplied at depth 1) looks mechanical. **Until
+  it is made, no upper bound on max(n) for n ≥ 4 holds without a hypothesis.**
 
-**GAP IN THE RECORD, found 2026-08-18 — CLOSED 2026-08-29.** Every other row of this
-table traces to a Postscript, but n=9 = 2785 had no establishing entry in `LEDGER.md`
-at all: it was documented only in `MAXIMISER_TAXONOMY.md` and `METHODS.md` §9, outside
-the append-only record. No entry was backfilled, because a dated record of what was
-known when cannot honestly be written after the fact. Instead the establishing work
-was REDONE and dated to the day it was done: [P179](LEDGER.md#p179), 20 920 exact
-evaluations plus a full-resolution axis sweep, to the same standard as
-[P101](LEDGER.md#p101)'s n=8.
+## 3. Measured
 
-**EVERY RUNG FROM 6 TO 9 IS A CONTINUUM** (2026-08-31,
-[P182](LEDGER.md#p182)/[P184](LEDGER.md#p184)/[P187](LEDGER.md#p187)). The "a
-CONTINUUM" note on the n=9 row above is not special to n=9: 727 (arcs A-D), 1217 and
-1895 are continua too. n=9's ends are now SOLVED exactly —
-`s = 37671/5320 - (1/95)sqrt(452521)` and `s = -2127/2296 + (1/287)sqrt(75737)` in the
-parametrisation ninth cube = (1, 1, 55/56 + s, 1) — both open, the interval punctured
-at s = 1/56 where the ninth cube duplicates a base cube.
+**The records**, with exact representatives and reproducing commands in
+[`MAXIMISERS.md`](MAXIMISERS.md):
 
-*A claim that stood here for part of 2026-08-31 — that the recorded member sits at an
-EDGE of its plateau, making rows 7 upward systematically low — was **RETRACTED** the
-same day ([P188](LEDGER.md#p188)). Every recorded member examined is INTERIOR to its
-plateau; the pattern was three different sweep artifacts. The related claim that the
-recorded n=9 member "extends worst" is separately UNMEASURED
-([P186](LEDGER.md#p186)). The rows above are unaffected lower bounds.*
-
-The tower nests: 183 ⊂ 393 ⊂ 727 ⊂ 1217 ⊂ 1895 ⊂ **2787** ⊂ **3925** (updated
-2026-08-31; this line read "⊂ 2785" and ended at n=9 until then). Tower-level facts —
-nesting, shared bounding walls, locus dimension, depth structure — are collected in
-[MAXIMISER_TAXONOMY.md §11](MAXIMISER_TAXONOMY.md). Adjacent levels differing
-by one cube — verified at the top by taking every 8-, 7-, 6- and 5-cube subset of
-the 2785, which give exactly 1895, 1217, 727 and 393. Depth profiles:
-
-    727  = {214, 220, 156, 100, 36, 1}
-    1217 = {278, 328, 260, 190, 118, 42, 1}
-    1895 = {350, 454, 382, 302, 222, 136, 48, 1}
-    2785 = {426, 594, 524, 434, 346, 250, 156, 54, 1}
-
-**n = 9 = 2785 is the project's first n = 9 value** (2026-08-07), and unlike the
-levels below it the maximiser found is explicitly a CONTINUUM rather than a
-configuration. The ninth cube runs along q(k) = k·(1,1,1,1) + (1,1,0,1) and 2785
-holds for every k ≥ 55 — verified continuously to k = 2 000 and at 5 000 and
-60 000 — punctured only at k = ∞, where the ninth cube becomes a duplicate of the
-base's fifth and the count collapses to 1895. Of 335 600 near-symmetry candidates
-counted, 21 290 reach 2785 across 128 line families. Both engines agree on the
-representative. Details in `MAXIMISER_TAXONOMY.md` and `METHODS.md` §9.
-
-**Status caveat.** 2785 is a strong LOWER bound found by a directed search of one
-stratum — ninth cubes near a cube symmetry, extending the 1895 eight. Nothing
-excludes a better n = 9 that does not extend 1895, and the search of the family
-is about 44% complete.
-
-**1895 replaced 1891 on 2026-08-05** (Postscript [101](LEDGER.md#p101)). The two differ in the
-eighth cube alone and gain +2 at depth 1 and +2 at depth 2, every deeper slot
-unchanged — so the increment is entirely shallow, the same signature by which
-727 beat 723.
-
-## 3. Theorems
-
-- **max(2) = 13**, for any two convex cells with ≤ 6 faces each. PROVED. The
-  bound is the convex-cover argument: A∖B is a union of at most 6 convex
-  pieces, likewise B∖A, plus one core.
-  **A second derivation, 2026-08-09** (`METHODS.md` §11): the intersection curve
-  Γ = ∂A ∩ ∂B is a graph with V vertices, E edges and c components, and Euler on
-  the sphere gives F = E − V + c + 1 faces. ∂(A∪B) is a sphere tiled by the
-  outside faces of both bodies, so d₁ = F, while ∂(A∩B) is a sphere tiled by the
-  inside ones. The six-face bound then reads O_A ≤ 6, O_B ≤ 6, hence F ≤ 12 and
-  d₁ ≤ 12 — the same theorem as a face count on the union's boundary rather than
-  as a covering of A∖B. Verified numerically on 229 of 229 pairs in the regime
-  where the face-to-component bijection holds.
-- **max(3) = 67**, for any three concentric convex ≤6-facet cells whose
-  boundaries meet pairwise transversally — an open dense set including both
-  maximizers. PROVED, in [`PROOF_67.md`](PROOF_67.md) +
-  [`PROOF_STEP_T.md`](PROOF_STEP_T.md). Three Euler arguments: d₃ ≤ 1,
-  d₂ ≤ 18 (convex cover), d₁ ≤ 48 (Euler on the top diagram, with the vertex
-  weight split 32 + 60 between triple points and pairwise intersection
-  polytopes). One caveat remains, inherited from the contact analysis: two
-  cells meeting *tangentially* rather than transversally, a higher-codimension
-  degeneracy.
-- **max(n) ≤ 263 (n=4), 649 (n=5), 1 291 (n=6), … 6 019 (n=10)** — *derived 2026-09-07,
-  [P261](LEDGER.md#p261), and NOT yet independently verified.* From
-  `TOTAL = X + Σ μ_v + Σ(c+1) + 1` with `X ≤ min(48·C(n,2), 32·C(n,3))` and
-  `Σ μ_v ≤ 32·C(n,3)`. Supersedes [P260]'s 423 and the layer-sum 953.* One-step bound from
-  `TOTAL = Σ own − V₂ + Σ μ_v + Σ(c+1) + 1` with `Σ own ≤ 48·C(n,2)` (one-line convexity),
-  `Σ μ_v ≤ 32·C(n,3)` (PROOF_67 Lemma 1a per 3-subset, proved), and `c_ℓ = 1`
-  — **the last is not proved** ([OQ 30]); with `c_ℓ ≤ 2` the values rise by n−1. *(2026-09-16:
-  [P326](LEDGER.md#p326) turns the `c_ℓ ≤ 2` version into a complete proved-modulo-one-hypothesis
-  ceiling for every n — see §3d — and shows the hole term is not where the slack is.)*
-- **max(n) ≤ 953 (n=4), 3 377 (n=5), 8 835 (n=6), … 104 207 (n=10).** PROVED
-  ([P249](LEDGER.md#p249), 2026-09-07) — **the first upper bounds this project has on the
-  TOTAL count above n = 3**, obtained by summing the per-layer bounds below. Crude: 5.2× the
-  record at n = 4, widening to 26.5× at n = 10. The conjectured ceiling law would give 195 at
-  n = 4 — the records sit at 1.07–1.10× the conjectured cap sum at every n from 4 to 10 — so
-  proving it collapses the n = 4 interval from [183, 953] to [183, 195].
-- **d_ℓ ≤ 108·C(n,3) + 2 for every n and every ℓ ≥ 2, at EVERY configuration.** PROVED
-  ([P243](LEDGER.md#p243), 2026-09-07). The two-body term that invalidates the depth-1 bound at
-  coincident configurations is identically **zero** at every deeper level — verified at n = 4,
-  5, 6 on records and Haar draws — so the plane-triple count applies there unmodified. The
-  by-level identity `d_ℓ = E_ℓ − V_ℓ + c_ℓ + 1` is exact on 22 of 22 checks, and reduces the
-  conjectured ceiling law for l ≥ 2 to `3-body gain ≤ C(n−ℓ,n) − 2`.
-- **d₁ ≤ 108·C(n,3) + 10·C(n,2) + 2 for every n and EVERY configuration.** PROVED
-  ([P237](LEDGER.md#p237), 2026-09-07). Gives 494 at n = 4 and 2312 at n = 6. The two-body
-  term is the part a three-cube plane count cannot see — edge-edge coincidences and shared
-  corners — and it is bounded by **max(2) = 13**, already proved: for a pair alone
-  d₁(pair) = gain + c + 1 and d₂(pair) ≥ 1, so gain ≤ 12 − 2 = 10, attained exactly at
-  13-pairs. Verified on 2 500 pairs with zero violations; the pair count determines the gain
-  (4→0, 5→2, 9→6, 13→10).
-- **d₁ ≤ 108·C(n,3) + 2 for every n.** SUPERSEDED — PROVED **for coincidence-free configurations only**
-  *(qualified 2026-09-07, [P235](LEDGER.md#p235): the identity it rests on is an INEQUALITY
-  off that class — d₁ EXCEEDS V₃/2 + c + 1 by 96 at the n=4 record, more than the V₃/2 = 42 it
-  keeps — so bounding V₃ does not bound d₁ there. Maximisers are coincidence-rich by
-  construction. The bound is not refuted; it is unproved where it matters.)*, and loose (2026-08-09,
-  `METHODS.md` §11). The depth-1 count equals V₃/2 + c + 1 with V₃ the triple
-  points on ∂(A₁∪…∪Aₙ) — verified on coincidence-free configurations at n = 3,
-  4, 5 and 6 — and a triple point takes one face-plane from each of three cubes,
-  so V₃ ≤ 216·C(n,3). Gives d₁ ≤ 434 at n = 4 (actual 92) and ≤ 2162 at n = 6
-  (actual 214). These are the first upper bounds the project has above n = 3;
-  they bound d₁ only, not a total, and tightening them means counting which
-  plane-triples can be real AND outside every other body.
-- **Every wall splits over ℚ.** PROVED (`detq_check.py`, Postscript [104](LEDGER.md#p104)). A
-  nondegenerate quadric surface's two ruling families are defined over
-  ℚ(√(det Q)), and computed symbolically the determinant is a perfect square
-  identically: **det(Q) = (|p|² − 1)²** for a W4 wall through base triple point p
-  (all six axis/sign branches), and **det(Q) = 16(|m × q|² − 2|m|²)²** for a W3
-  wall against base crossing line (q, m) (all twelve edges). Both are squares for
-  every rational base datum, so the result holds at every n and every base —
-  nothing in the derivation mentions either. The degenerate loci are distinguished
-  radii of the cube: |p| = 1, the face distance, and dist(line, origin)² = 2, the
-  edge distance squared; neither occurs in the 393 base (0 of 424 triple points,
-  0 of 360 crossing lines).
-- **The singleton term obeys s ≤ a + b + m − 1 − c_U, hence s ≤ a + b + m − 2.**
-  PROVED (Postscript [110](LEDGER.md#p110)). With K = {r_i > r_j}, L = {r_i > r_k},
-  U = K ∪ L and C = S²∖U, the Mayer–Vietoris sequence of the two open sets gives
-  s = rank ker φ + (a + b − c_U) with ker φ = im ∂ ⊆ H₁(U), and **Alexander
-  duality** on S² gives rank H₁(U) = m − 1. **No contractibility hypothesis is
-  needed** — the nerve route required every component of K, L, K∩L to be a disk,
-  which the parity data falsifies whenever a count is odd. Equality iff
-  H₁(K)⊕H₁(L) → H₁(U) is zero, which is why a non-contractible component always
-  LOWERS s: its own 1-cycle already accounts for a hole of U. Hypotheses:
-  a, b ≥ 1, U ≠ ∅, C ≠ ∅; Čech cohomology, fine for semialgebraic sets.
-  **Consequence:** with a, b ≤ 6 proved (six-slab convex cover) and m ≤ 6, this
-  gives s ≤ 16 and **max(3) ≤ 67 = 1 + 18 + 3·16** — the elementary route no
-  longer rests on any measured quantity. The general form T ≤ 12F − 5 for F-facet
-  cells needs m ≤ F, which is proved for cubes and UNSETTLED in general (the
-  computation disagrees across three methods; Postscript [110](LEDGER.md#p110)).
-- **The all-members census is COMPLETE: 826 of 826** (2026-08-18, Postscript
-  [120](LEDGER.md#p120)). Every subset of the n = 6..9 records at every k = 3..n,
-  run as MEMBERS rather than class representatives, because a (count, profile)
-  class is an equivalence by invariant and not by congruence. 163 empty, 663
-  nonempty; **all four records come back EMPTY at member granularity**, and their
-  lineality rises 1, 2, 3, 4 with n while the locus stays a point every time.
-  Of 7 043 directions: 4 870 confirmed, 2 116 changed, **57 unevaluable**. The
-  changed and confirmed counters step at fixed ε and carry the Postscript
-  [119](LEDGER.md#p119) caveat; `status` and `lineality` do not, being pure
-  algebra.
-- **Isolation has TWO mechanisms** (2026-08-18, Postscripts
-  [122](LEDGER.md#p122), [123](LEDGER.md#p123), [124](LEDGER.md#p124)). Both 67s
-  lie on walls of FULL RANK — 6 and 9 walls, rank 6 = ambient, lineality 0 — so
-  they are pinned at FIRST order. No rational record is: 727, 1217, 1895, 2785
-  lie on 27, 51, 75, 99 walls of rank 14, 16, 18, 20 in ambient 15, 18, 21, 24,
-  *(N.B. 2026-09-08, [P290](LEDGER.md#p290): the n = 9 entry is **2785**, which
-  2787 superseded. On the current record the numbers are 83 walls / 420 tight
-  (simplified representative) or 76 / 396 (original), so `walls = 24n − 117` is a
-  window over n = 6..8, not n = 6..9.)*
-  keeping tangent spaces of dimension 1, 2, 3, 4, and are isolated only because
-  the second-order variety is empty. *(CORRECTED 2026-09-08, [P288](LEDGER.md#p288):
-  the second-order variety is NOT empty at n = 7 and n = 8 — 1 and 2 directions —
-  under the fixed `branch_numerator`. Those records are pinned by the COUNT, not by
-  the variety. n = 4, 5, 6 are unaffected: they have zero cross-cube conditions, so
-  the fix is bit-identical there.)* More walls is not more constrained;
-  independence is what pins a point. For n = 6..9 the counts are linear —
-  `walls = 24n − 117`, `lineality = n − 5`, one wall per self-symmetry of each
-  added cube — but the fit FAILS at n = 5 (predicted 3 walls, measured 18), so it
-  is a regime beginning at n = 6, not a law. *This claim was withdrawn and then
-  restored the same day: the wall list omits the (1,1,1,1) type by construction,
-  and 12 such walls pass through every record, so the ranks were bounds until
-  δ — the rank they add — was measured at **0** for all four levels.* Both 67s lie on walls of FULL RANK — 6 and 9 walls,
-  rank 6 = ambient, lineality 0 — so they are pinned at FIRST order. No rational
-  record is: 727, 1217, 1895, 2785 lie on 27, 51, 75, 99 walls of rank 14, 16,
-  *(N.B. 2026-09-08, [P290](LEDGER.md#p290): the n = 9 entry is **2785**, which
-  2787 superseded. On the current record the numbers are 83 walls / 420 tight
-  (simplified representative) or 76 / 396 (original), so `walls = 24n − 117` is a
-  window over n = 6..8, not n = 6..9.)*
-  18, 20 in ambient 15, 18, 21, 24, keeping tangent spaces of dimension 1, 2, 3,
-  4, and are isolated only because the second-order variety is empty. *(Same
-  correction as above, [P288](LEDGER.md#p288): not empty at n = 7, 8. This
-  paragraph is an accidental near-duplicate of the one preceding it, left in place
-  and corrected in both copies rather than deleted, since deleting would silently
-  change what the document said.)* More walls
-  is not more constrained; independence is what pins a point. For n = 6..9 the
-  counts are linear — `walls = 24n − 117`, `tight = 84n − 288`, one wall per
-  self-symmetry of each added cube — but the fit FAILS at n = 5 (predicted 3
-  walls, measured 18), so it is a regime beginning at n = 6, not a law.
-- **Every record is an ISOLATED POINT in the full moduli space.** VERIFIED
-  *(SHARPENED 2026-09-08, [P288](LEDGER.md#p288) — the sense matters and was not
-  stated. This holds in the COUNT sense: no direction preserves the count, and
-  P117's engine verification is a count check. It does NOT hold in the
-  coincidence-variety sense at n = 7 and n = 8, where a curve preserving all
-  tight conditions exists — 300/300 conditions still tight at t = 1, confirmed by
-  a route independent of the `branch_numerator` bug — while the count falls
-  1217 → 1213 at t = 1/64. The claim below is the count one and stands.)*
-  (Postscript [117](LEDGER.md#p117)), for 63, 183, 393, 727, 1217 and 1895 — and
-  since 2026-08-17 for **both n = 3 maximizers as well** (Postscript
-  [118](LEDGER.md#p118)), which every crossing-based census had skipped because
-  they live in ℚ(√2) and ℚ(√5) rather than ℚ. Those two were settled by a
-  different and stronger route: not "no direction survives second order" but an
-  exact enumeration of every face of the local wall arrangement (728 and 2196
-  faces, all evaluated, best neighbour 63 at each), which needs no model of how
-  wall crossings compose. Dimension is now
-  SOLVED rather than probed: tight conditions → exact rational Jacobian → null
-  space (first order) → and since every wall is a quadric, staying on it is the
-  exact condition d′Hd = 0, whose common zero set over all conditions is computed
-  on the projective space of the null space. At every record that set is EMPTY —
-  no direction survives second order. This closes the project's largest standing
-  methodological gap: all previous dimension figures came from moving ONE cube and
-  could not see multi-cube directions, whereas a null space is computed in all
-  3(n−1) coordinates at once. Over 221 subset classes of the n = 6..9 records, 152
-  have positive-dimensional loci and 49 do not; **the positive-dimensional loci
-  belong to the LOWER-count classes, never to a record.**
-
-- **d_{n−1} ≤ 6n for every n.** PROVED (the l = 1 ceiling law, Postscripts [24](LEDGER.md#p24) anchor lemma and [33](LEDGER.md#p33) unconditional, via the anchor
-  lemma: the radial envelope of any n-cube configuration has local minima only
-  at the 6n face centres).
-- **Theorem S: the (n−1)-subsets bound the whole.** PROVED for all n ≥ 3
-  (Postscript [266](LEDGER.md#p266), `PROOF_SUBSET.md`):
-
-      Σ over the (n−1)-subsets T of d_{n−2}(T)  ≤  6n(n−2) + d_{n−1}(S).
-
-  At n = 4 this is `Σ_T d₂(T) ≤ 48 + d₃`, the inequality [P262]–[P265] isolated as
-  the last one between the project and the n = 4 ceiling law, and it is exactly
-  tight at the 183 record (72 = 72). No new geometry: it follows from the
-  fibration lemma and [P33]'s anchor theorem, by splitting each count's deficit
-  from 6 into anchors LOST (subadditive, because a fixed six-point witness set
-  survives intersection) and anchors SHARED (monotone, because it is a partition
-  matroid rank). **Caveat, stated because the chain is what people will quote:
-  this does NOT yet give `max(4) ≤ 195`** — the conversion to `V3(1) ≤ 84` uses
-  `W₁ = 2(d₃−2)` as an equality, which fails on a degenerate residue ([OQ 32]),
-  and `d₂ ≤ 66` / `d₁ ≤ 104` still assume `c_ℓ ≤ 1` ([OQ 30]).
-- **The one-cube increment is bounded by an Euler count on the added cube's own
-  surface.** PROVED. With G the region adjacency graph including the outside
-  region and G_j its bit-j subgraph, Δ_j = |V(G)| − #components(G_j) exactly,
-  hence Δ_j ≤ |E(G_j)| ≤ B_j = 1 + c + Σ_v (deg(v)/2 − 1), the cell count of
-  the arrangement the other cubes' face planes trace on ∂C_j. Measured slack
-  1.00–1.11 over 21 (configuration, cube) pairs; G_j was a forest in all 9
-  cases where it was computed, making the first inequality an equality too.
-  Postscript [56](LEDGER.md#p56).
-- **727 is isolated on the 393 base, and its coincidence pattern is
-  unaugmentable.** PROVED by elimination (Postscript [47](LEDGER.md#p47), `eliminate729.py`: Gröbner basis {1} on 684 infeasible augmentations). Holding the five cubes of 393 fixed,
-  a sixth has 3 degrees of freedom; its 36 active coincidence conditions cut
-  that space to exactly one real point, and all 684 remaining conditions are
-  inconsistent with them (Gröbner basis {1} in each case). Caveat: the Cayley
-  chart used omits the 180° rotations.
-
-## 3b. Named hypotheses, and what rests on them
-
-Three separate unproved statements stand between the project and `max(4) = 183`. They are named
-INDIVIDUALLY rather than bundled, so a refutation says which brick fell. Nothing here is proved.
-
-### Hypothesis T — `T ≤ 48` at n = 4
-
-`T` = the two-body weight, `Σ over pairs of (edge-edge coincidences + 2·corner contacts)`,
-equivalently `Σ_v (deg/2 − 1)` over level-1 two-body vertices ([P272](LEDGER.md#p272)).
-
-**Evidence** ([P282](LEDGER.md#p282)): max `T` found anywhere is 48 — at the record, and at the
-single 4-subset of the 393 that IS the record. Survived every test: all record 4-subsets at
-n = 5..8 (ground strictly favourable to a violation, since removing cubes only unswallows), the
-higher-n records (`T = 10k + 6m` exactly; `8·C(n,2)` binds only at n = 4, so higher n cannot
-refute it), and a construction built to break it. **The `k ≤ 3` route to proving it is CLOSED** —
-the star property it rested on is refuted, though breaking the star costs more than it buys
-(`T = 32` against 48).
-
-**DEPENDENTS:**
-- `d₁ ≤ 92` at n = 4, hence `max(4) ≤ 183` (jointly with W and C)
-- [P283](LEDGER.md#p283)'s reading of the tower's unique 183 as an OPTIMAL 4-core. The
-  measurement — exactly one 4-subset at 183 in every record, n = 4..8 — is UNCONDITIONAL; only
-  the word "optimal" depends on T.
-
-### Hypothesis W — `W₀ ≤ 84` at n = 4
-
-`W₀` = transversal triple points on the outer boundary, the `(3,3)` vertex class ([P272]).
-**Evidence:** 0 violations in 247 blind configurations; attained at the record. Reduces exactly
-([P275](LEDGER.md#p275)) to `τ₃ + (c₃ − 1) ≤ Tτ + γ + S`, measured running 7–23× the safe way.
-Open as [OQ 32].
-
-**DEPENDENTS:** `d₁ ≤ 92`, hence `max(4) ≤ 183`.
-
-### Hypothesis C — `c₁ = c₂ = 1` at the maximiser
-
-**Evidence:** `c = 2` DOES occur generically ([P269](LEDGER.md#p269)) — so this is a claim about
-MAXIMISERS only, not configurations. Directed climbing under `c = 2` stalled at `d₁ = 47`
-against the record's 92 ([P270](LEDGER.md#p270)). Open as [OQ 30].
-
-**Updated 2026-09-16.** Still open, and now known to be worth less than it looked. `c > 1` is
-confined to LEVEL 1 — zero in 3 382 deeper level-instances ([P319](LEDGER.md#p319)) — a directed
-attempt to build more holes failed at 720 near-aligned configurations ([P325](LEDGER.md#p325)),
-and the transitions between `c = 1` and `c = 2` are pure reconnections
-([P321](LEDGER.md#p321)). But [P326](LEDGER.md#p326) shows the whole hole term is `n − 1` out of
-thousands: settling it COMPLETES the tower bound and moves it by 9 regions of a 393-region gap at
-n = 10. **The successor question is [OQ 35], not this one.**
-
-**DEPENDENTS:** `d₁ ≤ 92` and `d₂ ≤ 66`, hence `max(4) ≤ 183`. With `c₁ = 2` the bound is 184.
-
-### CONDITIONAL — `max(4) = 183`
-
-Follows from T **and** W **and** C together, through the exact anatomy
-`d₁ = W₀/2 + T + c₁ + 1` ([P272](LEDGER.md#p272)):
-
-    d₁ ≤ 42 + 48 + 1 + 1 = 92        and        92 + 66 + 24 + 1 = 183
-
-with the lower bound exhibited by the record. `d₃ ≤ 24` (l=1 ceiling law) and Theorem S
-([P266](LEDGER.md#p266)) are PROVED and are not hypotheses.
-
-## 3c. Established 2026-09-09 to 09-12
-
-- **arc D's 727 extent, SOLVED** ([P296](LEDGER.md#p296)). `s ∈ (−2/19, 10695/1007 −
-  7√2248773/1007)`, the upper end a quadratic irrational, root of
-  `1007x² − 21390x + 4164`. It was the one row of MAXIMISER_TAXONOMY's arc table never
-  marked SOLVED, and its swept figure `(−1/8, 1/4)` is not a bound of the plateau —
-  it contains parameters counting 723 and 719. **This closed the chain
-  `bracket → wall → polynomial → root` end to end for the first time.** Sources
-  corrected in place.
-- **n = 10 measured** ([P300](LEDGER.md#p300)), its conditions built for the first time
-  (2 045 s, now cached): count 3925, ambient 27, **480 tight, 100 distinct walls, rank 21,
-  lineality 6**. P185's differing figures describe **3913**, a superseded configuration.
-  With this, `walls = 24n − 117` is a window over n = 6..8 of the current records, closed
-  at both ends.
-- **The 727 node mapped** ([P294](LEDGER.md#p294)): nine special points across the four
-  arcs collapse to **six compounds**; the record lies on **three of the four arcs**, which
-  is what makes it a node. Arc A reaches it on none and carries two compounds found
-  nowhere else. **No new extension base**: every 727 among them is the record respelled.
-- **The 1217 count plateau is 2-dimensional and a PENTAGON** ([P299](LEDGER.md#p299),
-  [P301](LEDGER.md#p301)) — two directions plus a third wall aligned with neither, solved
-  as a degree-4 curve. n = 6's analogous pair spans nothing and stays a node.
-- **Plateau boundaries inherit SELECTIVELY** ([P303](LEDGER.md#p303)). The fibre boundary
-  and the third wall survive to n = 8 and n = 9 at identical brackets, each costing exactly
-  **4 regions**; the base boundary contracts ~5×, and n = 8's and n = 9's contracting walls
-  are **different** (different frames, groups and cubes — the shared bracket was
-  coarseness). Criterion: a boundary is inherited iff no new condition is crossed earlier
-  in that direction, readable from the group's cube indices.
-- **The two n = 3 maximisers sit differently** ([P291](LEDGER.md#p291)). The octahedral 67
-  is 14° inside the uniform 55 region; the **golden 67 sits ON the 55/43 wall** — six
-  rational approaches below count 55, six above count 43. Both are in the wall-key index
-  over ℚ(√2) and ℚ(√5).
-- **Wall polynomials are recorded** ([P288](LEDGER.md#p288)). `data/wall_keys.json` holds
-  the reconstruction key per wall — `(frame, group, sig, c0)` **is** the polynomial —
-  and `data/wall_polynomials.json` every wall on each 727 arc with **all** real roots,
-  rational as fractions and irrational as minimal polynomials.
-
-## 3d. Established 2026-09-13 to 09-16 — the turn from searching to accounting
-
-This block is different in kind from the ones above. Nothing here found a better
-configuration; all of it is about **where a record's regions come from**, and it cut the
-proved ceiling for the whole tower by a factor of roughly five.
-
-- **A far tighter upper bound for every n, conditional on one hypothesis**
-  ([P326](LEDGER.md#p326)). The first unconditional whole-tower bounds are
-  [P249](LEDGER.md#p249)'s 953, 3 377, 8 835, … 104 207; these replace them at ~5x tighter,
-  at the cost of resting on `holes_ℓ ≤ 1`.
-  With `holes_ℓ = c_ℓ − 1` and `L = n − 1`,
-
-        TOTAL ≤ 1 + 32·C(n,3) + 10·C(n,2) + 3(n−1)
-
-  the first two terms already proved. Records sit at a **stable 90–92 %** of it from
-  n = 4 to n = 10. **And the strategic reading runs against intuition:** settling
-  [OQ 30] COMPLETES this bound but barely tightens it — at n = 10 it moves 4318 to 4309
-  against a record of 3925, so the holes are 9 of a 393-region gap. The looseness is
-  almost entirely in `T` and `two-body`, and it grows with n while the hole term does not.
-- **The counting identity** ([P327](LEDGER.md#p327), [P328](LEDGER.md#p328)). Exact on
-  183, 393, 727 and 1217:
-
-        TOTAL = 1 + L + Σ holes + ½ Σ_v excess(v)
-
-  Every region is paid for by degree excess at a vertex, and **every triple point is spent
-  twice** — which is the frustration principle as arithmetic rather than as metaphor.
-  Splitting the vertices by type separates a record into a generic part and a degenerate
-  one, and **records buy 13–28 % of their regions with degeneracy** (26 % at n = 4,
-  13 % at n = 7).
-- **The facet-centre lemma, PROVED** ([P311](LEDGER.md#p311),
-  [METHODS 26](METHODS.md)). The centre of every facet is the unit face normal `u`, and
-  `|⟨u,v⟩| ≤ 1` by Cauchy–Schwarz — so **every facet centre lies inside every other cube**,
-  and depth is non-increasing along every ray from it. One line, every n, every level.
-- **Plateau dimensions SETTLED at n = 6, 7, 8 — 1, 2, 2** ([P307](LEDGER.md#p307)), as
-  equalities rather than the lower bounds a tangent search gives, by identifying the walls
-  that CONTAIN the branch instead of sampling directions.
-- **`c_ℓ` identified and confined.** It is the WALL graph's component count, 43/43 against
-  the engine ([P312](LEDGER.md#p312)); `c > 1` occurs **only at level 1** — zero in 3 382
-  deeper level-instances ([P319](LEDGER.md#p319)); and a `c`-transition is a **pure
-  reconnection**, `ΔV = ΔE = 0` in 8 of 8 ([P321](LEDGER.md#p321)).
-- **Every record above n = 4 carries exactly 12 quadruple points**
-  ([P315](LEDGER.md#p315)), forced by a shared body-diagonal axis.
-
-**What this block also did was break several of its own results.** Four claims made here were
-refuted here, all of them CAUSE claims, and they are in §7. The pattern is worth stating
-once in the summary because it recurs: **every measurement in this block stood; every
-mechanism proposed to explain one fell.** See [METHODS 27](METHODS.md).
-
-## 4. Structure
-
-> **SCOPE CORRECTION, 2026-09-12 ([P298](LEDGER.md#p298)) — read before any
-> plateau dimension below.** Every count-plateau tangent number this project has
-> published rests on a premise that is false: that a first-order tangent must lie
-> in every wall. `arc_eps.tangents_eps` builds its candidates from wall normals
-> and additionally restricts them to the LAST-CUBE slice. Measured: a direction
-> that crosses **7 of 51 walls** preserves the count at n = 7, and of the wall
-> crossings examined since, **4 of 6 leave the count unchanged** ([P303](LEDGER.md#p303)).
-> A wall is a coincidence condition; crossing one need not create or destroy a
-> region. So the plateau is bounded by a SUBSET — on present evidence a minority —
-> of the walls, and **every tangent count here is a lower bound**. The published
-> 0, 0, 2, 1, 1 at n = 4..8 are last-cube counts; n = 7 and n = 8 are known to be
-> ≥ 2-dimensional once base directions are probed, and n = 4, 5, 6 are
-> **unresolved, not zero**. Which walls actually bound the count plateau is the
-> open problem the dimensional claims depend on.
->
-> **EXTENDED 2026-09-12 ([P304](LEDGER.md#p304)).** A full-ray census at the 727
-> record puts a number on it: of 21 coincidence walls crossed on ray e0, **13
-> preserve the count and 8 change it**, every change being exactly ±4. The
-> hand-picked 4 of 6 was not a fluke of the sample.
->
-> It also found that **the wall family itself is incomplete**. Four face planes
-> through a common point is a second codimension-1 family of the COUNT, invisible
-> to every coincidence condition — at t = −2/9 the count drops 693 → 691 with the
-> tight set unchanged. These behave differently: of 199 on the ray, **none**
-> changes the count across it. They are punctures, not steps. Consequently every
-> boundary this project located as "the nearest wall root where the count
-> changes" searched the coincidence family only; the measured EXTENTS stand, the
-> ATTRIBUTION of each boundary to a condition does not yet.
->
-> The corrected census is **G2-clean — 685 cells, three rationals each, zero
-> constancy failures** — so on that ray the two families together account for
-> every count change, and **663 concurrency-only crossings change the count not
-> once**. Concurrency walls puncture a plateau; they do not bound one.
->
-> **PLATEAU DIMENSIONS SETTLED 2026-09-13 ([P307](LEDGER.md#p307)): n = 6, 7, 8
-> are 1, 2, 2 — equalities, not bounds.** Each is pinned by the walls that
-> CONTAIN the branch, which vanish identically along it and so have no
-> first-order signature: zero of them where a plateau extends, hundreds where it
-> stops. n = 7 independently confirms [P301]'s 2-dimensional pentagon. The
-> dimension reported depends entirely on which directions seed the search, and
-> the instrument records its seeds with every number it writes.
->
-> **And at n = 6 the premise's candidate space is now known not to CONTAIN the
-> plateau** ([P305](LEDGER.md#p305)): the lineality holds no record count, while
-> arc D holds 727 on both sides at solved points while crossing 7 of the 27 tight
-> walls. Those 7 are decisively not boundaries; 20 remain undecided.
->
-> An apparent third family at t = −4/27 was a plane-convention bug in the new
-> code, found and closed the same day ([OQ 34](OPEN_QUESTIONS.md#34),
-> [FAILURE_MODES 39](FAILURE_MODES.md#39)); it is a four-plane concurrency like
-> t = −2/9. **One ray now has a complete wall list with a check behind it; no
-> other ray, level or direction does.**
-
-
-- **The chamber counts of the record neighbourhoods are known exactly, and 393's
-  divides 727's.** *(Scope, 2026-09-13: these are chambers of the COINCIDENCE
-  arrangement. [P304](LEDGER.md#p304) found a second wall family of the count —
-  four face planes through a point — which is not in this arrangement, so these
-  are not chamber counts of the region-count function's own arrangement.)* 183 = **1 712**; 393 = **74 544**; 727 = **4 621 728**
-  (Postscripts [148](LEDGER.md#p148), [152](LEDGER.md#p152), [153](LEDGER.md#p153);
-  `zaslavsky.py`). Derived by Zaslavsky's theorem via a memoised NBC recursion —
-  no chamber is constructed — and gated against 183 and 393, which had been
-  obtained independently by enumeration.
-
-  ```
-  393 =    74 544 = 2^4 · 3 ·      1553
-  727 = 4 621 728 = 2^5 · 3 · 31 · 1553      727 / 393 = 62 exactly
-  ```
-
-  183 = 2^4 · 107 does not join them: 727/183 is not an integer. The n=5 and n=6
-  records share an arithmetic core; the n=4 record does not. This is the mechanism
-  behind the stagewise 20× correspondence noted at [150](LEDGER.md#p150).
-
-- **The realised fraction of the Zaslavsky/Buck bound collapses with wall count**
-  — 47.1% (183, 12 walls), 34.1% (393, 18), **5.96%** (727, 27)
-  (Postscript [151](LEDGER.md#p151)). A fill fraction measured on a small case is
-  a property of that case, not a constant of the family; transferring 183's 47% to
-  727 produced an estimate of 14M–36M against a true value of 4.6M
-  ([143](LEDGER.md#p143), corrected at [150](LEDGER.md#p150)).
-
-
-- **The maximum at n = 3 requires irrational coordinates**, conditional on the
-  two known maximizers being the only ones. The O-reduced invariant μ is
-  rational for any rational configuration, and equals ½+√2 and 3φ/2 at the two
-  maximizers (Theorem R, Postscript [26](LEDGER.md#p26); reaffirmed at [44](LEDGER.md#p44), [64](LEDGER.md#p64)). n = 3 is the only irrational rung of the tower.
-  *Annotated 2026-08-17 (`doc_audit.py`: this claim cited NO source of any kind).
-  Its stated condition is now known to be unproved rather than merely
-  unexamined. Postscript [118](LEDGER.md#p118) verified that both maximizers are
-  ISOLATED — exactly, by enumerating all 728 and 2 196 faces of their local wall
-  arrangements — but isolation is LOCAL: it rules out a third 67 near either of
-  these two, not a third elsewhere in moduli space. So "the only ones" remains
-  open, and every consequence drawn from it, including this one, inherits that.*
-- **n = 3 is the only level whose optimum set is finite and larger than one
-  point.** At n = 2 the maximizers form a continuum (every angle about a body
-  diagonal, plus a closed arc about an edge axis); at n = 6 the record value is
-  attained by non-congruent compounds. Only at n = 3 is it two isolated points.
-  *Corrected 2026-08-17 (Postscript [118](LEDGER.md#p118)): "exactly two" was
-  asserted here on the strength of the lattice probe, which
-  [FAILURE_MODES](FAILURE_MODES.md) 11d shows cannot tell an isolated point from
-  a locus that misses the lattice. Both 67s are now VERIFIED isolated by exact
-  face enumeration — 728 and 2196 faces, none reaching 67, none unresolved. But
-  isolation is LOCAL: it rules out a third 67 near either of these two, not a
-  third elsewhere in moduli space. The word "exactly" is therefore still
-  unproved and has been dropped.*
-- **Irrational configurations, constructed correctly, do NOT beat the rational
-  records at n = 4 or n = 5** (2026-08-19, Postscript [138](LEDGER.md#p138)). Two
-  rational planes leave a rational line; a quadric along it gives a quadratic whose
-  roots are rational or in ℚ(√d) — this is how the 67s and every irrational 727
-  arise, and irrationality is an OUTPUT of wall solving, not an input to sample
-  over. Validated (its control reproduces 183; its rational half reaches 183 and
-  393 exactly). It generated **27 716 irrational candidates across 249 fields** at
-  n = 4 and **89 076 across 993 fields** at n = 5, with no field ever chosen — and
-  the best irrational results are **173** (ℚ(√7)) and **377** (ℚ(√2199)), short by
-  10 and 16. This is far stronger than the sampling campaigns, which measured only
-  their own sampler. **SCOPE, which the headline must not outrun: one rational base
-  per target** — the 183 record's first three cubes, and the 393 record's first four.
-  So this is a negative result for those two bases, not for irrational n = 4 or
-  n = 5 in general; other rational bases are untouched.
-- **The "two 67 triples" family at n = 4 is EXHAUSTED and caps at 177**
-  (2026-08-18, Postscript [131](LEDGER.md#p131)). The subset-spectrum constraint
-  points at irrational 4-cube compounds containing a 67 — the one region a
-  rational search structurally cannot reach. Because the 67s are ISOLATED, fixing
-  two cubes leaves finitely many completions, so this is a SOLVE: 960 candidates,
-  zero engine refusals, best **177**, six short of 183. The construction
-  independently reproduces the known golden four-cube compound (177), which is a
-  control it was not aimed at. Contrast the sampling campaigns run alongside —
-  irrational random reaches only 137–151 at n = 4 and 319 at n = 5, and two-cube
-  extension from 13-pairs reaches 167. **Sampling cannot probe irrational space;
-  the constraint-guided enumeration can.**
-- **183 is a PLATEAU, not a point** (2026-08-18, Postscript
-  [133](LEDGER.md#p133)). A wide-perturbation restart found
-  `1,0,0,0;-2,-2,5,-2;3,11,-3,-3;0,-7,4,-3` counting 183 and **not congruent** to
-  the canonical `1,0,0,0;0,5,3,2;1,-4,-1,1;1,1,-1,-4`, despite agreeing on every
-  invariant available: depth {92,66,24,1}, pairs [13,13,13,9,9,9], triples
-  [63,63,63,55], symmetry order 3. The congruence test was validated on five
-  controls first (three global rotations, a relabelling, and the two 1217s known
-  non-congruent). A rerun retaining every configuration found six distinct quaternion tuples at 183
-  falling into **exactly 2 congruence classes** (4 + 2), so the plateau has at least
-  two members — the same count as n = 3, though those differ by FIELD while these
-  are both rational. Plateau structure was known at n = 6 (727) but not at n = 4. The
-  open question becomes 727's: how large is the plateau, and is it finite or
-  uncountable by Postscript [80](LEDGER.md#p80), Addendum 2,'s dichotomy?
-- **183 is reached by 7.3% of wide-perturbation restarts** (Postscript
-  [131](LEDGER.md#p131)): 55 independent restarts, 264 794 engine calls, final
-  peaks 173×10, 175×10, 179×9, 171×8, 165×6, 167×4, **183×4**, 169×2, 159×1,
-  177×1 — never exceeded. That an independent reimplementation finds it three
-  times says it is no fluke; that it needs ~11 restarts says a basin at 1-in-100
-  would have been missed by every campaign this project has run. This is the
-  quantified basis for low confidence in n = 4 maximality.
-- **The tower breaks exactly once, at n = 3, and arithmetic is why** (Postscript
-  [126](LEDGER.md#p126)). 183 contains three 13-pairs (13 = the n = 2 maximum) but
-  its best triple is 63, four short of 67 — because 67 needs irrational
-  coordinates and every subset of a rational compound is rational. So one-cube
-  extension from the n = 3 record cannot reach 183, while **two-cube extension
-  from n = 2 can**, three ways. Every record contains its (n−2) record as well as
-  its (n−1) record, so the rule is: extend from the deepest level whose optimum is
-  arithmetically compatible with the target.
-- **1895 has TWO non-congruent 1217-subsets** (Postscript [126](LEDGER.md#p126)) —
-  identical depth profiles AND identical pair-count multisets, separated only by
-  their triple-count multisets. It is the only level with such a confluence, and a
-  worked instance of simultaneous extension: one base, two different added cubes,
-  each individually reaching 1217.
-- **The record tower nests at every level except n = 3** (Postscript [44](LEDGER.md#p44), made exhaustive on the current records by [111](LEDGER.md#p111))**.** The best triple
-  inside any higher record is 63, four short of 67 — a consequence of the
-  irrationality above, since every subset of a rational compound is rational.
-- **727 is usually reached without a maximal pair, but not always** (Postscript [55](LEDGER.md#p55) addendum)**.** Across the
-  161 configurations the sixth cube's pair signature is (9,9,4,4,4) in 159
-  cases, (9,9,9,4,4) once — the originally discovered record — and (13,5,4,4,4)
-  once, which reaches 727 while *carrying* a 13-pair. The discovered record
-  (18 interior crossings against 723's 48) is therefore atypical of its own
-  plateau, and the "records avoid rigid maximal pairs" reading drawn from it
-  holds for 160 of 161 configurations but is not a law.
-- **727 is a plateau of UNCOUNTABLY MANY non-congruent compounds.** *Corrected
-  2026-08-18 (`doc_audit.py` follow-up; this block cited no source and its
-  content traced to Postscript [52](LEDGER.md#p52), which Postscripts
-  [79](LEDGER.md#p79) and [80](LEDGER.md#p80) superseded). It previously read
-  "at least 161 non-congruent compounds in 54 combinatorial types" with "eight"
-  irrational fields. Both figures are counts of a SEARCH, not of the object:
-  Postscript 79 found fifteen fields, and Postscript 80 showed the 727s are
-  quadratic points inside one rational interval and that there are infinitely
-  many — "a classification programme aimed at listing the 727s is aimed at the
-  wrong object". The enumeration below is retained as what that search found,
-  not as a census.* At least 161 compounds in 54 combinatorial types were
-  enumerated, after quotienting by each cube's 24 rotations AND by the base's own
-  C₃ symmetry about (1,1,1) — which triple-counts if forgotten.
-  They fall into only three depth profiles, all of which also occur rationally:
-  {214,216,162,98,36,1}, {214,220,156,100,36,1}, {214,218,160,98,36,1}. Every
-  class satisfies d₁+d₂+d₃+d₄ = 690 with d₅ = 36 and d₆ = 1 fixed. Eight of the
-  fields reached BY THAT SEARCH are irrational (Postscript
-  [79](LEDGER.md#p79) later reached fifteen) — ℚ(√13), ℚ(√226), ℚ(√403), ℚ(√1093), ℚ(√1614),
-  ℚ(√1785), ℚ(√1930), ℚ(√2741) — but every one is rationally shadowed, so
-  irrationality does no work at n = 6, and the classes are NOT indexed by field
-  (the O-reduced pair invariant that suggested that is only necessary for
-  congruence, not sufficient). VERIFIED.
-- **An irrational configuration and its rational shadow are the same
-  combinatorial object at different parameters of one rational family.** The
-  two active edge-edge conditions are rational planes cutting a rational line;
-  the irrationality enters only through the third condition, a corner-on-face
-  quadric whose root on that line happens to be irrational. Sliding to a nearby
-  rational parameter gives the shadow, and in 14 of 16 configurations tested
-  across all eight fields the per-label type is IDENTICAL at the irrational
-  point and at both neighbours — so the coincidence that makes it irrational is
-  invisible to the region complex. Irrationality does nothing at n = 6: not to
-  the count, and not to the combinatorial type. Postscripts [60](LEDGER.md#p60), [61](LEDGER.md#p61) (61
-  corrects 60's inference that these points are chamber boundaries: it used the
-  active-wall count as a proxy, and most such walls turn out to be
-  combinatorially inert).
-- **The irrational classes are the first configurations this project found by
-  SEARCH rather than by symmetry** (Postscript [51](LEDGER.md#p51))**.** The two n=3 maximizers came from the
-  octahedron and the icosahedron; these came from enumerating strata.
-- **Coincidence conditions are quadrics** in the Cayley coordinates of the free
-  cube, and a 9-pair locus is codimension 1. So three walls meet in at most 8
-  points by Bézout — which is why records sit at three-wall intersections.
-- **The codimension-1 walls are exactly "four face planes concurrent"**, and
-  classify by how the four distribute over cubes: (3,1) corner-on-face, (2,2)
-  edge-edge, (2,1,1) edge meets a two-cube crossing line, (1,1,1,1) four planes
-  from four cubes. *Corrected 2026-08-17: this line said "the last two never
-  were", which was true when Postscript [57](LEDGER.md#p57) drew up the taxonomy
-  on 2026-08-02 but stopped being true the same week. Both ARE enumerated
-  against the 393 base — Postscript [62](LEDGER.md#p62) first reached one of
-  each, and `base_points.py` + `detq_check.py` now build and verify the full
-  catalogues: 424 real triple points → **2 544 W4 walls**, 360 crossing lines →
-  **4 320 W3 walls**, all nondegenerate and all split over ℚ, with det(Q) proved
-  symbolically for all 6 W4 branches and all 12 W3 edges. What remains open is
-  narrower and should not be stated as "never enumerated": the catalogue is
-  finite only RELATIVE TO A FIXED BASE, so the taxonomy is complete for the 393
-  base and for one free cube, not for a general base or general n.*
-  Corner-corner coincidence and edge-inside-a-face are codimension 2, so
-  neither is a wall — though both occur in the 393 base. Postscript [57](LEDGER.md#p57).
-- **Edge-edge conditions factor into PAIRS OF RATIONAL PLANES**; corner-on-face
-  conditions are IRREDUCIBLE QUADRICS. That difference decides the arithmetic:
-  three planes always meet in a rational point, so edge-edge strata cannot
-  contain an irrational configuration, while two planes and a quadric give a
-  quadratic in one parameter — rational or ℚ(√d). The mixed family holds
-  1 377 612 degree-2 solutions against 2 856 rational ones.
-
-- **The walls are ruled over ℚ, and their rulings are NOT constant-count lines.**
-  *Updated 2026-08-17 (found by `doc_audit.py`): the headline stands, but the
-  evidence quoted for it below — "of eight solved at matched Cayley extent, all
-  six whose window crosses a wall vary" — is the WINDOW-BASED statistic that
-  Postscript [108](LEDGER.md#p108) retired for giving window-dependent answers,
-  replacing it with the longest constant run in wall-chambers plus a
-  generic-direction control through the same point. Under that statistic the
-  finding is sharper and partly the opposite: rulings DO beat generic
-  directions, but only at the arc terminus, and Postscript
-  [112](LEDGER.md#p112) localises the cause to ARC MEMBERSHIP rather than
-  multiplicity. Read the two together; the blunt "NOT constant-count lines"
-  understates what is now known.*
-  Every wall is a signature-(2,2) quadric, hence doubly ruled — confirmed on
-  **10 250 walls with zero exceptions**, against the 360 W4 / 30 W3 originally
-  sampled. Both rulings through a rational point are rational or a
-  Galois-conjugate irrational pair, never one of each (Vieta on a rational binary
-  quadratic), and **every wall splits over ℚ — PROVED, not sampled** (see the
-  theorem below), so none of their ruled structure is hidden from rational search;
-  the census that first showed it was 63 432 rational rulings to 0 across 31 716
-  (wall, point) pairs. But the count
-  VARIES along a ruling: of eight solved at matched Cayley extent, all six whose
-  window crosses a wall vary, and the two "constant" ones crossed zero and one
-  wall. The single 2026-08-10 instance that held 725 across eleven chambers sits
-  at an arc terminus where three W4 conditions vanish at once; rulings through
-  such structured points versus generic ones is untested. VERIFIED (counts) /
-  EXHAUSTED only over 0.02% of the walls carrying a rational ruling.
-  Postscript [103](LEDGER.md#p103).
-
-## 5. Conjectures
-
-- **d₃ ≤ 164, d₄ ≤ 102, d₅ ≤ 36** and the general ceiling law
-  C(l,n) = (12l−6)n − 2(l²−1) for l ≥ 2. Never exceeded in ~1M configurations;
-  proved only for l = 1.
-- **max(6) ≤ 729.** The envelope bound gives T ≤ S_max + 336, and 727 sits on
-  the 393 five-subset, so only 729 remains available on that base. The
-  constant 336 is still MEASURED. The increment it bounds is now derived
-  (Postscript [56](LEDGER.md#p56)): T = S_j + Δ_j with Δ_j ≤ B_j, an exact Euler cell count on
-  the added cube's surface, ≤ 11% above the true increment everywhere tested —
-  but its universal ceiling at n = 6 is 872, so this conjecture is not yet a
-  theorem.
-
-
-- **The frustration deficit is 6(n−3)(n−2)** *[UNSOURCED, flagged 2026-08-18: the frustration PRINCIPLE is Postscript [17](LEDGER.md#p17) and is well attested, but this exact formula and its predictions appear nowhere in the ledger. Treat as CONJECTURE until derived or recomputed.]*** — the gap between the cap-sum
-  1 + Σ C(l,n) and the true maximum. Exact at n = 3, 4, 5 (0, 12, 36); predicts
-  max(6) = 729, max(7) = 1223, max(8) = 1907. A three-point fit, two of whose
-  points are records rather than proved maxima. Its n = 6 prediction agrees
-  with the envelope bound above, independently.
-
-## 6. What searching has established
-
-- **Extension beats native search.** A record at level n, extended by one cube,
-  outperforms a full campaign at level n+1. Every record from n = 6 up was
-  found this way, and improvements propagate both directions: better n=6 lifts
-  n=7 and n=8 within one pass, and searching n=8 has twice improved n=7 as a
-  byproduct.
-- **Menu shape matters more than menu size.** 723 stood for weeks because every
-  campaign sampled small quaternions; 727's sixth cube was found immediately by
-  sampling component heights log-uniformly to 512. Its winning cube was inside
-  the old norm bound all along — the gap was sampling density, not reach.
-- **Three-wall intersection is the best search method found.** Solving one
-  coincidence condition against each of three fixed cubes reaches 727 at ~30×
-  the hit rate of random menus, and found 727 compounds that eight prior
-  campaigns missed. Because the walls factor into planes, the whole family is
-  134 784 linear systems giving 2 733 distinct configurations — EXHAUSTED in
-  four minutes, max 727. A Gröbner enumeration of the same family ground
-  through 1.3 million systems to cover part of it; ~99% of that work was
-  re-deriving identical plane triples.
-- **Irrational configurations are now countable at scale.** `cube_regions_q2`
-  generalises the integer engine's scalar type to ℤ[√d] and runs ~100× faster
-  than the Python algebraic path. *Corrected 2026-08-18: this read "224,184 irrational configurations", a PARTIAL count from Postscript [51](LEDGER.md#p51) addendum 3 which itself listed 284,634 as still uncounted. The campaign completed: Postscripts [59](LEDGER.md#p59) and [79](LEDGER.md#p79) counted **508,818 configurations, 0 rejected**, best still 727.* Every earlier campaign in this
-  project sampled integer quaternions, so this stratum was structurally
-  invisible to all of them.
-- **Nothing above 727 has been found at n = 6** by: random menus (100k sixth
-  cubes), swap-completion from all six five-cube bases, a balanced climb on the
-  worst-subset objective, core-and-clique construction from the 183 core, the
-  exhausted three-wall family (2 733 configurations), pure corner-wall triples
-  (best 719), the rational half of the mixed family (best 725), or 224,184 irrational
-  configurations across the fields the overflow budget admits.
-
-## 7. Superseded claims
-
-Each of these was believed and acted on; each is now known to be wrong. Listed
-so the record is honest, and confined here so no reader picks them up as
-current.
-
-| claim | status now | corrected in |
+| n | best known | status |
 |---|---|---|
-| The walls of a configuration are its coincidence conditions | **STANDS, but the proposed second family does NOT.** At least one count-changing parameter is not a coincidence wall, so the coincidence family is incomplete — that much survives. The replacement offered in Postscript [304](LEDGER.md#p304), "four face planes through a common point", was **REFUTED 2026-09-16**: the test used a determinant and a rank and never asked whether the meeting point lies ON the cubes. A cube's boundary is six SQUARES, not six planes, and most such points are outside the compound entirely — including P304's own founding example. Counted with containment, genuine concurrences number **2 at every parameter tested**, baseline and anomaly alike. **What changes the count at those parameters is again unknown** | Postscripts [322](LEDGER.md#p322), [323](LEDGER.md#p323); [OQ 34](OPEN_QUESTIONS.md#34) REOPENED |
-| The other wall family increments by +258, and the true increment is 282 | **VOID** — the same missing containment predicate; there is no +258 and no window. The +24 COINCIDENCE half of that measurement is untouched and stands | Postscripts [309](LEDGER.md#p309), [323](LEDGER.md#p323) |
-| Quintuple points cost 8 of the n = 6 record's 92 regions, by the `(b−1)(b−2)` excess formula | **WITHDRAWN** — the formula is verified for b = 3 and b = 4 and was EXTRAPOLATED to b = 5; measured, b = 5 gives degree 15 and excess 52, not 12 | Postscript [324](LEDGER.md#p324) |
-| `EE ≤ 6` edge-edge contacts per cube pair is refuted by 24 contacts at `q = (0,1,1,1)` | **The conclusion stands; the witness does not.** That counter counts edge-PAIR INCIDENCES, and 18 of the 24 are the nine-per-corner incidences at two SHARED corners — one vertex each, and a different term of the identity. The contact count at `(0,1,1,1)` is **6**, which AGREES with the bound. The true maximum is **10**, at a FACE-diagonal rotation such as `q = (3,2,2,0)` | Postscript [330](LEDGER.md#p330) |
-| `Σ EE ≤ 6·C(n,2)` — never exceeded in 400 configurations at n = 4 | **REFUTED** — exceeded at every n from 2 to 6 (10, 22, 42, 68, 100 against 6, 18, 36, 60, 90) by rotating every cube about ONE COMMON face diagonal; at n = 2 it fails at a **proved maximiser**, since max(2) = 13 and 24 of the 128 optimal pairs in range carry EE = 10. The violating family was **inside the original search's own pool** — 400 random triples from 255 candidates, 0.012 expected hits. A sampled maximum reported as "never exceeded" | Postscript [330](LEDGER.md#p330) |
-| n = 9 = 2785 has no establishing Postscript and its provenance is missing | **CLOSED** — not backfilled; the establishing work was redone and dated to the day it was done | Postscript [179](LEDGER.md#p179) |
-| 727 shows no maximiser locus (P182) | **RETRACTED** — 727 is a plateau on four arcs A-D, documented since Postscripts [79](LEDGER.md#p79)/[80](LEDGER.md#p80); the negative was asserted without reading this file | Postscript [183](LEDGER.md#p183) |
-| 1217 is on a 13-pair curve but is an isolated point on it (1 of 19 offsets) | **RETRACTED** — the sweep stepped 40x the plateau width, and its refinement left 60 of 61 offsets unevaluable; 1217 is a continuum | Postscript [182](LEDGER.md#p182), [FAILURE_MODES 16c](FAILURE_MODES.md#16c) |
-| The recorded member of a continuum sits at an ENDPOINT of it (all four intervals measured) | **RETRACTED** — every recorded member examined is INTERIOR; three different sweep artifacts (step twice the remaining width; a window beginning at the record; a window edge). The "smallest primitive representative sits at the boundary" mechanism was invented to fit them | Postscript [188](LEDGER.md#p188) |
-| The 1217 plateau is [-59/315, -11/63] in the 13-pair parameter | **SUPERSEDED** — that curve is the Cayley-axis line (1,0,0), whose ends `n78_ends.py` solved on 2026-08-08: -0.045258752093 and +0.002550224044, with the record strictly between | Postscripts [187](LEDGER.md#p187), [188](LEDGER.md#p188) |
-| The 1217 count plateau is a single point | **RETRACTED** ([P295](LEDGER.md#p295)) — a step of 1/64, 14x coarser than the n = 7 minimum feature; at 1/1024 and below the count is 1217. It is a 2-dimensional pentagon |
-| arc D's 727 extent is (−1/8, 1/4) | **SUPERSEDED** ([P296](LEDGER.md#p296)) — swept, and not a bound: it contains s = 1/5 (723) and s = 1/4 (719). Solved extent (−2/19, 0.196487974607…) |
-| Count-plateau tangents are 0, 0, 2, 1, 1 at n = 4..8 | **SCOPE-CORRECTED** ([P298](LEDGER.md#p298)) — last-cube counts from a method whose premise is false; lower bounds only |
-| n = 10 = 3913 | **SUPERSEDED** — 3917, found by sweeping the tangent solved in P190; the winning tenth cube has height 113 786, which no log-uniform menu to height 512 could contain | Postscript [191](LEDGER.md#p191) |
-| Off-centred cubes and general hexahedra beat the records | **REFUTED** — an artifact of counting sign-vector cells of the infinite face planes instead of containment regions | Postscript [38](LEDGER.md#p38) |
-| The n = 2 optimum (13) is rigid and near-isolated | **REFUTED** — it is a continuum: 13 holds at every angle about a body diagonal | Postscript [44](LEDGER.md#p44) |
-| Step T reduces to "deg_top ≤ deg_bot at triple points" | **REFUTED** — false; a corner with two blades gives deg_top 8 against deg_bot 4. The theorem holds by a different argument | Postscripts [42](LEDGER.md#p42), [43](LEDGER.md#p43) |
-| 723 is the n = 6 maximum, cornered three independent ways | **SUPERSEDED** — 727 | Postscript [46](LEDGER.md#p46) |
-| n = 7 = 1211 and n = 8 = 1889 | **SUPERSEDED** — 1217 and 1891, the same day | Postscript [46](LEDGER.md#p46) |
-| n = 8 = 1891 | **SUPERSEDED** — 1895, found by continuing the sweep that produced 1891 past where it stopped | Postscript [101](LEDGER.md#p101) |
-| 393 is reachable only as a subset of the n = 6 record | **REFUTED** — a wide-height menu on 183 reaches it bottom-up; the claim was an artifact of small-quaternion search | Postscript [46](LEDGER.md#p46) |
-| 727 is a plateau (first claim, from a second sixth cube with the same count) | **WITHDRAWN then RE-ESTABLISHED** — that cube is congruent to the original; two genuinely non-congruent 727s were later found with a different depth profile | Postscripts [46](LEDGER.md#p46), [48](LEDGER.md#p48) |
-| The absence of irrational solutions in the wall strata says something about the problem | **ARTIFACT** — edge-edge conditions factor into rational planes, so those strata are all-rational by construction; the mixed strata are 240:1 irrational | Postscripts [49](LEDGER.md#p49), [50](LEDGER.md#p50) |
-| Porting the algebraic engines to C++ is not worth it | **REVERSED** — that verdict rested on solution fields reaching degree 8, measured on edge-edge systems which turn out all-rational anyway; the volume is degree-2 mixed strata, and the engine found the irrational 727 | Postscripts [47](LEDGER.md#p47), [50](LEDGER.md#p50), [51](LEDGER.md#p51) |
-| The overflow budget's invariant is d·m² | **REFUTED** — tracing \|p\| and \|q\| separately shows the boundary is not constant in m²·d; the flat rule is over-permissive below d ≈ 38 (at d=5 it would admit m=2289 against a true limit of 1855) | Postscript [51](LEDGER.md#p51) addendum 2 |
-| The Cayley chart omitting w = 0 leaves 180° rotations unreachable | **REFUTED** — q·(0,1,0,0) is a cube self-symmetry, so the chart omits quaternion representatives, not compounds; a second chart returns an identical census | Postscript [49](LEDGER.md#p49) addendum |
-| ℚ(√13) is the only field whose strata reach 727; the irrational 727 is a fifth class | **REFUTED** — both were properties of a guard that made only 56 fields countable. Widening it gives eight fields and at least twelve classes | Postscript [51](LEDGER.md#p51) addendum 3 |
-| A 9-pair is characterised by a shared face axis | **REFUTED** — 727 contains three 9-pairs and no two of its cubes share a face axis | Postscript [47](LEDGER.md#p47) |
-| Irrational 727s are chamber boundaries, never interior to a continuum; 10 of their types occur only irrationally | **REFUTED within the hour** — the active-wall count k was used as a proxy for "chamber boundary", but a wall crossing usually leaves the type unchanged. Tested directly, 14 of 16 are interior to their own type-chamber, and 7 of 7 supposedly irrational-only types occur at an immediate rational neighbour | Postscript [61](LEDGER.md#p61) |
-| More coincidences imply a higher count | **REFUTED** — 727 has 18 interior crossings to 723's 48, and counts more | Postscript [47](LEDGER.md#p47) |
-| The E1 derivation fails because "each connected piece adds at most one region" is false for non-disk pieces | **REFUTED** — the piece bound was never needed; the real error was scoring twelve TANGENT vertices as zero, and the stated counterexample (∂B ∩ int A connected with six boundary circles) is geometrically false — it has six components | Postscripts [53](LEDGER.md#p53), [56](LEDGER.md#p56) |
-| Filtering before counting cannot pay; counting is the cheapest thing that tells you the count | **REVERSED** — the filter was costed in a `Fraction` implementation 10x slower than an exact-integer one, and the statistic costed was the worthless one. By enrichment rather than correlation, keeping max-concurrence in {6,8,9} skips 69.6 % of candidates, loses 11.1 % of configurations counting ≥165 and **none** of those ≥170, and nets **1.81x** — held out on a disjoint half of a 3.1M-row census | Postscript [231](LEDGER.md#p231) |
-| The plane-incidence SIGNATURE measures the compound, and the Möbius weight of its real incidences is the best count predictor here (r = 0.562, orders 77.6 %) | **VOID** — `concurrence.planes()` read the ROWS of each rotation matrix where a cube's face normals are the COLUMNS, so every signature was a property of the quaternion SPELLING rather than of the compound: 6 of 6 octahedral respellings changed it (0 of 96 after the fix). Recomputed, r = **−0.147** and the ordering is **50.6 %** of 3 320 pairs — chance, and the correlation changed SIGN rather than shrinking. The census's 3.1M `sig` values, the Chao1 ≈ 4 216 richness estimate and the per-ensemble coverage table go with it; `cfg`, `count` and `depth` are untouched, so re-signing costs no new search | Postscript [227](LEDGER.md#p227), [FAILURE_MODES 27](FAILURE_MODES.md) |
-| The n = 4 record has a 9-fold plane concurrence, and 9-fold is the sweet spot for records | **CORRECTED** — 183's max concurrence is **6**. 723 does carry two 9-folds (re-verified with the corrected normals, and re-verified again in [P331](LEDGER.md#p331)) — **but those 9-fold points lie OUTSIDE the compound**, 63 % beyond the nearest face. The coincidence is real (three cubes, all rotations about the (1,1,1) axis, share a corner) and it is **not an arrangement vertex**, so it buys zero regions. `ALGEBRAIC_SEARCH.md`'s premise stands only as a statement about planes, not about the counted object, but **727, which beats it, has max 6 and no 9-fold at all**. The sweet spot is a property of 723, not of records. PROJECT.md had carried 723's property forward to 727 when 727 superseded it, without re-measuring | Postscript [227](LEDGER.md#p227) |
-| Plane concurrence is a feature of a record's geometry, so it is the right thing to search for | **SUPERSEDED** — no top-multiplicity point in 183, 723 or 727 lies ON the compound; all sit 63–68 % beyond the nearest face. `concurrence.py` has no containment predicate, which is [P304]'s defect three weeks earlier. This also supplies the missing CAUSE for the negative correlation measured in Postscripts [55](LEDGER.md#p55)/[57](LEDGER.md#p57): the statistic ranks configurations by points that are not part of the object being counted | Postscript [331](LEDGER.md#p331) |
-| Records concentrate at high-multiplicity concurrences | **REVERSED** — the sweet-spot caveat was noted early (Act III: "more alignment is not better"), but the heuristic still drove the searches. Measured, the correlation is negative. Over 1200 unselected draws, configurations counting ≥ 700 average 1.6 hits on the base's triple-point walls; those counting < 650 average 92.6. The heuristic described 723, which is exactly the 54-crossing corner family | Postscripts [55](LEDGER.md#p55), [57](LEDGER.md#p57) |
-| Corner-corner and edge-in-face are unmodelled wall types | **RECLASSIFIED** — both are codimension 2, so neither is a wall. *Updated 2026-08-17: this row went on to say (2,1,1) and (1,1,1,1) are "genuinely unenumerated". They were enumerated the same week — 2 544 W4 and 4 320 W3 walls against the 393 base, all verified. This row is where the stale claim survived longest, which is worth noting: the superseded-claims table is the mechanism meant to STOP stale claims propagating, and it propagated one.* | Postscripts [57](LEDGER.md#p57), [62](LEDGER.md#p62) |
-| Rulings are constant-count lines, so they are the walls' own coordinate lines | **REFUTED** — true of the one instance it was drawn from, false in six of six non-vacuous cases solved systematically. That instance's base point is an arc terminus with three W4 conditions vanishing; the generic case varies | Postscript [103](LEDGER.md#p103) |
-| A doubly-ruled wall has one rational ruling and one irrational, so half its ruled structure is invisible to rational search | **REFUTED, and impossible as stated** — a rational binary quadratic cannot have exactly one rational root. Measured, all 63 432 rulings found were rational | Postscript [103](LEDGER.md#p103) |
+| 2 | 13 | PROVED maximum ([`max2_report.md`](max2_report.md)) |
+| 3 | 67 | PROVED maximum ([`PROOF_67.md`](PROOF_67.md)); two classes, octahedral in ℚ(√2) and golden in ℚ(√5) |
+| 4 | 183 | VERIFIED; two classes ([`n4_search_report.md`](n4_search_report.md), [P133](LEDGER.md#p133)) |
+| 5 | 393 | VERIFIED; the "393 base" ([P16](LEDGER.md#p16)) |
+| 6 | 727 | VERIFIED; the base plus one cube ([P46](LEDGER.md#p46)) |
+| 7 | 1217 | VERIFIED; the 727 six plus one ([P46](LEDGER.md#p46)) |
+| 8 | 1895 | VERIFIED; the 1217 seven plus one ([P101](LEDGER.md#p101)) |
+| 9 | 2787 | VERIFIED; the 1217 seven plus TWO new cubes ([P198](LEDGER.md#p198), [P218](LEDGER.md#p218)) |
+| 10 | 3925 | VERIFIED; 2787's nine in its ORIGINAL representative plus one ([P200](LEDGER.md#p200), [P285](LEDGER.md#p285)) |
 
-Two methodological errors are worth carrying forward, because both produced
-plausible numbers rather than obvious failures. Counting cells of the infinite
-plane arrangement instead of containment components inflated every count and
-produced a string of false records. And measuring rigidity by *openness* —
-perturbing randomly and asking whether the count survives — reports every
-measure-zero wall as rigid, which is why the 13-pair continuum went unnoticed
-for weeks.
+From n = 4 on these are lower bounds found by construction and search, not claimed maxima (§4).
+At n = 10 the same added cube gives 3921 on the simplified n = 9 representative: two members of
+one plateau, identical in count and depth profile, are not interchangeable as foundations
+([P285](LEDGER.md#p285)).
+
+**The shape of the set where each best count holds** (detail per level in [`LEVELS.md`](LEVELS.md)):
+
+- **n = 2**: in class space a SINGLE arc, open at the identity, running along body-diagonal
+  rotations to 60° and on along edge rotations to a closed, irrational end at the 90° edge
+  rotation; every rational 13 up to height 5, on any axis, lies on it ([P390](LEDGER.md#p390)).
+  The octahedral 67's pairs are its closed end, the golden 67's an interior point. Only counts 1,
+  4, 5, 9, 13 occur, generic 4 ([P69](LEDGER.md#p69)).
+- **n = 3**: two isolated points. VERIFIED by enumerating every face of each local wall
+  arrangement, 728 and 2 196 faces, none reaching 67 ([P118](LEDGER.md#p118)). Each 67 lies on a
+  curve preserving its contacts, but the count changes on both sides at once
+  ([P382](LEDGER.md#p382)). The two sit differently: the octahedral 67 lies 14° inside the
+  uniform 55 region, the golden 67 exactly ON the 55/43 wall ([P291](LEDGER.md#p291)).
+- **n = 4**: each of the two 183 classes lies on its own arc; the tower's arc has length 0.6873,
+  and the arcs are distinct ([P378](LEDGER.md#p378), [P380](LEDGER.md#p380)).
+- **n = 5**: tangent dimension 1; the plateau itself has not been measured
+  ([P381](LEDGER.md#p381)).
+- **n = 6**: one-dimensional; the record is a node where exactly two branches cross, D1 and D2 at
+  4.51°, arcs B and C being those branches again under the base's C₃ symmetry, and arc A a separate
+  piece ([P391](LEDGER.md#p391)); the record is a special point, not a
+  special arc ([P293](LEDGER.md#p293), [P306](LEDGER.md#p306)). Nine special points are six
+  compounds ([P294](LEDGER.md#p294)). The 727s are uncountably many non-congruent compounds, in
+  every quadratic field tested as well as ℚ ([P79](LEDGER.md#p79), [P80](LEDGER.md#p80)). Arc
+  D's extent is solved exactly, `s ∈ (−2/19, 10695/1007 − 7√2248773/1007)`, the first plateau
+  boundary carried from bracket to wall to polynomial to root ([P296](LEDGER.md#p296)).
+- **n = 7**: two-dimensional, two sheets crossing along the fibre over the record, the n = 6 node
+  carried up ([P393](LEDGER.md#p393)). Each sheet is a curved triangle with three walls, the same
+  three on both: the branch's lower 727 wall, a flat fibre wall, and one curved wall of degree 4
+  ([P301](LEDGER.md#p301), [P394](LEDGER.md#p394)). The earlier "pentagon" was a grid's box.
+- **n = 8**: three-dimensional, a polytope with 38 vertices and 72 facets, inradius 0.0595,
+  circumradius 0.859 ([P383](LEDGER.md#p383), [P385](LEDGER.md#p385)).
+- **n = 9**: tangent dimension 4, one direction walked ([`CONTINUUM_MAP.md`](CONTINUUM_MAP.md), Map 4).
+- **n = 10**: lineality 6 from its 480 tight conditions ([P300](LEDGER.md#p300)); the plateau has
+  not been walked.
+<!-- reviewed 2026-09-27: P118 cited for its isolation verdict, which stands; P70 for the mirror-plane structure P76 left standing -->
+
+**Tangent dimension equals plateau dimension** wherever both are measured, n = 4, 6, 7, 8, and
+n = 3 is the exception, tangent 1 and plateau 0 ([P381](LEDGER.md#p381), [P382](LEDGER.md#p382),
+[P383](LEDGER.md#p383)). The lineality column of the older rank computation, 1, 1, 2, 3 at
+n = 5..8, is the same quantity from a different wall list ([P122](LEDGER.md#p122),
+[P124](LEDGER.md#p124)).
+<!-- reviewed 2026-09-27: P122 cited for its lineality numbers, which stand -->
+
+**Plateau boundaries partly carry up the tower.** Two of the three walls bounding the
+D1 sheet of the 1217 plateau recur at n = 8 and n = 9 and cost exactly 4 regions to cross each time; the third is cut
+by a new wall and contracts about fivefold ([P303](LEDGER.md#p303)).
+
+**Other exact measurements.**
+- The two-body weight on level 1 is 48 at the n = 4 record and **60 at the golden 177**, the
+  proved cap, all on the outer surface ([P389](LEDGER.md#p389)).
+- `c_ℓ` is the wall graph's component count (43 of 43, [P312](LEDGER.md#p312)); `c > 1` has been
+  seen only at level 1, zero times in 3 382 deeper level-instances ([P319](LEDGER.md#p319)); a
+  change in `c` is a pure reconnection, `ΔV = ΔE = 0` ([P321](LEDGER.md#p321)).
+- Every record above n = 4 carries exactly 12 quadruple points ([P315](LEDGER.md#p315)).
+- Records buy 13–28 % of their regions with degenerate vertices, 26 % at n = 4
+  ([P327](LEDGER.md#p327)).
+- Edge-edge contact strata have codimension 0 at `EE = 0`, 1 at `EE = 4`, and 2 at 6, 8 and 10
+  (exact Jacobian rank, [P376](LEDGER.md#p376)).
+- Chamber counts of the coincidence arrangement near the records: 1 712 (183), 74 544 (393),
+  4 621 728 (727), and 727's is exactly 62 times 393's ([P148](LEDGER.md#p148),
+  [P152](LEDGER.md#p152), [P153](LEDGER.md#p153)). These are chambers of the COINCIDENCE walls,
+  which do not bound the count on their own ([P305](LEDGER.md#p305)).
+
+## 4. Not proved, graded
+
+| claim | grade | evidence, and what it rests on |
+|---|---|---|
+| `max(4) ≤ 953` | PROOF GAP | §2 |
+| `c_ℓ ≤ 2` on every level ([OQ 30](OPEN_QUESTIONS.md)) | **STRONG CONJECTURE** | never violated in about 3 700 level-instances including a directed attempt to break it ([P325](LEDGER.md#p325)); reduced to one connectivity claim about the antipodal quotient ([P259](LEDGER.md#p259)). Gives `max(4) ≤ 198` |
+| `max(4) = 183` | **WEAK CONJECTURE** | never exceeded, and reached by 7.3 % of wide-perturbation restarts ([P131](LEDGER.md#p131)); but three reductions to a few named statements have failed ([P373](LEDGER.md#p373) twice, [P389](LEDGER.md#p389)), and no argument now connects 183 to any bound below 198 |
+| W: `W₀ ≤ 84` at n = 4 ([OQ 32](OPEN_QUESTIONS.md)) | **WEAK CONJECTURE** | 0 violations in 247 blind configurations, attained at the record ([P275](LEDGER.md#p275)); all rational, the blind spot that let T stand |
+| C: `c₁ = c₂ = 1` at the maximiser | **WEAK CONJECTURE** | `c = 2` occurs on ordinary configurations ([P269](LEDGER.md#p269)); directed climbing under `c = 2` stalled far below the record ([P270](LEDGER.md#p270)) |
+| given W and C, `max(4) ≤ 195` | PROVED IF | the anatomy `d₁ = W₀/2 + T + c₁ + 1` ([P272](LEDGER.md#p272)) with the proved `T ≤ 60`. The version with `T ≤ 48`, which gave 183, fails because T is false ([P389](LEDGER.md#p389)) |
+| the ceiling law for l ≥ 2, `C(l,n) = (12l−6)n − 2(l²−1)` | **WEAK CONJECTURE** | never exceeded in about a million sampled configurations; proved only for l = 1. Its caps provably cannot all be attained together ([P258](LEDGER.md#p258)) |
+| `max(6) ≤ 729` | **WEAK CONJECTURE** | the envelope bound on the 393 base, whose constant 336 is still measured, not derived ([P56](LEDGER.md#p56)) |
+| the records at n ≥ 5 are maxima | not conjectured | lower bounds; no search above n = 4 has been complete over more than a stated family (§6) |
+| no third 67 exists anywhere | **WEAK CONJECTURE** | isolation is local ([P118](LEDGER.md#p118)); nothing rules out a 67 elsewhere. Theorem R's "the n = 3 maximum needs irrational coordinates" ([P26](LEDGER.md#p26)) depends on it |
+| the frustration deficit is `6(n−3)(n−2)` | **HOPE** | a three-point fit, two of the points records rather than proved maxima; not derived anywhere in the ledger. The frustration PRINCIPLE, that levels cannot maximise independently, is well attested ([P17](LEDGER.md#p17), [P258](LEDGER.md#p258)) |
+
+**Refuted this month, and what each took with it.** Hypothesis T, `T ≤ 48` at n = 4: false, the
+golden has 60 ([P389](LEDGER.md#p389)), and with it `max(4) = 183` lost its conditional proof.
+`EE ≤ 36` at `B = 128` and `EE + B ≤ 164`: false ([P373](LEDGER.md#p373)).
+
+## 5. Structure
+
+- **What the records do** ([P364](LEDGER.md#p364)): one hub cube sharing an axis with up to four
+  others, every other cube sharing at most one. A cube with one shared axis keeps a free rotation
+  and can dodge a forced coincidence; fully pinned cubes cannot ([P358](LEDGER.md#p358)). Above
+  n = 5 the records add cubes with no sharing at all.
+- **Subset-optimality does not give the maximum.** The golden 177, UC09's 4-subset, has every
+  subset at its proved maximum and still loses to 183, because complete corner-sharing forces 18
+  four-fold points ([P370](LEDGER.md#p370)). Complete corner-sharing is sub-maximal at both sizes
+  where it exists, n = 4 and n = 5 ([P363](LEDGER.md#p363)).
+- **The tower nests, by count, at every level except n = 3.** Each record from 183 to 1895
+  contains the one below as a subset ([P44](LEDGER.md#p44), made exhaustive on those records by
+  [P111](LEDGER.md#p111)), and 3921's best 9-subset is 2787, whose best 8-subset is 1895
+  ([P198](LEDGER.md#p198)), although 2787 replaced the recorded 1895's eighth cube. The tower's
+  183 is cubes {0, 1, 2, 4} of the 393 base, and every record from n = 4 to 8 contains exactly
+  ONE 4-subset counting 183 ([P283](LEDGER.md#p283)). The break at n = 3: the best triple inside
+  any rational record is 63, since 67 needs irrational coordinates ([P126](LEDGER.md#p126)).
+- **Extend from the deepest compatible level.** Because 67 is irrational, one-cube extension from
+  n = 3 cannot reach 183, while two-cube extension from a 13-pair can ([P126](LEDGER.md#p126)).
+  1895 has two non-congruent 1217-subsets, separated only by their triple counts.
+- **Irrationality does no work at n = 6.** An irrational 727 and its rational shadow are the same
+  combinatorial object at nearby parameters of one rational family: two edge-edge conditions are
+  rational planes meeting in a rational line, and a corner-on-face quadric's root on that line
+  supplies the irrationality ([P60](LEDGER.md#p60), [P61](LEDGER.md#p61)).
+- **Walls.** Coincidence conditions are quadrics in the free cube's Cayley coordinates, so three
+  walls meet in at most 8 points ([P57](LEDGER.md#p57)). Edge-edge conditions factor into pairs of
+  rational planes; corner-on-face conditions are irreducible. Every wall is doubly ruled; the two
+  rulings through a rational point are both rational or a conjugate irrational pair, never one of
+  each, and all 63 432 found were rational ([P103](LEDGER.md#p103)). The count varies along a
+  ruling. Corner-corner coincidence and edge-in-face are codimension 2, not walls.
+- **The coincidence walls do not bound the count by themselves.** Crossing one often leaves the
+  count unchanged (13 of 21 on one ray at 727, [P304](LEDGER.md#p304)), and a count can change
+  where no coincidence wall is crossed. What changes it there is **unknown**: the four-plane
+  concurrences once proposed lie outside the compound ([P323](LEDGER.md#p323)).
+- **Constraint-guided enumeration reaches irrational space; sampling does not.** Two families were
+  solved rather than sampled at n = 4: two 67-triples caps at 177, reproducing the golden
+  ([P131](LEDGER.md#p131)), and irrational completions of one rational base per target cap at 173
+  (n = 4) and 377 (n = 5) ([P138](LEDGER.md#p138)). Each is a result about its base, not about
+  irrational compounds in general.
+<!-- reviewed 2026-09-27: P304 cited for its surviving 13-of-21 measurement; P60 for the rational-shadow mechanism P61 left standing -->
+
+## 6. What searching has covered
+
+- **Extension beats native search.** Every record from n = 6 up was found by extending the one
+  below; improvements propagate in both directions ([P46](LEDGER.md#p46)).
+- **Filtering before counting pays.** Keeping candidates whose maximum plane concurrence is 6, 8
+  or 9 skips 69.6 % of them, loses none counting ≥ 170, and nets 1.81× on held-out data
+  ([P231](LEDGER.md#p231)). It is a search filter, not a cause: those concurrence points lie
+  outside the compound ([P331](LEDGER.md#p331)).
+- **Menu shape matters more than size.** 727's sixth cube was inside the old norm bound all along;
+  log-uniform component heights to 512 found it at once ([P46](LEDGER.md#p46)).
+- **Three-wall intersection** is the best search method found, about 30 times the hit rate of
+  random menus ([P48](LEDGER.md#p48)): the family is 134 784 linear systems giving 2 733
+  configurations, EXHAUSTED in four minutes, maximum 727 ([P49](LEDGER.md#p49)).
+- **Nothing above 727 at n = 6** in: random menus (100 000 sixth cubes), swap-completion from every
+  five-cube base, the worst-subset climb, core-and-clique construction, the exhausted three-wall
+  family, pure corner-wall triples (best 719), the rational mixed family (best 725), and 508 818
+  irrational configurations across the fields the engine admits ([P59](LEDGER.md#p59),
+  [P79](LEDGER.md#p79)).
+- **n = 4 by restarts**: 55 wide-perturbation restarts, 264 794 engine calls, 183 four times and
+  never exceeded ([P131](LEDGER.md#p131)); 5 136 compounds from the region that refuted the `EE`
+  ceilings, best 173 ([P375](LEDGER.md#p375)).
+
+## 7. Beliefs overturned
+
+Listed only where knowing the old belief is dead is itself useful. The history of each is in the
+ledger; the full list of the project's corrections is in [`FAILURE_MODES.md`](FAILURE_MODES.md).
+
+| once believed | now |
+|---|---|
+| the records are isolated points | from n = 4 they lie on plateaus of dimension 1, 1, 2, 3 at n = 4, 6, 7, 8 ([P378](LEDGER.md#p378), [P306](LEDGER.md#p306), [P301](LEDGER.md#p301), [P383](LEDGER.md#p383)); only the n = 3 maxima are isolated |
+| 727 is isolated on the 393 base | its coincidence pattern is; the count holds along a line through it ([P293](LEDGER.md#p293)) |
+| `max(4) = 183` follows from T, W and C | T is false ([P389](LEDGER.md#p389)) |
+| `max(4) ≤ 953` is proved | proof gap ([P274](LEDGER.md#p274)) |
+| the n = 8 plateau is 2-dimensional | 3 ([P383](LEDGER.md#p383)) |
+| region counts are always odd | only `TOTAL ≡ (self-antipodal regions) mod 2`; even counts occur, and 184 is not excluded ([P375](LEDGER.md#p375)) |
+| four face planes through a point are a second wall family | those points lie outside the compound ([P323](LEDGER.md#p323)) |
+| `Σ EE ≤ 6·C(n,2)` | exceeded at every n from 2 to 6 ([P330](LEDGER.md#p330)) |
+| the plane-incidence signature predicts the count | it measured the quaternion spelling: rows were read as normals ([P227](LEDGER.md#p227)) |
+| UC09's subsets are the maxima up to n = 5 | only up to n = 3 ([P16](LEDGER.md#p16), [P370](LEDGER.md#p370)) |
+| the n = 2 maximum is rigid | it is one arc in class space ([P44](LEDGER.md#p44), [P390](LEDGER.md#p390)) |
+| the n = 2 maximum is two unrelated arcs plus isolated classes | the arcs join end to end and the "extra classes" lie on them ([P390](LEDGER.md#p390)) |
+| off-centred cubes and general hexahedra beat the records | an artefact of counting cells of the infinite planes ([P38](LEDGER.md#p38)) |
