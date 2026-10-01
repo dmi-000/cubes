@@ -464,6 +464,17 @@ with `index_ledger.py` after appending.
 - [Postscript 392](#p392) — arcs B and D1 have the SAME solved extent, exactly, and D2's extent is solved for the first…
 - [Postscript 393](#p393) — the 1217 plateau is TWO sheets near the record, not one pentagon — the n = 6 node carries up…
 - [Postscript 394](#p394) — the two 1217 sheets are CURVED TRIANGLES that cross along the fibre line; the pentagon was…
+- [Postscript 395](#p395) — **[CORRECTION]** `TOTAL <= 195 - Q4` was listed as proved under the wrong condition
+- [Postscript 396](#p396) — the upper-bound reductions checked in Lean, with their hypotheses printed by Lean; P326's…
+- [Postscript 397](#p397) — **[CORRECTION]** the triple cap `E_S <= 32` was lifted to every n without its scope, pairwise transversality
+- [Postscript 398](#p398) — **[CORRECTION]** the claimed proofs through a proof checker — two unstated connectivity assumptions, and what…
+- [Postscript 399](#p399) — `max(4) <= 285` with NO hypothesis — Mayer–Vietoris at every depth, the first unconditional…
+- [Postscript 400](#p400) — an unconditional upper bound for EVERY n, exact at n = 2 and 3
+- [Postscript 401](#p401) — the complement's pieces share FACE CENTRES — the depth-1 ceiling law `d1 <= 10n^2 - 14n` is…
+- [Postscript 402](#p402) — `d2 <= 66` at n = 4 — two routes tried, and both reduce it to the two known walls
+- [Postscript 403](#p403) — the depth-2 exchange rate, measured — never below 1:1, and attained
+- [Postscript 404](#p404) — the depth-2 exchange PROVED by charging to the triples' bottom diagrams — `max(4) <= 194 +…
+- [Postscript 405](#p405) — the CIRCLE LEMMA — `X = 0` and `W4u = 0` for cubes, so `max(4) <= 195` is PROVED IF `c2 = 1`
 
 <!-- INDEX:END -->
 
@@ -17411,6 +17422,7 @@ Files: `v3_outer.py`.
 <a id="p237"></a>
 
 ## [VERIFIED] Postscript 237: d1 ≤ 108·C(n,3) + 10·C(n,2) + 2, for EVERY configuration — the first upper bound above n=3 that holds at maximisers
+<!-- status: proved-if="c₁ = 1"|"c1 = 1"|"c_1 = 1"|"c = 1"|"PROVED IF"; claim="108·C(n,3) + 10·C(n,2) + 2"|"108*C(n,3) + 10*C(n,2) + 2"|"108*C(n,3)  +  10*C(n,2)  +  2"; trigger="claim" -->
 
 *2026-09-07.* Completing [P235] and [P236]. The published `d1 <= 108*C(n,3) + 2` rests on an
 identity that fails at coincident configurations, i.e. at every maximiser. This replaces it
@@ -18130,7 +18142,7 @@ Files: `mv_law.log`.
 <a id="p249"></a>
 
 ## [VERIFIED] Postscript 249: the first PROVED upper bounds on max(n) for n >= 4
-<!-- status: corrected-by=P274; fell="max(n) ≤ 953" | "max(4) <= 953" | "[183, 953]"; stands="d1 <= 108*C(n,3) + 10*C(n,2) + 2 ([P237]), the l = 1 ceiling law, the method of summing per-depth bounds" -->
+<!-- status: corrected-by=P274; fell="max(n) ≤ 953" | "max(4) <= 953" | "[183, 953]"; stands="d1 <= 108*C(n,3) + 10*C(n,2) + c1 + 1 ([P237]; the + 2 form needs c1 = 1, [P398]), the l = 1 ceiling law, the method of summing per-depth bounds" -->
 
 > **Scope note, recorded 2026-09-24.** This total sums [P243]'s bound for every depth >= 2, whose
 > proof assumed no two-body vertices below depth 1. [P274] refuted that on 2026-09-08, so the
@@ -18941,6 +18953,7 @@ a statement purely about the four 3-subset counts and one number from the full c
 | ⟹ `W0 = V3(depth 1) <= 84` | follows |
 | ⟹ `d1 <= 104`, `d2 <= 66`, `d3 <= 24` | follows ([P262]) |
 | ⟹ **max(4) <= 195** | follows |
+<!-- reviewed 2026-09-28: a chain through an OPEN step; PROVED labels the other steps -->
 
 **One inequality now stands between the project and `max(4) <= 195`**, and it is of a shape
 nothing else here has had: it relates SUBSET counts to the whole, both sides are region counts
@@ -23074,6 +23087,8 @@ of a graph component; *hole* is `c - 1`, which has no free letter and is written
 <a id="p326"></a>
 
 ## [VERIFIED] Postscript 326: `holes <= 1` yields a PROVED upper bound for every n — and the holes are not where the slack is
+<!-- status: proved-if="holes <= 1"|"holes ≤ 1"|"c_ell <= 2"|"c_ℓ ≤ 2"|"c ≤ 2"|"c <= 2"|"PROVED IF"; claim="≤ 198"|"<= 198"|"198 at n = 4" -->
+<!-- status: corrected-by=P396; fell="proved-modulo-one-hypothesis"; stands="the bound and its derivation, with the accounting step as a second condition" -->
 
 Working out what [OQ 30]'s hypothesis actually buys, since everything else in the chain is
 already proved.
@@ -23201,7 +23216,7 @@ attained at the records, so the generic part is already pinned. Everything loose
 degenerate terms, and they are the terms nothing bounds. A LEAD, stated as a lead and not a
 result: `EE / C(n,2)` runs 6.0, 6.0, 4.8, 4.0 at n = 4..7 -- exactly 6 per cube pair at n = 4
 and n = 5. Whether 6 is a cap per pair is untested, and [P309]'s `+258` is the standing warning
-about reading a law off four points.
+about reading a law off four points. <!-- reviewed 2026-09-28: proved refers to T3 <= 32*C(n,3), not to P326's conditional bound -->
 
 > **ADDENDUM 2026-09-16 ([P330](#p330)).** The per-signature excesses in the table above are
 > GENERIC values read off the records, not invariants of the signature. `(2,2)` has excess 0 at
@@ -24235,7 +24250,7 @@ kind, 6 of the second, and none of the third.
 > would give 80, 80 and 92 instead of 72, 72 and 84. [P346] also DERIVES the law rather than
 > measuring it: the left side is `sum over 3-subsets of their triple-point counts`.
 
-**AND THIS REFINES THE KNOWN CAP.** `T3 <= 32*C(n,3)` is proved. The measured statement is
+**AND THIS REFINES THE KNOWN CAP.** `T3 <= 32*C(n,3)` is proved (for cubes meeting pairwise transversally, [P397](#p397)). The measured statement is
 stronger and, if provable, is the form to use: the cap counts COLLIDED triple points with
 multiplicity four, so a configuration cannot buy extra quadruple points without giving back
 triple points at four-to-one. *Stated as measured, not proved: 0 violations in 80 random
@@ -24449,7 +24464,7 @@ With `TOTAL = sum_S h(S) + 5 - Q4` and `h(S) = count(S) - (1/2)(its pair counts)
     body-diagonal        142.0      2        140.0       145
     best of 160 random   149.0      0        149.0       157
 
-`h(S) <= 47.5` — **PROVED, not measured ([P348](#p348)): `h = 0.5 + (1/2) sum E_i + E_S` with
+`h(S) <= 47.5` — **PROVED, not measured ([P348](#p348); with trivial holes, see [P395](#p395)): `h = 0.5 + (1/2) sum E_i + E_S` with
 `E_i <= 10` [P237] and `E_S <= 32` (PROOF_67 Lemma 1a)** — so `sum_h <= 190` and
 **`TOTAL <= 195`**. Beating 183 requires `sum_h - Q4 > 178`.
 
@@ -24469,6 +24484,11 @@ attainable at each `sum_h` between 178 and 190.
 <a id="p348"></a>
 
 ## [VERIFIED] Postscript 348: `h <= 47.5` is PROVED, not measured — so `max(4) = 183` reduces to ONE two-dimensional feasibility question
+<!-- status: proved-if="trivial holes"|"holes are trivial"|"c = 1"|"c_ell = 1"|"c_ℓ = 1"|"c₁ = c₂ = 1"|"PROVED IF"|"hope"; claim="195 - Q4"|"195 − Q4"|"h <= 47.5"|"h(S) <= 47.5"|"h ≤ 47.5"|"max(4) ≤ 195"|"max(4) <= 195" -->
+
+> **Scope note, recorded 2026-09-28 ([P395](#p395)).** "PROVED" here is under trivial holes, as
+> caveat 1 below says: `h(S) <= 47.5` and `TOTAL <= 195 - Q4` hold when `c = 1` on every level.
+> As a bound on max(4) that is PROVED IF; the 2026-09-24 classification rates it a hope.
 
 The user: *if we can prove the new combinations infeasible, we can prove records cannot be beaten.*
 Correct, and checking the chain upgraded one of its links from measured to proved.
@@ -25179,10 +25199,10 @@ Asked directly. Sorting this session's machinery by whether it survives above fo
     so `max(3) = 67` applies to every 3-subset at every n: `Q(S) <= 62`, hence
     `T3 + (n-2)*two-body <= 62*C(n,3)` — already stated and verified for general n, and
     identically the two known caps summed.
-  * **[P326]'s tower bound** `1 + 32*C(n,3) + 10*C(n,2) + 3(n-1)`, and the per-subset caps
+  * **[P326]'s tower bound** `1 + 32*C(n,3) + 10*C(n,2) + 3(n-1)` (PROVED IF `holes <= 1` and the accounting step, [P396](#p396)), and the per-subset caps
     `max(2) = 13`, `max(3) = 67` that drive everything.
   * **The corner-sharing degree bound.** A cube has 4 antipodal corner-pairs and two partners
-    cannot use the same one, so the sharing graph has max degree 4.
+    cannot use the same one, so the sharing graph has max degree 4. <!-- reviewed 2026-09-28: carries both conditions, pointer to P396 -->
 
 **EXTENSIBLE WITH RE-DERIVATION — the structure survives, the terms change.**
 
@@ -25901,7 +25921,7 @@ produced the refuter.
 
 **WHAT IS LEFT OF THE ARGUMENT.** The proved box stands: `E_i = EE_i + 2*SC2_i <= 10` ([P237])
 and `E_S <= 32` (PROOF_67), giving `EE + B <= 188 - 2*SC2` at n = 4, and
-`TOTAL <= 195 - Q4` ([P367]). The golden attains `EE + B = 164` at `SC2 = 12`, which is
+`TOTAL <= 195 - Q4` ([P367]; only with trivial holes, see [P395](#p395)). The golden attains `EE + B = 164` at `SC2 = 12`, which is
 **exactly its box bound**, so that branch is still closed by proof. Everything below
 `SC2 = 12` is open again, and the 105/3 995-pattern kill lists, the band grid, and the
 `EE + B` line are all superseded by one question: **what actually bounds `EE` at `B = 128`?**
@@ -26985,7 +27005,7 @@ that the n = 4 accounting `T + B - Q4` omits the excess of `(1,1,2)`, `(1,2,2)` 
 vertices and is not a bound for compounds carrying one. [P374] never mentions [P326]. **Whether
 the omitted excess can push `sum(E - V)` above `32*C(n,3) + 10*C(n,2)`**, which would leave
 [P326]'s proof with a gap and `OVERVIEW.md`'s proof claim flawed, has not been checked. It is a
-question about whether the per-triple box `E_S <= 32` already accounts for those vertices.
+question about whether the per-triple box `E_S <= 32` already accounts for those vertices. <!-- reviewed 2026-09-28: reports OVERVIEW's claim, which names its hypothesis -->
 
 **ADDENDUM 2026-09-24, same day — the [P326] question, resolved as far as [P374] goes.** [P326]'s
 own entry already records that attributing the excess to named vertex kinds is incomplete and
@@ -27010,7 +27030,7 @@ say for each whether it is a proven theorem, a strong or weak conjecture, a hypo
     max(4) <= 195          hope                                needs c_ell = 1; c_ell = 2 occurs
     max(4) <= 263          obsolete                            [P261]: needs c_ell = 1, dominated by 198
 
-**The finding that matters: no hypothesis-free bound on max(4) is currently established.** [P243]
+**The finding that matters: no hypothesis-free bound on max(4) is currently established.** *(Superseded 2026-09-30: `max(4) <= 285` unconditionally, [P399](#p399).)* [P243]
 was corrected in place on 2026-09-08, but only its observation sentence; its consequence, "the
 bound is proved for every ell >= 2", was argued from that observation and stayed. [P249]'s 953
 summed it and was never revisited, and `RESULTS.md` has called it PROVED since. It is the pattern
@@ -27414,3 +27434,444 @@ D1 (-2/19, -0.110578) and (0.052118, 0.0025502); D2 (-0.135781, -0.090514) and (
 the fibre segment (`src/make_tower_node_inset.py`), and the pentagon detail is replaced by both
 sheets flat, to one scale (`src/make_tower_sheets_inset.py`). LEVELS, RESULTS, VIEWERS,
 CONTINUUM_MAP, OPEN_QUESTIONS and `viewers/shapes.svg` updated to "two crossing sheets".
+
+<a id="p395"></a>
+
+## [CORRECTION] Postscript 395: `TOTAL <= 195 - Q4` was listed as proved under the wrong condition
+<!-- reviewed 2026-09-28: the heading names the error it corrects -->
+
+*2026-09-28.* Found by an external review of ORIENTATION.md, and confirmed here against the source.
+
+ORIENTATION, LEVELS and SESSION_STATE listed `TOTAL <= 195 - Q4` as proved "only for compounds
+with no `(1,1,2)`, `(1,2,2)` or `(2,2,2)` vertices". That condition is the scope of [P374]'s
+formula `TOTAL <= 7 + T + B - Q4`, a different object. [P374] itself says the 195 bound "comes
+from `h(S) <= 47.5` by a different route and is untouched", which is true of the signature fault,
+and says nothing about holes. The 195 bound comes from [P348], whose derivation writes
+`h(S) = 0.5 + (1/2) sum E_i + E_S` under trivial holes and whose caveat 1 says every step assumes
+`c = 1` on every level, of every subset and of the whole. So it is PROVED IF the holes are
+trivial. That hypothesis is the one the 2026-09-24 classification ([P388]'s addendum) rates unproved, with
+`c = 2` occurring ([P269]), which is why it rated `max(4) <= 195` a hope. `EE + B <= 188 - 2*SC2`,
+from the per-pair and per-triple box alone, is unaffected.
+
+**How it happened.** The scope note of 2026-09-24 narrowed the line to where the nearest
+correction said the accounting held, and in the same week as the audit that rated the bound a
+hope, the label it narrowed stayed "proved". OPEN_QUESTIONS §39 had it right throughout ("At
+n = 4 with trivial holes"). Corrected in ORIENTATION, LEVELS and SESSION_STATE, and a scope note
+added to [P348]. Also from the review: RESULTS' records table called the n = 4 record "two
+classes", while each is an arc of classes ([P378], [P380]); reworded.
+
+
+<a id="p396"></a>
+
+## [VERIFIED] Postscript 396: the upper-bound reductions checked in Lean, with their hypotheses printed by Lean; P326's bound has TWO unproved inputs
+<!-- status: corrects=P326 -->
+
+*2026-09-28.* After [P395] (a bound listed as proved under the wrong condition), the user asked for
+hypothesis tracking and, where useful, a proof checker. Two tools:
+
+**1. `claim_deps.py --hyp`.** A result proved only under a hypothesis carries
+`proved-if="..."; claim="..."` in its status tag ([P326], [P348] so far). The audit finds every
+paragraph stating the claim or citing the entry, asserting proof, and naming none of the
+conditions. Gate `src/probes/claim_deps_hyp_gate.py`: it flags the pre-fix ORIENTATION line and
+passes the corrected one. <!-- reviewed 2026-09-28: describes the tool and its tags --> First run: 14 hits. Five were genuine and were fixed (GLOSSARY's
+`h <= 47.5` "PROVED"; three ledger paragraphs restating the 195 bound or the tower bound without
+a condition; LEVELS' n = 7 row also still said "meeting"); three were negations, now excluded by
+the tool; six were `proved` applying to another result, now marked reviewed.
+
+**2. Lean 4 (core, no Mathlib), `lean/`.** Each reduction is a theorem whose geometric inputs are
+named hypotheses, prefixed by ledger status (`proved_`, `argued_`, `hyp_`, `refuted_`), never
+axioms. `src/lean_status.py` reads the signatures back from Lean, derives each label, confirms only
+standard axioms are used, and recompiles each theorem WITHOUT each non-proved hypothesis, requiring
+the proof to fail (with the unmodified theorem compiled the same way first, as the control; that
+control caught a fault in the script's own block extraction on its first run). Result: all six
+labels agree with the documents, and every non-proved hypothesis is needed.
+
+**The finding.** Written out, [P326]'s tower bound `TOTAL <= 1 + 32 C(n,3) + 10 C(n,2) + 3(n-1)`
+(198 at n = 4) uses two unproved inputs, not one: `holes <= 1` ([OQ 30]) AND the accounting step
+`sum(E - V) <= T + two-body`, which [P388]'s addendum argues but records as not verified. Lean
+confirms the bound does not follow without it. [P326] and RESULTS named only the first; RESULTS
+now names both. The bound's grade (PROVED IF) is unchanged; its list of conditions was short by one.
+
+**What Lean does not check.** The geometric facts themselves: the pair and triple caps, the level
+identity, the accounting step. Those remain the ledger's proofs, or its arguments.
+
+<a id="p397"></a>
+
+## [CORRECTION] Postscript 397: the triple cap `E_S <= 32` was lifted to every n without its scope, pairwise transversality
+<!-- status: proved-if="transvers"; claim="triple total `≤ 32·C(n,3)`"|"T3 <= 32*C(n,3)" -->
+
+*2026-09-28.* Found while inventorying the claimed proofs for a proof checker (user question: can
+a proof checker be run on them?).
+
+max(3) = 67 is proved for three convex cells whose boundaries meet PAIRWISE TRANSVERSALLY
+(PROOF_FORMAL.md, Parts D and E; PROOF_STEP_T.md: "no new hypothesis beyond the pairwise
+transversality already used"). PROOF_67.md Lemma 1a carries its own caveat for tangential triple
+points. RESULTS states max(3) with that scope, and then the next item, "the per-pair and
+per-triple caps, at every n. PROVED", states the triple cap with none; so do [P237]'s
+descendants, [P326], [P348] and the Lean chains of [P396]. Every upper bound on max(n) for n >= 4
+that sums the triple cap therefore holds, as proved <!-- reviewed 2026-09-28: this entry states the scope it corrects -->, only for compounds whose cubes meet pairwise
+transversally.
+
+**What falls outside.** Two concentric cubes sharing a FACE axis have coplanar faces: their
+boundaries share a 2-dimensional patch, which is tangential contact, not transversal. Compounds
+with such a pair (and any other boundary tangency) are not covered. This is a scope gap, not a
+refutation: no compound outside the scope is known to exceed any bound, and none has been looked
+for. Region counts are not semicontinuous in general (the records themselves sit at
+coincidences), so the gap is not closed by a limiting argument either.
+
+**What is inside.** The records: their shared axes are body diagonals, whose contacts are
+corner-to-corner points, the case Part D counts as `a = b = 3`, and the golden 67 has them.
+
+**Also found.** PROOF_67.md §5.4 and §6 still say "CANDIDATE PROOF" and "∎ (candidate)" for the
+contact bound; PROOF_FORMAL.md Part D completed it the same day (2026-07-21), so the label is
+stale, not the proof. `E_i <= 10` rests on max(2) = 13, which is stated for any two convex cells;
+whether its derivation of the weight form `EE + 2 SC2` also assumes transversality is on the
+review list, not checked here.
+
+<a id="p398"></a>
+
+## [CORRECTION] Postscript 398: the claimed proofs through a proof checker — two unstated connectivity assumptions, and what was kernel-checked
+
+*2026-09-28.* Asked (user): can a proof checker be run on the claimed proofs? Lean can check the
+counting assembly of each, with every geometric lemma a named hypothesis, but not the lemmas; so
+this pass writes each assembly out (`lean/CubeBounds/Proofs.lean`), kernel-checks the algebraic
+identities, re-runs the elimination, and lists the lemmas for review. Summary and review list:
+`PROOF_CHECK.md`. `python3 src/lean_status.py` re-proves all of it.
+
+**Convention that found both gaps: Euler is always written with `c` components**,
+`V - E + F = 1 + c`. A proof that uses `= 2` must then state `c = 1` as a hypothesis, and the
+necessity check confirms it is needed.
+
+1. **The Euler route to max(3) = 67** (PROOF_67 §5, PROOF_FORMAL B2/E) writes
+   `d1 = 2 + W/2` "for a cellular graph on S²"; with `c` components it is `d1 = 1 + c + W/2`,
+   and nothing proves the top diagram connected. **max(3) = 67 stands** by [P110]'s
+   Mayer–Vietoris route, whose assembly Lean labels PROVED from inputs that assume neither
+   connectivity nor transversality.
+2. **[P237]'s `d1 <= 108 C(n,3) + 10 C(n,2) + 2`** is its own step 1, `d1 = gain + c + 1`, with
+   `c = 1` substituted. `c1` is odd ([P311]) and 1 in every measured instance, not proved 1. What
+   is proved for every configuration is `... + c1 + 1`. RESULTS said PROVED for every
+   configuration; now PROVED IF `c1 = 1`, with the `c`-form PROVED.
+
+Lemma 1a is NOT affected: Euler with `c` components only strengthens it (`V <= 2F - 2 - 2c`).
+
+**Kernel-checked.** [P104]'s identities, all 18 branches (`src/lean_gen_detq.py` generates
+`lean/CubeBounds/Detq.lean`): the wall polynomial is built in Lean from the rotation matrix, and
+the quadratic-form representation, the exact division by `N` (W3) and `det = square` are proved
+by Lean's `grind`. A first version compared two sympy-expanded strings, which could not fail;
+caught on reading the output, rewritten, and three must-fail controls (wrong target, wrong wall,
+wrong edge condition) now run with every check. `detq_check.py` itself did not run (a name used
+before definition); fixed, reproduces.
+
+**Re-run, exact CAS, not kernel-checked:** [P47]'s elimination (`eliminate729.py`): 36
+conditions, zero-dimensional basis, one real point, 684 of 684 augmentations infeasible. <!-- reviewed 2026-09-28: the part of P47 that stands, the pattern's isolation -->
+
+**Also found:** PROOF_67's "CANDIDATE PROOF" labels for the contact bound were stale (completed
+the same day in PROOF_FORMAL Part D); RESULTS filed the merge law ([P372], verified 60 of 60) among
+the proofs. Both relabelled.
+
+**Not checked:** every lemma on `PROOF_CHECK.md`'s review list. Those are the proofs.
+
+
+<a id="p399"></a>
+
+## [VERIFIED] Postscript 399: `max(4) <= 285` with NO hypothesis — Mayer–Vietoris at every depth, the first unconditional upper bound above n = 3
+<!-- status: fell="no hypothesis-free bound"|"without a hypothesis is currently established"|"holds without a hypothesis" -->
+
+*2026-09-30.* Item 1 of the list the user approved: a bound on max(4) needing none of `c = 1`,
+trivial holes, `c_ell <= 2` or transversality. It generalises [P110], the route that already
+carried max(3) = 67 without any of them.
+
+**DEPTH.** With `M_x(u) = max over x's faces f of f.u` (reach `1/M_x`), the regions inside exactly
+the cubes of `A` biject with the components of
+
+    D(A) = { u in S^2 : max_{a in A} M_a(u) < min_{b not in A} M_b(u) }
+
+(each radial fibre is a nonempty interval exactly over `D(A)`, which is open), so
+`d_k = sum over |A| = k of #pi0 D(A)`. No genericity: a tie simply excludes the direction.
+
+**PIECES.** Fix an active face `t` of a cube `b`: on its sector `M_b = t.u` is linear, and
+`M_a(u) < t.u` is the sublevel set of a convex function, hence a convex cone, pointed because
+`t.u = M_b > 0`. So `{A beats b}` is a union of <= 6 convex pieces, `{A beats b and b'}` of <= 36,
+and sets of the form `{M_x >= max_Y M}` are <= 6 pieces by the sectors of `x`. A union of `k`
+connected sets has <= k components.
+
+**THE BOUND.** Depth 4: `D = S^2`, 1. Depth 3: 6 per omitted cube, 24 (ANCHOR's `d_{n-1} <= 6n`).
+Depth 2, pair `{i,j}`: `D = K n L`, `K = {i,j beat k}`, `L = {i,j beat l}`, each <= 6; the
+complement of `K u L` is `{max(M_i,M_j) >= max(M_k,M_l)} = {M_i >= M_k, M_l} u {M_j >= M_k, M_l}`,
+<= 12. Mayer–Vietoris with Alexander duality ([P110]): `s <= a + b + m - 2 <= 22`, so `d2 <= 132`.
+Depth 1, cube `i`: `T_i = K n L`, `K = {i beats j, k}` <= 16 ([P110] at n = 3), `L = {i beats l}`
+<= 6, complement `{M_i >= M_l} n ({M_i >= M_j} u {M_i >= M_k})`, 2 convex pieces per sector of `i`,
+<= 12; so `s <= 32` and `d1 <= 128`. Empty `K`, `L` or complement only lower each bound.
+
+    max(4)  <=  1 + 24 + 132 + 128  =  285.
+
+**ANCHORED OUTSIDE THE ARGUMENT** (`src/probes/sphere_count.py`, `data/sphere_count.json`). An
+independent exact counter built only from DEPTH and PIECES: every piece is a polyhedral cone,
+tested for nonemptiness and pairwise intersection by exact Fourier–Motzkin (Fraction, or `kfield`
+over Q(sqrt5)); components by union-find; summed over all `A`. **It equals the engine's count on
+all 17 configurations**, chosen hard for the method: the n = 4 record 183, the refuter 173, the
+golden 177 in Q(sqrt5), pairs and compounds with a SHARED FACE PLANE (outside [P397]'s scope, at
+n = 2, 3, 4), a near-coincident compound, and 8 random ones. On every n = 4 case, every
+Mayer–Vietoris instance holds, and the per-set caps sit well inside the bound's: max `T_i` 26
+(cap 32), max pair set 16 (cap 22), max `m` 6 (cap 12). **Controls:** the same counter without the
+joining step gives 195 on the record, and with ties counted as wins 95: both disagree, so the
+agreement tests both lemmas. Lean checks the assembly (`max4_le_285`, PROVED, all inputs proved). <!-- reviewed 2026-09-30: P397 cited for its scope, which this bound does not need -->
+
+**WHAT IT IS AND IS NOT.** The first upper bound on max(4) that assumes nothing; the old
+statement "no hypothesis-free bound on max(4) is established" ([P388]'s addendum, RESULTS, LEVELS)
+falls. It is 1.56x the record, against 953's 5.2x (which was never proved) and the conditional 198.
+It says nothing about whether 183 is the maximum. The same recursion gives, for every n,
+`d1 <= n(3n^2 - 5n + 4)`; the deeper levels need the pair-type argument generalised, not done here.
+The geometric inputs (DEPTH, PIECES, Mayer–Vietoris as applied, [P110]'s triple bound) join
+PROOF_CHECK.md's review list.
+
+<a id="p400"></a>
+
+## [VERIFIED] Postscript 400: an unconditional upper bound for EVERY n, exact at n = 2 and 3
+<!-- status: fell="for n ≥ 5 no unconditional bound is written yet" -->
+
+*2026-09-30.* [P399]'s argument, generalised. For `D(A, B) = {max_A M < min_B M}`, split one cube
+`b` off `B` (`B1 = B \ {b}`). The complement of `D(A, B1) u D(A, {b})` is
+`{max_A M >= min_{B1} M} n {max_A M >= M_b}`, which is the union over `a in A`, `c in B1` of
+`{M_a >= M_c and M_a >= M_b}`, each <= 6 convex pieces by the sectors of `a`. So Mayer–Vietoris gives
+
+    c(A, B) + 2  <=  c(A, B1) + 6 + 6 |A| (|B| - 1),     c(A, {b}) <= 6,
+
+and by induction (proved in Lean, `per_set_closed_form`)
+
+    c(A, B)  <=  f(a, k) = 4k + 2 + 3 a k (k - 1),      a = |A|, k = |B|,
+
+    max(n)  <=  1 + sum_{l=1}^{n-1} C(n, l) f(l, n - l).
+
+    n       2    3    4     5     6      7      8       9       10
+    bound  13   67  285  1081  3749  12097  36829  106969  298965
+    record 13   67  183   393   727   1217   1895    2787    3925
+
+**Exact at n = 2 and n = 3**: the same formula reproduces max(2) = 13 and max(3) = 67, with no
+input beyond convexity and Mayer–Vietoris (it contains [P110]'s route as its n = 3 case). It
+grows like `2^n n^3`, so it loosens with n, but it is the first unconditional bound for n >= 5, and
+below [P249]'s row, which has a PROOF GAP, up to n = 7 (1 081 against 3 377 at n = 5).
+
+**ANCHORED at n = 5** (`src/probes/sphere_count_n5.py`, `data/sphere_count_n5.json`): the exact
+sphere counter equals the engine on the n = 5 record 393, a compound with a shared face plane (303)
+and two random ones (237, 271), and every one of the 31 sets per configuration is within its cap.
+Worst observed against cap, by `(|A|, |B|)`: (1,4) 36/54, (2,3) 18/50, (3,2) 10/28, (4,1) 6/6. The
+cap for `|B| = 1` is attained (it is ANCHOR's 6); the others have room, which is where tightening
+would come from.
+
+<a id="p401"></a>
+
+## [VERIFIED] Postscript 401: the complement's pieces share FACE CENTRES — the depth-1 ceiling law `d1 <= 10n^2 - 14n` is PROVED for every n, and `max(4) <= 261`
+<!-- status: fell="for n ≥ 5 no unconditional bound is written yet" -->
+
+*2026-09-30.* Asked (user): what makes [P400]'s bound inexact above n = 3, and can it be tightened?
+Two causes, and the first is removable.
+
+**1. A cap that counted pieces, not components.** In the Mayer–Vietoris step the complement is the
+union over `a in A`, `c in B1` of `{M_a >= M_c and M_a >= M_b}`, split by the sectors `s` of `a`.
+[P399]/[P400] counted `6 |A| |B1|` pieces. But every piece on the sector `s` of `a` contains the face
+centre `n_s`: there `M_a = 1`, and `M_x(n_s) <= 1` for every cube `x` by Cauchy–Schwarz (the
+facet-centre lemma, [P311]). So all pieces with the same `(a, s)` are one connected set, and
+`m <= 6 |A|`. The recurrence becomes `c(k) + 2 <= c(k-1) + 6 + 6a`, and (Lean,
+`per_set_closed_form_tight`)
+
+    c(A, B)  <=  4k + 2 + 6a(k - 1),        a = |A|, k = |B|.
+
+**For a single cube this is `6 + 10(n - 2)`, so `d1 <= n(10n - 14) = 10n^2 - 14n`: the ceiling
+law at l = n - 1, until now a WEAK CONJECTURE, is PROVED for every n** (Lean, `depth1_ceiling`),
+with no hypothesis. It is attained: the golden 177 has `d1 = 104`, every one of its four cubes at
+the per-cube cap 26, and the n = 5 record has a cube at the cap 36. The data already on file shows
+it (`data/sphere_count.json`, `sphere_count_n5.json`): no per-cube set above the new cap, and no
+complement above `6|A|`, in 21 configurations.
+
+    n        2    3    4    5     6     7     8      9      10
+    bound   13   67  261  871  2633  7435  19981  51727  130065
+    d1 cap  12   48  104  180   276   392    528    684    860
+
+**2. The middle levels, and this is what remains.** At n = 4 the new bound is
+`1 + 24 + 132 + 104 = 261`, and every term is attained or proved tight except `d2 <= 6 x 22 = 132`.
+The ceiling law says `d2 <= 66`, and the record attains 66. The per-pair cap 22 is not the problem
+(the largest pair set seen is 16); the SUM is: six pair sets cannot all be large at once, because
+their components compete for the same face-centre anchors. That is a statement across subsets,
+of the kind Theorem S proves for the depth `n - 1` sets, and the per-set argument cannot see it.
+**Consequently `max(4) <= 195` now follows from `d2 <= 66` ALONE**: `d1 <= 104` and `d3 <= 24` are
+proved unconditionally, and 195 = 1 + 24 + 66 + 104. That is the sharpest form the question has
+had. <!-- reviewed 2026-09-30: 195 stated as conditional on d2 <= 66 -->
+
+[P399]'s 285 and [P400]'s table stand as proved; they are superseded, not wrong.
+
+<a id="p402"></a>
+
+## [VERIFIED] Postscript 402: `d2 <= 66` at n = 4 — two routes tried, and both reduce it to the two known walls
+<!-- reviewed 2026-09-30: records a failed attempt; states no new bound -->
+
+*2026-09-30.* After [P401] reduced `max(4) <= 195` to `d2 <= 66` alone, the user approved attacking
+it. It does not close. What was found:
+
+**Route 1, Mayer–Vietoris summed with Theorem S.** For `E_kl` (k, l the two innermost),
+`E_kl = S_k^(ijk) n S_l^(ijl)` (innermost within a triple), and the complement of their union is
+`{innermost overall is i or j}`. Summed over the six pairs, the split sets total exactly
+`sum_T d2(T) <= 48 + d3` (Theorem S), and the complements total `<= 3 d3`, so
+`d2 <= 36 + 4 d3 - sum_P (c_U - 1)`: 132 at `d3 = 24`, no better than per-set. The sharing Theorem S
+captures on the split sets is returned by the complements.
+
+**Route 2, the level-2 boundary itself.** The pair sets are the faces of `Gamma = {2nd = 3rd
+largest M}`, so `d2 = 1 + beta1(Gamma) = E - V + c2 + 1`. At n = 4 every triple point of every
+triple lies on `Gamma` (a tie of three cubes is at positions (1,2,3) or (2,3,4), and both are
+2nd = 3rd ties). With `T` the total triple points over the four triples (<= 4 x 32 = 128, the
+triple cap, transversal scope [P397]) and the trivalent count,
+
+    d2  =  66 + (c2 - 1) + W2 + W4 - (1/2)(128 - T)
+
+> **CORRECTED 2026-09-30 ([P403](#p403)).** This line first read `(1/2)(two-body weight)`; with the
+> weights `deg/2 - 1` per vertex it is `W2 + W4` (two-body and four-fold), confirmed exactly by
+> [P403]'s gate on 210 configurations. The condition below is corrected with it.
+
+So `d2 <= 66` holds exactly when `2(W2 + W4 + c2 - 1) <= 128 - T`: the depth-2 two-body and
+four-fold weight, plus the component excess, cost no more than half the triple-point deficit. The record sits on the boundary: `T = 128`, no depth-2
+two-body vertex ([P243]'s table), `c2 = 1`, `d2 = 66`. <!-- reviewed 2026-09-30: cites P243's measured table, which stands -->
+
+**Both unknowns are the standing walls:** `c2 = 1` is [OQ 30]; depth-2 two-body vertices are
+[P274]'s, the fault that broke the 953. The trade-off ("coincidence at depth 2 costs triple
+points") is [P258]'s frustration, measured and not proved. So `max(4) <= 195` is now exactly one
+local question, stated in the numbered form above. Not attempted further here.
+
+<a id="p403"></a>
+
+## [VERIFIED] Postscript 403: the depth-2 exchange rate, measured — never below 1:1, and attained
+<!-- reviewed 2026-09-30: a measurement; states no new bound -->
+
+*2026-09-30.* [P402]'s condition measured (`src/probes/depth2_tradeoff.py`,
+`data/depth2_tradeoff.json`). Every term of `d2 = 1 + c2 + W3 + W2 + W4` on the level-2 graph of
+`c_level.py`, exactly; gate: `E - V + c2 + 1` equals the engine's `d2` on EVERY row (and
+`c_level`'s own gate against [P243]'s recorded V, E, c at the record passes). Population: the
+record, the refuter 173, [P374]'s climb, and 250 random rational compounds, of which 43 share a
+face plane and are excluded (the pipeline is invalid there, [P246]); 0 voided by the gate.
+
+    d2 > 66                                   0 of 210
+    c2                                        1 in all 210
+    depth-2 two-body weight W2 > 0            88 of 207 random (values 2, 4, 6, 8: antipodal pairs)
+    margin = deficit - W2 - W4 - (c2 - 1)     never negative; always even; 0 in 5 (3 with W2 = 2)
+    deficit / W2, where W2 > 0                min 1, max 12
+
+with `deficit = 64 - W3`. The record, the refuter and the climb all have `W2 = 0`, `W3 = 64`,
+`d2 = 66`. **So the trade-off is real, common, and tight: a depth-2 two-body vertex displaces at
+least as much triple-point weight as it adds, and in some configurations exactly as much.** That
+is the local statement a proof of `d2 <= 66`, hence of `max(4) <= 195`, would have to establish,
+with `c2 = 1`. Also CORRECTS [P402]'s factor (the two-body term is `W2 + W4`, not half of it).
+Sampled, 210 configurations: a lower bound on how tight it gets, not a proof. <!-- reviewed 2026-09-30: cites P402 as the entry it corrects -->
+
+<a id="p404"></a>
+
+## [VERIFIED] Postscript 404: the depth-2 exchange PROVED by charging to the triples' bottom diagrams — `max(4) <= 194 + c2 + X + W4u`
+<!-- status: proved-if="c2 = 1"|"c₂ = 1"|"PROVED IF"|"no shared face plane"; claim="194 + c2"|"194 + c₂"; trigger="claim" -->
+
+*2026-09-30.* [P403] measured the exchange rate; this proves it. At n = 4, with `Gamma` the level-2
+boundary and `B_S` the bottom diagram of the triple `S` (both finite graphs: **no two cubes share a
+face plane**, the scope):
+
+  * a two-body vertex `v` of `{a, b}` on `Gamma` has one cube strictly containing it, `c`; in
+    `S = {a, b, c}` the pair is tied innermost, so `Gamma` and `B_S` are the same curve near `v`:
+    same degree;
+  * a triple point of `S` whose fourth cube does not contain it: `Gamma` follows `B_S` there; same
+    degree;
+  * a triple point whose fourth cube contains it: `Gamma` follows `S`'s TOP diagram, whose degree
+    can exceed the bottom one (Step T); the excess is `X`;
+  * four-fold points: their excess not covered by their four `B_S` occurrences is `W4u`.
+
+No `(S, vertex)` is charged twice, so `E_G - V_G <= sum_S (E_S - V_S) + X + W4u`, and Euler with
+`c_S >= 1` components and ANCHOR (`d2(S) <= 18`) give `E_S - V_S = d2(S) - 1 - c_S <= 16`. With
+`d2 = E_G - V_G + c2 + 1`:
+
+    d2  <=  65 + c2 + X + W4u,          max(4)  <=  194 + c2 + X + W4u
+
+using the proved `d1 <= 104` ([P401]) and `d3 <= 24`. **So `max(4) <= 195` is PROVED IF no shared
+face plane, `c2 = 1`, `X = 0`, and `W4u = 0`** (Lean, `max4_le_195_charging`; each of the three
+open hypotheses is needed). This explains [P403]'s tight 1:1 rate: two-body contacts and triple
+points spend ONE Euler budget per triple.
+
+**Checked vertex by vertex** (`src/probes/depth2_charging.py`, `data/depth2_charging.json`), on the
+210 configurations of [P403]: every triple's Euler identity equals the engine's `d2(S)`; every
+two-body and fourth-outside triple-point degree matches exactly; the inequality holds on every row;
+and the sharp prediction holds: in all 7 rows with `d2 = 66` the four budgets total exactly 64.
+**`X = 0` and `W4u = 0` on all 210** (four-fold points occur in 5 rows, always covered). Those two
+are observed, not proved.
+
+**Beside [P348]'s conditional 195:** that needs trivial holes on EVERY level and handles `Q4`; this
+needs only `c2 = 1` (the wall graph's level-2 component count, where [P311]'s parity does not
+apply), plus `X = 0`, `W4u = 0` and no shared face plane. New geometric lemma for review: `Gamma`
+coincides locally with a triple's bottom diagram at two-body vertices and fourth-outside triple
+points.
+
+**ADDENDUM 2026-09-30 — the four-fold term, exactly.** Near a four-fold point `q` each `M_x` is,
+to first order, the support function of a small polygon, and every pair crossing on the circle
+around `q` sits at a global rank: at ranks (2,3) it is a crossing of `Gamma` AND of exactly one
+triple's bottom diagram (the triple with the lower cube); at (1,2) it is a crossing of both
+triples' bottom diagrams containing the pair and not of `Gamma`; at (3,4) of neither. Hence
+
+    sum_S deg_{B_S}(q)  =  deg_Gamma(q) + 2 C12(q),     uncovered excess at q = max(0, 3 - C12(q))
+
+with `C12` the degree of `q` in the level-3 (innermost-cube) diagram. Checked at all 10 four-fold
+points in [P403]'s sample: identity exact, `deg_Gamma = 4`, `C12 = 4`, nothing uncovered. **So
+`W4u = 0` wherever every four-fold point has `C12 >= 3`, which holds for every GENERIC four-fold
+point** (one active face per cube: `C12` is the number of corners of the hull of four points in
+general position, at least 3). It can fail only at a degenerate four-fold point whose local
+innermost diagram changes just twice. `X` is not settled: at a triple point whose fourth cube
+contains it, `Gamma` follows the triple's TOP diagram, and Step T's excess `deg_top - deg_bot`
+would need a budget this level-2 argument does not use.
+
+<a id="p405"></a>
+
+## [VERIFIED] Postscript 405: the CIRCLE LEMMA — `X = 0` and `W4u = 0` for cubes, so `max(4) <= 195` is PROVED IF `c2 = 1`
+<!-- status: proved-if="c2 = 1"|"c₂ = 1"|"PROVED IF"; claim="max(4) <= 195 is PROVED IF"|"195 PROVED IF"; trigger="claim" -->
+
+*2026-09-30.* Removes two of [P404]'s three hypotheses. Scope throughout: no two cubes share a face
+plane (compounds that do are covered only by the unconditional 261, [P401]).
+
+**The local model is exact.** At a point `p` on the unit cubes' boundaries, each active facet `f`
+has `n_f.p = 1`. `M_x` is piecewise linear and homogeneous, so near `p/|p|` exactly (not only to
+first order) `M_x(p/|p| + eps w) = 1/|p| + eps h_x(w)`, with `h_x` the support function of the
+projections of `x`'s active facet normals onto the tangent plane. Every projection has length
+`sqrt(1 - 1/|p|^2)`: **all points of all cubes lie on ONE circle.** Colour them by cube. Then
+  bottom diagram (largest M): the winner owns the NEAREST point, so its degree = colour changes;
+  top diagram (smallest M): the winner is the colour whose nearest point is FARTHEST.
+Two cubes' points coincide only if their normals agree in both components, i.e. a shared face
+plane: excluded, so no ties of that kind occur.
+
+**Lemma (deg_top <= deg_bot).** Let `d_i(theta)` be the angular distance to colour `i`'s nearest
+point (slopes +-1). At a top switch INTO colour `j`, `d_j` is rising (its nearest point `p_j`
+behind) and the outgoing colour's is falling (its point ahead); between them lie only points of
+other colours, so the step from `p_j` to the next point is a colour change. `j` cannot leave and
+re-enter while `d_j` still rises from the same `p_j` (a colour overtaking it would need slope > 1,
+or equal slope and value, which is coincident points). So switches inject into colour changes.
+Three-way ties at a switch would need two points of different colours at the same angular distance
+on the same side: coincident, excluded. **Hence `X = 0`.**
+
+**Four-fold points.** All four colours are on the circle, so there are at least 4 colour changes:
+`C12 >= 4 > 3`, and by [P404]'s addendum nothing is uncovered. **Hence `W4u = 0`.**
+
+**Degrees >= 2.** Every arc of `Gamma` and of each `B_S` separates two differently labelled cells,
+so no arc ends at a vertex of degree 1; the charging needs this (uncharged vertices contribute
+>= 0), and it is now asserted in `depth2_charging.check`.
+
+**RESULT: for compounds with no shared face plane, `max(4) <= 194 + c2`; so `max(4) <= 195` is
+PROVED IF `c2 = 1`.** Lean: `max4_le_195_charging` with the circle-lemma inputs now `proved_`,
+the single open hypothesis `hyp_OQ30_c2_eq_1`, confirmed needed.
+
+**Anchors.** (1) Outside the cube pipeline (`src/probes/circle_lemma.py`): random coloured point
+sets on one circle, 0 violations of `top <= bottom` in 3 000; the CONTROL, each colour on its own
+radius (Step T's blades), 786 violations; four colours always give >= 4 changes. That test samples
+the envelope densely and is a sanity check, not the proof. (2) In the cubes (`stepT_cubes.py`): about
+480 000 triple points in 17 535 small-height triples, 0 with `deg_top > deg_bot`; degenerate types
+(4,6), (3,5), (2,4), (6,6), (9,9) present. (3) Four-compounds (`depth2_hunt.py`, heights 2 and 3):
+1 741 evaluated, 0 unevaluated, every gate passed, `X = 0`, `W4u = 0`, `c2 = 1`, `min degree >= 2`,
+`d2 <= 66` on all; 665 had four-fold points. Nine rows first came back unevaluated: the engine's
+sliver guard ("outside must be a single region", [P180]) refused one of their TRIPLES; counted
+under a global rotation, as [P180] Addendum 5 prescribes, all nine pass.
+
+**A consequence, recorded and NOT yet propagated.** The lemma holds at every triple point of every
+cube triple with no shared face plane, so `deg_bot >= 3` there (three colours present): Lemma 1a's
+tangential-triple-point caveat does not arise for cubes, and the triple cap might follow from Euler
+on the bottom diagram plus ANCHOR alone, narrowing [P397]'s scope from pairwise transversal to no
+shared face plane. Which "triple weight" each downstream use means must be checked before [P397]
+or the Lean binder names change; left for a separate entry.

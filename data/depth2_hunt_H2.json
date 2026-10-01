@@ -1,0 +1,13 @@
+{
+ "H": 2,
+ "N": 3000,
+ "stats": {
+  "excluded": 2425,
+  "evaluated": 572,
+  "gate_fail": 0,
+  "W4>0": 289,
+  "d2>66": 0,
+  "unevaluated": 3
+ },
+ "hits": []
+}

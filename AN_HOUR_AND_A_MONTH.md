@@ -26,9 +26,10 @@ The answers we have:
 Two of those are proved maxima. The rest are the best anyone has found, and each is a
 lower bound that no amount of further searching can turn into an upper one — which is
 the fact that shapes everything else here. You can search forever and only ever learn
-that you have not yet failed. That is still true of the total. It stopped being true of
-one layer of it, and for more than two weeks the project believed it had stopped being true
-of the whole — Section VI is both halves of that.
+that you have not yet failed. Searching is still like that. But at the start of September
+the project began trying to *prove* upper bounds, and believed for more than two weeks that it
+had one it did not have (Section VI). At the end of September it got a real one, by argument
+and under a proof checker (Section IX).
 
 The tower was built by a kind of ascent. Take a record, find the directions in which the
 count does not change, walk along them until it does, step across, and repeat. It works.
@@ -419,7 +420,7 @@ and every maximiser is coincident. True, published, and inapplicable exactly whe
 wanted: the first of two illusions in this story that had been printed as theorems. The
 second is below.
 
-The repair is elementary in the good sense, and it still stands. Count by Euler plus
+The repair is elementary in the good sense. Count by Euler plus
 handshake, which needs no genericity. Vertices where three or more cubes meet charge to
 triples of planes from three different cubes. The vertices the old bound missed are the
 **two-body** ones, which carry no cross-cube triple — exactly why they escaped — and a pair of
@@ -429,9 +430,14 @@ make at most 13 regions. That pins each pair's contribution at 10, and gives
     d₁  ≤  108·C(n,3)  +  10·C(n,2)  +  2      for every n and every configuration
 
 The load-bearing element is **max(2) = 13**, the smallest theorem in the project, filed as
-background from the first week. The bottom of the tower carries one layer of the top. That
-is the first upper bound above three cubes that holds where the records live, it is still
-standing, and it was not found by searching.
+background from the first week. The bottom of the tower carries one layer of the top — or so
+it seemed for three weeks. When the proofs were finally put through a proof checker (Section
+IX), the final `+2` turned out to be Euler's formula for a *connected* picture, and nothing
+proves the top layer's picture is connected. It is connected in every case ever measured. That
+is not the same thing, and the honest form of the bound carries an unknown `c₁ + 1` where the
+`2` was. The depth-1 ceiling that *is* now proved without any assumption came three weeks
+later by a different route, and it is much tighter: `d₁ ≤ 10n² − 14n`, 104 at four cubes
+against the 494 above.
 
 Then the day ran on, too fast. The deeper layers got bounds of the same shape, the layers
 were summed, and by the evening the interval for max(4) read [183, 953], then [183, 423],
@@ -449,9 +455,8 @@ It had not, and each piece came apart in a different way:
   it exceeds every measurement fivefold, and the repair looks mechanical. It has not been made.
 - **The 423 and 263 were never unconditional.** They assumed every level of the arrangement
   is connected in a particular sense; that is not proved, and it is sometimes false. A weaker
-  form of the same assumption gives **198**, which is better than both. So the best bound
-  there is on max(4) is 198 *if* a connectivity property holds that has survived about 3 700
-  tests and a directed attempt to break it, and has no proof.
+  form of the same assumption gives **198**, which is better than both, though a proof checker
+  later showed it also leans on an accounting step that was argued and never verified.
 - **The identity survived; its shorthand did not.** `TOTAL = X + Σμ_v + Σ(c+1) + 1` is still
   an identity. But the three compounds it was first checked on all had `Σ(c+1) + 1 = 7`, and
   the n = 4 work that followed wrote it as `7 + T + B − Q4`, with the 7 as a constant. It is
@@ -466,11 +471,10 @@ It had not, and each piece came apart in a different way:
   had been in the project since the first day and never tested, because the tools that would
   have tested it could not handle its irrational angles.
 
-So the honest state is narrower and, I think, more interesting. One layer has a real theorem,
-carried by the smallest result in the project. The total has a bound of 198 resting on one
-well-tested conjecture, and no bound at all without it. The record at n = 4 is a *weak*
-conjecture. The interval that this document once printed as [183, 263] is, strictly,
-[183, ∞) — with a very good reason to believe the top is below 198, and no proof that it is.
+So the honest state was narrower than the evening's, and for three weeks the interval that this
+document once printed as [183, 263] was, strictly, [183, ∞). It is not any longer. The end of
+September brought a bound that assumes nothing, 261, and a proof of 195 that rests on a single
+connectivity statement (Section IX). The record at n = 4 is still only a *weak* conjecture.
 
 ## VII. What the two stories say to each other
 
@@ -502,8 +506,22 @@ because the oracle had built edges from the columns of a matrix and tested them 
 rows. **The same transposition as the original bug, in the code written to catch it.** An
 independent check produced by the same mind inherits that mind's blind spot, and only
 running it revealed so. What Kim Morrison supplied was not verification in general but
-verification *from somewhere else*, and that is a category this project cannot manufacture
-for itself.
+verification *from somewhere else*, and I wrote here that this is a category the project
+cannot manufacture for itself.
+
+That turned out to be too strong, in an instructive way. It got two kinds of "somewhere else"
+before the month was out. One was a second session, forked off to write this comparison and
+kept away from the work, which read the work's summary documents as an outsider and caught a
+bound listed as proved under a condition that belonged to a different formula. That catch
+became the other session's correction and, through the user's next question, its proof checker. The
+same review also quoted, as current, a sentence that the summary had not contained for weeks.
+It had been remembered, not re-read. Distance from the work was worth something. Distance from
+the current file was not. The other was Lean itself, and it had a limit of the same shape: it
+checks what the encoding forces into the open, and no more. Writing Euler's formula with the
+number of components left in is what exposed two published proofs that had silently assumed connectedness; fed the
+published statements, the checker would have agreed with them. Its first kernel check compared
+two identically expanded strings and could not have failed. Somewhere else helps exactly as
+far as it is somewhere else.
 
 And the behaviour the comparison said was missing here turned out to be available on
 request. It needed a mandate, a target with a checker, and an hour of not being interrupted.
@@ -529,8 +547,9 @@ And the last thing is the one this document got most wrong. For five weeks this 
 search: every result a lower bound, a table of numbers that could only ever grow. On the
 thirty-third day it seemed to become a subject with theorems in it, and this document said
 so, printed an interval with a proved upper end, and kept printing it for three weeks.
-Section VI is what that interval turned out to be: one layer genuinely bounded by the
-smallest theorem in the project, and a total whose only bound rests on a conjecture.
+Section VI is what that interval turned out to be: one layer bounded by an argument that
+quietly assumed a connected picture, and a total whose only bound rested on a conjecture,
+until the last days of September gave both an unconditional one (Section IX).
 
 **That is where the comparison with Knuth's hour stops being about speed and becomes about
 where a claim lives.** His construction was checked by a person to m = 101 and then by a proof
@@ -546,8 +565,8 @@ and it is still only as good as the tags a writer puts in by hand.
 
 Knuth's hour produced a construction and a theorem about it, and a stranger checked the
 theorem by machine. Our month — six weeks, by now — produced a tower of records, a dozen ways
-of being wrong about our own instruments, one real theorem about one layer, a bound that
-depends on a conjecture, and a register that had to learn to audit its own corrections. Only
+of being wrong about our own instruments, one real theorem about one layer, then a bound that
+assumes nothing and a second that rests on one connectivity statement, and a register that had to learn to audit its own corrections. Only
 the first of the two stories ends with its main claim settled. Only the second can show you,
 line by line, where each of its numbers came from and which of them have since fallen — and
 that is worth the six weeks, though it is not the same thing as being right.
@@ -598,15 +617,40 @@ error was caught only because I spot-checked that one postscript's judgments by 
 guessed they were the likeliest to be quoting the unproved bound. A guess about where to look is
 a thin safeguard.
 
+## IX. The bound, again
+
+*(Added 2026-09-30 by the working session, in its own first person, like Section VIII.)*
+
+The user asked whether a proof checker could help, after an outside reviewer caught a bound
+listed as proved under a condition that belonged to a different formula. I expected the checker
+to confirm what we had. Instead the useful thing was the discipline it imposed: every proof
+rewritten with its geometric facts as named assumptions, and Euler's formula written with the
+number of connected pieces left in. Two proofs had quietly assumed a connected picture. One was
+a route to 67; the theorem survived because a second route, found in August and barely used,
+did not need it.
+
+That second route then did what the whole month's searching had not. It gives a bound on four
+cubes that assumes nothing, 261, and a formula exact at two and three cubes. When the user asked
+why it was not exact beyond three, part of the answer was my own mistake, pieces counted
+separately that all pass through one face centre, and correcting it proved the outermost
+layer's ceiling for every size. The rest led, over two days of measuring before proving, to 195
+on a single condition: that one boundary on the sphere is connected. The exchange that makes it
+work was seen in the data first, as a one-for-one trade between two kinds of vertex, and only
+then explained.
+
+Against Knuth's hour this is still slow. But it is the first stretch in which the project's
+understanding of its own ceiling moved by argument rather than by audit, and the question that
+moved it most was the user's, about the method, not the result.
+
 ---
 
-*Current to 2026-09-28, [P394](LEDGER.md#p394). Sections I, VI and VII were rewritten on 2026-09-28 to the status of
-every bound as the project itself classified it on 2026-09-24 — no bound on max(4) holds
-without a hypothesis; 198 holds if every level has at most two components; the depth-1 bound
-is proved — and Section II was brought up to the measured arc of the 183. Earlier versions
-of this document said max(4) was proved to lie in [183, 263]. That was wrong, and it is
-corrected here rather than annotated, because a narrative that carries its own superseded
-claims in brackets is harder to read than the ledger it is meant to replace.*
+*Current to 2026-09-30, [P405](LEDGER.md#p405). Section IX was added that day by the
+working session; the same day this session revised Sections I, VI and VII around it — in
+particular, the depth-1 bound Section VI had called "still standing" is the one the proof
+checker found assuming a connected picture. Earlier versions of this document said max(4) was
+proved to lie in [183, 263]. That was wrong, and it is corrected here rather than annotated,
+because a narrative that carries its own superseded claims in brackets is harder to read than
+the ledger it is meant to replace.*
 
 *Every claim here is traceable. [`RESULTS.md`](RESULTS.md) carries the current status of
 each with a tag; [`LEDGER.md`](LEDGER.md) is the dated record beneath it, and corrections

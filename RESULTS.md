@@ -49,16 +49,27 @@ count uses this definition and exact arithmetic; no floating point enters any de
 - **max(3) = 67**, for three concentric convex ≤ 6-facet cells meeting pairwise transversally, an
   open dense set containing both maximisers. PROVED ([`PROOF_67.md`](PROOF_67.md),
   [`PROOF_STEP_T.md`](PROOF_STEP_T.md)): `d₃ ≤ 1`, `d₂ ≤ 18`, `d₁ ≤ 48`, the last with the
-  triple-point weight ≤ 32 in full generality, degenerate triple points included. Remaining
-  caveat: tangential rather than transversal contact, a higher-codimension case. An elementary
+  triple-point weight ≤ 32 for all triple points, degenerate ones included, within that scope. Remaining
+  caveat: tangential rather than transversal contact, a higher-codimension case. **That route's
+  last step, `d₁ = 2 + ½W`, is Euler for a CONNECTED top diagram, which is assumed and not proved
+  ([P398](LEDGER.md#p398)); with c components it is `d₁ = 1 + c + ½W`.** The bound stands by the
   second route: the singleton term obeys `s ≤ a + b + m − 2` by Mayer–Vietoris and Alexander
-  duality, giving `max(3) ≤ 1 + 18 + 3·16` with no measured input ([P110](LEDGER.md#p110)).
+  duality, giving `max(3) ≤ 1 + 18 + 3·16` with no measured input ([P110](LEDGER.md#p110)). Its
+  inputs (ANCHOR, the six-slab cover, the six convex sectors, FIB) make no transversality
+  assumption, so read as Lean reads it, this route gives max(3) = 67 for every triple of
+  concentric cubes; the inputs are on the review list in [`PROOF_CHECK.md`](PROOF_CHECK.md).
 - **The per-pair and per-triple caps, at every n.** PROVED. Each pair contributes two-body weight
   `E_i = EE_i + 2·SC2_i ≤ 10` ([P237](LEDGER.md#p237), from max(2) = 13), and each triple a
   triple-point weight `≤ 32` (PROOF_67 Lemma 1a with PROOF_STEP_T). Hence the two-body total
-  `≤ 10·C(n,2)` and the triple total `≤ 32·C(n,3)`.
-- **d₁ ≤ 108·C(n,3) + 10·C(n,2) + 2**, for every n and every configuration. PROVED
-  ([P237](LEDGER.md#p237)): 494 at n = 4, 2 312 at n = 6.
+  `≤ 10·C(n,2)` and the triple total `≤ 32·C(n,3)`. **Scope, CORRECTED 2026-09-28
+  ([P397](LEDGER.md#p397)):** the triple cap, like max(3) = 67, is proved for cubes whose boundaries
+  meet pairwise transversally. It does not cover a triple containing two cubes that share a face
+  axis (their faces are coplanar), so every upper bound below that sums it carries the same scope.
+  The records are inside it: their shared axes are body diagonals, whose contacts are corners.
+- **d₁ ≤ 108·C(n,3) + 10·C(n,2) + c₁ + 1**, for every n and every configuration. PROVED
+  ([P237](LEDGER.md#p237)). The published `+ 2` (494 at n = 4, 2 312 at n = 6) is PROVED IF
+  `c₁ = 1`: the level-1 diagram is connected. `c₁` is odd ([P311](LEDGER.md#p311)) and 1 in every
+  instance measured, but not proved 1 (CORRECTED 2026-09-28, [P398](LEDGER.md#p398)).
 - **d_{n−1} ≤ 6n**, the l = 1 ceiling law. PROVED ([P24](LEDGER.md#p24), [P33](LEDGER.md#p33)):
   the radial envelope has local minima only at the 6n face centres.
 - **Theorem S.** For n ≥ 3, `Σ over (n−1)-subsets T of d_{n−2}(T) ≤ 6n(n−2) + d_{n−1}(S)`.
@@ -72,7 +83,8 @@ count uses this definition and exact arithmetic; no floating point enters any de
   `TOTAL = 7 + T + B − Q4` at n = 4 is a bound, not this identity**, and not even a bound for
   compounds with `(1,1,2)`, `(1,2,2)` or `(2,2,2)` vertices ([P374](LEDGER.md#p374)).
 - **The merge law.** `EE = Σ_pairs EE_pair − Σ_v C(m(v), 2)` over vertices where several pairs'
-  crossings merge; verified 60 of 60 ([P372](LEDGER.md#p372)). Edge-edge walls are degree-4
+  crossings merge; VERIFIED 60 of 60, not proved ([P372](LEDGER.md#p372)), listed here beside the
+  proved results it is used with. Edge-edge walls are degree-4
   forms in one relative quaternion (144 of them); triple-budget walls are bidegree (2,2) in two
   (54 of 54) ([P372](LEDGER.md#p372)).
 - **The facet-centre lemma.** Every facet centre lies inside every other cube, so depth never
@@ -80,20 +92,40 @@ count uses this definition and exact arithmetic; no floating point enters any de
 - **The one-cube increment** is bounded by the cell count of the arrangement the other cubes trace
   on the added cube's surface: `Δ_j ≤ B_j = 1 + c + Σ_v (deg(v)/2 − 1)`. PROVED
   ([P56](LEDGER.md#p56)); measured slack 1.00–1.11.
-- **Every wall splits over ℚ.** PROVED ([P104](LEDGER.md#p104)): `det(Q) = (|p|² − 1)²` for a
+- **Every wall splits over ℚ.** PROVED ([P104](LEDGER.md#p104)), and the determinant identities are kernel-checked in Lean for all 18 branches (`lean/CubeBounds/Detq.lean`, [P398](LEDGER.md#p398)): `det(Q) = (|p|² − 1)²` for a
   four-cube wall through triple point p, `16(|m × q|² − 2|m|²)²` for a three-cube wall, squares for
   every rational base datum.
 - **727's 36-condition coincidence pattern is realised at one point and is unaugmentable.** PROVED
-  by elimination ([P47](LEDGER.md#p47)). The COUNT is not isolated there: see §3.
+  by elimination ([P47](LEDGER.md#p47); re-run exactly 2026-09-28, same result). The COUNT is not isolated there: see §3.
 - **PROVED IF `c_ℓ ≤ 2` on every level: `max(n) ≤ 1 + 32·C(n,3) + 10·C(n,2) + 3(n−1)`**, which is
   198 at n = 4, 433 at n = 5, … 4 318 at n = 10, with the records at a steady 90–92 % of it
-  ([P258](LEDGER.md#p258), [P326](LEDGER.md#p326)). The hypothesis is graded in §4.
+  ([P258](LEDGER.md#p258), [P326](LEDGER.md#p326)). The hypothesis is graded in §4. The chain also
+  uses the accounting step `sum(E − V) ≤ T + two-body`, which is argued (a four-cube vertex is
+  charged more than it supplies) but recorded as not verified in [P388](LEDGER.md#p388)'s
+  addendum; the bound fails without it (`lean/`, `python3 src/lean_status.py`).
+- **max(4) ≤ 261, with no hypothesis**, and **max(4) ≤ 195 follows from `d₂ ≤ 66` alone.** PROVED
+  ([P401](LEDGER.md#p401)), tightening the 285 of [P399](LEDGER.md#p399): `d₁ ≤ 104` and `d₃ ≤ 24` are
+  proved and attained; only `d₂ ≤ 6·22` is loose, against the ceiling law's 66. Every depth is a count of
+  components of sphere sets `{the cubes of A all reach farther than every other cube}`, each a union
+  of convex pieces, and Mayer–Vietoris with Alexander duality ([P110](LEDGER.md#p110)) bounds the
+  intersections: `d₄ ≤ 1`, `d₃ ≤ 24`, `d₂ ≤ 6·22`, `d₁ ≤ 4·26` (the complement's pieces share face
+  centres, so it has at most 6|A| components). Assumes no connectivity, no trivial
+  holes, no transversality. An independent exact counter built from the same two lemmas equals the
+  engine on 17 configurations, including the golden 177 and shared-face-plane compounds. Lean
+  checks the assembly. It is the first unconditional bound above n = 3, at 1.43× the record.
 - **PROOF GAP: `max(n) ≤ 953` at n = 4**, 3 377 at n = 5, … 104 207 at n = 10
   ([P249](LEDGER.md#p249)), the sum of per-depth bounds. The bound for depths ≥ 2
   ([P243](LEDGER.md#p243)) omits two-body vertices, which do occur there
   ([P274](LEDGER.md#p274)). Almost certainly true, since it exceeds every measurement fivefold, and
-  the repair (a two-body term per depth, as [P237] supplied at depth 1) looks mechanical. **Until
-  it is made, no upper bound on max(n) for n ≥ 4 holds without a hypothesis.**
+  the repair (a two-body term per depth, as [P237] supplied at depth 1) looks mechanical. At n = 4
+  it is superseded by the unconditional 261 above, and for every n by the general bound below.
+- **max(n) ≤ 1 + Σ_{l=1}^{n−1} C(n,l)·(4k + 2 + 6l(k−1)), k = n − l, for every n, with no hypothesis.**
+  PROVED ([P400](LEDGER.md#p400), tightened by [P401](LEDGER.md#p401)): 13, 67, 261, 871, 2 633 …
+  130 065 at n = 2 … 10, **exact at n = 2 and 3**. Each set `{A all reach farther than B}` has at
+  most `4k + 2 + 6|A|(k−1)` components, by Mayer–Vietoris one cube at a time (closed form proved in
+  Lean); anchored at n = 5 by the exact sphere counter. Loose above n = 3 only in the middle depths.
+- **The depth-1 ceiling law, `d₁ ≤ 10n² − 14n`, for every n.** PROVED ([P401](LEDGER.md#p401)), no
+  hypothesis; the per-cube case of the bound above. Attained: the golden 177 has `d₁ = 104`.
 
 ## 3. Measured
 
@@ -104,7 +136,7 @@ count uses this definition and exact arithmetic; no floating point enters any de
 |---|---|---|
 | 2 | 13 | PROVED maximum ([`max2_report.md`](max2_report.md)) |
 | 3 | 67 | PROVED maximum ([`PROOF_67.md`](PROOF_67.md)); two classes, octahedral in ℚ(√2) and golden in ℚ(√5) |
-| 4 | 183 | VERIFIED; two classes ([`n4_search_report.md`](n4_search_report.md), [P133](LEDGER.md#p133)) |
+| 4 | 183 | VERIFIED; two arcs, each a one-dimensional family of classes ([`n4_search_report.md`](n4_search_report.md), [P133](LEDGER.md#p133), [P378](LEDGER.md#p378), [P380](LEDGER.md#p380)) |
 | 5 | 393 | VERIFIED; the "393 base" ([P16](LEDGER.md#p16)) |
 | 6 | 727 | VERIFIED; the base plus one cube ([P46](LEDGER.md#p46)) |
 | 7 | 1217 | VERIFIED; the 727 six plus one ([P46](LEDGER.md#p46)) |
@@ -188,8 +220,9 @@ by a new wall and contracts about fivefold ([P303](LEDGER.md#p303)).
 | `max(4) = 183` | **WEAK CONJECTURE** | never exceeded, and reached by 7.3 % of wide-perturbation restarts ([P131](LEDGER.md#p131)); but three reductions to a few named statements have failed ([P373](LEDGER.md#p373) twice, [P389](LEDGER.md#p389)), and no argument now connects 183 to any bound below 198 |
 | W: `W₀ ≤ 84` at n = 4 ([OQ 32](OPEN_QUESTIONS.md)) | **WEAK CONJECTURE** | 0 violations in 247 blind configurations, attained at the record ([P275](LEDGER.md#p275)); all rational, the blind spot that let T stand |
 | C: `c₁ = c₂ = 1` at the maximiser | **WEAK CONJECTURE** | `c = 2` occurs on ordinary configurations ([P269](LEDGER.md#p269)); directed climbing under `c = 2` stalled far below the record ([P270](LEDGER.md#p270)) |
+| **`max(4) ≤ 195`** | **PROVED IF `c₂ = 1`** (no shared face plane) | the level-2 charging argument ([P404](LEDGER.md#p404)) and the circle lemma ([P405](LEDGER.md#p405)): at any point, every cube's active facet normals project onto one circle, which forces `X = 0` and `W4u = 0`. `c₂ = 1`, the level-2 boundary being connected, held in every one of 1 951 configurations checked |
 | given W and C, `max(4) ≤ 195` | PROVED IF | the anatomy `d₁ = W₀/2 + T + c₁ + 1` ([P272](LEDGER.md#p272)) with the proved `T ≤ 60`. The version with `T ≤ 48`, which gave 183, fails because T is false ([P389](LEDGER.md#p389)) |
-| the ceiling law for l ≥ 2, `C(l,n) = (12l−6)n − 2(l²−1)` | **WEAK CONJECTURE** | never exceeded in about a million sampled configurations; proved only for l = 1. Its caps provably cannot all be attained together ([P258](LEDGER.md#p258)) |
+| the ceiling law for 2 ≤ l ≤ n − 2, `C(l,n) = (12l−6)n − 2(l²−1)` | **WEAK CONJECTURE** | never exceeded in about a million sampled configurations; proved for l = 1 and, since 2026-09-30, for l = n − 1 (depth 1, [P401](LEDGER.md#p401)). At n = 4 only l = 2, `d₂ ≤ 66`, is left, and it alone would give `max(4) ≤ 195`. Its caps provably cannot all be attained together ([P258](LEDGER.md#p258)) |
 | `max(6) ≤ 729` | **WEAK CONJECTURE** | the envelope bound on the 393 base, whose constant 336 is still measured, not derived ([P56](LEDGER.md#p56)) |
 | the records at n ≥ 5 are maxima | not conjectured | lower bounds; no search above n = 4 has been complete over more than a stated family (§6) |
 | no third 67 exists anywhere | **WEAK CONJECTURE** | isolation is local ([P118](LEDGER.md#p118)); nothing rules out a 67 elsewhere. Theorem R's "the n = 3 maximum needs irrational coordinates" ([P26](LEDGER.md#p26)) depends on it |

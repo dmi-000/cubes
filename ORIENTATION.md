@@ -73,11 +73,17 @@ n = 5 the records add cubes with NO sharing at all.
   climb from it reaches `EE = 42` at `B = 128`. Both refuted ceilings were maxima over searches
   seeded from the record and the face-diagonal family; the refuter is the n = 3 `EE + B`
   extreme extended. **What bounds `EE` at `B = 128` is open.**
+* **Proved with no hypothesis:** `max(4) <= 261` ([P399], [P401], 2026-09-30), by Mayer–Vietoris at
+  every depth, and the depth-1 ceiling law `d1 <= 10n^2 - 14n` for every n. `max(4) <= 195` now
+  follows from `d2 <= 66` alone.
 * **Proved and still standing:** `E_i <= 10` ([P237]), `E_S <= 32` (PROOF_67), hence
-  `EE + B <= 188 - 2*SC2`, and `TOTAL <= 195 - Q4` **only for compounds with no `(1,1,2)`,
-  `(1,2,2)` or `(2,2,2)` vertices** (Scope note 2026-09-24: the framework paragraph above says
-  so, and this line did not). The golden attains `EE + B = 164` at
-  `SC2 = 12`, exactly its box bound — the one branch closed by proof.
+  `EE + B <= 188 - 2*SC2`. The golden attains `EE + B = 164` at `SC2 = 12`, exactly its box
+  bound — the one branch closed by proof.
+* **Proved IF the holes are trivial:** `TOTAL <= 195 - Q4` ([P348]), which assumes `c = 1` on
+  every level, of every subset and of the whole. That hypothesis is unproved and `c = 2` occurs
+  ([P269]), so as a bound on `max(4)` this is a HOPE. CORRECTED 2026-09-28 ([P395]): this line
+  said "proved ... only for compounds with no `(1,1,2)`, `(1,2,2)` or `(2,2,2)` vertices", a
+  scope that belongs to [P374]'s formula, not to this bound.
 * Complete corner-sharing is sub-maximal at both sizes where it exists (n = 4, n = 5).
 
 ## Before trusting any claim in a summary, run the dependency check

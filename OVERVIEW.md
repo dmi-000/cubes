@@ -5,7 +5,7 @@ a human and a shifting cast of AI models actually produced it. Everything here
 is stated plainly and without proof; each section says where to read the real
 thing. [`JOURNEY.md`](JOURNEY.md) is the same story told at length and in
 order, with the wrong turns left in. [`RESULTS.md`](RESULTS.md) is the current
-state of belief, every claim tagged. Begun 2026-08-02, last brought up to date 2026-09-27; it knows nothing later.*
+state of belief, every claim tagged. Begun 2026-08-02, last brought up to date 2026-09-30; it knows nothing later.*
 
 *One disclosure up front, because it changes how to read everything else: the
 code, the searches, the analysis, and this document were written by an AI
@@ -159,7 +159,7 @@ times the records — true and not yet useful. *[Corrected 2026-09-27: those wer
 proved. One of the per-depth bounds summed to make them assumed that no pair-only
 vertex lies below the outer surface, and such vertices do occur, as a check on
 2026-09-08 had already shown. They are almost certainly true, but no upper bound
-without a hypothesis is currently established.]* Writing
+without a hypothesis was established until three days later; see below.]* Writing
 the count as an accounting identity — every region paid for by "degree excess" at
 a vertex, and every triple point spent twice — gives
 
@@ -167,9 +167,29 @@ a vertex, and every triple point spent twice — gives
 
 proved except for one hypothesis about connectivity. The records sit at a steady
 **90–92 %** of it from four cubes to ten — so the bracket closed from a factor of
-five to a few per cent, in exchange for that one hypothesis. So the tower is now bracketed at both
+five to a few per cent, in exchange for that one hypothesis. *[That was one
+hypothesis too few. Written out for a proof checker on 2026-09-28, the chain also
+leans on an accounting step, that the degree excess is no more than the triple and
+pair terms charge for it, which had been argued but never verified. The checker
+confirms the bound does not follow without it.]* So the tower is now bracketed at both
 ends, and the interesting question has moved: the remaining 10 % is not spread
 evenly, and finding where it lives is what the project is doing now.
+
+**And on 2026-09-30 the first ceiling that assumes nothing at all.** The Mayer–Vietoris
+argument that had quietly given a second proof of 67 turned out to work at every
+depth: each set of directions where a given group of cubes all reach farther than the
+rest breaks into convex pieces, and counting how those pieces can join bounds its
+number of components. At two and three cubes the formula lands exactly on 13 and 67.
+At four it gives 261, with no connectivity assumption, no genericity, nothing; and on
+the way it proved the ceiling law's shallowest layer at every size, that the regions
+inside exactly one cube number at most 10*n*² − 14*n*, a value the golden compounds
+reach. Chasing why it was not exact at four found something sharper still: every
+triple point and every pairwise contact at the second layer is paid for out of one
+Euler budget per triple of cubes, so the two trade one for one. With one more lemma
+(at any point, every cube's active faces project onto one common circle, which rules
+out the degenerate cases) that gives 195 at four cubes, **provided the second layer's
+boundary is connected**. That single connectivity statement is now the whole gap
+between the record's 183 and a proved 195.
 
 **Not one record is a point.** For weeks the project believed each record was an
 isolated configuration, found by a test that reported "no direction keeps the
@@ -179,7 +199,7 @@ size sits on a set of equally good arrangements, whose dimension runs:
 
 | cubes | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
 |---|---|---|---|---|---|---|---|
-| shape of the best set | an arc | two points | an arc | not yet measured | a node of arcs | a pentagon | a polytope |
+| shape of the best set | an arc | two points | an arc | not yet measured | a node of arcs | two crossing sheets | a polytope |
 | dimension | 1 | 0 | 1 | ? | 1 | 2 | 3 |
 
 Three cubes is the lone exception, the one size where the answer is rigid, and
@@ -426,8 +446,8 @@ with the session, taking the gates with it.
 - **Is 183 the maximum at four cubes?** Three separate attempts to reduce this
   to a few named statements have each been refuted, the last one by the golden
   four-cube arrangement: four of the five cubes of the classical compound in a
-  dodecahedron. No upper bound on four cubes that
-  needs no hypothesis currently stands; the best conditional one is 198.
+  dodecahedron. What is proved: at most 261 with no hypothesis, and at most 195 if
+  the boundary between the second-layer regions is connected.
 - **Are 183, 393, 727, 1217, 1895, 2787, 3925 actually maximal?** None is proved.
   Only *n* = 2 and *n* = 3 have theorems. 1895 replaced 1891 on 2026-08-05, and it
   was sitting inside a window an earlier sweep had already covered — the
@@ -440,10 +460,11 @@ with the session, taking the gates with it.
   regions and which nothing bounds at all. Every loose region is in that second
   part. The first concrete conjecture about it, a cap on edge-edge contacts, was
   refuted at every size tested within a day of being proposed.
-- **The connectivity hypothesis** that the ceiling above rests on. Worth noting
-  what it is and is not worth: proving it *completes* the bound but moves it by
-  about nine regions in four hundred. It is the difference between a conditional
-  statement and a theorem, not a route to a tight number.
+- **The connectivity hypothesis.** For the tower-wide ceiling it moves the bound by
+  about nine regions in four hundred. At four cubes it matters far more: its
+  second-layer case is now the only thing between 261 and 195. A failure would have
+  to be a band-shaped region where the same two cubes are innermost all the way
+  round, and none has turned up in about two thousand configurations.
 - **What changes the count where no coincidence occurs.** At two known parameters
   the count drops and no wall of the known family is crossed. A second family was
   proposed and refuted — the test had forgotten that a cube's boundary is six
@@ -451,7 +472,9 @@ with the session, taking the gates with it.
   the compound. The question is open again.
 - **Is the five-cube record a point or a continuum?** It is the one size in the
   tower's middle whose shape has not been measured.
-- **The ceiling law** — fits everything, proved only for the shallowest layer.
+- **The ceiling law** — fits everything, proved for the innermost-but-one layer and,
+  since 2026-09-30, for the outermost one; the middle layers are open, and at four
+  cubes the middle is a single layer.
 - **A universal ceiling on the one-cube increment** — the per-arrangement
   bound is proved and tight; the universal version is still crude.
 

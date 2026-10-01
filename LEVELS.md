@@ -19,13 +19,14 @@ largest count over all rotations. Every count here is exact.
 | 1 | 1 | trivial | everything | 1 |
 | 2 | **13** | **proved** | **1-dimensional**: a single arc in class space | 1 |
 | 3 | **67** | **proved** | **isolated points** | 2 |
-| 4 | 183 | unproved; `<= 198` if a strong conjecture holds; no hypothesis-free bound | **1-dimensional**: an arc, in both classes | 2 |
+| 4 | 183 | unproved; `<= 261` unconditionally ([P401](LEDGER.md#p401)), `<= 198` if a strong conjecture holds | **1-dimensional**: an arc, in both classes | 2 |
 | 5 | 393 | unproved | tangent dimension 1; **plateau not measured** | 1 |
 | 6 | 727 | unproved | **1-dimensional**: two branches crossing at the record, plus a separate arc | 1 structural class |
-| 7 | 1217 | unproved | **2-dimensional**: two sheets meeting over the record | 1 |
+| 7 | 1217 | unproved | **2-dimensional**: two sheets crossing over the record | 1 |
 | 8 | 1895 | unproved | **3-dimensional**: a 38-vertex polytope | 1 |
 | 9 | 2787 | unproved | tangent dimension 4; one direction walked | 1 |
 | 10 | 3925 | unproved | lineality 6; plateau not walked | 1 |
+<!-- reviewed 2026-09-28: the n = 4 row states 198 as conditional; proved labels n = 2, 3 -->
 
 **The pattern worth seeing first.** Apart from n = 3, the maxima and records are not isolated
 points. Each
@@ -99,7 +100,7 @@ distance changes at most as fast as arc length ([P380](LEDGER.md#p380)).
 | `max(4) <= 195` | **hope**: it needs `c_ell = 1` at the maximiser, and `c_ell = 2` does occur, at the n = 6 record among others |
 <!-- reviewed 2026-09-24: the 953 row states its proof gap -->
 
-So **no bound on `max(4)` without a hypothesis is currently established.** Here `c_ell` is the number of connected pieces of the curve arrangement at depth `ell`. An older
+The first bound that needs no hypothesis is **`max(4) <= 261`** ([P399](LEDGER.md#p399), [P401](LEDGER.md#p401), 2026-09-30), by Mayer–Vietoris at every depth; it proves `d1 <= 104` and `d3 <= 24`, so `max(4) <= 195` would follow from `d2 <= 66` alone. Here `c_ell` is the number of connected pieces of the curve arrangement at depth `ell`. An older
 figure, 263 ([P261](LEDGER.md#p261)), rests on the same `c_ell = 1` and is dominated by 198 (scope
 note in the ledger).
 
@@ -109,9 +110,10 @@ itself, which has `T = 60` ([P389](LEDGER.md#p389)). The other two attempts to r
 both refuted by one compound, `1,0,0,0; 0,2,-3,-2; 0,2,-3,2; -4,-2,-5,-6`, which counts only 173 but
 breaks both proposed ceilings ([P373](LEDGER.md#p373)). What holds is the per-pair and per-triple
 box, `E_i <= 10` ([P237](LEDGER.md#p237)) and `E_S <= 32` ([`PROOF_67.md`](PROOF_67.md)).
-From it, `TOTAL <= 195 - Q4` follows **only for compounds with no `(1,1,2)`, `(1,2,2)` or
-`(2,2,2)` vertices**; for the roughly 15 % that have one, the accounting behind it is not a bound
-([P374](LEDGER.md#p374)). What bounds the edge-edge crossings at a full triple budget is open.
+From it, `TOTAL <= 195 - Q4` follows **only if the holes are trivial**, `c = 1` on every level
+([P348](LEDGER.md#p348)): unproved, and `c = 2` occurs. CORRECTED 2026-09-28
+([P395](LEDGER.md#p395)); this said the condition was the absence of `(1,1,2)`-type vertices, which
+is the scope of a different formula ([P374](LEDGER.md#p374)). What bounds the edge-edge crossings at a full triple budget is open.
 
 **The instructive loser.** The golden 177 is UC09's 4-subset. Every subset of it is at its
 proved maximum (13 and 67), and it still loses to 183. It is the only compound in which all four

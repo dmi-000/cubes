@@ -102,6 +102,15 @@ every step simultaneously, which is exactly why 67 is the ceiling.
 
 ## Where it stands
 
+*[A later check, 2026-09-28: the Euler step that opens "the heart" above, d₁ = 2 + ½W,
+is Euler's formula for a connected diagram, and nothing in the argument shows the
+diagram is connected; with two pieces it would read d₁ = 3 + ½W. The theorem does not
+depend on it. A second proof, found a few weeks after this account was written, counts
+each cube's farthest-reaching region directly with Mayer–Vietoris and Alexander duality,
+and reaches 48 with no connectivity assumption and no transversality either. A proof
+checker confirmed that the first argument needs the extra assumption and the second
+does not.]*
+
 The argument is complete and rigorous for all three concentric convex
 six-faced cells whose boundaries meet pairwise transversally — an open
 dense set of configurations that includes both maximizers. Getting there

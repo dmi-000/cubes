@@ -125,6 +125,7 @@ one row per file or pattern, first matching row wins.
 | `VIEWERS.md` | current | the figures, and which are stale |
 | `README.md` | current | the map of the repository |
 | `DOCUMENTS.md` | current | this file |
+| `PROOF_CHECK.md` | current | what the proof checker verified, and the review list of lemmas it takes on trust |
 | `PROOF_67.md` | current | `max(3) = 67`, consolidated |
 | `PROOF_FORMAL.md` | current | `max(3) = 67`, formalised |
 | `PROOF_STEP_T.md` | current | step T of the n = 3 proof |
@@ -200,6 +201,25 @@ question was answered, sometimes in agreement with the claim beside it.
    counts as handled only if a correction word is in ITS OWN paragraph, or an in-place correction
    blockquote (`> **CORRECTED ...`) directly follows it.
 
+4. **A hypothesis tag** on any result proved only under a hypothesis (adopted 2026-09-28,
+   [P395](LEDGER.md#p395)):
+
+       <!-- status: proved-if="trivial holes" | "c = 1" | "PROVED IF"; claim="195 - Q4" | "195 − Q4" -->
+
+   `proved-if=` lists phrases, any one of which shows that a sentence has kept the condition.
+   `claim=` lists distinctive strings of the conclusion. `python3 src/claim_deps.py --hyp` finds
+   every paragraph that states the claim or cites the entry, asserts proof ("proved", "proven",
+   "theorem", not negated and not "proved if"), and names none of the conditions. The claim
+   strings are what matter: the error that prompted this stated [P348]'s bound under the wrong
+   condition while citing two other entries, so no citation led to it. Gate:
+   `src/probes/claim_deps_hyp_gate.py`. Tagged so far: [P326](LEDGER.md#p326), [P348](LEDGER.md#p348). <!-- reviewed 2026-09-28: names the tagged entries -->
+
+5. **Bounds whose reduction is checked in Lean** (adopted 2026-09-28, [P396](LEDGER.md#p396)):
+   `lean/` states each reduction with its inputs as named hypotheses, and
+   `python3 src/lean_status.py` derives each bound's label from Lean's own signature and compares
+   it with the documents. When a bound's status changes, rename the hypothesis's prefix and the
+   label follows; when a document's label changes, update `EXPECT` in that script.
+
 **Adopted 2026-09-24.** All 30 postscripts known to have fallen carry a tag, with the 27 entries that
 corrected them. For any entry without one, the audit falls back on the in-place blockquote and on
 the heading forms listed in [P388](LEDGER.md#p388).
@@ -228,6 +248,9 @@ Each rule answers a failure that happened. The detail is in the record; the one-
 - **The dangerous stale claims had no citation at all**: OQ 36's `T3 = 74`, the phantom `K4`
   branch in [P368] and in `SESSION_STATE.md`, "727 is isolated" in `CONTINUUM_MAP.md`. Only reading
   found them, or searching for their exact wording. Hence `fell=`.
+- **A condition dropped in a summary survives every correction check**, because nothing about
+  it is false or fallen: [P348]'s bound was right under its hypothesis, and the summary line gave
+  it a different one. Hence `proved-if=` ([P395](LEDGER.md#p395)).
 - **Summaries built from summaries drift**: `LEVELS.md`'s first draft called n = 2 unmapped, copying
   `MAXIMISER_TAXONOMY.md` instead of [P69](LEDGER.md#p69) (INTERVENTIONS A20). Hence: current-knowledge
   documents cite ledger entries, never other summaries, as their authority.

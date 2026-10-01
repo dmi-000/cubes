@@ -15,9 +15,11 @@ at the top so nothing is oversold:
   confirming it only lowers the count. This also gives d_{n−1} ≤ 6n for
   all n unconditionally and max(2) = 13 (§3.2).
 - **Cluster 2 (depth-1 ≤ 48): triple-point weight ≤ 32 PROVED (§5.3),
-  and contact-vertex weight ≤ 60 now has a CANDIDATE PROOF (§5.4, ledger
-  Postscript [41](LEDGER.md#p41)) via Euler on the three pairwise intersection polytopes.**
-  Combined: d1 ≤ 48.
+  and contact-vertex weight ≤ 60 is PROVED (§5.4, completed as PROOF_FORMAL.md
+  Part D; the "candidate" labels below date from before that) via Euler on the three
+  pairwise intersection polytopes.** Combined: d1 ≤ 48, **if the top diagram is
+  connected** (§5, and [P398](LEDGER.md#p398)); the Mayer–Vietoris route of
+  [P110](LEDGER.md#p110) gives d1 ≤ 48 without that.
 
 **UPDATE 2026-07-21 (see ledger Postscripts [38](LEDGER.md#p38)-[41](LEDGER.md#p41)): the whole theorem is
 now understood shape-independently — d3 ≤ 1, d2 ≤ 18, triple ≤ 32, and
@@ -215,7 +217,9 @@ components of the T_i, so **F(G) = d1**. Each swap curve M_i = M_j is a
 union of great-circle arcs (M_i = M_j with active faces a,b ⟺
 û ⊥ (n_{i,a} ∓ n_{j,b})).
 
-For a cellular graph on S², V − E + F = 2, so
+For a cellular graph on S², V − E + F = 2 (a graph with c components has
+V − E + F = 1 + c; that the top diagram is connected is ASSUMED here and not
+proved, [P398](LEDGER.md#p398)), so
 
     d1 = F = 2 + (E − V) = 2 + ½ Σ_v (deg_v − 2).
 

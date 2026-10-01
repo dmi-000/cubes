@@ -25,6 +25,7 @@ the only question that matters when something falls: **what did this hold up?**
     python3 src/claim_deps.py --audit       # every FALLEN postscript with unflagged dependents
     python3 src/claim_deps.py --stats       # graph shape
     python3 src/claim_deps.py --fell        # uncited restatements of what fell (status-tag strings)
+    python3 src/claim_deps.py --hyp         # conditional results stated as proved without their condition
 
 Which documents count, and how, is read from DOCUMENTS.md's classification table.
 
@@ -114,6 +115,18 @@ STATUS = re.compile(r'^<!--\s*status:\s*(.*?)-->', re.S | re.M)
 # fell="..." -->`, and an unanchored pattern read that example as a real tag: every "..." in every
 # document then "matched" (77 spurious --fell hits, found by the retrofit that first ran it).
 FELLSTR = re.compile(r'fell\s*=\s*((?:"[^"]*"\s*\|?\s*)+)')
+# HYPOTHESIS TAGS ([P395]).  A result proved only under a hypothesis carries
+#     <!-- status: proved-if="trivial holes"|"c = 1"; claim="195 - Q4"|"195 − Q4" -->
+# proved-if: phrases, any ONE of which shows a sentence has kept the condition;
+# claim:     distinctive strings of the conclusion, searched for directly.
+# The claim strings are the point.  The failure that motivated this, [P395], was a summary line
+# stating P348's bound as proved under the wrong condition while citing P374 and P237 -- not P348.
+# A citation graph cannot see a restatement that cites something else.
+PROVIFSTR = re.compile(r'proved-if\s*=\s*((?:"[^"]*"\s*\|?\s*)+)')
+CLAIMSTR = re.compile(r'claim\s*=\s*((?:"[^"]*"\s*\|?\s*)+)')
+# "proved" as a claim of proof: not "unproved", not "PROVED IF"/"proved if" (which keeps a
+# condition by construction), not "proved implication".
+PROVED = re.compile(r'(?<![A-Za-z])(?<!un)(?<!UN)(proved|proven|theorem)\b(?!\s+(if|implication)\b)', re.I)
 REVIEWED = re.compile(r'<!--\s*reviewed\b')
 SELFMARK = re.compile(r'^>\s*\*\*(CORRECTED|REFUTED|RETRACTED|WITHDRAWN|SUPERSEDED|REVERSED|VOID)',
                       re.M)
@@ -161,6 +174,8 @@ def docs():
 
 
 FELL = {}          # postscript -> distinctive strings of what fell, from its status tag
+HYP = {}           # postscript -> (condition phrases, claim strings), from its status tag
+CLAIM_ONLY = set() # postscripts whose tag says trigger="claim": search the claim strings only
 
 
 def status_of_postscripts():
@@ -168,6 +183,8 @@ def status_of_postscripts():
     is not the status."""
     s = open(os.path.join(ROOT, 'LEDGER.md'), encoding='utf-8', errors='ignore').read()
     FELL.clear()                                 # module-level; re-parsing must not accumulate
+    HYP.clear()
+    CLAIM_ONLY.clear()
     heads = list(HEAD.finditer(s))
     tag, fallen, suspect, span = {}, {}, {}, {}
     for i, m in enumerate(heads):
@@ -202,6 +219,14 @@ def status_of_postscripts():
             fm = FELLSTR.search(st)
             if fm:
                 FELL.setdefault(n, []).extend(re.findall(r'"([^"]+)"', fm.group(1)))
+            pm, cm = PROVIFSTR.search(st), CLAIMSTR.search(st)
+            if pm:
+                if re.search(r'trigger\s*=\s*"claim"', st):
+                    CLAIM_ONLY.add(n)          # the entry's other results stand: citations are not restatements
+                conds, claims = HYP.setdefault(n, ([], []))
+                conds.extend(re.findall(r'"([^"]+)"', pm.group(1)))
+                if cm:
+                    claims.extend(re.findall(r'"([^"]+)"', cm.group(1)))
     return tag, fallen, suspect, span
 
 
@@ -279,6 +304,47 @@ def graph(entry_span=None):
                     g[n].append((os.path.basename(f), uline, utext.strip()[:150], uflag))
             off += len(para) + 2
     return g
+
+
+def hyp_paragraph(para, n, conds, claims):
+    """why this paragraph states P<n>'s conditional result as proved without its condition, or
+    None.  Triggered by a claim string OR a citation; needs a claim of proof; cleared by any one
+    condition phrase or a reviewed comment.  Tuned to over-report, like the rest of this tool."""
+    cite = None if n in CLAIM_ONLY else re.search(r'\[P%s\]|#p%s\)' % (n, n), para)
+    hit = next((c for c in claims if c in para), None)
+    # a claim of proof NOT preceded, within a few words, by a negation: "NOT yet a theorem",
+    # "was never proved" and "not this theorem's to give" are the opposite claim, and were 5 of
+    # the first run's 14 hits
+    asserted = [m for m in PROVED.finditer(para)
+                if not re.search(r'\b(not|never|nor|no longer)\b[^.;:]{0,20}$', para[max(0, m.start() - 30):m.start()], re.I)]
+    if not (cite or hit) or not asserted or REVIEWED.search(para):
+        return None
+    low = para.lower()
+    if any(c.lower() in low for c in conds):
+        return None
+    return ('states "%s"' % hit) if hit else 'cites it'
+
+
+def hyp_hits(span, only=None):
+    """(kind, file, line, n, why) for every paragraph that states a conditional result as proved
+    and names none of its conditions.  `only` = [(name, text)] replaces the documents (gates)."""
+    out = []
+    sources = only or [(os.path.basename(f), open(f, encoding='utf-8', errors='ignore').read())
+                       for f in docs()]
+    for b, text in sources:
+        k = kind_of(b)
+        paras = text.split('\n\n')
+        off = 0
+        for para in paras:
+            line = text.count('\n', 0, off) + 1
+            off += len(para) + 2
+            for n, (conds, claims) in HYP.items():
+                if b == 'LEDGER.md' and n in span and span[n][0] <= line < span[n][1]:
+                    continue                     # the entry's own statement of itself
+                why = hyp_paragraph(para, n, conds, claims)
+                if why:
+                    out.append((k, b, line, n, why))
+    return out
 
 
 def main():
@@ -391,6 +457,16 @@ def main():
                 off += len(para) + 2
         print('\n%d restatements of fallen claims, excluding narratives (%d postscripts carry fell= '
               'strings); narrative lines above are a reading list, never counted' % (hits, len(FELL)))
+        return
+
+    if a[0] == '--hyp':
+        hits = 0
+        for kind, f, line, n, why in hyp_hits(span):
+            hits += (kind != 'narrative')
+            print('P%-5s %-9s %-22s line %-6d %s' % (n, kind, f, line, why))
+        print('\n%d statements of a conditional result as proved without its condition, excluding '
+              'narratives (%d postscripts carry proved-if tags); narrative lines above are a reading '
+              'list, never counted' % (hits, len(HYP)))
         return
 
     key = a[0].lstrip('Pp')

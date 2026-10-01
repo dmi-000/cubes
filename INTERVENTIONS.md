@@ -786,3 +786,57 @@ Its heading, `## Postscript 76 (CORRECTION to Postscript 70):`, was a fourth hea
 could not read, the one form that actually states role, and three entries used it. Fixed; see
 [P388]'s last addendum.
 <!-- reviewed 2026-09-24: cites P70's heading form, an audit-tooling detail, not its fallen claim -->
+
+## A21 (2026-09-27/28) — four readings of a figure, each more exact than my drawing
+
+**What happened.** The user read the TOWER node inset four times, and each reading found a real
+error: "n=6 diagrams in TOWER_DIAGRAM.html and shapes.png look different"; "the text says 'two
+branches cross', but the diagram looks like 5 arcs and 3 crossings"; "if arcmap.png is right,
+then TOWER_DIAGRAM.html looks wrong"; "it is only the single n6 crossing point that extends to the
+n7 pentagon". Together they produced [P391] (the 727 node has TWO branches, and the catalogue's arcs
+B and C are those branches respelled), [P392] (B's and D1's extents agree exactly), [P393] (a
+segment of each branch lifts to 1217, not the crossing point alone). A fifth, "crossing lines ...
+would project to crossing lines", found [P394]: the n = 7 plateau is two curved triangles CROSSING
+along a fibre segment, and [P301]'s "pentagon" was the edges of a sampling grid's box.
+
+**The pattern.** Each figure was drawn from what the prose said, and the prose was never read as
+geometry. A picture asserts incidences, counts and containments the text leaves implicit, and a
+reader who takes the picture literally tests them. **Draw from the data, then read the drawing
+back against the data, as a stranger would.**
+
+## A22 (2026-09-28) — an external review found a bound labelled proved under the wrong condition
+
+**What happened.** A reviewer flagged ORIENTATION's "`TOTAL <= 195 - Q4` ... proved, only for
+compounds with no (1,1,2)-type vertices". Confirmed ([P395]): the bound is [P348]'s, proved only
+with trivial holes; the condition quoted belonged to a different formula ([P374]). The user then
+asked whether a proof checker could have helped, and for hypothesis tracking.
+
+**What it produced.** `claim_deps.py --hyp` (tags `proved-if=`, `claim=`, [P396]) and Lean 4 with
+every geometric input a named hypothesis whose prefix is its ledger status. Its first run found
+that [P326]'s tower bound had two unproved inputs, not one.
+
+## A23 (2026-09-28) — "can you run a proof checker on our claimed proofs?"
+
+**What happened.** Writing each PROVED result's counting skeleton in Lean, with Euler always stated
+with `c` components, exposed two hidden `c = 1` assumptions ([P398]): the Euler route to
+max(3) = 67 (max(3) survives by [P110]'s route) and [P237]'s `d1` bound; and the triple cap had
+lost its transversality scope ([P397]). Also found: `detq_check.py` did not run, and my first
+kernel check of [P104] compared two identical sympy-expanded strings and could not fail (caught
+on reading, rewritten with must-fail controls).
+
+**The lesson that transfers.** A checker finds what the ENCODING forces into the open. Writing
+Euler as `V - E + F = 1 + c` rather than `= 2` is what made connectivity visible; a checker fed
+the published statements would have agreed with them.
+
+## A24 (2026-09-30) — "what makes it not exact for > 3? can it be tightened?"
+
+**What happened.** The user asked why [P400]'s general bound, exact at n = 2 and 3, loosens above.
+The answer had two parts: the complement's convex pieces all pass through face centres, so I had
+counted pieces where there was one component ([P401]); fixing it PROVED the depth-1 ceiling law
+`d1 <= 10n^2 - 14n` for every n and cut max(4)'s unconditional bound from 285 to 261. The rest of
+the slack was structural (middle depths), and following it led through [P402]-[P405] to
+`max(4) <= 195` PROVED IF `c2 = 1`.
+
+**The pattern, and it is A7's.** A question about why a method is inexact is a question about the
+method, and it found a defect in my own count that no check of the result would have: the bound
+was true, only weaker than the argument allowed.

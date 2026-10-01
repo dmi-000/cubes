@@ -1239,6 +1239,29 @@ give 953 at n = 4 assumed that pair-only vertices never lie below the outer surf
 Today the interval for max(4) is [183, 198] if the hypothesis holds, and has no proved upper end
 if it does not.
 
+### Where the frontier is (2026-09-30)
+
+Three days later the upper end moved, and the picture above needs three corrections.
+
+**The n = 7 set is not a pentagon.** It is two curved triangles that cross along a segment of
+the fibre over the record, one over each branch of the n = 6 node: the crossing carried up a
+dimension. The pentagon was one of those triangles cut off by the edges of a sampling grid
+([P393](LEDGER.md#p393), [P394](LEDGER.md#p394)).
+
+**The 198 needs two assumptions, not one.** Written out for a proof checker, the tower-wide ceiling
+also uses an accounting step that had been argued and never verified ([P396](LEDGER.md#p396)).
+
+**And there is now a proved upper end with no hypothesis: 261.** Counting, at every depth, the
+components of the set of directions in which a group of cubes all reach farther than the rest, by
+convex pieces and Mayer–Vietoris, gives a bound for every n that is exact at n = 2 and 3, proves
+the outermost layer's ceiling `d₁ ≤ 10n² − 14n` for every n, and gives 261 at n = 4
+([P399](LEDGER.md#p399)–[P401](LEDGER.md#p401)). Pushing the argument to the second layer showed
+that its pairwise contacts and triple points spend one Euler budget per triple of cubes, and a
+circle lemma (at any point all active faces of all cubes project onto one circle) removes the
+degenerate cases. So **max(4) ≤ 195 if the second layer's boundary is connected**
+([P404](LEDGER.md#p404), [P405](LEDGER.md#p405)), and the interval is [183, 261] outright,
+[183, 195] on that one condition.
+
 ## 11. The code, briefly
 
 The exact counter (`cube_regions`, C++), its slower cross-check

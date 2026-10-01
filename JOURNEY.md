@@ -255,7 +255,11 @@ evidence is threefold and each leg is independent:
   the records are the *deep-cap* configurations; the frustration is that
   nobody gets both. Summing all caps bounds the total: ≤ 801 at n=6
   (record 723 — the 78-point gap is the price of frustration made
-  visible), ≤ 195 at n=4, ≤ 445 at n=5, ≤ 1343 at n=7.
+  visible), ≤ 195 at n=4, ≤ 445 at n=5, ≤ 1343 at n=7. *[Those caps were
+  conjectures, so these sums were conjectural bounds, not proved ones. The
+  depth-1 cap written here, 10n² − 14n, was proved for every n on 2026-09-30,
+  and 195 at four cubes became a theorem on one connectivity condition the
+  same day; see Act XVI.]*
 - **A completely independent measurement agrees.** There's a
   reformulation on the direction-sphere: point outward in direction û;
   cube k extends to radius 1/‖Rₖᵀû‖∞; the deep layers count cells of
@@ -1315,8 +1319,9 @@ answer was always another search. Then a small identity appears — [P258] — a
 
     TOTAL = T + two-body + Σ (c_ℓ + 1) + 1
 
-Every term but one was already proved bounded. The exception is `c_ℓ`, the number of connected
-components of the level-ℓ curve arrangement. **The whole tower's upper bound now rests on one
+Every term but one was believed proved bounded. The exception is `c_ℓ`, the number of connected
+components of the level-ℓ curve arrangement. (A proof checker found a second, on 2026-09-28: an
+accounting step argued but never verified. See Act XVI.) **The whole tower's upper bound now rests on one
 number that nobody can bound**, and the project stops searching for compounds and starts
 auditing an equation.
 
@@ -1531,3 +1536,44 @@ recur. A correction written where an error was *stated* does not reach the place
 *used*; the 953 stood for sixteen days after its premise fell. And a hypothesis tested only where
 the tools can reach is a hypothesis about the tools: the counterexample to T was the most
 familiar compound in the project, sitting just outside the rational world the tests could see.
+
+## Act XVI: a checker, a bound that assumes nothing, and one condition left
+
+*(2026-09-28 to 09-30. The tower still does not move. The ceiling does.)*
+
+It began with an outside reader. A reviewer noticed that a summary listed a bound on four cubes as
+proved "only for compounds with no" certain vertices. The bound was real, but its proof needed
+something else entirely, that every level of the arrangement be connected, and the condition in
+the summary belonged to a different formula. The user asked whether a proof checker could have
+caught it.
+
+Not directly, as it turned out, but a checker changes what must be written down. The project's
+reductions were rewritten for Lean with every geometric fact as a named assumption, and one
+convention did most of the work: Euler's formula written with the number of connected pieces
+left in, `V − E + F = 1 + c`, rather than the familiar `= 2`. Every argument that silently assumed
+a connected picture then had to say so. Two had. One of the two published routes to 67 was among
+them; the theorem survived because the other route, a Mayer–Vietoris argument from early August,
+never needed it.
+
+That second route turned out to be the week's real find. It counts regions directly: the
+directions in which a chosen group of cubes all reach farther than the rest break into convex
+pieces, and topology bounds how few components those pieces can form. Applied at every depth it
+gives the first bound on four cubes that assumes nothing, and a formula for every size that is
+exact at two and three cubes. The user asked what made it inexact beyond three. Part of the answer
+was my own overcount, pieces that all pass through the same face centre counted separately, and
+fixing it proved the ceiling law's outermost layer for every size. The rest was genuinely
+structural, and following it to the bottom gave a clean exchange: at the second layer, every
+two-cube contact is paid for by a triple point it displaces, out of one fixed budget per triple of
+cubes. Measured first, then proved. One last lemma, that at any point all the cubes' active faces
+project onto a single circle, disposed of the degenerate cases.
+
+What is left for 195 is one sentence: that the boundary between the second-layer regions is
+connected. Two thousand configurations say it is. Nobody has said why.
+
+### What the act is actually about
+
+Two things. A proof checker is only as honest as its encoding; the useful move was not running
+Lean, it was deciding to write every theorem so that its assumptions had to be named. And the
+question that improved the mathematics most was, again, a question about the method: not whether
+a bound was right, but why it was not exact.
+

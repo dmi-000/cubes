@@ -206,8 +206,8 @@ unproved**; [P371]'s case analysis is withdrawn, and so is everything downstream
 and the band grid's conclusions.
 
 **What still stands:** the proved box (`E_i <= 10`, `E_S <= 32`, hence
-`EE + B <= 188 - 2*SC2`, and `TOTAL <= 195 - Q4` for compounds with no `(1,1,2)`, `(1,2,2)` or
-`(2,2,2)` vertices, [P374](LEDGER.md#p374)); the golden attaining 164 at `SC2 = 12`, which
+`EE + B <= 188 - 2*SC2`; `TOTAL <= 195 - Q4` only if the holes are trivial, CORRECTED
+2026-09-28 by [P395](LEDGER.md#p395) from a scope borrowed from [P374](LEDGER.md#p374)); the golden attaining 164 at `SC2 = 12`, which
 is exactly its box bound, so that one branch is closed BY PROOF; [P370]'s phantom-`K4`
 correction; [P371]'s six-sharing enumeration; [P372]'s merge law and wall degrees; and the
 record itself at 183.

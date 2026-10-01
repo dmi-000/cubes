@@ -158,7 +158,7 @@ generalisation to all n. The first subset-to-whole inequality in the project.
 
 So: **the inequality is now a theorem; `max(4) <= 195` is not yet one.** What
 stands between them is a degenerate-case bookkeeping step and [OQ 30], both of
-which are narrower than the inequality was.
+which are narrower than the inequality was. <!-- reviewed 2026-09-28: says max(4) <= 195 is NOT yet a theorem; 'theorem' labels the inequality -->
 
 ## Verification
 

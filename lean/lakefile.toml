@@ -1,0 +1,6 @@
+name = "CubeBounds"
+version = "0.1.0"
+defaultTargets = ["CubeBounds"]
+
+[[lean_lib]]
+name = "CubeBounds"

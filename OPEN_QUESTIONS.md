@@ -997,6 +997,32 @@ own entry: that scan was contaminated by degenerate (face-plane-sharing) configu
 
 ## 29. Prove the ceiling law for l >= 2 — now an EQUALITY question, not a bound
 
+**Sharpest form, 2026-09-30 ([P401](LEDGER.md#p401), [P402](LEDGER.md#p402)).** At n = 4 only `l = 2`
+is left (`d1 <= 104`, `d3 <= 24` are proved), and it alone gives `max(4) <= 195`. It holds iff
+`2(W2 + W4 + c2 - 1) <= 128 - T`, with `W2`, `W4` the two-body and four-fold weight at depth 2
+(`deg/2 - 1` per vertex) and `T` the triple points of the four triples: the depth-2 coincidences must cost at least the triple points they displace, with the
+level-2 boundary connected. Per-set Mayer–Vietoris, even summed with Theorem S, gives only 132. <!-- reviewed 2026-09-30: 195 stated as conditional on d2 <= 66 -->
+**Measured ([P403](LEDGER.md#p403)):** never violated in 210 configurations, 88 of 207 random ones
+with depth-2 two-body weight; the exchange is at least 1:1 (one unit of triple weight displaced per
+unit of two-body weight) and exactly 1:1 in some, with `c2 = 1` throughout.
+**PROVED, 2026-09-30 ([P404](LEDGER.md#p404)):** the exchange, by charging every level-2 vertex to
+a triple's bottom diagram; `max(4) <= 194 + c2 + X + W4u`. What is left for 195: `c2 = 1`, and
+`X = 0`, `W4u = 0` (degenerate triple points and four-fold points; never seen in 210). `W4u = 0` is
+PROVED at generic four-fold points and reduces exactly to `C12 >= 3` at degenerate ones ([P404]'s addendum).
+**Both PROVED for cubes, 2026-09-30 ([P405](LEDGER.md#p405)): the circle lemma. `max(4) <= 195` is now
+PROVED IF `c2 = 1`**, for compounds with no shared face plane. `c2 = 1` is the one open condition.
+
+**What `c2 = 1` says, 2026-09-30.** `Gamma` is connected iff every face of `S^2 \ Gamma`, a component
+of `E_P = {the pair P are the two innermost cubes}`, is a disk. Cubes are centrally symmetric, so
+faces map to faces under `u -> -u`, and a failure is either an antipodally SYMMETRIC band (an annulus
+whose two boundary circles are swapped: `c2 = 2`, the shape [P269] found at level 1) or a pair of
+antipodal annuli (`c2 >= 3`). **So `c2 = 1` iff no depth-2 cell is an annulus.** A band needs the same
+two cubes innermost all round an equator; the obvious construction (the pair sharing a body diagonal
+along the axis) fails because any cube with a face centre near the band beats them there, which
+suggests an anchoring argument (ANCHOR, the facet-centre lemma [P311]). Not proved. Evidence:
+`c2 = 1` in all 1 951 configurations of [P403]-[P405], and no `c > 1` below level 1 in [P319]'s
+3 382 level-instances.
+
 [P250](LEDGER.md#p250) reframes it. The deep caps are attained by 577 of 658 configurations at
 n=5 and 576 of 657 at n=7, so the conjecture is not "d_ell is bounded by C" but "**the generic
 value of d_ell IS C, and coincidence only reduces it**".
@@ -1006,8 +1032,8 @@ vertex is a simple triple point, so `d_ell = V3(ell)/2 + c + 1` — an exact cou
 points inside exactly `ell-1` cubes. (b) Coincidence reduces: merging vertices consumes
 plane-triples faster than it adds gain, the convexity [P237] already used.
 
-**Worth:** would put max(4) in [183, 195]. (The upper end otherwise has no hypothesis-free bound: [P249]'s 953 is not proved, see its scope note, 2026-09-24.) **Caveat:** the bound stays loose at
-ell = 1 (104 against a measured max of 96), so even a proof leaves 12 regions undetermined —
+**Worth:** would put max(4) in [183, 195]. (Unconditionally the upper end is 261, [P401](LEDGER.md#p401), 2026-09-30, which PROVES the ell = 1 case, `d1 <= 104`, and leaves at n = 4 only `d2 <= 66`; [P249]'s 953 has a PROOF GAP.) **Caveat:** the bound is attained at
+ell = 1 (the golden 177 has `d1 = 104`; the census max of 96 was a sampling max), so even a proof leaves 12 regions undetermined —
 exactly the frustration of [P242].
 
 **HALF THE ROUTE IS DEAD ([P252](LEDGER.md#p252)):** coincidence does NOT locally reduce V3 —
@@ -1232,7 +1258,7 @@ about; or (b) bound the defect `2(d₃ − 2) − W₁` above by the budget's ow
 statements about coincident triple points, not about components.
 
 **Status:** open, 2026-09-07. With [OQ 30], the last thing between the project and a proved
-`max(4) ≤ 195`.
+`max(4) ≤ 195`. <!-- reviewed 2026-09-28: states 195 as conditional on this question and OQ 30 -->
 
 
 *(OQ 32 widened 2026-09-08, [P271](LEDGER.md#p271). The framing above — "a degeneracy-and-
@@ -1492,13 +1518,14 @@ in `cellcomplex.complexus` and already has the nodes; only the diff is missing.
 **Opened 2026-09-16 by [P328](LEDGER.md#p328), and it is the successor to [OQ 30] as the
 load-bearing question.**
 
-[P326] showed that settling `holes <= 1` completes the upper bound for every `n` but barely
-tightens it — the slack is in `T + two-body`, 384 of a 393-region gap at n = 10. [P328] locates
+[P326] showed that settling `holes <= 1` barely tightens the upper bound for every `n`; completing
+it also needs the accounting step `sum(E - V) <= T + two-body`, argued but not verified
+(CORRECTED 2026-09-28, [P396](LEDGER.md#p396)). The holes barely tighten it — the slack is in `T + two-body`, 384 of a 393-region gap at n = 10. [P328] locates
 that slack exactly:
 
     TOTAL = [ 1 + L + sum c + T3 ]  +  [ EE + 2*SC2 + 3*Q4 + 4*EE3 + 7*SC3 ]
 
-`T3 <= 32*C(n,3)` is PROVED and is ATTAINED at the records, so the generic part is pinned.
+`T3 <= 32*C(n,3)` is PROVED for cubes meeting pairwise transversally ([P397](LEDGER.md#p397)) and is ATTAINED at the records, so the generic part is pinned.
 **Everything loose is in the degenerate terms, and nothing bounds any of them.** They supply
 13–28 % of each record's count.
 
@@ -1607,7 +1634,7 @@ corners, so the corner-sharing graph can be complete only for `n <= 5`:
 
 Above n = 5 the two-body cap `10*C(n,2)` is unreachable by corner-sharing alone — which predicts
 that the bound is loosest exactly where the records are, and is testable against the 90–92 %
-band of [P326].
+band of [P326]. <!-- reviewed 2026-09-28: cites the measured ratios, not the proof status -->
 
 
 <a id="37"></a>

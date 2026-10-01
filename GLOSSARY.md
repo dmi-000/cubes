@@ -236,7 +236,7 @@ as a triple point inflates `T3` and hides `Q4generic`, and `B` then looks like 7
 128.)*
 
 **`h(S)`** **(ours)** — `count(S) - (1/2)(sum of its pair counts)`, the inclusion-exclusion
-share of a 3-subset. `h = 0.5 + (1/2) sum E_i + E_S <= 47.5` PROVED ([P348]).
+share of a 3-subset. `h = 0.5 + (1/2) sum E_i + E_S <= 47.5` PROVED IF the holes are trivial ([P348], [P395]).
 
 **THE IDENTITY these exist for**, at n = 4 with trivial holes:
 

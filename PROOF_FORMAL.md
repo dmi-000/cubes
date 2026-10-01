@@ -48,8 +48,12 @@ the measure-zero walls. Routine.]
 
 **B2. Euler.** The top diagram is a graph on S² (vertices = directions
 where ≥ 3 top-faces meet; edges = arcs of tie-curves r_i = r_j; faces =
-the T_i components). With degree-2 vertices suppressed, V − E + F = 2 and
-2E = Σ deg, so
+the T_i components). With degree-2 vertices suppressed, V − E + F = 1 + c for a
+graph with c components, and 2E = Σ deg. **This route needs c = 1, a connected
+top diagram, and nothing here proves it** (checked in Lean, 2026-09-28,
+[P398](LEDGER.md#p398)); with c components the identity below reads
+d₁ = 1 + c + ½W. max(3) = 67 does not depend on it: the Mayer–Vietoris route of
+[P110](LEDGER.md#p110) gives d₁ ≤ 48 directly. With c = 1,
 
     d₁ = F = 2 + ½ Σ_v (deg_v − 2)  =:  2 + ½ W,
 
@@ -219,7 +223,7 @@ since there are 3 cells) and that D1–D3 used only |S|=2. Both hold.
 
 ---
 
-## Part E — assembly (COMPLETE given C and D)
+## Part E — assembly (COMPLETE given C, D, and a connected top diagram; see B2)
 
 W = W_triple + W_contact ≤ 32 + 60 = 92, so d₁ = 2 + ½W ≤ 48. With
 d₂ ≤ 18 (A2) and d₃ ≤ 1 (A1):
