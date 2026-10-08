@@ -1,0 +1,8 @@
+general  none  {'excess_0': 1966, 'off_G': 1034, 'on_G': 1966}   control violations 39
+general  pair  {'excess_0': 2603, 'off_G': 397, 'on_G': 2603}   control violations 37
+general  two   {'excess_0': 3000, 'on_G': 3000}   control violations 30
+general  hub   {'excess_0': 2974, 'off_G': 26, 'on_G': 2974}   control violations 40
+general  axis  {'excess_0': 2723, 'off_G': 277, 'on_G': 2723}   control violations 39
+cube     none  {'excess_0': 2002, 'off_G': 998, 'on_G': 2002}   control violations 34
+cube     pair  {'excess_0': 2483, 'off_G': 517, 'on_G': 2483}   control violations 27
+(stopped after 7 of 10 rows; superseded by the parallel run with identity checks, P418)

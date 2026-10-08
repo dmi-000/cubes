@@ -1,0 +1,50 @@
+135 shrink [125, 125] grow [149, 149] a tie-break keeps or gains
+135 shrink [137, 137] grow [145, 145] a tie-break keeps or gains
+135 shrink [129, 129] grow [153, 153] a tie-break keeps or gains
+135 shrink [137, 137] grow [145, 145] a tie-break keeps or gains
+135 shrink [137, 137] grow [145, 145] a tie-break keeps or gains
+137 shrink [129, 129] grow [141, 141] a tie-break keeps or gains
+135 shrink [129, 129] grow [153, 153] a tie-break keeps or gains
+135 shrink [125, 125] grow [149, 149] a tie-break keeps or gains
+131 shrink [125, 125] grow [131, 131] a tie-break keeps or gains
+133 shrink [119, 119] grow [143, 143] a tie-break keeps or gains
+135 shrink [129, 129] grow [153, 153] a tie-break keeps or gains
+137 shrink [129, 129] grow [141, 141] a tie-break keeps or gains
+133 shrink [129, 129] grow [141, 141] a tie-break keeps or gains
+133 shrink [127, 127] grow [135, 135] a tie-break keeps or gains
+137 shrink [129, 129] grow [141, 141] a tie-break keeps or gains
+133 shrink [116, 116] grow [139, 139] a tie-break keeps or gains
+109 shrink [107, 107] grow [100, 100] BOTH TIE-BREAKS LOSE
+107 shrink [108, 108] grow [111, 111] a tie-break keeps or gains
+105 shrink [103, 103] grow [96, 96] BOTH TIE-BREAKS LOSE
+105 shrink [107, 107] grow [100, 100] a tie-break keeps or gains
+105 shrink [107, 107] grow [99, 99] a tie-break keeps or gains
+105 shrink [107, 107] grow [100, 100] a tie-break keeps or gains
+105 shrink [107, 107] grow [100, 100] a tie-break keeps or gains
+105 shrink [107, 107] grow [99, 99] a tie-break keeps or gains
+105 shrink [108, 108] grow [107, 107] a tie-break keeps or gains
+105 shrink [108, 108] grow [107, 107] a tie-break keeps or gains
+103 shrink [107, 107] grow [99, 99] a tie-break keeps or gains
+103 shrink [115, 115] grow [92, 92] a tie-break keeps or gains
+87 shrink [91, 91] grow [95, 95] a tie-break keeps or gains
+89 shrink [95, 95] grow [95, 95] a tie-break keeps or gains
+73 shrink [72, 72] grow [75, 75] a tie-break keeps or gains
+93 shrink [99, 99] grow [99, 99] a tie-break keeps or gains
+72 shrink [76, 76] grow [76, 76] a tie-break keeps or gains
+91 shrink [95, 95] grow [91, 91] a tie-break keeps or gains
+91 shrink [95, 95] grow [99, 99] a tie-break keeps or gains
+98 shrink [100, 100] grow [100, 100] a tie-break keeps or gains
+91 shrink [87, 87] grow [87, 87] BOTH TIE-BREAKS LOSE
+80 shrink [84, 84] grow [80, 80] a tie-break keeps or gains
+95 shrink [95, 95] grow [92, 92] a tie-break keeps or gains
+89 shrink [95, 95] grow [88, 88] a tie-break keeps or gains
+88 shrink [84, 84] grow [88, 88] a tie-break keeps or gains
+95 shrink [99, 99] grow [95, 95] a tie-break keeps or gains
+91 shrink [96, 96] grow [95, 95] a tie-break keeps or gains
+84 shrink [89, 89] grow [89, 89] a tie-break keeps or gains
+94 shrink [96, 96] grow [92, 92] a tie-break keeps or gains
+103 shrink [107, 107] grow [96, 96] a tie-break keeps or gains
+74 shrink [84, 84] grow [77, 77] a tie-break keeps or gains
+91 shrink [95, 95] grow [87, 87] a tie-break keeps or gains
+
+48 compounds: 45 a tie-break keeps or gains, 3 both lose, 0 unevaluated, 0 skipped (not one pair)

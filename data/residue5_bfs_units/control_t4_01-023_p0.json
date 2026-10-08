@@ -1,0 +1,29 @@
+{
+ "mode": "control",
+ "t": 4,
+ "owners": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   2,
+   3
+  ]
+ ],
+ "placement": 0,
+ "params": [
+  "t"
+ ],
+ "faces": 2,
+ "lps": 13,
+ "lp_check": false,
+ "lp_paths": {
+  "cert": 9,
+  "cert_infeasible": 12
+ },
+ "sampler_points": 3,
+ "missed": 0,
+ "secs": 0.1
+}

@@ -1,0 +1,39 @@
+105109 configurations; whole T-levels by (t, level r, u, common point of all T, cubes owning only it):
+    (2, 1, 0, 'common point', 2) 3331
+    (3, 1, 0, 'common point', 3) 1310
+    (3, 1, 1, 'common point', 2) 2641
+    (3, 2, 0, 'common point', 3) 1310
+    (3, 2, 0, 'no common point', 0) 1206
+    (4, 1, 0, 'common point', 4) 199
+    (4, 1, 0, 'no common point', 0) 219
+    (4, 1, 1, 'common point', 3) 532
+    (4, 1, 2, 'common point', 2) 282
+    (4, 2, 0, 'common point', 4) 199
+    (4, 2, 1, 'common point', 3) 532
+    (4, 2, 1, 'no common point', 0) 837
+    (4, 3, 0, 'common point', 4) 199
+    (4, 3, 0, 'no common point', 0) 767
+    (5, 1, 0, 'common point', 5) 15
+    (5, 1, 0, 'no common point', 0) 56
+    (5, 1, 1, 'common point', 4) 28
+    (5, 1, 1, 'no common point', 0) 86
+    (5, 1, 2, 'common point', 3) 17
+    (5, 1, 3, 'common point', 2) 1
+    (5, 2, 0, 'common point', 5) 15
+    (5, 2, 0, 'no common point', 0) 30
+    (5, 2, 1, 'common point', 4) 28
+    (5, 2, 1, 'no common point', 0) 87
+    (5, 2, 2, 'common point', 3) 17
+    (5, 2, 2, 'no common point', 0) 123
+    (5, 3, 0, 'common point', 5) 15
+    (5, 3, 0, 'no common point', 0) 24
+    (5, 3, 1, 'common point', 4) 28
+    (5, 3, 1, 'no common point', 0) 100
+    (5, 3, 2, 'no common point', 0) 8
+    (5, 4, 0, 'common point', 5) 15
+    (5, 4, 0, 'no common point', 0) 154
+   example level >= 2: {'pts': {1: ['902/3'], 3: ['902/3'], 4: ['902/3']}, 'level': 2}
+   example level >= 2: {'pts': {0: ['201', '16'], 2: ['201'], 3: ['16'], 4: ['16']}, 'level': 3}
+   example level >= 2: {'pts': {1: ['433/3'], 2: ['433/3'], 3: ['433/3']}, 'level': 2}
+   example level >= 2: {'pts': {0: ['291'], 1: ['291'], 2: ['291'], 3: ['291'], 4: ['291']}, 'level': 2}
+   example level >= 2: {'pts': {0: ['291'], 1: ['291'], 2: ['291'], 3: ['291'], 4: ['291']}, 'level': 3}

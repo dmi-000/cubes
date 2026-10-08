@@ -1,0 +1,10 @@
+t=2 c=0: 11 (L, W, R) triples, min Δ′ − rhs = 0, tight with rhs > 0: 0, failures 0
+t=2 c=1: 11 (L, W, R) triples, min Δ′ − rhs = 0, tight with rhs > 0: 0, failures 0
+t=2 c=2: 11 (L, W, R) triples, min Δ′ − rhs = 0, tight with rhs > 0: 8, failures 0
+t=2 c=3: 11 (L, W, R) triples, min Δ′ − rhs = 0, tight with rhs > 0: 8, failures 0
+t=3 c=0: 104 (L, W, R) triples, min Δ′ − rhs = 0, tight with rhs > 0: 0, failures 0
+t=3 c=1: 104 (L, W, R) triples, min Δ′ − rhs = 0, tight with rhs > 0: 18, failures 0
+t=3 c=2: 104 (L, W, R) triples, min Δ′ − rhs = 0, tight with rhs > 0: 34, failures 0
+t=4 c=0: 1634 (L, W, R) triples, min Δ′ − rhs = 0, tight with rhs > 0: 200, failures 0
+t=4 c=1: 1634 (L, W, R) triples, min Δ′ − rhs = 0, tight with rhs > 0: 252, failures 0
+t=5 c=0: 38016 (L, W, R) triples, min Δ′ − rhs = 0, tight with rhs > 0: 4284, failures 0

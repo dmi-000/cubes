@@ -2,12 +2,14 @@
 """Read each Lean bound's hypotheses back from Lean, derive its label, and check the hypotheses bite.
 
 `lean/CubeBounds/Basic.lean` states every upper-bound reduction on max(n) with each geometric input
-as a NAMED hypothesis whose prefix records its ledger status (proved_, argued_, hyp_, refuted_).
+as a NAMED hypothesis whose prefix records its ledger status (proved_, draft_, argued_, hyp_,
+refuted_). draft_ is a proof in a document under the current external read, awaiting its outcome.
 This script:
 
   1. asks Lean for each theorem's signature (`#check`), so the hypothesis list is Lean's, not a
      transcription, and derives the label:
-         any refuted_ -> PROOF GAP;  any hyp_ or argued_ -> PROVED IF;  else PROVED
+         any refuted_ -> PROOF GAP;  any hyp_ or argued_ -> PROVED IF;  any draft_ -> DRAFT;
+         else PROVED
   2. asks Lean for its axioms (`#print axioms`): anything beyond propext / Quot.sound /
      Classical.choice, and above all `sorryAx`, fails the run;
   3. NECESSITY: recompiles each theorem with each non-proved hypothesis deleted, and requires the
@@ -51,8 +53,13 @@ EXPECT = {
     'per_set_closed_form_tight': ('PROVED', 'P401'),
     'depth1_ceiling': ('PROVED', 'P401, RESULTS ceiling law at l = n - 1'),
     'max4_le_261': ('PROVED', 'P401'),
-    'max4_le_195_charging': ('PROVED IF', 'P404, RESULTS section 4'),
+    'max4_le_195_charging': ('PROVED IF', 'P404, superseded by max4_le_195 (P410)'),
+    'max4_le_195': ('DRAFT', 'P410, PROOF_BAND, RESULTS section 2 (not yet externally reviewed)'),
 }
+
+# proved_ binders whose necessity is tested anyway: a new lemma that carries a headline must be
+# shown to be USED, or the headline does not rest on it
+ALSO_NEEDED = {'max4_le_195': ['proved_ANCHOR_triple_depth2']}   # the draft_ band lemma is tested as non-proved
 
 
 def lean_run(text):
@@ -71,6 +78,8 @@ def label(names):
         return 'PROOF GAP'
     if any(n.startswith(('hyp_', 'argued_')) for n in names):
         return 'PROVED IF'
+    if any(n.startswith('draft_') for n in names):
+        return 'DRAFT'
     return 'PROVED'
 
 
@@ -138,7 +147,7 @@ def main():
     for t in thms:
         sig = re.search(r'^Cube\.%s .*?(?=^Cube\.|^\'Cube)' % t, out, re.S | re.M).group(0)
         names = re.findall(r'\((\w+) :', sig)
-        hyps = [n for n in names if re.match(r'(proved|argued|hyp|refuted)_', n)]
+        hyps = [n for n in names if re.match(r'(proved|draft|argued|hyp|refuted)_', n)]
         ax = re.search(r"'Cube\.%s' depends on axioms: \[([^\]]*)\]" % t, out)
         axioms = {a.strip() for a in ax.group(1).split(',')} if ax else set()
         ax_bad = axioms - OK_AXIOMS
@@ -157,7 +166,7 @@ def main():
             print('    CONTROL FAILED: the theorem does not compile standalone\n' + o0); bad += 1
             continue
         for h in hyps:
-            if h.startswith('proved_'):
+            if h.startswith('proved_') and h not in ALSO_NEEDED.get(t, []):
                 continue
             rc1, _ = lean_run('namespace Cube\n%s\n%s\nend Cube\n' % (defc, drop_binder(thms[t], h)))
             print('      without %-44s %s' % (h, 'proof fails: NEEDED' if rc1 else 'STILL PROVES: NOT NEEDED'))

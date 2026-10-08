@@ -1,0 +1,10 @@
+Check 1′, ANY side ties (every sharing pattern) t=2 c=0: 11 triples, min 0, failures 0
+Check 1′, ANY side ties (every sharing pattern) t=2 c=1: 11 triples, min 0, failures 0
+Check 1′, ANY side ties (every sharing pattern) t=2 c=2: 11 triples, min 0, failures 0
+Check 1′, ANY side ties (every sharing pattern) t=2 c=3: 11 triples, min 0, failures 0
+Check 1′, ANY side ties (every sharing pattern) t=3 c=0: 229 triples, min 0, failures 0
+Check 1′, ANY side ties (every sharing pattern) t=3 c=1: 229 triples, min 0, failures 0
+Check 1′, ANY side ties (every sharing pattern) t=3 c=2: 229 triples, min 0, failures 0
+Check 1′, ANY side ties (every sharing pattern) t=4 c=0: 7811 triples, min 0, failures 0
+Check 1′, ANY side ties (every sharing pattern) t=4 c=1: 7811 triples, min 0, failures 0
+Check 1′, ANY side ties (every sharing pattern) t=5 c=0: 399061 triples, min 0, failures 0

@@ -1,0 +1,8 @@
+0 sharing pair(s): 4 rows; slack histogram [(20, 4)]; violations 0; max d2 22; tightest {'qs': [(1, 0, 0, 0), (0, 0, 0, 2), (-16, 14, 2, -8), (-4, -4, 4, -6)], 'd2': 18, 'd2S': [2, 6, 18, 18], 'sum_pS': 0}
+1 sharing pair(s): 387 rows; slack histogram [(5, 3), (6, 8), (7, 4), (8, 222), (9, 3), (10, 26), (12, 117), (14, 3), (16, 1)]; violations 0; max d2 54; tightest {'qs': [(1, 0, 0, 0), (74, 0, 0, -28), (0, 6, -5, 1), (9, 10, -9, 9)], 'd2': 54, 'd2S': [14, 14, 18, 15], 'sum_pS': 4}
+2 sharing pair(s): 128 rows; slack histogram [(10, 2), (12, 38), (13, 1), (14, 19), (15, 5), (16, 39), (18, 15), (19, 1), (20, 4), (22, 4)]; violations 0; max d2 44; tightest {'qs': [(1, 0, 0, 0), (-1, 0, 0, 3), (6, 5, -5, -2), (-34, -15, 35, -2)], 'd2': 44, 'd2S': [12, 14, 12, 14], 'sum_pS': 8}
+3 sharing pair(s): 121 rows; slack histogram [(14, 3), (16, 8), (18, 82), (19, 1), (20, 15), (21, 4), (22, 7), (24, 1)]; violations 0; max d2 42; tightest {'qs': [(1, 0, 0, 0), (4, 0, 0, -6), (2, 0, 0, -1), (8, 5, 3, -5)], 'd2': 40, 'd2S': [12, 12, 12, 12], 'sum_pS': 12}
+4 sharing pair(s): 67 rows; slack histogram [(23, 1), (24, 8), (25, 1), (26, 56), (27, 1)]; violations 0; max d2 30; tightest {'qs': [(1, 0, 0, 0), (6, 0, 0, 1), (4, 6, 0, 0), (-5, 1, -1, -5)], 'd2': 30, 'd2S': [10, 10, 12, 11], 'sum_pS': 16}
+6 sharing pair(s): 120 rows; slack histogram [(50, 120)]; violations 0; max d2 16; tightest {'qs': [(1, 0, 0, 0), (9, 0, 0, 6), (-8, 0, 0, 10), (12, 0, 0, 1)], 'd2': 16, 'd2S': [12, 12, 12, 12], 'sum_pS': 24}
+unevaluated: 0
+sphere_count crosscheck: 25 of 25 agree

@@ -1,0 +1,9 @@
+validation against exact counts (rows, agree, rows with a degenerate Voronoi vertex): {'n5 rows': [150, 150, 0], 'n5 bands': [400, 400, 2], 'n3 small ints': [150, 150, 70], 'n4 small ints': [150, 150, 37], 'n5 small ints': [150, 150, 51]}
+random: 1600000 compounds, c4 histogram [(1, 1599976), (2, 24)], min d4 - 2c4 = 21 (d4 25, c4 2)
+climbs minimising d4 - 2c4: [(11, 15, 2), (11, 15, 2), (11, 15, 2), (11, 15, 2), (11, 15, 2), (11, 15, 2), (12, 14, 1), (12, 14, 1), (12, 14, 1), (12, 14, 1), (12, 14, 1), (13, 17, 2), (13, 17, 2), (13, 17, 2), (16, 18, 1), (16, 18, 1)]
+   exact recheck: float (11, 15, 2), rationalised float (15, 2), exact d4 15 c4 2
+   exact recheck: float (11, 15, 2), rationalised float (18, 1), exact d4 18 c4 1
+   exact recheck: float (11, 15, 2), rationalised float (17, 2), exact d4 17 c4 2
+   exact recheck: float (11, 15, 2), rationalised float (19, 2), exact d4 19 c4 2
+   exact recheck: float (11, 15, 2), rationalised float (19, 2), exact d4 19 c4 2
+   exact recheck: float (11, 15, 2), rationalised float (17, 2), exact d4 17 c4 2

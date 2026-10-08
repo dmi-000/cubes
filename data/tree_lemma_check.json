@@ -1,0 +1,194 @@
+{
+ "max_N_reached": 14,
+ "per_N_H_enumeration": {
+  "1": {
+   "instances": 1,
+   "H_instances": 1,
+   "H_violations": 0,
+   "seconds": 0.0
+  },
+  "2": {
+   "instances": 0,
+   "H_instances": 0,
+   "H_violations": 0,
+   "seconds": 0.0
+  },
+  "3": {
+   "instances": 9,
+   "H_instances": 9,
+   "H_violations": 0,
+   "seconds": 0.0
+  },
+  "4": {
+   "instances": 21,
+   "H_instances": 21,
+   "H_violations": 0,
+   "seconds": 0.0
+  },
+  "5": {
+   "instances": 90,
+   "H_instances": 90,
+   "H_violations": 0,
+   "seconds": 0.0
+  },
+  "6": {
+   "instances": 186,
+   "H_instances": 186,
+   "H_violations": 0,
+   "seconds": 0.0
+  },
+  "7": {
+   "instances": 993,
+   "H_instances": 993,
+   "H_violations": 0,
+   "seconds": 0.0
+  },
+  "8": {
+   "instances": 2382,
+   "H_instances": 2382,
+   "H_violations": 0,
+   "seconds": 0.01
+  },
+  "9": {
+   "instances": 11097,
+   "H_instances": 11097,
+   "H_violations": 0,
+   "seconds": 0.03
+  },
+  "10": {
+   "instances": 34116,
+   "H_instances": 34116,
+   "H_violations": 0,
+   "seconds": 0.28
+  },
+  "11": {
+   "instances": 149253,
+   "H_instances": 149253,
+   "H_violations": 0,
+   "seconds": 1.26
+  },
+  "12": {
+   "instances": 513966,
+   "H_instances": 513966,
+   "H_violations": 0,
+   "seconds": 4.82
+  },
+  "13": {
+   "instances": 2222160,
+   "H_instances": 2222160,
+   "H_violations": 0,
+   "seconds": 18.97
+  },
+  "14": {
+   "instances": 8344290,
+   "H_instances": 8344290,
+   "H_violations": 0,
+   "seconds": 75.26
+  }
+ },
+ "H_violations_total": 0,
+ "H_first_violation": null,
+ "control_H_dropped": {
+  "max_N_run": 9,
+  "per_N": {
+   "1": {
+    "instances": 1,
+    "H_instances": 1,
+    "violations_total": 0,
+    "violations_non_H": 0
+   },
+   "2": {
+    "instances": 0,
+    "H_instances": 0,
+    "violations_total": 0,
+    "violations_non_H": 0
+   },
+   "3": {
+    "instances": 9,
+    "H_instances": 9,
+    "violations_total": 0,
+    "violations_non_H": 0
+   },
+   "4": {
+    "instances": 21,
+    "H_instances": 21,
+    "violations_total": 0,
+    "violations_non_H": 0
+   },
+   "5": {
+    "instances": 108,
+    "H_instances": 90,
+    "violations_total": 6,
+    "violations_non_H": 6
+   },
+   "6": {
+    "instances": 228,
+    "H_instances": 186,
+    "violations_total": 18,
+    "violations_non_H": 18
+   },
+   "7": {
+    "instances": 1557,
+    "H_instances": 993,
+    "violations_total": 270,
+    "violations_non_H": 270
+   },
+   "8": {
+    "instances": 4026,
+    "H_instances": 2382,
+    "violations_total": 894,
+    "violations_non_H": 894
+   },
+   "9": {
+    "instances": 21933,
+    "H_instances": 11097,
+    "violations_total": 6474,
+    "violations_non_H": 6474
+   }
+  },
+  "non_H_violations_total": 7662,
+  "smallest_counterexample": {
+   "nodes": 5,
+   "edges": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     4
+    ]
+   ],
+   "region_colours": {
+    "1": 0,
+    "2": 1
+   },
+   "L_live": {
+    "0": false,
+    "3": true,
+    "4": true
+   }
+  },
+  "failed_as_required": true
+ },
+ "path_control": {
+  "n_P": [
+   2,
+   2,
+   1
+  ],
+  "lhs": 1,
+  "rhs": 2,
+  "claim_fails": true
+ },
+ "notes": "Instances counted with duplicates over (labelled tree rep, orientation, colouring, marking); live>=1; region degree>=2; n=1 (lone live L) included; n=2 yields none.",
+ "runtime_seconds": 100.7
+}

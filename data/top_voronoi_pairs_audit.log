@@ -1,0 +1,2 @@
+pairs with c != 2 or a coplanar merge, in the random phase: 1
+    {'c_1e-9': 1, 'merges_1e-9': 2, 'c_1e-12': 2, 'merges_1e-12': 0, 'c_1e-07': 1, 'merges_1e-07': 2}

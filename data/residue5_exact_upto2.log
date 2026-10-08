@@ -1,0 +1,4 @@
+182 patterns to evaluate
+182 patterns, 323 placements, 105281 samples in 2963 s; patterns with a negative slack: 0; cross-check misses: 0
+minimum twice-slack per (t, c): [((3, 0), 0), ((3, 1), 0), ((3, 2), 0), ((4, 0), 0), ((4, 1), 0), ((5, 0), 0)]
+skipped samples: {'unrealisable_merge': 7109}

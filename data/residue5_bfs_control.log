@@ -1,0 +1,124 @@
+control: 169 patterns, 310 units, 80 already done; 6 workers
+1/310 [[0, 1], [0, 2]] p0 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (1 s; 0 s total)
+2/310 [[0, 1], [0, 2]] p1 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (1 s; 0 s total)
+3/310 [[0, 1], [0, 2], [1]] p0 (1 params): faces 3, LPs 31 {'cert': 73}, missed 0 of 3 sampler points (1 s; 0 s total)
+4/310 [[0, 1], [0, 2], [1], [2]] p0 (1 params): faces 5, LPs 68 {'cert': 242, 'cert_infeasible': 6}, missed 0 of 5 sampler points (2 s; 0 s total)
+5/310 [[0, 1], [0, 2], [1], [2]] p1 (1 params): faces 5, LPs 68 {'cert': 242, 'cert_infeasible': 6}, missed 0 of 5 sampler points (2 s; 0 s total)
+6/310 [[0, 1, 2], [0]] p0 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (1 s; 0 s total)
+7/310 [[0, 1, 2], [0]] p1 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (0 s; 0 s total)
+8/310 [[0, 1, 2], [0], [1]] p0 (1 params): faces 3, LPs 31 {'cert': 73, 'cert_infeasible': 0}, missed 0 of 3 sampler points (0 s; 0 s total)
+9/310 [[0, 1], [0, 2], [3]] p0 (2 params): faces 50, LPs 556 {'cert': 1952, 'cert_infeasible': 288}, missed 0 of 57 sampler points (13 s; 0 s total)
+10/310 [[0, 1], [0, 2], [3]] p1 (2 params): faces 50, LPs 556 {'cert': 1952, 'cert_infeasible': 288}, missed 0 of 57 sampler points (13 s; 0 s total)
+11/310 [[0, 1], [0, 2], [3], [3]] p0 (2 params): faces 88, LPs 1376 {'cert': 8096, 'cert_infeasible': 216}, missed 0 of 83 sampler points (92 s; 0 s total)
+12/310 [[0, 1], [0, 2], [3], [3]] p1 (2 params): faces 88, LPs 1320 {'cert': 8040, 'cert_infeasible': 216}, missed 0 of 83 sampler points (89 s; 0 s total)
+13/310 [[0, 1], [0, 2], [3], [3]] p2 (2 params): faces 88, LPs 1320 {'cert': 8040, 'cert_infeasible': 216}, missed 0 of 83 sampler points (91 s; 0 s total)
+14/310 [[0, 1], [0, 2], [3], [3]] p3 (2 params): faces 88, LPs 1376 {'cert': 8096, 'cert_infeasible': 216}, missed 0 of 83 sampler points (93 s; 0 s total)
+15/310 [[0, 1], [0, 2], [3], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (8 s; 0 s total)
+16/310 [[0, 1], [0, 2], [3], [3], [3]] p1 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (8 s; 0 s total)
+17/310 [[0, 1], [0, 2], [0], [3]] p0 (1 params): faces 24, LPs 288 {'cert': 948, 'cert_infeasible': 144}, missed 0 of 13 sampler points (4 s; 0 s total)
+18/310 [[0, 1], [0, 2], [0], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (8 s; 0 s total)
+19/310 [[0, 1], [0, 2], [0], [3], [3]] p1 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (8 s; 0 s total)
+20/310 [[0, 1], [0, 2], [0], [3], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (8 s; 0 s total)
+21/310 [[0, 1], [0, 2], [1], [3], [3]] p0 (2 params): faces 240, LPs 4996 {'cert': 22265, 'cert_infeasible': 1308}, missed 0 of 197 sampler points (69 s; 0 s total)
+22/310 [[0, 1], [0, 2], [1], [3]] p0 (2 params): faces 152, LPs 2524 {'cert': 12992, 'cert_infeasible': 1056}, missed 0 of 123 sampler points (170 s; 0 s total)
+23/310 [[0, 1], [0, 2], [1], [3], [3]] p1 (2 params): faces 240, LPs 4996 {'cert': 25092, 'cert_infeasible': 1326}, missed 0 of 197 sampler points (77 s; 0 s total)
+24/310 [[0, 1], [0, 2], [1], [3], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (9 s; 0 s total)
+25/310 [[0, 1], [0, 2], [1], [2], [3]] p0 (2 params): faces 392, LPs 8652 {'cert': 45022, 'cert_infeasible': 4140}, missed 0 of 325 sampler points (838 s; 0 s total)
+26/310 [[0, 1], [0, 2], [1], [2], [3]] p1 (2 params): faces 392, LPs 8652 {'cert': 44865, 'cert_infeasible': 4170}, missed 0 of 325 sampler points (139 s; 0 s total)
+27/310 [[0, 1], [0, 2], [1], [2], [3], [3]] p0 (2 params): faces 572, LPs 15132 {'cert': 125677, 'cert_infeasible': 7152}, missed 0 of 477 sampler points (371 s; 0 s total)
+28/310 [[0, 1], [0, 2], [1], [2], [3], [3]] p1 (2 params): faces 572, LPs 15172 {'cert': 127523, 'cert_infeasible': 7242}, missed 0 of 477 sampler points (370 s; 0 s total)
+29/310 [[0, 1], [0, 2], [1], [2], [3], [3]] p2 (2 params): faces 572, LPs 15172 {'cert': 132928, 'cert_infeasible': 7452}, missed 0 of 477 sampler points (388 s; 0 s total)
+30/310 [[0, 1], [0, 2], [1], [2], [3], [3]] p3 (2 params): faces 572, LPs 15132 {'cert': 132888, 'cert_infeasible': 7452}, missed 0 of 477 sampler points (389 s; 0 s total)
+31/310 [[0, 1], [0, 2], [1, 3]] p0 (1 params): faces 3, LPs 31 {'cert': 73, 'cert_infeasible': 0}, missed 0 of 3 sampler points (0 s; 0 s total)
+32/310 [[0, 1], [0, 2], [1, 3], [2]] p0 (1 params): faces 5, LPs 68 {'cert': 242, 'cert_infeasible': 6}, missed 0 of 5 sampler points (1 s; 0 s total)
+33/310 [[0, 1], [0, 2], [1, 3], [2]] p1 (1 params): faces 5, LPs 68 {'cert': 242, 'cert_infeasible': 6}, missed 0 of 5 sampler points (1 s; 0 s total)
+34/310 [[0, 1], [0, 2], [1, 3], [2], [3]] p0 (1 params): faces 9, LPs 152 {'cert': 592, 'cert_infeasible': 54}, missed 0 of 9 sampler points (2 s; 0 s total)
+35/310 [[0, 1], [2, 3]] p0 (1 params): faces 8, LPs 40 {'cert': 108, 'cert_infeasible': 0}, missed 0 of 5 sampler points (0 s; 0 s total)
+36/310 [[0, 1], [2, 3], [0]] p0 (2 params): faces 50, LPs 556 {'cert': 1952, 'cert_infeasible': 288}, missed 0 of 57 sampler points (6 s; 0 s total)
+37/310 [[0, 1], [2, 3], [0]] p1 (2 params): faces 50, LPs 556 {'cert': 1952, 'cert_infeasible': 288}, missed 0 of 57 sampler points (6 s; 0 s total)
+38/310 [[0, 1], [2, 3], [0], [0]] p0 (1 params): faces 24, LPs 288 {'cert': 948, 'cert_infeasible': 144}, missed 0 of 13 sampler points (3 s; 0 s total)
+39/310 [[0, 1], [2, 3], [0], [0]] p1 (1 params): faces 24, LPs 288 {'cert': 948, 'cert_infeasible': 144}, missed 0 of 13 sampler points (3 s; 0 s total)
+40/310 [[0, 1], [2, 3], [0], [1]] p0 (2 params): faces 152, LPs 2524 {'cert': 12992, 'cert_infeasible': 1056}, missed 0 of 123 sampler points (37 s; 0 s total)
+41/310 [[0, 1], [2, 3], [0], [2]] p0 (2 params): faces 88, LPs 1376 {'cert': 8096, 'cert_infeasible': 216}, missed 0 of 83 sampler points (100 s; 0 s total)
+42/310 [[0, 1], [2, 3], [0], [2]] p1 (2 params): faces 88, LPs 1320 {'cert': 8040, 'cert_infeasible': 216}, missed 0 of 83 sampler points (22 s; 0 s total)
+43/310 [[0, 1], [2, 3], [0], [2]] p2 (2 params): faces 88, LPs 1320 {'cert': 8040, 'cert_infeasible': 216}, missed 0 of 83 sampler points (22 s; 0 s total)
+44/310 [[0, 1], [2, 3], [0], [2]] p3 (2 params): faces 88, LPs 1376 {'cert': 8096, 'cert_infeasible': 216}, missed 0 of 83 sampler points (22 s; 0 s total)
+45/310 [[0, 1], [2, 3], [0], [2], [2]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (5 s; 0 s total)
+46/310 [[0, 1], [2, 3], [0], [2], [2]] p1 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (5 s; 0 s total)
+47/310 [[0, 1], [2, 3], [0], [0], [2], [2]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (5 s; 0 s total)
+48/310 [[0, 1], [2, 3], [0], [1], [2]] p1 (2 params): faces 240, LPs 4996 {'cert': 37964, 'cert_infeasible': 1500}, missed 0 of 197 sampler points (866 s; 0 s total)
+49/310 [[0, 1], [2, 3], [0], [1], [2], [2]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (6 s; 0 s total)
+50/310 [[0, 1], [2, 3], [0], [1], [2]] p0 (2 params): faces 240, LPs 4996 {'cert': 37964, 'cert_infeasible': 1500}, missed 0 of 197 sampler points (106 s; 0 s total)
+51/310 [[0, 1], [0, 2, 3]] p0 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (0 s; 0 s total)
+52/310 [[0, 1], [0, 2, 3]] p1 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (0 s; 0 s total)
+53/310 [[0, 1], [0, 2, 3], [2]] p0 (1 params): faces 3, LPs 31 {'cert': 73, 'cert_infeasible': 0}, missed 0 of 3 sampler points (0 s; 0 s total)
+54/310 [[0, 1], [0, 2, 3], [1]] p0 (1 params): faces 3, LPs 31 {'cert': 73, 'cert_infeasible': 0}, missed 0 of 3 sampler points (0 s; 0 s total)
+55/310 [[0, 1], [0, 2, 3], [2]] p1 (1 params): faces 3, LPs 31 {'cert': 73, 'cert_infeasible': 0}, missed 0 of 3 sampler points (0 s; 0 s total)
+56/310 [[0, 1], [0, 2, 3], [1], [2]] p0 (1 params): faces 5, LPs 68 {'cert': 242, 'cert_infeasible': 6}, missed 0 of 5 sampler points (1 s; 0 s total)
+57/310 [[0, 1], [0, 2, 3], [1], [2]] p1 (1 params): faces 5, LPs 68 {'cert': 242, 'cert_infeasible': 6}, missed 0 of 5 sampler points (1 s; 0 s total)
+58/310 [[0, 1, 2], [3]] p0 (1 params): faces 8, LPs 40 {'cert': 108, 'cert_infeasible': 0}, missed 0 of 5 sampler points (0 s; 0 s total)
+59/310 [[0, 1, 2], [3], [3]] p1 (2 params): faces 50, LPs 556 {'cert': 1952, 'cert_infeasible': 288}, missed 0 of 57 sampler points (6 s; 0 s total)
+60/310 [[0, 1, 2], [3], [3]] p0 (2 params): faces 50, LPs 556 {'cert': 1952, 'cert_infeasible': 288}, missed 0 of 57 sampler points (7 s; 0 s total)
+61/310 [[0, 1, 2], [3], [3], [3]] p0 (1 params): faces 24, LPs 288 {'cert': 948, 'cert_infeasible': 144}, missed 0 of 13 sampler points (3 s; 0 s total)
+62/310 [[0, 1, 2], [0], [3]] p0 (2 params): faces 50, LPs 556 {'cert': 1952, 'cert_infeasible': 288}, missed 0 of 57 sampler points (6 s; 0 s total)
+63/310 [[0, 1, 2], [0], [3]] p1 (2 params): faces 50, LPs 556 {'cert': 1952, 'cert_infeasible': 288}, missed 0 of 57 sampler points (6 s; 0 s total)
+64/310 [[0, 1, 2], [0], [3], [3]] p0 (2 params): faces 88, LPs 1376 {'cert': 8096, 'cert_infeasible': 216}, missed 0 of 83 sampler points (22 s; 0 s total)
+65/310 [[0, 1, 2], [0], [3], [3]] p1 (2 params): faces 88, LPs 1320 {'cert': 8040, 'cert_infeasible': 216}, missed 0 of 83 sampler points (98 s; 0 s total)
+66/310 [[0, 1, 2], [0], [3], [3]] p2 (2 params): faces 88, LPs 1320 {'cert': 8040, 'cert_infeasible': 216}, missed 0 of 83 sampler points (22 s; 0 s total)
+67/310 [[0, 1, 2], [0], [3], [3]] p3 (2 params): faces 88, LPs 1376 {'cert': 8096, 'cert_infeasible': 216}, missed 0 of 83 sampler points (22 s; 0 s total)
+68/310 [[0, 1, 2], [0], [3], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (5 s; 0 s total)
+69/310 [[0, 1, 2], [0], [3], [3], [3]] p1 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (6 s; 0 s total)
+70/310 [[0, 1, 2], [0], [0], [3]] p0 (1 params): faces 24, LPs 288 {'cert': 948, 'cert_infeasible': 144}, missed 0 of 13 sampler points (3 s; 0 s total)
+71/310 [[0, 1, 2], [0], [0], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (6 s; 0 s total)
+72/310 [[0, 1, 2], [0], [0], [3], [3]] p1 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (5 s; 0 s total)
+73/310 [[0, 1, 2], [0], [0], [3], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (9 s; 0 s total)
+74/310 [[0, 1, 2], [0], [1], [3]] p0 (2 params): faces 152, LPs 2524 {'cert': 12992, 'cert_infeasible': 1056}, missed 0 of 123 sampler points (36 s; 0 s total)
+75/310 [[0, 1, 2], [0], [1], [3], [3]] p1 (2 params): faces 240, LPs 4996 {'cert': 37964, 'cert_infeasible': 1500}, missed 0 of 197 sampler points (106 s; 0 s total)
+76/310 [[0, 1, 2], [0], [1], [3], [3]] p0 (2 params): faces 240, LPs 4996 {'cert': 37964, 'cert_infeasible': 1500}, missed 0 of 197 sampler points (106 s; 0 s total)
+77/310 [[0, 1, 2], [0], [1], [3], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (6 s; 0 s total)
+78/310 [[0, 1, 2, 3], [0]] p0 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (0 s; 0 s total)
+79/310 [[0, 1, 2, 3], [0]] p1 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (0 s; 0 s total)
+80/310 [[0, 1, 2, 3], [0], [1]] p0 (1 params): faces 3, LPs 31 {'cert': 73, 'cert_infeasible': 0}, missed 0 of 3 sampler points (0 s; 0 s total)
+81/310 [[0, 1], [0, 2], [3], [4], [4], [4]] p1 (2 params): faces 2592, LPs 66456 {'cert': 644832, 'cert_infeasible': 30816}, missed 0 of 1105 sampler points (1873 s; 0 s total)
+  [control_t5_01-02-3-3-4-4-4_p3] phase 1: cells 59, faces 214, queue 2063, LPs 2183, 121 s
+  [control_t5_01-02-3-3-3-4-4-4_p0] phase 1: cells 57, faces 207, queue 1993, LPs 2109, 121 s
+  [control_t5_01-02-3-3-4-4-4_p1] phase 2: cells 864, faces 2433, queue 784, LPs 41178, 1813 s
+  [control_t5_01-02-3-3-4-4-4_p0] phase 2: cells 864, faces 2460, queue 725, LPs 45528, 1938 s
+  [control_t5_01-02-3-3-4-4-4_p2] phase 1: cells 747, faces 2156, queue 7614, LPs 27639, 1329 s
+  [control_t5_01-02-3-4-4-4_p0] phase 1: cells 90, faces 372, queue 2415, LPs 2790, 2054 s
+  [control_t5_01-02-3-3-4-4-4_p1] phase 2: cells 864, faces 2455, queue 745, LPs 44724, 1934 s
+  [control_t5_01-02-3-3-4-4-4_p3] phase 1: cells 116, faces 416, queue 4055, LPs 4292, 242 s
+  [control_t5_01-02-3-3-3-4-4-4_p0] phase 1: cells 113, faces 406, queue 3950, LPs 4181, 242 s
+  [control_t5_01-02-3-3-4-4-4_p0] phase 2: cells 864, faces 2483, queue 701, LPs 49080, 2059 s
+  [control_t5_01-02-3-3-4-4-4_p2] phase 1: cells 805, faces 2267, queue 5237, LPs 29785, 1450 s
+  [control_t5_01-02-3-4-4-4_p0] phase 1: cells 178, faces 720, queue 4783, LPs 5518, 2175 s
+  [control_t5_01-02-3-3-4-4-4_p1] phase 2: cells 864, faces 2476, queue 684, LPs 48078, 2055 s
+  [control_t5_01-02-3-3-4-4-4_p3] phase 1: cells 170, faces 602, queue 5939, LPs 6290, 363 s
+  [control_t5_01-02-3-3-3-4-4-4_p0] phase 1: cells 166, faces 588, queue 5799, LPs 6142, 363 s
+  [control_t5_01-02-3-3-4-4-4_p0] phase 2: cells 864, faces 2504, queue 631, LPs 52464, 2181 s
+  [control_t5_01-02-3-3-4-4-4_p2] phase 1: cells 860, faces 2371, queue 4626, LPs 31820, 1572 s
+  [control_t5_01-02-3-4-4-4_p0] phase 1: cells 262, faces 1038, queue 7043, LPs 8122, 2295 s
+  [control_t5_01-02-3-3-4-4-4_p3] phase 1: cells 226, faces 800, queue 7896, LPs 8362, 484 s
+  [control_t5_01-02-3-3-4-4-4_p1] phase 2: cells 864, faces 2499, queue 653, LPs 51624, 2176 s
+  [control_t5_01-02-3-3-4-4-4_p2] phase 2: cells 864, faces 2396, queue 846, LPs 35328, 1693 s
+  [control_t5_01-02-3-3-3-4-4-4_p0] phase 1: cells 221, faces 783, queue 7721, LPs 8177, 485 s
+  [control_t5_01-02-3-3-4-4-4_p0] phase 2: cells 864, faces 2526, queue 607, LPs 55986, 2303 s
+  [control_t5_01-02-3-4-4-4_p0] phase 1: cells 352, faces 1274, queue 9301, LPs 10912, 2416 s
+  [control_t5_01-02-3-3-4-4-4_p3] phase 1: cells 287, faces 1014, queue 10025, LPs 10619, 604 s
+  [control_t5_01-02-3-3-4-4-4_p1] phase 2: cells 864, faces 2523, queue 612, LPs 55506, 2298 s
+  [control_t5_01-02-3-3-4-4-4_p2] phase 2: cells 864, faces 2421, queue 806, LPs 39252, 1814 s
+  [control_t5_01-02-3-3-4-4-4_p0] phase 2: cells 864, faces 2549, queue 558, LPs 59748, 2424 s
+  [control_t5_01-02-3-3-3-4-4-4_p0] phase 1: cells 281, faces 993, queue 9815, LPs 10397, 608 s
+  [control_t5_01-02-3-4-4-4_p0] phase 1: cells 451, faces 1514, queue 11453, LPs 13981, 2537 s
+  [control_t5_01-02-3-3-4-4-4_p3] phase 1: cells 345, faces 1221, queue 12052, LPs 12765, 727 s
+  [control_t5_01-02-3-3-4-4-4_p2] phase 2: cells 864, faces 2443, queue 746, LPs 42804, 1935 s
+  [control_t5_01-02-3-3-4-4-4_p1] phase 2: cells 864, faces 2545, queue 570, LPs 59028, 2420 s
+  [control_t5_01-02-3-3-4-4-4_p0] phase 2: cells 864, faces 2571, queue 516, LPs 63252, 2545 s
+  [control_t5_01-02-3-3-3-4-4-4_p0] phase 1: cells 337, faces 1189, queue 11772, LPs 12469, 730 s
+  [control_t5_01-02-3-4-4-4_p0] phase 1: cells 540, faces 1719, queue 13468, LPs 16743, 2658 s
+  [control_t5_01-02-3-3-4-4-4_p3] phase 1: cells 400, faces 1409, queue 13971, LPs 14800, 847 s
+  [control_t5_01-02-3-3-4-4-4_p2] phase 2: cells 864, faces 2465, queue 722, LPs 46290, 2056 s
+  [control_t5_01-02-3-3-4-4-4_p1] phase 2: cells 864, faces 2566, queue 509, LPs 62448, 2541 s
+  [control_t5_01-02-3-3-4-4-4_p0] phase 2: cells 864, faces 2585, queue 432, LPs 66390, 2666 s
+  [control_t5_01-02-3-3-3-4-4-4_p0] phase 1: cells 391, faces 1376, queue 13656, LPs 14467, 852 s
+  [control_t5_01-02-3-4-4-4_p0] phase 1: cells 627, faces 1921, queue 15199, LPs 19457, 2779 s

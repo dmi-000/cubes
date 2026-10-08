@@ -74,8 +74,26 @@ n = 5 the records add cubes with NO sharing at all.
   seeded from the record and the face-diagonal family; the refuter is the n = 3 `EE + B`
   extreme extended. **What bounds `EE` at `B = 128` is open.**
 * **Proved with no hypothesis:** `max(4) <= 261` ([P399], [P401], 2026-09-30), by Mayer–Vietoris at
-  every depth, and the depth-1 ceiling law `d1 <= 10n^2 - 14n` for every n. `max(4) <= 195` now
-  follows from `d2 <= 66` alone.
+  every depth, and the depth-1 ceiling law `d1 <= 10n^2 - 14n` for every n. `max(4) <= 195` follows
+  from `d2 <= 66` alone.
+* **Draft within a scope, 2026-10-04 (labelled proved until 2026-10-08; unreviewed):** `max(4) <= 195` for compounds with no shared face plane
+  ([P410], [P412], PROOF_BAND.md; not yet externally reviewed). The band lemma
+  `c2 - 1 <= sum_S (c_S - 1)` replaces the false `c2 = 1`.
+* **Draft, 2026-10-05: `max(4) <= 195` with NO hypothesis** ([P418]–[P422], PROOF_SHARED.md;
+  unreviewed, and computer-assisted in [P420]). Compounds with a shared face plane give `<= 187`:
+  - charging with 2D tie patches;
+  - eight realisable sharing structures;
+  - holes only along hub edges.
+  Until it is reviewed, 261 is the bound that rests only on reviewed steps.
+* **Draft, 2026-10-05, five cubes:** `max(5) <= 485` for compounds with no shared face plane, and
+  `<= 457` when `d4 >= 2c4` ([P425]–[P430], PROOF_N5.md; unreviewed). Extended 2026-10-07 to
+  exactly one sharing pair (`<= 469` there; [P434], [P435], PROOF_N5 Part 4). Two or more sharing
+  pairs are not covered.
+  - The chain bounds the total, because every level's subset identity borrows from the top level.
+  - Its pieces: H1, a per-vertex inequality; the band lemma at levels 2 and 3; and the top level paid
+    for by its own faces.
+  - 871 remains the bound for compounds with two or more sharing pairs, so it is the only bound
+    for every five-cube compound.
 * **Proved and still standing:** `E_i <= 10` ([P237]), `E_S <= 32` (PROOF_67), hence
   `EE + B <= 188 - 2*SC2`. The golden attains `EE + B = 164` at `SC2 = 12`, exactly its box
   bound — the one branch closed by proof.

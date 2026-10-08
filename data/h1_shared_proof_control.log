@@ -1,0 +1,6 @@
+MUST-FAIL control (every pair may tie on a sector) t=3 c=0: min 0, failures 0
+MUST-FAIL control (every pair may tie on a sector) t=3 c=1: min 0, failures 0
+MUST-FAIL control (every pair may tie on a sector) t=3 c=2: min 0, failures 0
+MUST-FAIL control (every pair may tie on a sector) t=4 c=0: min 0, failures 0
+MUST-FAIL control (every pair may tie on a sector) t=4 c=1: min 0, failures 0
+MUST-FAIL control (every pair may tie on a sector) t=5 c=0: min 0, failures 0

@@ -1,0 +1,7 @@
+distinct rows 3420; excluded or void 0
+identities    rows  601  min L2 slack 0  min L3 slack 0  min d4-2c4 26  c4 values {1: 601}
+degenerate    rows  149  min L2 slack 0  min L3 slack 0  min d4-2c4 28  c4 values {1: 149}
+band_hits     rows  400  min L2 slack 4  min L3 slack 1  min d4-2c4 19  c4 values {1: 218, 2: 182}
+min_climb     rows  895  min L2 slack 2  min L3 slack 0  min d4-2c4 18  c4 values {1: 889, 2: 6}
+level4_climb  rows 1375  min L2 slack 0  min L3 slack 0  min d4-2c4 19  c4 values {1: 591, 2: 784}
+negative L2/L3 slack values: 0

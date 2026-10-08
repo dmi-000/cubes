@@ -1,0 +1,40 @@
+seed  0  total 317  depths [112, 110, 68, 26, 1]  sharing [[0, 1]]
+seed  2  total 317  depths [112, 110, 68, 26, 1]  sharing [[0, 1]]
+seed  4  total 317  depths [112, 110, 68, 26, 1]  sharing [[0, 1]]
+seed  6  total 317  depths [112, 110, 68, 26, 1]  sharing [[0, 1]]
+seed  8  total 317  depths [112, 110, 68, 26, 1]  sharing [[0, 1]]
+seed 10  total 317  depths [112, 110, 68, 26, 1]  sharing [[0, 1]]
+seed 12  total 317  depths [112, 110, 68, 26, 1]  sharing [[0, 1]]
+seed 14  total 317  depths [112, 110, 68, 26, 1]  sharing [[0, 1]]
+seed  9  total 313  depths [112, 110, 64, 26, 1]  sharing [[0, 1]]
+seed  1  total 303  depths [98, 108, 70, 26, 1]  sharing [[0, 1]]
+seed  3  total 303  depths [98, 106, 72, 26, 1]  sharing [[0, 1]]
+seed 11  total 303  depths [92, 112, 72, 26, 1]  sharing [[0, 1]]
+seed 15  total 301  depths [98, 108, 68, 26, 1]  sharing [[0, 1]]
+seed 13  total 299  depths [94, 104, 74, 26, 1]  sharing [[0, 1]]
+seed  5  total 291  depths [90, 102, 72, 26, 1]  sharing [[0, 1]]
+seed  7  total 291  depths [94, 98, 72, 26, 1]  sharing [[0, 1]]
+Traceback (most recent call last):
+  File "/Users/dmi/cube-compounds/src/probes/shared_n5_scope.py", line 137, in <module>
+    main()
+    ~~~~^^
+  File "/Users/dmi/cube-compounds/src/probes/shared_n5_scope.py", line 129, in main
+    rec = p.map(sc, [x['qs'] for x in rows[:3]])
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 367, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 774, in get
+    raise self._value
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/pool.py", line 540, in _handle_tasks
+    put(task)
+    ~~~^^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/connection.py", line 212, in send
+    self._send_bytes(_ForkingPickler.dumps(obj))
+                     ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/reduction.py", line 51, in dumps
+    cls(buf, protocol).dump(obj)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+_pickle.PicklingError: Can't pickle local object <function main.<locals>.sc at 0x110463740>
+when serializing tuple item 0
+when serializing tuple item 0
+when serializing tuple item 3

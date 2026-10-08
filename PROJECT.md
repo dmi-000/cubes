@@ -1249,7 +1249,8 @@ dimension. The pentagon was one of those triangles cut off by the edges of a sam
 ([P393](LEDGER.md#p393), [P394](LEDGER.md#p394)).
 
 **The 198 needs two assumptions, not one.** Written out for a proof checker, the tower-wide ceiling
-also uses an accounting step that had been argued and never verified ([P396](LEDGER.md#p396)).
+also uses an accounting step that had been argued and never verified ([P396](LEDGER.md#p396)); it was
+proved on 2026-10-04 ([P407](LEDGER.md#p407)), so the 198 is again conditional on one assumption.
 
 **And there is now a proved upper end with no hypothesis: 261.** Counting, at every depth, the
 components of the set of directions in which a group of cubes all reach farther than the rest, by
@@ -1261,6 +1262,42 @@ circle lemma (at any point all active faces of all cubes project onto one circle
 degenerate cases. So **max(4) ≤ 195 if the second layer's boundary is connected**
 ([P404](LEDGER.md#p404), [P405](LEDGER.md#p405)), and the interval is [183, 261] outright,
 [183, 195] on that one condition.
+
+### Where the frontier is (2026-10-05)
+
+The condition no longer matters. **max(4) ≤ 195 with no hypothesis, in draft** (unreviewed;
+parts are checked exhaustively by computer).
+
+- **No shared face plane** ([P410](LEDGER.md#p410), [`PROOF_BAND.md`](PROOF_BAND.md)). Band-shaped
+  second-layer regions exist, but each one is paid for by a triple of cubes whose own diagram
+  splits: the band lemma `c₂ − 1 ≤ Σ_S (c_S − 1)`. Ties between cubes then always cross, so the
+  circle lemma's degenerate cases need no separate assumption ([P412](LEDGER.md#p412)).
+- **A shared face plane** ([P418](LEDGER.md#p418)–[P422](LEDGER.md#p422),
+  [`PROOF_SHARED.md`](PROOF_SHARED.md)). The same accounting, redone with two-dimensional tie
+  patches, gives at most 187 for every way of sharing planes among four cubes.
+- Until those drafts have been read independently, 261 is the bound that rests only on older
+  steps.
+
+**Where 183 to 195 lives** ([P423](LEDGER.md#p423), [P424](LEDGER.md#p424)).
+- Over every recorded four-cube count, only two arrangements are not beaten layer by layer: the
+  record (92, 66, 24 in the first three layers) and the golden compound (104, 48, 24).
+- No arrangement has an outermost layer between 97 and 103. That holds for exact recounts, for
+  climbs, and in the golden compound's own neighbourhood, where its 104 is an isolated spike that
+  falls to 84 under the smallest turn.
+- Proving that gap would give 187. Two simple explanations in terms of shared corner axes were
+  refuted.
+
+**Five cubes** ([P425](LEDGER.md#p425)–[P429](LEDGER.md#p429), [`PROOF_N5.md`](PROOF_N5.md)).
+- At five, every layer's accounting borrows from the innermost one, so the band argument has to
+  bound the total.
+- In draft, **max(5) ≤ 485 for five cubes with no shared face plane**, and **≤ 457** when the
+  innermost layer has at least twice as many regions as its boundary has pieces (`d₄ ≥ 2c₄`).
+  The record is 393; for compounds with a shared face plane the bound is still 871.
+- The pieces:
+  - a per-point counting inequality in the circle model;
+  - the band lemma at levels 2 and 3, labelling each region by its top set of cubes;
+  - the innermost level, paid for by its own faces.
+- On every one of 3 420 measured compounds, `d₄ − 2c₄ ≥ 18`.
 
 ## 11. The code, briefly
 

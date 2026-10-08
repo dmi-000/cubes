@@ -1,0 +1,118 @@
+{
+ "general/none": {
+  "stats": {
+   "identity_ok": 528,
+   "on_G": 1966,
+   "excess_0": 1966,
+   "off_gamma": 1034
+  },
+  "control_violations": 39,
+  "control_trials": 750,
+  "examples": []
+ },
+ "general/pair": {
+  "stats": {
+   "identity_ok": 1462,
+   "on_G": 2562,
+   "excess_0": 2562,
+   "off_gamma": 392,
+   "patch_interior": 46
+  },
+  "control_violations": 37,
+  "control_trials": 750,
+  "examples": []
+ },
+ "general/two": {
+  "stats": {
+   "identity_FAILS": 1321,
+   "on_G": 3000,
+   "excess_0": 3000,
+   "identity_ok": 1679
+  },
+  "control_violations": 36,
+  "control_trials": 750,
+  "examples": []
+ },
+ "general/hub": {
+  "stats": {
+   "identity_ok": 1216,
+   "on_G": 2970,
+   "excess_0": 2970,
+   "identity_FAILS": 1041,
+   "patch_interior": 30
+  },
+  "control_violations": 46,
+  "control_trials": 750,
+  "examples": []
+ },
+ "general/axis": {
+  "stats": {
+   "on_G": 2706,
+   "excess_0": 2706,
+   "identity_FAILS": 2237,
+   "patch_interior": 294,
+   "identity_ok": 25
+  },
+  "control_violations": 39,
+  "control_trials": 750,
+  "examples": []
+ },
+ "cube/none": {
+  "stats": {
+   "identity_ok": 575,
+   "on_G": 1949,
+   "excess_0": 1949,
+   "off_gamma": 1051
+  },
+  "control_violations": 31,
+  "control_trials": 750,
+  "examples": []
+ },
+ "cube/pair": {
+  "stats": {
+   "identity_ok": 1529,
+   "on_G": 2461,
+   "excess_0": 2461,
+   "off_gamma": 367,
+   "patch_interior": 172
+  },
+  "control_violations": 31,
+  "control_trials": 750,
+  "examples": []
+ },
+ "cube/two": {
+  "stats": {
+   "identity_FAILS": 2794,
+   "on_G": 3000,
+   "excess_0": 3000,
+   "identity_ok": 206
+  },
+  "control_violations": 31,
+  "control_trials": 750,
+  "examples": []
+ },
+ "cube/hub": {
+  "stats": {
+   "on_G": 2578,
+   "excess_0": 2578,
+   "identity_FAILS": 1651,
+   "identity_ok": 593,
+   "patch_interior": 422
+  },
+  "control_violations": 44,
+  "control_trials": 750,
+  "examples": []
+ },
+ "cube/axis": {
+  "stats": {
+   "identity_FAILS": 1983,
+   "on_G": 1573,
+   "excess_0": 1573,
+   "identity_ok": 254,
+   "patch_interior": 1427
+  },
+  "control_violations": 36,
+  "control_trials": 750,
+  "examples": []
+ }
+}

@@ -171,7 +171,8 @@ supersedes the pairwise ν and covers arbitrary face/cube multiplicity;
 the shared-normal case (ii) is resolved as *self-exclusion*, not a
 parasite — the shared plane removes an anchor (fewer components), never
 adds one. Main-session status: reviewed and judged correct; the one
-soft step is "q_t lands in the same component U" (standard, tightenable);
+soft step is "q_t lands in the same component U" (standard, tightenable; TIGHTENED 2026-10-04,
+[P416](LEDGER.md#p416));
 independently stress-tested on 10⁴ exact configs (zero violations) plus
 400 exact shared-normal configs (worst per-cube count 4 ≤ 6).
 
@@ -350,7 +351,8 @@ that inflate the TOP diagram into contact vertices (the ≤ 60 half)
 leave the triple-point count pinned by the bottom diagram, which
 d2 ≤ 18 caps.
 
-**Caveat (same flavor as Theorem 1's).** The clean bound needs each
+**Caveat (same flavor as Theorem 1's).** *(CLOSED 2026-10-04 for compounds with no shared face plane:
+the circle lemma makes every triple point a degree-≥3 bottom vertex, [P417](LEDGER.md#p417).)* The clean bound needs each
 triple point to be a genuine degree-≥3 bottom vertex; a *tangential*
 triple point (where the bottom argmin fails to cycle through all three —
 a non-generic coincidence) would not be counted and needs the same
@@ -454,5 +456,5 @@ Complete corollaries now in hand:
    The only residual caveat is the pre-existing pairwise-tangency
    degeneracy of §5.4 (Part D), not a triple-point issue.
 2. Tighten the two "flavor of Theorem 1" caveats: Theorem 1's "q_t lands
-   in component U" (§3.1) and Lemma 1a's tangential-triple-point case
-   (§5.3). Standard, non-generic, corroborated; deserve clean write-ups.
+   in component U" (§3.1; DONE 2026-10-04, [P416](LEDGER.md#p416)) and Lemma 1a's
+   tangential-triple-point case (§5.3; DONE 2026-10-04 for no shared face plane, [P417](LEDGER.md#p417)). Standard, non-generic, corroborated; deserve clean write-ups.

@@ -50,7 +50,7 @@ theorem lemma1a_triple_le_32 (V E F c sumdeg triples : Nat)
     (proved_suppressed_deg_ge_3 : 3 * V ≤ sumdeg)
     (proved_components_pos : 1 ≤ c)
     (proved_A2_faces_are_depth2 : F ≤ 18)
-    (proved_transversal_triple_points_are_bottom_vertices : triples ≤ V) :
+    (proved_circle_lemma_triple_points_are_bottom_vertices : triples ≤ V) :
     triples ≤ 32 := by
   omega
 
@@ -290,5 +290,32 @@ theorem max4_le_195_charging (total d1 d2 d3 d4 : Nat) (EG VG c2 X W4u : Int) (b
   have b0 := proved_ANCHOR_triple_budget 0; have b1 := proved_ANCHOR_triple_budget 1
   have b2 := proved_ANCHOR_triple_budget 2; have b3 := proved_ANCHOR_triple_budget 3
   omega
+
+/-! ## [P410] `max(4) <= 195`: the band lemma replaces `c2 = 1`
+
+[P408] found `c2 = 2`.  The band lemma (PROOF_BAND.md) says the triples pay for every extra
+component of `Gamma`: `c2 - 1 <= sum_S (c_S - 1)`.  With `bud S = d2(S) - 1 - c_S` (Euler on `B_S`)
+and ANCHOR's `d2(S) <= 18`, the charging chain closes at 195 with no hypothesis on `c2`.
+Scope: no shared face plane (every tie is then a crossing, P412). -/
+theorem max4_le_195 (total d1 d2 d3 d4 : Nat) (EG VG c2 X W4u : Int) (bud d2S cS : Fin 4 → Int)
+    (proved_depth_sum : total = d1 + d2 + d3 + d4)
+    (proved_depth1_ceiling : d1 ≤ 104)
+    (proved_ANCHOR_depth3 : d3 ≤ 24)
+    (proved_core : d4 ≤ 1)
+    (proved_Euler_Gamma_with_components : (d2 : Int) = EG - VG + c2 + 1)
+    (proved_charging_if_no_shared_face_plane : EG - VG ≤ bud 0 + bud 1 + bud 2 + bud 3 + X + W4u)
+    (proved_Euler_triple : ∀ S, bud S = d2S S - 1 - cS S)
+    (proved_ANCHOR_triple_depth2 : ∀ S, d2S S ≤ 18)
+    (draft_P410_band_lemma_if_no_shared_face_plane :
+      c2 - 1 ≤ (cS 0 - 1) + (cS 1 - 1) + (cS 2 - 1) + (cS 3 - 1))
+    (proved_circle_lemma_X_eq_0 : X = 0)
+    (proved_circle_lemma_fourfold_charged : W4u = 0) :
+    total ≤ 195 := by
+  have e0 := proved_Euler_triple 0; have e1 := proved_Euler_triple 1
+  have e2 := proved_Euler_triple 2; have e3 := proved_Euler_triple 3
+  have a0 := proved_ANCHOR_triple_depth2 0; have a1 := proved_ANCHOR_triple_depth2 1
+  have a2 := proved_ANCHOR_triple_depth2 2; have a3 := proved_ANCHOR_triple_depth2 3
+  omega
+
 
 end Cube

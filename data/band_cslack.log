@@ -1,0 +1,5 @@
+
+best cslack per run: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+max c2 per run: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+LOWEST COMPONENT SLACK 1 at [(1, 0, 0, 0), (10, 1, 2, 0), (112, 42, -40, -2), (110, 42, -39, -1)] ({'c2': 2, 'cS': [2, 2, 1, 1], 'cslack': 1, 'margin': 13})
+moves: {'accepted': 8697, 'lost_band': 14989, 'excluded': 219, 'unevaluated': 0, 'worse': 95}

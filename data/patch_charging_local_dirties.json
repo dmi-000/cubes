@@ -1,0 +1,10 @@
+{
+ "general/pair": {
+  "pair_same_side": 1437,
+  "configs_with_any": 911
+ },
+ "cube/pair": {
+  "configs_with_any": 1100,
+  "pair_same_side": 2351
+ }
+}

@@ -1,0 +1,50 @@
+control: 169 patterns, 310 units, 0 already done; 6 workers
+1/310 [[0, 1], [0, 2]] p1 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (1 s; 1 s total)
+2/310 [[0, 1, 2], [0]] p0 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (1 s; 1 s total)
+3/310 [[0, 1], [0, 2]] p0 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (1 s; 1 s total)
+4/310 [[0, 1, 2], [0]] p1 (1 params): faces 2, LPs 13 {'cert': 9, 'cert_infeasible': 12}, missed 0 of 3 sampler points (0 s; 1 s total)
+5/310 [[0, 1], [0, 2], [1]] p0 (1 params): faces 3, LPs 31 {'cert': 73}, missed 0 of 3 sampler points (1 s; 1 s total)
+6/310 [[0, 1, 2], [0], [1]] p0 (1 params): faces 3, LPs 31 {'cert': 73, 'cert_infeasible': 0}, missed 0 of 3 sampler points (0 s; 1 s total)
+7/310 [[0, 1], [0, 2], [1], [2]] p1 (1 params): faces 5, LPs 68 {'cert': 242, 'cert_infeasible': 6}, missed 0 of 5 sampler points (2 s; 2 s total)
+8/310 [[0, 1], [0, 2], [1], [2]] p0 (1 params): faces 5, LPs 68 {'cert': 242, 'cert_infeasible': 6}, missed 0 of 5 sampler points (2 s; 2 s total)
+9/310 [[0, 1], [0, 2], [3]] p0 (2 params): faces 50, LPs 556 {'cert': 1952, 'cert_infeasible': 288}, missed 0 of 57 sampler points (13 s; 14 s total)
+10/310 [[0, 1], [0, 2], [3]] p1 (2 params): faces 50, LPs 556 {'cert': 1952, 'cert_infeasible': 288}, missed 0 of 57 sampler points (13 s; 14 s total)
+11/310 [[0, 1], [0, 2], [3], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (8 s; 22 s total)
+12/310 [[0, 1], [0, 2], [3], [3], [3]] p1 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (8 s; 22 s total)
+13/310 [[0, 1], [0, 2], [0], [3]] p0 (1 params): faces 24, LPs 288 {'cert': 948, 'cert_infeasible': 144}, missed 0 of 13 sampler points (4 s; 26 s total)
+14/310 [[0, 1], [0, 2], [0], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (8 s; 30 s total)
+15/310 [[0, 1], [0, 2], [0], [3], [3]] p1 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (8 s; 33 s total)
+16/310 [[0, 1], [0, 2], [0], [3], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (8 s; 38 s total)
+17/310 [[0, 1], [0, 2], [3], [3]] p1 (2 params): faces 88, LPs 1320 {'cert': 8040, 'cert_infeasible': 216}, missed 0 of 83 sampler points (89 s; 90 s total)
+18/310 [[0, 1], [0, 2], [3], [3]] p2 (2 params): faces 88, LPs 1320 {'cert': 8040, 'cert_infeasible': 216}, missed 0 of 83 sampler points (91 s; 93 s total)
+19/310 [[0, 1], [0, 2], [3], [3]] p0 (2 params): faces 88, LPs 1376 {'cert': 8096, 'cert_infeasible': 216}, missed 0 of 83 sampler points (92 s; 93 s total)
+20/310 [[0, 1], [0, 2], [3], [3]] p3 (2 params): faces 88, LPs 1376 {'cert': 8096, 'cert_infeasible': 216}, missed 0 of 83 sampler points (93 s; 95 s total)
+21/310 [[0, 1], [0, 2], [1], [3], [3], [3]] p0 (1 params): faces 24, LPs 336 {'cert': 2388, 'cert_infeasible': 0}, missed 0 of 13 sampler points (9 s; 101 s total)
+  [control_t4_01-02-1-3_p0] phase 1: cells 40, faces 133, queue 451, LPs 839, 120 s
+  [control_t4_01-02-1-3-3_p0] phase 1: cells 13, faces 50, queue 241, LPs 345, 120 s
+22/310 [[0, 1], [0, 2], [1], [3]] p0 (2 params): faces 152, LPs 2524 {'cert': 12992, 'cert_infeasible': 1056}, missed 0 of 123 sampler points (170 s; 204 s total)
+  [control_t4_01-02-1-3-3_p1] phase 1: cells 14, faces 51, queue 264, LPs 374, 128 s
+  [control_t4_01-02-1-2-3_p1] phase 1: cells 15, faces 56, queue 287, LPs 388, 126 s
+  [control_t4_01-02-1-2-3_p0] phase 1: cells 16, faces 63, queue 291, LPs 411, 131 s
+  [control_t4_01-02-1-2-3-3_p0] phase 1: cells 7, faces 33, queue 164, LPs 219, 136 s
+  [control_t4_01-02-1-3-3_p0] phase 1: cells 26, faces 98, queue 410, LPs 697, 245 s
+  [control_t4_01-02-1-2-3-3_p1] phase 1: cells 6, faces 30, queue 140, LPs 186, 125 s
+  [control_t4_01-02-1-2-3_p1] phase 1: cells 28, faces 92, queue 451, LPs 749, 247 s
+  [control_t4_01-02-1-2-3_p0] phase 1: cells 29, faces 109, queue 540, LPs 743, 252 s
+  [control_t4_01-02-1-3-3_p1] phase 1: cells 27, faces 95, queue 533, LPs 707, 257 s
+  [control_t4_01-02-1-2-3-3_p0] phase 1: cells 12, faces 52, queue 283, LPs 377, 275 s
+  [control_t4_01-02-1-3-3_p0] phase 1: cells 39, faces 143, queue 569, LPs 1054, 370 s
+  [control_t4_01-02-1-2-3_p1] phase 1: cells 41, faces 140, queue 685, LPs 1083, 369 s
+  [control_t4_01-02-1-2-3_p0] phase 1: cells 43, faces 158, queue 785, LPs 1100, 375 s
+  [control_t4_01-02-1-3-3_p1] phase 1: cells 39, faces 132, queue 578, LPs 1077, 379 s
+  [control_t4_01-02-1-2-3-3_p1] phase 1: cells 11, faces 46, queue 271, LPs 343, 268 s
+  [control_t4_01-02-1-2-3-3_p0] phase 1: cells 17, faces 61, queue 333, LPs 532, 397 s
+  [control_t4_01-02-1-3-3_p0] phase 1: cells 51, faces 177, queue 715, LPs 1385, 491 s
+  [control_t4_01-02-1-3-3_p1] phase 1: cells 51, faces 173, queue 837, LPs 1382, 500 s
+  [control_t4_01-02-1-2-3_p1] phase 1: cells 55, faces 175, queue 846, LPs 1469, 496 s
+  [control_t4_01-02-1-2-3_p0] phase 1: cells 56, faces 206, queue 1037, LPs 1434, 502 s
+  [control_t4_01-02-1-2-3-3_p1] phase 1: cells 17, faces 64, queue 401, LPs 535, 405 s
+  [control_t4_01-02-1-2-3-3_p0] phase 1: cells 23, faces 80, queue 470, LPs 719, 522 s
+  [control_t4_01-02-1-3-3_p0] phase 1: cells 62, faces 200, queue 551, LPs 1767, 616 s
+/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown: {'/mp-m1h66ie5', '/mp-yr6nf321', '/mp-gek1m5bn', '/mp-f0x5n9pw', '/mp-vjcqa3zr', '/mp-3jz52i3v'}
+  warnings.warn(

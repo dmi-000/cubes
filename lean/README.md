@@ -10,24 +10,25 @@ prefix records its status in the ledger:
 | prefix | meaning |
 |---|---|
 | `proved_` | proved in the ledger (the proof itself is outside Lean) |
+| `draft_` | proved in a written draft under the current external read (PROOF_BAND, PROOF_SHARED, PROOF_N5), awaiting its outcome |
 | `argued_` | argued in the ledger, recorded as not verified |
 | `hyp_` | an open hypothesis, or an identity that holds only under one |
 | `refuted_` | a premise the ledger has refuted |
 
 `python3 src/lean_status.py` (from the project root) reads each theorem's signature back from
-Lean, derives its label (any `refuted_`: PROOF GAP; any `hyp_` or `argued_`: PROVED IF; else
+Lean, derives its label (any `refuted_`: PROOF GAP; any `hyp_` or `argued_`: PROVED IF; any `draft_`: DRAFT; else
 PROVED), checks that no axiom beyond the standard ones or `sorry` is used, recompiles each theorem
 without each non-proved hypothesis to confirm the proof then fails, and compares the label with
 the documents'. See LEDGER P396.
 
-The triple cap `E_S <= 32` is proved only for cubes meeting pairwise transversally (P397); its
+The triple cap `E_S <= 32` is proved for cubes with no shared face plane (P397, P406); its
 binder says so, and every bound that uses it inherits that scope.
 
 | theorem | bound | label |
 |---|---|---|
 | `h_le` | `h(S) <= 47.5` per 3-subset | PROVED IF trivial holes |
 | `total_le_195_minus_Q4`, `..._from_caps` | `TOTAL <= 195 - Q4` at n = 4 | PROVED IF trivial holes |
-| `tower` | `TOTAL <= 1 + 32 C(n,3) + 10 C(n,2) + 3(n-1)` (198 at n = 4) | PROVED IF holes <= 1 AND the excess accounting step |
+| `tower` | `TOTAL <= 1 + 32 C(n,3) + 10 C(n,2) + 3(n-1)` (198 at n = 4) | PROVED IF holes <= 1 (accounting step proved, P407) |
 | `holes_of_c_le_two` | `c_l <= 2` gives the tower's hole hypothesis | PROVED IF `c_l <= 2` |
 | `total_le_953` | `max(4) <= 953` | PROOF GAP (depth-2 premise refuted by P274) |
 

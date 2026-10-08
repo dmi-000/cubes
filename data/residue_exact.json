@@ -1,0 +1,1031 @@
+{
+ "placements": [
+  {
+   "kind": "four",
+   "owners": [
+    "abc",
+    "d"
+   ],
+   "params": [
+    "o1"
+   ],
+   "samples": {
+    "points_coincide:enumerated": 2,
+    "off_G": 3
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ad"
+   ],
+   "params": [
+    "o1"
+   ],
+   "samples": {
+    "points_coincide:enumerated": 2,
+    "deg<=2_slack_0": 3
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "abcd"
+   ],
+   "params": [],
+   "samples": {
+    "off_G": 1
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "abc",
+    "d",
+    "d"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "off_G": 38,
+    "out_of_domain": 13,
+    "points_coincide:enumerated": 6
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "abc",
+    "d",
+    "d"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "off_G": 38,
+    "out_of_domain": 13,
+    "points_coincide:enumerated": 6
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ad",
+    "d"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "deg>=3_slack_1": 38,
+    "out_of_domain": 13,
+    "points_coincide:enumerated": 6
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ad",
+    "d"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "deg>=3_slack_1": 38,
+    "out_of_domain": 13,
+    "points_coincide:enumerated": 6
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "c",
+    "bd",
+    "ad"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "deg>=3_slack_2": 38,
+    "out_of_domain": 13,
+    "points_coincide:enumerated": 6
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "c",
+    "bd",
+    "ad"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "deg>=3_slack_2": 38,
+    "out_of_domain": 13,
+    "points_coincide:enumerated": 6
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "abcd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "off_G": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "abcd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "off_G": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bcd",
+    "ad"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "deg<=2_slack_0": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bcd",
+    "ad"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "deg<=2_slack_0": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "d",
+    "d"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "points_coincide:enumerated": 2,
+    "deg>=3_slack_4": 56,
+    "deg>=3_slack_2": 7,
+    "out_of_domain": 13,
+    "points_coincide:unrealisable(two_shared)": 5
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "d",
+    "d"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "deg>=3_slack_4": 56,
+    "points_coincide:unrealisable(two_shared)": 4,
+    "deg>=3_slack_2": 7,
+    "out_of_domain": 13,
+    "points_coincide:enumerated": 3
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "d",
+    "d"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "points_coincide:unrealisable(two_shared)": 4,
+    "deg>=3_slack_4": 56,
+    "out_of_domain": 13,
+    "deg>=3_slack_2": 7,
+    "points_coincide:enumerated": 3
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "d",
+    "d"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "points_coincide:enumerated": 2,
+    "deg>=3_slack_4": 56,
+    "deg>=3_slack_2": 7,
+    "out_of_domain": 13,
+    "points_coincide:unrealisable(two_shared)": 5
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "abc",
+    "cd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 1,
+    "deg<=2_slack_0": 1
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "abc",
+    "cd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "abc",
+    "cd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "abc",
+    "cd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 1,
+    "deg<=2_slack_0": 1
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "acd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 1,
+    "deg<=2_slack_2": 1
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "acd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "acd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "acd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 1,
+    "deg<=2_slack_2": 1
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "cd",
+    "ad"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 1,
+    "deg>=3_slack_1": 1
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "cd",
+    "ad"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "cd",
+    "ad"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "cd",
+    "ad"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 1,
+    "deg>=3_slack_1": 1
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "bd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "bd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "bd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "deg>=3_slack_3": 3,
+    "points_coincide:unrealisable(two_shared)": 1,
+    "out_of_domain": 1
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "bd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "bd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "bd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "deg>=3_slack_3": 3,
+    "points_coincide:unrealisable(two_shared)": 1,
+    "out_of_domain": 1
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "bd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "four",
+   "owners": [
+    "bc",
+    "ac",
+    "bd",
+    "d"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "ab",
+    "c"
+   ],
+   "params": [
+    "o1"
+   ],
+   "samples": {
+    "points_coincide:enumerated": 2,
+    "deg<=2_slack_0": 3
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "abc"
+   ],
+   "params": [],
+   "samples": {
+    "off_G": 1
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "ab",
+    "c",
+    "c"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "deg<=2_slack_0": 38,
+    "out_of_domain": 13,
+    "points_coincide:enumerated": 6
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "ab",
+    "c",
+    "c"
+   ],
+   "params": [
+    "o1",
+    "t"
+   ],
+   "samples": {
+    "deg<=2_slack_0": 38,
+    "out_of_domain": 13,
+    "points_coincide:enumerated": 6
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "abc",
+    "c"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "off_G": 2
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "abc",
+    "c"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "off_G": 2
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "bc",
+    "ac"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "deg<=2_slack_0": 2
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "bc",
+    "ac"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "deg<=2_slack_0": 2
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "ab",
+    "bc",
+    "c"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 1,
+    "deg>=3_slack_0": 1
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "ab",
+    "bc",
+    "c"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "ab",
+    "bc",
+    "c"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 2
+   }
+  },
+  {
+   "kind": "triple",
+   "owners": [
+    "ab",
+    "bc",
+    "c"
+   ],
+   "params": [
+    "t"
+   ],
+   "samples": {
+    "out_of_domain": 1,
+    "points_coincide:unrealisable(two_shared)": 1,
+    "deg>=3_slack_0": 1
+   }
+  }
+ ],
+ "stats": {
+  "points_coincide:enumerated": 64,
+  "off_G": 89,
+  "deg<=2_slack_0": 92,
+  "out_of_domain": 188,
+  "deg>=3_slack_1": 78,
+  "deg>=3_slack_2": 104,
+  "deg>=3_slack_4": 224,
+  "points_coincide:unrealisable(two_shared)": 56,
+  "deg<=2_slack_2": 2,
+  "deg>=3_slack_3": 6,
+  "deg>=3_slack_0": 2
+ },
+ "failures": [],
+ "validation": {
+  "n": 300,
+  "disagree": 0
+ },
+ "order_type_crosscheck": {
+  "placements": 47,
+  "missed": 0,
+  "detail": [
+   [
+    5,
+    2,
+    0
+   ],
+   [
+    5,
+    2,
+    0
+   ],
+   [
+    26,
+    8,
+    0
+   ],
+   [
+    26,
+    9,
+    0
+   ],
+   [
+    26,
+    8,
+    0
+   ],
+   [
+    26,
+    9,
+    0
+   ],
+   [
+    26,
+    9,
+    0
+   ],
+   [
+    26,
+    8,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    42,
+    14,
+    0
+   ],
+   [
+    42,
+    15,
+    0
+   ],
+   [
+    42,
+    15,
+    0
+   ],
+   [
+    42,
+    16,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    4,
+    2,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    4,
+    4,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    5,
+    2,
+    0
+   ],
+   [
+    26,
+    8,
+    0
+   ],
+   [
+    26,
+    9,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    1,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ],
+   [
+    2,
+    2,
+    0
+   ]
+  ]
+ }
+}

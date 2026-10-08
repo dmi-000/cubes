@@ -1,0 +1,3 @@
+evaluated 9599; c4 histogram [(1, 2483), (2, 7116)]
+min d4 - 2c4 by c4: {1: 16, 2: 15}
+no compound reached c4 >= 3 or d4 - 2c4 < 5

@@ -1004,7 +1004,7 @@ is left (`d1 <= 104`, `d3 <= 24` are proved), and it alone gives `max(4) <= 195`
 level-2 boundary connected. Per-set Mayer–Vietoris, even summed with Theorem S, gives only 132. <!-- reviewed 2026-09-30: 195 stated as conditional on d2 <= 66 -->
 **Measured ([P403](LEDGER.md#p403)):** never violated in 210 configurations, 88 of 207 random ones
 with depth-2 two-body weight; the exchange is at least 1:1 (one unit of triple weight displaced per
-unit of two-body weight) and exactly 1:1 in some, with `c2 = 1` throughout.
+unit of two-body weight) and exactly 1:1 in some, with `c2 = 1` throughout (but see [P408](LEDGER.md#p408): `c2 = 2` exists).
 **PROVED, 2026-09-30 ([P404](LEDGER.md#p404)):** the exchange, by charging every level-2 vertex to
 a triple's bottom diagram; `max(4) <= 194 + c2 + X + W4u`. What is left for 195: `c2 = 1`, and
 `X = 0`, `W4u = 0` (degenerate triple points and four-fold points; never seen in 210). `W4u = 0` is
@@ -1019,9 +1019,22 @@ whose two boundary circles are swapped: `c2 = 2`, the shape [P269] found at leve
 antipodal annuli (`c2 >= 3`). **So `c2 = 1` iff no depth-2 cell is an annulus.** A band needs the same
 two cubes innermost all round an equator; the obvious construction (the pair sharing a body diagonal
 along the axis) fails because any cube with a face centre near the band beats them there, which
-suggests an anchoring argument (ANCHOR, the facet-centre lemma [P311]). Not proved. Evidence:
-`c2 = 1` in all 1 951 configurations of [P403]-[P405], and no `c > 1` below level 1 in [P319]'s
-3 382 level-instances.
+suggests an anchoring argument (ANCHOR, the facet-centre lemma [P311]). **REFUTED 2026-10-04
+([P408](LEDGER.md#p408)):** a targeted search built two depth-2 bands (`c2 = 2`, totals 110 and 94);
+the 1 951 earlier configurations and [P319]'s 3 382 level-instances never reached the shape. The
+bound survives in both, because their triple budgets are 14 and 24 below the cap. **The open
+question is now `c2 - 1 <= 64 - sum_S budget_S`: does an extra depth-2 component always come with at
+least that much shortfall in the triples?** Measured ([P409](LEDGER.md#p409)): 7 bands found and 4
+climbs that tried to fill the budgets while keeping a band; the margin never fell below 7.
+**PROVED, 2026-10-04 ([P410](LEDGER.md#p410), [`PROOF_BAND.md`](PROOF_BAND.md)), for compounds with no
+shared face plane: the band lemma `c2 - 1 <= sum_S (c_S - 1)`.** An
+extra depth-2 component always comes with an extra component in a triple's bottom diagram, so
+`d2 <= sum_S d2(S) - 6 <= 66` and `max(4) <= 195`. Not yet externally reviewed. Left open:
+(i) the shared-face-plane case (the second scope condition first written here, transversal ties, follows from no shared face plane, [P412](LEDGER.md#p412)). SETTLED in draft 2026-10-05 for every sharing structure: `max(4) <= 187` with a shared face plane, so **`max(4) <= 195` unconditionally** ([P418](LEDGER.md#p418)–[P422](LEDGER.md#p422), [`PROOF_SHARED.md`](PROOF_SHARED.md); unreviewed, computer-assisted in [P420](LEDGER.md#p420)); (ii) the margin's observed floor of 7, with `d2(S)` =
+18, 18, 15, 15 and the 15s the band triples, in all 15 margin-7 endpoints of 20 greedy climbs. The
+next value to look for is 5, since margins came out odd. A proof would mean a band costs more than
+the lemma charges; (iii) the ceiling law for n >= 5.
+<!-- reviewed 2026-10-04: states P410's in-scope bound, not P348's conditional one -->
 
 [P250](LEDGER.md#p250) reframes it. The deep caps are attained by 577 of 658 configurations at
 n=5 and 576 of 657 at n=7, so the conjecture is not "d_ell is bounded by C" but "**the generic
@@ -1519,13 +1532,13 @@ in `cellcomplex.complexus` and already has the nodes; only the diff is missing.
 load-bearing question.**
 
 [P326] showed that settling `holes <= 1` barely tightens the upper bound for every `n`; completing
-it also needs the accounting step `sum(E - V) <= T + two-body`, argued but not verified
+it also needs the accounting step `sum(E - V) <= T + two-body`, PROVED 2026-10-04 ([P407](LEDGER.md#p407)); before that argued but not verified
 (CORRECTED 2026-09-28, [P396](LEDGER.md#p396)). The holes barely tighten it — the slack is in `T + two-body`, 384 of a 393-region gap at n = 10. [P328] locates
 that slack exactly:
 
     TOTAL = [ 1 + L + sum c + T3 ]  +  [ EE + 2*SC2 + 3*Q4 + 4*EE3 + 7*SC3 ]
 
-`T3 <= 32*C(n,3)` is PROVED for cubes meeting pairwise transversally ([P397](LEDGER.md#p397)) and is ATTAINED at the records, so the generic part is pinned.
+`T3 <= 32*C(n,3)` is PROVED for cubes with no shared face plane ([P397](LEDGER.md#p397), [P406](LEDGER.md#p406)) and is ATTAINED at the records, so the generic part is pinned.
 **Everything loose is in the degenerate terms, and nothing bounds any of them.** They supply
 13–28 % of each record's count.
 

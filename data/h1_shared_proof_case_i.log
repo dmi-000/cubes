@@ -1,0 +1,7 @@
+case (i) t=3 c=0: 2K_i = 0, min with R1 and e(T,t-1) >= t-1: 0
+case (i) t=3 c=1: 2K_i = 4, min with R1 and e(T,t-1) >= t-1: 4
+case (i) t=3 c=2: 2K_i = 12, min with R1 and e(T,t-1) >= t-1: 12
+case (i) t=4 c=0: 2K_i = 6, min with R1 and e(T,t-1) >= t-1: 6
+case (i) t=4 c=1: 2K_i = 20, min with R1 and e(T,t-1) >= t-1: 16
+case (i) t=5 c=0: 2K_i = 22, min with R1 and e(T,t-1) >= t-1: 20
+injected-defect control (Δpair shifted one rank): 118 failing triples (must be > 0)

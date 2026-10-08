@@ -1,0 +1,6634 @@
+[
+ {
+  "t": 3,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0,
+   "1": 0,
+   "2": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 3,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0,
+   "1": 0,
+   "2": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 3,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0,
+   "1": 0,
+   "2": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 3,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 1,
+  "samples": 3,
+  "min": {
+   "0": 0,
+   "1": 2,
+   "2": 4
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 1
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 3,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 1,
+  "samples": 3,
+  "min": {
+   "0": 0,
+   "1": 0,
+   "2": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 1
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 3,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 6,
+  "min": {
+   "0": 0,
+   "1": 0,
+   "2": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 3,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 2,
+  "samples": 6,
+  "min": {
+   "0": 0,
+   "1": 0,
+   "2": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 3,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 10,
+  "min": {
+   "0": 0,
+   "1": 2,
+   "2": 8
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 6,
+   "1": 16
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 4,
+   "1": 10
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 4,
+   "1": 10
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0,
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 6,
+   "1": 16
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 3,
+  "min": {
+   "0": 1,
+   "1": 3
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 1
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 9,
+  "min": {
+   "0": 5,
+   "1": 17
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 10,
+  "min": {
+   "0": 0,
+   "1": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 5,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 114,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 123,
+  "min": {
+   "0": 0,
+   "1": 1
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 9
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 2,
+  "samples": 114,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 6,
+   "1": 17
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 3,
+   "1": 9
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 6,
+   "1": 18
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 6,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 1,
+  "samples": 123,
+  "min": {
+   "0": 0,
+   "1": 1
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 9
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 1,
+  "samples": 3,
+  "min": {
+   "0": 0,
+   "1": 1
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 1
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 6,
+  "min": {
+   "0": 2,
+   "1": 4
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 5,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 10,
+  "min": {
+   "0": 0,
+   "1": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 114,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 114,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 4,
+  "samples": 332,
+  "min": {
+   "0": 2,
+   "1": 4
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 24
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 4,
+   "1": 8
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 8,
+   "1": 16
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 4,
+   "1": 8
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 4,
+  "samples": 332,
+  "min": {
+   "0": 1,
+   "1": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 24
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 8,
+   "1": 16
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 2,
+  "samples": 6,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0,
+   "1": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 1,
+  "samples": 3,
+  "min": {
+   "0": 2,
+   "1": 4
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 1
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 123,
+  "min": {
+   "0": 2,
+   "1": 4
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 9
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 394,
+  "min": {
+   "0": 0,
+   "1": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 30
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 4,
+  "samples": 332,
+  "min": {
+   "0": 0,
+   "1": 1
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 24
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 394,
+  "min": {
+   "0": 0,
+   "1": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 30
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 650,
+  "min": {
+   "0": 0,
+   "1": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 18
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 394,
+  "min": {
+   "0": 0,
+   "1": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 30
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 985,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1105,
+  "min": {
+   "0": 18
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 52
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 12
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 104
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 11
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 104
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 4,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 4,
+  "samples": 1908,
+  "min": {
+   "0": 5,
+   "1": 17
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 100
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 28
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 230
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0,
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0,
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 16
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0,
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 22
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 123,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 9
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1105,
+  "min": {
+   "0": 36
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 115
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 23
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1105,
+  "min": {
+   "0": 18
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 52
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 394,
+  "min": {
+   "0": 3
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 30
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 28
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 230
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 650,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 18
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 10,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 9,
+  "min": {
+   "0": 25
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 22,
+  "min": {
+   "0": 27
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 27
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 114,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 1,
+  "samples": 123,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 9
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1105,
+  "min": {
+   "0": 36
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 115
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 16
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 4,
+  "samples": 52,
+  "min": {
+   "0": 15
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 16
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 23
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 4,
+  "samples": 332,
+  "min": {
+   "0": 5
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 24
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 769,
+  "min": {
+   "0": 15
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 22
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 23
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 394,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 30
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 23
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 394,
+  "min": {
+   "0": 3
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 30
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 650,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 18
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3,
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 3,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 1
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3,
+    4
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 10,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3,
+    4
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 10,
+  "min": {
+   "0": 3
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3,
+    4
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 9,
+  "min": {
+   "0": 15
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 129,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 323,
+  "min": {
+   "0": 17
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 21
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 24
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 212
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 4420,
+  "min": {
+   "0": 20
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 370
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 1908,
+  "min": {
+   "0": 15
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 100
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 985,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 4420,
+  "min": {
+   "0": 22
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 388
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 1978,
+  "min": {
+   "0": 27
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 114
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 1970,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 4,
+  "samples": 1908,
+  "min": {
+   "0": 15
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 100
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1105,
+  "min": {
+   "0": 18
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 52
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 8
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 104
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 16
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 95
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1105,
+  "min": {
+   "0": 17
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 52
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0,
+    2,
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 6,
+  "min": {
+   "0": 5
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0,
+    2,
+    4
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 2,
+  "samples": 10,
+  "min": {
+   "0": 3
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0,
+    2,
+    4
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 18,
+  "min": {
+   "0": 17
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 114,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 9
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 104
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 12
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 11
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 18
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 332,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 24
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    1
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 123,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 9
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    1
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 18
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 246,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 18
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    1
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 394,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 30
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 20
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1105,
+  "min": {
+   "0": 36
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 115
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 650,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 18
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 5,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 4420,
+  "min": {
+   "0": 8
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 190
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 792,
+  "min": {
+   "0": 3
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 56
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 2,
+  "samples": 114,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 27
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 230
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 114,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 9
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 17
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 1,
+  "samples": 123,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 9
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 4,
+  "samples": 52,
+  "min": {
+   "0": 9
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 16
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1,
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 19
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 123,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 9
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 19
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3,
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 6,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3,
+    4
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 1,
+  "samples": 3,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 1
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3,
+    4
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 6,
+  "min": {
+   "0": 6
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3,
+    4
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 10,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 129,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 4,
+  "samples": 332,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 24
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 29
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 230
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ]
+  ],
+  "placements": 2,
+  "samples": 394,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 30
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 394,
+  "min": {
+   "0": 3
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 30
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 985,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 4420,
+  "min": {
+   "0": 18
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 370
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1105,
+  "min": {
+   "0": 16
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 43
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    2,
+    3
+   ],
+   [
+    1
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 1908,
+  "min": {
+   "0": 15
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 100
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 985,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    2
+   ],
+   [
+    2
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 4420,
+  "min": {
+   "0": 19
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 370
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 8
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 86
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 8
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 104
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 6,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 1,
+  "samples": 3,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 1
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0,
+    3,
+    4
+   ],
+   [
+    1
+   ],
+   [
+    3
+   ]
+  ],
+  "placements": 2,
+  "samples": 10,
+  "min": {
+   "0": 3
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 2
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 5,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 114,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 114,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 332,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 24
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 8
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 26,
+  "min": {
+   "0": 8
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 8
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 16
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1105,
+  "min": {
+   "0": 16
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 52
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 123,
+  "min": {
+   "0": 4
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 9
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 13,
+  "min": {
+   "0": 18
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 4
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3,
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 2,
+  "samples": 6,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1,
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ]
+  ],
+  "placements": 1,
+  "samples": 1,
+  "min": {
+   "0": 0
+  },
+  "fails": [],
+  "status": {},
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   0
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ]
+  ],
+  "placements": 1,
+  "samples": 3,
+  "min": {
+   "0": 4
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 1
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   1
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2,
+    3
+   ],
+   [
+    0
+   ],
+   [
+    1
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 394,
+  "min": {
+   "0": 2
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 30
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 28
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 230
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 8
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 104
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 1,
+  "samples": 1105,
+  "min": {
+   "0": 38
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 115
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 2,
+  "samples": 2210,
+  "min": {
+   "0": 28
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 230
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 4420,
+  "min": {
+   "0": 18
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 370
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ },
+ {
+  "t": 5,
+  "owners": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    0
+   ],
+   [
+    0
+   ],
+   [
+    3
+   ],
+   [
+    3
+   ],
+   [
+    4
+   ],
+   [
+    4
+   ]
+  ],
+  "placements": 4,
+  "samples": 4420,
+  "min": {
+   "0": 19
+  },
+  "fails": [],
+  "status": {
+   "unrealisable_merge": 388
+  },
+  "anomalies": {},
+  "crosscheck_missed": 0,
+  "params": [
+   2,
+   2,
+   2,
+   2
+  ]
+ }
+]

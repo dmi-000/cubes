@@ -1,0 +1,10 @@
+t=2 c=0: 2K = 0, min with R1,R2 = 0, with R3 = 0
+t=2 c=1: 2K = 0, min with R1,R2 = 0, with R3 = 0
+t=2 c=2: 2K = 4, min with R1,R2 = 4, with R3 = 4
+t=2 c=3: 2K = 8, min with R1,R2 = 8, with R3 = 8
+t=3 c=0: 2K = 0, min with R1,R2 = 0, with R3 = 0
+t=3 c=1: 2K = 6, min with R1,R2 = 6, with R3 = 6
+t=3 c=2: 2K = 18, min with R1,R2 = 16, with R3 = 18
+t=4 c=0: 2K = 6, min with R1,R2 = 8, with R3 = 8
+t=4 c=1: 2K = 22, min with R1,R2 = 20, with R3 = 24
+t=5 c=0: 2K = 22, min with R1,R2 = 24, with R3 = 28

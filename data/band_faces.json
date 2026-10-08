@@ -1,0 +1,425 @@
+[
+ {
+  "c2": 2,
+  "F1_one_label_per_walk": true,
+  "F2_euler": true,
+  "walks": 54,
+  "F3_same_label_both_sides": true,
+  "band_label": [
+   0,
+   1
+  ],
+  "labels_seen": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    1
+   ]
+  ],
+  "triple_pair": [
+   0,
+   1
+  ],
+  "F4_agrees_with_triples": true,
+  "qs": [
+   [
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    10,
+    1,
+    2,
+    0
+   ],
+   [
+    112,
+    42,
+    -40,
+    -2
+   ],
+   [
+    110,
+    42,
+    -39,
+    -1
+   ]
+  ]
+ },
+ {
+  "c2": 2,
+  "F1_one_label_per_walk": true,
+  "F2_euler": true,
+  "walks": 44,
+  "F3_same_label_both_sides": true,
+  "band_label": [
+   2,
+   3
+  ],
+  "labels_seen": [
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "triple_pair": [
+   2,
+   3
+  ],
+  "F4_agrees_with_triples": true,
+  "qs": [
+   [
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    18,
+    2,
+    -2,
+    0
+   ],
+   [
+    45,
+    34,
+    6,
+    54
+   ],
+   [
+    78,
+    23,
+    -32,
+    -9
+   ]
+  ]
+ },
+ {
+  "c2": 2,
+  "F1_one_label_per_walk": true,
+  "F2_euler": true,
+  "walks": 48,
+  "F3_same_label_both_sides": true,
+  "band_label": [
+   2,
+   3
+  ],
+  "labels_seen": [
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "triple_pair": [
+   2,
+   3
+  ],
+  "F4_agrees_with_triples": true,
+  "qs": [
+   [
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    20,
+    -1,
+    -1,
+    1
+   ],
+   [
+    54,
+    -6,
+    -43,
+    -66
+   ],
+   [
+    90,
+    37,
+    -29,
+    13
+   ]
+  ]
+ },
+ {
+  "c2": 2,
+  "F1_one_label_per_walk": true,
+  "F2_euler": true,
+  "walks": 52,
+  "F3_same_label_both_sides": true,
+  "band_label": [
+   2,
+   3
+  ],
+  "labels_seen": [
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "triple_pair": [
+   2,
+   3
+  ],
+  "F4_agrees_with_triples": true,
+  "qs": [
+   [
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    13,
+    -1,
+    0,
+    -1
+   ],
+   [
+    108,
+    51,
+    -27,
+    31
+   ],
+   [
+    53,
+    6,
+    -38,
+    -46
+   ]
+  ]
+ },
+ {
+  "c2": 2,
+  "F1_one_label_per_walk": true,
+  "F2_euler": true,
+  "walks": 54,
+  "F3_same_label_both_sides": true,
+  "band_label": [
+   2,
+   3
+  ],
+  "labels_seen": [
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "triple_pair": [
+   2,
+   3
+  ],
+  "F4_agrees_with_triples": true,
+  "qs": [
+   [
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    10,
+    2,
+    1,
+    -2
+   ],
+   [
+    86,
+    55,
+    -6,
+    66
+   ],
+   [
+    98,
+    21,
+    -54,
+    -44
+   ]
+  ]
+ },
+ {
+  "c2": 2,
+  "F1_one_label_per_walk": true,
+  "F2_euler": true,
+  "walks": 50,
+  "F3_same_label_both_sides": true,
+  "band_label": [
+   2,
+   3
+  ],
+  "labels_seen": [
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "triple_pair": [
+   2,
+   3
+  ],
+  "F4_agrees_with_triples": true,
+  "qs": [
+   [
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    17,
+    0,
+    -1,
+    1
+   ],
+   [
+    110,
+    47,
+    -32,
+    20
+   ],
+   [
+    98,
+    44,
+    -29,
+    22
+   ]
+  ]
+ },
+ {
+  "c2": 2,
+  "F1_one_label_per_walk": true,
+  "F2_euler": true,
+  "walks": 46,
+  "F3_same_label_both_sides": true,
+  "band_label": [
+   2,
+   3
+  ],
+  "labels_seen": [
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "triple_pair": [
+   2,
+   3
+  ],
+  "F4_agrees_with_triples": true,
+  "qs": [
+   [
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    16,
+    1,
+    1,
+    1
+   ],
+   [
+    32,
+    28,
+    4,
+    44
+   ],
+   [
+    111,
+    38,
+    -43,
+    -12
+   ]
+  ]
+ },
+ {
+  "c2": 2,
+  "F1_one_label_per_walk": true,
+  "F2_euler": true,
+  "walks": 60,
+  "F3_same_label_both_sides": true,
+  "band_label": [
+   2,
+   3
+  ],
+  "labels_seen": [
+   [
+    2,
+    3
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "triple_pair": [
+   2,
+   3
+  ],
+  "F4_agrees_with_triples": true,
+  "qs": [
+   [
+    1,
+    0,
+    0,
+    0
+   ],
+   [
+    16,
+    0,
+    1,
+    -1
+   ],
+   [
+    43,
+    33,
+    3,
+    52
+   ],
+   [
+    81,
+    27,
+    -32,
+    -10
+   ]
+  ]
+ },
+ {
+  "c2": 1,
+  "F1_one_label_per_walk": true,
+  "F2_euler": true,
+  "walks": 66,
+  "qs": "control: 183 record"
+ }
+]

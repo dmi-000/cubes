@@ -19,6 +19,7 @@ and every bracketed citation is tracked by `src/claim_deps.py`.*
 |---|---|
 | **PROVED** | a theorem, with the proof written down and its hypotheses stated |
 | **PROVED IF** | a proved implication from a NAMED hypothesis, which is graded separately in §4 |
+| **DRAFT** | a proof written down with its hypotheses stated and checked internally, in a document under the current external read (PROOF_BAND, PROOF_SHARED, PROOF_N5); it becomes PROVED, or is corrected, when that read reports. PROVED results outside the read are internally checked too and were not sent for review: the two tags differ in review status, not in the standard of proof |
 | **PROOF GAP** | stated as proved, but the proof has a hole; it may well be true |
 | **VERIFIED** | an exact count of a specific configuration, agreed by two independent engines, or an exact measurement |
 | **EXHAUSTED** | a search complete over a stated family, not a sample |
@@ -61,11 +62,11 @@ count uses this definition and exact arithmetic; no floating point enters any de
 - **The per-pair and per-triple caps, at every n.** PROVED. Each pair contributes two-body weight
   `E_i = EE_i + 2·SC2_i ≤ 10` ([P237](LEDGER.md#p237), from max(2) = 13), and each triple a
   triple-point weight `≤ 32` (PROOF_67 Lemma 1a with PROOF_STEP_T). Hence the two-body total
-  `≤ 10·C(n,2)` and the triple total `≤ 32·C(n,3)`. **Scope, CORRECTED 2026-09-28
-  ([P397](LEDGER.md#p397)):** the triple cap, like max(3) = 67, is proved for cubes whose boundaries
-  meet pairwise transversally. It does not cover a triple containing two cubes that share a face
-  axis (their faces are coplanar), so every upper bound below that sums it carries the same scope.
-  The records are inside it: their shared axes are body diagonals, whose contacts are corners.
+  `≤ 10·C(n,2)` and the triple total `≤ 32·C(n,3)`. **Scope** ([P397](LEDGER.md#p397), widened by
+  [P406](LEDGER.md#p406)): the triple cap is proved for every triple with **no two cubes sharing a face
+  plane**, by the circle lemma and Euler on the bottom diagram; no transversality is needed. A triple
+  with a shared face plane is not covered, so every bound below that sums the cap carries that
+  scope; such compounds fall under the unconditional 261. The records are inside it.
 - **d₁ ≤ 108·C(n,3) + 10·C(n,2) + c₁ + 1**, for every n and every configuration. PROVED
   ([P237](LEDGER.md#p237)). The published `+ 2` (494 at n = 4, 2 312 at n = 6) is PROVED IF
   `c₁ = 1`: the level-1 diagram is connected. `c₁` is odd ([P311](LEDGER.md#p311)) and 1 in every
@@ -100,10 +101,47 @@ count uses this definition and exact arithmetic; no floating point enters any de
 - **PROVED IF `c_ℓ ≤ 2` on every level: `max(n) ≤ 1 + 32·C(n,3) + 10·C(n,2) + 3(n−1)`**, which is
   198 at n = 4, 433 at n = 5, … 4 318 at n = 10, with the records at a steady 90–92 % of it
   ([P258](LEDGER.md#p258), [P326](LEDGER.md#p326)). The hypothesis is graded in §4. The chain also
-  uses the accounting step `sum(E − V) ≤ T + two-body`, which is argued (a four-cube vertex is
+  uses the accounting step `sum(E − V) ≤ T + two-body`, PROVED 2026-10-04 ([P407](LEDGER.md#p407), no
+  shared face plane), which before that was argued (a four-cube vertex is
   charged more than it supplies) but recorded as not verified in [P388](LEDGER.md#p388)'s
   addendum; the bound fails without it (`lean/`, `python3 src/lean_status.py`).
-- **max(4) ≤ 261, with no hypothesis**, and **max(4) ≤ 195 follows from `d₂ ≤ 66` alone.** PROVED
+- **max(4) ≤ 195, for compounds with no shared face plane**, DRAFT 2026-10-04 ([P410](LEDGER.md#p410), [`PROOF_BAND.md`](PROOF_BAND.md); not yet externally reviewed). *(Label corrected 2026-10-08 from PROVED: the proof has not been externally reviewed, and the shared-plane half of 195 was already labelled draft.)* The proof: the charging argument of [P404](LEDGER.md#p404) with the circle lemma ([P405](LEDGER.md#p405)) and the band lemma `c₂ − 1 ≤ Σ_S (c_S − 1)` gives `d₂ ≤ 66`. Lean: `max4_le_195`.
+- **max(4) ≤ 187 for every compound with a shared face plane, and so max(4) ≤ 195 UNCONDITIONALLY**,
+  draft 2026-10-05.
+  - Sources: [P418](LEDGER.md#p418)–[P422](LEDGER.md#p422), [`PROOF_SHARED.md`](PROOF_SHARED.md).
+  - Not yet externally reviewed. The step for two or more sharing pairs is computer-assisted
+    ([P420], an exhaustive cell enumeration).
+  - Method: charging with 2D tie patches, in eight realisable sharing structures.
+    - The local inequality is proved for each.
+    - Patch holes arise only along hub-cube edges.
+    - Each structure's own `d3` bound is used.
+  - Per structure, `max(4) ≤`: one pair 187, hub 187, path 187, star 183, two disjoint pairs 179,
+    axis triple 179, axis triple + pair 179, axis four 171.
+  - With the no-shared-plane case above, this gives 195 with no hypothesis, replacing 261 as the
+    unconditional bound (draft).
+  - No Lean label.
+- **max(5) ≤ 485 for five cubes with no shared face plane, and ≤ 457 when `d₄ ≥ 2c₄`**, draft
+  2026-10-05.
+  - Sources: [P425](LEDGER.md#p425)–[P430](LEDGER.md#p430), [`PROOF_N5.md`](PROOF_N5.md).
+  - Extended 2026-10-07 to compounds with exactly one pair sharing a face plane: `≤ 469` there,
+    and `≤ 457` when `c₄′ ≤ 10` ([P434](LEDGER.md#p434), [P435](LEDGER.md#p435), PROOF_N5 Part 4;
+    draft). So **485 holds for every five-cube compound with at most one sharing pair.** Two or
+    more sharing pairs are not covered; for them the bound is still 871.
+  - Not yet externally reviewed. Computer-assisted in two finite checks: the tie patterns of H1, and
+    Lemma C with four colours.
+  - Method:
+    - At n = 5 the subset identities `Σ_tri X_S(2) = X₂ + X₄` and `Σ_4 X_S(3) = X₃ + X₄` force the
+      bound onto the total.
+    - The charging inequality H1 is proved per vertex in the circle model.
+    - The band lemma holds at levels 2 and 3, with regions labelled by their top-ℓ set.
+    - The top level is paid for by its own faces: `d₄ ≥ 5` and `d₄ ≥ c₄ + 1`.
+  - So `total ≤ 457 + max(0, 2c₄ − d₄)`. On every compound measured, `d₄ − 2c₄ ≥ 18`.
+  - Compounds with two or more sharing pairs are not covered; for them the bound is still 871
+    ([P401](LEDGER.md#p401)). The record is 393. *(Corrected 2026-10-08: this line said every
+    compound with a shared face plane, which predates the one-pair extension above.)*
+- **max(4) ≤ 261, with no hypothesis** (superseded as the unconditional bound by the draft 195
+  above, 2026-10-05; this remains the bound proved without the new, unreviewed steps), and
+  **max(4) ≤ 195 follows from `d₂ ≤ 66` alone.** PROVED
   ([P401](LEDGER.md#p401)), tightening the 285 of [P399](LEDGER.md#p399): `d₁ ≤ 104` and `d₃ ≤ 24` are
   proved and attained; only `d₂ ≤ 6·22` is loose, against the ceiling law's 66. Every depth is a count of
   components of sphere sets `{the cubes of A all reach farther than every other cube}`, each a union
@@ -220,9 +258,9 @@ by a new wall and contracts about fivefold ([P303](LEDGER.md#p303)).
 | `max(4) = 183` | **WEAK CONJECTURE** | never exceeded, and reached by 7.3 % of wide-perturbation restarts ([P131](LEDGER.md#p131)); but three reductions to a few named statements have failed ([P373](LEDGER.md#p373) twice, [P389](LEDGER.md#p389)), and no argument now connects 183 to any bound below 198 |
 | W: `W₀ ≤ 84` at n = 4 ([OQ 32](OPEN_QUESTIONS.md)) | **WEAK CONJECTURE** | 0 violations in 247 blind configurations, attained at the record ([P275](LEDGER.md#p275)); all rational, the blind spot that let T stand |
 | C: `c₁ = c₂ = 1` at the maximiser | **WEAK CONJECTURE** | `c = 2` occurs on ordinary configurations ([P269](LEDGER.md#p269)); directed climbing under `c = 2` stalled far below the record ([P270](LEDGER.md#p270)) |
-| **`max(4) ≤ 195`** | **PROVED IF `c₂ = 1`** (no shared face plane) | the level-2 charging argument ([P404](LEDGER.md#p404)) and the circle lemma ([P405](LEDGER.md#p405)): at any point, every cube's active facet normals project onto one circle, which forces `X = 0` and `W4u = 0`. `c₂ = 1`, the level-2 boundary being connected, held in every one of 1 951 configurations checked |
-| given W and C, `max(4) ≤ 195` | PROVED IF | the anatomy `d₁ = W₀/2 + T + c₁ + 1` ([P272](LEDGER.md#p272)) with the proved `T ≤ 60`. The version with `T ≤ 48`, which gave 183, fails because T is false ([P389](LEDGER.md#p389)) |
-| the ceiling law for 2 ≤ l ≤ n − 2, `C(l,n) = (12l−6)n − 2(l²−1)` | **WEAK CONJECTURE** | never exceeded in about a million sampled configurations; proved for l = 1 and, since 2026-09-30, for l = n − 1 (depth 1, [P401](LEDGER.md#p401)). At n = 4 only l = 2, `d₂ ≤ 66`, is left, and it alone would give `max(4) ≤ 195`. Its caps provably cannot all be attained together ([P258](LEDGER.md#p258)) |
+| **`max(4) ≤ 195`** | **DRAFT** (no shared face plane; not yet externally reviewed, so labelled DRAFT since 2026-10-08, not PROVED; that this alone suffices is [P412](LEDGER.md#p412)) | the level-2 charging argument ([P404](LEDGER.md#p404)), the circle lemma ([P405](LEDGER.md#p405)), and the band lemma ([P410](LEDGER.md#p410), [`PROOF_BAND.md`](PROOF_BAND.md)): every extra component of the level-2 boundary is paid for by an extra component of a triple's bottom diagram, `c₂ − 1 ≤ Σ_S (c_S − 1)`, so `d₂ ≤ Σ_S d₂(S) − 6 ≤ 66`. This replaces the hypothesis `c₂ = 1`, which is false ([P408](LEDGER.md#p408)). CORRECTED 2026-10-04 from PROVED IF `c₂ = 1` |
+| given W and C, `max(4) ≤ 195` | PROVED IF | the anatomy `d₁ = W₀/2 + T + c₁ + 1` ([P272](LEDGER.md#p272)) with the proved `T ≤ 60`. The version with `T ≤ 48`, which gave 183, fails because T is false ([P389](LEDGER.md#p389)). Superseded 2026-10-04: 195 is now proved without W or C ([P410](LEDGER.md#p410)) |
+| the ceiling law for 2 ≤ l ≤ n − 2, `C(l,n) = (12l−6)n − 2(l²−1)` | **WEAK CONJECTURE** | never exceeded in about a million sampled configurations; proved for l = 1 and, since 2026-09-30, for l = n − 1 (depth 1, [P401](LEDGER.md#p401)). At n = 4 the last case, l = 2 (`d₂ ≤ 66`), is PROVED for compounds with no shared face plane since 2026-10-04 ([P410](LEDGER.md#p410)), so the law holds in full at n = 4 within that scope; open for n ≥ 5. Its caps provably cannot all be attained together ([P258](LEDGER.md#p258)) |
 | `max(6) ≤ 729` | **WEAK CONJECTURE** | the envelope bound on the 393 base, whose constant 336 is still measured, not derived ([P56](LEDGER.md#p56)) |
 | the records at n ≥ 5 are maxima | not conjectured | lower bounds; no search above n = 4 has been complete over more than a stated family (§6) |
 | no third 67 exists anywhere | **WEAK CONJECTURE** | isolation is local ([P118](LEDGER.md#p118)); nothing rules out a 67 elsewhere. Theorem R's "the n = 3 maximum needs irrational coordinates" ([P26](LEDGER.md#p26)) depends on it |

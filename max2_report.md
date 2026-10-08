@@ -116,7 +116,15 @@ this order) while M_i(q_t) < f + tρ + O(t²) for every other cube i — a
 uniform strict margin by compactness (finitely many branches/cubes).
 Hence q_t ∈ S_C with r_C(q_t) < c0.
 
-*q_t lands in U, not some other component.* Since p ∈ ∂U, some sequence
+*q_t lands in U, not some other component.* **(TIGHTENED 2026-10-04, [P416](LEDGER.md#p416):
+the argument below names "the winning C-branch of the sector", which is not well defined when C's
+own kinks cross the sector. The exact replacement: near p, S_C is the open cone
+{σ_C(w) > σ_x(w) ∀ tying x} in the gnomonic chart. All active tangential normals have norm ρ, so
+in direction w the condition reads "C's nearest point on the circle is strictly closer in angle
+than every tying cube's nearest point". Moving w along the arc toward its nearest C-point e_{a′}
+keeps the inequality, by the triangle inequality on the circle. So v = e_{a′}/ρ lies in the same
+sector, where r_C strictly decreases. And a sector meeting U lies in U. The original text follows
+for the record.)** Since p ∈ ∂U, some sequence
 u_n ∈ U has u_n → p; finitely many local combinatorial types exist near p
 (subsets of A winning against subsets of X), so infinitely many u_n share
 one type, forcing that entire local sector Σ₀ ⊆ U (Σ₀ ∩ S_C is connected

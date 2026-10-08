@@ -259,7 +259,8 @@ evidence is threefold and each leg is independent:
   conjectures, so these sums were conjectural bounds, not proved ones. The
   depth-1 cap written here, 10n² − 14n, was proved for every n on 2026-09-30,
   and 195 at four cubes became a theorem on one connectivity condition the
-  same day; see Act XVI.]*
+  same day; see Act XVI. By 2026-10-05 it holds with no condition, in a draft
+  awaiting independent reading; see Act XVII.]*
 - **A completely independent measurement agrees.** There's a
   reformulation on the direction-sphere: point outward in direction û;
   cube k extends to radius 1/‖Rₖᵀû‖∞; the deep layers count cells of
@@ -1321,7 +1322,7 @@ answer was always another search. Then a small identity appears — [P258] — a
 
 Every term but one was believed proved bounded. The exception is `c_ℓ`, the number of connected
 components of the level-ℓ curve arrangement. (A proof checker found a second, on 2026-09-28: an
-accounting step argued but never verified. See Act XVI.) **The whole tower's upper bound now rests on one
+accounting step argued but never verified; it was proved on 2026-10-04. See Act XVI.) **The whole tower's upper bound now rests on one
 number that nobody can bound**, and the project stops searching for compounds and starts
 auditing an equation.
 
@@ -1568,7 +1569,10 @@ cubes. Measured first, then proved. One last lemma, that at any point all the cu
 project onto a single circle, disposed of the degenerate cases.
 
 What is left for 195 is one sentence: that the boundary between the second-layer regions is
-connected. Two thousand configurations say it is. Nobody has said why.
+connected. Two thousand configurations said it is. Four days later a search aimed at the one
+shape that could break it found two configurations where it is not, both far from the record
+and both paying for the extra piece many times over elsewhere. The sentence that is left is now
+a trade-off, not a connectivity statement.
 
 ### What the act is actually about
 
@@ -1576,4 +1580,67 @@ Two things. A proof checker is only as honest as its encoding; the useful move w
 Lean, it was deciding to write every theorem so that its assumptions had to be named. And the
 question that improved the mathematics most was, again, a question about the method: not whether
 a bound was right, but why it was not exact.
+
+## Act XVII: the condition paid for, the shared planes, and a first look at five
+
+*(2026-10-01 to 10-05. The tower still does not move. The four-cube ceiling comes down to 195,
+pending an independent reading.)*
+
+Act XVI ended on a trade-off: band-shaped regions at the second layer exist, and the two that had
+been found were paid for elsewhere. The question was whether that is always so. More searching
+found seven bands, and in every one the payment was the same: a triple of cubes whose own
+picture had split into two pieces. That turned into a proof. Each band region is labelled by the
+two cubes that reach farthest across it, each extra piece of its complement must contain a place
+where a third cube overtakes one of them, and a finite count over trees, checked exhaustively,
+stops any band being paid for twice. So 195 holds whenever no two cubes share a face plane.
+
+One more scope condition had been written alongside that one, that cubes which reach equally far
+always cross rather than touch. It turned out to be a consequence rather than an assumption.
+For congruent cubes centred together, every way of touching without crossing forces a shared
+face plane, and a short case check shows it. That left only compounds where two cubes share a
+face plane: two cubes related by a turn about a common face axis, tied over a whole patch of
+directions instead of along curves. The proof had to be redone with those patches in. It went
+through structure by structure (eight ways that planes can be shared among four cubes), and
+every such compound comes out at 187 or below. So the four-cube maximum is at most 195, full
+stop, in draft.
+
+Three things went wrong on the way, and all three were caught before they mattered. A claim that
+three cubes can never tie in a single direction was false; a reviewing model pointed out that a
+shared point can sit on either side. The exact counter turned out to depend on the coordinate
+frame for exactly these shared-plane compounds, in the outermost layer only; every later count
+there used a tilted frame or the independent counter. And a claim that patches from two
+unrelated pairs of cubes could merge was refuted by solving the condition it had only asserted,
+which forces one cube into both pairs.
+
+Then the gap from 183 to 195, measured rather than argued. Across nearly four million recorded
+counts, only two arrangements are not beaten in every layer at once: the record, with both deep
+layers at their ceilings, and the golden arrangement, with the outermost layer full. Nothing has
+an outermost layer between them. Two tidy explanations of why were proposed and refuted within
+the day, one of them first written up with a mistake about which cubes shared what, found only
+because the check was being moved from a scratch file into the record. Counted exactly in the
+golden arrangement's own number field, its neighbourhood shows its outermost-layer count is a
+spike: turn one cube by a thousandth of a radian and twenty regions of that layer vanish at once.
+
+Last, a first look at five cubes. The four-cube argument does not carry over one layer at a time:
+at five, every layer's accounting borrows from the innermost one, so the natural statement bounds
+the total. Done that way, it gives 457 against a record of 393 and a hypothesis-free 871,
+provided two statements hold. The first was explained, wrongly, as coming only from points where
+three cubes meet. A one-line consequence of that explanation failed on a third of the test cases,
+and the missing ingredient was edges of two cubes crossing. Once that was included, the statement
+came apart into one inequality per point and was proved in draft. The second, that band-shaped
+regions are always paid for, turned out to need nothing new at the middle levels: the four-cube
+argument works unchanged once a region is labelled by its whole top set of cubes rather than by a
+pair. Only the innermost level resisted, because there the argument would have to charge the
+compound to itself. It is paid for instead by its own faces. Every cube is innermost somewhere,
+and every piece of that level's boundary has two different sides. That gives at most 485 regions
+for five cubes with no shared face plane, and 457 unless the innermost boundary breaks into three
+or more pieces, which no search has produced.
+
+### What the act is actually about
+
+Checks that were cheap to run kept overturning claims that had sounded finished. The explanation
+that failed was tested only because a reviewer asked for a consequence it implied, and the
+sharing mistake was found by the routine act of making a check reproducible. The other lesson is
+about what a proof is waiting for. The drafts here are long and partly computer-checked, and
+the user decided they should be read independently while the work goes on, not before it does.
 

@@ -1,0 +1,23 @@
+{
+ "four": {
+  "pairs=6|0": 4,
+  "pairs=3|1": 32,
+  "pairs=6|1": 8,
+  "pairs=3|0": 56,
+  "pairs=2|3": 6,
+  "pairs=4|1": 24,
+  "pairs=1|0": 240,
+  "pairs=2|2": 24,
+  "pairs=2|0": 24,
+  "pairs=0|0": 48
+ },
+ "triple": {
+  "pairs=3|0": 4,
+  "pairs=1|0": 54,
+  "pairs=3|1": 6,
+  "pairs=2|2": 6,
+  "pairs=0|0": 12
+ },
+ "violations": 0,
+ "control": true
+}

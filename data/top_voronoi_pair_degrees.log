@@ -1,0 +1,3 @@
+two cubes: min component degree histogram [(2, 960000)]
+two cubes: faces (pair d1) histogram [(3, 960000)]
+climb bests (min degree, faces): [(2, 3), (2, 3), (2, 3), (2, 3), (2, 3), (2, 3), (2, 3), (2, 3)]

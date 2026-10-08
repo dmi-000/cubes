@@ -1,0 +1,13 @@
+{
+ "patterns": 32,
+ "samples": {
+  "points_coincide": 3962,
+  "not_whole": 5587,
+  "out_of_domain": 1184
+ },
+ "refuting": [],
+ "control": {
+  "out_of_domain": 2,
+  "GAMMA_WHOLE": 4
+ }
+}

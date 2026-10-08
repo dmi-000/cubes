@@ -125,6 +125,9 @@ one row per file or pattern, first matching row wins.
 | `VIEWERS.md` | current | the figures, and which are stale |
 | `README.md` | current | the map of the repository |
 | `DOCUMENTS.md` | current | this file |
+| `PROOF_BAND.md` | current | DRAFT: the band lemma `c2 − 1 ≤ Σ_S (c_S − 1)` and `max(4) ≤ 195` in scope ([P410](LEDGER.md#p410)); awaiting external review |
+| `PROOF_SHARED.md` | current | DRAFT: the shared-face-plane case: charging with tie patches; `max(4) ≤ 187` for every compound with a shared plane, so `max(4) ≤ 195` unconditionally ([P418](LEDGER.md#p418)–[P422](LEDGER.md#p422)); awaiting external review |
+| `PROOF_N5.md` | current | DRAFT: five cubes without a shared face plane: H1 per vertex in the circle model, the band lemma at levels 2 and 3, and the top level paid for by its faces, so `max(5) ≤ 485`, and `≤ 457` when `d₄ ≥ 2c₄` ([P425](LEDGER.md#p425)–[P430](LEDGER.md#p430)). Part 4 extends the bound to one shared face plane: `≤ 469`, and `≤ 457` when `c₄′ ≤ 10` ([P434](LEDGER.md#p434), [P435](LEDGER.md#p435)). Awaiting external review |
 | `PROOF_CHECK.md` | current | what the proof checker verified, and the review list of lemmas it takes on trust |
 | `PROOF_67.md` | current | `max(3) = 67`, consolidated |
 | `PROOF_FORMAL.md` | current | `max(3) = 67`, formalised |
@@ -136,6 +139,7 @@ one row per file or pattern, first matching row wins.
 | `PROOF_NARRATIVE.md` | narrative | how `max(3) = 67` got proved |
 | `OVERVIEW.md` | narrative | the ten-minute tour; brought up to 2026-09-16 |
 | `PROJECT.md` | narrative | the standalone write-up; brought up to 2026-09-16 |
+<!-- reviewed 2026-10-04: the PROOF_BAND row states P410's in-scope bound, not P348's conditional one -->
 
 `max2_report.md` sits above `*_report*.md` on purpose: first match wins.
 

@@ -1,0 +1,7 @@
+t=3 c=0: cases (ii)/(iii) min 0 vs 2K 0; case (i) min 0 vs 2K_i 0
+t=3 c=1: cases (ii)/(iii) min 6 vs 2K 6; case (i) min 4 vs 2K_i 4
+t=3 c=2: cases (ii)/(iii) min 18 vs 2K 18; case (i) min 12 vs 2K_i 12
+t=4 c=0: cases (ii)/(iii) min 8 vs 2K 6; case (i) min 6 vs 2K_i 6
+t=4 c=1: cases (ii)/(iii) min 22 vs 2K 22; case (i) min 20 vs 2K_i 20
+t=5 c=0: cases (ii)/(iii) min 26 vs 2K 22; case (i) min 24 vs 2K_i 22
+all rows hold: True

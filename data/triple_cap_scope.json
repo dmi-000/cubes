@@ -1,0 +1,10 @@
+{
+ "stats": {
+  "excluded": 3382,
+  "evaluated": 2618,
+  "ES>32": 0,
+  "ES>budget": 0,
+  "ES==32": 1471
+ },
+ "max_ES": "32"
+}

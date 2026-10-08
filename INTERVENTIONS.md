@@ -797,7 +797,7 @@ n7 pentagon". Together they produced [P391] (the 727 node has TWO branches, and 
 B and C are those branches respelled), [P392] (B's and D1's extents agree exactly), [P393] (a
 segment of each branch lifts to 1217, not the crossing point alone). A fifth, "crossing lines ...
 would project to crossing lines", found [P394]: the n = 7 plateau is two curved triangles CROSSING
-along a fibre segment, and [P301]'s "pentagon" was the edges of a sampling grid's box.
+along a fibre segment, and [P301]'s "pentagon" was the edges of a sampling grid's box. <!-- reviewed 2026-10-04: narrates the corrections; the cited entries carry their own markers -->
 
 **The pattern.** Each figure was drawn from what the prose said, and the prose was never read as
 geometry. A picture asserts incidences, counts and containments the text leaves implicit, and a
@@ -813,7 +813,7 @@ asked whether a proof checker could have helped, and for hypothesis tracking.
 
 **What it produced.** `claim_deps.py --hyp` (tags `proved-if=`, `claim=`, [P396]) and Lean 4 with
 every geometric input a named hypothesis whose prefix is its ledger status. Its first run found
-that [P326]'s tower bound had two unproved inputs, not one.
+that [P326]'s tower bound had two unproved inputs, not one. <!-- reviewed 2026-10-04: narrates the corrections; the cited entries carry their own markers -->
 
 ## A23 (2026-09-28) — "can you run a proof checker on our claimed proofs?"
 
@@ -822,7 +822,7 @@ with `c` components, exposed two hidden `c = 1` assumptions ([P398]): the Euler 
 max(3) = 67 (max(3) survives by [P110]'s route) and [P237]'s `d1` bound; and the triple cap had
 lost its transversality scope ([P397]). Also found: `detq_check.py` did not run, and my first
 kernel check of [P104] compared two identical sympy-expanded strings and could not fail (caught
-on reading, rewritten with must-fail controls).
+on reading, rewritten with must-fail controls). <!-- reviewed 2026-10-04: narrates the corrections; the cited entries carry their own markers -->
 
 **The lesson that transfers.** A checker finds what the ENCODING forces into the open. Writing
 Euler as `V - E + F = 1 + c` rather than `= 2` is what made connectivity visible; a checker fed
@@ -835,8 +835,167 @@ The answer had two parts: the complement's convex pieces all pass through face c
 counted pieces where there was one component ([P401]); fixing it PROVED the depth-1 ceiling law
 `d1 <= 10n^2 - 14n` for every n and cut max(4)'s unconditional bound from 285 to 261. The rest of
 the slack was structural (middle depths), and following it led through [P402]-[P405] to
-`max(4) <= 195` PROVED IF `c2 = 1`.
+`max(4) <= 195` PROVED IF `c2 = 1`. <!-- reviewed 2026-10-04: narrates the corrections; the cited entries carry their own markers -->
 
 **The pattern, and it is A7's.** A question about why a method is inexact is a question about the
 method, and it found a defect in my own count that no check of the result would have: the bound
 was true, only weaker than the argument allowed.
+
+## A25 (2026-10-04) — the last hypothesis fell to a search aimed at it, not to more sampling
+
+**What happened.** `c2 = 1` had held in 1 951 configurations plus 3 382 earlier level-instances, and
+I had reported it that way. Asked to attack it, I first worked out what a counterexample would have
+to look like (a symmetric band: two cubes with corner rings round one equator), then searched
+families built to that shape, with level-1 bands as a positive control. 2 of 678 targeted
+compounds had `c2 = 2` ([P408]); none of the random ones did.
+
+**The lesson is the old one, stated as a count.** 5 333 non-hits were evidence about the
+populations sampled, not about the shape that mattered; a few hundred aimed configurations
+settled it. **Before reporting "held in N cases", say what a failure would look like and whether
+the N could have contained one.**
+
+## A26 (2026-10-04) — a "never" in a local lemma was a side assumption
+
+**What happened.** For the one-sharing-pair case ([P418]) I proved "three cubes never tie in one
+direction". Equal value and equal slope force a shared nearest point, and I placed that point
+on the left of the direction for the left side, and on the right for the right side. It can be on
+either side. Such directions are generic: every end of a patch has one. The advisor caught this
+from the transcript, before anything was published. The identities the proof needed still held at
+the missed type, which was checked by hand and by a new counter (911 and 1 100 of 1 500 sampled
+configurations). The draft was corrected the same day.
+
+**The lesson.** An "only if" step that names WHERE something is (left, right, inside) deserves the
+question "or the other place?". The checker had passed because the identity happened to hold at
+the missed type, not because the type was absent. **A passing identity is not evidence for the
+lemma used to derive it.**
+
+## A27 (2026-10-04) — the fast engine is frame-dependent on shared-plane compounds
+
+**What happened.** Each family-best in a climb was re-counted with sphere_count. On the star
+structure (cube 0 sharing all three of its planes) they disagreed, 77 against 75. The engine gave
+77 in axis-aligned frames and 75 under generic rotations. An audit of 8 048 compounds the session
+had counted in the identity frame found 49 frame disagreements ([P419]):
+- 46 star, 2 hub, 1 single pair;
+- every one in `d1`, never in `d2`;
+- the generic frame was right in all 40 re-counted.
+
+No reported `d2` changes, and the reported family-best totals had all been cross-checked.
+
+**The lesson.** "Validated on the locus" ([P411]'s cross-check) covered the structures validated
+then, not every structure later run through the same tool. The routine top-of-family cross-check
+is what caught it. **Re-validate a tool when the input class changes, not only when the tool does.**
+
+## A28 (2026-10-05) — a degenerate case asserted without finishing the algebra
+
+**What happened.** Bounding the hole term, I wrote in [P421] that patches of two DISJOINT sharing
+classes "can glue" in a degenerate case: a cube's edge plane coinciding with the bisector of the
+two normals, "possible when its other axis lies in span(n, g)". I recorded that and told the user.
+An hour later, the next step solved the coincidence condition and found it forces `n·g = 0` and
+then the axis `= ±g`. The cube is in both classes, so disjoint classes never glue ([P422]). An
+exhaustive local check (`glue_check.py`, 32 patterns, 5 587 cells) agrees.
+
+**The lesson.** "Possible when X" about a degenerate case was written before X was solved, and X
+turned out to be impossible. That is A26's failure in the other direction: there a "never" was
+too strong, here a "possible" was. **Before recording that a degenerate case can occur, solve its
+defining condition.** It took three lines.
+
+## A29 (2026-10-05) — "sharing nothing" was read off one kind of axis
+
+**What happened.** Testing a per-cube pattern for `d1` ([P423]), I reported a cube "sharing nothing"
+that reached the cap 26, and a "no-sharing" compound with `d1 = 82`, and wrote both into the ledger.
+The sharing test had looked only at body diagonals. Moving the inline check into a probe, so the
+claim would be reproducible, classified every axis type. All 61 refuting compounds share a 2-fold
+axis. The patterns were refuted as stated, counting body diagonals only. The wording was corrected
+in place.
+
+**The lesson.** "Shares nothing" is a claim about every coincidence type, and the test had checked
+one. The error surfaced only because the check was being made durable. **A word like "nothing" or
+"none" needs a test that enumerates the whole class it quantifies over.**
+
+## A30 (2026-10-05) — an explanation recorded as fact, refuted by its own consequence
+
+**What happened.** [P425] explained its subset identities by asserting that, in general position,
+three-cube tie points are the only vertices of degree above 2. The identities were exact on 600
+rows, and the explanation was written up as the reason. The advisor pointed out that the
+explanation implies `X1 − X2 + X3 − X4 = 0`, a consequence the data could test independently. It
+failed on 193 of 600 rows. The missing vertex type is the edge–edge crossing ([P427]). The
+identities and the reduction stood; the explanation was corrected in place.
+
+**The lesson.** Data that a claim explains does not test the explanation. **Derive one consequence
+the explanation adds beyond the data it was built to explain, and check that.** It was one line.
+
+## A31 (2026-10-06) — a validation that never met the degenerate case
+
+**What happened.** A fast reformulation of the top level as a coloured spherical Voronoi diagram
+(`top_voronoi.py`) was validated on 550 five-cube rows with 0 mismatches. The first n = 3 integer
+compound tried by hand disagreed: d2 = 14 against the engine's 16. Four cocircular face centres make a hull
+facet that Qhull triangulates, and the diagonal invented an adjacency between cells meeting at a
+point. None of the 550 validation rows was degenerate. The fix skips edges between coplanar facets.
+The new validation includes small-coordinate integer compounds at n = 3, 4, 5: 160 of its 1 000
+rows are degenerate, and all agree. No recorded result had used the faulty version.
+
+**The lesson.** The founding rule again: a control has to be hard for the method. **For any method
+built on a triangulation or convex hull, the hard case is cospherical or cocircular input. Put it
+in the validation on purpose.**
+
+*Addendum 2026-10-06.* The fix's coplanarity tolerance (1e-9) was then too loose in the other
+direction. It merged nearly coplanar facets of generic pairs: 62 false one-component pairs in
+[P431]'s pair measurement, which the record had summarised as "never otherwise". A tolerance sweep
+(1e-12, 1e-9, 1e-7) separated the artefacts, and the tolerance is now 1e-12, with the validation
+still agreeing. A merge tolerance has two failure sides. Its control needs both kinds of input:
+exact degeneracies that must merge and near-degeneracies that must not.
+
+## A32 (2026-10-06) — a "would give" figure that dropped a term the docstring said was harmless
+
+**What happened.** [P433] reported that one shared pair at n = 5 "would give <= 430" once the patch
+form of the chain was proved, and that figure went to the user twice. The advisor, reviewing the
+next step, caught that it was wrong. The oracle's docstring said the bracketed component terms
+were >= 0 by L2/L3. But each bracket ends in −(c4 − 1), which L2/L3 do not control: that term is
+the top-level problem [P430] had isolated the day before. The tie-patch terms were also left out.
+Redone, the figure is `441 + 2c4′ − d4`: at most 469, and at most 457 when `c4′ <= 10`.
+
+**The lesson.** A "would give" figure is a derivation and needs the same audit as a proof: write
+each term out, and say which lemma controls it. A bracket that one lemma bounds for the most part
+is not bounded as a whole, and here the uncontrolled piece was the known open problem.
+
+## A33 (2026-10-08) — a crashed pool that respawned for 2.5 days
+
+**What happened.** The user asked whether that many processes were needed on an 8-core machine.
+They were not. A Python script fed through stdin had started a `multiprocessing` pool with the
+spawn method. Each worker tries to re-import the main module, which for a stdin script is the
+path `<stdin>`; that failed, the worker died, and the pool started another. This went on for 2.5
+days and wrote 7.5 GB of identical tracebacks to a background-task output file that nobody read.
+Beside it ran four "wait for the control" loops where one was meant (three were left from
+relaunches), and the two real runs had 8 workers each, 16 on 8 cores.
+
+**The fix.** The runaway pool and the three extra waiters were killed and the output file
+emptied. The three-parameter run was niced to 15 so the control, which validates the method,
+gets the cores first. Neither real run was restarted: both write nothing until a pattern
+finishes, so a restart would have thrown away three hours.
+
+**The lesson.** Never start a spawn pool from a stdin or `-c` script; put it in a file under
+`src/probes/`. When a background command is relaunched, stop its waiter first. Size pools to
+the cores left over, not to the core count. A run should write each finished unit to disk, so
+that it can be stopped and resized without losing work.
+
+**Addendum (same day): the load was mine too.** I then told the user that most of the remaining
+load (about 460 on 8 cores) came from other work on the machine. The user corrected me: it fell
+to under 10 within minutes of my killing the 15 orphaned workers of the two old runs. Their parents
+had been killed, but the workers kept running. I had read "16 workers cannot make a load of 460" as
+evidence that the load was someone else's, without checking what each worker was doing. Each
+worker imports scipy and carries extra library threads, and the earlier runaway pool had spawned
+processes continuously. The claim should have been checked against the timeline before it was
+made. Workers are now started with the numerical libraries limited to one thread, and a run's
+workers are killed by process, not only through their parent.
+
+**Second addendum: the same slip, within the hour.** Relaunching the control, I stopped it with
+`kill $P $W`, where `W` held several PIDs separated by newlines. zsh passed them as one word, the
+kill of the workers failed, and I relaunched without listing what was left. For a minute the old
+workers ran beside the new pool, on the same units. No harm came of it: walk state is
+deterministic, and checkpoints and results are written atomically. I caught it on the next process
+listing. **Rule:** after stopping a run, list the processes it owned, and relaunch only after
+that list is empty.
+The same hour, the resume test reported "DIFFERENT" on its second pattern. That was the test's
+fault: its kill budget (at most 400 calls) was smaller than one item of that walk, so the walk
+never advanced, and after 200 kills the test compared 0 faces with 2592. It now reports that case
+as inconclusive, and the kill budget scales with the size of the walk.

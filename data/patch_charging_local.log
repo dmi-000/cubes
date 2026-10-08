@@ -1,0 +1,10 @@
+general/none  {'excess_0': 1966, 'identity_ok': 528, 'off_gamma': 1034, 'on_G': 1966}   control violations 39 of 750
+general/pair  {'excess_0': 2562, 'identity_ok': 1462, 'off_gamma': 392, 'on_G': 2562, 'patch_interior': 46}   control violations 37 of 750
+general/two   {'excess_0': 3000, 'identity_FAILS': 1321, 'identity_ok': 1679, 'on_G': 3000}   control violations 36 of 750
+general/hub   {'excess_0': 2970, 'identity_FAILS': 1041, 'identity_ok': 1216, 'on_G': 2970, 'patch_interior': 30}   control violations 46 of 750
+general/axis  {'excess_0': 2706, 'identity_FAILS': 2237, 'identity_ok': 25, 'on_G': 2706, 'patch_interior': 294}   control violations 39 of 750
+cube/none     {'excess_0': 1949, 'identity_ok': 575, 'off_gamma': 1051, 'on_G': 1949}   control violations 31 of 750
+cube/pair     {'excess_0': 2461, 'identity_ok': 1529, 'off_gamma': 367, 'on_G': 2461, 'patch_interior': 172}   control violations 31 of 750
+cube/two      {'excess_0': 3000, 'identity_FAILS': 2794, 'identity_ok': 206, 'on_G': 3000}   control violations 31 of 750
+cube/hub      {'excess_0': 2578, 'identity_FAILS': 1651, 'identity_ok': 593, 'on_G': 2578, 'patch_interior': 422}   control violations 44 of 750
+cube/axis     {'excess_0': 1573, 'identity_FAILS': 1983, 'identity_ok': 254, 'on_G': 1573, 'patch_interior': 1427}   control violations 36 of 750

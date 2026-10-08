@@ -1,0 +1,12 @@
+evaluated 2000, with a band 900, margin identity holds on 2000
+cslack over band rows: [(2, 305), (3, 20), (4, 2), (5, 481), (6, 11), (7, 59), (8, 9), (10, 11), (11, 1), (12, 1)]
+slack2+slack3 over all rows: [(0, 1980), (4, 6), (8, 14)]
+max c at levels 2-4 among band rows: 2
+  run 500: end cslack 5, c {1: 1, 2: 2, 3: 1, 4: 1}
+  run 501: end cslack 2, c {1: 1, 2: 2, 3: 1, 4: 1}
+  run 502: end cslack 2, c {1: 1, 2: 2, 3: 1, 4: 1}
+  run 503: end cslack 5, c {1: 1, 2: 2, 3: 1, 4: 1}
+  run 504: end cslack 2, c {1: 2, 2: 2, 3: 1, 4: 1}
+  run 505: end cslack 2, c {1: 1, 2: 2, 3: 1, 4: 1}
+  run 506: end cslack 2, c {1: 2, 2: 2, 3: 1, 4: 1}
+  run 507: end cslack 2, c {1: 1, 2: 2, 3: 1, 4: 1}

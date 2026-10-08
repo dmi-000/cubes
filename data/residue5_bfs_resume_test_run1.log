@@ -1,0 +1,2 @@
+t=4 [[0, 1], [0, 2], [3]]: 50 faces uninterrupted, 50 after 14 kills: same
+t=5 [[0, 1], [0, 2], [0], [3], [4], [4], [4]]: 2592 faces uninterrupted, 0 after 201 kills: DIFFERENT

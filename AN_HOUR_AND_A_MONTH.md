@@ -456,7 +456,8 @@ It had not, and each piece came apart in a different way:
 - **The 423 and 263 were never unconditional.** They assumed every level of the arrangement
   is connected in a particular sense; that is not proved, and it is sometimes false. A weaker
   form of the same assumption gives **198**, which is better than both, though a proof checker
-  later showed it also leans on an accounting step that was argued and never verified.
+  later showed it also leans on an accounting step that was argued and never verified, until a
+  proof of that step was drafted in October.
 - **The identity survived; its shorthand did not.** `TOTAL = X + Σμ_v + Σ(c+1) + 1` is still
   an identity. But the three compounds it was first checked on all had `Σ(c+1) + 1 = 7`, and
   the n = 4 work that followed wrote it as `7 + T + B − Q4`, with the 7 as a constant. It is
@@ -473,8 +474,9 @@ It had not, and each piece came apart in a different way:
 
 So the honest state was narrower than the evening's, and for three weeks the interval that this
 document once printed as [183, 263] was, strictly, [183, ∞). It is not any longer. The end of
-September brought a bound that assumes nothing, 261, and a proof of 195 that rests on a single
-connectivity statement (Section IX). The record at n = 4 is still only a *weak* conjecture.
+September brought a bound that assumes nothing, 261 (Section IX). The first week of October
+brought a draft proof that 195 assumes nothing either, after the condition it had rested on was
+refuted (Section X). The record at n = 4 is still only a *weak* conjecture.
 
 ## VII. What the two stories say to each other
 
@@ -521,7 +523,10 @@ checks what the encoding forces into the open, and no more. Writing Euler's form
 number of components left in is what exposed two published proofs that had silently assumed connectedness; fed the
 published statements, the checker would have agreed with them. Its first kernel check compared
 two identically expanded strings and could not have failed. Somewhere else helps exactly as
-far as it is somewhere else.
+far as it is somewhere else. There is a third kind: a reviewer model that reads the working
+session's transcript as it goes. It was making points in September, and its catches reach the
+intervention register in October (Section X). One of its catches was itself mistaken, and the
+ledger records that too.
 
 And the behaviour the comparison said was missing here turned out to be available on
 request. It needed a mandate, a target with a checker, and an hour of not being interrupted.
@@ -549,7 +554,8 @@ thirty-third day it seemed to become a subject with theorems in it, and this doc
 so, printed an interval with a proved upper end, and kept printing it for three weeks.
 Section VI is what that interval turned out to be: one layer bounded by an argument that
 quietly assumed a connected picture, and a total whose only bound rested on a conjecture,
-until the last days of September gave both an unconditional one (Section IX).
+until the last days of September gave both an unconditional one (Section IX), and October a
+much better one, still in draft (Section X).
 
 **That is where the comparison with Knuth's hour stops being about speed and becomes about
 where a claim lives.** His construction was checked by a person to m = 101 and then by a proof
@@ -564,9 +570,10 @@ what it rests on. That is the nearest thing a record written in English has to a
 and it is still only as good as the tags a writer puts in by hand.
 
 Knuth's hour produced a construction and a theorem about it, and a stranger checked the
-theorem by machine. Our month — six weeks, by now — produced a tower of records, a dozen ways
+theorem by machine. Our month — seven weeks, by now — produced a tower of records, a dozen ways
 of being wrong about our own instruments, one real theorem about one layer, then a bound that
-assumes nothing and a second that rests on one connectivity statement, and a register that had to learn to audit its own corrections. Only
+assumes nothing, a better one not yet externally reviewed, and a register that
+had to learn to audit its own corrections. Only
 the first of the two stories ends with its main claim settled. Only the second can show you,
 line by line, where each of its numbers came from and which of them have since fallen — and
 that is worth the six weeks, though it is not the same thing as being right.
@@ -642,15 +649,156 @@ Against Knuth's hour this is still slow. But it is the first stretch in which th
 understanding of its own ceiling moved by argument rather than by audit, and the question that
 moved it most was the user's, about the method, not the result.
 
+## X. The condition fell, and the number did not
+
+*(Written 2026-10-08 by the narrating session. Section IX above is the working session's record
+as of 2026-09-30, and it is left as written. The single condition it names, that one boundary on
+the sphere is connected, has since been refuted.)*
+
+The condition was called `c2 = 1`, and the evidence for it was a count: true in 1 951
+configurations and in 3 382 level-instances before those. Asked to attack it, the working session
+did not draw more samples. It first worked out what a counterexample would have to look like, a
+band of two cubes with rings of corners around one equator, and then built compounds of that shape
+on purpose. Two of 678 had `c2 = 2`. The 5 333 earlier non-hits had included none. The entry that records this
+(A25) draws the lesson as a question to ask before writing "held in N cases": could those N have
+contained a failure at all?
+
+This is the move Knuth's paper reports Claude *not* making on the even case: Claude "spent the
+last part of the process mostly on making the search quicker instead of looking for an actual
+construction." The difference is not that this session is better at searching. It was told to
+attack a statement, and a statement tells you what a counterexample has to look like. An order to
+"keep searching" does not.
+
+What happened next is the best thing in this stretch. The bound did not fall with its condition.
+The session measured the two bands it had found and saw that each paid for itself: wherever the
+level-2 boundary broke into extra pieces, a triple of cubes had extra pieces too, with room to
+spare. Once again it saw the trade in the data before it explained it. It then proved the trade as
+a lemma, which removed the hypothesis from the 195 bound. Compounds whose cubes share a face plane
+took five more postscripts and a computer-checked enumeration of cases. By 2026-10-05 the ledger
+had `max(4) ≤ 195` with no hypothesis, in draft: not yet externally reviewed, as RESULTS says. The same machinery then went to five cubes, where the old bound was 871 and the
+record is 393. It gives 485 in draft for every five-cube compound with at most one pair sharing a
+face plane. The case of several sharing pairs is still open. One of its ingredients is down to 18
+patterns, and a run is computing them.
+
+The way errors were caught has also changed. Nine new entries were added to the intervention
+register in five days. One is the refutation above (A25). One was finished
+algebra overturning a "possible" written an hour earlier (A28). The other seven:
+
+- **Three were caught by the reviewer model** that reads the working session's transcript
+  (A26, A30, A32).
+  - A lemma said three cubes "never" tie, after placing a point on one side without asking about
+    the other side.
+  - An explanation of some exact identities implied a further equation that the data could test,
+    and that equation failed on 193 of 600 rows.
+  - A figure of "would give ≤ 430" had been reported to the user twice. It dropped a term that
+    turned out to be the known open problem. The real figure is 469.
+- **Three were self-catches** (A27, A29, A31). Two came from making a check routine or
+  permanent rather than from doubting a result, and the third from trying one case by hand.
+  - Re-counting each family's best compound with a second engine exposed a frame dependence in
+    the first engine.
+  - Moving a quick test into a saved probe exposed that "shares nothing" had been tested on one
+    kind of axis.
+  - The first small integer compound tried by hand broke a validation of 550 rows, none of which
+    had been degenerate.
+  - The first two are the "manufactured prod" of Section IV again, now built into routine: a
+    check that exists only to be run produces the prod that a result never does.
+- **The human's catch was about the machine, not the mathematics** (A33). The user asked whether
+  that many processes were needed. A crashed worker pool had been restarting itself for two and a
+  half days, writing 7.5 GB of identical error messages to a file that nobody read.
+
+Knuth's assistant had to be reminded "again and again" to document its progress. This is the
+opposite failure, and it makes the same point. Documentation that nobody reads prods no more than
+documentation never written. Even the self-account of A33 contains a small repeat of A30. Asked
+what the remaining load was, the session put it down to other work on the machine. In fact it was
+the session's own orphaned workers, and the load fell to under 10 within minutes of killing them.
+
+So the division of labour at the end of the seventh week is not the one at the start. Mathematical
+errors are now caught by the AI: by a second model, or by checks it made permanent itself. The
+human's questions have moved to the apparatus, to what is running and why, and to the questions no
+one inside the work thinks to ask. One check has not been made by anyone yet: an external review
+of the new bounds.
+
+## XI. Other mirrors
+
+Knuth's paper is the comparison this document was built around, but it is no longer the only
+public account of a person and a model doing mathematics together. These others are not retold
+here. They are used, like Knuth's, to see this project from outside. Each claim below is
+attributed to its source, and the sources are listed at the end.
+
+**Who filters.** In Jang and Ryu's proof that Nesterov's method converges, the model produced many
+arguments, "approximately 80% of which were incorrect", and "the authors' contribution was to
+filter out incorrect arguments." Scott Aaronson's account of a QMA lemma follows the same pattern
+on a smaller scale. GPT-5's first attempt was "confident, plausible-looking, and (I could tell)
+wrong." Its later suggestion "worked, as we could easily check ourselves with no AI assistance."
+In Knuth's story the
+human wrote the proof. In all three the human is the referee. Here the human is not. The proofs
+are written and filtered on the machine side (Section X), and the human's questions are about the
+apparatus. That is closer to how Quanta describes some amateur work on Erdős problems: one
+contributor fed a model's solution "into a fresh instance of the chatbot, asking it to check the
+previous chatbot's work". By his own assessment he could not verify the results himself, and he
+found mathematicians who could.
+
+**What happens when nobody filters.** Jang and Ryu's first version contained an error that "fully
+invalidates the argument", and they attribute it to "the authors' failure to carefully check the
+arguments generated by the LLM." The 953 bound here spent sixteen days labelled PROVED for the same
+structural reason: everyone involved was looking at the next step. Thomas Bloom, as quoted by
+Quanta, worries about AI-written papers of which "no human has read it." The honest label for this project's
+two newest bounds is the one RESULTS already uses: not yet externally reviewed.
+
+**A checker of the same kind.** Fresh instances of one model checking each other, as in the Quanta
+account, is the transposition oracle of Section VII at a larger scale. A second copy shares the
+first copy's blind spots. Knuth's postscript ends with Keston Aquino-Michaels, whose two agents
+"have complementary skills, namely GPT and Claude." This project's version is a fork and a reviewer
+model, both from one family, plus Lean. The fork and the reviewer each caught real errors. Lean
+caught what neither of them could have caught, an assumption that no sentence stated, because it
+is the furthest away of the three.
+
+**What was there from the start.** Knuth writes of the simplest odd-case construction, found
+afterwards by a correspondent: "I would have found this solution myself if I'd taken time to look
+carefully at all 760 of the generalizable solutions for m = 3, because this one is #369 on that
+list." The golden compound that refuted a conditional proof of `max(4) = 183` had been in this
+project's files since the first day. Aaronson calls the model's key idea "obvious with hindsight,"
+and a reader of his blog later simplified it further. In all three cases, what was missing was not
+the information. It was a look at information already in hand.
+
+**Constructions end problems; maxima do not.** This is the axis that most separates this project
+from the others. Knuth's problem asked whether a decomposition exists, and finding one, with a
+proof, settled it. The unit-distance disproof and most of the Erdős results Quanta describes are
+also constructions or counterexamples. AlphaEvolve, run by Tao and colleagues on 67 problems,
+"rediscovered the best known solutions in most of the cases and discovered improved solutions in
+several," and each of those is a construction. This project asks for a maximum. A construction
+here is only a lower bound, and 183 was found in the first week. Everything since has been the
+other half: showing that nothing exceeds it. No amount of finding does that. The bounds of
+Sections IX and X came from chains of lemmas, not from a single idea, and the draft ceiling is
+still 12 above the record. The bound proved without the new steps, 261, is 78 above it. Read against these stories, the user's original question, how much of the
+difference from Knuth's hour comes from the problem, has a blunt answer: a great deal. An hour is
+long enough for an existence problem with one key idea. It is not long enough for a maximum.
+
+**Who keeps the record.** Knuth's account of the process is told by the human, from messages
+forwarded to him. Jang and Ryu describe how they elicited the model's help, and print one chat log,
+of a reproduction made after the fact. None of them prints a record kept as the work happened. This project's record was written by the machine, as it went,
+and the record was itself where most of the errors were found. That is not obviously better. It
+is several hundred thousand words that one person cannot read. But it is the one thing here that
+none of the other stories has, and the only thing that would let a stranger check the claims in
+this section against what actually happened.
+
 ---
 
-*Current to 2026-09-30, [P405](LEDGER.md#p405). Section IX was added that day by the
-working session; the same day this session revised Sections I, VI and VII around it — in
-particular, the depth-1 bound Section VI had called "still standing" is the one the proof
-checker found assuming a connected picture. Earlier versions of this document said max(4) was
-proved to lie in [183, 263]. That was wrong, and it is corrected here rather than annotated,
-because a narrative that carries its own superseded claims in brackets is harder to read than
-the ledger it is meant to replace.*
+*Current to 2026-10-08, [P439](LEDGER.md#p439) and [A33](INTERVENTIONS.md). Section IX was added
+on 2026-09-30 by the working session and is left as its dated record; Section X says what became
+of the condition it names. Sections X and XI, and the edits to VI and VII that point to them,
+were written by this session on 2026-10-08. The 195 and 485 bounds are drafts that no one outside
+the project has reviewed, and this document calls them that. Earlier versions of this document
+said max(4) was proved to lie in [183, 263]. That was wrong, and it is corrected here rather than
+annotated, because a narrative that carries its own superseded claims in brackets is harder to
+read than the ledger it is meant to replace.*
+
+*Sources for Section XI: Knuth, "Claude's Cycles" (revised 14 April 2026), postscripts;
+U. Jang and E. K. Ryu, "Point Convergence of Nesterov's Accelerated Gradient Method: An
+AI-Assisted Proof", arXiv:2510.23513; S. Aaronson, "The QMA Singularity", Shtetl-Optimized,
+27 September 2025 (scottaaronson.blog/?p=9183); "Why the Legendary Erdős Problems Are Falling to
+AI", Quanta Magazine, 3 August 2026; B. Georgiev, J. Gómez-Serrano, T. Tao and A. Z. Wagner,
+"Mathematical exploration and discovery at scale", arXiv:2511.02864.*
 
 *Every claim here is traceable. [`RESULTS.md`](RESULTS.md) carries the current status of
 each with a tag; [`LEDGER.md`](LEDGER.md) is the dated record beneath it, and corrections

@@ -475,6 +475,23 @@ with `index_ledger.py` after appending.
 - [Postscript 403](#p403) — the depth-2 exchange rate, measured — never below 1:1, and attained
 - [Postscript 404](#p404) — the depth-2 exchange PROVED by charging to the triples' bottom diagrams — `max(4) <= 194 +…
 - [Postscript 405](#p405) — the CIRCLE LEMMA — `X = 0` and `W4u = 0` for cubes, so `max(4) <= 195` is PROVED IF `c2 = 1`
+- [Postscript 406](#p406) — **[CORRECTION]** the triple cap needs no transversality — only no shared face plane, by the circle lemma
+- [Postscript 407](#p407) — the excess accounting step PROVED by the circle model — the 198 tower bound is back to one…
+- [Postscript 408](#p408) — **[REFUTATION]** `c2 = 1` is FALSE in general — two depth-2 bands found; the 195 route needs a trade-off, not…
+- [Postscript 409](#p409) — the band trade-off measured — every depth-2 band found pays for itself, the tightest by 7
+- [Postscript 410](#p410) — **[PROOF]** the band lemma — `c2 - 1 <= sum_S (c_S - 1)`, so `max(4) <= 195` (no shared face plane,…
+- [Postscript 411](#p411) — degenerate compounds measured — a shared face plane costs about 46 regions; the highest…
+- [Postscript 412](#p412) — **[PROOF]** the transversality lemma — without a shared face plane, every tie between cubes is a…
+- [Postscript 413](#p413) — **[PROOF]** the shared-face-plane case narrowed — `d3 <= 20` there, so 195 needs only `d2 <= 70`
+- [Postscript 414](#p414) — **[REFUTATION]** breaking a shared pair's tie by scaling one cube does not preserve the count — both…
+- [Postscript 415](#p415) — the Mayer–Vietoris route on the shared-plane locus — bound never above 69 (target 70); `d2 =…
+- [Postscript 416](#p416) — **[PROOF]** ANCHOR's soft step closed — "q_t lands in U" made exact by the local cone and an arc on the…
+- [Postscript 417](#p417) — **[PROOF]** no tangential triple points without a shared face plane — Lemma 1a's caveat closed
+- [Postscript 418](#p418) — **[PROOF]** the shared-face-plane case — with exactly one sharing pair, `d2 <= 62` by charging with tie…
+- [Postscript 419](#p419) — two or more sharing pairs — the per-direction lemma (exhaustive), the eight realisable…
+- [Postscript 420](#p420) — **[PROOF]** the local inequality (L) holds for every sharing structure — the low-end residue settled…
+- [Postscript 421](#p421) — the per-compound oracle with patches counted per class, all eight structures — 0 violations,…
+- [Postscript 422](#p422) — **[PROOF]** the hole term bounded — glue arcs lie only on hub-cube edges; with per-structure `d3`, every…
 
 <!-- INDEX:END -->
 
@@ -23090,6 +23107,10 @@ of a graph component; *hole* is `c - 1`, which has no free letter and is written
 <!-- status: proved-if="holes <= 1"|"holes ≤ 1"|"c_ell <= 2"|"c_ℓ ≤ 2"|"c ≤ 2"|"c <= 2"|"PROVED IF"; claim="≤ 198"|"<= 198"|"198 at n = 4" -->
 <!-- status: corrected-by=P396; fell="proved-modulo-one-hypothesis"; stands="the bound and its derivation, with the accounting step as a second condition" -->
 
+> **REINSTATED IN PART, recorded 2026-10-04 ([P407](#p407)).** [P396] found a second unproved input,
+> the accounting step; it is now proved (no shared face plane), so the bound below is again PROVED IF
+> `holes <= 1` alone, within that scope.
+
 Working out what [OQ 30]'s hypothesis actually buys, since everything else in the chain is
 already proved.
 
@@ -24250,7 +24271,7 @@ kind, 6 of the second, and none of the third.
 > would give 80, 80 and 92 instead of 72, 72 and 84. [P346] also DERIVES the law rather than
 > measuring it: the left side is `sum over 3-subsets of their triple-point counts`.
 
-**AND THIS REFINES THE KNOWN CAP.** `T3 <= 32*C(n,3)` is proved (for cubes meeting pairwise transversally, [P397](#p397)). The measured statement is
+**AND THIS REFINES THE KNOWN CAP.** `T3 <= 32*C(n,3)` is proved (for cubes with no shared face plane: [P397](#p397), scope CORRECTED by [P406](#p406)). The measured statement is
 stronger and, if provable, is the form to use: the cap counts COLLIDED triple points with
 multiplicity four, so a configuration cannot buy extra quadruple points without giving back
 triple points at four-to-one. *Stated as measured, not proved: 0 violations in 80 random
@@ -27466,6 +27487,9 @@ classes", while each is an arc of classes ([P378], [P380]); reworded.
 ## [VERIFIED] Postscript 396: the upper-bound reductions checked in Lean, with their hypotheses printed by Lean; P326's bound has TWO unproved inputs
 <!-- status: corrects=P326 -->
 
+> **Scope note, recorded 2026-10-04 ([P407](#p407)).** The second input found below, the accounting
+> step, is now PROVED (no shared face plane). The tower bound is again PROVED IF `holes <= 1` alone.
+
 *2026-09-28.* After [P395] (a bound listed as proved under the wrong condition), the user asked for
 hypothesis tracking and, where useful, a proof checker. Two tools:
 
@@ -27498,7 +27522,8 @@ identity, the accounting step. Those remain the ledger's proofs, or its argument
 <a id="p397"></a>
 
 ## [CORRECTION] Postscript 397: the triple cap `E_S <= 32` was lifted to every n without its scope, pairwise transversality
-<!-- status: proved-if="transvers"; claim="triple total `≤ 32·C(n,3)`"|"T3 <= 32*C(n,3)" -->
+<!-- status: proved-if="transvers"|"no shared face plane"|"shared face plane"; claim="triple total `≤ 32·C(n,3)`"|"T3 <= 32*C(n,3)" -->
+<!-- status: corrected-by=P406; fell="for cubes meeting pairwise transversally ([P397]"|"only for cubes meeting pairwise transversally (P397)"; stands="that the triple cap had been lifted without its scope; the shared-face-plane exclusion" -->
 
 *2026-09-28.* Found while inventorying the claimed proofs for a proof checker (user question: can
 a proof checker be run on them?).
@@ -27719,7 +27744,7 @@ captures on the split sets is returned by the complements.
 largest M}`, so `d2 = 1 + beta1(Gamma) = E - V + c2 + 1`. At n = 4 every triple point of every
 triple lies on `Gamma` (a tie of three cubes is at positions (1,2,3) or (2,3,4), and both are
 2nd = 3rd ties). With `T` the total triple points over the four triples (<= 4 x 32 = 128, the
-triple cap, transversal scope [P397]) and the trivalent count,
+triple cap; scope [P397], widened to no shared face plane by [P406](#p406)) and the trivalent count, <!-- reviewed 2026-10-04: carries the pointer to P406 -->
 
     d2  =  66 + (c2 - 1) + W2 + W4 - (1/2)(128 - T)
 
@@ -27855,7 +27880,7 @@ so no arc ends at a vertex of degree 1; the charging needs this (uncharged verti
 >= 0), and it is now asserted in `depth2_charging.check`.
 
 **RESULT: for compounds with no shared face plane, `max(4) <= 194 + c2`; so `max(4) <= 195` is
-PROVED IF `c2 = 1`.** Lean: `max4_le_195_charging` with the circle-lemma inputs now `proved_`,
+PROVED IF `c2 = 1`.** *(`c2 = 2` does occur: [P408](#p408).)* Lean: `max4_le_195_charging` with the circle-lemma inputs now `proved_`,
 the single open hypothesis `hyp_OQ30_c2_eq_1`, confirmed needed.
 
 **Anchors.** (1) Outside the cube pipeline (`src/probes/circle_lemma.py`): random coloured point
@@ -27874,4 +27899,2007 @@ cube triple with no shared face plane, so `deg_bot >= 3` there (three colours pr
 tangential-triple-point caveat does not arise for cubes, and the triple cap might follow from Euler
 on the bottom diagram plus ANCHOR alone, narrowing [P397]'s scope from pairwise transversal to no
 shared face plane. Which "triple weight" each downstream use means must be checked before [P397]
-or the Lean binder names change; left for a separate entry.
+or the Lean binder names change; left for a separate entry. *(Propagated 2026-10-04: [P406](#p406).)* <!-- reviewed 2026-10-04: points to P406, which carries the scope change -->
+
+<a id="p406"></a>
+
+## [CORRECTION] Postscript 406: the triple cap needs no transversality — only no shared face plane, by the circle lemma
+<!-- status: corrects=P397 -->
+
+*2026-10-04.* [P405] recorded, and did not propagate, a consequence of its circle lemma. Here it is
+checked and propagated. **[P397]'s scope for the triple cap, "cubes meeting pairwise transversally",
+is replaced by "no two cubes share a face plane".** <!-- reviewed 2026-10-04: this entry is the correction -->
+
+**The proof.** For a cube triple `S` with no shared face plane, the triple points' share of the
+excess is `E_S = (1/2) sum over triple points of (deg_top - 2) + (deg_bot - 2)`. The circle lemma
+gives `deg_top <= deg_bot` at every triple point, so `E_S <= sum_triple points (deg_bot - 2)`. Every
+vertex of the bottom diagram has degree >= 2 (an arc separates two differently labelled cells), so
+that sum is at most the whole bottom diagram's `sum (deg_bot - 2) = 2(E - V) = 2(F - 1 - c)
+<= 2(18 - 2) = 32`, with `F = d2(S) <= 18` (ANCHOR) and `c >= 1`. No Step T pairwise budget, no
+transversality. The same argument gives Lemma 1a's tangential caveat away: every triple point has
+`deg_bot >= 3` (three colours on the circle), so it IS a bottom vertex. The scope is exact for what
+the argument needs: without a shared face plane, two cubes' reach functions agree on no open set
+(they would share an active face normal at distance 1), so every tie set is a curve and every
+diagram a finite graph.
+
+**Measured** (`src/probes/triple_cap_scope.py`, `data/triple_cap_scope.json`): 2 618
+coincidence-rich triples of height <= 3, shared face planes excluded (3 382); `E_S <= 32` on all,
+and `E_S = 32` exactly on 1 471. No row exceeded the bottom budget.
+
+**What changes.** The pair cap was never transversal-scoped (max(2) = 13 is general). With this, the
+caps under [P348]'s 195 - Q4, [P326]'s tower bound and [P237]'s chain hold for every compound with no
+shared face plane; compounds that share a face plane remain outside every cap-based bound and are
+covered only by the unconditional 261 ([P401]). The contact bound of the Euler route to max(3)
+(PROOF_FORMAL Part D) still carries transversality; it is used by no current bound. Lean binder
+renamed `proved_triple_cap_if_no_shared_face_plane`. <!-- reviewed 2026-10-04: names the entries whose scope this widens -->
+
+<a id="p407"></a>
+
+## [VERIFIED] Postscript 407: the excess accounting step PROVED by the circle model — the 198 tower bound is back to one hypothesis
+<!-- reviewed 2026-10-04: proves the step P396 found unverified; P326's other content unchanged -->
+
+*2026-10-04.* [P396] found that [P326]'s tower bound `TOTAL <= 1 + 32 C(n,3) + 10 C(n,2) + 3(n-1)`
+uses, besides `holes <= 1`, the step `sum(E - V) <= T3 + two-body`, argued in [P388]'s addendum and
+recorded as not verified. Scope: no shared face plane.
+
+**The proof, vertex by vertex.** A vertex `v` lies on the boundaries of a set `A` of `k >= 2` cubes;
+its excess in the compound depends only on `A` (cubes strictly containing or missing `v` only shift
+level indices; [P338]'s locality). In the circle model of [P405] each cube of `A` is a set of points
+on one circle and each pair `P` crosses `z_P >= 2` times (two cubes on one circle cannot dominate
+one another without a shared normal). Every one of the `k - 1` levels is crossed at `v` (each cube
+owns a nearest point somewhere, so no top-`j` set is constant), so with `N_A = sum_P z_P`
+
+    excess_A(v) = N_A - 2(k - 1),     excess_S(v) = N_S - 4 (each triple S in A),     excess_P(v) = z_P - 2.
+
+`T3` charges `v` once per triple `S` in `A` and the pair term once per pair, and each pair lies in
+`k - 2` triples, so the charge is `(k - 1) N_A - 4 C(k,3) - 2 C(k,2)`. With `N_A >= k(k - 1)`,
+
+    charge - excess  >=  (k - 2)(k - 1)(k/3 - 1)  >=  0     (k >= 3; equality at k = 2, 3).
+
+At `k = 4` it is 8 against 6, exactly [P388]'s "a four-cube vertex supplies excess 6 against the 8
+its four triples charge". Summing over vertices: `sum(E - V) <= T3 + two-body`.
+
+**Measured** (`src/probes/accounting_step.py`, `data/accounting_step.json`): at n = 4,
+`SEV(compound) <= sum_S SEV(S) - sum_P SEV(P)` (the right side is `T3 + two-body` by the
+sub-compound identities), every SEV from `c_level`'s gated level graphs. 165 compounds (the record,
+the refuter, 163 random at heights 2, 3, 7), 197 excluded for shared face planes, 0 unevaluated,
+**0 violations**; the slack is exactly 0 in the 138 without four-fold points, as the argument says,
+and positive only where four-fold points are present.
+
+**So [P326]'s tower bound, 198 at n = 4, is PROVED IF `holes <= 1`** (for compounds with no shared
+face plane), as [P326] first said; [P396]'s second input is discharged. <!-- reviewed 2026-10-04: this entry reinstates P326; see its in-place note --> Lean: the binder becomes
+`proved_P407_excess_accounting_if_no_shared_face_plane`; the label stays PROVED IF, on the holes alone.
+
+<a id="p408"></a>
+
+## [REFUTATION] Postscript 408: `c2 = 1` is FALSE in general — two depth-2 bands found; the 195 route needs a trade-off, not connectivity
+<!-- status: proved-if="c2 = 1"|"c₂ = 1"|"PROVED IF"; claim="c2 = 1 in all"|"held in every one of 1 951"; trigger="claim" -->
+
+*2026-10-04.* A targeted hunt (`src/probes/band_hunt.py`, `data/band_hunt.json`) for the shape a
+depth-2 band would need: two cubes whose body diagonals lie near a common axis (their corner rings
+reach far round its equator), the other two near the identity and a small tilt of it, perturbed at
+random; plus random compounds. 1 294 evaluated, 206 excluded for shared face planes. **Positive
+control:** level-1 bands (`c1 = 2`, [P269]) found in 7. **Level 2: `c2 = 2` in 2**, both targeted:
+
+    1,0,0,0; 10,1,2,0; 112,42,-40,-2; 110,42,-39,-1     total 110, d2 53, c2 = 2 (components 64 + 64)
+    1,0,0,0; 18,2,-2,0; 45,34,6,54; 78,23,-32,-9        total  94, d2 43, c2 = 2 (components 59 + 59)
+
+Genuine: no shared face plane; `E - V + c + 1` equals the engine's `d_l` at every level; every
+charging gate of [P404] passes (`X = 0`, `W4u = 0`, minimum degree 2). The two components are equal
+and antipodal: the symmetric band of [P269], now at depth 2.
+
+**What falls and what does not.** The hypothesis "`c2 = 1`" is false as a universal statement, and
+every place that reported it as holding in all configurations checked (1 951, [P403]-[P405]) was a
+statement about a population that never reached this shape. **`max(4) <= 194 + c2` ([P404], [P405])
+stands, and so does "195 PROVED IF `c2 = 1`" as a conditional**; neither is refuted by an example
+with `c2 = 2` and a total of 110. What fails is the hope that the condition is always met.
+
+**And the examples show what replaces it.** In both, the four triples' budgets
+`sum_S (d2(S) - 1 - c_S)` total 50 and 40, against a maximum of 64: the extra component costs 1 and
+the configuration has already lost 14 or 24. [P404]'s chain is exactly
+`d2 = 1 + c2 + (E_G - V_G) <= 1 + c2 + budget`, so **`max(4) <= 195` follows from
+`c2 - 1 <= 64 - budget`**: an extra depth-2 component must come with at least that much shortfall in
+the triples. Both examples satisfy it by a wide margin, and [P269] saw the same at level 1 (the
+extra component worth +1, costing about 14). It is the next form of the question; not attempted
+here.
+
+<a id="p409"></a>
+
+## [VERIFIED] Postscript 409: the band trade-off measured — every depth-2 band found pays for itself, the tightest by 7
+<!-- reviewed 2026-10-04: a measurement; states no new bound -->
+
+*2026-10-04.* [P408]'s question: does `margin = 64 - sum_S budget_S - (c2 - 1)` stay >= 0 when a
+depth-2 band exists? (`max(4) <= 195` follows from it.) Two measurements, exact level graphs:
+
+**A wider hunt** (`band_hunt.py 4000 7`, `data/band_hunt_7.json`): 3 362 evaluated, 638 excluded for
+shared face planes; positive control 16 level-1 bands; **5 new depth-2 bands**, all from the targeted
+families (none among 1 577 random), with margins 13, 15, 17, 19, 21 and `d2` from 45 to 53.
+
+**A climb** (`band_climb.py`, `data/band_climb.json`) minimising the margin while keeping `c2 >= 2`,
+from [P408]'s two bands, 4 runs of 300 steps (217-267 of each 300 rejected: the band is fragile).
+**Lowest margin 7**, at `1,0,0,0; 16,0,1,-1; 43,33,3,52; 81,27,-32,-10` (budget 56, `d2` 59,
+`c2` 2); it fell steadily (23 to 7 on one run), so 7 is a lower bound on how tight it gets, not a
+floor.
+
+**So no band found comes close to threatening 195**: 7 bands, all with margin >= 7, and every one a
+small compound (the largest `d2` 59 against the record's 66). A band costs the triples budget; how
+much, and why, is the question a proof of 195 would now have to answer. Not attempted here.
+Sampled and climbed, not proved: a lower bound on the tightness, and nothing more.
+
+<a id="p410"></a>
+
+## [PROOF] Postscript 410: the band lemma — `c2 - 1 <= sum_S (c_S - 1)`, so `max(4) <= 195` (no shared face plane, transversal ties)
+<!-- reviewed 2026-10-04: supersedes the PROVED IF c2 = 1 of P404/P405 within the stated scope; not yet externally reviewed -->
+
+*2026-10-04.* [P409] left the question of why a depth-2 band costs triple budget. The margin of
+[P408] splits exactly as
+
+    margin = sum_S (18 - d2(S))  +  [ sum_S (c_S - 1) - (c2 - 1) ]
+
+because `budget_S = d2(S) - 1 - c_S`. The first term is the ANCHOR slack. The second is the
+COMPONENT slack, and it alone pays for every band found (`src/probes/band_components.py`,
+`data/band_components.json`: in all 8 bands it is exactly 1, and the identity holds).
+
+**The band lemma** ([`PROOF_BAND.md`](PROOF_BAND.md)): at n = 4,
+`c2 - 1 <= sum_S (c_S - 1)`. The proof in outline:
+- Every component of `S^2 \ Gamma` has one label, its pair of farthest-reaching cubes. A band
+  region `R` labelled `P = {a, b}` has `j_R >= 2` complementary components.
+- The regions and complementary components form a tree, so `c2 - 1 = sum_P (#K_P - 1)`, where the
+  `K_P` are the components of `S^2` minus the band regions labelled `P`.
+- Every `K_P` meets `R_c` or `R_d`, where `R_z` is the set where `z` beats `min(a, b)`. A face
+  centre of `a` lies in both, since `a` is innermost there. So `n_c + n_d >= #K_P + 1`.
+- Each such `K_P` holds an arc of `B_{P+z}`. The bottom diagram of a triple misses its pairs' band
+  regions.
+- A finite tree count (Lemma C) then bounds the components of each `B_S` without counting a band
+  twice when two band pairs share a cube. The geometric input that makes it work is the
+  **one-colour rule**: a component of the complement that `B_S` misses borders band regions of
+  only one pair.
+
+With [P404]'s charging and [P405]'s circle lemma, `d2 <= sum_S d2(S) - 6 <= 66`, and with
+`d1 <= 104`, `d3 <= 24`, `d4 <= 1` ([P401]): **`max(4) <= 195`.**
+
+**Scope.**
+- No two cubes share a face plane ([P404]'s scope). It excluded 206 of 1 500 samples (13.7%) and
+  638 of 4 000 (16%) in the two hunts, targeted and random together.
+- Transversal ties (wording tightened the same day, at the advisor's catch; CORRECTED the same day: the catch was mistaken, and this condition FOLLOWS from no shared face plane, [P412](#p412)): wherever two cubes
+  reach equally far they cross, never merely touch. This excludes touching arcs (an edge lying in
+  another cube's supporting face plane, which [P404]'s Euler identity also needs excluded) and
+  isolated tie points. Γ and every `B_S` are then exactly the union of their level-graph arcs.
+  An isolated tie point needs four face planes through one point with a strict tangent-cone
+  inclusion: measure zero, but not excluded by the first condition.
+- Inherited: ANCHOR (`d2(S) <= 18`, its soft step flagged in PROOF_67), LOCAL COINCIDENCE ([P404])
+  and the circle lemma ([P405]).
+- The unconditional bound stays 261 ([P401]).
+
+**Checks.**
+- **Lemma C, exhaustively** (`src/probes/tree_lemma_check.py`, `data/tree_lemma_check.json`).
+  Every bipartite region/component tree up to 14 nodes, all colourings and live/dead markings:
+  11.3 million instances under the rule, **0 violations**. Must-fail control: with the
+  one-colour rule dropped, the claim fails, smallest at 5 nodes (live - P - dead - P' - live).
+- **The intermediate objects** (`src/probes/band_faces.py`, `data/band_faces.json`). Γ's faces are
+  traced from the rotation system, and each half-edge's side label comes from exact face
+  derivatives.
+  - In all 8 bands, every face walk carries one label (G1) and Euler holds per component.
+  - The face of each component containing the other carries the same label, read from both
+    sides. That label is the pair shared by the two disconnected triples (G4/G5).
+  - Control: the 183 record traces to 66 faces, one label each, `c2 = 1`.
+  - Containment is decided by a floating-point winding number, which is the one non-exact step.
+- **The conclusion, as an oracle** (`src/probes/band_cslack.py`, `data/band_cslack.json`, cache
+  `data/band_cslack_cache.jsonl`). 16 climbs of 1 500 steps minimised the component slack while
+  keeping `c2 >= 2`, from the 8 bands, and accepted any move that raised `c2`.
+  - 23 668 evaluated, 219 excluded, 0 unevaluated; 8 694 of them carry a band.
+  - **Component slack never below 1** (never 0, never negative); `c2` never above 2.
+  - **Two band pairs sharing a cube, and `c2 >= 3`: 0 instances observed.** The lemma covers them
+    by argument only.
+- **The margin, pressed harder** (`src/probes/band_climb2.py`, `data/band_climb2.json`).
+  - 16 runs of 1 500 steps with step sizes 1 to 8, from all 8 bands.
+  - Lowest margin 7, reached by 14 of 16 runs, and never lower.
+  - Measured split (`src/probes/band_floor_split.py`, `data/band_floor_split.json`): all 15
+    margin-7 endpoints across both climbs have `d2(S)` = 18, 18, 15, 15. The two 15s are exactly
+    the band triples (`c_S = 2`), plus the component slack 1.
+  - **The climb was pure greedy descent.** Every margin observed is odd, so the rule meant to
+    accept a +1 step never fired (0 uphill moves). The next value to look for below 7 is 5.
+    A rerun accepting +2 steps would test the floor properly; not done.
+  - The floor is observed, not proved.
+- **A null result, kept:** `src/probes/band_pair_labels.py` (`data/band_pair_labels.json`) tried
+  to identify the band pair from the labels beside each component of Γ. All six labels border both
+  components in every band, so that test cannot identify the pair ("0 of 8 agree" means
+  undetermined, not disagreement). `band_faces.py` replaces it.
+- **Lean:** `max4_le_195` in `lean/CubeBounds/Proofs.lean`, labelled PROVED.
+  `lean_status.py` now tests the necessity of the band lemma and of ANCHOR's `d2(S) <= 18`
+  explicitly: the proof fails without either.
+  - `max4_le_195_charging` (PROVED IF `c2 = 1`) is kept as the superseded form.
+
+**What this changes.**
+- `max(4) <= 195` moves from PROVED IF `c2 = 1` to PROVED within the scope.
+- The ceiling law's last case at n = 4 (`d2 <= 66`) is now proved within the same scope.
+- `max(4) = 183` remains a WEAK CONJECTURE, with 12 regions between it and the bound.
+- An external read of PROOF_BAND is wanted before the narratives call it settled. It is pending.
+
+**Addendum 2026-10-08: the label is DRAFT, not PROVED.** A review noted that the two halves of the
+unconditional 195 were labelled differently although neither has been externally reviewed: this
+entry's "PROVED within the scope", against "draft" for the shared-plane half ([P422]).
+PROOF_BAND.md itself has always been headed "Draft … not yet externally reviewed". The rule since
+2026-10-05 is that results stay draft until a review outcome is reported. RESULTS, LEVELS,
+ORIENTATION and PROOF_CHECK now say DRAFT. RESULTS gains a DRAFT tag, Lean's binder is now
+`draft_P410_band_lemma_if_no_shared_face_plane`, and `src/lean_status.py` derives DRAFT from any
+`draft_` binder (it reports `max4_le_195  DRAFT  documents: DRAFT  OK`, and the band lemma is
+still NEEDED). The mathematics is unchanged. The same review pass corrected one stale line in
+RESULTS' n = 5 entry: two or more sharing pairs are not covered, not every shared plane.
+The user ruled the same day that the other PROVED labels stay, given one consistent meaning:
+DRAFT marks a proof under the current external read (PROOF_BAND, PROOF_SHARED, PROOF_N5) and
+awaiting its outcome; PROVED marks an internally checked proof that was not sent for review. The
+tags differ in review status, not in the standard of proof. The key in RESULTS says so.
+
+<a id="p411"></a>
+
+## [VERIFIED] Postscript 411: degenerate compounds measured — a shared face plane costs about 46 regions; the highest found is 137
+<!-- reviewed 2026-10-04: a measurement toward removing P410's scope; states no new bound -->
+
+*2026-10-04.* Plan item 2 is to make 195 unconditional by showing that a degenerate compound never
+has more regions than some nearby generic one. A degenerate compound counting above 195 would end
+that hope; one above 261 would mean a tool bug, since 261 is proved. Measured, exact counts:
+
+- **The 700 shared-plane compounds the band climbs excluded** (`src/probes/degenerate_counts.py`,
+  `data/degenerate_counts.json`): 0 unevaluated, highest **109**. These lie near the bands, so
+  they are easy controls.
+- **A climb on the shared-plane locus itself** (`src/probes/shared_plane_climb.py`,
+  `data/shared_plane_climb.json`).
+  - Cube 1 is a rotation about cube 0's z axis, so the two share their z face planes. Cubes 2
+    and 3 are free.
+  - 16 runs of 3 000 steps, 4 of them from the 183 record with cube 1 replaced. Greedy, accepting
+    ties. 5 unevaluated moves (engine refusals that survived the rotation retries).
+  - **Highest 137**, reached by 3 runs from different starts; every run ended between 131 and 137.
+- **Cross-check:** the five highest agree exactly with the independent counter
+  `sphere_count.py` (`data/shared_plane_crosscheck.txt`).
+
+**CORRECTED 2026-10-04, same session: the route these measurements were testing is FALSE in
+general, and [P69] already showed it.** "A degenerate compound never beats its generic
+neighbours" fails at n = 2. A generic pair has 4 regions, and the maximum 13 lives only on curves:
+rotations about a shared body diagonal. Re-measured (`src/probes/degenerate_counts.py`'s `total`,
+with `sphere_count.py` agreeing): the 13-pair `(3,1,1,1)` tilted to `(3000,1000,1000,1001)` counts
+5, and stays at 5 at tilts 10× and 100× smaller. Its depth-1 pieces are separated only at
+edge-edge crossings, which every tilt in that direction opens. Records live on coincidence loci in
+general: the 183 plateau is an arc. So item 2 cannot go through perturbation. It needs P410's
+argument extended to shared face planes and touching ties directly. The 137 below stands as a
+measurement: it is how high those two loci have been seen to go.
+
+Observations that looked consistent with the false route (kept, since they are true):
+- At the ends of the 183 plateau arc, which are coincidence walls, the count drops by one step
+  ([P378], [P379]).
+- The golden 177 loses exactly one region to each of its 18 quadruple points (195 − 18).
+
+A realisability fact from the same session: two congruent origin-centred cubes with collinear edges
+share both face planes there. Both edge wedges are right angles bisected by the direction to the
+origin, so they are identical. Collinear-edge pinches therefore reduce to the shared-plane case.
+
+**Not shown:** that no degenerate compound beats its generic neighbours. Searches give lower
+bounds only, and 137 is a lower bound on the shared-plane maximum. The touching ties of P410's
+scope cannot occur without a shared plane ([P412](#p412)), so there is nothing to target.
+
+<a id="p412"></a>
+
+## [PROOF] Postscript 412: the transversality lemma — without a shared face plane, every tie between cubes is a crossing; P410's scope is "no shared face plane" alone
+<!-- reviewed 2026-10-04: narrows P410's scope; the "transversal ties" condition is a consequence, not an assumption -->
+
+*2026-10-04.* [P410]'s scope added "transversal ties" (no touching arc, no isolated tie point) on
+the view that "no shared face plane" did not exclude them. That view was wrong: **for congruent,
+origin-centred cubes with faces at distance 1, every non-crossing tie forces a shared face plane.**
+
+**Setting.** Both cubes are star-shaped from the origin and the comparison is radial. So `ρ_a ≥ ρ_b`
+holds near a tie point `p` exactly when `∂cone_b ⊂ cone_a`, where `cone_x` is the tangent cone of
+cube `x` at `p` (exact, since cubes are polyhedra). A tie that does not cross therefore means one
+tangent cone contains the other. Let `k_x` = the number of faces of `x` active at `p`: 1 at a face
+point, 2 on an edge (`|p| < √3`), 3 at a vertex (`|p| = √3`). Let `n_i` be the unit face normals.
+
+- **A half-space contains an edge wedge.** A wedge contains its edge line in both directions, and a
+  half-space contains a full line only if the line is parallel to its plane. So the edge lies in
+  the plane: `f ⊥ n1×n2`, `f = α n1 + β n2`, and `f·(n1+n2) = 1`. Then `α + β = 1` and
+  `α² + β² = 1`, so `αβ = 0` and `f = n1` or `n2`: **a shared plane.**
+- **A half-space contains a vertex octant** (apex `n1+n2+n3` on the plane `f·x = 1`).
+  `f = Σ αi ni` with `αi ≥ 0`, `Σ αi = 1` and `Σ αi² = 1`, so `f = ni`: **shared.**
+- **One wedge contains another.** A wedge contains only lines parallel to its own edge, so the edges
+  are collinear. Both wedges are then right angles bisected by the direction to the origin, hence
+  identical: **both planes shared** ([P411]).
+- **One octant contains another**, at a common vertex. By duality each normal of the outer cube is
+  a non-negative combination of the inner cube's normals, with coefficients summing to 1 (all
+  `ni·p = 1`) and squares summing to 1. So the normals coincide: **all planes shared.**
+- Two half-spaces nested with a common boundary point means the same plane. A half-space cannot lie
+  inside a wedge or octant, nor a wedge inside an octant. Mixed vertex and non-vertex cases cannot
+  occur, because only vertices lie at distance √3.
+
+**Ties among three or more cubes, at any level** (the k-th and (k+1)-th reach tying without
+crossing). By the circle lemma ([P405], same scope), the active normals of all cubes tied at `p`
+project onto one circle. The projected point of a face `f` through `p` is `f − (f·p)p/|p|² =
+f − p/|p|²`, so two cubes share a projected point only by sharing a face plane. Pointing in the
+direction of a tied cube's projected point makes that cube strictly innermost among the tied
+cubes. Take any tied cube in the top-k set and point at it: it drops below every tied cube outside
+that set, so the top-k set changes near `p`, and the tie crosses.
+
+**Consequences.**
+- [P410] holds for every compound with no shared face plane. Γ and every `B_S` are exactly the
+  union of their level-graph arcs, and the label changes across every arc.
+- [P411]'s untargeted case cannot occur: touching ties need a shared plane.
+- Plan item 2 (195 unconditional) is now only the shared-face-plane case.
+- [P410]'s note "wording tightened the same day, at the advisor's catch" recorded a mistaken
+  catch; the condition it added is this lemma's conclusion.
+
+<a id="p413"></a>
+
+## [PROOF] Postscript 413: the shared-face-plane case narrowed — `d3 <= 20` there, so 195 needs only `d2 <= 70`
+<!-- reviewed 2026-10-04: a lemma and a measurement for plan item 2; states no new bound on max(4) -->
+
+*2026-10-04.* After [P412], plan item 2 (195 unconditional) is the case of compounds where some two
+cubes share a face plane. Two cubes sharing the plane with normal `f` are related by a rotation
+about `f`. They share the face centres `±f` and tie on a whole patch around each.
+
+**Where the deficit sits** (`data/shared_plane_depths.txt`; the per-depth counts of every run's
+best compound from [P411]'s climb):
+- The best shared-plane compound (137) splits as `d1 = 62`, `d2 = 54`, `d3 = 20`, `d4 = 1`. The
+  record splits as 92, 66, 24, 1.
+- Every one of the 16 run-bests has `d3 = 20` exactly, `d2` between 50 and 54, and `d1` between
+  58 and 64.
+
+**Lemma: `d3 <= 20` for any compound in which two cubes share a face plane.**
+1. ANCHOR ([P33]; already used without hypothesis for `d3 <= 24`, [P401]) says every component of
+   `D(S \ {z})`, the set where `z` is strictly innermost, contains a face centre of `z`.
+2. If `z` shares the plane `±f` with another cube `y`, then `M_z = M_y = 1` at `±f`. So `z` is not
+   strictly innermost there, and `±f` anchors nothing.
+3. A cube in a shared pair therefore has at most 4 usable face centres, giving
+   `d3 <= 6 + 6 + 4 + 4 = 20`. More shared planes lower it further.
+4. The same argument gives `d2(S) <= 14` for a triple containing a shared pair: the pair's two
+   cubes are each excluded at `±f`, and the third cube keeps its 6.
+
+**So, with the unconditional `d1 <= 104`** ([P401]): `max(4) <= 195` holds for shared-plane
+compounds as soon as `d2 <= 70` there. The highest `d2` seen on that locus is 54.
+
+**What remains.**
+- [P404]'s charging and [P410]'s band lemma use the level-2 boundary as a graph. With a shared
+  plane it has 2-dimensional tie patches.
+- Euler with the patches as extra faces gives `d2 = E − V + c2 + 1 − p` (`p` = patch faces), so
+  patches only lower `d2`.
+- The triple budgets also stay at most 14 for triples containing the pair, since `d2(S) <= 14`
+  and each `B_S` has at most 2 patch faces: the patch around `f` is convex in a gnomonic chart, and
+  so is its part where the third cube wins.
+- Still to re-establish with coincident projected normals: LOCAL COINCIDENCE, the circle lemma's
+  `X = 0`, `W4u = 0`, and the band lemma.
+- Not attempted yet. The existing level-graph tools are invalid on this locus ([P246]), so any
+  measurement must use the D-set counter (`sphere_count.py`).
+
+<a id="p414"></a>
+
+## [REFUTATION] Postscript 414: breaking a shared pair's tie by scaling one cube does not preserve the count — both directions lose in 3 of 48
+<!-- reviewed 2026-10-04: a null result for plan item 2; states no bound -->
+
+*2026-10-04.* After [P413], one hoped-for reduction of the shared-face-plane case went like this.
+Scale one cube of the sharing pair by `1 ± eps`. That removes the shared plane, and the tie patches
+become strict. If some direction never lowered the count, the case would reduce to a compound with
+no shared plane, though that compound would no longer be congruent, so P404/P405/P410 would need
+extending to it.
+
+**Measured** (`src/probes/scaled_count.py`, sphere_count's exact D-set counter with
+`M_x = max f.u / s_x`; `src/probes/tiebreak_scan.py`, `data/tiebreak_scan.json`).
+- 48 compounds with exactly one sharing pair: [P411]'s 16 run-bests, the 12 highest of its 700,
+  and 20 more sampled from them.
+- Each was counted with the pair's second cube scaled by `1 - eps` and by `1 + eps`, at
+  `eps = 1e-6` and `1e-12`. The two values agreed on every count: 0 unevaluated.
+
+**Results.**
+- In 45 of 48, some tie-break keeps or gains. The best run-bests rise, for example 137 to 141 and
+  135 to 153.
+- **In 3, both lose:**
+  - 91 → 87 and 87;
+  - 109 → 107 and 100;
+  - 105 → 103 and 96.
+- So this tie-break is not a reduction, the same lesson as [P69] and [P411]: a coincidence can
+  hold regions apart that every nearby generic compound merges.
+
+**Item 2 stands at [P413].** Shared-plane compounds need `d2 <= 70`, and the best seen is 54. The
+route left is a direct one: charging with 2-dimensional tie patches. `eps` here is a sample, not an
+infinitesimal; the agreement of two values is evidence that both sit in the limiting cell, not a
+proof of it.
+
+<a id="p415"></a>
+
+## [VERIFIED] Postscript 415: the Mayer–Vietoris route on the shared-plane locus — bound never above 69 (target 70); `d2 = 54` at every maximum
+<!-- reviewed 2026-10-04: measurements for plan item 2; states no new bound -->
+
+*2026-10-04.* After [P414], one route to `d2 <= 70` on shared-plane compounds avoids the level
+graphs, which are invalid there. It is [P110]/[P399]'s Mayer–Vietoris inequality per pair:
+
+    d2  <=  sum_S d2(S)  +  sum_P (m_P - 2),
+
+where `m_P` is the number of components of `{x or y innermost of the four}` for `P = {x, y}`.
+
+**Measured on 48 shared-plane compounds** (`src/probes/shared_mv.py`, `data/shared_mv.json`;
+sphere_count's exact counter).
+- The MV inequality held on every pair, the tool's sanity check.
+- **`sum_S d2(S) <= 64` in all 48 and attained**, so [P413]'s anchor cap is sharp and was not
+  refuted.
+- **`sum_P m_P` reaches 19** (at `sum_S d2(S) = 61`), so `sum_P m_P <= 18` is false as a
+  standalone target.
+- Highest MV bound 68. At the generic 183 record the bound is 75 against an actual 66, loose by 9.
+
+**Climbed** (`src/probes/shared_mv_climb.py`, `data/shared_mv_climb.json`).
+- Maximised the MV bound itself on the locus: 16 runs of 1 500 steps, seeded from the highest
+  rows, 0 unevaluated.
+- **Highest 69, never above 70**, reached by 14 of 16 runs.
+- Every 69 has `sum_S d2(S) = 64` and `m = 6, 4, 4, 1, 1, 1`. The 6 is always the sharing pair;
+  the 4s are its two pairs with one other cube.
+- **And the actual `d2` is 54 in every one of them.** That equals the highest `d2` from [P411]'s
+  total-count climb.
+
+**Reading.**
+- The route is not refuted, but a proof would need the joint inequality
+  `sum_S d2(S) + sum_P m_P <= 82`, which nothing in hand supplies.
+- The locus looks capped at `d2 = 54`, 16 below what 195 needs there. That is a lower bound on the
+  ceiling, from two climbs with different objectives.
+- Every bound used here leans on ANCHOR applied to degenerate compounds: [P413]'s `d3 <= 20` and
+  `d2(S) <= 14`. ANCHOR's flagged soft step is the handling of ties, which is exactly what this
+  locus has.
+
+<a id="p416"></a>
+
+## [PROOF] Postscript 416: ANCHOR's soft step closed — "q_t lands in U" made exact by the local cone and an arc on the circle
+<!-- reviewed 2026-10-04: tightens the proof of ANCHOR (max2_report Theorem 1); no bound changes -->
+
+*2026-10-04.* ANCHOR (max2_report.md Theorem 1, [P33]) says every component `U` of
+`S_C = {C strictly innermost}` contains a face direction of `C`. It carries 67, 195 (through
+`d2(S) <= 18`), the unconditional 261 (through `d3 <= 24`) and [P413]'s shared-plane caps. Its
+flagged soft step (PROOF_67 open item 2) is sub-case 2a's claim that the constructed point `q_t`
+lands in `U` and not in another component. The original argument named "the winning C-branch of
+the sector", which is not well defined when C's own kinks cross the sector, and it carried
+`O(t²)` terms. A replacement:
+
+**1. The local picture is exact.**
+- Use the gnomonic chart at `p`: `u = p + w` with `w ⊥ p`. Each `M_x(u)` is a maximum of linear
+  functions, and near `p` only the active faces matter.
+- Every active face, of `C` or of a tying cube, has value `f` at `p`. So
+  `M_x(p + w) = f + σ_x(w)` exactly, where `σ_x(w) = max_b e_{x,b}·w` and the `e` are the
+  tangential parts of the active normals.
+- All the `e` have the same norm `ρ = √(1 − f²)`. This is the circle of [P405], at one point.
+- Comparisons of `M` are scale-invariant, so for `|w| < δ`:
+  `S_C = {w : σ_C(w) > σ_x(w) for every tying x}`. That is an open cone, a union of finitely
+  many sectors.
+- In direction `w`, the condition says: the nearest of `C`'s points on the circle is strictly
+  closer in angle than every tying cube's nearest point.
+
+**2. Every sector contains a descent direction.**
+1. Take `w` in a sector `Σ`, and let `a′` be `C`'s nearest point to it.
+2. Move `w` along the arc toward `e_{a′}` by an angle `δ`. Its distance to `a′` falls by `δ`.
+   By the triangle inequality on the circle, its distance to any tying point `y` falls by at most
+   `δ`.
+3. So the strict inequality holds along the whole arc, and the arc stays in `Σ`.
+4. At its end, `v = e_{a′}/ρ` is in `Σ` and `σ_C(v) = ρ > 0`. Along `p + tv`,
+   `r_C = √(1 + t²)/(f + tρ)` has derivative `−ρ/f² < 0` at 0, so `r_C < c0` inside `Σ`.
+5. A tying point at distance 0 from `a′` would break the strict inequality at `v`. So `a′` is
+   automatically unmatched, and sub-case 2b is the case where the cone is empty.
+
+**3. `Σ` lies in `U`.**
+- `p ∈ ∂U`, so `U` contains points arbitrarily close to `p`, hence a point of some sector `Σ`.
+- `Σ ∩ B(p, δ)` is connected and lies in `S_C`, so it lies in `U`. Then step 2 contradicts
+  `c0 = inf_U r_C`.
+
+**`f = 1`:** `ρ = 0`, so the cone is empty and `p` is not in the closure of `S_C`, which
+contradicts `p ∈ ∂U`.
+
+**Strengthened form, which [P413] uses.** The minimiser lies inside `U`, so the anchoring face
+direction lies in `S_C`. A face direction where `C` ties with another cube, as at a shared face
+plane, anchors nothing. Hence
+`#π0(S_C) <= #{face directions n of C with M_i(n) < 1 for every other i}`.
+
+**Checked** (`src/probes/anchor_check.py`, `data/anchor_check.json`; sphere_count's exact counter).
+- Data: 51 compounds and their triples, 788 (sub-compound, cube) instances. That includes the 48
+  shared-plane compounds of [P414], 290 instances where shared planes cut the anchors below 6, the
+  183 record, the n = 2 13-pair, and a shared-face-axis pair.
+- **0 violations of the strengthened inequality; equality in 674**, so the test is sharp.
+- Must-fail control (only the 3 positive normals counted as anchors): 730 violations, as it must.
+
+PROOF_67's open item 2 is closed by this; max2_report.md's sub-case 2a now carries the replacement.
+
+<a id="p417"></a>
+
+## [PROOF] Postscript 417: no tangential triple points without a shared face plane — Lemma 1a's caveat closed
+<!-- reviewed 2026-10-04: closes PROOF_67 §5.3's caveat within the scope "no shared face plane"; no bound changes -->
+
+*2026-10-04.* PROOF_67 §5.3 (Lemma 1a: triple points ≤ 32) needs every triple point to be a
+degree-≥3 vertex of the bottom diagram. A *tangential* triple point, where the bottom argmin does
+not cycle through all three cubes, was left as a caveat. Lemma 1a carries [P406]'s triple cap
+`E_S <= 32` and `lemma1a_triple_le_32`.
+
+**Proof (no shared face plane).**
+1. At a triple point `p` the three cubes tie at one value `f`. By the circle lemma ([P405]),
+   their active normals project onto one circle of radius `√(1 − 1/|p|²)`.
+2. Two cubes' projected points coincide only if they share a face plane ([P412]: the projected
+   point of a face `n` through `p` is `n − p/|p|²`). So the three cubes' points are pairwise
+   distinct.
+3. In direction `w`, the innermost cube is the one whose point is nearest to `w`. Pointing at any
+   cube's point makes that cube strictly innermost, so all three colours occur around `p`.
+4. A cyclic colour sequence that uses three colours changes colour at least 3 times. The bottom
+   degree is the number of colour changes ([P405]), so it is ≥ 3.
+5. If `f = 1`, `p` is a face direction of all three cubes, which means a shared plane, excluded.
+
+So Lemma 1a holds for every compound with no shared face plane. With a shared plane, ties fill 2D
+patches and "triple point" is not a finite notion. Lemma 1a is then out of scope, as the triple
+cap already was ([P406]).
+
+**Checked** (`src/probes/triple_point_degree.py`, `data/triple_point_degree.json`; exact level
+graphs).
+- Triples: 150 random, 100 near-coincident (one cube a tiny rotation of another), and the triples
+  of the 183 record and the 8 bands. 241 checked, 45 excluded for shared planes.
+- **6 252 triple points, 0 of degree < 3.** Degree-4 and degree-6 triple points do occur
+  (non-generic), and are counted.
+- The detector was validated per triple against the engine by Euler:
+  `Σ(deg/2 − 1) = d2 − 1 − c`, with 0 failures.
+- The "generic" identity `#triple = 2(d2 − 2)` failed in 8 of 37 random triples. All 8 are
+  explained by degree-4/6 vertices or `c = 2`, so the identity is not a check here.
+
+<a id="p418"></a>
+
+## [PROOF] Postscript 418: the shared-face-plane case — with exactly one sharing pair, `d2 <= 62` by charging with tie patches, so `max(4) <= 187` there; other sharing structures measured far below
+<!-- reviewed 2026-10-04: a draft proof for one sharing pair (PROOF_SHARED.md), unreviewed; plan item 2 stays open for two or more sharing pairs -->
+
+*2026-10-04.* Plan item 2 (195 unconditional) needs `d2 <= 70` wherever two cubes share a face
+plane ([P413]). This entry covers the case of **exactly one sharing pair** and measures the others.
+The argument is written out in [PROOF_SHARED.md](PROOF_SHARED.md).
+
+**The shape of the locus.**
+- Near `±f`, the two sharing cubes' `f`-faces are two squares about one centre. They meet in an
+  octagon `O`, on which the two cubes tie.
+- The other two cubes cut that plane in convex polygons `P_c`, `P_d` containing the centre.
+- Level 2's 2D ties (the **patches**) are `O ∩ (P_c Δ P_d)`.
+- The two triples containing the pair have one patch each at `±f`, `O ∩ P_z`, convex. So `p_S = 2`.
+
+**The chain.**
+- Euler on `G'` (the tie set minus its interior) gives `d2 = E' − V' + 1 + c' − p`, and likewise
+  per triple.
+- [P404]'s charging becomes a pointwise inequality (L) at every vertex.
+- [P410]'s band lemma carries over at no loss. G3's one new case is a band region bordering a
+  patch. Each patch borders an arc of `∂P_d` (label `{c, d}`) and an arc of the octagon or `∂P_c`
+  (another label), so `K_P` always reaches a region with a label other than `P`.
+- Each patch is simply connected or an annulus, so `j_Q <= 2`.
+- Then
+  `d2 <= Σ_S d2(S) + Σ_S p_S − 6 <= (14 + 14 + 18 + 18) + 4 − 6 = 62`, using [P413]'s
+  `d2(S) <= 14` for the two triples containing the pair.
+- With `d1 <= 104` and `d3 <= 20`: **`max(4) <= 187` for compounds with exactly one sharing pair.**
+
+**(L) proved for one sharing pair** (PROOF_SHARED §4).
+- In the exact circle model, equal values and equal slopes on one side of a direction force a
+  shared point. So with one shared point `s`, three cubes tie in a direction only as follows:
+  `a = b` tie on both sides (`s` on one side), and `c` crosses them at the bisector of `s` and a
+  point of `c`. The fourth cube never joins.
+- *(CORRECTED 2026-10-04, same day, at the advisor's catch.)* The first version of this entry and
+  of PROOF_SHARED said three cubes never tie in a direction. That is false: such directions are
+  generic, at every end of a `B_abc` patch.
+  - `--direction-ties` finds them in 911 and 1100 of 1 500 sampled configurations, all of the
+    type above (`data/patch_charging_local_dirties.json`).
+  - Both identities below were re-checked by hand at that type, and hold.
+- Hence, exactly, with patches:
+  - `deg top + deg bottom = Σ_pairs deg` at a triple point whose fourth cube is outer;
+  - `Σ_S deg B_S = deg Γ + 2·C12` at a four-fold point.
+- Both close, using `deg bottom >= 3` or `π_ab` being the whole circle, and `C12 >= 3`.
+- Without sharing, the same argument re-proves [P405]'s `X = 0`, `W4u = 0` without the
+  top-versus-bottom lemma.
+
+**Checked.**
+- **Per compound, the sharp oracle** (`src/probes/shared_oracle.py`, `data/shared_oracle.json`).
+  - The chain before the band and patch terms are dropped says `d2 <= Σ_S d2(S) − 2` for one
+    sharing pair.
+  - **0 violations in 387 compounds, minimum slack 5** (histogram 5:3, 6:8, 7:4, 8:222, 9:3,
+    10:26, 12:117, 14:3, 16:1).
+    *(2026-10-05: on a wider sample the minimum is 4, re-counted exactly; see [P421](#p421).)*
+  - The multi-pair analogue `Σ_S d2(S) + Σ_S p_S − 6`, with `p_S = 2` per (triple, sharing pair),
+    holds in all 436 multi-pair rows. That analogue is exploratory, not derived.
+  - 0 unevaluated, with sphere_count re-counts agreeing in 25 of 25.
+  - Four rows from [P411]'s cache contain two IDENTICAL cubes (a half-turn quaternion) and are
+    listed as "0 sharing pairs". They are not shared-plane compounds.
+- **Locally, the exact circle model** (`src/probes/patch_charging_local.py`,
+  `data/patch_charging_local.json`).
+  - 10 rows of 3 000 sampled vertex configurations: general or cube-realisable point sets, times
+    five shared-point patterns.
+  - **Excess 0 in every one.** No isolated point of Γ, and no `B'_S` degree below 2.
+  - **The two identities hold in every applicable none and pair case** (528 + 1 462 general,
+    575 + 1 529 cube).
+  - **They fail only for two or more shared points** (two pairs, hub, axis), where the proof says
+    multi-cube direction ties occur. (L) still held with no excess there.
+  - The must-fail blades control fired 31-46 times per 750.
+  - A first, sequential run without the identities was stopped after 7 rows. Its log
+    (`patch_charging_local_run1.log`) shows the same zero excess.
+- **Scope** (`src/probes/shared_plane_scope.py`, `data/shared_plane_scope.json`).
+  - The sharing structures never measured were climbed on `d2`. Each family's best agrees with
+    sphere_count, with 0 unevaluated.
+
+        two disjoint pairs     d2 44, total 99
+        two pairs at a hub     d2 42, total 99
+        three on one axis      d2 42, total 97
+        four on one axis       d2 16, total 49
+
+  - These are lower bounds on each family's ceiling, all far below 70 and below the single-pair
+    54.
+  - A first version climbed with sphere_count, at about 30 s per evaluation. It was stopped after
+    362 evaluations, and its cache is kept as `shared_plane_scope_sc_cache.jsonl`.
+
+**What stays open for item 2.**
+- **Two or more sharing pairs.**
+  - New direction ties appear: three cubes with no pair tied on both sides (a hub cube sharing
+    two planes), four cubes (two disjoint pairs), and the axis triple.
+  - So §4's exact identities fail there, as the probe confirms. (L) itself still showed no excess
+    in sampling.
+  - G3 also needs patch-against-patch adjacency.
+- The draft is unreviewed. It joins PROOF_BAND, [P412], [P416] and [P417] in the external read.
+
+<a id="p419"></a>
+
+## [VERIFIED] Postscript 419: two or more sharing pairs — the per-direction lemma (exhaustive), the eight realisable sharing structures, their climbs, and an engine frame defect
+<!-- reviewed 2026-10-04: lemmas and measurements toward plan item 2's multi-pair case; states no new bound -->
+
+*2026-10-04.* After [P418], plan item 2 needs compounds with two or more sharing pairs.
+
+**The per-direction lemma** (`src/probes/direction_types.py`, `data/direction_types.json`;
+exhaustive).
+- At a direction where some cubes tie at distance `δ`, each tying cube's nearest point is:
+  - left of the direction,
+  - right of it,
+  - on both sides (at most one cube),
+  - the direction itself (`δ = 0`),
+  - or its antipode (`δ = 180°`).
+- Equal type means a shared point.
+- The other cubes are strictly above or below.
+- That makes the types finite, and all of them are enumerated. With any sharing:
+
+      four-fold vertex:  Σ_S e_{B_S} − e_μ  >=  2·e_C12
+      triple vertex:     Σ_π e_π − e_τ − e_β  >=  0
+
+- Both are equalities for at most one sharing pair: the assertion and control of [P418]'s §4.
+- The slack is positive only at types that imply two or more sharing pairs.
+- **So (L) can fail only at vertices with few ends**: `C12 <= 2` (four-fold) or bottom degree
+  `<= 2` (triple). That residue is still open.
+
+**The realisable sharing structures** (by hand).
+- Two cubes sharing two planes are one cube.
+- A triangle of three distinct planes forces that: the three normals are orthonormal, so two of
+  the cubes would share two of them. So every triangle is an axis class.
+- A 4-cycle forces an identical pair: the two outer cubes' shared axes must be perpendicular,
+  which aligns one of them with a coordinate axis.
+- That leaves eight structures: one pair, two disjoint pairs, hub, axis triple, axis four, star
+  (one cube's three planes), path of four, and axis triple plus a pair.
+
+**Budgets.** A sharing class of `m` cubes costs `2k` anchors in each triple where it has `k >= 2`
+members, and adds at most 2 patch faces. So `Σ_S (d2(S) + p_S) <= 72` minus:
+- 4 per pair;
+- 10 per axis triple;
+- 16 for axis four.
+
+The chain `d2 <= Σ_S (d2(S) + p_S) − 6 + Σ_Q (j_Q − 2) + (band loss) + (excess of (L))` then
+gives, before the last three terms:
+
+    pair 62   two disjoint 58   hub 58   axis3 56   axis4 50   star 54   path 54   axis3+pair 52
+
+The target is 70.
+
+**Climbs of the three unmeasured structures** (`shared_plane_scope.py --new`,
+`data/shared_plane_scope2.json`; 0 unevaluated). The best `d2` per structure:
+- star 30, total 75 (sphere_count; the engine said 77, below);
+- path 28, total 77;
+- axis triple plus a pair 30, total 73.
+
+**An engine defect** (`src/probes/engine_frame_check.py`, `data/engine_frame_check.json`).
+- The star's best counted 77 with the engine and 75 with sphere_count.
+- The engine gives 77 in axis-aligned frames and 75 under generic rotations, so it is
+  frame-dependent on this locus.
+- The audit re-counted, in a generic frame, every compound this session had counted with the
+  engine in the identity frame: 8 048 compounds and their triples.
+  - 49 compounds disagree: 46 star, 2 hub, 1 single pair.
+  - Every disagreement is in `d1` (+2 or +4); none changes `d2`, and no triple disagrees.
+  - The generic frame was right in all 40 re-counted with sphere_count.
+  - 44 compounds and 20 triples were refused in one frame. They are unevaluated, not agreeing.
+- So [P418]'s oracle and every `d2` ceiling stand. The family-best totals reported in [P418]
+  had all been cross-checked.
+- One [P411] climb row reads 131 for a true 129. It is not among the totals [P411] reported.
+
+**The residue, reformulated and sampled.**
+- Summing the per-direction identity gives `Σ_S deg B_S = deg μ + 2 deg λ + ΣW` (`λ` the
+  innermost diagram, `W` the per-direction slack). So at a four-fold vertex, (L) is exactly
+
+      deg λ + ΣW/2  >=  #on − 1,
+
+  where `#on` is the number of triples whose bottom diagram is neither empty nor everything.
+- At a triple vertex it is exactly `deg β + ΣD/2 >= #on_π − [β is the whole circle]`.
+- `src/probes/lowend_check.py` (`data/lowend_check.json`) generated 400 000 realisable vertex
+  configurations: a common `θ(F)` separation, corners included, owner patterns obeying the
+  structure rules.
+  - **36 948 landed in the residue, 13 643 of them genuine vertices (degree >= 3): excess 0 in
+    every one.**
+  - 130 configurations implying an unrealisable structure were skipped and counted.
+  - This is a targeted sample, not a proof.
+- Non-corner, the all-shared patterns are four: two disjoint pairs, path, axis triple plus a pair,
+  and axis four. Each pattern's positions are fixed by `θ` up to an offset. So an exact check per
+  pattern, by cell enumeration in one or two parameters, is feasible. That is the next step.
+
+**Open for item 2.**
+- (L) at low-end vertices, for each structure: exact per-pattern enumeration, or a hand proof
+  of the reformulated inequality. *(Settled 2026-10-05 by [P420](#p420).)*
+- Corner vertices: every tying cube then has three points.
+- `j_Q` for merged patches. In a hub, the two planes' patches can join across the hub cube's
+  edge.
+- G3 for axis patches, argued in a sketch: they are star-shaped about the face centre.
+
+<a id="p420"></a>
+
+## [PROOF] Postscript 420: the local inequality (L) holds for every sharing structure — the low-end residue settled exactly, every owner pattern and every cell
+<!-- reviewed 2026-10-04: completes (L) for two or more sharing pairs (computer-assisted, exhaustive); the merged-patch hole count and G3 for axis patches remain before item 2 closes -->
+
+*2026-10-04/05.* [P419] reduced (L) at multi-pair vertices to a residue. Four-fold vertices with
+innermost degree `<= 2`, and triple vertices with bottom degree `<= 2`, must satisfy
+`deg λ + ΣW/2 >= #on − 1` (resp. `deg β + ΣD/2 >= #on_π − [β whole]`). This settles that residue
+by exhaustion (`src/probes/residue_exact.py`, `data/residue_exact.json`).
+
+**The residue is a finite list of owner patterns.**
+- If two cubes owned unshared points, the innermost diagram would have at least 3 ends. A block of
+  singles between shared points has 2 ends plus its colour changes, and with no shared points at
+  least 3 colours alternate.
+- So at a residue vertex every point is shared except those of one cube.
+- With at most two points per cube, two cubes co-owning at most one point, and the eight
+  realisable structures, that gives 49 placements: 2 with no free parameter, 35 with one, 12
+  with two.
+- Corner vertices give none. A non-`x` cube's three points would all be shared, through three
+  distinct planes: a forbidden triangle.
+
+**Every cell.**
+- Positions are affine in `θ ∈ (120°, 180°]` and component offsets.
+- Degrees change only where two critical directions (points, antipodes, bisectors) coincide.
+- The arrangement of those conditions was sampled cell by cell:
+  - every vertex;
+  - every edge midpoint;
+  - a point just off each edge on both sides, at less than the distance to any other line;
+  - in one dimension, every critical value and every interval between them.
+- The circle model is exact, in rational degrees. It agreed with the integer-grid model of
+  `patch_charging_local` on 300 of 300 validation configurations.
+- Cell coverage was cross-checked by cyclic ORDER TYPE of the critical directions. On all 47
+  placements with a free parameter, no order type reached by 3 000 random rational values was
+  missed by the cells (up to 42 cell types against 16 random).
+  - *(CORRECTED 2026-10-05, at the advisor's review.)* The first cross-check compared degree
+    signatures. With only 1-3 per placement, that could not have detected a missed cell.
+- Two further checks were added at the same review:
+  - **Isolated vertices.** A diagram through `v` whose tie set is empty would cost −2. None
+    occur.
+  - **Merged points.** Each of the 120 samples where distinct points coincide is a configuration
+    of an enumerated pattern (64) or of an unrealisable one (56, two cubes sharing two points).
+
+**Result: 0 failures.**
+- Slack at vertices of degree `>= 3`: 0 (2 samples), 1 (78), 2 (104), 3 (6), 4 (224).
+- The tight samples show the check reached the boundary of (L).
+- 89 samples were off `G'`, and 188 were outside `θ`'s domain.
+
+**So (L) holds at every vertex of every shared-plane compound.**
+- [P418]: proof for one pair.
+- [P419]: an exhaustive per-direction lemma.
+- Here: an exhaustive residue.
+
+Computer-assisted throughout, with no sampling step. The reduction (direction types, the residue
+characterisation and the cell argument) is for the external read.
+
+**What remains for item 2 (195 unconditional).**
+- The merged-patch hole count `Σ_Q (j_Q − 2)`, and G3 for merged and axis patches.
+- The budgets leave room of 8 to 18 per structure ([P419]).
+
+<a id="p421"></a>
+
+## [VERIFIED] Postscript 421: the per-compound oracle with patches counted per class, all eight structures — 0 violations, minimum slack 4 to 34; and the shape of the remaining hole term
+<!-- reviewed 2026-10-05: measurements and a reduction for plan item 2; states no new bound -->
+
+*2026-10-05.* [P418]'s oracle counted 2 patch faces per sharing PAIR in each triple. That
+overcounts axis structures: an axis triple's own triple has one patch per `±n`, not three.
+
+**Recounted with 2 per sharing CLASS** (`src/probes/shared_oracle2.py`,
+`data/shared_oracle2.json`).
+- The engine was run in a generic frame (see [P419]'s defect), for each compound and its triples.
+- 0 unevaluated, and the sphere_count `d2` re-count agreed in 25 of 25.
+
+The prediction `d2 <= Σ_S d2(S) + Σ_S p_S − 6` leaves out the hole and G3 terms. Its minimum slack
+per structure:
+
+    pair 4 (382 rows)   two disjoint 10 (76)   hub 14 (52)   axis3 10 (91)
+    axis3+pair 18 (120) path 22 (12)   star 24 (24)   axis4 34 (120)
+
+- 0 violations.
+- Three rows with two identical cubes are excluded as not shared-plane compounds.
+- The three single-pair rows at slack 4 were re-counted with sphere_count, triples included:
+  exact.
+- [P418]'s "minimum slack 5" was a property of its sample.
+
+**The hole term, reformulated.**
+- `Σ_Q (j_Q − 2) = Σ_Q (b1(Q) − 1) = −χ(Γ°)`.
+- The pieces of `Γ°` per (class, `±n`) are simply connected (axis: star-shaped) or annuli (pair:
+  convex minus convex).
+- By Mayer–Vietoris, `−χ(Γ°) <= m − (number of simply connected pieces)`, where `m` counts the
+  arcs along which pieces of different classes glue.
+
+**Glue arcs are not confined to hub edges.** *(WRONG, corrected 2026-10-05 by [P422](#p422): the
+condition below forces `n·g = 0` and then `a`'s other axis `= ±g`, so `a` is in both classes and
+the arc lies on a hub edge after all. Disjoint classes never glue.)* Two disjoint pairs `{a,b}`
+(normal `n`) and `{c,d}` (normal `g`) can glue where:
+- all four tie (`n·u = g·u`); and
+- an edge plane of `a` coincides with that bisector plane. That is possible when `a`'s other axis
+  lies in `span(n, g)`.
+It is a degenerate case within the locus, but a proof must cover it. So the hole term needs a
+global bound, plausibly a band-lemma-style charge of each patch hole to a triple component, not
+an edge-by-edge count.
+
+**Item 2 stands at:** (L) proved for every structure ([P418], [P419], [P420]). The band step and
+the hole term are proved for one pair ([P418]). For two or more pairs, G3 is argued for patches
+of one class and for hub merges, and the hole term is open. The data show neither term ever uses
+the room.
+
+<a id="p422"></a>
+
+## [PROOF] Postscript 422: the hole term bounded — glue arcs lie only on hub-cube edges; every compound with a shared face plane has `max(4) <= 187`, so `max(4) <= 195` UNCONDITIONALLY (draft)
+<!-- reviewed 2026-10-05: a draft proof closing plan item 2 (195 unconditional), unreviewed; corrects P421's claim about disjoint classes -->
+
+*2026-10-05.* After [P421], the hole term `−χ(Γ°)` was the last open piece of item 2.
+
+**The chain** (Alexander duality with compactly supported χ; it reproduces [P418] for one pair):
+
+    d2  <=  Σ_S (d2(S) + χ(B_S°)) − 6 − χ(Γ°)
+
+It uses:
+- (L), proved for every structure ([P418]–[P420]);
+- the band lemma in the form `c(Γ) − 1 <= Σ_S (c(B_S) − 1)` (G3 below);
+- `χ(B_S°) <= 2` per sharing class in `S`. Each piece is convex (pair `O ∩ P_z`, axis: the
+  intersection of squares), and gluing only lowers χ.
+
+**Glue lemma.** Γ° is the union of the class pieces: per class and per `±n`, simply connected or
+an annulus. These are glued along arcs, and every glue arc lies on an edge of a cube belonging to
+both classes, between their faces.
+
+*Proof.* Let γ glue a piece of class K (normal `n`) to one of class K′ (normal `n′`).
+1. Both sides cannot carry both ties: two tied pairs cannot both sit at ranks 2-3 unless they
+   share a cube, and a cube in both ties has two faces active, which is 1D. So some tie, say K's,
+   fails across γ. Its failing cube `x` leaves face `n`, so γ lies on `x`'s edge circle
+   `(n − m_x)·u = 0`, with `m_x ⊥ n` a unit normal of `x`.
+2. On γ all tying cubes share one value: the ranks-2-3 tie passes from one tie set to the other.
+   So `n·u = ±n′·u`, and γ lies on a bisector circle `(n ∓ n′)·u = 0`.
+3. Two great circles sharing an arc coincide: `n − m_x = μ(n ∓ n′)`. Dotting with `n` gives
+   `μ = 1/(1 ∓ n·n′)`. Then `|m_x| = 1` forces `n·n′ = 0`, and `m_x = ±n′`.
+4. So `x` has both normals as axes and belongs to both classes, and γ lies on its edge between
+   those faces.
+
+The same algebra rules out self-gluing of one class's pieces across `∂P_z ∩ ∂P_w`: that would
+force `z` or `w` to share `n`.
+
+**Checked independently, exhaustively** (`src/probes/glue_check.py`, `data/glue_check.json`).
+- Disjoint classes of at least two cubes need all four cubes: `s` owned by {a, b}, `t` by
+  {c, d}.
+- Every owner pattern with optional second points (32 patterns) was run, with every cell of the
+  (offset, `θ`) arrangement sampled (5 587).
+- Γ's tie set is **never** the whole circle there. So no point of Γ° involves both classes
+  without a cube owning both.
+- Positive control: the hub pattern (`a` owns both) makes Γ whole in 4 cells.
+- This is a second, computer-assisted proof of the lemma's local statement, independent of the
+  algebra.
+
+**Correction to [P421].** Its claim that disjoint classes can glue in degenerate cases is wrong.
+It overlooked that step 3 forces `n·n′ = 0` and then `m = ±n′`, which puts the cube in both
+classes.
+
+**Counting glue arcs.**
+- On a hub edge, each other cube's status (tied with the hub, outer, inner) is cut out by convex
+  conditions. So the glue set is an intersection of intervals with at most one "inner"
+  condition, `<= 2` intervals per edge.
+- Each pair of classes through a hub has 4 such edges.
+- **Star:** the third cube, the hub rotated about its own third axis, is strictly inner along the
+  whole edge. On the edge `u = (s, s, t)` in the hub's frame, and the rotated cube's
+  `max(|d1·u|, |d2·u|) = s·max(|cos δ ± sin δ|) > s` unless `δ ≡ 0 mod 90°`. So the star has
+  `<= 1` per edge.
+- Results: hub `m <= 8`, axis3 + pair `<= 8`, path `<= 16` (two hubs), star `<= 12`. Two
+  disjoint pairs, axis3 and axis4 have none.
+- **Which counts carry weight.** Tolerance per hub edge is the room divided by the number of hub
+  edges:
+
+      hub 16/4 = 4    path 24/8 = 3    star 24/12 = 2    axis3+pair 24/4 = 6
+
+  - The crude convexity bound of `<= 2` per edge suffices everywhere.
+  - The star's rotation argument (`<= 1` per edge) only improves its bound from 195 to 183. It
+    is not load-bearing.
+
+**Mayer–Vietoris.** Glue arcs lower χ by one each, and points where three arcs meet add one back.
+So `−χ(Γ°) <= m − (number of simply connected pieces) <= m`.
+
+**G3 for every patch.**
+- A pair piece (tie `{x, y}`, `z` outer, `w` inner) borders, across an arc of `∂P_w`, a REGION
+  labelled `{z, w}`. That region is never a patch: `z` and `w` are outer and `x = y` sits at
+  ranks 3-4.
+- Merged patches join pieces with different tying pairs, so they border two different labels.
+- Axis pieces are star-shaped. Distinct concentric squares are never nested, so they border
+  `>= 2` labels.
+- G4 uses a face centre of a cube in `P` that is strictly innermost. Only the star's hub has none,
+  and its partner in any pair has four.
+
+**G3 for axis pieces, written out.** A class `K` of at least three cubes ties at `n` on
+intersections of distinct concentric congruent squares. With `w` the non-class cube (absent for
+axis4), `Γ°` there is `{w outer and >= 2 squares} ∪ {w inner and >= 3 squares}`. That set is a
+union of convex sets containing the centre, so it is star-shaped.
+
+Along a ray from the centre, the piece ends in one of three ways:
+- `w` outer and the second-last square exits: label `{w, last square}`;
+- `w` turns inner with two squares left: label `{those two}`;
+- `w` inner and the third-last square exits: label `{the two left}`.
+
+Suppose every ray gave the same label `P`.
+- If `P = {x, y} ⊂ K`, then another class square `z` exits first on every ray, so `Sq_z ⊆ Sq_x`.
+- If `P = {w, x}`, then `x` exits last on every ray, so `Sq_y ⊆ Sq_x` for the others.
+
+Distinct concentric congruent squares are never nested. So some ray has a different label, and
+G3 holds.
+- If the piece is merged into a hub patch, its glue arcs lie on the hub's square `∂Sq_a`.
+  Exiting there on every ray would again nest `Sq_a`.
+- The pair piece it is glued to borders its complement label.
+
+**Identical cubes.** If two of the four cubes are identical, every `D(A)` containing exactly one
+of them is empty: each would have to beat the other strictly. The count is then the 3-compound's,
+at most 67.
+
+**Data check on the per-structure `d3` bound.** Every structure's climbed best has `d3` exactly
+at its bound: 20, 16, 16, 18, 16, 12, 12, 14 ([P418], [P419]). So the bound is sharp.
+
+**Per-structure targets.**
+- Strengthened ANCHOR at `n = 4`: `d3 <= 24 − 2·(cube, shared normal) incidences`. With
+  `d1 <= 104`, `195` needs `d2 <= 90 − d3`.
+- Budgets from [P419], plus `m`:
+
+      structure      d3 <=  d2 needed   budget + m   max(4) <=
+      pair            20      70          62           187
+      two disjoint    16      74          58           179
+      hub             16      74          58 + 8       187
+      axis3           18      72          56           179
+      axis4           16      74          50           171
+      star            12      78          54 + 12      183
+      path            12      78          54 + 16      187
+      axis3+pair      14      76          52 + 8       179
+
+- **So `max(4) <= 195` for every compound with a shared face plane.** With [P410]'s scope (no
+  shared plane), that makes **`max(4) <= 195` unconditional**, as a draft.
+- Not externally reviewed. The proof is computer-assisted in [P420] and new in this entry's
+  glue lemma.
+- Every shared-plane structure in fact gives `<= 187`. The binding case for 195 is still the
+  no-shared-plane one ([P410]).
+
+<a id="p423"></a>
+
+## [VERIFIED] Postscript 423: the joint frontier of `(d1, d2, d3)` at n = 4 — two Pareto points, nothing with `d1` from 97 to 103, and two sharing-count patterns refuted
+<!-- reviewed 2026-10-05: a measurement for plan item 4; states no new bound on max(4) -->
+
+*2026-10-05.* Plan item 4 is to close 183–195 from above. The proved caps are `d1 <= 104`,
+`d2 <= 66`, `d3 <= 24`, `d4 <= 1` ([P401], [P410], [P422]). The first step is to see which
+combinations occur.
+
+**The census** (`src/probes/frontier_n4.py`, `data/frontier_n4.json`). Every n = 4 depth vector
+in `data/`: 3 690 059 rows, 2 809 distinct vectors. The rows come from several engines over the
+project's history (c_level, sphere_count, census tools), and they are sampled or climbed. So the
+frontier below is a lower bound on the true frontier, never an upper one.
+- **Only two Pareto-maximal points over `(d1, d2, d3)`:** the record (92, 66, 24, total 183) and
+  the golden (104, 48, 24, total 177). Both have `d3 = 24`.
+- The highest `d1` other than the golden is 96. **No row has `d1` from 97 to 103.**
+
+**The recount** (`src/probes/d1_gap.py`, `data/d1_gap.json`, cache `data/d1_gap_cache.jsonl`). The
+60 configurations with the highest `d1` on file (96 down to 92) were recounted with sphere_count,
+which is frame-free.
+- **0 of 60 moved.** The top of the envelope is not an artefact of the c_level engine's frame
+  defect ([P419]).
+- Per-cube `#D({i})` (each at most 26, [P401]), with each cube's shared body diagonals `a_i`:
+
+      compound             d1  d2  d3  total  per-cube d1        a_i
+      golden               104 48  24  177    26 26 26 26        3 3 3 3   (K4)
+      4-cycle, 16 rows      96 48  24  169    24 24 24 24        2 2 2 2
+      path, 43 rows         92 58  24  175    24 24 22 22        2 2 1 1
+      record (star)         92 66  24  183    26 22 22 22        3 1 1 1
+
+- In all 60 rows and the golden, per-cube `d1 = 20 + 2 a_i`. **REFUTED as a bound the same day; see
+  the end of this entry.** No row has any other coincidence
+  between the cubes: no shared face axis, no shared 2-fold axis, and no pair sharing two body
+  diagonals (`d1_gap.py --extra`, `data/d1_gap_extra.json`).
+- **This is an observation on structured near-optimal compounds only.**
+  - Every cube in these rows has `a_i >= 1`, so the value 20 for a cube sharing nothing is an
+    extrapolation.
+  - The only `a_i = 0` data is the random campaign (`d1_gap.py --campaign`,
+    `data/d1_gap_campaign.json`): 200 000 rows, per-label gate 0 failures, and the maximum
+    per-cube `d1` there is 16.
+  - Per-cube counts are even by central symmetry, so a step of 2 is the smallest one possible.
+
+**What it would give, if `d1 <= 80 + 4s` held** (s = the number of shared body diagonals):
+- s <= 3 gives `d1 <= 92`, so total `<= 183`.
+- s = 4 (paw, 4-cycle) gives `d1 <= 96`, so 187. Reaching 183 there would also need
+  `d2 + d3 <= 86` on those one-parameter families.
+- s = 5 is empty ([P351]).
+- s = 6 is K4, which is isolated.
+
+The hypothesis alone would therefore give `max(4) <= 187`, not 183. It is untested where it could
+fail. Next: a climb of a cube sharing nothing, against the cap of 20 (stop if any cube exceeds
+`20 + 2 a_i`); then localise which Mayer–Vietoris term moves with `a_i`.
+
+**Tested 2026-10-05: per-cube `d1 <= 20 + 2 a_i` is FALSE** (`src/probes/d1_cap_climb.py`,
+`data/d1_cap_climb.json`, log `data/d1_cap_climb.log`).
+- 16 climbs of 1 500 steps maximised `max_i (#D({i}) − 2 a_i)`. Counts came from the c_level engine
+  in the generic frame, with shared-plane compounds rejected.
+- Starts: the n = 3 record subset plus a random cube; the record with its hub nudged off its axes;
+  the record itself; random compounds.
+- **A cube sharing no body diagonal reaches the full cap 26**, for example `[26, 16, 16, 14]` with
+  every `a_i = 0`, total 161.
+  - *Corrected 2026-10-05:* this first said "sharing nothing". Every one of the 61 confirmed refuters
+    shares a 2-fold axis between some two cubes (`d1_gap.py --extra`). So the pattern is refuted as
+    stated, counting body diagonals only. A form that also counts 2-fold axes is untested. 12 of 16 runs pass 20, and 61 compounds were confirmed by sphere_count.
+  sphere_count agrees on the per-cube split of all 16 run-bests.
+- When one cube reaches 26 without a shared diagonal, the other three fall to 14–18. The trade-off is
+  between cubes, so the per-cube pattern in the table above is a property of those
+  compounds, not a bound. The localisation step is dropped.
+- The milestone question, whether `d1 >= 97` occurs off the golden, concerns the SUM and is still
+  open. It is tested next by a climb on `d1` itself.
+
+**The milestone, tested the same day** (`d1_cap_climb.py --sum`, `data/d1_sum_climb.json`, log
+`data/d1_sum_climb.log`, cache `data/d1_sum_climb_cache.jsonl`).
+- 16 climbs of 1 500 steps on `d1` itself, from the 96 four-cycle, the record, the n = 3 subset plus
+  a random cube, and random compounds. Generic-frame engine; shared planes rejected.
+- **No compound with `d1 >= 97`.** Best per run: 96 ×4, 92 ×4, 82 ×4, then 78, 78, 76, 68.
+  sphere_count agrees on the per-cube split of all 16 run-bests.
+- **This adds nothing near the frontier.** The 4-cycle and record runs ended where they started,
+  at 96 and 92, and the random starts never passed 82.
+- **The golden's neighbourhood was not probed.** The golden lies in Q(sqrt5), so integer
+  quaternions cannot come near it, and that is where `d1` from 98 to 102 would most likely appear.
+  *(Done the same day in [P424](#p424): the paw through the golden and every one of its axis events,
+  plus Z[sqrt5] perturbations and climbs. Nothing in 97–103.)*
+- The climbs from random starts found shared body diagonals by themselves.
+
+**The summed form `d1 <= 80 + 4s` is FALSE as well.** Across both climbs' 46 896 evaluated
+compounds, the largest `d1 − 4s` per `s` is (`d1_cap_climb.py --table`, `data/d1_sum_table.json`):
+
+    s        0    1    2    3    4
+    max     82   76   80   80   80
+
+The `s = 0` row was recounted by sphere_count (`d1_gap.py --extra`): `13,4,-4,2; 3,1,7,3;
+15,0,-10,-10; -3,3,3,3`.
+- `d1 = 82`, `d2 = 66`, `d3 = 24`, total 173; per-cube 18, 18, 22, 24.
+- No shared plane or body diagonal, but cubes 1–3 and 2–3 share a 2-fold axis.
+
+Counted by body diagonals, neither pattern reduces 183 to sharing counts. Counting 2-fold axes
+too is untested.
+
+**What stands from this entry:**
+- the census frontier (two Pareto points);
+- the recount (0 of 60 moved);
+- the `d1` gap from 97 to 103: measured, not proved, and untested near the golden (tested since, [P424](#p424));
+- two refuted patterns, both counting body diagonals only.
+
+Proving `d1 <= 96` off K4 would give `max(4) <= 187`. No derivation is in hand.
+
+<a id="p424"></a>
+
+## [VERIFIED] Postscript 424: the golden's neighbourhood, counted exactly — no `d1` from 97 to 103 on the paw through the golden, at any of its axis events, or in Z[sqrt5] perturbations; the golden's 104 is an isolated spike
+<!-- reviewed 2026-10-05: a measurement for plan item 4; states no new bound on max(4) -->
+
+*2026-10-05.* [P423] left the golden's neighbourhood untested: the golden is in Q(sqrt5), and
+integer climbs cannot come near it. In the golden's own frame every nearby member can be written in
+Z[sqrt5]^4, and `cube_regions_q2w --d 5` counts one in about 30 ms
+(`src/probes/golden_neighbourhood.py`, `data/golden_neighbourhood.json`).
+
+**The paw through the golden** (mode `paw`).
+- Cube A is turned about the body diagonal d it shares with cube B, by the quaternion (m, d) with
+  m in Z[sqrt5]. A keeps that sharing and loses its two others, so every member is a paw.
+- All 12 choices of (A, B), each with 385 values of m (|m| up to 20 000, angles down to about
+  1e-3): 0 unevaluated.
+- **d1 takes only the values 78, 80, 82, 84**, plus 104 at m = ±8. Those two are the 120° turn, the
+  golden itself under its A4 symmetry, and they serve as an internal control. The 12 choices agree,
+  as A4 says they should.
+- The sharing read back exactly is the paw at every other member.
+- **Next to the golden (m = ±20 000) the counts are (84, 66, 24, 1), total 175.** Leaving the
+  golden costs 20 in `d1` at once and gains 18 in `d2`. The 104 is an isolated spike.
+- First run, corrected before use: its control assumed m = 0 is the identity. It is the half
+  turn (0, d), which counts (84, 62, 24, 1). The control is now the golden itself.
+
+**Every axis-sharing event on the paw** (modes `events`, `events_sqrt2`).
+- A gains an axis shared with C or D only where the two axes make the same angle with d. The turn
+  that does it is solved in closed form.
+- Body-to-body events: the golden (3 of them) and A landing exactly on B. The latter is two
+  identical cubes, which reduces to a 3-compound (at most 67); the engine rejects it as
+  degenerate, and it is not counted as unevaluated.
+- A 2-fold axis of A meeting a face axis of C or D gives 6 distinct points. These need sqrt2. To
+  count them, `src/kfield.py` now takes its first square root as a parameter (`K.setP`, default 3,
+  so existing callers are unchanged).
+  - Control: 3 random Z[sqrt2] compounds counted by sphere_count with P = 2 match the independent
+    `cube_regions_q2w --d 2` at every depth.
+  - sphere_count over Q(sqrt2, sqrt5) gives **(82, 64, 24, 1) or (80, 66, 24, 1), total 171**, at
+    all 6. They were read back as genuine coincidences.
+- Not covered: events that are not axis sharings, such as four face planes through one point.
+
+**All directions out of the golden** (modes `perturb`, `climb`).
+- 1 050 random Z[sqrt5] perturbations of the golden, scaled by N = 1 to 32: 5 unevaluated (engine
+  budget, all at N = 1). A generic perturbation breaks every sharing, and `d1` falls to 22–54.
+- 6 greedy climbs on `d1` in Z[sqrt5], 400 steps each, from the golden's perturbations. Best 88:
+  (88, 64, 24, 1), total 177, a second total-177 compound distinct from the golden.
+- **Nothing in any mode has `d1` from 97 to 103.**
+
+**Cross-check** (mode `crosscheck`). Per-cube `d1` by sphere_count over kfield agrees with the engine
+on the paw member at m = 20 and on the climb's 88.
+
+**Not done.** The 4-cycle family through the golden, and any stratum of dimension 2 or more, beyond
+the random perturbations and climbs. Every sampled value is generic for its interval of the
+parameter. Isolated points are covered only for the axis events above.
+
+**Where item 4 stands.** The `d1` gap from 97 to 103 has survived every test that could reach it:
+- the census;
+- the exact recount;
+- integer climbs;
+- the paw through the golden, with all its axis events;
+- perturbations of the golden.
+
+It is still not proved. `d1 <= 96` off K4 would give `max(4) <= 187`. Measurement of item 4 stops
+here, by the rule set before this run. A derivation, or plan item 5, is next.
+
+<a id="p425"></a>
+
+## [VERIFIED] Postscript 425: the band lemma at n = 5 must bound the TOTAL, not one level — `max(5) <= 457` is PROVED IF a charging inequality (H1) and a combined component lemma (H2) hold
+<!-- status: proved-if="H1"|"H2"|"PROVED IF"; claim="max(5) <= 457"|"max(5) ≤ 457"; trigger="claim" -->
+
+*2026-10-05.* Plan item 5 asks what the band lemma becomes above n = 4. Before searching for bands
+at n = 5, it is worth knowing what a lemma there would have to say.
+
+**Why the n = 4 chain does not carry over level by level.** At n = 4 a triple point has at most
+one other cube reaching past it, so every triple point lies on Γ2. At n = 5 one can lie past
+both other cubes. A triple sees that point at its own level 2, while the full compound has it at
+levels 3 and 4.
+
+**Generic identities.** Write `X_ℓ = E − V` of the level-ℓ graph and `T_s` for the triple tie points
+that `s` other cubes reach past.
+
+> **CORRECTED 2026-10-05, same day ([P426](#p426)).** The vertex model below is FALSE. If triple tie
+> points were the only vertices of degree above 2, then `X1 − X2 + X3 − X4 = 0` in general position.
+> It is 6 on 193 of the 600 generic rows (and 2 on others), so other vertex types occur, probably
+> two-cube vertices. **The two identities themselves are measured exactly on all 600 generic rows,
+> and the reduction uses only them.** The derivation below explains the triple-point part only,
+> and why the identities hold in full is OPEN.
+> *(Resolved by [P427](#p427): the extra type is the edge–edge crossing. In these rows it lies on
+> level 1 only, which explains the alternating sum.)*
+- In general position, every vertex of a level graph has degree 2, except triple tie points. A
+  triple tie point is a degree-3 vertex of exactly Γ_{s+1} and Γ_{s+2}. So
+  `X_ℓ = (T_{ℓ−1} + T_{ℓ−2}) / 2`.
+- Every triple point of a triple lies on that triple's bottom diagram. Every triple point lies on
+  level 3 of the 4-subset made with a fourth cube exactly when that cube reaches past it. With
+  `T_3 = 0` at n = 5:
+
+      Σ_{triples S} X_S(2)    =  (T0 + T1 + T2) / 2  =  X2 + X4
+      Σ_{4-subsets S} X_S(3)  =  (T1 + 2 T2) / 2     =  X3 + X4
+
+  So every level's identity subtracts the top level, and the natural object is the total.
+
+**The chain.** Add the two identities and use the proved caps: `d1 <= 180` ([P401]),
+`d2(S) <= 18` (ANCHOR) and `d3(S) <= 24` ([P401], the top level at n = 4). With `d5 <= 1`,
+exactly:
+
+    457 − total = (180 − d1) + (1 − d5) + X4 + slack2 + slack3
+                  + Σ_tri (18 − d2(S)) + Σ_4 (24 − d3(S)) + cslack
+
+The terms are:
+- `slack2 = Σ_tri X_S(2) − X2 − X4` and `slack3 = Σ_4 X_S(3) − X3 − X4`;
+- `cslack = Σ_tri (c_S − 1) + Σ_4 (c'_S − 1) − [(c2 − 1) + (c3 − 1) + (c4 − 1)]`.
+
+At the generic `X4 = 28` it gives 429, the generic ceiling sum 180 + 134 + 84 + 30 + 1. That
+agreement is a check on the bookkeeping. **So `max(5) <= 457` (no shared face plane) is PROVED IF:** *(H1 proved in draft the same day, [P428](#p428); it is now PROVED IF H2 alone.)*
+- **H1** (charging): `slack2 + slack3 >= 0`. Generically it is 0 by the identities above, so H1 is
+  a statement about degenerate vertices only. That makes it an analogue of [P404]'s (L), and the
+  route is the circle model and the per-direction classification of [P419]/[P420].
+- **H2** (components): `cslack >= 0`.
+- `X4 >= 0` needs every top-level vertex to have degree at least 2. That follows from the circle
+  model ([P405]) and the transversality lemma ([P412]), which are local and hold for any n.
+
+The unconditional n = 5 bound is 871 ([P401]); the record is 393.
+
+**Measured** (`src/probes/band_n5.py`, `data/band_n5.json`).
+- Rows: 300 random rows of campaign_n5, the 300 highest totals of hillclimb_n5_log, and the 393
+  base. None shares a face plane, and none is void by the Euler gate (`E − V + c + 1` equals the
+  engine's `d_ℓ` at every level).
+- The margin identity holds on 601 of 601 rows. *(Reworded 2026-10-05: once the full compound
+  passes its gate, the subset terms cancel and the identity is algebra. It checks bookkeeping and
+  is not evidence.)* Every `d2(S)` is at most 18 and every `d3(S)` at most 24.
+- **The identities are exact on 600 rows.** The 393 base has `slack2 = slack3 = 6`, the direction H1
+  needs. Its margin splits as 24 (d1) + 28 (X4) + 6 + 6 = 64, with every triple at 18 and every
+  4-subset at 24.
+- **H1's degenerate evidence is ONE row.** As far as these identities can see, the hillclimb rows
+  are generic.
+- **H2 is UNTESTED: 0 informative rows.** No row has `c_ℓ >= 2` at any `ℓ >= 2`.
+  - Its right side is positive in 84 rows: a triple's bottom diagram is disconnected.
+  - The positive control (`c1 > 1`) fired on one row, so the detector works but rarely fires
+    here.
+
+**Next.**
+- H1 on hard cases: compounds on coincidence loci, such as the 393 base's arcs, shared-diagonal
+  stars, and climbs that land on sharings.
+- H2 by a targeted band search at n = 5, levels 2–4. A confirmed violation refutes it. A search
+  that finds no bands leaves it untested.
+- Nothing goes into RESULTS until H1 and H2 have real evidence.
+
+<a id="p426"></a>
+
+## [VERIFIED] Postscript 426: [P425]'s hypotheses measured — bands exist at n = 5, at every level from 2 to 4, and neither H1 nor H2 fails; the component slack never goes below 2
+<!-- reviewed 2026-10-05: a measurement of P425's hypotheses; states no new bound on max(5) -->
+
+*2026-10-05.* [P425] reduced `max(5) <= 457` (no shared face plane) to H1 (charging,
+`slack2 + slack3 >= 0`) and H2 (the combined component lemma, `cslack >= 0`). When it was
+written, H1 rested on one degenerate row and H2 on none.
+
+**Bands at n = 5** (`src/probes/band_hunt_n5.py`, `data/band_hunt_n5.json`, log
+`data/band_hunt_n5.log`).
+- 24 climbs of 600 steps on `(max_{ℓ>=2} c_ℓ, Σ c_ℓ)`. Shared-plane compounds were rejected.
+- Starts:
+  - `carry`: the 8 known n = 4 bands with a fifth cube nearly copying one of the four;
+  - `fifth`: those bands with a random fifth cube;
+  - `random`: random compounds.
+- **2 342 distinct compounds with `c_ℓ >= 2` at some `ℓ >= 2`**, all from 5 of the 8 `carry` runs.
+  The `fifth` and `random` runs found none. That is evidence for the carry mechanism; it is not
+  evidence that bands are rare in general.
+- Level-1 positive control: `c1 >= 2` occurred along the way in 454 compounds.
+- The first 400 hits, measured in full with the Euler gate (0 void):
+  - The band sits at levels 2, 3 and 4 in every combination: {2} 31, {2,3} 47, {2,3,4} 136,
+    {3} 140, {3,4} 35, {4} 11.
+  - **H2 holds on all 400: `cslack` from 5 to 14.** The margin identity, a bookkeeping check,
+    holds on 400 of 400.
+  - `slack2 = slack3 = 0` throughout, so these rows are generic for H1.
+
+**H2 pressed** (`band_hunt_n5.py --min`, `data/band_hunt_n5_min.json`, cache
+`data/band_hunt_n5_min_cache.jsonl`).
+- From the 8 lowest-`cslack` hits, 8 climbs of 250 fully measured steps minimised `cslack` while
+  keeping a band, accepting sideways moves.
+- 2 000 evaluated, 900 with a band. The margin identity (bookkeeping) holds on all 2 000.
+- **`cslack` never below 2**: 305 rows at 2, and 6 of 8 runs end there. No band row has
+  `c_ℓ >= 3` at any level from 2 to 4.
+- For comparison, the n = 4 component slack had floor 1 ([P410]).
+
+**H1 on coincidence loci** (`src/probes/band_n5.py --degenerate`, `data/band_n5_degenerate.json`).
+- Five-cube compounds made from:
+  - the 183 record plus a random cube, or plus a moved copy of the 393 base's fifth cube;
+  - [P423]'s 96 four-cycle plus a random cube;
+  - n = 4 compounds from [P423]'s climbs that share axes, plus a random cube.
+- 160 built: 1 unevaluated (the engine failed), 9 shared-plane excluded, 150 evaluated.
+- **64 degenerate rows (`slack2 + slack3 > 0`), 0 violations.** The slack takes values 2, 4, 8 on
+  the record and sharing kinds and 18–28 on the four-cycle kind. The min climb above added 20 more
+  degenerate rows (slack 4 or 8), also without a violation.
+
+**Subset gate** (`band_n5.py --subset-gate`, `data/band_n5_subset_gate.json`, log
+`data/band_n5_subset_gate.log`).
+- Every subset count behind H1 and H2 was checked against the engine. That is `d2` of all 10
+  triples and `d3` of all 5 four-subsets, in every evidence row: 601 + 150 + 400 + 912 = 2 063
+  rows.
+- **0 void.** In one degenerate row the engine refused one subset ("outside must be a single
+  region"). That row is unevaluated.
+- **The same run refuted [P425]'s vertex model.** `X1 − X2 + X3 − X4` is not 0 in general
+  position:
+  - 0 on 407 of the 600 generic rows of the identities set, and 6 on 193;
+  - 0, 2, 4 or 6 on generic band rows;
+  - 8 to 76 on degenerate rows (−2 on 4 rows of the min climb).
+  [P425] is corrected in place.
+
+**Status.** Both hypotheses of [P425] now hold on every informative row: 900 band rows for H2, 85
+degenerate rows for H1. They are measured, not proved, so `max(5) <= 457` stays PROVED IF H1 and
+H2. Untested:
+- shared-face-plane compounds (excluded throughout);
+- `c_ℓ >= 3` above level 1 (never produced);
+- bands not made by the carry mechanism.
+
+**Proof routes:**
+- H1: a per-vertex local inequality in the circle model, as (L) was ([P419], [P420]).
+- H2: [P410]'s label-and-tree argument, with one label per level.
+
+<a id="p427"></a>
+
+## [VERIFIED] Postscript 427: the vertex types behind [P425]'s identities — the missing type is the edge–edge crossing, and H1's slack is a sum of non-negative per-vertex terms on every degenerate row
+<!-- reviewed 2026-10-05: a measurement towards H1 of P425; states no new bound -->
+
+*2026-10-05.* [P426] showed `X1 − X2 + X3 − X4 ≠ 0` on generic rows, so vertices other than three-cube
+tie points carry weight. Here every vertex of every level graph is classified by:
+- the cubes whose boundary contains it, with active faces per cube (1 face, 2 edge, 3 corner);
+- the number of other cubes strictly containing it;
+- its degree on each level.
+
+Source: `src/probes/vertex_types_n5.py`, `data/vertex_types_n5.json`, `data/vertex_types_n5_slack.json`.
+The arcs are rebuilt as `c_level.level_graph` builds them, and the gate (per-level `E − V` equal to
+c_level's) passes on 40 of 40 rows.
+
+**Generic rows** (20 with alternating sum 6, 20 with 0).
+- Besides three-cube tie points, the only vertex of degree other than 2 is an **edge–edge
+  crossing**: two cubes, each on an edge, with no other cube containing the point. It has degree 4
+  on level 1.
+- There are exactly 6 per row where the sum is 6, and none where it is 0. Each adds 1 to `X1`
+  alone, so the alternating sum is accounted for in full.
+- They lie on level 1, so they do not touch the level 2–4 identities. The identities hold
+  generically because the edge–edge crossings in these rows lie inside no other cube.
+- By counting, a crossing inside `s >= 2` other cubes would add +2 to H1's slack, never a negative
+  amount.
+
+**Degenerate rows** (the 64 with `slack2 + slack3 > 0` from [P426]).
+- H1's slack was split vertex by vertex: each vertex's weight summed over the subsets, minus its
+  weight in the full compound. **The split reproduces each row's slack exactly, 64 of 64.**
+- Contributions by type:
+  - three-cube tie points: 0;
+  - edge–edge crossings inside 0 or 1 other cubes: 0;
+  - corner–corner contacts (420): 0;
+  - **four-cube tie points: +1 each.** On level 2 (412 of them) they feed `slack2`; with one cube
+    containing them (352) they feed `slack3`;
+  - **five-cube tie points: +2 to each slack** (10 of them);
+  - **edge–edge crossings inside 2 cubes: +2 each** (4), as the count predicted;
+  - mixed corner and edge contacts: 0 or small positive.
+- **No vertex type makes a negative contribution, in total or in any single row.**
+
+**So H1 is, on all the data, a per-vertex inequality**: at each vertex, the weight summed over
+triples (level 2) and 4-subsets (level 3) is at least its weight in the full compound at levels 2,
+3 and twice 4. That is the same shape as [P404]'s (L), and the proof route is the circle model:
+classify the tie set at a vertex and count per subset, as [P419]/[P420] did. It is not proved
+here.
+
+<a id="p428"></a>
+
+## [PROOF] Postscript 428: H1 of the n = 5 reduction proved (draft), as a per-vertex inequality in the circle model — so `max(5) <= 457` is PROVED IF H2 alone
+<!-- status: proved-if="H2"|"PROVED IF"; claim="max(5) <= 457"|"max(5) ≤ 457"; trigger="claim" -->
+
+*2026-10-05.* H1 is the charging hypothesis of [P425] (whose identity explanation was CORRECTED by [P427]; the reduction stands). The proof is in [`PROOF_N5.md`](PROOF_N5.md). Scope: n = 5, no shared face plane.
+Not externally reviewed.
+
+**Outline.**
+- At each point P on two or more cube boundaries, P's share of `slack2 + slack3` is
+  `Σ_θ Δ(θ)/2 − K(t, c)`. Here t is the number of cubes tied at P, c the number containing P,
+  Δ(θ) the tie count at direction θ, and K a constant depending on (t, c).
+- Δ(θ) is at least the sum of `Δpair(c + r − 1)` over T's tied adjacent ranks. Δpair is 0, 0, 2, 4
+  for u = 0..3. This is checked exhaustively: 742 weak orders, 0 failures, 279 tight.
+- Ray counts:
+  - every level has at least 2 rays (transversality, [P412]);
+  - the bottom level has at least t (colour changes, [P405]);
+  - if the bottom has exactly t, the next level up has at least t. The two innermost cubes are
+    then always neighbouring blocks, and they run through all t adjacent pairs.
+- With these, `Σ_θ Δ >= 2K` holds for every (t, c). It is tight for t = 2 (as it must be) and at
+  three-cube tie points.
+
+**Controls** (`src/probes/h1_local.py`, `data/h1_local.json`, log `data/h1_local_direct.log`).
+- The per-vertex formula reproduces exactly the measured slack of all 21 vertex types of [P427],
+  on real compounds. The ray lemmas hold on their measured degrees.
+- 20 000 exact circle configurations with frequent multi-cube ties: 0 failures.
+- First version, corrected the same day: the case check used only "2 rays per level", which is
+  too weak. The bottom-level lemmas were added, and they are what make three-cube tie points
+  tight.
+
+**Status.** H1 proved in draft, computer-assisted in check 1 and the case table. `max(5) <= 457`
+(no shared face plane) is now PROVED IF H2, the combined component lemma. *(Superseded the same day by [P430](#p430): H2 is proved at levels 2 and 3, and the top level gives `max(5) <= 485` outright and 457 whenever `d4 >= 2c4`.)* H2 holds on 900 band
+rows ([P426]) and is not proved. The unconditional n = 5 bound stays 871. RESULTS is not updated.
+The external read list gains PROOF_N5 and [P425]–[P428].
+
+<a id="p429"></a>
+
+## [VERIFIED] Postscript 429: H2 split by level — the tight cases are level-2 bands paid for by triples, and level-4 bands come with room to spare in both the triples and the 4-subsets
+<!-- reviewed 2026-10-05: a measurement towards H2 of the n = 5 reduction; states no new bound -->
+
+*2026-10-05.* H2 (the combined component lemma of the n = 5 reduction) mixes three levels. [P410]'s
+argument works one level at a time:
+- a band region at level ℓ is labelled by its top-ℓ set Q;
+- each extra complementary component holds an arc of the bottom diagram of `Q + z`, a subset of
+  size ℓ + 1.
+
+That suggests:
+- **L2:** `c2 − 1 <= Σ_tri (c_S − 1)`;
+- **L3:** `c3 − 1 <= Σ_4 (c'_S − 1)`.
+
+Level 4 has no subsets of size 5 other than the compound itself, so [P410]'s argument would charge
+it to Γ4 itself, which is circular. Its components must be paid for elsewhere.
+
+**Measured** (`src/probes/band_n5.py --split`, `data/band_n5_split.json`;
+`src/probes/band_hunt_n5.py --min4`, `data/band_hunt_n5_min4.json`, log `data/band_hunt_n5_min4.log`).
+- **The tight cases.** All 322 distinct band rows of [P426]'s minimising climb with `cslack <= 3`
+  are level-2 bands (`c3 = c4 = 1`). The triples pay with 2 or 3 to spare, and the 4-subsets
+  contribute exactly 0.
+- **Level 4.** 16 climbs (8 per objective, 200 fully measured steps each) kept `c4 >= 2` and
+  minimised either
+  `four34 = Σ_4 (c'_S − 1) − (c3 − 1) − (c4 − 1)` or `tri24 = Σ_tri (c_S − 1) − (c2 − 1) − (c4 − 1)`.
+  - Across 844 rows with a level-4 band, `four34 >= 3` and `tri24 >= 5`; the combined `cslack >= 9`.
+  - So either split would cover level 4 on this data, with room to spare.
+- Every band here comes from the near-copy construction of [P426]. That is the caveat for all of
+  H2's evidence.
+
+**Route to H2.**
+- L2 and L3 by [P410]'s argument with top-ℓ labels.
+- Level 4 by a separate argument. The data allows charging it to either family. The 4-subsets
+  have the smaller margin (3), but they are the family that already holds the innermost-cube
+  structure. Not attempted yet.
+
+<a id="p430"></a>
+
+## [PROOF] Postscript 430: the component lemma at levels 2 and 3, and the top level paid for by its own faces — `max(5) <= 485` without a shared face plane (draft), and 457 whenever `d4 >= 2c4`
+<!-- status: proved-if="d4 >= 2c4"|"d4 ≥ 2c4"|"c4 <= 2"|"c4 ≤ 2"|"PROVED IF"; claim="max(5) <= 457"|"max(5) ≤ 457"; trigger="claim" -->
+
+*2026-10-05.* Parts 2 and 3 of [`PROOF_N5.md`](PROOF_N5.md). Scope: five cubes, no shared face plane.
+Not externally reviewed.
+
+**Part 2, Lℓ.**
+- **The statement.** For `ℓ <= n − 2`: `c_ℓ − 1 <= Σ_{|S| = ℓ+1} (c(B_S) − 1)`.
+- **The proof** is [P410]'s band lemma with one substitution: a region's label is its top-ℓ set, not
+  a pair. Each step is written out in full with the substitution made.
+  - Each extra complementary component of a band labelled Q contains an arc of the bottom diagram
+    of some `Q + z`.
+  - A face centre of a cube in Q supplies the one extra incidence.
+  - The one-colour rule uses the subset's innermost cube as its colour.
+  - Lemma C does not depend on the number of colours.
+- **At five cubes** it proves L2 (triples) and L3 (4-subsets). At `ℓ = n − 1` it is circular, which
+  is why the top level needs Part 3.
+
+**Part 3, the top level.**
+- **The reduction.** With H1 ([P428]), L2, L3, `d1 <= 180` and ANCHOR (`d2(S) <= 18`,
+  `d3(S) <= 24`), [P425]'s margin identity (its explanation CORRECTED by [P427]; the identity stands) gives `457 − total >= X4 − (c4 − 1) = d4 − 2c4`.
+- **Two facts about Γ4:**
+  - `d4 >= 5`: each cube is strictly innermost at its own face centres;
+  - `d4 >= c4 + 1`: each component borders two faces of different labels, so the face/component
+    tree has at least `2c4` edges.
+- **The bound.** With `d4 <= 30` (ANCHOR, `d_{n−1} <= 6n`, [P33], unconditional, all n):
+  **`total <= 457 + max(0, 2c4 − d4) <= 485`**, and **`max(5) <= 457` whenever `d4 >= 2c4`**. That
+  includes every compound whose top-level graph has at most two components.
+
+**Controls.** These are not proof steps.
+- **The per-level statements, on every evidence row** (`src/probes/band_n5.py --h2-controls`,
+  `data/band_n5_h2_controls.json`, log `data/band_n5_h2_controls.log`).
+  - 3 420 distinct compounds, each re-measured and gated, 0 void.
+  - **No negative L2 or L3 slack.** Both reach 0, so the checks touch the boundary.
+  - **`d4 − 2c4 >= 18` on every row**, so 457 holds on all of them with room.
+  - `c4` is 1 or 2 throughout (2 on 972 rows); `c4 >= 3` was never produced.
+- **Lemma C with four colours** (`src/probes/tree_lemma_check.py --colours 4`,
+  `data/tree_lemma_check_c4.json`, log `data/tree_lemma_check_c4.log`).
+  - Every tree up to 13 nodes: 9 103 517 instances under the one-colour rule, 0 violations.
+  - The must-fail control fails as required: 21 456 violations with the rule dropped, the smallest
+    at 5 nodes.
+  - The three-colour run of [P410] is unchanged; the colour count is now a parameter.
+- **A climb aimed at `c4 >= 3`**, added the same day (`src/probes/band_hunt_n5.py --c4`,
+  `data/band_hunt_n5_c4.json`, log `data/band_hunt_n5_c4.log`).
+  - 16 climbs of 600 steps from compounds with `c4 = 2`, maximising `c4` and then minimising
+    `d4 − 2c4`.
+  - 9 599 evaluated, using full level graphs only, with shared planes rejected.
+  - **`c4` never above 2, and `d4 − 2c4 >= 15` throughout.** Nothing came near the 457 condition. This
+    is search, so it is evidence and not proof.
+
+**Status.**
+- **`max(5) <= 485` for five cubes with no shared face plane**, in draft. That is 92 regions above the
+  record of 393, against [P401]'s 871.
+- **457** when `d4 >= 2c4`.
+- Compounds with a shared face plane are not covered, so 871 remains the bound for every five-cube
+  compound.
+- Inherited and unreviewed: PROOF_BAND's plane-topology steps (G2, G5), the transversality lemma
+  ([P412]) and the circle model ([P405]) at five cubes, and H1 ([P428]).
+- **Open:**
+  - whether `c4 >= 3` can occur (it would cost at most `2c4 − d4`);
+  - the shared-plane case at n = 5.
+
+<a id="p431"></a>
+
+## [VERIFIED] Postscript 431: the top level is a coloured spherical Voronoi diagram — no proof of `d4 >= 2c4` yet, but every Γ4 component seen borders at least 8 faces, and the two-cube reduction fails
+<!-- reviewed 2026-10-06: a measurement towards the 457 condition of P430; states no new bound -->
+
+*2026-10-05/06.* Attempt at item 1 of the follow-ups to [P430]: prove `d4 >= 2c4` (so 457
+unconditionally in scope). Not proved.
+
+**Reformulation** (`src/probes/top_voronoi.py`, `data/top_voronoi.json`, log `data/top_voronoi.log`).
+- Cube x is innermost in direction u exactly when u is angularly closest to one of x's six face
+  centres. So the top level of n cubes is the spherical Voronoi diagram of the 6n face centres,
+  coloured by cube.
+- `d_{n−1}` is the number of connected same-colour unions of cells. `Γ_{n−1}` is the set of Voronoi
+  edges between colours.
+- The diagram comes from the convex hull of the points, about 4 ms per compound.
+- **Validated** against the exact engine (d) and c_level (c) on 1 000 compounds at n = 3, 4, 5, all
+  agreeing. 160 of them have a degenerate Voronoi vertex.
+- **A first version was wrong** (INTERVENTIONS A31). Cocircular face centres made Qhull invent
+  adjacencies. Its 550-row validation contained no degenerate case. No recorded result used it.
+
+**Searches** (Gaussian random rotations, which are generic).
+- 1.6 million random five-cube compounds: `c4 = 2` in 24, never 3. Minimum `d4 − 2c4` = 21.
+- 16 climbs minimising `d4 − 2c4`: the floor is 11, at `d4 = 15`, `c4 = 2`.
+- Six bests, rounded to integers, were rechecked exactly, and they agree.
+
+**The lemma that would prove it.** By the face/component tree,
+`d4 − 2c4 = Σ_R (3 − 2 j_R) − 2`. That is at least 0 if **every component of Γ4 borders at least 3
+faces**.
+- Measured (`--degrees`, `data/top_voronoi_degrees.json`): on 41 713 compounds with `c4 = 2` (band
+  rows on file plus climbs maximising `c4`), **every component borders at least 8 faces**. The two
+  always form an antipodal pair of equal degree. *(Corrected 2026-10-06: the first run, at merge
+  tolerance 1e-9, reported 47 248 compounds; the rerun at 1e-12 has 41 713, since the climbs follow
+  the counts. The minimum, 8, and the equal-degree pairing are unchanged.)*
+- A component bordering only two faces would be a simple closed curve between one x-face and one
+  y-face. It cannot be antipodally symmetric: the antipodal map would have to swap its two sides,
+  since a fixed-point-free map cannot send a closed disk into itself, and that would make x = y.
+
+**The two-cube reduction fails.**
+- Such a component is a whole component of the x–y tie set, and its five-cube degree is at least
+  its two-cube degree. But two generic cubes have a tie set of exactly 2 components, each
+  bordering exactly 2 regions: 3 regions in all, a band and two caps.
+- Measured (`--pairs`, `--pair-degrees`) at merge tolerance 1e-12: 1.76 million and 0.96 million
+  random pairs plus 8 climbs; every pair has 2 components, 3 faces and minimum degree 2. The engine
+  confirms `d1 = 3` and `c1 = 2` for random pairs.
+- *Corrected 2026-10-06.* This bullet first said "never otherwise" of runs that did contain
+  exceptions, and called the inputs ones the degeneracy fix "cannot affect". Both were wrong. The
+  fix's merge tolerance was then 1e-9, which merged nearly coplanar hull facets of generic pairs:
+  of 1.76 million pair evaluations, 62 came out with one component; of 0.96 million, 66 had 4–8
+  faces. All were artefacts, and the reruns at 1e-12 have none. The audit (`--pairs-audit`,
+  `data/top_voronoi_pairs_audit.json`) covers only the random draws, 1.76 million pairs, at three
+  tolerances. One pair merged facets at 1e-9 and at 1e-7, giving one component, and merged nothing
+  at 1e-12, giving 2. No other random pair merged at any tolerance. So 61 of the 62 came from the
+  climb phase, which evaluates many near-identical rotations; those were not audited individually. The tolerance is now
+  1e-12; the 1 000-row validation (160 degenerate) still agrees, and the main search reran with
+  the same figures. The 1e-9 outputs were overwritten by the reruns, so their numbers survive only
+  here and in INTERVENTIONS A31.
+- So the lemma needs the other three cubes. Their face centres must come closer to every two-cube
+  curve than x's and y's do somewhere. That is a covering statement about orthonormal frames,
+  not proved.
+
+**Status.** `max(5) <= 485` (no shared plane, [P430]) stands. The 457 condition holds on every
+compound measured, with room of at least 11 under adversarial search, but is unproved.
+
+<a id="p432"></a>
+
+## [VERIFIED] Postscript 432: five cubes with one shared face plane reach 317, against [P430]'s 457 — scoping the n = 5 shared-plane case
+<!-- reviewed 2026-10-06: a measurement; states no new bound -->
+
+*2026-10-06.* [P430]'s `max(5) <= 485` excludes compounds where two cubes share a face plane. At
+n = 4 that case took [P413]–[P422]. Before building its n = 5 analogue, this measures what such
+compounds reach (`src/probes/shared_n5_scope.py`, `data/shared_n5_scope.json`, cache
+`data/shared_n5_scope_cache.jsonl`, log `data/shared_n5_scope.log`).
+
+**Method.**
+- Cubes 0 and 1 share the plane with normal z: q1 = (a, 0, 0, b). The other three cubes are free.
+- 16 climbs of 700 steps on the total. The sharing is kept, and extra sharings would be labelled.
+  Half the runs start from the n = 4 record's three non-hub cubes.
+- Counts come from the engine in the generic frame (3,1,1,1) ([P419]).
+
+**Result.**
+- **Best 317**, with depths (112, 110, 68, 26, 1). 8 of 16 runs end there, all with exactly the one
+  shared pair. The next best are 313, then 303 and below.
+- sphere_count recounts the three best distinct compounds at exactly 317 with the same depths.
+- `d4 = 26` throughout, the cap 30 minus the 4 face centres the shared pair cannot anchor ([P413]'s
+  argument).
+- For comparison, at n = 4 the shared-plane best was 137 against the record 183.
+
+**Scope of the measurement.** One sharing structure (one pair) and 11 200 evaluated compounds. Other
+structures (two pairs, a hub, three cubes on one axis, ...) were not climbed. The first run crashed
+in its recount step; the results were rebuilt from its cache, as noted in the output file.
+
+**What it decides** (rule set before the run): the bests sit 140 below 457, so the one-pair case
+at n = 5 has room. The free slack is large:
+- ANCHOR loses 4 at the top level;
+- 12 is lost across the three triples containing the pair;
+- 12 across the three 4-subsets containing it;
+- that is 28 in [P425]'s margin (the identity stands; its explanation was CORRECTED by [P427]) before any patch accounting.
+
+Building the argument (H1, L2, L3 and the top level, redone with two-dimensional tie patches,
+then the other sharing structures) is a project on the scale of [P418]–[P422].
+
+<a id="p433"></a>
+
+## [VERIFIED] Postscript 433: the n = 5 chain on shared-plane compounds, as an oracle — both totals hold with no patch allowance (slack >= 10 and >= 2), so one shared pair would give <= 430 if the patch form is proved (CORRECTED: `441 + 2c4′ − d4`, i.e. <= 469, and <= 457 when `c4′ <= 10`)
+<!-- reviewed 2026-10-06: a measurement; states no new bound -->
+
+*2026-10-06.* Following [P432], and in the way [P418]/[P421] scoped the n = 4 shared-plane case
+(`src/probes/shared_n5_oracle.py`, `data/shared_n5_oracle.json`, log `data/shared_n5_oracle.log`).
+
+**The predictions.** Without a shared plane, [P425]–[P430] give (H1, L2, L3; [P425]'s identity explanation was CORRECTED by [P427], and the identities stand):
+- `d2 + d4 <= Σ_tri d2(S) − 16`;
+- `d3 + d4 <= Σ_4 d3(S) − 6`;
+
+each up to non-negative component and charging terms. Their slacks are measured here on compounds
+WITH a shared plane, using counts from the engine in the generic frame for the compound and its 15
+subsets.
+
+**Result.**
+- 600 shared-plane compounds from [P432]'s cache (the 150 highest and 450 random), 0 unevaluated.
+- **slack24 >= 10 and slack34 >= 2 on every one.** Neither is ever negative, so these compounds need
+  no allowance for tie patches. At n = 4 the patches cost, and the anchor drop paid for them
+  ([P421]).
+- Control: 80 random compounds with no shared plane give slack24 in {0, 1, 2} and slack34 = 0, as
+  the theory requires.
+- The lowered caps hold: `d2(S) <= 14` for triples containing a sharing class, `d3(S) <= 20` for
+  4-subsets containing one, and `d4 <= 26`.
+- The rows are mostly one pair (572). There are a few other structures, including 6 rows in which
+  cubes 0 and 1 share all three planes, i.e. are identical. That case reduces to four cubes, at
+  most 195.
+
+**What it would give.** For one shared pair, with d1 <= 180, d5 <= 1 and the caps, the two
+statements (if proved in a form that allows for patches) give
+
+    total  <=  181 + (7·18 + 3·14 − 16) + (2·24 + 3·20 − 6) − d4  =  435 − d4  <=  430,
+
+which is below 457. Not proved.
+
+*CORRECTED 2026-10-06, same day, at the advisor's catch: the 430 was wrong, twice over.*
+- **A dropped term.** Each bracket of the predictions ends in `−(c4 − 1)`, and L2/L3 control only
+  the part before it. So the two statements carry `+2(c4 − 1)`. The figure is `435 + 2(c4 − 1) − d4`,
+  and bounding it needs the top-level component count, as in [P430].
+- **The patch terms were left out.** Written with patch faces (Euler `d = X′ + 1 + c′ − p` for
+  every level and subset, as in [P418]), the chain picks up `Σ_S p_S − 2 p4`:
+  - the 3 triples and the 3 four-subsets containing the pair have 2 patches each (`O ∩ P_z` and
+    `O ∩ P_z ∩ P_w`, convex and containing `±f`): 12 in all;
+  - `p4 = 2` (`O ∩ P_c ∩ P_d ∩ P_e`);
+  - the full compound's level-2 and level-3 patches are absorbed by the region tree, since each
+    patch's complement has at most 2 components. They are star-shaped differences about `±f`.
+- **The corrected statement** (an unproved derivation, not a measurement): with H1 at shared points
+  and L2/L3 with patches, one shared pair would give
+
+      total  <=  181 + 168 + 108 − 24 + 8 + 2c4′ − d4  =  441 + 2c4′ − d4.
+
+  Here `c4′` counts the components of the top-level graph with the patch interiors removed.
+  - Every such component borders at least two faces, counting patches as faces ([P418]: 1D ties
+    are crossings). So `c4′ <= d4 + 1`, giving `total <= 443 + d4 <= 469`.
+  - It is **<= 457 whenever `2c4′ − d4 <= 16`**, for instance whenever `c4′ <= 10`, since `d4 >= 5`.
+  - So the one-pair case would not beat the no-shared-plane 485 by much, but its 457 condition is
+    far weaker than [P430]'s `d4 >= 2c4`.
+- The oracle's measurements above stand, but they test only the shape of the statements. The
+  docstring's "the bracketed terms are >= 0" is corrected in place to match.
+
+The argument needs:
+- the subset identities with two-dimensional patches;
+- H1 at vertices on a shared point (the circle model with two cubes owning one point, [P418]);
+- L2 and L3 with patches ([P418]'s G3 patch case).
+
+<a id="p434"></a>
+## [VERIFIED] Postscript 434: the one-pair chain at n = 5, assembled as a conditional derivation — `total <= 441 + 2c4′ − d4` (<= 469; <= 457 when `c4′ <= 10`) IF three unproved inputs hold: H1 at shared points (sampled on 175 702 exact circle configurations, 0 failures; unproved) and L2′/L3′ (sketched only)
+<!-- reviewed 2026-10-06: a derivation and a measurement; states no new bound -->
+
+*2026-10-06.* The next step after [P433] (as corrected there, A32). Scope: five cubes, cubes 0 and 1
+(a, b) share the face plane with normal `f`, and no other pair shares a plane.
+
+**The assembly, written first so each part has its budget.** Use [P418]'s patch form at every
+level and subset: `G′` is the tie set with the patch interiors removed, and
+`d = X′ + 1 + c′ − p` (Euler for a plane graph with `c′` components; a face need not be a disk).
+- **Patches.** The a–b tie is 2-dimensional only on `O_±`, the octagons where both cubes' `f`-faces
+  are active. In the gnomonic chart at `±f`, each other cube z gives a convex `P_z` (z reaches
+  farther than a = b) containing the centre. Let `E_k` be the part of `int O` where exactly k of
+  c, d, e reach farther. Level ℓ's patches are the components of `E_{ℓ−1}`.
+  - Triple {a, b, z} at level 2: `O ∩ P_z`; 4-subset {a, b, z, w} at level 3: `O ∩ P_z ∩ P_w`.
+    Both are convex with 2 components (±f), so `Σ_S p_S = 3·2 + 3·2 = 12`.
+  - Level 4: `E_3 = O ∩ P_c ∩ P_d ∩ P_e`, so `p4 = 2`.
+  - Levels 2 and 3: `E_{k}` is `(O ∩ U_k) ∖ U_{k+1}`, where `U_k` (k or more of the `P` contain the
+    point) is a union of convex sets containing the centre, hence star-shaped about it. On every
+    ray from the centre, `E_k` is the interval between the two boundaries. So every component
+    of `E_k` reaches both, and its complement has at most 2 components: `j_Q <= 2`.
+- **The chain.** It needs three statements:
+  - H1′: `Σ_tri X′_S(2) + Σ_4 X′_S(3) >= X′2 + X′3 + 2X′4`;
+  - L2′/L3′: `c′_ℓ − p_ℓ − 1 <= Σ_{|S|=ℓ+1} (c′_S − 1)` for ℓ = 2, 3.
+
+  With H1′, L2′ and L3′:
+
+      d2 + d3 + 2·d4  <=  Σ_tri d2(S) + Σ_4 d3(S) − 24 + (Σ_S p_S − 2 p4) + 2c4′,
+
+  and the patch term is `12 − 4 = 8`. With `d1 <= 180` ([P401], unconditional), `d5 <= 1`, and
+  the lowered caps (`d2(S) <= 14`, `d3(S) <= 20` for subsets containing the pair, [P413]'s
+  argument; 18 and 24 otherwise):
+
+      total  <=  181 + (7·18 + 3·14) + (2·24 + 3·20) − 24 + 8 + 2c4′ − d4  =  441 + 2c4′ − d4.
+
+- **The top level with patches.**
+  - `d4 >= 5`: each cube is strictly innermost at a face centre, and a and b keep 4 each.
+  - Every component of `G′4` borders at least two faces, counting patches as faces: 1D ties are
+    crossings ([P418] §3; the argument is pairwise and holds at n = 5). The face/component tree
+    then gives `c4′ <= d4 + p4 − 1 = d4 + 1`.
+  - So `total <= 443 + d4 <= 469` (`d4 <= 26`), and **`total <= 457` whenever `2c4′ − d4 <= 16`**,
+    in particular whenever `c4′ <= 10`.
+- **L2′/L3′.** [PROOF_N5](PROOF_N5.md) Part 2 carries over with these changes, as at n = 4
+  ([PROOF_SHARED](PROOF_SHARED.md) §3):
+  - G2's tree gains the patches as faces, with `j_Q <= 2` absorbing `−p_ℓ`.
+  - G4 uses a face centre other than `±f`.
+  - G3 gains a patch case. A patch at level ℓ has a = b at ranks ℓ, ℓ+1 below a set U of
+    ℓ − 1 cubes. Its boundary meets both `∂U_ℓ` (the adjacent region's label is U + z, z ∉ U) and
+    `∂(O ∩ U_{ℓ−1})` (label U + a, U + b or U − z + ab). These are distinct, so the patch's
+    neighbouring regions carry at least two labels.
+  - `c(B_S) <= c′_S`.
+  
+  Written out here, not yet in a proof document.
+
+**H1′ measured** (`src/probes/h1_shared_local.py`, `data/h1_shared_local.json`, log
+`data/h1_shared_local.log`). This is the per-vertex form, in the exact circle model with a and b
+owning a common point.
+- Weights are computed from the circle, not from `(t, c)`. P is on a graph if the level's ranks
+  tie at P. If the tie set is the whole circle, P is interior to a patch and has weight 0.
+  Otherwise its degree is the number of ends of the tie set (sector ends and isolated rays alike).
+- **0 negative slacks.**
+  - 94 931 configurations with per-cube edge separations (a superset);
+  - 80 771 realisable ones (one common F: a common separation; 120° with a corner).
+  - Slack 0 is reached in most (t, c) classes.
+- **0 anomalies:** no tie near P without a tie at P, and no point of `G′` with degree 0 or 1.
+- **Regression control:** on 47 804 configurations without a shared point, the weights agree
+  exactly with [P428]'s independent implementation (`Σ_θ Δ − 2K(t, c)`).
+- **Patch interior** (a, b owning only s): weight 0 in every graph.
+- **The shared-point code paths, checked independently** (advisor's catch: the regression never
+  reaches sectors or whole-circle ties). At n = 4, `--compare4` checks each graph separately: the
+  four triples at level 2 and the compound's level 2. It compares (on `G′`, degree) with
+  [P418]'s `patch_charging_local`, a separate implementation on a 1440-unit grid. Over 3 325
+  configurations with a shared point, 0 of 16 625 graphs differ, including 540 whole-circle cases
+  (`data/h1_shared_local_compare4.json`).
+- **Sampled, not exhaustive.** It is evidence for H1′, not a proof. The cases physically
+  impossible for one shared plane are correctly absent: two corners or two equal edges sharing
+  s would make a = b.
+
+**The budget's inputs rechecked** (advisor's concern). 48 subset counts behind the lowered caps
+(24 triples and 24 four-subsets containing the pair, from the highest rows of [P433]) were recounted
+frame-free with sphere_count. All 48 agree with the generic-frame engine
+(`data/shared_n5_oracle_recount.json`).
+
+**What a proof of H1′ needs** (plan, not done). Only case (i), where a and b own only s, has
+whole-circle graphs, since two cubes have identical distance functions only when they own the same
+points.
+- **Cases (ii)/(iii)** (a or b owns more than s). `K(t, c)` is unchanged, and degrees are counts of
+  ends. Part 1 then extends with:
+  - a Check 1′ over (weak order at θ, its refinements on the left and right), where only {a, b}
+    may tie on a side (a sector) and every other tie crosses ([P418] §3);
+  - the ray lemmas R1–R3 restated for ends.
+- **Case (i).** a and b act as one doubled cube, and a separate finite table is needed.
+
+**Not checked term by term on real compounds.** The engine's level graphs are invalid with
+shared planes ([P246]), so `X′`, `c′` and `p` were not measured per row. The patch count
+`Σ_S p_S − 2p4 = 8` comes from exact convex geometry, not from data.
+
+**Status.** No bound changes. With one shared pair, the chain would give 469, and 457 when
+`c4′ <= 10`. That is below the no-shared-plane 485 and does not by itself improve `max(5)`. Two or
+more sharing pairs are not addressed.
+
+<a id="p435"></a>
+## [PROOF] Postscript 435: H1 at a shared point proved (draft) — so five cubes with exactly one shared face plane have at most 469 regions, and `max(5) <= 485` for every compound with at most one sharing pair
+<!-- reviewed 2026-10-07: extends P430's 485 to one sharing pair; draft, computer-assisted, not externally reviewed -->
+
+*2026-10-07.* The proof of [P434]'s three missing inputs, written as [PROOF_N5](PROOF_N5.md) Part 4.
+The user chose the route to 485 for every sharing structure; this is its first step.
+
+**H1′** (Part 4.2). Points whose tying set contains both a and b are split into three cases:
+- (i) a and b own only the shared point s; this is the only case with whole-circle graphs;
+- (ii) one of them owns more;
+- (iii) both do.
+
+The proof follows [P428]'s structure, with ends of tie sets in place of tie directions:
+- **Check 1′**, exhaustive over (L, W, R) triples: about 41 600, with 0 failures.
+  - The injected-defect control fails on 118 triples, as it must.
+  - The check also holds when every pair may tie on a sector. I expected that control to fail
+    and it did not. So the one-pair hypothesis is not used there; it enters through the ray
+    lemmas and K.
+- **Ray lemmas, by hand:** R1; R2 (≥ t, and ≥ t + 1 in (iii)); R2_i (≥ t − 1); R3″ (case (ii),
+  t = 3 and 4 rows: the next-to-bottom level has ≥ 3 ends when the bottom has exactly t); R3_i
+  (case (i), t ≥ 4: ≥ 4 ends, via the count N of cubes nearer than s).
+- **Step 4′ table:** every row holds, with exactly these lemmas (`--final`).
+  - Tight rows: (3, c) in all cases; (4, 1) in all cases; (4, 0) in (i).
+- **Lemma oracle:** R1, R2, R2_i, R3″ and R3_i measured on 63 975 random exact configurations,
+  0 violations (`data/h1_shared_local_lemmas.json`).
+- **Step 1′ checked on data** (advisor's catch: the 175 702-configuration run confirmed only the
+  conclusion). `h1_shared_local.py --decomp` reads the actual (L, W, R) at every critical
+  direction. On 58 735 shared-point configurations it found 0 problems:
+  - `2·slack = Σ_θ Δ′ − 2K*` held exactly, with K* from the RULE (K in (ii)/(iii), K_i in (i));
+  - every observed triple lies inside Check 1′'s enumeration;
+  - the summed Check 1′ held.
+  - The measured minimum slack per (t, c, case) is never below the table's margin, and equals
+    it in several rows (`data/h1_shared_local_decomp.json`).
+
+**L2′/L3′ and the top level** (Parts 4.3, 4.4). Written out from [P434]'s sketch: `j_Q <= 2` by
+the star-shaped argument; G3's patch case through the two boundary labels; `c4′ <= d4 + 1`.
+
+**Result (draft).** One sharing pair: `total <= 441 + 2c4′ − d4 <= 469`, and `<= 457` when
+`c4′ <= 10`. With [P430], **every five-cube compound with at most one sharing pair has at most 485.**
+For all five-cube compounds the bound stays 871.
+
+**Not covered.** Two or more sharing pairs: two disjoint pairs, a hub, three cubes on one plane,
+and more. At n = 4 this took [P419]–[P422].
+
+Files:
+- `src/probes/h1_shared_proof.py` (modes: default = Check 1′, `--control`, `--table`, `--case-i`,
+  `--final`);
+- `src/probes/h1_shared_local.py --lemmas`;
+- data: `data/h1_shared_proof.json` and its logs, and `data/h1_shared_local_lemmas.json`.
+
+<a id="p436"></a>
+## [VERIFIED] Postscript 436: five cubes with two or more sharing pairs reach at most 247 in search — far below 485, and below one pair's 317
+<!-- reviewed 2026-10-07: a measurement (lower bounds only); states no new bound -->
+
+*2026-10-07.* The scoping step agreed after [P435], as [P432] was for one pair
+(`src/probes/shared_n5_multi_scope.py`, `data/shared_n5_multi_scope.json`, log
+`data/shared_n5_multi_scope.log`, cache of all 87 256 evaluations in
+`data/shared_n5_multi_scope_cache.jsonl`).
+
+**Construction.** Random sharing forests on five cubes, with 2–4 edges. A child is its parent rotated
+about one of the parent's own face normals. The climbs on the total keep the forest. Counts come from
+the generic-frame engine, and every structure's best was recounted frame-free with sphere_count:
+**10 of 10 agree.** Rule set before the run: if every best sits far below 485, report.
+
+**Best totals by sharing structure** (classes = sets of cubes sharing one plane):
+
+| structure | best | depths |
+|---|---|---|
+| axis triple (one class of 3) | 247 | 70, 88, 64, 24, 1 |
+| two disjoint pairs | 241 | 78, 84, 56, 22, 1 |
+| hub (two pairs through one cube) | 239 | 72, 86, 58, 22, 1 |
+| three pairs, two hubs | 191 | 66, 60, 46, 18, 1 |
+| three pairs, one hub | 191 | 62, 64, 46, 18, 1 |
+| pair + axis triple through one cube | 191 | 50, 68, 52, 20, 1 |
+| axis four | 165 | 38, 52, 52, 22, 1 |
+| two pairs + axis triple | 153 | 52, 50, 34, 16, 1 |
+| two axis triples sharing a cube | 139 | 32, 48, 40, 18, 1 |
+| pair + axis four | 133 | 34, 38, 42, 18, 1 |
+
+**Reading.**
+- Every multi-pair structure counts far below one pair's 317 ([P432]) and below 485. The more
+  sharing, the lower.
+- These are lower bounds from 32 climbs. Coverage is uneven: only 1 run had 4 edges.
+  Structures never produced include a pair disjoint from an axis triple, four classes, and axis
+  five.
+- The signature (class sizes and the number of cubes in two classes) does not separate all
+  shapes, for instance a path from a star.
+
+**Consequence for the 485 route.** The room is large, about 240. But no coarse argument is in
+hand: every proved route to a bound below 871 goes through the chain, and the chain at shared
+vertices needs per-structure work.
+- Check 1′ already holds with any pattern of sectors ([P435]).
+- What remains for multiple sharing pairs: the whole-graph rule and the ray lemmas at points
+  with two or more shared points (where the identities fail at n = 4, [P419]), and the component
+  lemmas with glued patches ([P420]–[P422]).
+
+<a id="p437"></a>
+## [VERIFIED] Postscript 437: the multi-pair case at n = 5 scoped for a proof — H1 per vertex holds for every sharing pattern measured, every structure's budget leaves room of 32 or more, but the one-pair proof's ray-lemma route does not extend
+<!-- reviewed 2026-10-07: measurements and a budget; states no new bound -->
+
+*2026-10-07.* The user approved the multi-pair program after [P436]. Before proving anything, the
+advisor asked for three diagnostics.
+
+**1. The budget per structure** (`src/probes/budget_n5_structures.py`,
+`data/budget_n5_structures.json`).
+- With H1′ (no deficit), L2′/L3′ plus hole terms H, and the top-level tree, the chain gives
+  `total <= 155 + Σ_tri cap2 + Σ_4 cap3 + Σ_S p_S + cap4 + H`.
+- The caps are the strengthened ANCHOR. Patches are at most 2 per class meeting a subset in two
+  or more cubes.
+- One pair gives 469, matching Part 4.
+- **Room for H and any deficits, over 48 structures** (a superset that includes the unrealisable
+  triangles and cycles): at least 32.
+  - The tightest are hub and two disjoint pairs (32), then the axis triple (36); the rest have
+    48 to 100 or more.
+  - At n = 4, disjoint classes never glued and a hub's hole term was at most 8 ([P421],
+    [P422]).
+
+**2. H1 per vertex, at points where two or more shared points meet**
+(`src/probes/h1_shared_local.py --multi`, `--both`; `data/h1_multi_*.json`).
+- Any sharing pattern is allowed: twins, axis classes up to five, hubs, and two separate pairs
+  at one point.
+- Two cubes share at most one point. Triangles are excluded ([P419]); longer cycles are kept, a
+  superset.
+- **The full per-vertex slack is never negative: 328 812 configurations in 173 (t, c, pattern)
+  classes, both kinds**, plus 27 539 in the first run. So the chain needs no deficit term, if
+  this is proved.
+
+**3. Whether [P435]'s proof structure extends.**
+- **Check 1′ with ANY side ties** (every sharing pattern): exhaustive, about 415 000 (L, W, R)
+  triples, 0 failures.
+- **But the reduced inequality** `Σ_r e(T, r)·Δpair(c + r − 1) >= 2K*` **fails in 62 of 173
+  classes**, by as much as 9 in slack.
+  - On the failing configurations, the per-direction excess sits at directions where three or
+    more cubes tie, mostly with the tie continuing through the direction while the tied pair
+    switches.
+- **Switches** (T's level ties on both sides, by two different pairs).
+  - Check 1′ with `rhs = Σ_r (e + σ)·Δpair` holds exhaustively when σ counts only PAIR switches
+    (both side blocks of size 2).
+  - It fails when a 3-cube side block counts as a switch, at 4-way tie types. The first version
+    also counted a pair growing into a triple, which failed spuriously; log `_switch_v1.log`.
+  - **With pair switches, the reduced inequality still fails in 40 of 170 classes**
+    (78 847 configurations).
+  - These are mostly patterns with three or more cubes on one shared point ([3], [3, 2],
+    [4], [5]) and twin pairs ([2, 2] with no sharer owning more).
+- So the excess that H1′ needs at such vertices lives in multi-cube tie directions, and its count
+  depends on more than ray counts.
+- This is [P420]'s situation at n = 4: there the residue was settled by exact enumeration of
+  every cell of a low-dimensional arrangement.
+
+**Status.** No bound changes. The multi-pair program needs:
+- a proof of H1′ at multi-shared vertices: a richer per-direction accounting, or an exact cell
+  enumeration of the residue patterns at n = 5;
+- realisable structures at n = 5, including whether 5-cycles occur;
+- the glue-hole term per structure at levels 2 and 3, within room of 32 or more;
+- L2′/L3′ with glued patches.
+
+*Addendum 2026-10-07: how large the residue is* (`h1_shared_local.py --profile`,
+`data/h1_multi_profile.json`). Over 71 573 realisable configurations with two or more shared
+points, R′ < 0 occurs in 5 249. They are profiled by:
+- dimension: free parameters in the realisable model, i.e. sharing components minus 1, plus the
+  common edge angle unless a corner fixes it;
+- the number of cubes owning an unshared point.
+
+Findings:
+- **R′ < 0 only when at most 2 cubes own an unshared point**, at every dimension. The rows with
+  3 or more have 0 failures in 23 241 configurations.
+- **Dimensions of the failures:** 0 (112), 1 (3 640), 2 (1 457), 3 (40, all with exactly 2 such
+  cubes).
+- This mirrors [P420]'s residue at n = 4 (all points shared but one cube's; at most 2
+  parameters).
+- **A proof of H1′ for every sharing pattern then needs two parts:**
+  - (a) a hand argument that R′ >= 0 when 3 or more cubes own an unshared point, extending the
+    cut-sequence count of R2;
+  - (b) an exact cell enumeration of the patterns with at most 2 such cubes, in at most 3
+    parameters, as residue_exact.py did with at most 2.
+
+<a id="p438"></a>
+## [VERIFIED] Postscript 438: the multi-pair H1 split in two — u >= 3 is nearly settled by hand, one minimal case remains; the glue-hole term fits every realisable structure's room
+<!-- reviewed 2026-10-07: lemmas, exhaustive checks and measurements; states no new bound -->
+
+*2026-10-07.* Following [P437]'s addendum. Here u is the number of tying cubes that own an
+**unshared** point at the vertex.
+
+**u >= 3, by hand** (the cases where sampling found no R′ failure).
+- **Bottom lemma.** Colour each point's cell with its owner set. Each maximal run of shared cells
+  is a sector of the bottom level, with 2 ends. Each change between unshared owners is a ray. With
+  m >= 1 runs, the bottom has at least `2m + (u − m) = u + m >= u + 1` ends. Measured: never
+  below u + 1 in 21 438 configurations.
+- **Minimal bottom (u + 1 ends plus switches) forces a structure:** m = 1, the unshared owners
+  form contiguous blocks X, Y, Z, and there is no bottom switch. Then the next-to-bottom level
+  has at least 3 ends plus switches:
+  - The bottom-two label is {x, y} near X|Y and {y, z} near Y|Z, so it changes inside Y.
+  - If the shared cell next to X lacks x, or has 3 or more owners, a sector of the next level
+    starts just inside X. That is 2 more ends, separate from Y's change.
+  - Otherwise X's label {x, w} forces one more change, unless w = y. If w = y on both sides, the
+    run holds cells {x, y} and {y, z}. Adjacent, they make a bottom switch, which contradicts
+    minimality; separated, there is a cell with 3 or more owners and hence a sector.
+  - Measured: the minimum is 3, and in fact at least u.
+- **Not whole.** The bottom is never whole with u >= 1. The next level is never whole with
+  u >= 3: wholeness needs every unshared cell flanked by cells with three or more owners, so at
+  least 3 such points among at most 5 cubes, pairwise sharing at most one cube. That is
+  impossible.
+- **The isolated-tie label fact,** used by R1: an isolated tie changes the label. Checked
+  exhaustively over all (L, W, R) with any side ties: 0 exceptions in 50 272 isolated ties,
+  t = 2 to 5.
+  - **The first run did not exclude touching ties** and reported "unchanged" cases. Its log was
+    overwritten by the rerun; this entry is its record.
+  - **Touching ties are impossible.** A pair tied at θ, strict on both sides in the same order,
+    needs its distance difference to turn round at θ. That forces distance 0 for both, i.e. a
+    common point at θ, and then they tie on both sides.
+- **Table rows.**
+  - Rows (4, 0), (3, 1) and (3, 2) close, since only T-levels t − 1 and t − 2 enter.
+  - Rows (5, 0) and (4, 1) can also have full level 2 (T-level t − 3) whole, adding 1 to K*.
+    A bottom of 5 or more ends plus switches absorbs that: `2·2 + 4·5 = 24`.
+- **Open: u = 3 with a bottom of exactly 4,** where T-level t − 3 must be shown not whole, or the
+  next level must have at least 4 ends plus switches.
+  - The realisable model constrains this hard. With a common edge angle, two cubes owning a
+    common point can place their other points only at s ± θ. So at most 2 members of a class
+    can own extra points at P.
+  - The advisor's control: construct this case on purpose. The random sampler produced a whole
+    level with u >= 3 only once in 105 109 configurations (`--whole`,
+    `data/h1_multi_whole.json`).
+
+**Whole T-levels in general** (census, `data/h1_multi_whole.json`). They are common for u <= 2:
+twin groups owning only a common point, and patterns with no point common to all of T. So the
+u <= 2 residue enumeration must compute the full slack, with K* from the actual whole graphs.
+
+**Glue holes against the room.** Transfer [P421]–[P422]'s glue lemma: arcs only on edges of a
+cube in both classes, at most 2 per edge, 4 edges per pair of classes through a hub. That is at
+most 8 per hub pair per level, 16 over levels 2 and 3.
+- Over the 48 structures of [P437], 16 had crude H above the room. Every one of them is
+  unrealisable: a cube in 4 classes (a cube has 3 planes), or a 3- or 4-cycle ([P419]).
+- **The 18 structures left all fit.** Three are exactly tight (margin 0): the star, the star with
+  a pendant pair, and a 5-cycle whose realisability is unchecked. Two disjoint pairs and the
+  axis classes need no glue.
+- This assumes the glue lemma transfers to n = 5, which is not yet proved.
+
+<a id="p439"></a>
+## [VERIFIED] Postscript 439: the u <= 3 residue of multi-pair H1, settled exactly for 182 of its 200 patterns — 0 negative slack; 18 three-parameter patterns remain
+<!-- reviewed 2026-10-07: an exhaustive computation over most of the residue; states no new bound -->
+
+*2026-10-07.* Following [P438]. The u = 3 minimal case is folded into the enumeration, so by hand
+only u >= 4 is needed. There the bottom has at least 5 ends, and every table row closes.
+
+**Patterns** (`src/probes/residue5_patterns.py`, `--u3`; `data/residue5_patterns*.json`). Every
+realisable owner pattern at a vertex with u <= 3 and two or more sharing pairs (or a point with 3
+or more owners), up to relabelling:
+- 200 patterns, with 3 to 5 tying cubes;
+- free parameters in the realisable model: 13 patterns with none, 81 with 1, 88 with 2, 18 with 3.
+
+**Exact evaluation** (`src/probes/residue5_exact.py --upto2`, `data/residue5_exact_upto2.json`,
+log `data/residue5_exact_upto2.log`). As in [P420], every cell of each placement's arrangement:
+critical values and midpoints in one parameter; vertices, edge midpoints and solved off-edge
+points in two. The FULL per-vertex slack was computed for every c.
+- **182 patterns, 323 placements, 105 281 cell samples: 0 negative slacks.**
+- Slack 0 occurs in every (t, c) row, so the check reached the boundary.
+- **Order-type cross-check** (every order type reached by 300 random rational parameter points
+  per placement must be among the cells'): 0 misses.
+- 7 109 samples were skipped as unrealisable: two labels merging so that two cubes co-own two
+  points.
+
+**The 18 three-parameter patterns are not done.** One has 378 coincidence planes, so about
+9 million triple intersections, and the slicing method was killed by a 50-minute timeout. They
+need a faster method: integer arithmetic with numpy for the vertices, an infinitesimal
+(lexicographic) perturbation to step into each adjacent cell exactly, and caching of the slack
+by order type. Or a structural reduction.

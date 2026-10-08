@@ -1,0 +1,3 @@
+direct per-vertex check, minimum of 2 x slack by (t, c): {(3, 0): 0, (3, 1): 0, (3, 2): 0, (4, 0): 2, (4, 1): 2, (5, 0): 8}
+failures: 0
+lemma data: {(4, 'bottom minimal', 'next level rays', 4): 456, (3, 'bottom minimal', 'next level rays', 3): 1570, (5, 'bottom minimal', 'next level rays', 5): 77}

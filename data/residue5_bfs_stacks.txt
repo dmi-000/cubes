@@ -1,0 +1,334 @@
+== 50667
+Process 50667: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.resource_tracker import main;main(6)
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active): "MainThread"
+    main (multiprocessing/resource_tracker.py:362)
+    <module> (<string>:1)
+== 50668
+Process 50668: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=18) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    _from_coprime_ints (fractions.py:368)
+    _mul (fractions.py:838)
+    forward (fractions.py:699)
+    <genexpr> (residue5_bfs.py:91)
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:237)
+    <genexpr> (residue5_bfs.py:343)
+    closure_face (residue5_bfs.py:343)
+    walk (residue5_bfs.py:413)
+    control (residue5_bfs.py:481)
+    mapstar (multiprocessing/pool.py:48)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50669
+Process 50669: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=20) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    <genexpr> (residue5_bfs.py:91)
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:237)
+    <genexpr> (residue5_bfs.py:343)
+    closure_face (residue5_bfs.py:343)
+    walk (residue5_bfs.py:413)
+    control (residue5_bfs.py:481)
+    mapstar (multiprocessing/pool.py:48)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50670
+Process 50670: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=22) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    _from_coprime_ints (fractions.py:368)
+    _mul (fractions.py:838)
+    forward (fractions.py:699)
+    <genexpr> (residue5_bfs.py:91)
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:242)
+    closure_face (residue5_bfs.py:337)
+    walk (residue5_bfs.py:413)
+    control (residue5_bfs.py:481)
+    mapstar (multiprocessing/pool.py:48)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50671
+Process 50671: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=24) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active): "MainThread"
+    _recv (multiprocessing/connection.py:412)
+    _recv_bytes (multiprocessing/connection.py:447)
+    recv_bytes (multiprocessing/connection.py:222)
+    get (multiprocessing/queues.py:385)
+    worker (multiprocessing/pool.py:114)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50672
+Process 50672: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=26) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    forward (fractions.py:698)
+    <genexpr> (residue5_bfs.py:91)
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:237)
+    <genexpr> (residue5_bfs.py:343)
+    closure_face (residue5_bfs.py:343)
+    walk (residue5_bfs.py:413)
+    control (residue5_bfs.py:481)
+    mapstar (multiprocessing/pool.py:48)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50673
+Process 50673: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=28) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    pivot (residue5_bfs.py:81)
+    run (residue5_bfs.py:104)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:237)
+    <genexpr> (residue5_bfs.py:343)
+    closure_face (residue5_bfs.py:343)
+    walk (residue5_bfs.py:438)
+    control (residue5_bfs.py:481)
+    mapstar (multiprocessing/pool.py:48)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50674
+Process 50674: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=30) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    _mul (fractions.py:834)
+    forward (fractions.py:699)
+    pivot (residue5_bfs.py:81)
+    run (residue5_bfs.py:104)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:242)
+    closure_face (residue5_bfs.py:349)
+    walk (residue5_bfs.py:413)
+    control (residue5_bfs.py:481)
+    mapstar (multiprocessing/pool.py:48)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50675
+Process 50675: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=32) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:237)
+    <genexpr> (residue5_bfs.py:343)
+    closure_face (residue5_bfs.py:343)
+    walk (residue5_bfs.py:413)
+    control (residue5_bfs.py:481)
+    mapstar (multiprocessing/pool.py:48)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50717
+Process 50717: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.resource_tracker import main;main(6)
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active): "MainThread"
+    main (multiprocessing/resource_tracker.py:362)
+    <module> (<string>:1)
+== 50718
+Process 50718: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=18) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    _mul (fractions.py:834)
+    forward (fractions.py:699)
+    <genexpr> (residue5_bfs.py:91)
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:242)
+    closure_face (residue5_bfs.py:349)
+    walk (residue5_bfs.py:413)
+    run_pattern (residue5_bfs.py:457)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50719
+Process 50719: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=20) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    _add (fractions.py:796)
+    forward (fractions.py:699)
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:237)
+    <genexpr> (residue5_bfs.py:343)
+    closure_face (residue5_bfs.py:343)
+    walk (residue5_bfs.py:413)
+    run_pattern (residue5_bfs.py:457)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50721
+Process 50721: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=22) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    _from_coprime_ints (fractions.py:368)
+    _add (fractions.py:800)
+    forward (fractions.py:699)
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:237)
+    <genexpr> (residue5_bfs.py:343)
+    closure_face (residue5_bfs.py:343)
+    walk (residue5_bfs.py:413)
+    run_pattern (residue5_bfs.py:457)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50722
+Process 50722: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=24) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    _mul (fractions.py:830)
+    forward (fractions.py:699)
+    <genexpr> (residue5_bfs.py:91)
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:237)
+    <genexpr> (residue5_bfs.py:343)
+    closure_face (residue5_bfs.py:343)
+    walk (residue5_bfs.py:413)
+    run_pattern (residue5_bfs.py:457)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50723
+Process 50723: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=26) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    _add (fractions.py:796)
+    forward (fractions.py:699)
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:237)
+    <genexpr> (residue5_bfs.py:343)
+    closure_face (residue5_bfs.py:343)
+    walk (residue5_bfs.py:413)
+    run_pattern (residue5_bfs.py:457)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50724
+Process 50724: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=28) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    _sub (fractions.py:815)
+    forward (fractions.py:699)
+    pivot (residue5_bfs.py:81)
+    run (residue5_bfs.py:104)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:242)
+    closure_face (residue5_bfs.py:337)
+    walk (residue5_bfs.py:413)
+    run_pattern (residue5_bfs.py:457)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50725
+Process 50725: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=30) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    pivot (residue5_bfs.py:81)
+    run (residue5_bfs.py:104)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:242)
+    closure_face (residue5_bfs.py:337)
+    walk (residue5_bfs.py:413)
+    run_pattern (residue5_bfs.py:457)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)
+== 50726
+Process 50726: /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=7, pipe_handle=32) --multiprocessing-fork
+Python v3.14.2 (/opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python)
+
+Thread 0x1F6692300 (active+gil): "MainThread"
+    forward (fractions.py:698)
+    run (residue5_bfs.py:91)
+    simplex_max (residue5_bfs.py:110)
+    feasible (residue5_bfs.py:237)
+    <genexpr> (residue5_bfs.py:343)
+    closure_face (residue5_bfs.py:343)
+    walk (residue5_bfs.py:413)
+    run_pattern (residue5_bfs.py:457)
+    worker (multiprocessing/pool.py:125)
+    run (multiprocessing/process.py:108)
+    _bootstrap (multiprocessing/process.py:320)
+    _main (multiprocessing/spawn.py:135)
+    spawn_main (multiprocessing/spawn.py:122)
+    <module> (<string>:1)

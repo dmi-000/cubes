@@ -171,7 +171,8 @@ five to a few per cent, in exchange for that one hypothesis. *[That was one
 hypothesis too few. Written out for a proof checker on 2026-09-28, the chain also
 leans on an accounting step, that the degree excess is no more than the triple and
 pair terms charge for it, which had been argued but never verified. The checker
-confirms the bound does not follow without it.]* So the tower is now bracketed at both
+confirms the bound does not follow without it. Four days later the step was proved,
+so the one hypothesis is again the only one.]* So the tower is now bracketed at both
 ends, and the interesting question has moved: the remaining 10 % is not spread
 evenly, and finding where it lives is what the project is doing now.
 
@@ -189,7 +190,15 @@ Euler budget per triple of cubes, so the two trade one for one. With one more le
 (at any point, every cube's active faces project onto one common circle, which rules
 out the degenerate cases) that gives 195 at four cubes, **provided the second layer's
 boundary is connected**. That single connectivity statement is now the whole gap
-between the record's 183 and a proved 195.
+between the record's 183 and a proved 195. *[Settled in draft on 2026-10-04 and 10-05, so this
+paragraph's last sentence is out of date. A second-layer region shaped like a band
+does exist, but it is always paid for: whenever one appears, some triple of cubes
+loses a matching piece. With that, 195 holds whenever no two cubes share a face
+plane. The remaining case, where two cubes do share one, was worked through
+separately, and there every compound has at most 187 regions. So the four-cube
+maximum is at most 195 with no assumption at all. These proofs are drafts awaiting an
+independent reading, and parts of them are checked exhaustively by computer; until
+the reading is done, 261 is the bound that rests only on older steps.]*
 
 **Not one record is a point.** For weeks the project believed each record was an
 isolated configuration, found by a test that reported "no direction keeps the
@@ -446,8 +455,15 @@ with the session, taking the gates with it.
 - **Is 183 the maximum at four cubes?** Three separate attempts to reduce this
   to a few named statements have each been refuted, the last one by the golden
   four-cube arrangement: four of the five cubes of the classical compound in a
-  dodecahedron. What is proved: at most 261 with no hypothesis, and at most 195 if
-  the boundary between the second-layer regions is connected.
+  dodecahedron. What is proved: at most 261 with no hypothesis on long-reviewed
+  steps, and at most 195 with no hypothesis in a new draft proof awaiting an
+  independent reading. Between 183 and 195 the gap now sits almost entirely in
+  the outermost layer. The record has every deeper layer at its ceiling, and only
+  two arrangements are known that no other beats in every layer at once. One is the
+  record. The other is the golden arrangement, which fills the outermost layer
+  completely and loses elsewhere. No arrangement found has an outermost layer
+  between those two, but nobody has proved that none exists, and that is where
+  183 would have to be won.
 - **Are 183, 393, 727, 1217, 1895, 2787, 3925 actually maximal?** None is proved.
   Only *n* = 2 and *n* = 3 have theorems. 1895 replaced 1891 on 2026-08-05, and it
   was sitting inside a window an earlier sweep had already covered — the
@@ -461,10 +477,16 @@ with the session, taking the gates with it.
   part. The first concrete conjecture about it, a cap on edge-edge contacts, was
   refuted at every size tested within a day of being proposed.
 - **The connectivity hypothesis.** For the tower-wide ceiling it moves the bound by
-  about nine regions in four hundred. At four cubes it matters far more: its
-  second-layer case is now the only thing between 261 and 195. A failure would have
-  to be a band-shaped region where the same two cubes are innermost all the way
-  round, and none has turned up in about two thousand configurations.
+  about nine regions in four hundred. At four cubes it no longer matters: band-shaped
+  regions do occur, and the draft proof shows each one is paid for by the triples of
+  cubes, which is what takes four cubes to 195.
+- **Five cubes.** The same argument does not carry over level by level, because at
+  five cubes every level's accounting borrows from the innermost one. Done as a
+  whole, it now gives, in draft, at most 485 regions whenever no two cubes share a
+  face plane, and at most 457 unless the innermost layer's boundary falls into
+  three or more pieces. That has never been seen, and every arrangement measured
+  clears 457 with room. The record is 393. For arrangements with a shared face
+  plane the bound is still 871.
 - **What changes the count where no coincidence occurs.** At two known parameters
   the count drops and no wall of the known family is crossed. A second family was
   proposed and refuted — the test had forgotten that a cube's boundary is six

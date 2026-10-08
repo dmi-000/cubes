@@ -235,3 +235,154 @@ is odd, and so is everything near them. **Beating 183 does not require 185; 184 
 "complete" case analysis. All of it is superseded by the section above, and its history is in the
 ledger, [P354](LEDGER.md#p354) through [P373](LEDGER.md#p373). The last published copy (2026-09-21)
 holds the text as it was. Current per-level status: [`LEVELS.md`](LEVELS.md).
+
+## Done 2026-10-04 (was in flight)
+
+The band climb and wider hunt finished; recorded as [P409](LEDGER.md#p409): 7 depth-2 bands, margins
+>= 7, so 195 is not threatened by any band found. Bounds: 261 unconditional; 198 IF holes <= 1;
+`max(4) <= 194 + c2`; 195 follows from `c2 - 1 <= 64 - sum_S budget_S` (no shared face plane).
+
+**Later 2026-10-04: [P410](LEDGER.md#p410).** The band lemma `c2 - 1 <= sum_S (c_S - 1)` is proved in
+[`PROOF_BAND.md`](PROOF_BAND.md), so `max(4) <= 195` is PROVED for compounds with no shared face
+plane (Lean `max4_le_195`; the scope was narrowed to that alone by P412). Updated: the record (ledger), then current
+state (RESULTS, PROOF_CHECK, LEVELS, ORIENTATION, OPEN_QUESTIONS §29, DOCUMENTS, memory).
+**Narratives UPDATED 2026-10-05** (the user: update unless a result is imminent): OVERVIEW (bracketed
+update and two "open" bullets), JOURNEY (Act XVII), PROJECT (frontier section 2026-10-05), with 195 as
+a draft awaiting independent reading and 457 at five cubes conditional on H2. The Tower artifact states
+no bounds and needed no change. AN_HOUR_AND_A_MONTH is maintained by someone else. *(Superseded wording
+follows.)* **Not yet updated: the narratives** (OVERVIEW, JOURNEY, PROJECT), the Tower artifact, and
+the github sync list. They wait for an external read of PROOF_BAND, which is the user's call.
+New files: PROOF_BAND.md; in `src/probes/`, band_components, band_faces, band_cslack, band_climb2,
+band_pair_labels (its label test was too weak and was superseded by band_faces) and
+tree_lemma_check; and their data/ outputs.
+<!-- reviewed 2026-10-04: states P410's band-lemma bound in its scope (no shared face plane), not P348's conditional one -->
+
+**Plan agreed 2026-10-04, for after the external read of PROOF_BAND** (narratives wait for the read):
+*(2026-10-05: the user says the external read runs independently. Work is not held for it; the
+reader reads whatever is left here. Results stay "draft, unreviewed" until a review outcome is
+reported.)*
+1. Act on the review; then the narratives, the Tower artifact and the sync list.
+2. Make 195 unconditional. CORRECTED the same day ([P411]): the perturbation route is false
+   ([P69]: n = 2's maximum lives only on a coincidence locus). Touching ties need a shared plane
+   ([P412]), so only shared face planes remain. There `d3 <= 20` is proved, so 195 needs only
+   `d2 <= 70` ([P413]); the highest seen is 54 (best total 137, [P411]). Next: redo the charging
+   with 2-dimensional tie patches, which only lower `d2`. Scaling one cube to break the tie is NOT a
+   reduction: both directions lose in 3 of 48 ([P414]). The MV route is not refuted (bound <= 69 against
+   70) but needs a joint inequality; the locus looks capped at d2 = 54 ([P415]).
+   **[P418], 2026-10-04: one sharing pair DONE in draft** ([PROOF_SHARED.md](PROOF_SHARED.md)):
+   charging with tie patches gives `d2 <= 62`, so `max(4) <= 187` there. (L) is proved by
+   classifying direction ties: with one shared point, the only three-cube type is `a = b` tied
+   on both sides with `c` crossing. The first version said "never", and was corrected the same
+   day. Measured ceilings for the other structures: `d2` 44 (two
+   disjoint pairs), 42 (hub), 42 (three on an axis), 16 (four on an axis). **Left: two or more
+   sharing pairs.** A hub allows new three-way direction ties and two disjoint pairs four-way ones,
+   so the exact identities fail. G3 also needs patch-against-patch adjacency.
+   **Multi-pair work, started 2026-10-04 (in flight):**
+   - **Per-direction lemma** (`src/probes/direction_types.py`, exhaustive over types). At every
+     direction type, with any sharing:
+     - four-fold: `Σ_S e_{B_S} − e_μ >= 2·e_{C12}`;
+     - triple: `Σ e_π − e_τ − e_β >= 0`.
+     So (L) can fail only where few ends exist: `C12 <= 2` (or `deg β <= 2`).
+   - **Realisable sharing structures**, by hand:
+     - Two cubes sharing two planes are identical.
+     - A triangle of distinct planes forces that, so every triangle is an axis class.
+     - A 4-cycle forces an identical pair.
+     - That leaves eight: pair, two disjoint, hub, axis3, axis4, star, path, axis3 + pair.
+   - **Plan (advisor):**
+     1. The enumeration, with the `δ = 0`, `δ = 180°` types and a control.
+     2. Climb star, path and axis3 + pair.
+     3. Do the global half (anchors, patches, G3, `j_Q`) per structure, first.
+     4. Settle the low-end residue per structure by exhaustive type enumeration, corners
+        included.
+   - **Status at the pause, 2026-10-04 22:45.**
+     - Steps 1 and 2 are done ([P419]).
+     - The engine is frame-dependent on the locus: 49 of 8 048 compounds, all in `d1`, none in
+       `d2`. Use a generic frame or sphere_count.
+     - The residue is reformulated as `deg λ + ΣW/2 >= #on − 1`. It was sampled on 36 948
+       low-end vertices with 0 excess, not yet proved.
+     - DONE 2026-10-05 ([P420]): exact per-owner-pattern check of the residue. 49 placements,
+       every cell, 0 failures. (L) now holds for every sharing structure.
+     - [P421]: oracle per class, all eight structures. 0 violations; minimum slack 4 to 34.
+     - *(Corrected 2026-10-05: [P421]'s "disjoint classes can glue" is wrong, see [P422].)*
+     - **[P422], 2026-10-05: item 2 DONE in draft.** Glue arcs lie only on hub edges (algebra,
+       plus the exhaustive `glue_check.py`), `m <= 2` per edge, and per-structure `d3` gives every
+       shared-plane compound `max(4) <= 187`. So **`max(4) <= 195` unconditionally** (draft,
+       unreviewed, computer-assisted in [P420]).
+     - Current-state documents are updated: RESULTS, ORIENTATION, LEVELS, PROOF_CHECK, OQ §29,
+       DOCUMENTS.
+     - **The narratives still carry the 261 headline.** They wait for the external read, which
+       now covers PROOF_BAND, PROOF_SHARED, [P412], [P416]-[P422].
+   <!-- reviewed 2026-10-05: the 195 here is P422's draft unconditional bound, not P348's conditional one -->
+   - Nothing on multi-pair goes into RESULTS until all eight structures are closed.
+3. Firm up ANCHOR's soft step (`d2(S) <= 18`, flagged in PROOF_67). DONE 2026-10-04 ([P416]); Lemma
+   1a's tangential-triple-point case (PROOF_67 §5.3) closed for no shared plane ([P417]).
+4. Close 183-195 from above: measure the joint frontier of (d1, d2, d3), then derive a trade-off.
+   **Measured 2026-10-05 ([P423]).**
+   - Only two Pareto points on file: the record (92, 66, 24) and the golden (104, 48, 24).
+   - No compound has `d1` from 97 to 103: none on file, after an exact recount, or in 16 climbs on
+     `d1`. Proving `d1 <= 96` off K4 would give 187. That is not derived.
+   - [P424]: the golden's neighbourhood, counted exactly in Z[sqrt5]. The paw through the golden
+     takes `d1` in {78, 80, 82, 84}, and every axis event on it gives at most 82. Perturbations and
+     climbs reach at most 88. Next to the golden the counts are (84, 66, 24), so its 104 is an
+     isolated spike.
+   - Not swept: the 4-cycle through the golden, and strata of dimension 2 or more.
+   - **Measurement of item 4 stopped here**, by a rule set in advance. Next is a derivation of the
+     gap, or item 5.
+   - Refuted, counting body diagonals only:
+     - per-cube `d1 <= 20 + 2 a_i`: a cube with no shared diagonal reaches 26;
+     - the summed form `d1 <= 80 + 4s`: `d1 = 82` with no diagonal, total 173.
+     Every refuter shares a 2-fold axis. A form that counts those is untested.
+   - Open: a derivation route for the `d1` gap, or a joint inequality.
+5. Band lemma at n >= 5: measure first.
+   **Measured 2026-10-05 ([P425], [P426]).**
+   - The n = 4 form does not carry over level by level. At n = 5 every level's subset identity
+     subtracts the top level, so the lemma must bound the TOTAL.
+   - `max(5) <= 457` (no shared face plane) is PROVED IF:
+     - H1, charging: `slack2 + slack3 >= 0`;
+     - H2, the combined component lemma.
+     It rests on the proved caps `d1 <= 180`, `d2(S) <= 18`, `d3(S) <= 24`. The unconditional n = 5
+     bound is 871; the record is 393.
+   - Bands exist at n = 5, at levels 2–4. H2 holds on 900 band rows, and a climb could not push the
+     component slack below 2. H1 holds on 85 degenerate rows.
+   - [P427]: the vertex types. The edge-edge crossing is the vertex type the alternating sum was
+     missing. H1's slack splits exactly into per-vertex terms, and none is negative. The
+     contributions are: four-cube ties +1, five-cube ties +2, edge-edge crossings inside two cubes
+     +2, everything else 0.
+   - **[P428]: H1 proved in draft** ([PROOF_N5.md](PROOF_N5.md)). It is a per-vertex inequality in
+     the circle model, with ray lemmas and a finite case check. So `max(5) <= 457` is PROVED IF H2
+     alone.
+   - [P429]: H2 by level. The tight cases are level-2 bands paid for by triples. Level-4 bands have
+     room in both families (4-subsets at least 3 to spare, triples at least 5).
+   - Route:
+     - L2 (`c2 − 1 <= Σ_tri`) and L3 (`c3 − 1 <= Σ_4`) by [P410]'s argument with top-ℓ labels;
+     - level 4 by a separate argument, since charging it to its own bottom diagram is circular.
+   - **[P430], DONE in draft:**
+     - L2 and L3 are proved by [P410]'s argument with top-ℓ labels.
+     - The top level is paid for by its own faces (`d4 >= 5`, `d4 >= c4 + 1`).
+     - So **`max(5) <= 485` with no shared face plane, and `<= 457` when `d4 >= 2c4`**.
+     - Lemma C was rechecked with 4 colours.
+     - Controls on 3 420 compounds: no negative slack, `d4 − 2c4 >= 18`.
+     - Propagated to RESULTS, LEVELS, ORIENTATION, DOCUMENTS and the narratives.
+   - Open at n = 5:
+     - whether `c4 >= 3` can occur. A climb aimed at it found none in 9 599 compounds, with
+       `d4 − 2c4 >= 15` throughout ([P430] addendum);
+       [P431]: the top level is a coloured Voronoi diagram of the face centres (fast, validated).
+       1.6 M random compounds and climbs give `d4 − 2c4 >= 11`, and every Γ4 component borders
+       at least 8 faces. The two-cube reduction fails; a proof needs the other cubes' frames.
+       (Corrected 2026-10-06: the merge tolerance is now 1e-12, the pair figures were rerun, and the
+       artefacts at 1e-9 are in the record and A31's addendum);
+     - the shared-plane case. [P432] measured it: one shared pair reaches 317 (exact), 140 below
+       457. [P433]: the chain's two totals hold on 600 shared-plane compounds with NO patch allowance
+       (slack >= 10 and >= 2). One pair would give `441 + 2c4′ − d4` once the patch form is proved:
+       <= 469, and <= 457 when `c4′ <= 10`. (CORRECTED 2026-10-06: first stated as <= 430, which
+       dropped `2(c4 − 1)` and the patch terms). [P434]: the chain assembled with patches,
+       `total <= 441 + 2c4′ − d4`; H1 at shared points holds on 175 702 exact circle configurations
+       (sampled); L2′/L3′ sketched in the entry. [P435] (2026-10-07): H1′ PROVED in draft (PROOF_N5 Part 4),
+       L2′/L3′ written out, so one sharing pair <= 469 and 485 holds with at most one pair. The
+       user chose the route to 485 for every sharing structure; next: the multi-pair structures
+       at n = 5 (as P419–P422 at n = 4); [P436] scoped them: best 247 over 10 structures (sphere_count agrees), far below 485; user approved the multi-pair chain; [P437] (2026-10-07): budget room >= 32 in all 48 structures, H1 per vertex holds on 328 812 multi-shared configurations, but the ray-lemma route fails in 40 classes (multi-cube tie directions) — needs a richer per-direction accounting or a P420-style residue enumeration. [P438]: u >= 4 by hand (bottom >= u + m; Check 1′ any side ties; touching ties impossible; isolated-tie label check exhaustive); glue-hole crude bound fits all 18 realisable structures (3 exactly). [P439]: the u <= 3 residue = 200 owner patterns; 182 (<= 2 parameters) settled EXACTLY, 0 negative slack; 18 three-parameter patterns open — need a faster exact method or a reduction. Then: glue lemma at n = 5, realisable structures (5-cycle?), L′ with glued patches. Narratives NOT updated for P434/P435, since the
+       multi-pair result would change them;
+     - the gap from 393 to 457.
+   - External read list now also: PROOF_N5 (Parts 1–4), [P425]-[P428], [P430], [P434], [P435].
+Lower priority: prove the margin floor of 7; formalise Lemma C in Lean.
+Started on item 2 before the read, since it does not depend on the band lemma's details.

@@ -1,0 +1,10 @@
+{
+ "rows": 200000,
+ "gate_failures": 0,
+ "max_per_cube": {
+  "0 axes, no plane": 16
+ },
+ "cubes": {
+  "0 axes, no plane": 800000
+ }
+}

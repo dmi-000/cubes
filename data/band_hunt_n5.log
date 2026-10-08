@@ -1,0 +1,32 @@
+carry  seed 5  evaluated 600  best c {1: 1, 2: 2, 3: 2, 4: 2}  band hits 408  level-1 c>=2 135
+carry  seed 6  evaluated 595  best c {3: 1, 4: 2, 2: 1, 1: 1}  band hits 475  level-1 c>=2 9
+carry  seed 0  evaluated 600  best c {1: 1, 2: 1, 3: 2, 4: 1}  band hits 486  level-1 c>=2 95
+carry  seed 3  evaluated 599  best c {1: 1, 2: 2, 3: 1, 4: 1}  band hits 479  level-1 c>=2 5
+carry  seed 2  evaluated 600  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 1
+carry  seed 7  evaluated 600  best c {1: 1, 2: 2, 3: 1, 4: 1}  band hits 540  level-1 c>=2 44
+carry  seed 1  evaluated 600  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+carry  seed 4  evaluated 600  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+fifth  seed 0  evaluated 599  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+fifth  seed 1  evaluated 600  best c {2: 1, 1: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+fifth  seed 2  evaluated 600  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 161
+fifth  seed 6  evaluated 597  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+fifth  seed 4  evaluated 599  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+fifth  seed 3  evaluated 600  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 3
+fifth  seed 5  evaluated 600  best c {2: 1, 3: 1, 4: 1, 1: 1}  band hits 0  level-1 c>=2 0
+fifth  seed 7  evaluated 599  best c {2: 1, 3: 1, 4: 1, 1: 1}  band hits 0  level-1 c>=2 0
+random seed 0  evaluated 600  best c {3: 1, 4: 1, 2: 1, 1: 1}  band hits 0  level-1 c>=2 0
+random seed 1  evaluated 600  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+random seed 2  evaluated 599  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+random seed 4  evaluated 600  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+random seed 3  evaluated 600  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+random seed 5  evaluated 600  best c {2: 1, 3: 1, 1: 1, 4: 1}  band hits 0  level-1 c>=2 0
+random seed 6  evaluated 600  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 0
+random seed 7  evaluated 600  best c {1: 1, 2: 1, 3: 1, 4: 1}  band hits 0  level-1 c>=2 1
+distinct band hits: 2342
+measured 400 (cap 400), gate-void 0
+  cslack  histogram [(5, 22), (6, 9), (7, 75), (8, 9), (10, 108), (11, 2), (12, 170), (13, 4), (14, 1)]
+  slack2  histogram [(0, 400)]
+  slack3  histogram [(0, 400)]
+  margin identity holds: 400 of 400
+  levels carrying the band: [((2,), 31), ((2, 3), 47), ((2, 3, 4), 136), ((3,), 140), ((3, 4), 35), ((4,), 11)]
+  H2 violations (cslack < 0): 0

@@ -22,7 +22,16 @@ mp.mp.dps = 60
 R3, R5, R15 = mp.sqrt(3), mp.sqrt(5), mp.sqrt(15)
 
 class K:
+    """a + b rP + c r5 + d r(5P). P = 3 unless a caller sets K.setP(P) for a whole run (for
+    instance P = 2 for points needing sqrt2 [P424]). Every element of one run shares P; mixing
+    elements built under different P is meaningless, and nothing checks it."""
+    P = 3
     __slots__=('a','b','c','d')
+    @staticmethod
+    def setP(P):
+        global R3, R15
+        K.P = P
+        R3, R15 = mp.sqrt(P), mp.sqrt(5 * P)
     def __init__(self,a=0,b=0,c=0,d=0):
         self.a,self.b,self.c,self.d=F(a),F(b),F(c),F(d)
     def __add__(s,o): o=K.lift(o); return K(s.a+o.a,s.b+o.b,s.c+o.c,s.d+o.d)
@@ -33,9 +42,10 @@ class K:
     def __mul__(s,o):
         o=K.lift(o)
         # (a+b r3+c r5+d r15)(a'+b' r3+c' r5+d' r15)
-        a=s.a*o.a+3*s.b*o.b+5*s.c*o.c+15*s.d*o.d
+        P=K.P
+        a=s.a*o.a+P*s.b*o.b+5*s.c*o.c+5*P*s.d*o.d
         b=s.a*o.b+s.b*o.a+5*(s.c*o.d+s.d*o.c)
-        c=s.a*o.c+s.c*o.a+3*(s.b*o.d+s.d*o.b)
+        c=s.a*o.c+s.c*o.a+P*(s.b*o.d+s.d*o.b)
         d=s.a*o.d+s.d*o.a+s.b*o.c+s.c*o.b
         return K(a,b,c,d)
     __rmul__=__mul__

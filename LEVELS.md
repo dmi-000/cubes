@@ -19,8 +19,8 @@ largest count over all rotations. Every count here is exact.
 | 1 | 1 | trivial | everything | 1 |
 | 2 | **13** | **proved** | **1-dimensional**: a single arc in class space | 1 |
 | 3 | **67** | **proved** | **isolated points** | 2 |
-| 4 | 183 | unproved; `<= 261` unconditionally ([P401](LEDGER.md#p401)), `<= 198` if a strong conjecture holds | **1-dimensional**: an arc, in both classes | 2 |
-| 5 | 393 | unproved | tangent dimension 1; **plateau not measured** | 1 |
+| 4 | 183 | unproved; `<= 195` unconditionally in draft ([P422](LEDGER.md#p422), unreviewed), `<= 261` on reviewed steps alone ([P401](LEDGER.md#p401)) | **1-dimensional**: an arc, in both classes | 2 |
+| 5 | 393 | unproved; `<= 485` with at most one sharing pair, and `<= 457` when `d4 >= 2c4` (no sharing) or `c4′ <= 10` (one pair), in draft ([P430](LEDGER.md#p430), [P435](LEDGER.md#p435), unreviewed); `<= 871` for every compound ([P401](LEDGER.md#p401)) | tangent dimension 1; **plateau not measured** | 1 |
 | 6 | 727 | unproved | **1-dimensional**: two branches crossing at the record, plus a separate arc | 1 structural class |
 | 7 | 1217 | unproved | **2-dimensional**: two sheets crossing over the record | 1 |
 | 8 | 1895 | unproved | **3-dimensional**: a 38-vertex polytope | 1 |
@@ -97,7 +97,7 @@ distance changes at most as fast as arc length ([P380](LEDGER.md#p380)).
 | `max(4) <= 953` | **strong conjecture, with a gap in its proof**: the per-depth bounds summed ([P249](LEDGER.md#p249)), but the bound for depths >= 2 ([P243](LEDGER.md#p243)) omits two-body vertices that do occur there ([P274](LEDGER.md#p274)); true by a factor of about five wherever measured, and the repair looks mechanical but has not been made |
 | if every level has `c_ell <= 2`, then `max(4) <= 198` | **proved** as a conditional ([P258](LEDGER.md#p258), [P326](LEDGER.md#p326)) |
 | `c_ell <= 2` on every level | **strong conjecture**: never violated in about 3 700 level-instances, including directed attempts to break it, and reduced to one connectivity claim ([P259](LEDGER.md#p259), [`OPEN_QUESTIONS.md`](OPEN_QUESTIONS.md) §30); not proved |
-| `max(4) <= 195` | **hope**: it needs `c_ell = 1` at the maximiser, and `c_ell = 2` does occur, at the n = 6 record among others |
+| `max(4) <= 195` | **draft** for compounds with no shared face plane, 2026-10-04 (labelled proved until 2026-10-08, corrected because it is unreviewed; [P410](LEDGER.md#p410), [`PROOF_BAND.md`](PROOF_BAND.md); not yet externally reviewed). It does not need `c_ell = 1`: each extra component of the level-2 boundary is paid for by an extra component of a triple's bottom diagram. CORRECTED from "hope" |
 <!-- reviewed 2026-09-24: the 953 row states its proof gap -->
 
 The first bound that needs no hypothesis is **`max(4) <= 261`** ([P399](LEDGER.md#p399), [P401](LEDGER.md#p401), 2026-09-30), by Mayer–Vietoris at every depth; it proves `d1 <= 104` and `d3 <= 24`, so `max(4) <= 195` would follow from `d2 <= 66` alone. Here `c_ell` is the number of connected pieces of the curve arrangement at depth `ell`. An older

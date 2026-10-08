@@ -38,7 +38,7 @@ example : C 4 3 = 4 ∧ C 4 2 = 6 ∧ C 10 3 = 120 := by decide
 theorem h_le (h2 E1 E2 E3 ES : Nat)
     (hyp_P348_identity_trivial_holes : h2 = 1 + E1 + E2 + E3 + 2 * ES)
     (proved_P237_pair_cap : E1 ≤ 10 ∧ E2 ≤ 10 ∧ E3 ≤ 10)
-    (proved_PROOF67_triple_cap_if_pairwise_transversal : ES ≤ 32) :
+    (proved_triple_cap_if_no_shared_face_plane : ES ≤ 32) :
     h2 ≤ 95 := by
   omega
 
@@ -61,27 +61,27 @@ theorem total_le_195_minus_Q4_from_caps (TOTAL Q4 : Int)
                 + (1 + e 2 0 + e 2 1 + e 2 2 + 2 * es 2) + (1 + e 3 0 + e 3 1 + e 3 2 + 2 * es 3)
                 + 10 - 2 * Q4)
     (proved_P237_pair_cap : ∀ s i, e s i ≤ 10)
-    (proved_PROOF67_triple_cap_if_pairwise_transversal : ∀ s, es s ≤ 32) :
+    (proved_triple_cap_if_no_shared_face_plane : ∀ s, es s ≤ 32) :
     TOTAL ≤ 195 - Q4 := by
   have := proved_P237_pair_cap
   have h00 := this 0 0; have h01 := this 0 1; have h02 := this 0 2
   have h10 := this 1 0; have h11 := this 1 1; have h12 := this 1 2
   have h20 := this 2 0; have h21 := this 2 1; have h22 := this 2 2
   have h30 := this 3 0; have h31 := this 3 1; have h32 := this 3 2
-  have t0 := proved_PROOF67_triple_cap_if_pairwise_transversal 0; have t1 := proved_PROOF67_triple_cap_if_pairwise_transversal 1
-  have t2 := proved_PROOF67_triple_cap_if_pairwise_transversal 2; have t3 := proved_PROOF67_triple_cap_if_pairwise_transversal 3
+  have t0 := proved_triple_cap_if_no_shared_face_plane 0; have t1 := proved_triple_cap_if_no_shared_face_plane 1
+  have t2 := proved_triple_cap_if_no_shared_face_plane 2; have t3 := proved_triple_cap_if_no_shared_face_plane 3
   omega
 
 /-! ## [P326] the tower bound `TOTAL <= 1 + 32 C(n,3) + 10 C(n,2) + 3(n-1)` -/
 
 /-- [P326]'s chain.  Its label was "proved modulo one hypothesis" (holes).  Stated with its inputs
-named, it has TWO non-proved ones: the holes, and the accounting step `sum(E - V) <= T + two-body`,
+named, it had TWO non-proved ones: the holes, and the accounting step `sum(E - V) <= T + two-body`, PROVED since by [P407];
 which [P388]'s addendum records as argued and not verified. -/
 theorem tower (n L TOTAL SEV T3 TB holes : Nat)
     (proved_levels : L = n - 1)
     (proved_P243_level_identity : TOTAL = 1 + SEV + 2 * L + holes)
-    (argued_P326_excess_accounting : SEV ≤ T3 + TB)
-    (proved_PROOF67_triple_cap_if_pairwise_transversal : T3 ≤ 32 * C n 3)
+    (proved_P407_excess_accounting_if_no_shared_face_plane : SEV ≤ T3 + TB)
+    (proved_triple_cap_if_no_shared_face_plane : T3 ≤ 32 * C n 3)
     (proved_P237_pair_cap : TB ≤ 10 * C n 2)
     (hyp_OQ30_holes_le_one_per_level : holes ≤ L) :
     TOTAL ≤ 1 + 32 * C n 3 + 10 * C n 2 + 3 * (n - 1) := by
