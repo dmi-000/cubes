@@ -806,5 +806,7 @@ are marked in place rather than quietly repaired; [`FAILURE_MODES.md`](FAILURE_M
 is where the illusions of Section II live in their unromantic form;
 [`INTERVENTIONS.md`](INTERVENTIONS.md) is the register Section IV compares against, and
 [`EXPLORATION_141.md`](EXPLORATION_141.md) is Section V's log, written by the session that
-did the work and not by the one telling the story. Knuth's paper is at
+did the work and not by the one telling the story.
+[`COLLABORATION_LESSONS.md`](COLLABORATION_LESSONS.md) draws the lessons of this story and Section
+XI's together, for whoever runs the next collaboration of this kind. Knuth's paper is at
 `cs.stanford.edu/~knuth/papers/claude-cycles.pdf`.*
